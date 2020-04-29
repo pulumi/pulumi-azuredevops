@@ -6,7 +6,7 @@ PACKDIR          := sdk
 PROJECT          := github.com/pulumi/pulumi-${PACK}
 NODE_MODULE_NAME := @pulumi/${PACK}
 TF_NAME          := ${PACK}
-TF_MOD			 := "vendor"
+TF_MOD			 := ""
 
 TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
