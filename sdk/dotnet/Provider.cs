@@ -58,8 +58,8 @@ namespace Pulumi.AzureDevOps
 
         public ProviderArgs()
         {
-            OrgServiceUrl = Utilities.GetEnv("AZDO_ORG_SERVICE_URL") ?? "";
-            PersonalAccessToken = Utilities.GetEnv("AZDO_PERSONAL_ACCESS_TOKEN") ?? "";
+            OrgServiceUrl = Utilities.GetEnv("AZDO_ORG_SERVICE_URL");
+            PersonalAccessToken = Utilities.GetEnv("AZDO_PERSONAL_ACCESS_TOKEN");
         }
     }
 }

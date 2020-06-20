@@ -11,8 +11,8 @@ let __config = new pulumi.Config("azuredevops");
 /**
  * The url of the Azure DevOps instance which should be used.
  */
-export let orgServiceUrl: string | undefined = __config.get("orgServiceUrl") || (utilities.getEnv("AZDO_ORG_SERVICE_URL") || "");
+export let orgServiceUrl: string | undefined = __config.get("orgServiceUrl") || utilities.getEnv("AZDO_ORG_SERVICE_URL");
 /**
  * The personal access token which should be used.
  */
-export let personalAccessToken: string | undefined = __config.get("personalAccessToken") || (utilities.getEnv("AZDO_PERSONAL_ACCESS_TOKEN") || "");
+export let personalAccessToken: string | undefined = __config.get("personalAccessToken") || utilities.getEnv("AZDO_PERSONAL_ACCESS_TOKEN");

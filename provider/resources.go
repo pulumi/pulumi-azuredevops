@@ -30,7 +30,7 @@ const (
 	mainPkg = "azuredevops"
 
 	// modules:
-	mainMod = "index"
+	//mainMod = "index"
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -82,13 +82,11 @@ func Provider() tfbridge.ProviderInfo {
 		Config: map[string]*tfbridge.SchemaInfo{
 			"org_service_url": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   "",
 					EnvVars: []string{"AZDO_ORG_SERVICE_URL"},
 				},
 			},
 			"personal_access_token": {
 				Default: &tfbridge.DefaultInfo{
-					Value:   "",
 					EnvVars: []string{"AZDO_PERSONAL_ACCESS_TOKEN"},
 				},
 			},

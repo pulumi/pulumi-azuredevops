@@ -11,12 +11,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The url of the Azure DevOps instance which should be used.
         /// </summary>
-        public static string? OrgServiceUrl { get; set; } = __config.Get("orgServiceUrl") ?? Utilities.GetEnv("AZDO_ORG_SERVICE_URL") ?? "";
+        public static string? OrgServiceUrl { get; set; } = __config.Get("orgServiceUrl") ?? Utilities.GetEnv("AZDO_ORG_SERVICE_URL");
 
         /// <summary>
         /// The personal access token which should be used.
         /// </summary>
-        public static string? PersonalAccessToken { get; set; } = __config.Get("personalAccessToken") ?? Utilities.GetEnv("AZDO_PERSONAL_ACCESS_TOKEN") ?? "";
+        public static string? PersonalAccessToken { get; set; } = __config.Get("personalAccessToken") ?? Utilities.GetEnv("AZDO_PERSONAL_ACCESS_TOKEN");
 
     }
 }

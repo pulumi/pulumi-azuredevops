@@ -17,7 +17,6 @@
             "orgServiceUrl": {
                 "type": "string",
                 "description": "The url of the Azure DevOps instance which should be used.\n",
-                "default": "",
                 "defaultInfo": {
                     "environment": [
                         "AZDO_ORG_SERVICE_URL"
@@ -27,7 +26,6 @@
             "personalAccessToken": {
                 "type": "string",
                 "description": "The personal access token which should be used.\n",
-                "default": "",
                 "defaultInfo": {
                     "environment": [
                         "AZDO_PERSONAL_ACCESS_TOKEN"
@@ -1314,7 +1312,6 @@
             "orgServiceUrl": {
                 "type": "string",
                 "description": "The url of the Azure DevOps instance which should be used.\n",
-                "default": "",
                 "defaultInfo": {
                     "environment": [
                         "AZDO_ORG_SERVICE_URL"
@@ -1324,7 +1321,6 @@
             "personalAccessToken": {
                 "type": "string",
                 "description": "The personal access token which should be used.\n",
-                "default": "",
                 "defaultInfo": {
                     "environment": [
                         "AZDO_PERSONAL_ACCESS_TOKEN"
