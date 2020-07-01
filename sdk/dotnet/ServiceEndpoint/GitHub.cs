@@ -12,6 +12,77 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// <summary>
     /// Manages a GitHub service endpoint within Azure DevOps.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         {
+    ///             ProjectName = "Sample Project",
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///         });
+    ///         var serviceendpointGh1 = new AzureDevOps.ServiceEndpoint.GitHub("serviceendpointGh1", new AzureDevOps.ServiceEndpoint.GitHubArgs
+    ///         {
+    ///             ProjectId = project.Id,
+    ///             ServiceEndpointName = "Sample GithHub Personal Access Token",
+    ///             AuthPersonal = new AzureDevOps.ServiceEndpoint.Inputs.GitHubAuthPersonalArgs
+    ///             {
+    ///                 PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceendpointGh2 = new AzureDevOps.ServiceEndpoint.GitHub("serviceendpointGh2", new AzureDevOps.ServiceEndpoint.GitHubArgs
+    ///         {
+    ///             ProjectId = azuredevops_project.Project.Id,
+    ///             ServiceEndpointName = "Sample GithHub Grant",
+    ///             AuthOauth = new AzureDevOps.ServiceEndpoint.Inputs.GitHubAuthOauthArgs
+    ///             {
+    ///                 OauthConfigurationId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceendpointGh3 = new AzureDevOps.ServiceEndpoint.GitHub("serviceendpointGh3", new AzureDevOps.ServiceEndpoint.GitHubArgs
+    ///         {
+    ///             ProjectId = azuredevops_project.Project.Id,
+    ///             ServiceEndpointName = "Sample GithHub Apps: Azure Pipelines",
+    ///             Description = "",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)

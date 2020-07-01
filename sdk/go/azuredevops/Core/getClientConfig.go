@@ -8,6 +8,28 @@ import (
 )
 
 // Use this data source to access information about the Azure DevOps organization configured for the provider.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		clientConfig, err := Core.GetClientConfig(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("orgUrl", clientConfig.OrganizationUrl)
+// 		return nil
+// 	})
+// }
+// ```
 func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClientConfigResult, error) {
 	var rv GetClientConfigResult
 	err := ctx.Invoke("azuredevops:Core/getClientConfig:getClientConfig", nil, &rv, opts...)

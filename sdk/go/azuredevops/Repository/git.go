@@ -13,7 +13,6 @@ import (
 // Manages a git repository within Azure DevOps.
 //
 // ## Example Usage
-//
 // ### Create Git repository
 //
 // ```go
@@ -36,7 +35,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		repo, err := Repository.NewGit(ctx, "repo", &Repository.GitArgs{
+// 		_, err = Repository.NewGit(ctx, "repo", &Repository.GitArgs{
 // 			ProjectId: project.ID(),
 // 			Initialization: &Repository.GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
@@ -49,7 +48,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)

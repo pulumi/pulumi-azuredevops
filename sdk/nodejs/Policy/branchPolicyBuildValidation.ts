@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -40,7 +38,7 @@ import * as utilities from "../utilities";
  *         displayName: "Don't break the build!",
  *         buildDefinitionId: buildDefinition.id,
  *         validDuration: 720,
- *         scope: [
+ *         scopes: [
  *             {
  *                 repositoryId: git.id,
  *                 repositoryRef: git.defaultBranch,
@@ -55,7 +53,6 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- *
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)

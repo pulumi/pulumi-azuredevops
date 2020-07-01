@@ -12,6 +12,44 @@ namespace Pulumi.AzureDevOps.Pipeline
     /// <summary>
     /// Manages variable groups within Azure DevOps.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         {
+    ///             ProjectName = "Test Project",
+    ///         });
+    ///         var variablegroup = new AzureDevOps.Pipeline.VariableGroup("variablegroup", new AzureDevOps.Pipeline.VariableGroupArgs
+    ///         {
+    ///             ProjectId = project.Id,
+    ///             Description = "Test Variable Group Description",
+    ///             AllowAccess = true,
+    ///             Variables = 
+    ///             {
+    ///                 new AzureDevOps.Pipeline.Inputs.VariableGroupVariableArgs
+    ///                 {
+    ///                     Name = "key",
+    ///                     Value = "value",
+    ///                 },
+    ///                 new AzureDevOps.Pipeline.Inputs.VariableGroupVariableArgs
+    ///                 {
+    ///                     Name = "Account Password",
+    ///                     Value = "p@ssword123",
+    ///                     IsSecret = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)

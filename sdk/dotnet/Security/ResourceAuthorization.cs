@@ -18,8 +18,6 @@ namespace Pulumi.AzureDevOps.Security
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
@@ -50,7 +48,6 @@ namespace Pulumi.AzureDevOps.Security
     /// 
     /// }
     /// ```
-    /// 
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)

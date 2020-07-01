@@ -12,6 +12,83 @@ namespace Pulumi.AzureDevOps.Build
     /// <summary>
     /// Manages a Build Definition within Azure DevOps.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         {
+    ///             ProjectName = "Sample Project",
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///         });
+    ///         var repository = new AzureDevOps.Repository.Git("repository", new AzureDevOps.Repository.GitArgs
+    ///         {
+    ///             ProjectId = project.Id,
+    ///             Initialization = new AzureDevOps.Repository.Inputs.GitInitializationArgs
+    ///             {
+    ///                 InitType = "Clean",
+    ///             },
+    ///         });
+    ///         var vars = new AzureDevOps.Pipeline.VariableGroup("vars", new AzureDevOps.Pipeline.VariableGroupArgs
+    ///         {
+    ///             ProjectId = project.Id,
+    ///             Description = "Managed by Terraform",
+    ///             AllowAccess = true,
+    ///             Variables = 
+    ///             {
+    ///                 new AzureDevOps.Pipeline.Inputs.VariableGroupVariableArgs
+    ///                 {
+    ///                     Name = "FOO",
+    ///                     Value = "BAR",
+    ///                 },
+    ///             },
+    ///         });
+    ///         var build = new AzureDevOps.Build.BuildDefinition("build", new AzureDevOps.Build.BuildDefinitionArgs
+    ///         {
+    ///             ProjectId = project.Id,
+    ///             Path = "\\ExampleFolder",
+    ///             CiTrigger = new AzureDevOps.Build.Inputs.BuildDefinitionCiTriggerArgs
+    ///             {
+    ///                 UseYaml = true,
+    ///             },
+    ///             Repository = new AzureDevOps.Build.Inputs.BuildDefinitionRepositoryArgs
+    ///             {
+    ///                 RepoType = "TfsGit",
+    ///                 RepoId = repository.Id,
+    ///                 BranchName = repository.DefaultBranch,
+    ///                 YmlPath = "azure-pipelines.yml",
+    ///             },
+    ///             VariableGroups = 
+    ///             {
+    ///                 vars.Id,
+    ///             },
+    ///             Variables = 
+    ///             {
+    ///                 new AzureDevOps.Build.Inputs.BuildDefinitionVariableArgs
+    ///                 {
+    ///                     Name = "PipelineVariable",
+    ///                     Value = "Go Microsoft!",
+    ///                 },
+    ///                 new AzureDevOps.Build.Inputs.BuildDefinitionVariableArgs
+    ///                 {
+    ///                     Name = "PipelineSecret",
+    ///                     SecretValue = "ZGV2cw",
+    ///                     IsSecret = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)

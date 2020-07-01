@@ -11,33 +11,49 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		test, err := Core.LookupProjects(ctx, &Core.LookupProjectsArgs{
-// 			ProjectName: "contoso",
-// 			State:       "wellFormed",
+// 		opt0 := "contoso"
+// 		opt1 := "wellFormed"
+// 		test, err := Core.GetProjects(ctx, &Core.GetProjectsArgs{
+// 			ProjectName: &opt0,
+// 			State:       &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("projectId")
-// 		ctx.Export("projectName")
-// 		ctx.Export("projectUrl")
-// 		ctx.Export("state")
+// 		var splat0 []string
+// 		for _, val0 := range test.Projects {
+// 			splat0 = append(splat0, val0.ProjectId)
+// 		}
+// 		ctx.Export("projectId", splat0)
+// 		var splat1 []string
+// 		for _, val0 := range test.Projects {
+// 			splat1 = append(splat1, val0.Name)
+// 		}
+// 		ctx.Export("projectName", splat1)
+// 		var splat2 []string
+// 		for _, val0 := range test.Projects {
+// 			splat2 = append(splat2, val0.ProjectUrl)
+// 		}
+// 		ctx.Export("projectUrl", splat2)
+// 		var splat3 []string
+// 		for _, val0 := range test.Projects {
+// 			splat3 = append(splat3, val0.State)
+// 		}
+// 		ctx.Export("state", splat3)
 // 		return nil
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)

@@ -12,6 +12,48 @@ import (
 
 // Manages variable groups within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Pipeline"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 			ProjectName: pulumi.String("Test Project"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = Pipeline.NewVariableGroup(ctx, "variablegroup", &Pipeline.VariableGroupArgs{
+// 			ProjectId:   project.ID(),
+// 			Description: pulumi.String("Test Variable Group Description"),
+// 			AllowAccess: pulumi.Bool(true),
+// 			Variables: Pipeline.VariableGroupVariableArray{
+// 				&Pipeline.VariableGroupVariableArgs{
+// 					Name:  pulumi.String("key"),
+// 					Value: pulumi.String("value"),
+// 				},
+// 				&Pipeline.VariableGroupVariableArgs{
+// 					Name:     pulumi.String("Account Password"),
+// 					Value:    pulumi.String("p@ssword123"),
+// 					IsSecret: pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)

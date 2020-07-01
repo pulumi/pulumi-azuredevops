@@ -13,8 +13,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -25,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		user, err := Entitlement.NewUser(ctx, "user", &Entitlement.UserArgs{
+// 		_, err := Entitlement.NewUser(ctx, "user", &Entitlement.UserArgs{
 // 			PrincipalName: pulumi.String("foo@contoso.com"),
 // 		})
 // 		if err != nil {
@@ -35,7 +33,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/add?view=azure-devops-rest-5.1)

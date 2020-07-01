@@ -18,8 +18,6 @@ namespace Pulumi.AzureDevOps.Agent
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
@@ -53,7 +51,6 @@ namespace Pulumi.AzureDevOps.Agent
     /// 
     /// }
     /// ```
-    /// 
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)

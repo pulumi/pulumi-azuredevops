@@ -14,8 +14,6 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
@@ -41,7 +39,6 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// }
     /// ```
-    /// 
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)

@@ -12,7 +12,38 @@ import (
 
 // Manages features for Azure DevOps projects
 //
+// ## Example Usage
 //
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tf_project_test_001, err := Core.LookupProject(ctx, &Core.LookupProjectArgs{
+// 			ProjectName: "Test Project",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = Core.NewProjectFeatures(ctx, "my_project_features", &Core.ProjectFeaturesArgs{
+// 			ProjectId: pulumi.String(tf_project_test_001.Id),
+// 			Features: pulumi.StringMap{
+// 				"testplans": pulumi.String("disabled"),
+// 				"artifacts": pulumi.String("enabled"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // No official documentation available
@@ -23,7 +54,7 @@ import (
 type ProjectFeatures struct {
 	pulumi.CustomResourceState
 
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features  pulumi.StringMapOutput `pulumi:"features"`
 	ProjectId pulumi.StringOutput    `pulumi:"projectId"`
@@ -63,14 +94,14 @@ func GetProjectFeatures(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProjectFeatures resources.
 type projectFeaturesState struct {
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features  map[string]string `pulumi:"features"`
 	ProjectId *string           `pulumi:"projectId"`
 }
 
 type ProjectFeaturesState struct {
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features  pulumi.StringMapInput
 	ProjectId pulumi.StringPtrInput
@@ -81,7 +112,7 @@ func (ProjectFeaturesState) ElementType() reflect.Type {
 }
 
 type projectFeaturesArgs struct {
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features  map[string]string `pulumi:"features"`
 	ProjectId string            `pulumi:"projectId"`
@@ -89,7 +120,7 @@ type projectFeaturesArgs struct {
 
 // The set of arguments for constructing a ProjectFeatures resource.
 type ProjectFeaturesArgs struct {
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features  pulumi.StringMapInput
 	ProjectId pulumi.StringInput

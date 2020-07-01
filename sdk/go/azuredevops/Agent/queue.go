@@ -18,8 +18,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -46,12 +44,12 @@ import (
 // 		}
 // 		queue, err := Agent.NewQueue(ctx, "queue", &Agent.QueueArgs{
 // 			ProjectId:   project.ID(),
-// 			AgentPoolId: pulumi.Int(pool.Id),
+// 			AgentPoolId: pulumi.String(pool.Id),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		auth, err := Security.NewResourceAuthorization(ctx, "auth", &Security.ResourceAuthorizationArgs{
+// 		_, err = Security.NewResourceAuthorization(ctx, "auth", &Security.ResourceAuthorizationArgs{
 // 			ProjectId:  project.ID(),
 // 			ResourceId: queue.ID(),
 // 			Type:       pulumi.String("queue"),
@@ -64,7 +62,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)

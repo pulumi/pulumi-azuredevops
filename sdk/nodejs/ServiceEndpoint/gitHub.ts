@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -26,12 +24,35 @@ import * as utilities from "../utilities";
  * const serviceendpointGh1 = new azuredevops.ServiceEndpoint.GitHub("serviceendpointGh1", {
  *     projectId: project.id,
  *     serviceEndpointName: "Sample GithHub Personal Access Token",
- *     auth_personal: {
+ *     authPersonal: {
  *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  *     },
  * });
  * ```
  *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const serviceendpointGh2 = new azuredevops.ServiceEndpoint.GitHub("serviceendpointGh2", {
+ *     projectId: azuredevops_project.project.id,
+ *     serviceEndpointName: "Sample GithHub Grant",
+ *     authOauth: {
+ *         oauthConfigurationId: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+ *     },
+ * });
+ * ```
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const serviceendpointGh3 = new azuredevops.ServiceEndpoint.GitHub("serviceendpointGh3", {
+ *     projectId: azuredevops_project.project.id,
+ *     serviceEndpointName: "Sample GithHub Apps: Azure Pipelines",
+ *     description: "",
+ * });
+ * ```
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)

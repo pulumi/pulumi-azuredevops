@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -26,11 +24,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		_, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
 // 			Description: pulumi.String("Test Project Description"),
-// 			Features: map[string]interface{}{
-// 				"artifacts": "disabled",
-// 				"testplans": "disabled",
+// 			Features: pulumi.StringMap{
+// 				"artifacts": pulumi.String("disabled"),
+// 				"testplans": pulumi.String("disabled"),
 // 			},
 // 			ProjectName:      pulumi.String("Test Project"),
 // 			VersionControl:   pulumi.String("Git"),
@@ -44,7 +42,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
@@ -57,7 +54,7 @@ type Project struct {
 
 	// The Description of the Project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapOutput `pulumi:"features"`
 	// The Process Template ID used by the Project.
@@ -105,7 +102,7 @@ func GetProject(ctx *pulumi.Context,
 type projectState struct {
 	// The Description of the Project.
 	Description *string `pulumi:"description"`
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features map[string]string `pulumi:"features"`
 	// The Process Template ID used by the Project.
@@ -123,7 +120,7 @@ type projectState struct {
 type ProjectState struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrInput
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapInput
 	// The Process Template ID used by the Project.
@@ -145,7 +142,7 @@ func (ProjectState) ElementType() reflect.Type {
 type projectArgs struct {
 	// The Description of the Project.
 	Description *string `pulumi:"description"`
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features map[string]string `pulumi:"features"`
 	// The Project Name.
@@ -162,7 +159,7 @@ type projectArgs struct {
 type ProjectArgs struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrInput
-	// Defines the status (`enabled`, `disabled`) of the project features.
+	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapInput
 	// The Project Name.

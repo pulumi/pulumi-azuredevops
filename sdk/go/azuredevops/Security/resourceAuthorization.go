@@ -18,8 +18,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -48,7 +46,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		auth, err := Security.NewResourceAuthorization(ctx, "auth", &Security.ResourceAuthorizationArgs{
+// 		_, err = Security.NewResourceAuthorization(ctx, "auth", &Security.ResourceAuthorizationArgs{
 // 			ProjectId:  project.ID(),
 // 			ResourceId: bitbucketAccount.ID(),
 // 			Authorized: pulumi.Bool(true),
@@ -60,7 +58,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)

@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -33,7 +31,7 @@ import * as utilities from "../utilities";
  *     projectId: project.id,
  *     description: "Managed by Terraform",
  *     allowAccess: true,
- *     variable: [{
+ *     variables: [{
  *         name: "FOO",
  *         value: "BAR",
  *     }],
@@ -41,7 +39,7 @@ import * as utilities from "../utilities";
  * const build = new azuredevops.Build.BuildDefinition("build", {
  *     projectId: project.id,
  *     path: "\\ExampleFolder",
- *     ci_trigger: {
+ *     ciTrigger: {
  *         useYaml: true,
  *     },
  *     repository: {
@@ -51,7 +49,7 @@ import * as utilities from "../utilities";
  *         ymlPath: "azure-pipelines.yml",
  *     },
  *     variableGroups: [vars.id],
- *     variable: [
+ *     variables: [
  *         {
  *             name: "PipelineVariable",
  *             value: "Go Microsoft!",
@@ -64,7 +62,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)

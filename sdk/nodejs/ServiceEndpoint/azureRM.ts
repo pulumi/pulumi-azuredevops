@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  * For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
  *
  * ## Example Usage
- *
  * ### Manual AzureRM Service Endpoint
  *
  * ```typescript
@@ -41,7 +40,6 @@ import * as utilities from "../utilities";
  *     azurermSubscriptionName: "Sample Subscription",
  * });
  * ```
- *
  * ### Automatic AzureRM Service Endpoint
  *
  * ```typescript
@@ -62,7 +60,6 @@ import * as utilities from "../utilities";
  *     azurermSubscriptionName: "Microsoft Azure DEMO",
  * });
  * ```
- *
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)

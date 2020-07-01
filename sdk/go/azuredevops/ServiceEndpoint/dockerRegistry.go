@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -36,7 +34,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		dockerhubregistry, err := ServiceEndpoint.NewDockerRegistry(ctx, "dockerhubregistry", &ServiceEndpoint.DockerRegistryArgs{
+// 		_, err = ServiceEndpoint.NewDockerRegistry(ctx, "dockerhubregistry", &ServiceEndpoint.DockerRegistryArgs{
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("Sample Docker Hub"),
 // 			DockerUsername:      pulumi.String("sample"),
@@ -47,7 +45,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		otherregistry, err := ServiceEndpoint.NewDockerRegistry(ctx, "otherregistry", &ServiceEndpoint.DockerRegistryArgs{
+// 		_, err = ServiceEndpoint.NewDockerRegistry(ctx, "otherregistry", &ServiceEndpoint.DockerRegistryArgs{
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("Sample Docker Registry"),
 // 			DockerRegistry:      pulumi.String("https://sample.azurecr.io/v1"),
@@ -62,7 +60,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
