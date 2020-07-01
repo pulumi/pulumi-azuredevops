@@ -14,8 +14,6 @@ namespace Pulumi.AzureDevOps.Identities
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
@@ -49,7 +47,6 @@ namespace Pulumi.AzureDevOps.Identities
     /// 
     /// }
     /// ```
-    /// 
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)

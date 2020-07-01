@@ -19,8 +19,7 @@ type VariableGroupKeyVault struct {
 // VariableGroupKeyVaultInput is an input type that accepts VariableGroupKeyVaultArgs and VariableGroupKeyVaultOutput values.
 // You can construct a concrete instance of `VariableGroupKeyVaultInput` via:
 //
-// 		 VariableGroupKeyVaultArgs{...}
-//
+//          VariableGroupKeyVaultArgs{...}
 type VariableGroupKeyVaultInput interface {
 	pulumi.Input
 
@@ -57,12 +56,11 @@ func (i VariableGroupKeyVaultArgs) ToVariableGroupKeyVaultPtrOutputWithContext(c
 // VariableGroupKeyVaultPtrInput is an input type that accepts VariableGroupKeyVaultArgs, VariableGroupKeyVaultPtr and VariableGroupKeyVaultPtrOutput values.
 // You can construct a concrete instance of `VariableGroupKeyVaultPtrInput` via:
 //
-// 		 VariableGroupKeyVaultArgs{...}
+//          VariableGroupKeyVaultArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type VariableGroupKeyVaultPtrInput interface {
 	pulumi.Input
 
@@ -175,8 +173,7 @@ type VariableGroupVariable struct {
 // VariableGroupVariableInput is an input type that accepts VariableGroupVariableArgs and VariableGroupVariableOutput values.
 // You can construct a concrete instance of `VariableGroupVariableInput` via:
 //
-// 		 VariableGroupVariableArgs{...}
-//
+//          VariableGroupVariableArgs{...}
 type VariableGroupVariableInput interface {
 	pulumi.Input
 
@@ -213,8 +210,7 @@ func (i VariableGroupVariableArgs) ToVariableGroupVariableOutputWithContext(ctx 
 // VariableGroupVariableArrayInput is an input type that accepts VariableGroupVariableArray and VariableGroupVariableArrayOutput values.
 // You can construct a concrete instance of `VariableGroupVariableArrayInput` via:
 //
-// 		 VariableGroupVariableArray{ VariableGroupVariableArgs{...} }
-//
+//          VariableGroupVariableArray{ VariableGroupVariableArgs{...} }
 type VariableGroupVariableArrayInput interface {
 	pulumi.Input
 

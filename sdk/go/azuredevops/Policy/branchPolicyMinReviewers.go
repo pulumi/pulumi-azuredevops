@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -43,23 +41,23 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		branchPolicyMinReviewers, err := Policy.NewBranchPolicyMinReviewers(ctx, "branchPolicyMinReviewers", &Policy.BranchPolicyMinReviewersArgs{
+// 		_, err = Policy.NewBranchPolicyMinReviewers(ctx, "branchPolicyMinReviewers", &Policy.BranchPolicyMinReviewersArgs{
 // 			ProjectId: project.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
 // 			Settings: &Policy.BranchPolicyMinReviewersSettingsArgs{
 // 				ReviewerCount:    pulumi.Int(2),
 // 				SubmitterCanVote: pulumi.Bool(false),
-// 				Scope: []interface{}{
-// 					map[string]interface{}{
-// 						"repositoryId":  git.ID(),
-// 						"repositoryRef": git.DefaultBranch,
-// 						"matchType":     "Exact",
+// 				Scopes: Policy.BranchPolicyMinReviewersSettingsScopeArray{
+// 					&Policy.BranchPolicyMinReviewersSettingsScopeArgs{
+// 						RepositoryId:  git.ID(),
+// 						RepositoryRef: git.DefaultBranch,
+// 						MatchType:     pulumi.String("Exact"),
 // 					},
-// 					map[string]interface{}{
-// 						"repositoryId":  git.ID(),
-// 						"repositoryRef": "refs/heads/releases",
-// 						"matchType":     "Prefix",
+// 					&Policy.BranchPolicyMinReviewersSettingsScopeArgs{
+// 						RepositoryId:  git.ID(),
+// 						RepositoryRef: pulumi.String("refs/heads/releases"),
+// 						MatchType:     pulumi.String("Prefix"),
 // 					},
 // 				},
 // 			},
@@ -71,7 +69,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)

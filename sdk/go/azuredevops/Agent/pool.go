@@ -13,8 +13,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -25,7 +23,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		pool, err := Agent.NewPool(ctx, "pool", &Agent.PoolArgs{
+// 		_, err := Agent.NewPool(ctx, "pool", &Agent.PoolArgs{
 // 			AutoProvision: pulumi.Bool(false),
 // 		})
 // 		if err != nil {
@@ -35,7 +33,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)

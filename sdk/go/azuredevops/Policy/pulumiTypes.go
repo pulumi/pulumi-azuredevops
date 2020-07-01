@@ -28,8 +28,7 @@ type BranchPolicyBuildValidationSettings struct {
 // BranchPolicyBuildValidationSettingsInput is an input type that accepts BranchPolicyBuildValidationSettingsArgs and BranchPolicyBuildValidationSettingsOutput values.
 // You can construct a concrete instance of `BranchPolicyBuildValidationSettingsInput` via:
 //
-// 		 BranchPolicyBuildValidationSettingsArgs{...}
-//
+//          BranchPolicyBuildValidationSettingsArgs{...}
 type BranchPolicyBuildValidationSettingsInput interface {
 	pulumi.Input
 
@@ -75,12 +74,11 @@ func (i BranchPolicyBuildValidationSettingsArgs) ToBranchPolicyBuildValidationSe
 // BranchPolicyBuildValidationSettingsPtrInput is an input type that accepts BranchPolicyBuildValidationSettingsArgs, BranchPolicyBuildValidationSettingsPtr and BranchPolicyBuildValidationSettingsPtrOutput values.
 // You can construct a concrete instance of `BranchPolicyBuildValidationSettingsPtrInput` via:
 //
-// 		 BranchPolicyBuildValidationSettingsArgs{...}
+//          BranchPolicyBuildValidationSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BranchPolicyBuildValidationSettingsPtrInput interface {
 	pulumi.Input
 
@@ -252,8 +250,7 @@ type BranchPolicyBuildValidationSettingsScope struct {
 // BranchPolicyBuildValidationSettingsScopeInput is an input type that accepts BranchPolicyBuildValidationSettingsScopeArgs and BranchPolicyBuildValidationSettingsScopeOutput values.
 // You can construct a concrete instance of `BranchPolicyBuildValidationSettingsScopeInput` via:
 //
-// 		 BranchPolicyBuildValidationSettingsScopeArgs{...}
-//
+//          BranchPolicyBuildValidationSettingsScopeArgs{...}
 type BranchPolicyBuildValidationSettingsScopeInput interface {
 	pulumi.Input
 
@@ -285,8 +282,7 @@ func (i BranchPolicyBuildValidationSettingsScopeArgs) ToBranchPolicyBuildValidat
 // BranchPolicyBuildValidationSettingsScopeArrayInput is an input type that accepts BranchPolicyBuildValidationSettingsScopeArray and BranchPolicyBuildValidationSettingsScopeArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyBuildValidationSettingsScopeArrayInput` via:
 //
-// 		 BranchPolicyBuildValidationSettingsScopeArray{ BranchPolicyBuildValidationSettingsScopeArgs{...} }
-//
+//          BranchPolicyBuildValidationSettingsScopeArray{ BranchPolicyBuildValidationSettingsScopeArgs{...} }
 type BranchPolicyBuildValidationSettingsScopeArrayInput interface {
 	pulumi.Input
 
@@ -369,8 +365,7 @@ type BranchPolicyMinReviewersSettings struct {
 // BranchPolicyMinReviewersSettingsInput is an input type that accepts BranchPolicyMinReviewersSettingsArgs and BranchPolicyMinReviewersSettingsOutput values.
 // You can construct a concrete instance of `BranchPolicyMinReviewersSettingsInput` via:
 //
-// 		 BranchPolicyMinReviewersSettingsArgs{...}
-//
+//          BranchPolicyMinReviewersSettingsArgs{...}
 type BranchPolicyMinReviewersSettingsInput interface {
 	pulumi.Input
 
@@ -410,12 +405,11 @@ func (i BranchPolicyMinReviewersSettingsArgs) ToBranchPolicyMinReviewersSettings
 // BranchPolicyMinReviewersSettingsPtrInput is an input type that accepts BranchPolicyMinReviewersSettingsArgs, BranchPolicyMinReviewersSettingsPtr and BranchPolicyMinReviewersSettingsPtrOutput values.
 // You can construct a concrete instance of `BranchPolicyMinReviewersSettingsPtrInput` via:
 //
-// 		 BranchPolicyMinReviewersSettingsArgs{...}
+//          BranchPolicyMinReviewersSettingsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BranchPolicyMinReviewersSettingsPtrInput interface {
 	pulumi.Input
 
@@ -540,8 +534,7 @@ type BranchPolicyMinReviewersSettingsScope struct {
 // BranchPolicyMinReviewersSettingsScopeInput is an input type that accepts BranchPolicyMinReviewersSettingsScopeArgs and BranchPolicyMinReviewersSettingsScopeOutput values.
 // You can construct a concrete instance of `BranchPolicyMinReviewersSettingsScopeInput` via:
 //
-// 		 BranchPolicyMinReviewersSettingsScopeArgs{...}
-//
+//          BranchPolicyMinReviewersSettingsScopeArgs{...}
 type BranchPolicyMinReviewersSettingsScopeInput interface {
 	pulumi.Input
 
@@ -573,8 +566,7 @@ func (i BranchPolicyMinReviewersSettingsScopeArgs) ToBranchPolicyMinReviewersSet
 // BranchPolicyMinReviewersSettingsScopeArrayInput is an input type that accepts BranchPolicyMinReviewersSettingsScopeArray and BranchPolicyMinReviewersSettingsScopeArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyMinReviewersSettingsScopeArrayInput` via:
 //
-// 		 BranchPolicyMinReviewersSettingsScopeArray{ BranchPolicyMinReviewersSettingsScopeArgs{...} }
-//
+//          BranchPolicyMinReviewersSettingsScopeArray{ BranchPolicyMinReviewersSettingsScopeArgs{...} }
 type BranchPolicyMinReviewersSettingsScopeArrayInput interface {
 	pulumi.Input
 

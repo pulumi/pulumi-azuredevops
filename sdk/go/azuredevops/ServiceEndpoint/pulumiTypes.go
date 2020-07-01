@@ -21,8 +21,7 @@ type AzureRMCredentials struct {
 // AzureRMCredentialsInput is an input type that accepts AzureRMCredentialsArgs and AzureRMCredentialsOutput values.
 // You can construct a concrete instance of `AzureRMCredentialsInput` via:
 //
-// 		 AzureRMCredentialsArgs{...}
-//
+//          AzureRMCredentialsArgs{...}
 type AzureRMCredentialsInput interface {
 	pulumi.Input
 
@@ -61,12 +60,11 @@ func (i AzureRMCredentialsArgs) ToAzureRMCredentialsPtrOutputWithContext(ctx con
 // AzureRMCredentialsPtrInput is an input type that accepts AzureRMCredentialsArgs, AzureRMCredentialsPtr and AzureRMCredentialsPtrOutput values.
 // You can construct a concrete instance of `AzureRMCredentialsPtrInput` via:
 //
-// 		 AzureRMCredentialsArgs{...}
+//          AzureRMCredentialsArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type AzureRMCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -184,8 +182,7 @@ type GitHubAuthOauth struct {
 // GitHubAuthOauthInput is an input type that accepts GitHubAuthOauthArgs and GitHubAuthOauthOutput values.
 // You can construct a concrete instance of `GitHubAuthOauthInput` via:
 //
-// 		 GitHubAuthOauthArgs{...}
-//
+//          GitHubAuthOauthArgs{...}
 type GitHubAuthOauthInput interface {
 	pulumi.Input
 
@@ -220,12 +217,11 @@ func (i GitHubAuthOauthArgs) ToGitHubAuthOauthPtrOutputWithContext(ctx context.C
 // GitHubAuthOauthPtrInput is an input type that accepts GitHubAuthOauthArgs, GitHubAuthOauthPtr and GitHubAuthOauthPtrOutput values.
 // You can construct a concrete instance of `GitHubAuthOauthPtrInput` via:
 //
-// 		 GitHubAuthOauthArgs{...}
+//          GitHubAuthOauthArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GitHubAuthOauthPtrInput interface {
 	pulumi.Input
 
@@ -314,8 +310,7 @@ type GitHubAuthPersonal struct {
 // GitHubAuthPersonalInput is an input type that accepts GitHubAuthPersonalArgs and GitHubAuthPersonalOutput values.
 // You can construct a concrete instance of `GitHubAuthPersonalInput` via:
 //
-// 		 GitHubAuthPersonalArgs{...}
-//
+//          GitHubAuthPersonalArgs{...}
 type GitHubAuthPersonalInput interface {
 	pulumi.Input
 
@@ -352,12 +347,11 @@ func (i GitHubAuthPersonalArgs) ToGitHubAuthPersonalPtrOutputWithContext(ctx con
 // GitHubAuthPersonalPtrInput is an input type that accepts GitHubAuthPersonalArgs, GitHubAuthPersonalPtr and GitHubAuthPersonalPtrOutput values.
 // You can construct a concrete instance of `GitHubAuthPersonalPtrInput` via:
 //
-// 		 GitHubAuthPersonalArgs{...}
+//          GitHubAuthPersonalArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GitHubAuthPersonalPtrInput interface {
 	pulumi.Input
 
@@ -473,8 +467,7 @@ type KubernetesAzureSubscription struct {
 // KubernetesAzureSubscriptionInput is an input type that accepts KubernetesAzureSubscriptionArgs and KubernetesAzureSubscriptionOutput values.
 // You can construct a concrete instance of `KubernetesAzureSubscriptionInput` via:
 //
-// 		 KubernetesAzureSubscriptionArgs{...}
-//
+//          KubernetesAzureSubscriptionArgs{...}
 type KubernetesAzureSubscriptionInput interface {
 	pulumi.Input
 
@@ -514,8 +507,7 @@ func (i KubernetesAzureSubscriptionArgs) ToKubernetesAzureSubscriptionOutputWith
 // KubernetesAzureSubscriptionArrayInput is an input type that accepts KubernetesAzureSubscriptionArray and KubernetesAzureSubscriptionArrayOutput values.
 // You can construct a concrete instance of `KubernetesAzureSubscriptionArrayInput` via:
 //
-// 		 KubernetesAzureSubscriptionArray{ KubernetesAzureSubscriptionArgs{...} }
-//
+//          KubernetesAzureSubscriptionArray{ KubernetesAzureSubscriptionArgs{...} }
 type KubernetesAzureSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -619,8 +611,7 @@ type KubernetesKubeconfig struct {
 // KubernetesKubeconfigInput is an input type that accepts KubernetesKubeconfigArgs and KubernetesKubeconfigOutput values.
 // You can construct a concrete instance of `KubernetesKubeconfigInput` via:
 //
-// 		 KubernetesKubeconfigArgs{...}
-//
+//          KubernetesKubeconfigArgs{...}
 type KubernetesKubeconfigInput interface {
 	pulumi.Input
 
@@ -653,8 +644,7 @@ func (i KubernetesKubeconfigArgs) ToKubernetesKubeconfigOutputWithContext(ctx co
 // KubernetesKubeconfigArrayInput is an input type that accepts KubernetesKubeconfigArray and KubernetesKubeconfigArrayOutput values.
 // You can construct a concrete instance of `KubernetesKubeconfigArrayInput` via:
 //
-// 		 KubernetesKubeconfigArray{ KubernetesKubeconfigArgs{...} }
-//
+//          KubernetesKubeconfigArray{ KubernetesKubeconfigArgs{...} }
 type KubernetesKubeconfigArrayInput interface {
 	pulumi.Input
 
@@ -741,8 +731,7 @@ type KubernetesServiceAccount struct {
 // KubernetesServiceAccountInput is an input type that accepts KubernetesServiceAccountArgs and KubernetesServiceAccountOutput values.
 // You can construct a concrete instance of `KubernetesServiceAccountInput` via:
 //
-// 		 KubernetesServiceAccountArgs{...}
-//
+//          KubernetesServiceAccountArgs{...}
 type KubernetesServiceAccountInput interface {
 	pulumi.Input
 
@@ -774,8 +763,7 @@ func (i KubernetesServiceAccountArgs) ToKubernetesServiceAccountOutputWithContex
 // KubernetesServiceAccountArrayInput is an input type that accepts KubernetesServiceAccountArray and KubernetesServiceAccountArrayOutput values.
 // You can construct a concrete instance of `KubernetesServiceAccountArrayInput` via:
 //
-// 		 KubernetesServiceAccountArray{ KubernetesServiceAccountArgs{...} }
-//
+//          KubernetesServiceAccountArray{ KubernetesServiceAccountArgs{...} }
 type KubernetesServiceAccountArrayInput interface {
 	pulumi.Input
 

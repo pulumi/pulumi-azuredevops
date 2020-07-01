@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -36,7 +34,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		serviceendpoint, err := ServiceEndpoint.NewBitBucket(ctx, "serviceendpoint", &ServiceEndpoint.BitBucketArgs{
+// 		_, err = ServiceEndpoint.NewBitBucket(ctx, "serviceendpoint", &ServiceEndpoint.BitBucketArgs{
 // 			ProjectId:           project.ID(),
 // 			Username:            pulumi.String("xxxx"),
 // 			Password:            pulumi.String("xxxx"),
@@ -50,7 +48,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)

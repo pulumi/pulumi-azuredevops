@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -40,7 +38,6 @@ import * as utilities from "../utilities";
  *     originId: "a7ead982-8438-4cd2-b9e3-c3aa51a7b675",
  * }, { async: true }));
  * ```
- *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)

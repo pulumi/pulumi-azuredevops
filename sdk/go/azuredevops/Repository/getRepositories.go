@@ -11,12 +11,12 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
 // import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Repository"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -28,16 +28,20 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		allRepos, err := Repository.LookupRepositories(ctx, &Repository.LookupRepositoriesArgs{
-// 			ProjectId:     project.Id,
-// 			IncludeHidden: true,
+// 		opt0 := project.Id
+// 		opt1 := true
+// 		_, err = Repository.GetRepositories(ctx, &Repository.GetRepositoriesArgs{
+// 			ProjectId:     &opt0,
+// 			IncludeHidden: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		singleRepo, err := Repository.LookupRepositories(ctx, &Repository.LookupRepositoriesArgs{
-// 			ProjectId: project.Id,
-// 			Name:      "contoso-repo",
+// 		opt2 := project.Id
+// 		opt3 := "contoso-repo"
+// 		_, err = Repository.GetRepositories(ctx, &Repository.GetRepositoriesArgs{
+// 			ProjectId: &opt2,
+// 			Name:      &opt3,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -46,7 +50,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)

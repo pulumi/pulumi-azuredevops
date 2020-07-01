@@ -14,8 +14,6 @@ namespace Pulumi.AzureDevOps.Policy
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
@@ -45,19 +43,19 @@ namespace Pulumi.AzureDevOps.Policy
     ///             {
     ///                 ReviewerCount = 2,
     ///                 SubmitterCanVote = false,
-    ///                 Scope = 
+    ///                 Scopes = 
     ///                 {
-    ///                     
+    ///                     new AzureDevOps.Policy.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
     ///                     {
-    ///                         { "repositoryId", git.Id },
-    ///                         { "repositoryRef", git.DefaultBranch },
-    ///                         { "matchType", "Exact" },
+    ///                         RepositoryId = git.Id,
+    ///                         RepositoryRef = git.DefaultBranch,
+    ///                         MatchType = "Exact",
     ///                     },
-    ///                     
+    ///                     new AzureDevOps.Policy.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
     ///                     {
-    ///                         { "repositoryId", git.Id },
-    ///                         { "repositoryRef", "refs/heads/releases" },
-    ///                         { "matchType", "Prefix" },
+    ///                         RepositoryId = git.Id,
+    ///                         RepositoryRef = "refs/heads/releases",
+    ///                         MatchType = "Prefix",
     ///                     },
     ///                 },
     ///             },
@@ -66,7 +64,6 @@ namespace Pulumi.AzureDevOps.Policy
     /// 
     /// }
     /// ```
-    /// 
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)

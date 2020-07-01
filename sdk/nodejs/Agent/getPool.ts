@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -24,7 +22,6 @@ import * as utilities from "../utilities";
  * export const poolType = pool.then(pool => pool.poolType);
  * export const autoProvision = pool.then(pool => pool.autoProvision);
  * ```
- *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)

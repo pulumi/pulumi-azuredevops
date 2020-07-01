@@ -22,8 +22,7 @@ type GitInitialization struct {
 // GitInitializationInput is an input type that accepts GitInitializationArgs and GitInitializationOutput values.
 // You can construct a concrete instance of `GitInitializationInput` via:
 //
-// 		 GitInitializationArgs{...}
-//
+//          GitInitializationArgs{...}
 type GitInitializationInput interface {
 	pulumi.Input
 
@@ -63,12 +62,11 @@ func (i GitInitializationArgs) ToGitInitializationPtrOutputWithContext(ctx conte
 // GitInitializationPtrInput is an input type that accepts GitInitializationArgs, GitInitializationPtr and GitInitializationPtrOutput values.
 // You can construct a concrete instance of `GitInitializationPtrInput` via:
 //
-// 		 GitInitializationArgs{...}
+//          GitInitializationArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type GitInitializationPtrInput interface {
 	pulumi.Input
 
@@ -196,8 +194,7 @@ type GetRepositoriesRepository struct {
 // GetRepositoriesRepositoryInput is an input type that accepts GetRepositoriesRepositoryArgs and GetRepositoriesRepositoryOutput values.
 // You can construct a concrete instance of `GetRepositoriesRepositoryInput` via:
 //
-// 		 GetRepositoriesRepositoryArgs{...}
-//
+//          GetRepositoriesRepositoryArgs{...}
 type GetRepositoriesRepositoryInput interface {
 	pulumi.Input
 
@@ -232,8 +229,7 @@ func (i GetRepositoriesRepositoryArgs) ToGetRepositoriesRepositoryOutputWithCont
 // GetRepositoriesRepositoryArrayInput is an input type that accepts GetRepositoriesRepositoryArray and GetRepositoriesRepositoryArrayOutput values.
 // You can construct a concrete instance of `GetRepositoriesRepositoryArrayInput` via:
 //
-// 		 GetRepositoriesRepositoryArray{ GetRepositoriesRepositoryArgs{...} }
-//
+//          GetRepositoriesRepositoryArray{ GetRepositoriesRepositoryArgs{...} }
 type GetRepositoriesRepositoryArrayInput interface {
 	pulumi.Input
 

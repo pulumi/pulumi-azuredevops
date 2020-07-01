@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -55,24 +53,24 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		branchPolicyBuildValidation, err := Policy.NewBranchPolicyBuildValidation(ctx, "branchPolicyBuildValidation", &Policy.BranchPolicyBuildValidationArgs{
+// 		_, err = Policy.NewBranchPolicyBuildValidation(ctx, "branchPolicyBuildValidation", &Policy.BranchPolicyBuildValidationArgs{
 // 			ProjectId: project.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
 // 			Settings: &Policy.BranchPolicyBuildValidationSettingsArgs{
 // 				DisplayName:       pulumi.String("Don't break the build!"),
-// 				BuildDefinitionId: pulumi.Int(buildDefinition.ID()),
+// 				BuildDefinitionId: buildDefinition.ID(),
 // 				ValidDuration:     pulumi.Int(720),
-// 				Scope: []interface{}{
-// 					map[string]interface{}{
-// 						"repositoryId":  git.ID(),
-// 						"repositoryRef": git.DefaultBranch,
-// 						"matchType":     "Exact",
+// 				Scopes: Policy.BranchPolicyBuildValidationSettingsScopeArray{
+// 					&Policy.BranchPolicyBuildValidationSettingsScopeArgs{
+// 						RepositoryId:  git.ID(),
+// 						RepositoryRef: git.DefaultBranch,
+// 						MatchType:     pulumi.String("Exact"),
 // 					},
-// 					map[string]interface{}{
-// 						"repositoryId":  git.ID(),
-// 						"repositoryRef": "refs/heads/releases",
-// 						"matchType":     "Prefix",
+// 					&Policy.BranchPolicyBuildValidationSettingsScopeArgs{
+// 						RepositoryId:  git.ID(),
+// 						RepositoryRef: pulumi.String("refs/heads/releases"),
+// 						MatchType:     pulumi.String("Prefix"),
 // 					},
 // 				},
 // 			},
@@ -84,7 +82,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)

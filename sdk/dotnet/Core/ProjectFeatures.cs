@@ -14,8 +14,6 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// ## Example Usage
     /// 
-    /// 
-    /// 
     /// ```csharp
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
@@ -41,7 +39,6 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// }
     /// ```
-    /// 
     /// ## Relevant Links
     /// 
     /// No official documentation available

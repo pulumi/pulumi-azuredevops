@@ -13,7 +13,6 @@ namespace Pulumi.AzureDevOps.Repository
     /// Manages a git repository within Azure DevOps.
     /// 
     /// ## Example Usage
-    /// 
     /// ### Create Git repository
     /// 
     /// ```csharp
@@ -43,7 +42,6 @@ namespace Pulumi.AzureDevOps.Repository
     /// 
     /// }
     /// ```
-    /// 
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)

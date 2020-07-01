@@ -11,8 +11,6 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
- *
- *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
@@ -22,7 +20,7 @@ import * as utilities from "../utilities";
  *     projectId: project.id,
  *     description: "Test Variable Group Description",
  *     allowAccess: true,
- *     variable: [
+ *     variables: [
  *         {
  *             name: "key",
  *             value: "value",
@@ -35,7 +33,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- *
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)

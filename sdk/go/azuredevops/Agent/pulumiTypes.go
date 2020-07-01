@@ -20,8 +20,7 @@ type GetPoolsAgentPool struct {
 // GetPoolsAgentPoolInput is an input type that accepts GetPoolsAgentPoolArgs and GetPoolsAgentPoolOutput values.
 // You can construct a concrete instance of `GetPoolsAgentPoolInput` via:
 //
-// 		 GetPoolsAgentPoolArgs{...}
-//
+//          GetPoolsAgentPoolArgs{...}
 type GetPoolsAgentPoolInput interface {
 	pulumi.Input
 
@@ -51,8 +50,7 @@ func (i GetPoolsAgentPoolArgs) ToGetPoolsAgentPoolOutputWithContext(ctx context.
 // GetPoolsAgentPoolArrayInput is an input type that accepts GetPoolsAgentPoolArray and GetPoolsAgentPoolArrayOutput values.
 // You can construct a concrete instance of `GetPoolsAgentPoolArrayInput` via:
 //
-// 		 GetPoolsAgentPoolArray{ GetPoolsAgentPoolArgs{...} }
-//
+//          GetPoolsAgentPoolArray{ GetPoolsAgentPoolArgs{...} }
 type GetPoolsAgentPoolArrayInput interface {
 	pulumi.Input
 

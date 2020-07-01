@@ -20,8 +20,7 @@ type BuildDefinitionCiTrigger struct {
 // BuildDefinitionCiTriggerInput is an input type that accepts BuildDefinitionCiTriggerArgs and BuildDefinitionCiTriggerOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerInput` via:
 //
-// 		 BuildDefinitionCiTriggerArgs{...}
-//
+//          BuildDefinitionCiTriggerArgs{...}
 type BuildDefinitionCiTriggerInput interface {
 	pulumi.Input
 
@@ -59,12 +58,11 @@ func (i BuildDefinitionCiTriggerArgs) ToBuildDefinitionCiTriggerPtrOutputWithCon
 // BuildDefinitionCiTriggerPtrInput is an input type that accepts BuildDefinitionCiTriggerArgs, BuildDefinitionCiTriggerPtr and BuildDefinitionCiTriggerPtrOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerPtrInput` via:
 //
-// 		 BuildDefinitionCiTriggerArgs{...}
+//          BuildDefinitionCiTriggerArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BuildDefinitionCiTriggerPtrInput interface {
 	pulumi.Input
 
@@ -180,8 +178,7 @@ type BuildDefinitionCiTriggerOverride struct {
 // BuildDefinitionCiTriggerOverrideInput is an input type that accepts BuildDefinitionCiTriggerOverrideArgs and BuildDefinitionCiTriggerOverrideOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerOverrideInput` via:
 //
-// 		 BuildDefinitionCiTriggerOverrideArgs{...}
-//
+//          BuildDefinitionCiTriggerOverrideArgs{...}
 type BuildDefinitionCiTriggerOverrideInput interface {
 	pulumi.Input
 
@@ -227,12 +224,11 @@ func (i BuildDefinitionCiTriggerOverrideArgs) ToBuildDefinitionCiTriggerOverride
 // BuildDefinitionCiTriggerOverridePtrInput is an input type that accepts BuildDefinitionCiTriggerOverrideArgs, BuildDefinitionCiTriggerOverridePtr and BuildDefinitionCiTriggerOverridePtrOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerOverridePtrInput` via:
 //
-// 		 BuildDefinitionCiTriggerOverrideArgs{...}
+//          BuildDefinitionCiTriggerOverrideArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BuildDefinitionCiTriggerOverridePtrInput interface {
 	pulumi.Input
 
@@ -404,8 +400,7 @@ type BuildDefinitionCiTriggerOverrideBranchFilter struct {
 // BuildDefinitionCiTriggerOverrideBranchFilterInput is an input type that accepts BuildDefinitionCiTriggerOverrideBranchFilterArgs and BuildDefinitionCiTriggerOverrideBranchFilterOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerOverrideBranchFilterInput` via:
 //
-// 		 BuildDefinitionCiTriggerOverrideBranchFilterArgs{...}
-//
+//          BuildDefinitionCiTriggerOverrideBranchFilterArgs{...}
 type BuildDefinitionCiTriggerOverrideBranchFilterInput interface {
 	pulumi.Input
 
@@ -435,8 +430,7 @@ func (i BuildDefinitionCiTriggerOverrideBranchFilterArgs) ToBuildDefinitionCiTri
 // BuildDefinitionCiTriggerOverrideBranchFilterArrayInput is an input type that accepts BuildDefinitionCiTriggerOverrideBranchFilterArray and BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerOverrideBranchFilterArrayInput` via:
 //
-// 		 BuildDefinitionCiTriggerOverrideBranchFilterArray{ BuildDefinitionCiTriggerOverrideBranchFilterArgs{...} }
-//
+//          BuildDefinitionCiTriggerOverrideBranchFilterArray{ BuildDefinitionCiTriggerOverrideBranchFilterArgs{...} }
 type BuildDefinitionCiTriggerOverrideBranchFilterArrayInput interface {
 	pulumi.Input
 
@@ -512,8 +506,7 @@ type BuildDefinitionCiTriggerOverridePathFilter struct {
 // BuildDefinitionCiTriggerOverridePathFilterInput is an input type that accepts BuildDefinitionCiTriggerOverridePathFilterArgs and BuildDefinitionCiTriggerOverridePathFilterOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerOverridePathFilterInput` via:
 //
-// 		 BuildDefinitionCiTriggerOverridePathFilterArgs{...}
-//
+//          BuildDefinitionCiTriggerOverridePathFilterArgs{...}
 type BuildDefinitionCiTriggerOverridePathFilterInput interface {
 	pulumi.Input
 
@@ -543,8 +536,7 @@ func (i BuildDefinitionCiTriggerOverridePathFilterArgs) ToBuildDefinitionCiTrigg
 // BuildDefinitionCiTriggerOverridePathFilterArrayInput is an input type that accepts BuildDefinitionCiTriggerOverridePathFilterArray and BuildDefinitionCiTriggerOverridePathFilterArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerOverridePathFilterArrayInput` via:
 //
-// 		 BuildDefinitionCiTriggerOverridePathFilterArray{ BuildDefinitionCiTriggerOverridePathFilterArgs{...} }
-//
+//          BuildDefinitionCiTriggerOverridePathFilterArray{ BuildDefinitionCiTriggerOverridePathFilterArgs{...} }
 type BuildDefinitionCiTriggerOverridePathFilterArrayInput interface {
 	pulumi.Input
 
@@ -624,8 +616,7 @@ type BuildDefinitionPullRequestTrigger struct {
 // BuildDefinitionPullRequestTriggerInput is an input type that accepts BuildDefinitionPullRequestTriggerArgs and BuildDefinitionPullRequestTriggerOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerArgs{...}
-//
+//          BuildDefinitionPullRequestTriggerArgs{...}
 type BuildDefinitionPullRequestTriggerInput interface {
 	pulumi.Input
 
@@ -667,12 +658,11 @@ func (i BuildDefinitionPullRequestTriggerArgs) ToBuildDefinitionPullRequestTrigg
 // BuildDefinitionPullRequestTriggerPtrInput is an input type that accepts BuildDefinitionPullRequestTriggerArgs, BuildDefinitionPullRequestTriggerPtr and BuildDefinitionPullRequestTriggerPtrOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerPtrInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerArgs{...}
+//          BuildDefinitionPullRequestTriggerArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BuildDefinitionPullRequestTriggerPtrInput interface {
 	pulumi.Input
 
@@ -822,8 +812,7 @@ type BuildDefinitionPullRequestTriggerForks struct {
 // BuildDefinitionPullRequestTriggerForksInput is an input type that accepts BuildDefinitionPullRequestTriggerForksArgs and BuildDefinitionPullRequestTriggerForksOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerForksInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerForksArgs{...}
-//
+//          BuildDefinitionPullRequestTriggerForksArgs{...}
 type BuildDefinitionPullRequestTriggerForksInput interface {
 	pulumi.Input
 
@@ -861,12 +850,11 @@ func (i BuildDefinitionPullRequestTriggerForksArgs) ToBuildDefinitionPullRequest
 // BuildDefinitionPullRequestTriggerForksPtrInput is an input type that accepts BuildDefinitionPullRequestTriggerForksArgs, BuildDefinitionPullRequestTriggerForksPtr and BuildDefinitionPullRequestTriggerForksPtrOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerForksPtrInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerForksArgs{...}
+//          BuildDefinitionPullRequestTriggerForksArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BuildDefinitionPullRequestTriggerForksPtrInput interface {
 	pulumi.Input
 
@@ -976,8 +964,7 @@ type BuildDefinitionPullRequestTriggerOverride struct {
 // BuildDefinitionPullRequestTriggerOverrideInput is an input type that accepts BuildDefinitionPullRequestTriggerOverrideArgs and BuildDefinitionPullRequestTriggerOverrideOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerOverrideInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerOverrideArgs{...}
-//
+//          BuildDefinitionPullRequestTriggerOverrideArgs{...}
 type BuildDefinitionPullRequestTriggerOverrideInput interface {
 	pulumi.Input
 
@@ -1017,12 +1004,11 @@ func (i BuildDefinitionPullRequestTriggerOverrideArgs) ToBuildDefinitionPullRequ
 // BuildDefinitionPullRequestTriggerOverridePtrInput is an input type that accepts BuildDefinitionPullRequestTriggerOverrideArgs, BuildDefinitionPullRequestTriggerOverridePtr and BuildDefinitionPullRequestTriggerOverridePtrOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerOverridePtrInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerOverrideArgs{...}
+//          BuildDefinitionPullRequestTriggerOverrideArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BuildDefinitionPullRequestTriggerOverridePtrInput interface {
 	pulumi.Input
 
@@ -1151,8 +1137,7 @@ type BuildDefinitionPullRequestTriggerOverrideBranchFilter struct {
 // BuildDefinitionPullRequestTriggerOverrideBranchFilterInput is an input type that accepts BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs and BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerOverrideBranchFilterInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs{...}
-//
+//          BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs{...}
 type BuildDefinitionPullRequestTriggerOverrideBranchFilterInput interface {
 	pulumi.Input
 
@@ -1182,8 +1167,7 @@ func (i BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs) ToBuildDefini
 // BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput is an input type that accepts BuildDefinitionPullRequestTriggerOverrideBranchFilterArray and BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerOverrideBranchFilterArray{ BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs{...} }
-//
+//          BuildDefinitionPullRequestTriggerOverrideBranchFilterArray{ BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs{...} }
 type BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput interface {
 	pulumi.Input
 
@@ -1259,8 +1243,7 @@ type BuildDefinitionPullRequestTriggerOverridePathFilter struct {
 // BuildDefinitionPullRequestTriggerOverridePathFilterInput is an input type that accepts BuildDefinitionPullRequestTriggerOverridePathFilterArgs and BuildDefinitionPullRequestTriggerOverridePathFilterOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerOverridePathFilterInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerOverridePathFilterArgs{...}
-//
+//          BuildDefinitionPullRequestTriggerOverridePathFilterArgs{...}
 type BuildDefinitionPullRequestTriggerOverridePathFilterInput interface {
 	pulumi.Input
 
@@ -1290,8 +1273,7 @@ func (i BuildDefinitionPullRequestTriggerOverridePathFilterArgs) ToBuildDefiniti
 // BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput is an input type that accepts BuildDefinitionPullRequestTriggerOverridePathFilterArray and BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput` via:
 //
-// 		 BuildDefinitionPullRequestTriggerOverridePathFilterArray{ BuildDefinitionPullRequestTriggerOverridePathFilterArgs{...} }
-//
+//          BuildDefinitionPullRequestTriggerOverridePathFilterArray{ BuildDefinitionPullRequestTriggerOverridePathFilterArgs{...} }
 type BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput interface {
 	pulumi.Input
 
@@ -1373,8 +1355,7 @@ type BuildDefinitionRepository struct {
 // BuildDefinitionRepositoryInput is an input type that accepts BuildDefinitionRepositoryArgs and BuildDefinitionRepositoryOutput values.
 // You can construct a concrete instance of `BuildDefinitionRepositoryInput` via:
 //
-// 		 BuildDefinitionRepositoryArgs{...}
-//
+//          BuildDefinitionRepositoryArgs{...}
 type BuildDefinitionRepositoryInput interface {
 	pulumi.Input
 
@@ -1418,12 +1399,11 @@ func (i BuildDefinitionRepositoryArgs) ToBuildDefinitionRepositoryPtrOutputWithC
 // BuildDefinitionRepositoryPtrInput is an input type that accepts BuildDefinitionRepositoryArgs, BuildDefinitionRepositoryPtr and BuildDefinitionRepositoryPtrOutput values.
 // You can construct a concrete instance of `BuildDefinitionRepositoryPtrInput` via:
 //
-// 		 BuildDefinitionRepositoryArgs{...}
+//          BuildDefinitionRepositoryArgs{...}
 //
 //  or:
 //
-// 		 nil
-//
+//          nil
 type BuildDefinitionRepositoryPtrInput interface {
 	pulumi.Input
 
@@ -1582,8 +1562,7 @@ type BuildDefinitionVariable struct {
 // BuildDefinitionVariableInput is an input type that accepts BuildDefinitionVariableArgs and BuildDefinitionVariableOutput values.
 // You can construct a concrete instance of `BuildDefinitionVariableInput` via:
 //
-// 		 BuildDefinitionVariableArgs{...}
-//
+//          BuildDefinitionVariableArgs{...}
 type BuildDefinitionVariableInput interface {
 	pulumi.Input
 
@@ -1619,8 +1598,7 @@ func (i BuildDefinitionVariableArgs) ToBuildDefinitionVariableOutputWithContext(
 // BuildDefinitionVariableArrayInput is an input type that accepts BuildDefinitionVariableArray and BuildDefinitionVariableArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionVariableArrayInput` via:
 //
-// 		 BuildDefinitionVariableArray{ BuildDefinitionVariableArgs{...} }
-//
+//          BuildDefinitionVariableArray{ BuildDefinitionVariableArgs{...} }
 type BuildDefinitionVariableArrayInput interface {
 	pulumi.Input
 

@@ -14,8 +14,6 @@ import (
 //
 // ## Example Usage
 //
-//
-//
 // ```go
 // package main
 //
@@ -40,7 +38,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		membership, err := Identities.NewGroupMembership(ctx, "membership", &Identities.GroupMembershipArgs{
+// 		_, err = Identities.NewGroupMembership(ctx, "membership", &Identities.GroupMembershipArgs{
 // 			Group: group.ApplyT(func(group Identities.LookupGroupResult) (string, error) {
 // 				return group.Descriptor, nil
 // 			}).(pulumi.StringOutput),
@@ -55,7 +53,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)

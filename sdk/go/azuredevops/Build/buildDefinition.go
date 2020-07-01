@@ -12,7 +12,6 @@ import (
 
 // Manages a Build Definition within Azure DevOps.
 //
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)

@@ -19,7 +19,6 @@ import (
 // For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 //
 // ## Example Usage
-//
 // ### Manual AzureRM Service Endpoint
 //
 // ```go
@@ -42,7 +41,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		endpointazure, err := ServiceEndpoint.NewAzureRM(ctx, "endpointazure", &ServiceEndpoint.AzureRMArgs{
+// 		_, err = ServiceEndpoint.NewAzureRM(ctx, "endpointazure", &ServiceEndpoint.AzureRMArgs{
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("TestServiceRM"),
 // 			Credentials: &ServiceEndpoint.AzureRMCredentialsArgs{
@@ -60,7 +59,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ### Automatic AzureRM Service Endpoint
 //
 // ```go
@@ -83,7 +81,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		endpointazure, err := ServiceEndpoint.NewAzureRM(ctx, "endpointazure", &ServiceEndpoint.AzureRMArgs{
+// 		_, err = ServiceEndpoint.NewAzureRM(ctx, "endpointazure", &ServiceEndpoint.AzureRMArgs{
 // 			ProjectId:               project.ID(),
 // 			ServiceEndpointName:     pulumi.String("TestServiceRM"),
 // 			AzurermSpnTenantid:      pulumi.String("xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx"),
@@ -97,7 +95,6 @@ import (
 // 	})
 // }
 // ```
-//
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
