@@ -72,25 +72,13 @@ func Provider() tfbridge.ProviderInfo {
 	p := azuredevops.Provider()
 
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "azuredevops",
-		Description: "A Pulumi package for creating and managing Azure DevOps.",
-		Keywords:    []string{"pulumi", "azuredevops"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-azuredevops",
-		Config: map[string]*tfbridge.SchemaInfo{
-			"org_service_url": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"AZDO_ORG_SERVICE_URL"},
-				},
-			},
-			"personal_access_token": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"AZDO_PERSONAL_ACCESS_TOKEN"},
-				},
-			},
-		},
+		P:                    p,
+		Name:                 "azuredevops",
+		Description:          "A Pulumi package for creating and managing Azure DevOps.",
+		Keywords:             []string{"pulumi", "azuredevops"},
+		License:              "Apache-2.0",
+		Homepage:             "https://pulumi.io",
+		Repository:           "https://github.com/pulumi/pulumi-azuredevops",
 		PreConfigureCallback: preConfigureCallback,
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"azuredevops_resource_authorization": {
