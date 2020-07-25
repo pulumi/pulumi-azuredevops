@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetPoolResult:
     """
@@ -28,6 +29,8 @@ class GetPoolResult:
         if pool_type and not isinstance(pool_type, str):
             raise TypeError("Expected argument 'pool_type' to be a str")
         __self__.pool_type = pool_type
+
+
 class AwaitableGetPoolResult(GetPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -39,7 +42,8 @@ class AwaitableGetPoolResult(GetPoolResult):
             name=self.name,
             pool_type=self.pool_type)
 
-def get_pool(name=None,opts=None):
+
+def get_pool(name=None, opts=None):
     """
     Use this data source to access information about an existing Agent Pool within Azure DevOps.
 
@@ -57,15 +61,16 @@ def get_pool(name=None,opts=None):
     ## Relevant Links
 
     - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
+
+
+    :param str name: Name of the Agent Pool.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuredevops:Agent/getPool:getPool', __args__, opts=opts).value
 
     return AwaitableGetPoolResult(

@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetGroupResult:
     """
@@ -31,6 +32,8 @@ class GetGroupResult:
         if project_id and not isinstance(project_id, str):
             raise TypeError("Expected argument 'project_id' to be a str")
         __self__.project_id = project_id
+
+
 class AwaitableGetGroupResult(GetGroupResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -42,7 +45,8 @@ class AwaitableGetGroupResult(GetGroupResult):
             name=self.name,
             project_id=self.project_id)
 
-def get_group(name=None,project_id=None,opts=None):
+
+def get_group(name=None, project_id=None, opts=None):
     """
     Use this data source to access information about an existing Group within Azure DevOps
 
@@ -67,14 +71,12 @@ def get_group(name=None,project_id=None,opts=None):
     :param str project_id: The Project Id.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     __args__['projectId'] = project_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuredevops:Identities/getGroup:getGroup', __args__, opts=opts).value
 
     return AwaitableGetGroupResult(

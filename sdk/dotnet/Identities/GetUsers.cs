@@ -65,17 +65,30 @@ namespace Pulumi.AzureDevOps.Identities
 
     public sealed class GetUsersArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+        /// </summary>
         [Input("origin")]
         public string? Origin { get; set; }
 
+        /// <summary>
+        /// The unique identifier from the system of origin.
+        /// </summary>
         [Input("originId")]
         public string? OriginId { get; set; }
 
+        /// <summary>
+        /// The PrincipalName of this graph member from the source provider.
+        /// </summary>
         [Input("principalName")]
         public string? PrincipalName { get; set; }
 
         [Input("subjectTypes")]
         private List<string>? _subjectTypes;
+
+        /// <summary>
+        /// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+        /// </summary>
         public List<string> SubjectTypes
         {
             get => _subjectTypes ?? (_subjectTypes = new List<string>());
@@ -95,10 +108,22 @@ namespace Pulumi.AzureDevOps.Identities
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+        /// </summary>
         public readonly string? Origin;
+        /// <summary>
+        /// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+        /// </summary>
         public readonly string? OriginId;
+        /// <summary>
+        /// This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+        /// </summary>
         public readonly string? PrincipalName;
         public readonly ImmutableArray<string> SubjectTypes;
+        /// <summary>
+        /// A list of existing users in your Azure DevOps Organization with details about every single user which includes:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserResult> Users;
 
         [OutputConstructor]

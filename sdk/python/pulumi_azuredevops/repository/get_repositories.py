@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetRepositoriesResult:
     """
@@ -25,12 +26,23 @@ class GetRepositoriesResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         __self__.name = name
+        """
+        Git repository name.
+        """
         if project_id and not isinstance(project_id, str):
             raise TypeError("Expected argument 'project_id' to be a str")
         __self__.project_id = project_id
+        """
+        Project identifier to which the Git repository belongs.
+        """
         if repositories and not isinstance(repositories, list):
             raise TypeError("Expected argument 'repositories' to be a list")
         __self__.repositories = repositories
+        """
+        A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        """
+
+
 class AwaitableGetRepositoriesResult(GetRepositoriesResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -43,7 +55,8 @@ class AwaitableGetRepositoriesResult(GetRepositoriesResult):
             project_id=self.project_id,
             repositories=self.repositories)
 
-def get_repositories(include_hidden=None,name=None,project_id=None,opts=None):
+
+def get_repositories(include_hidden=None, name=None, project_id=None, opts=None):
     """
     Use this data source to access information about an existing Git Repositories within Azure DevOps.
 
@@ -62,17 +75,19 @@ def get_repositories(include_hidden=None,name=None,project_id=None,opts=None):
     ## Relevant Links
 
     - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+
+
+    :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
+    :param str project_id: ID of project to list Git repositories
     """
     __args__ = dict()
-
-
     __args__['includeHidden'] = include_hidden
     __args__['name'] = name
     __args__['projectId'] = project_id
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuredevops:Repository/getRepositories:getRepositories', __args__, opts=opts).value
 
     return AwaitableGetRepositoriesResult(

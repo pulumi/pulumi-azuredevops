@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetUsersResult:
     """
@@ -22,18 +23,32 @@ class GetUsersResult:
         if origin and not isinstance(origin, str):
             raise TypeError("Expected argument 'origin' to be a str")
         __self__.origin = origin
+        """
+        The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+        """
         if origin_id and not isinstance(origin_id, str):
             raise TypeError("Expected argument 'origin_id' to be a str")
         __self__.origin_id = origin_id
+        """
+        The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+        """
         if principal_name and not isinstance(principal_name, str):
             raise TypeError("Expected argument 'principal_name' to be a str")
         __self__.principal_name = principal_name
+        """
+        This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+        """
         if subject_types and not isinstance(subject_types, list):
             raise TypeError("Expected argument 'subject_types' to be a list")
         __self__.subject_types = subject_types
         if users and not isinstance(users, list):
             raise TypeError("Expected argument 'users' to be a list")
         __self__.users = users
+        """
+        A list of existing users in your Azure DevOps Organization with details about every single user which includes:
+        """
+
+
 class AwaitableGetUsersResult(GetUsersResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -47,7 +62,8 @@ class AwaitableGetUsersResult(GetUsersResult):
             subject_types=self.subject_types,
             users=self.users)
 
-def get_users(origin=None,origin_id=None,principal_name=None,subject_types=None,opts=None):
+
+def get_users(origin=None, origin_id=None, principal_name=None, subject_types=None, opts=None):
     """
     Use this data source to access information about an existing users within Azure DevOps.
 
@@ -70,10 +86,14 @@ def get_users(origin=None,origin_id=None,principal_name=None,subject_types=None,
     ## Relevant Links
 
     - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
+
+
+    :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+    :param str origin_id: The unique identifier from the system of origin.
+    :param str principal_name: The PrincipalName of this graph member from the source provider.
+    :param list subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """
     __args__ = dict()
-
-
     __args__['origin'] = origin
     __args__['originId'] = origin_id
     __args__['principalName'] = principal_name
@@ -81,7 +101,7 @@ def get_users(origin=None,origin_id=None,principal_name=None,subject_types=None,
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuredevops:Identities/getUsers:getUsers', __args__, opts=opts).value
 
     return AwaitableGetUsersResult(

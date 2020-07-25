@@ -13,9 +13,18 @@ namespace Pulumi.AzureDevOps.Agent.Outputs
     [OutputType]
     public sealed class GetPoolsAgentPoolResult
     {
+        /// <summary>
+        /// Specifies whether or not a queue should be automatically provisioned for each project collection.
+        /// </summary>
         public readonly bool AutoProvision;
         public readonly int Id;
+        /// <summary>
+        /// The name of the agent pool
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Specifies whether the agent pool type is Automation or Deployment.
+        /// </summary>
         public readonly string PoolType;
 
         [OutputConstructor]

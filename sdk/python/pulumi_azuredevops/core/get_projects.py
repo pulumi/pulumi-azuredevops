@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetProjectsResult:
     """
@@ -25,9 +26,17 @@ class GetProjectsResult:
         if projects and not isinstance(projects, list):
             raise TypeError("Expected argument 'projects' to be a list")
         __self__.projects = projects
+        """
+        A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        """
         if state and not isinstance(state, str):
             raise TypeError("Expected argument 'state' to be a str")
         __self__.state = state
+        """
+        Project state.
+        """
+
+
 class AwaitableGetProjectsResult(GetProjectsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -39,7 +48,8 @@ class AwaitableGetProjectsResult(GetProjectsResult):
             projects=self.projects,
             state=self.state)
 
-def get_projects(project_name=None,state=None,opts=None):
+
+def get_projects(project_name=None, state=None, opts=None):
     """
     Use this data source to access information about existing Projects within Azure DevOps.
 
@@ -59,16 +69,18 @@ def get_projects(project_name=None,state=None,opts=None):
     ## Relevant Links
 
     - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+
+
+    :param str project_name: Name of the Project, if not specified all projects will be returned.
+    :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
     """
     __args__ = dict()
-
-
     __args__['projectName'] = project_name
     __args__['state'] = state
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuredevops:Core/getProjects:getProjects', __args__, opts=opts).value
 
     return AwaitableGetProjectsResult(

@@ -65,6 +65,9 @@ namespace Pulumi.AzureDevOps.Core
 
     public sealed class GetProjectArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Project.
+        /// </summary>
         [Input("projectName", required: true)]
         public string ProjectName { get; set; } = null!;
 

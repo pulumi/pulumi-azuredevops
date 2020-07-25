@@ -6,16 +6,16 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
 
 __config__ = pulumi.Config('azuredevops')
 
-org_service_url = __config__.get('orgServiceUrl') or utilities.get_env('AZDO_ORG_SERVICE_URL')
+org_service_url = __config__.get('orgServiceUrl')
 """
 The url of the Azure DevOps instance which should be used.
 """
 
-personal_access_token = __config__.get('personalAccessToken') or utilities.get_env('AZDO_PERSONAL_ACCESS_TOKEN')
+personal_access_token = __config__.get('personalAccessToken')
 """
 The personal access token which should be used.
 """

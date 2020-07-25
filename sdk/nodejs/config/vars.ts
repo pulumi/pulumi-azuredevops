@@ -2,8 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 let __config = new pulumi.Config("azuredevops");
@@ -11,8 +9,8 @@ let __config = new pulumi.Config("azuredevops");
 /**
  * The url of the Azure DevOps instance which should be used.
  */
-export let orgServiceUrl: string | undefined = __config.get("orgServiceUrl") || utilities.getEnv("AZDO_ORG_SERVICE_URL");
+export let orgServiceUrl: string | undefined = __config.get("orgServiceUrl");
 /**
  * The personal access token which should be used.
  */
-export let personalAccessToken: string | undefined = __config.get("personalAccessToken") || utilities.getEnv("AZDO_PERSONAL_ACCESS_TOKEN");
+export let personalAccessToken: string | undefined = __config.get("personalAccessToken");

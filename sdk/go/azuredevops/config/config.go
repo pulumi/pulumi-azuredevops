@@ -10,18 +10,10 @@ import (
 
 // The url of the Azure DevOps instance which should be used.
 func GetOrgServiceUrl(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "azuredevops:orgServiceUrl")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "AZDO_ORG_SERVICE_URL").(string)
+	return config.Get(ctx, "azuredevops:orgServiceUrl")
 }
 
 // The personal access token which should be used.
 func GetPersonalAccessToken(ctx *pulumi.Context) string {
-	v, err := config.Try(ctx, "azuredevops:personalAccessToken")
-	if err == nil {
-		return v
-	}
-	return getEnvOrDefault("", nil, "AZDO_PERSONAL_ACCESS_TOKEN").(string)
+	return config.Get(ctx, "azuredevops:personalAccessToken")
 }

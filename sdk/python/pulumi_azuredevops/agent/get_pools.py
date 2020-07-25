@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetPoolsResult:
     """
@@ -16,12 +17,17 @@ class GetPoolsResult:
         if agent_pools and not isinstance(agent_pools, list):
             raise TypeError("Expected argument 'agent_pools' to be a list")
         __self__.agent_pools = agent_pools
+        """
+        A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+        """
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         __self__.id = id
         """
         The provider-assigned unique ID for this managed resource.
         """
+
+
 class AwaitableGetPoolsResult(GetPoolsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -30,6 +36,7 @@ class AwaitableGetPoolsResult(GetPoolsResult):
         return GetPoolsResult(
             agent_pools=self.agent_pools,
             id=self.id)
+
 
 def get_pools(opts=None):
     """
@@ -51,12 +58,10 @@ def get_pools(opts=None):
     - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuredevops:Agent/getPools:getPools', __args__, opts=opts).value
 
     return AwaitableGetPoolsResult(

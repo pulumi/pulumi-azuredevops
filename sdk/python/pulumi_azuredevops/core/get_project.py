@@ -6,7 +6,8 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Union
-from .. import utilities, tables
+from .. import _utilities, _tables
+
 
 class GetProjectResult:
     """
@@ -40,6 +41,8 @@ class GetProjectResult:
         if work_item_template and not isinstance(work_item_template, str):
             raise TypeError("Expected argument 'work_item_template' to be a str")
         __self__.work_item_template = work_item_template
+
+
 class AwaitableGetProjectResult(GetProjectResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -55,7 +58,8 @@ class AwaitableGetProjectResult(GetProjectResult):
             visibility=self.visibility,
             work_item_template=self.work_item_template)
 
-def get_project(project_name=None,opts=None):
+
+def get_project(project_name=None, opts=None):
     """
     Use this data source to access information about an existing Project within Azure DevOps.
 
@@ -76,15 +80,16 @@ def get_project(project_name=None,opts=None):
     ## Relevant Links
 
     - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+
+
+    :param str project_name: Name of the Project.
     """
     __args__ = dict()
-
-
     __args__['projectName'] = project_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
+        opts.version = _utilities.get_version()
     __ret__ = pulumi.runtime.invoke('azuredevops:Core/getProject:getProject', __args__, opts=opts).value
 
     return AwaitableGetProjectResult(

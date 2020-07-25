@@ -56,6 +56,9 @@ namespace Pulumi.AzureDevOps.Agent
 
     public sealed class GetPoolArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Agent Pool.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
