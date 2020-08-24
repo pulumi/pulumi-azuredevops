@@ -52,7 +52,13 @@ export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.Invoke
  */
 export interface GetRepositoriesArgs {
     readonly includeHidden?: boolean;
+    /**
+     * Name of the Git repository to retrieve; requires `projectId` to be specified as well
+     */
     readonly name?: string;
+    /**
+     * ID of project to list Git repositories
+     */
     readonly projectId?: string;
 }
 
@@ -65,7 +71,16 @@ export interface GetRepositoriesResult {
      */
     readonly id: string;
     readonly includeHidden?: boolean;
+    /**
+     * Git repository name.
+     */
     readonly name?: string;
+    /**
+     * Project identifier to which the Git repository belongs.
+     */
     readonly projectId?: string;
+    /**
+     * A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     */
     readonly repositories: outputs.Repository.GetRepositoriesRepository[];
 }

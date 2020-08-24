@@ -5,39 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['BranchPolicyBuildValidation']
 
 
 class BranchPolicyBuildValidation(pulumi.CustomResource):
-    blocking: pulumi.Output[bool]
-    """
-    A flag indicating if the policy should be blocking. Defaults to `true`.
-    """
-    enabled: pulumi.Output[bool]
-    """
-    A flag indicating if the policy should be enabled. Defaults to `true`.
-    """
-    project_id: pulumi.Output[str]
-    """
-    The ID of the project in which the policy will be created.
-    """
-    settings: pulumi.Output[dict]
-    """
-    Configuration for the policy. This block must be defined exactly once.
-
-      * `buildDefinitionId` (`float`) - The ID of the build to monitor for the policy.
-      * `display_name` (`str`) - The display name for the policy.
-      * `manualQueueOnly` (`bool`) - If set to true, the build will need to be manually queued. Defaults to `false`
-      * `queueOnSourceUpdateOnly` (`bool`) - True if the build should queue on source updates only. Defaults to `true`.
-      * `scopes` (`list`) - Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        * `matchType` (`str`) - The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
-        * `repositoryId` (`str`) - The repository ID. Needed only if the scope of the policy will be limited to a single repository.
-        * `repositoryRef` (`str`) - The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-
-      * `validDuration` (`float`) - The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
-    """
-    def __init__(__self__, resource_name, opts=None, blocking=None, enabled=None, project_id=None, settings=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 blocking: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyBuildValidationSettingsArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a build validation branch policy within Azure DevOps.
 
@@ -50,37 +36,37 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         project = azuredevops.core.Project("project", project_name="Sample Project")
         git = azuredevops.repository.Git("git",
             project_id=project.id,
-            initialization={
-                "initType": "Clean",
-            })
+            initialization=azuredevops.repository.GitInitializationArgs(
+                init_type="Clean",
+            ))
         build_definition = azuredevops.build.BuildDefinition("buildDefinition",
             project_id=project.id,
-            repository={
-                "repoType": "TfsGit",
-                "repoId": git.id,
-                "ymlPath": "azure-pipelines.yml",
-            })
+            repository=azuredevops.build.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=git.id,
+                yml_path="azure-pipelines.yml",
+            ))
         branch_policy_build_validation = azuredevops.policy.BranchPolicyBuildValidation("branchPolicyBuildValidation",
             project_id=project.id,
             enabled=True,
             blocking=True,
-            settings={
-                "display_name": "Don't break the build!",
-                "buildDefinitionId": build_definition.id,
-                "validDuration": 720,
-                "scopes": [
-                    {
-                        "repositoryId": git.id,
-                        "repositoryRef": git.default_branch,
-                        "matchType": "Exact",
-                    },
-                    {
-                        "repositoryId": git.id,
-                        "repositoryRef": "refs/heads/releases",
-                        "matchType": "Prefix",
-                    },
+            settings=azuredevops.policy.BranchPolicyBuildValidationSettingsArgs(
+                display_name="Don't break the build!",
+                build_definition_id=build_definition.id,
+                valid_duration=720,
+                scopes=[
+                    azuredevops.policy.BranchPolicyBuildValidationSettingsScopeArgs(
+                        repository_id=git.id,
+                        repository_ref=git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.policy.BranchPolicyBuildValidationSettingsScopeArgs(
+                        repository_id=git.id,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
                 ],
-            })
+            ))
         ```
         ## Relevant Links
 
@@ -91,20 +77,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[dict] settings: Configuration for the policy. This block must be defined exactly once.
-
-        The **settings** object supports the following:
-
-          * `buildDefinitionId` (`pulumi.Input[float]`) - The ID of the build to monitor for the policy.
-          * `display_name` (`pulumi.Input[str]`) - The display name for the policy.
-          * `manualQueueOnly` (`pulumi.Input[bool]`) - If set to true, the build will need to be manually queued. Defaults to `false`
-          * `queueOnSourceUpdateOnly` (`pulumi.Input[bool]`) - True if the build should queue on source updates only. Defaults to `true`.
-          * `scopes` (`pulumi.Input[list]`) - Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-            * `matchType` (`pulumi.Input[str]`) - The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
-            * `repositoryId` (`pulumi.Input[str]`) - The repository ID. Needed only if the scope of the policy will be limited to a single repository.
-            * `repositoryRef` (`pulumi.Input[str]`) - The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-
-          * `validDuration` (`pulumi.Input[float]`) - The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+        :param pulumi.Input[pulumi.InputType['BranchPolicyBuildValidationSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -117,7 +90,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -138,31 +111,24 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, blocking=None, enabled=None, project_id=None, settings=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            blocking: Optional[pulumi.Input[bool]] = None,
+            enabled: Optional[pulumi.Input[bool]] = None,
+            project_id: Optional[pulumi.Input[str]] = None,
+            settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyBuildValidationSettingsArgs']]] = None) -> 'BranchPolicyBuildValidation':
         """
         Get an existing BranchPolicyBuildValidation resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[dict] settings: Configuration for the policy. This block must be defined exactly once.
-
-        The **settings** object supports the following:
-
-          * `buildDefinitionId` (`pulumi.Input[float]`) - The ID of the build to monitor for the policy.
-          * `display_name` (`pulumi.Input[str]`) - The display name for the policy.
-          * `manualQueueOnly` (`pulumi.Input[bool]`) - If set to true, the build will need to be manually queued. Defaults to `false`
-          * `queueOnSourceUpdateOnly` (`pulumi.Input[bool]`) - True if the build should queue on source updates only. Defaults to `true`.
-          * `scopes` (`pulumi.Input[list]`) - Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-            * `matchType` (`pulumi.Input[str]`) - The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
-            * `repositoryId` (`pulumi.Input[str]`) - The repository ID. Needed only if the scope of the policy will be limited to a single repository.
-            * `repositoryRef` (`pulumi.Input[str]`) - The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
-
-          * `validDuration` (`pulumi.Input[float]`) - The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+        :param pulumi.Input[pulumi.InputType['BranchPolicyBuildValidationSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -174,8 +140,41 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         __props__["settings"] = settings
         return BranchPolicyBuildValidation(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[bool]:
+        """
+        A flag indicating if the policy should be blocking. Defaults to `true`.
+        """
+        return pulumi.get(self, "blocking")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        A flag indicating if the policy should be enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        The ID of the project in which the policy will be created.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter
+    def settings(self) -> 'outputs.BranchPolicyBuildValidationSettings':
+        """
+        Configuration for the policy. This block must be defined exactly once.
+        """
+        return pulumi.get(self, "settings")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

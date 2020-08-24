@@ -5,34 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['BitBucket']
 
 
 class BitBucket(pulumi.CustomResource):
-    authorization: pulumi.Output[dict]
-    description: pulumi.Output[str]
-    password: pulumi.Output[str]
-    """
-    Bitbucket account password.
-    """
-    password_hash: pulumi.Output[str]
-    """
-    A bcrypted hash of the attribute 'password'
-    """
-    project_id: pulumi.Output[str]
-    """
-    The project ID or project name.
-    """
-    service_endpoint_name: pulumi.Output[str]
-    """
-    The Service Endpoint name.
-    """
-    username: pulumi.Output[str]
-    """
-    Bitbucket account username.
-    """
-    def __init__(__self__, resource_name, opts=None, authorization=None, description=None, password=None, project_id=None, service_endpoint_name=None, username=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Bitbucket service endpoint within Azure DevOps.
 
@@ -76,7 +67,7 @@ class BitBucket(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -104,13 +95,22 @@ class BitBucket(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authorization=None, description=None, password=None, password_hash=None, project_id=None, service_endpoint_name=None, username=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            password: Optional[pulumi.Input[str]] = None,
+            password_hash: Optional[pulumi.Input[str]] = None,
+            project_id: Optional[pulumi.Input[str]] = None,
+            service_endpoint_name: Optional[pulumi.Input[str]] = None,
+            username: Optional[pulumi.Input[str]] = None) -> 'BitBucket':
         """
         Get an existing BitBucket resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] password: Bitbucket account password.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
@@ -131,8 +131,59 @@ class BitBucket(pulumi.CustomResource):
         __props__["username"] = username
         return BitBucket(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def authorization(self) -> Mapping[str, str]:
+        return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Bitbucket account password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> str:
+        """
+        A bcrypted hash of the attribute 'password'
+        """
+        return pulumi.get(self, "password_hash")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> str:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Bitbucket account username.
+        """
+        return pulumi.get(self, "username")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

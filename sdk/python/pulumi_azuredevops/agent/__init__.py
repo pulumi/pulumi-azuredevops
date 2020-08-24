@@ -7,3 +7,4 @@ from .get_pool import *
 from .get_pools import *
 from .pool import *
 from .queue import *
+from . import outputs

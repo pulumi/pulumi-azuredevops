@@ -43,6 +43,9 @@ export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise
  * A collection of arguments for invoking getPool.
  */
 export interface GetPoolArgs {
+    /**
+     * Name of the Agent Pool.
+     */
     readonly name: string;
 }
 

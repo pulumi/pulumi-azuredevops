@@ -7,9 +7,18 @@ import * as outputs from "../types/output";
 
 export namespace Agent {
     export interface GetPoolsAgentPool {
+        /**
+         * Specifies whether or not a queue should be automatically provisioned for each project collection.
+         */
         autoProvision: boolean;
         id: number;
+        /**
+         * The name of the agent pool
+         */
         name: string;
+        /**
+         * Specifies whether the agent pool type is Automation or Deployment.
+         */
         poolType: string;
     }
 }
@@ -189,20 +198,50 @@ export namespace Build {
 
 export namespace Core {
     export interface GetProjectsProject {
+        /**
+         * Project name.
+         */
         name: string;
+        /**
+         * Project identifier.
+         */
         projectId: string;
+        /**
+         * Url to the full version of the object.
+         */
         projectUrl: string;
+        /**
+         * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+         */
         state: string;
     }
 }
 
 export namespace Identities {
     export interface GetUsersUser {
+        /**
+         * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+         */
         descriptor: string;
+        /**
+         * This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+         */
         displayName: string;
+        /**
+         * The email address of record for a given graph member. This may be different than the principal name.
+         */
         mailAddress: string;
+        /**
+         * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+         */
         origin: string;
+        /**
+         * The unique identifier from the system of origin.
+         */
         originId?: string;
+        /**
+         * The PrincipalName of this graph member from the source provider.
+         */
         principalName: string;
     }
 }
@@ -315,14 +354,41 @@ export namespace Policy {
 
 export namespace Repository {
     export interface GetRepositoriesRepository {
+        /**
+         * The ref of the default branch.
+         */
         defaultBranch: string;
+        /**
+         * Git repository identifier.
+         */
         id: string;
+        /**
+         * Name of the Git repository to retrieve; requires `projectId` to be specified as well
+         */
         name: string;
+        /**
+         * ID of project to list Git repositories
+         */
         projectId: string;
+        /**
+         * HTTPS Url to clone the Git repository
+         */
         remoteUrl: string;
+        /**
+         * Compressed size (bytes) of the repository.
+         */
         size: number;
+        /**
+         * SSH Url to clone the Git repository
+         */
         sshUrl: string;
+        /**
+         * Details REST API endpoint for the Git Repository.
+         */
         url: string;
+        /**
+         * Url of the Git repository web view
+         */
         webUrl: string;
     }
 

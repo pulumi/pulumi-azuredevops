@@ -63,9 +63,21 @@ export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getUsers.
  */
 export interface GetUsersArgs {
+    /**
+     * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     */
     readonly origin?: string;
+    /**
+     * The unique identifier from the system of origin.
+     */
     readonly originId?: string;
+    /**
+     * The PrincipalName of this graph member from the source provider.
+     */
     readonly principalName?: string;
+    /**
+     * A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+     */
     readonly subjectTypes?: string[];
 }
 
@@ -77,9 +89,21 @@ export interface GetUsersResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+     */
     readonly origin?: string;
+    /**
+     * The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+     */
     readonly originId?: string;
+    /**
+     * This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+     */
     readonly principalName?: string;
     readonly subjectTypes?: string[];
+    /**
+     * A list of existing users in your Azure DevOps Organization with details about every single user which includes:
+     */
     readonly users: outputs.Identities.GetUsersUser[];
 }

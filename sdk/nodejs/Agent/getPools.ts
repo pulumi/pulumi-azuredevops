@@ -40,6 +40,9 @@ export function getPools(opts?: pulumi.InvokeOptions): Promise<GetPoolsResult> {
  * A collection of values returned by getPools.
  */
 export interface GetPoolsResult {
+    /**
+     * A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+     */
     readonly agentPools: outputs.Agent.GetPoolsAgentPool[];
     /**
      * The provider-assigned unique ID for this managed resource.

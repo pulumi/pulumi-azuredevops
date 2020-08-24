@@ -13,9 +13,21 @@ namespace Pulumi.AzureDevOps.Core.Outputs
     [OutputType]
     public sealed class GetProjectsProjectResult
     {
+        /// <summary>
+        /// Project name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Project identifier.
+        /// </summary>
         public readonly string ProjectId;
+        /// <summary>
+        /// Url to the full version of the object.
+        /// </summary>
         public readonly string ProjectUrl;
+        /// <summary>
+        /// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+        /// </summary>
         public readonly string State;
 
         [OutputConstructor]

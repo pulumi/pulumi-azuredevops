@@ -55,6 +55,9 @@ namespace Pulumi.AzureDevOps.Agent
     [OutputType]
     public sealed class GetPoolsResult
     {
+        /// <summary>
+        /// A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetPoolsAgentPoolResult> AgentPools;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.

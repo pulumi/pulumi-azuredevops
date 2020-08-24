@@ -46,6 +46,9 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
  * A collection of arguments for invoking getProject.
  */
 export interface GetProjectArgs {
+    /**
+     * Name of the Project.
+     */
     readonly projectName: string;
 }
 

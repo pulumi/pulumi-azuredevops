@@ -47,7 +47,13 @@ export function getProjects(args?: GetProjectsArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getProjects.
  */
 export interface GetProjectsArgs {
+    /**
+     * Name of the Project, if not specified all projects will be returned.
+     */
     readonly projectName?: string;
+    /**
+     * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+     */
     readonly state?: string;
 }
 
@@ -60,6 +66,12 @@ export interface GetProjectsResult {
      */
     readonly id: string;
     readonly projectName?: string;
+    /**
+     * A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     */
     readonly projects: outputs.Core.GetProjectsProject[];
+    /**
+     * Project state.
+     */
     readonly state?: string;
 }

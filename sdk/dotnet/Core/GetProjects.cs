@@ -61,9 +61,15 @@ namespace Pulumi.AzureDevOps.Core
 
     public sealed class GetProjectsArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Project, if not specified all projects will be returned.
+        /// </summary>
         [Input("projectName")]
         public string? ProjectName { get; set; }
 
+        /// <summary>
+        /// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+        /// </summary>
         [Input("state")]
         public string? State { get; set; }
 
@@ -81,7 +87,13 @@ namespace Pulumi.AzureDevOps.Core
         /// </summary>
         public readonly string Id;
         public readonly string? ProjectName;
+        /// <summary>
+        /// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetProjectsProjectResult> Projects;
+        /// <summary>
+        /// Project state.
+        /// </summary>
         public readonly string? State;
 
         [OutputConstructor]

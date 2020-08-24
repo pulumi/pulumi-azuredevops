@@ -5,46 +5,30 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['AzureRM']
 
 
 class AzureRM(pulumi.CustomResource):
-    authorization: pulumi.Output[dict]
-    azurerm_spn_tenantid: pulumi.Output[str]
-    """
-    The tenant id if the service principal.
-    """
-    azurerm_subscription_id: pulumi.Output[str]
-    """
-    The subscription Id of the Azure targets.
-    """
-    azurerm_subscription_name: pulumi.Output[str]
-    """
-    The subscription Name of the targets.
-    """
-    credentials: pulumi.Output[dict]
-    """
-    A `credentials` block.
-
-      * `serviceprincipalid` (`str`) - The service principal application Id
-      * `serviceprincipalkey` (`str`) - The service principal secret.
-      * `serviceprincipalkeyHash` (`str`)
-    """
-    description: pulumi.Output[str]
-    project_id: pulumi.Output[str]
-    """
-    The project ID or project name.
-    """
-    resource_group: pulumi.Output[str]
-    """
-    The resource group used for scope of automatic service endpoint.
-    """
-    service_endpoint_name: pulumi.Output[str]
-    """
-    The Service Endpoint name.
-    """
-    def __init__(__self__, resource_name, opts=None, authorization=None, azurerm_spn_tenantid=None, azurerm_subscription_id=None, azurerm_subscription_name=None, credentials=None, description=None, project_id=None, resource_group=None, service_endpoint_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
+                 azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
+                 azurerm_subscription_name: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input[pulumi.InputType['AzureRMCredentialsArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages Manual or Automatic AzureRM service endpoint within Azure DevOps.
 
@@ -69,10 +53,10 @@ class AzureRM(pulumi.CustomResource):
         endpointazure = azuredevops.service_endpoint.AzureRM("endpointazure",
             project_id=project.id,
             service_endpoint_name="TestServiceRM",
-            credentials={
-                "serviceprincipalid": "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
-                "serviceprincipalkey": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            },
+            credentials=azuredevops.service.endpoint.AzureRMCredentialsArgs(
+                serviceprincipalid="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
+                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ),
             azurerm_spn_tenantid="xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
             azurerm_subscription_id="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
             azurerm_subscription_name="Sample Subscription")
@@ -104,16 +88,10 @@ class AzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] azurerm_spn_tenantid: The tenant id if the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The subscription Id of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
-        :param pulumi.Input[dict] credentials: A `credentials` block.
+        :param pulumi.Input[pulumi.InputType['AzureRMCredentialsArgs']] credentials: A `credentials` block.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-
-        The **credentials** object supports the following:
-
-          * `serviceprincipalid` (`pulumi.Input[str]`) - The service principal application Id
-          * `serviceprincipalkey` (`pulumi.Input[str]`) - The service principal secret.
-          * `serviceprincipalkeyHash` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -126,7 +104,7 @@ class AzureRM(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -158,27 +136,32 @@ class AzureRM(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authorization=None, azurerm_spn_tenantid=None, azurerm_subscription_id=None, azurerm_subscription_name=None, credentials=None, description=None, project_id=None, resource_group=None, service_endpoint_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
+            azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
+            azurerm_subscription_name: Optional[pulumi.Input[str]] = None,
+            credentials: Optional[pulumi.Input[pulumi.InputType['AzureRMCredentialsArgs']]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            project_id: Optional[pulumi.Input[str]] = None,
+            resource_group: Optional[pulumi.Input[str]] = None,
+            service_endpoint_name: Optional[pulumi.Input[str]] = None) -> 'AzureRM':
         """
         Get an existing AzureRM resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] azurerm_spn_tenantid: The tenant id if the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The subscription Id of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
-        :param pulumi.Input[dict] credentials: A `credentials` block.
+        :param pulumi.Input[pulumi.InputType['AzureRMCredentialsArgs']] credentials: A `credentials` block.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-
-        The **credentials** object supports the following:
-
-          * `serviceprincipalid` (`pulumi.Input[str]`) - The service principal application Id
-          * `serviceprincipalkey` (`pulumi.Input[str]`) - The service principal secret.
-          * `serviceprincipalkeyHash` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -195,8 +178,75 @@ class AzureRM(pulumi.CustomResource):
         __props__["service_endpoint_name"] = service_endpoint_name
         return AzureRM(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def authorization(self) -> Mapping[str, str]:
+        return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter(name="azurermSpnTenantid")
+    def azurerm_spn_tenantid(self) -> str:
+        """
+        The tenant id if the service principal.
+        """
+        return pulumi.get(self, "azurerm_spn_tenantid")
+
+    @property
+    @pulumi.getter(name="azurermSubscriptionId")
+    def azurerm_subscription_id(self) -> str:
+        """
+        The subscription Id of the Azure targets.
+        """
+        return pulumi.get(self, "azurerm_subscription_id")
+
+    @property
+    @pulumi.getter(name="azurermSubscriptionName")
+    def azurerm_subscription_name(self) -> str:
+        """
+        The subscription Name of the targets.
+        """
+        return pulumi.get(self, "azurerm_subscription_name")
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional['outputs.AzureRMCredentials']:
+        """
+        A `credentials` block.
+        """
+        return pulumi.get(self, "credentials")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[str]:
+        """
+        The resource group used for scope of automatic service endpoint.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> str:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

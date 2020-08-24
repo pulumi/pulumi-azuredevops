@@ -5,28 +5,23 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['ResourceAuthorization']
 
 
 class ResourceAuthorization(pulumi.CustomResource):
-    authorized: pulumi.Output[bool]
-    """
-    Set to true to allow public access in the project. Type: boolean.
-    """
-    project_id: pulumi.Output[str]
-    """
-    The project ID or project name. Type: string.
-    """
-    resource_id: pulumi.Output[str]
-    """
-    The ID of the resource to authorize. Type: string.
-    """
-    type: pulumi.Output[str]
-    """
-    The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
-    """
-    def __init__(__self__, resource_name, opts=None, authorized=None, project_id=None, resource_id=None, type=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorized: Optional[pulumi.Input[bool]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         ## # Security.ResourceAuthorization
 
@@ -74,7 +69,7 @@ class ResourceAuthorization(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -95,13 +90,19 @@ class ResourceAuthorization(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authorized=None, project_id=None, resource_id=None, type=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorized: Optional[pulumi.Input[bool]] = None,
+            project_id: Optional[pulumi.Input[str]] = None,
+            resource_id: Optional[pulumi.Input[str]] = None,
+            type: Optional[pulumi.Input[str]] = None) -> 'ResourceAuthorization':
         """
         Get an existing ResourceAuthorization resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] authorized: Set to true to allow public access in the project. Type: boolean.
         :param pulumi.Input[str] project_id: The project ID or project name. Type: string.
@@ -118,8 +119,41 @@ class ResourceAuthorization(pulumi.CustomResource):
         __props__["type"] = type
         return ResourceAuthorization(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def authorized(self) -> bool:
+        """
+        Set to true to allow public access in the project. Type: boolean.
+        """
+        return pulumi.get(self, "authorized")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        The project ID or project name. Type: string.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[str]:
+        """
+        The ID of the resource to authorize. Type: string.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[str]:
+        """
+        The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
+        """
+        return pulumi.get(self, "type")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

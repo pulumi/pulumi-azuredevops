@@ -8,3 +8,5 @@ from .bit_bucket import *
 from .docker_registry import *
 from .git_hub import *
 from .kubernetes import *
+from ._inputs import *
+from . import outputs

@@ -5,49 +5,28 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['DockerRegistry']
 
 
 class DockerRegistry(pulumi.CustomResource):
-    authorization: pulumi.Output[dict]
-    description: pulumi.Output[str]
-    """
-    The name you will use to refer to this service connection in task inputs.
-    """
-    docker_email: pulumi.Output[str]
-    """
-    The email for Docker account user.
-    """
-    docker_password: pulumi.Output[str]
-    """
-    The password for the account user identified above.
-    """
-    docker_password_hash: pulumi.Output[str]
-    """
-    A bcrypted hash of the attribute 'docker_password'
-    """
-    docker_registry: pulumi.Output[str]
-    """
-    The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
-    """
-    docker_username: pulumi.Output[str]
-    """
-    The identifier of the Docker account user.
-    """
-    project_id: pulumi.Output[str]
-    """
-    The project ID or project name.
-    """
-    registry_type: pulumi.Output[str]
-    """
-    Can be "DockerHub" or "Others" (Default "DockerHub")
-    """
-    service_endpoint_name: pulumi.Output[str]
-    """
-    The name you will use to refer to this service connection in task inputs.
-    """
-    def __init__(__self__, resource_name, opts=None, authorization=None, description=None, docker_email=None, docker_password=None, docker_registry=None, docker_username=None, project_id=None, registry_type=None, service_endpoint_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 docker_email: Optional[pulumi.Input[str]] = None,
+                 docker_password: Optional[pulumi.Input[str]] = None,
+                 docker_registry: Optional[pulumi.Input[str]] = None,
+                 docker_username: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 registry_type: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a Docker Registry service endpoint within Azure DevOps.
 
@@ -106,7 +85,7 @@ class DockerRegistry(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -137,13 +116,25 @@ class DockerRegistry(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, authorization=None, description=None, docker_email=None, docker_password=None, docker_password_hash=None, docker_registry=None, docker_username=None, project_id=None, registry_type=None, service_endpoint_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            docker_email: Optional[pulumi.Input[str]] = None,
+            docker_password: Optional[pulumi.Input[str]] = None,
+            docker_password_hash: Optional[pulumi.Input[str]] = None,
+            docker_registry: Optional[pulumi.Input[str]] = None,
+            docker_username: Optional[pulumi.Input[str]] = None,
+            project_id: Optional[pulumi.Input[str]] = None,
+            registry_type: Optional[pulumi.Input[str]] = None,
+            service_endpoint_name: Optional[pulumi.Input[str]] = None) -> 'DockerRegistry':
         """
         Get an existing DockerRegistry resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] docker_email: The email for Docker account user.
@@ -171,8 +162,86 @@ class DockerRegistry(pulumi.CustomResource):
         __props__["service_endpoint_name"] = service_endpoint_name
         return DockerRegistry(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def authorization(self) -> Mapping[str, str]:
+        return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        The name you will use to refer to this service connection in task inputs.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="dockerEmail")
+    def docker_email(self) -> Optional[str]:
+        """
+        The email for Docker account user.
+        """
+        return pulumi.get(self, "docker_email")
+
+    @property
+    @pulumi.getter(name="dockerPassword")
+    def docker_password(self) -> Optional[str]:
+        """
+        The password for the account user identified above.
+        """
+        return pulumi.get(self, "docker_password")
+
+    @property
+    @pulumi.getter(name="dockerPasswordHash")
+    def docker_password_hash(self) -> str:
+        """
+        A bcrypted hash of the attribute 'docker_password'
+        """
+        return pulumi.get(self, "docker_password_hash")
+
+    @property
+    @pulumi.getter(name="dockerRegistry")
+    def docker_registry(self) -> str:
+        """
+        The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
+        """
+        return pulumi.get(self, "docker_registry")
+
+    @property
+    @pulumi.getter(name="dockerUsername")
+    def docker_username(self) -> Optional[str]:
+        """
+        The identifier of the Docker account user.
+        """
+        return pulumi.get(self, "docker_username")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="registryType")
+    def registry_type(self) -> str:
+        """
+        Can be "DockerHub" or "Others" (Default "DockerHub")
+        """
+        return pulumi.get(self, "registry_type")
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> str:
+        """
+        The name you will use to refer to this service connection in task inputs.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

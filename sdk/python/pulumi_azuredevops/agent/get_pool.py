@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetPoolResult',
+    'AwaitableGetPoolResult',
+    'get_pool',
+]
+
+@pulumi.output_type
 class GetPoolResult:
     """
     A collection of values returned by getPool.
@@ -15,19 +22,41 @@ class GetPoolResult:
     def __init__(__self__, auto_provision=None, id=None, name=None, pool_type=None):
         if auto_provision and not isinstance(auto_provision, bool):
             raise TypeError("Expected argument 'auto_provision' to be a bool")
-        __self__.auto_provision = auto_provision
+        pulumi.set(__self__, "auto_provision", auto_provision)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if pool_type and not isinstance(pool_type, str):
+            raise TypeError("Expected argument 'pool_type' to be a str")
+        pulumi.set(__self__, "pool_type", pool_type)
+
+    @property
+    @pulumi.getter(name="autoProvision")
+    def auto_provision(self) -> bool:
+        return pulumi.get(self, "auto_provision")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if name and not isinstance(name, str):
-            raise TypeError("Expected argument 'name' to be a str")
-        __self__.name = name
-        if pool_type and not isinstance(pool_type, str):
-            raise TypeError("Expected argument 'pool_type' to be a str")
-        __self__.pool_type = pool_type
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="poolType")
+    def pool_type(self) -> str:
+        return pulumi.get(self, "pool_type")
+
+
 class AwaitableGetPoolResult(GetPoolResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -39,7 +68,9 @@ class AwaitableGetPoolResult(GetPoolResult):
             name=self.name,
             pool_type=self.pool_type)
 
-def get_pool(name=None,opts=None):
+
+def get_pool(name: Optional[str] = None,
+             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolResult:
     """
     Use this data source to access information about an existing Agent Pool within Azure DevOps.
 
@@ -57,19 +88,20 @@ def get_pool(name=None,opts=None):
     ## Relevant Links
 
     - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
+
+
+    :param str name: Name of the Agent Pool.
     """
     __args__ = dict()
-
-
     __args__['name'] = name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azuredevops:Agent/getPool:getPool', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azuredevops:Agent/getPool:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
-        auto_provision=__ret__.get('autoProvision'),
-        id=__ret__.get('id'),
-        name=__ret__.get('name'),
-        pool_type=__ret__.get('poolType'))
+        auto_provision=__ret__.auto_provision,
+        id=__ret__.id,
+        name=__ret__.name,
+        pool_type=__ret__.pool_type)

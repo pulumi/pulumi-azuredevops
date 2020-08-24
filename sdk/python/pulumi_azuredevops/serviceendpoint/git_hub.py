@@ -5,35 +5,27 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['GitHub']
 
 
 class GitHub(pulumi.CustomResource):
-    auth_oauth: pulumi.Output[dict]
-    """
-    An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-
-      * `oauthConfigurationId` (`str`)
-    """
-    auth_personal: pulumi.Output[dict]
-    """
-    An `auth_personal` block as documented below. Allows connecting using a personal access token.
-
-      * `personalAccessToken` (`str`) - The Personal Access Token for Github.
-      * `personalAccessTokenHash` (`str`)
-    """
-    authorization: pulumi.Output[dict]
-    description: pulumi.Output[str]
-    project_id: pulumi.Output[str]
-    """
-    The project ID or project name.
-    """
-    service_endpoint_name: pulumi.Output[str]
-    """
-    The Service Endpoint name.
-    """
-    def __init__(__self__, resource_name, opts=None, auth_oauth=None, auth_personal=None, authorization=None, description=None, project_id=None, service_endpoint_name=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_oauth: Optional[pulumi.Input[pulumi.InputType['GitHubAuthOauthArgs']]] = None,
+                 auth_personal: Optional[pulumi.Input[pulumi.InputType['GitHubAuthPersonalArgs']]] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a GitHub service endpoint within Azure DevOps.
 
@@ -51,9 +43,9 @@ class GitHub(pulumi.CustomResource):
         serviceendpoint_gh1 = azuredevops.service_endpoint.GitHub("serviceendpointGh1",
             project_id=project.id,
             service_endpoint_name="Sample GithHub Personal Access Token",
-            auth_personal={
-                "personalAccessToken": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            })
+            auth_personal=azuredevops.service.endpoint.GitHubAuthPersonalArgs(
+                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ))
         ```
 
         ```python
@@ -63,9 +55,9 @@ class GitHub(pulumi.CustomResource):
         serviceendpoint_gh2 = azuredevops.service_endpoint.GitHub("serviceendpointGh2",
             project_id=azuredevops_project["project"]["id"],
             service_endpoint_name="Sample GithHub Grant",
-            auth_oauth={
-                "oauthConfigurationId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-            })
+            auth_oauth=azuredevops.service.endpoint.GitHubAuthOauthArgs(
+                oauth_configuration_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+            ))
         ```
 
         ```python
@@ -83,19 +75,10 @@ class GitHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        :param pulumi.Input[dict] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[pulumi.InputType['GitHubAuthOauthArgs']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        :param pulumi.Input[pulumi.InputType['GitHubAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-
-        The **auth_oauth** object supports the following:
-
-          * `oauthConfigurationId` (`pulumi.Input[str]`)
-
-        The **auth_personal** object supports the following:
-
-          * `personalAccessToken` (`pulumi.Input[str]`) - The Personal Access Token for Github.
-          * `personalAccessTokenHash` (`pulumi.Input[str]`)
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -108,7 +91,7 @@ class GitHub(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -131,27 +114,26 @@ class GitHub(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, auth_oauth=None, auth_personal=None, authorization=None, description=None, project_id=None, service_endpoint_name=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            auth_oauth: Optional[pulumi.Input[pulumi.InputType['GitHubAuthOauthArgs']]] = None,
+            auth_personal: Optional[pulumi.Input[pulumi.InputType['GitHubAuthPersonalArgs']]] = None,
+            authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            project_id: Optional[pulumi.Input[str]] = None,
+            service_endpoint_name: Optional[pulumi.Input[str]] = None) -> 'GitHub':
         """
         Get an existing GitHub resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[dict] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        :param pulumi.Input[dict] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[pulumi.InputType['GitHubAuthOauthArgs']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        :param pulumi.Input[pulumi.InputType['GitHubAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-
-        The **auth_oauth** object supports the following:
-
-          * `oauthConfigurationId` (`pulumi.Input[str]`)
-
-        The **auth_personal** object supports the following:
-
-          * `personalAccessToken` (`pulumi.Input[str]`) - The Personal Access Token for Github.
-          * `personalAccessTokenHash` (`pulumi.Input[str]`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -165,8 +147,51 @@ class GitHub(pulumi.CustomResource):
         __props__["service_endpoint_name"] = service_endpoint_name
         return GitHub(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="authOauth")
+    def auth_oauth(self) -> Optional['outputs.GitHubAuthOauth']:
+        """
+        An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        """
+        return pulumi.get(self, "auth_oauth")
+
+    @property
+    @pulumi.getter(name="authPersonal")
+    def auth_personal(self) -> Optional['outputs.GitHubAuthPersonal']:
+        """
+        An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        """
+        return pulumi.get(self, "auth_personal")
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Mapping[str, str]:
+        return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> str:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

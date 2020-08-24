@@ -60,9 +60,15 @@ namespace Pulumi.AzureDevOps.Repository
         [Input("includeHidden")]
         public bool? IncludeHidden { get; set; }
 
+        /// <summary>
+        /// Name of the Git repository to retrieve; requires `project_id` to be specified as well
+        /// </summary>
         [Input("name")]
         public string? Name { get; set; }
 
+        /// <summary>
+        /// ID of project to list Git repositories
+        /// </summary>
         [Input("projectId")]
         public string? ProjectId { get; set; }
 
@@ -80,8 +86,17 @@ namespace Pulumi.AzureDevOps.Repository
         /// </summary>
         public readonly string Id;
         public readonly bool? IncludeHidden;
+        /// <summary>
+        /// Git repository name.
+        /// </summary>
         public readonly string? Name;
+        /// <summary>
+        /// Project identifier to which the Git repository belongs.
+        /// </summary>
         public readonly string? ProjectId;
+        /// <summary>
+        /// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetRepositoriesRepositoryResult> Repositories;
 
         [OutputConstructor]
