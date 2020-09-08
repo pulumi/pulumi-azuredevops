@@ -5,9 +5,16 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
 
+__all__ = [
+    'GetClientConfigResult',
+    'AwaitableGetClientConfigResult',
+    'get_client_config',
+]
+
+@pulumi.output_type
 class GetClientConfigResult:
     """
     A collection of values returned by getClientConfig.
@@ -15,13 +22,25 @@ class GetClientConfigResult:
     def __init__(__self__, id=None, organization_url=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+        if organization_url and not isinstance(organization_url, str):
+            raise TypeError("Expected argument 'organization_url' to be a str")
+        pulumi.set(__self__, "organization_url", organization_url)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
-        if organization_url and not isinstance(organization_url, str):
-            raise TypeError("Expected argument 'organization_url' to be a str")
-        __self__.organization_url = organization_url
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="organizationUrl")
+    def organization_url(self) -> str:
+        return pulumi.get(self, "organization_url")
+
+
 class AwaitableGetClientConfigResult(GetClientConfigResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -31,7 +50,8 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
             id=self.id,
             organization_url=self.organization_url)
 
-def get_client_config(opts=None):
+
+def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientConfigResult:
     """
     Use this data source to access information about the Azure DevOps organization configured for the provider.
 
@@ -46,14 +66,12 @@ def get_client_config(opts=None):
     ```
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azuredevops:Core/getClientConfig:getClientConfig', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azuredevops:Core/getClientConfig:getClientConfig', __args__, opts=opts, typ=GetClientConfigResult).value
 
     return AwaitableGetClientConfigResult(
-        id=__ret__.get('id'),
-        organization_url=__ret__.get('organizationUrl'))
+        id=__ret__.id,
+        organization_url=__ret__.organization_url)

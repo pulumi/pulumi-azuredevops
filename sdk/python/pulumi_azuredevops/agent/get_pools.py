@@ -5,9 +5,17 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
 
+__all__ = [
+    'GetPoolsResult',
+    'AwaitableGetPoolsResult',
+    'get_pools',
+]
+
+@pulumi.output_type
 class GetPoolsResult:
     """
     A collection of values returned by getPools.
@@ -15,13 +23,28 @@ class GetPoolsResult:
     def __init__(__self__, agent_pools=None, id=None):
         if agent_pools and not isinstance(agent_pools, list):
             raise TypeError("Expected argument 'agent_pools' to be a list")
-        __self__.agent_pools = agent_pools
+        pulumi.set(__self__, "agent_pools", agent_pools)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
-        __self__.id = id
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="agentPools")
+    def agent_pools(self) -> List['outputs.GetPoolsAgentPoolResult']:
+        """
+        A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
+        """
+        return pulumi.get(self, "agent_pools")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
         """
+        return pulumi.get(self, "id")
+
+
 class AwaitableGetPoolsResult(GetPoolsResult):
     # pylint: disable=using-constant-test
     def __await__(self):
@@ -31,7 +54,8 @@ class AwaitableGetPoolsResult(GetPoolsResult):
             agent_pools=self.agent_pools,
             id=self.id)
 
-def get_pools(opts=None):
+
+def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsResult:
     """
     Use this data source to access information about existing Agent Pools within Azure DevOps.
 
@@ -42,23 +66,21 @@ def get_pools(opts=None):
     import pulumi_azuredevops as azuredevops
 
     pools = azuredevops.Agent.get_pools()
-    pulumi.export("agentPoolName", [__item["name"] for __item in pools.agent_pools])
-    pulumi.export("autoProvision", [__item["auto_provision"] for __item in pools.agent_pools])
-    pulumi.export("poolType", [__item["pool_type"] for __item in pools.agent_pools])
+    pulumi.export("agentPoolName", [__item.name for __item in pools.agent_pools])
+    pulumi.export("autoProvision", [__item.auto_provision for __item in pools.agent_pools])
+    pulumi.export("poolType", [__item.pool_type for __item in pools.agent_pools])
     ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
     """
     __args__ = dict()
-
-
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
-        opts.version = utilities.get_version()
-    __ret__ = pulumi.runtime.invoke('azuredevops:Agent/getPools:getPools', __args__, opts=opts).value
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azuredevops:Agent/getPools:getPools', __args__, opts=opts, typ=GetPoolsResult).value
 
     return AwaitableGetPoolsResult(
-        agent_pools=__ret__.get('agentPools'),
-        id=__ret__.get('id'))
+        agent_pools=__ret__.agent_pools,
+        id=__ret__.id)

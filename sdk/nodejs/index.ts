@@ -5,16 +5,16 @@
 export * from "./provider";
 
 // Export sub-modules:
-import * as Agent from "./Agent";
-import * as Build from "./Build";
-import * as Core from "./Core";
-import * as Entitlement from "./Entitlement";
-import * as Identities from "./Identities";
-import * as Pipeline from "./Pipeline";
-import * as Policy from "./Policy";
-import * as Repository from "./Repository";
-import * as Security from "./Security";
-import * as ServiceEndpoint from "./ServiceEndpoint";
+import * as agent from "./agent";
+import * as build from "./build";
 import * as config from "./config";
+import * as core from "./core";
+import * as entitlement from "./entitlement";
+import * as identities from "./identities";
+import * as pipeline from "./pipeline";
+import * as policy from "./policy";
+import * as repository from "./repository";
+import * as security from "./security";
+import * as serviceendpoint from "./serviceendpoint";
 import * as types from "./types";
-export {Agent, Build, Core, Entitlement, Identities, Pipeline, Policy, Repository, Security, ServiceEndpoint, config, types};
+export {agent, build, config, core, entitlement, identities, pipeline, policy, repository, security, serviceendpoint, types};

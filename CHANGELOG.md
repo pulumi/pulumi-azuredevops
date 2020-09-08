@@ -2,7 +2,20 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to pulumi-terraform-bridge v2.7.3
+* Upgrade to Pulumi v2.9.0, which adds type annotations and input/output classes to Python  
+  **Please Note:**  
+  The NodeJS and Go SDKs have lowercased all provider modules.
+  `azuredevops.Agent` will now be `azuredevops.agent` in Go, NodeJS and Python SDKs.
+  `azuredevops.Build` will now be `azuredevops.build` in Go, NodeJS and Python SDKs.
+  `azuredevops.Core` will now be `azuredevops.core` in Go, NodeJS and Python SDKs.
+  `azuredevops.Entitlement` will now be `azuredevops.entitlement` in Go, NodeJS and Python SDKs.
+  `azuredevops.Identities` will now be `azuredevops.identities` in Go, NodeJS and Python SDKs.
+  `azuredevops.Pipeline` will now be `azuredevops.pipeline` in Go, NodeJS and Python SDKs.
+  `azuredevops.Policy` will now be `azuredevops.policy` in Go, NodeJS and Python SDKs.
+  `azuredevops.Repository` will now be `azuredevops.repository` in Go, NodeJS and Python SDKs.
+  `azuredevops.Security` will now be `azuredevops.security` in Go, NodeJS and Python SDKs.
+  `azuredevops.ServiceEndpoint` will now be `azuredevops.serviceendpoint` in Go, NodeJS and Python SDKs.
 
 ---
 

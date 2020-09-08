@@ -8,3 +8,4 @@ from .get_project import *
 from .get_projects import *
 from .project import *
 from .project_features import *
+from . import outputs

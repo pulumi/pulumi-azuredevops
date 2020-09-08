@@ -35,8 +35,10 @@ export class Provider extends pulumi.ProviderResource {
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        inputs["orgServiceUrl"] = (args ? args.orgServiceUrl : undefined) || utilities.getEnv("AZDO_ORG_SERVICE_URL");
-        inputs["personalAccessToken"] = (args ? args.personalAccessToken : undefined) || utilities.getEnv("AZDO_PERSONAL_ACCESS_TOKEN");
+        {
+            inputs["orgServiceUrl"] = (args ? args.orgServiceUrl : undefined) || utilities.getEnv("AZDO_ORG_SERVICE_URL");
+            inputs["personalAccessToken"] = (args ? args.personalAccessToken : undefined) || utilities.getEnv("AZDO_PERSONAL_ACCESS_TOKEN");
+        }
         if (!opts) {
             opts = {}
         }

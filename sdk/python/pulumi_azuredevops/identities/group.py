@@ -5,60 +5,25 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+
+__all__ = ['Group']
 
 
 class Group(pulumi.CustomResource):
-    description: pulumi.Output[str]
-    """
-    The Description of the Project.
-    """
-    descriptor: pulumi.Output[str]
-    """
-    The identity (subject) descriptor of the Group.
-    """
-    display_name: pulumi.Output[str]
-    """
-    The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
-    """
-    domain: pulumi.Output[str]
-    """
-    This represents the name of the container of origin for a graph member.
-    """
-    mail: pulumi.Output[str]
-    """
-    The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
-    """
-    members: pulumi.Output[list]
-    """
-    > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
-    """
-    origin: pulumi.Output[str]
-    """
-    The type of source provider for the origin identifier (ex:AD, AAD, MSA)
-    """
-    origin_id: pulumi.Output[str]
-    """
-    The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
-    """
-    principal_name: pulumi.Output[str]
-    """
-    This is the PrincipalName of this graph member from the source provider.
-    """
-    scope: pulumi.Output[str]
-    """
-    The scope of the group. A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization.x
-    """
-    subject_kind: pulumi.Output[str]
-    """
-    This field identifies the type of the graph subject (ex: Group, Scope, User).
-    """
-    url: pulumi.Output[str]
-    """
-    This url is the full route to the source resource of this graph subject.
-    """
-    def __init__(__self__, resource_name, opts=None, description=None, display_name=None, mail=None, members=None, origin_id=None, scope=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 display_name: Optional[pulumi.Input[str]] = None,
+                 mail: Optional[pulumi.Input[str]] = None,
+                 members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 origin_id: Optional[pulumi.Input[str]] = None,
+                 scope: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a group within Azure DevOps.
 
@@ -95,7 +60,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Description of the Project.
         :param pulumi.Input[str] display_name: The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
         :param pulumi.Input[str] mail: The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
-        :param pulumi.Input[list] members: > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        :param pulumi.Input[List[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] origin_id: The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
         :param pulumi.Input[str] scope: The scope of the group. A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization.x
         """
@@ -110,7 +75,7 @@ class Group(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -135,20 +100,34 @@ class Group(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, description=None, descriptor=None, display_name=None, domain=None, mail=None, members=None, origin=None, origin_id=None, principal_name=None, scope=None, subject_kind=None, url=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            description: Optional[pulumi.Input[str]] = None,
+            descriptor: Optional[pulumi.Input[str]] = None,
+            display_name: Optional[pulumi.Input[str]] = None,
+            domain: Optional[pulumi.Input[str]] = None,
+            mail: Optional[pulumi.Input[str]] = None,
+            members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            origin: Optional[pulumi.Input[str]] = None,
+            origin_id: Optional[pulumi.Input[str]] = None,
+            principal_name: Optional[pulumi.Input[str]] = None,
+            scope: Optional[pulumi.Input[str]] = None,
+            subject_kind: Optional[pulumi.Input[str]] = None,
+            url: Optional[pulumi.Input[str]] = None) -> 'Group':
         """
         Get an existing Group resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The Description of the Project.
         :param pulumi.Input[str] descriptor: The identity (subject) descriptor of the Group.
         :param pulumi.Input[str] display_name: The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
         :param pulumi.Input[str] domain: This represents the name of the container of origin for a graph member.
         :param pulumi.Input[str] mail: The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
-        :param pulumi.Input[list] members: > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        :param pulumi.Input[List[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier (ex:AD, AAD, MSA)
         :param pulumi.Input[str] origin_id: The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
         :param pulumi.Input[str] principal_name: This is the PrincipalName of this graph member from the source provider.
@@ -174,8 +153,105 @@ class Group(pulumi.CustomResource):
         __props__["url"] = url
         return Group(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        The Description of the Project.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def descriptor(self) -> pulumi.Output[str]:
+        """
+        The identity (subject) descriptor of the Group.
+        """
+        return pulumi.get(self, "descriptor")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> pulumi.Output[str]:
+        """
+        The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> pulumi.Output[str]:
+        """
+        This represents the name of the container of origin for a graph member.
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def mail(self) -> pulumi.Output[str]:
+        """
+        The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
+        """
+        return pulumi.get(self, "mail")
+
+    @property
+    @pulumi.getter
+    def members(self) -> pulumi.Output[List[str]]:
+        """
+        > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        """
+        return pulumi.get(self, "members")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> pulumi.Output[str]:
+        """
+        The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter(name="originId")
+    def origin_id(self) -> pulumi.Output[str]:
+        """
+        The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
+        """
+        return pulumi.get(self, "origin_id")
+
+    @property
+    @pulumi.getter(name="principalName")
+    def principal_name(self) -> pulumi.Output[str]:
+        """
+        This is the PrincipalName of this graph member from the source provider.
+        """
+        return pulumi.get(self, "principal_name")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> pulumi.Output[Optional[str]]:
+        """
+        The scope of the group. A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization.x
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="subjectKind")
+    def subject_kind(self) -> pulumi.Output[str]:
+        """
+        This field identifies the type of the graph subject (ex: Group, Scope, User).
+        """
+        return pulumi.get(self, "subject_kind")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[str]:
+        """
+        This url is the full route to the source resource of this graph subject.
+        """
+        return pulumi.get(self, "url")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+

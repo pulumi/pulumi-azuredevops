@@ -5,57 +5,26 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Union
-from .. import utilities, tables
+from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from .. import _utilities, _tables
+from . import outputs
+from ._inputs import *
+
+__all__ = ['Git']
 
 
 class Git(pulumi.CustomResource):
-    default_branch: pulumi.Output[str]
-    """
-    The ref of the default branch.
-    """
-    initialization: pulumi.Output[dict]
-    """
-    An `initialization` block as documented below.
-
-      * `initType` (`str`) - The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
-      * `sourceType` (`str`) - Type type of the source repository. Used if the `init_type` is `Import`.
-      * `sourceUrl` (`str`) - The URL of the source repository. Used if the `init_type` is `Import`.
-    """
-    is_fork: pulumi.Output[bool]
-    """
-    True if the repository was created as a fork.
-    """
-    name: pulumi.Output[str]
-    """
-    The name of the git repository.
-    """
-    parent_repository_id: pulumi.Output[str]
-    project_id: pulumi.Output[str]
-    """
-    The project ID or project name.
-    """
-    remote_url: pulumi.Output[str]
-    """
-    Git HTTPS URL of the repository
-    """
-    size: pulumi.Output[float]
-    """
-    Size in bytes.
-    """
-    ssh_url: pulumi.Output[str]
-    """
-    Git SSH URL of the repository.
-    """
-    url: pulumi.Output[str]
-    """
-    REST API URL of the repository.
-    """
-    web_url: pulumi.Output[str]
-    """
-    Web link to the repository.
-    """
-    def __init__(__self__, resource_name, opts=None, default_branch=None, initialization=None, name=None, parent_repository_id=None, project_id=None, __props__=None, __name__=None, __opts__=None):
+    def __init__(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_branch: Optional[pulumi.Input[str]] = None,
+                 initialization: Optional[pulumi.Input[pulumi.InputType['GitInitializationArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_repository_id: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         """
         Manages a git repository within Azure DevOps.
 
@@ -73,19 +42,9 @@ class Git(pulumi.CustomResource):
             work_item_template="Agile")
         repo = azuredevops.repository.Git("repo",
             project_id=project.id,
-            initialization={
-                "initType": "Clean",
-            })
-        ```
-        ### Create Fork of another Azure DevOps Git repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        repo = azuredevops.repository.Git("repo",
-            project_id=azuredevops_project["project"]["id"],
-            parent_id=azuredevops_git_repository["parent"]["id"])
+            initialization=azuredevops.repository.GitInitializationArgs(
+                init_type="Clean",
+            ))
         ```
         ## Relevant Links
 
@@ -94,15 +53,9 @@ class Git(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch.
-        :param pulumi.Input[dict] initialization: An `initialization` block as documented below.
+        :param pulumi.Input[pulumi.InputType['GitInitializationArgs']] initialization: An `initialization` block as documented below.
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] project_id: The project ID or project name.
-
-        The **initialization** object supports the following:
-
-          * `initType` (`pulumi.Input[str]`) - The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
-          * `sourceType` (`pulumi.Input[str]`) - Type type of the source repository. Used if the `init_type` is `Import`.
-          * `sourceUrl` (`pulumi.Input[str]`) - The URL of the source repository. Used if the `init_type` is `Import`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -115,7 +68,7 @@ class Git(pulumi.CustomResource):
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
         if opts.version is None:
-            opts.version = utilities.get_version()
+            opts.version = _utilities.get_version()
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
@@ -141,16 +94,29 @@ class Git(pulumi.CustomResource):
             opts)
 
     @staticmethod
-    def get(resource_name, id, opts=None, default_branch=None, initialization=None, is_fork=None, name=None, parent_repository_id=None, project_id=None, remote_url=None, size=None, ssh_url=None, url=None, web_url=None):
+    def get(resource_name: str,
+            id: pulumi.Input[str],
+            opts: Optional[pulumi.ResourceOptions] = None,
+            default_branch: Optional[pulumi.Input[str]] = None,
+            initialization: Optional[pulumi.Input[pulumi.InputType['GitInitializationArgs']]] = None,
+            is_fork: Optional[pulumi.Input[bool]] = None,
+            name: Optional[pulumi.Input[str]] = None,
+            parent_repository_id: Optional[pulumi.Input[str]] = None,
+            project_id: Optional[pulumi.Input[str]] = None,
+            remote_url: Optional[pulumi.Input[str]] = None,
+            size: Optional[pulumi.Input[float]] = None,
+            ssh_url: Optional[pulumi.Input[str]] = None,
+            url: Optional[pulumi.Input[str]] = None,
+            web_url: Optional[pulumi.Input[str]] = None) -> 'Git':
         """
         Get an existing Git resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
-        :param str id: The unique provider ID of the resource to lookup.
+        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch.
-        :param pulumi.Input[dict] initialization: An `initialization` block as documented below.
+        :param pulumi.Input[pulumi.InputType['GitInitializationArgs']] initialization: An `initialization` block as documented below.
         :param pulumi.Input[bool] is_fork: True if the repository was created as a fork.
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] project_id: The project ID or project name.
@@ -159,12 +125,6 @@ class Git(pulumi.CustomResource):
         :param pulumi.Input[str] ssh_url: Git SSH URL of the repository.
         :param pulumi.Input[str] url: REST API URL of the repository.
         :param pulumi.Input[str] web_url: Web link to the repository.
-
-        The **initialization** object supports the following:
-
-          * `initType` (`pulumi.Input[str]`) - The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
-          * `sourceType` (`pulumi.Input[str]`) - Type type of the source repository. Used if the `init_type` is `Import`.
-          * `sourceUrl` (`pulumi.Input[str]`) - The URL of the source repository. Used if the `init_type` is `Import`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -183,8 +143,94 @@ class Git(pulumi.CustomResource):
         __props__["web_url"] = web_url
         return Git(resource_name, opts=opts, __props__=__props__)
 
+    @property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> pulumi.Output[str]:
+        """
+        The ref of the default branch.
+        """
+        return pulumi.get(self, "default_branch")
+
+    @property
+    @pulumi.getter
+    def initialization(self) -> pulumi.Output[Optional['outputs.GitInitialization']]:
+        """
+        An `initialization` block as documented below.
+        """
+        return pulumi.get(self, "initialization")
+
+    @property
+    @pulumi.getter(name="isFork")
+    def is_fork(self) -> pulumi.Output[bool]:
+        """
+        True if the repository was created as a fork.
+        """
+        return pulumi.get(self, "is_fork")
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        The name of the git repository.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="parentRepositoryId")
+    def parent_repository_id(self) -> pulumi.Output[Optional[str]]:
+        return pulumi.get(self, "parent_repository_id")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Output[str]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @property
+    @pulumi.getter(name="remoteUrl")
+    def remote_url(self) -> pulumi.Output[str]:
+        """
+        Git HTTPS URL of the repository
+        """
+        return pulumi.get(self, "remote_url")
+
+    @property
+    @pulumi.getter
+    def size(self) -> pulumi.Output[float]:
+        """
+        Size in bytes.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="sshUrl")
+    def ssh_url(self) -> pulumi.Output[str]:
+        """
+        Git SSH URL of the repository.
+        """
+        return pulumi.get(self, "ssh_url")
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Output[str]:
+        """
+        REST API URL of the repository.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter(name="webUrl")
+    def web_url(self) -> pulumi.Output[str]:
+        """
+        Web link to the repository.
+        """
+        return pulumi.get(self, "web_url")
+
     def translate_output_property(self, prop):
-        return tables._CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
     def translate_input_property(self, prop):
-        return tables._SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
+
