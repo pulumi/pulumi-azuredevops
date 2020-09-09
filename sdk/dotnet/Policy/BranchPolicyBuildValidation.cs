@@ -22,47 +22,47 @@ namespace Pulumi.AzureDevOps.Policy
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Sample Project",
     ///         });
-    ///         var git = new AzureDevOps.Repository.Git("git", new AzureDevOps.Repository.GitArgs
+    ///         var git = new AzureDevOps.Git("git", new AzureDevOps.GitArgs
     ///         {
     ///             ProjectId = project.Id,
-    ///             Initialization = new AzureDevOps.Repository.Inputs.GitInitializationArgs
+    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///             {
     ///                 InitType = "Clean",
     ///             },
     ///         });
-    ///         var buildDefinition = new AzureDevOps.Build.BuildDefinition("buildDefinition", new AzureDevOps.Build.BuildDefinitionArgs
+    ///         var buildDefinition = new AzureDevOps.BuildDefinition("buildDefinition", new AzureDevOps.BuildDefinitionArgs
     ///         {
     ///             ProjectId = project.Id,
-    ///             Repository = new AzureDevOps.Build.Inputs.BuildDefinitionRepositoryArgs
+    ///             Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
     ///             {
     ///                 RepoType = "TfsGit",
     ///                 RepoId = git.Id,
     ///                 YmlPath = "azure-pipelines.yml",
     ///             },
     ///         });
-    ///         var branchPolicyBuildValidation = new AzureDevOps.Policy.BranchPolicyBuildValidation("branchPolicyBuildValidation", new AzureDevOps.Policy.BranchPolicyBuildValidationArgs
+    ///         var branchPolicyBuildValidation = new AzureDevOps.BranchPolicyBuildValidation("branchPolicyBuildValidation", new AzureDevOps.BranchPolicyBuildValidationArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             Enabled = true,
     ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Policy.Inputs.BranchPolicyBuildValidationSettingsArgs
+    ///             Settings = new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsArgs
     ///             {
     ///                 DisplayName = "Don't break the build!",
     ///                 BuildDefinitionId = buildDefinition.Id,
     ///                 ValidDuration = 720,
     ///                 Scopes = 
     ///                 {
-    ///                     new AzureDevOps.Policy.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
+    ///                     new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
     ///                     {
     ///                         RepositoryId = git.Id,
     ///                         RepositoryRef = git.DefaultBranch,
     ///                         MatchType = "Exact",
     ///                     },
-    ///                     new AzureDevOps.Policy.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
+    ///                     new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
     ///                     {
     ///                         RepositoryId = git.Id,
     ///                         RepositoryRef = "refs/heads/releases",
@@ -79,6 +79,7 @@ namespace Pulumi.AzureDevOps.Policy
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
     /// </summary>
+    [Obsolete(@"azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation")]
     public partial class BranchPolicyBuildValidation : Pulumi.CustomResource
     {
         /// <summary>

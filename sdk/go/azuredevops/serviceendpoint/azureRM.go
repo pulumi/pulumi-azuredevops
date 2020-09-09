@@ -25,14 +25,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/ServiceEndpoint"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
 // 			ProjectName:      pulumi.String("Sample Project"),
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
@@ -41,10 +40,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ServiceEndpoint.NewAzureRM(ctx, "endpointazure", &ServiceEndpoint.AzureRMArgs{
+// 		_, err = azuredevops.NewAzureRM(ctx, "endpointazure", &azuredevops.AzureRMArgs{
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("TestServiceRM"),
-// 			Credentials: &ServiceEndpoint.AzureRMCredentialsArgs{
+// 			Credentials: &azuredevops.AzureRMCredentialsArgs{
 // 				Serviceprincipalid:  pulumi.String("xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"),
 // 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
@@ -65,14 +64,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/ServiceEndpoint"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
 // 			ProjectName:      pulumi.String("Sample Project"),
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
@@ -81,7 +79,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ServiceEndpoint.NewAzureRM(ctx, "endpointazure", &ServiceEndpoint.AzureRMArgs{
+// 		_, err = azuredevops.NewAzureRM(ctx, "endpointazure", &azuredevops.AzureRMArgs{
 // 			ProjectId:               project.ID(),
 // 			ServiceEndpointName:     pulumi.String("TestServiceRM"),
 // 			AzurermSpnTenantid:      pulumi.String("xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx"),
@@ -98,6 +96,8 @@ import (
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM
 type AzureRM struct {
 	pulumi.CustomResourceState
 

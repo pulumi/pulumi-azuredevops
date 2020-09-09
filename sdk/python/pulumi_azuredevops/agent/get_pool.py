@@ -14,6 +14,8 @@ __all__ = [
     'get_pool',
 ]
 
+warnings.warn("azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool", DeprecationWarning)
+
 @pulumi.output_type
 class GetPoolResult:
     """
@@ -80,7 +82,7 @@ def get_pool(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    pool = azuredevops.Agent.get_pool(name="Sample Agent Pool")
+    pool = azuredevops.get_pool(name="Sample Agent Pool")
     pulumi.export("name", pool.name)
     pulumi.export("poolType", pool.pool_type)
     pulumi.export("autoProvision", pool.auto_provision)
@@ -92,6 +94,7 @@ def get_pool(name: Optional[str] = None,
 
     :param str name: Name of the Agent Pool.
     """
+    pulumi.log.warn("get_pool is deprecated: azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool")
     __args__ = dict()
     __args__['name'] = name
     if opts is None:

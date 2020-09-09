@@ -15,6 +15,8 @@ __all__ = [
     'get_projects',
 ]
 
+warnings.warn("azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects", DeprecationWarning)
+
 @pulumi.output_type
 class GetProjectsResult:
     """
@@ -88,7 +90,7 @@ def get_projects(project_name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    test = azuredevops.Core.get_projects(project_name="contoso",
+    test = azuredevops.get_projects(project_name="contoso",
         state="wellFormed")
     pulumi.export("projectId", [__item.project_id for __item in test.projects])
     pulumi.export("projectName", [__item.name for __item in test.projects])
@@ -103,6 +105,7 @@ def get_projects(project_name: Optional[str] = None,
     :param str project_name: Name of the Project, if not specified all projects will be returned.
     :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
     """
+    pulumi.log.warn("get_projects is deprecated: azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects")
     __args__ = dict()
     __args__['projectName'] = project_name
     __args__['state'] = state

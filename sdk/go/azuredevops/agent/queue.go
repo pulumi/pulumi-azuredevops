@@ -14,11 +14,57 @@ import (
 // Organization defined pool to a project.
 //
 // The created queue is not authorized for use by all pipeliens in the project. However,
-// the `Security.ResourceAuthorization` resource can be used to grant authorization.
+// the `ResourceAuthorization` resource can be used to grant authorization.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 			ProjectName: pulumi.String("Sample Project"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		pool, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
+// 			Name: "contoso-pool",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		queue, err := azuredevops.NewQueue(ctx, "queue", &azuredevops.QueueArgs{
+// 			ProjectId:   project.ID(),
+// 			AgentPoolId: pulumi.String(pool.Id),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewResourceAuthorization(ctx, "auth", &azuredevops.ResourceAuthorizationArgs{
+// 			ProjectId:  project.ID(),
+// 			ResourceId: queue.ID(),
+// 			Type:       pulumi.String("queue"),
+// 			Authorized: pulumi.Bool(true),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue
 type Queue struct {
 	pulumi.CustomResourceState
 

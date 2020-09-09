@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureDevOps.Core
 {
+    [Obsolete(@"azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects")]
     public static class GetProjects
     {
         /// <summary>
@@ -27,7 +28,7 @@ namespace Pulumi.AzureDevOps.Core
         /// {
         ///     public MyStack()
         ///     {
-        ///         var test = Output.Create(AzureDevOps.Core.GetProjects.InvokeAsync(new AzureDevOps.Core.GetProjectsArgs
+        ///         var test = Output.Create(AzureDevOps.GetProjects.InvokeAsync(new AzureDevOps.GetProjectsArgs
         ///         {
         ///             ProjectName = "contoso",
         ///             State = "wellFormed",

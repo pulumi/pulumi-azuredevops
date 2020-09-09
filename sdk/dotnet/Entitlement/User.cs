@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Entitlement
     /// {
     ///     public MyStack()
     ///     {
-    ///         var user = new AzureDevOps.Entitlement.User("user", new AzureDevOps.Entitlement.UserArgs
+    ///         var user = new AzureDevOps.User("user", new AzureDevOps.UserArgs
     ///         {
     ///             PrincipalName = "foo@contoso.com",
     ///         });
@@ -38,6 +38,7 @@ namespace Pulumi.AzureDevOps.Entitlement
     /// 
     /// - **Member Entitlement Management**: Read &amp; Write
     /// </summary>
+    [Obsolete(@"azuredevops.entitlement.User has been deprecated in favor of azuredevops.User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

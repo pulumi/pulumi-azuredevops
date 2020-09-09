@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['AzureRM']
 
+warnings.warn("azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM", DeprecationWarning)
+
 
 class AzureRM(pulumi.CustomResource):
+    warnings.warn("azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -45,15 +49,15 @@ class AzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project",
+        project = azuredevops.Project("project",
             project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        endpointazure = azuredevops.service_endpoint.AzureRM("endpointazure",
+        endpointazure = azuredevops.AzureRM("endpointazure",
             project_id=project.id,
             service_endpoint_name="TestServiceRM",
-            credentials=azuredevops.service.endpoint.AzureRMCredentialsArgs(
+            credentials=azuredevops.AzureRMCredentialsArgs(
                 serviceprincipalid="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
                 serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ),
@@ -67,12 +71,12 @@ class AzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project",
+        project = azuredevops.Project("project",
             project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        endpointazure = azuredevops.service_endpoint.AzureRM("endpointazure",
+        endpointazure = azuredevops.AzureRM("endpointazure",
             project_id=project.id,
             service_endpoint_name="TestServiceRM",
             azurerm_spn_tenantid="xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
@@ -93,6 +97,7 @@ class AzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
+        pulumi.log.warn("AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

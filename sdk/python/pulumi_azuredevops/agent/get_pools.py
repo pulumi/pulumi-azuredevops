@@ -15,6 +15,8 @@ __all__ = [
     'get_pools',
 ]
 
+warnings.warn("azuredevops.agent.getPools has been deprecated in favor of azuredevops.getPools", DeprecationWarning)
+
 @pulumi.output_type
 class GetPoolsResult:
     """
@@ -65,7 +67,7 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    pools = azuredevops.Agent.get_pools()
+    pools = azuredevops.get_pools()
     pulumi.export("agentPoolName", [__item.name for __item in pools.agent_pools])
     pulumi.export("autoProvision", [__item.auto_provision for __item in pools.agent_pools])
     pulumi.export("poolType", [__item.pool_type for __item in pools.agent_pools])
@@ -74,6 +76,7 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
 
     - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
     """
+    pulumi.log.warn("get_pools is deprecated: azuredevops.agent.getPools has been deprecated in favor of azuredevops.getPools")
     __args__ = dict()
     if opts is None:
         opts = pulumi.InvokeOptions()

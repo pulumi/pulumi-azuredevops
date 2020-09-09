@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Core.Project("project", {projectName: "Sample Project"});
- * const git = new azuredevops.Repository.Git("git", {
+ * const project = new azuredevops.Project("project", {projectName: "Sample Project"});
+ * const git = new azuredevops.Git("git", {
  *     projectId: project.id,
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const buildDefinition = new azuredevops.Build.BuildDefinition("buildDefinition", {
+ * const buildDefinition = new azuredevops.BuildDefinition("buildDefinition", {
  *     projectId: project.id,
  *     repository: {
  *         repoType: "TfsGit",
@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  *         ymlPath: "azure-pipelines.yml",
  *     },
  * });
- * const branchPolicyBuildValidation = new azuredevops.Policy.BranchPolicyBuildValidation("branchPolicyBuildValidation", {
+ * const branchPolicyBuildValidation = new azuredevops.BranchPolicyBuildValidation("branchPolicyBuildValidation", {
  *     projectId: project.id,
  *     enabled: true,
  *     blocking: true,
@@ -56,6 +56,8 @@ import * as utilities from "../utilities";
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+ *
+ * @deprecated azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation
  */
 export class BranchPolicyBuildValidation extends pulumi.CustomResource {
     /**
@@ -68,6 +70,7 @@ export class BranchPolicyBuildValidation extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BranchPolicyBuildValidationState, opts?: pulumi.CustomResourceOptions): BranchPolicyBuildValidation {
+        pulumi.log.warn("BranchPolicyBuildValidation is deprecated: azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation")
         return new BranchPolicyBuildValidation(name, <any>state, { ...opts, id: id });
     }
 
@@ -109,8 +112,11 @@ export class BranchPolicyBuildValidation extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation */
     constructor(name: string, args: BranchPolicyBuildValidationArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation */
     constructor(name: string, argsOrState?: BranchPolicyBuildValidationArgs | BranchPolicyBuildValidationState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BranchPolicyBuildValidation is deprecated: azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as BranchPolicyBuildValidationState | undefined;

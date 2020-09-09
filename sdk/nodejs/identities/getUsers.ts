@@ -16,24 +16,24 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * // Load single user by using it's principal name
- * const user = pulumi.output(azuredevops.Identities.getUsers({
+ * const user = pulumi.output(azuredevops.getUsers({
  *     principalName: "contoso-user@contoso.onmicrosoft.com",
  * }, { async: true }));
  * // Load all users know inside an organization
- * const all_users = pulumi.output(azuredevops.Identities.getUsers({ async: true }));
+ * const all_users = pulumi.output(azuredevops.getUsers({ async: true }));
  * // Load all users know inside an organization originating from a specific source (origin)
- * const all_from_origin = pulumi.output(azuredevops.Identities.getUsers({
+ * const all_from_origin = pulumi.output(azuredevops.getUsers({
  *     origin: "aad",
  * }, { async: true }));
  * // Load all users know inside an organization filtered by their subject types
- * const all_from_subject_types = pulumi.output(azuredevops.Identities.getUsers({
+ * const all_from_subject_types = pulumi.output(azuredevops.getUsers({
  *     subjectTypes: [
  *         "aad",
  *         "msa",
  *     ],
  * }, { async: true }));
  * // Load a single user by origin and origin ID
- * const all_from_origin_id = pulumi.output(azuredevops.Identities.getUsers({
+ * const all_from_origin_id = pulumi.output(azuredevops.getUsers({
  *     origin: "aad",
  *     originId: "a7ead982-8438-4cd2-b9e3-c3aa51a7b675",
  * }, { async: true }));
@@ -42,7 +42,9 @@ import * as utilities from "../utilities";
  *
  * - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
  */
+/** @deprecated azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
+    pulumi.log.warn("getUsers is deprecated: azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers")
     args = args || {};
     if (!opts) {
         opts = {}

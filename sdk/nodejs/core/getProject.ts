@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = azuredevops.Core.getProject({
+ * const project = azuredevops.getProject({
  *     projectName: "Sample Project",
  * });
  * export const id = project.then(project => project.id);
@@ -29,7 +29,9 @@ import * as utilities from "../utilities";
  *
  * - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
  */
+/** @deprecated azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject */
 export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+    pulumi.log.warn("getProject is deprecated: azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject")
     if (!opts) {
         opts = {}
     }

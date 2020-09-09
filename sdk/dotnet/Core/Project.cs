@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Core
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             Description = "Test Project Description",
     ///             Features = 
@@ -47,6 +47,7 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// - **Project &amp; Team**: Read, Write, &amp; Manage
     /// </summary>
+    [Obsolete(@"azuredevops.core.Project has been deprecated in favor of azuredevops.Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

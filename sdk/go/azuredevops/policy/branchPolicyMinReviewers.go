@@ -18,43 +18,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Policy"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Repository"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
 // 			ProjectName: pulumi.String("Sample Project"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		git, err := Repository.NewGit(ctx, "git", &Repository.GitArgs{
+// 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &Repository.GitInitializationArgs{
+// 			Initialization: &azuredevops.GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = Policy.NewBranchPolicyMinReviewers(ctx, "branchPolicyMinReviewers", &Policy.BranchPolicyMinReviewersArgs{
+// 		_, err = azuredevops.NewBranchPolicyMinReviewers(ctx, "branchPolicyMinReviewers", &azuredevops.BranchPolicyMinReviewersArgs{
 // 			ProjectId: project.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
-// 			Settings: &Policy.BranchPolicyMinReviewersSettingsArgs{
+// 			Settings: &azuredevops.BranchPolicyMinReviewersSettingsArgs{
 // 				ReviewerCount:    pulumi.Int(2),
 // 				SubmitterCanVote: pulumi.Bool(false),
-// 				Scopes: Policy.BranchPolicyMinReviewersSettingsScopeArray{
-// 					&Policy.BranchPolicyMinReviewersSettingsScopeArgs{
+// 				Scopes: azuredevops.BranchPolicyMinReviewersSettingsScopeArray{
+// 					&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
 // 						RepositoryId:  git.ID(),
 // 						RepositoryRef: git.DefaultBranch,
 // 						MatchType:     pulumi.String("Exact"),
 // 					},
-// 					&Policy.BranchPolicyMinReviewersSettingsScopeArgs{
+// 					&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
 // 						RepositoryId:  git.ID(),
 // 						RepositoryRef: pulumi.String("refs/heads/releases"),
 // 						MatchType:     pulumi.String("Prefix"),
@@ -72,6 +70,8 @@ import (
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers
 type BranchPolicyMinReviewers struct {
 	pulumi.CustomResourceState
 

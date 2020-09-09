@@ -9,9 +9,39 @@ import (
 
 // Use this data source to access information about an existing Project within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 			ProjectName: "Sample Project",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("id", project.Id)
+// 		ctx.Export("projectName", project.ProjectName)
+// 		ctx.Export("visibility", project.Visibility)
+// 		ctx.Export("versionControl", project.VersionControl)
+// 		ctx.Export("workItemTemplate", project.WorkItemTemplate)
+// 		ctx.Export("processTemplateId", project.ProcessTemplateId)
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	var rv LookupProjectResult
 	err := ctx.Invoke("azuredevops:Core/getProject:getProject", args, &rv, opts...)

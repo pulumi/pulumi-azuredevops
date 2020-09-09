@@ -15,6 +15,8 @@ import (
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition
 type BuildDefinition struct {
 	pulumi.CustomResourceState
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Security
 {
     /// <summary>
-    /// ## # azuredevops.Security.ResourceAuthorization
+    /// ## # azuredevops.ResourceAuthorization
     /// 
     /// Manages authorization of resources, e.g. for access in build pipelines.
     /// 
@@ -26,11 +26,11 @@ namespace Pulumi.AzureDevOps.Security
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Test Project",
     ///         });
-    ///         var bitbucketAccount = new AzureDevOps.ServiceEndpoint.BitBucket("bitbucketAccount", new AzureDevOps.ServiceEndpoint.BitBucketArgs
+    ///         var bitbucketAccount = new AzureDevOps.BitBucket("bitbucketAccount", new AzureDevOps.BitBucketArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             Username = "xxxx",
@@ -38,7 +38,7 @@ namespace Pulumi.AzureDevOps.Security
     ///             ServiceEndpointName = "test-bitbucket",
     ///             Description = "test",
     ///         });
-    ///         var auth = new AzureDevOps.Security.ResourceAuthorization("auth", new AzureDevOps.Security.ResourceAuthorizationArgs
+    ///         var auth = new AzureDevOps.ResourceAuthorization("auth", new AzureDevOps.ResourceAuthorizationArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             ResourceId = bitbucketAccount.Id,
@@ -52,6 +52,7 @@ namespace Pulumi.AzureDevOps.Security
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
     /// </summary>
+    [Obsolete(@"azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization")]
     public partial class ResourceAuthorization : Pulumi.CustomResource
     {
         /// <summary>

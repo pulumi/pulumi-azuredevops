@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureDevOps.Identities
 {
+    [Obsolete(@"azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers")]
     public static class GetUsers
     {
         /// <summary>
@@ -26,16 +27,16 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         ///     public MyStack()
         ///     {
-        ///         var user = Output.Create(AzureDevOps.Identities.GetUsers.InvokeAsync(new AzureDevOps.Identities.GetUsersArgs
+        ///         var user = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             PrincipalName = "contoso-user@contoso.onmicrosoft.com",
         ///         }));
-        ///         var all_users = Output.Create(AzureDevOps.Identities.GetUsers.InvokeAsync());
-        ///         var all_from_origin = Output.Create(AzureDevOps.Identities.GetUsers.InvokeAsync(new AzureDevOps.Identities.GetUsersArgs
+        ///         var all_users = Output.Create(AzureDevOps.GetUsers.InvokeAsync());
+        ///         var all_from_origin = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             Origin = "aad",
         ///         }));
-        ///         var all_from_subjectTypes = Output.Create(AzureDevOps.Identities.GetUsers.InvokeAsync(new AzureDevOps.Identities.GetUsersArgs
+        ///         var all_from_subjectTypes = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             SubjectTypes = 
         ///             {
@@ -43,7 +44,7 @@ namespace Pulumi.AzureDevOps.Identities
         ///                 "msa",
         ///             },
         ///         }));
-        ///         var all_from_origin_id = Output.Create(AzureDevOps.Identities.GetUsers.InvokeAsync(new AzureDevOps.Identities.GetUsersArgs
+        ///         var all_from_origin_id = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             Origin = "aad",
         ///             OriginId = "a7ead982-8438-4cd2-b9e3-c3aa51a7b675",

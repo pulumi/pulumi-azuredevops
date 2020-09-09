@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const user = new azuredevops.Entitlement.User("user", {
+ * const user = new azuredevops.User("user", {
  *     principalName: "foo@contoso.com",
  * });
  * ```
@@ -24,6 +24,8 @@ import * as utilities from "../utilities";
  * ## PAT Permissions Required
  *
  * - **Member Entitlement Management**: Read & Write
+ *
+ * @deprecated azuredevops.entitlement.User has been deprecated in favor of azuredevops.User
  */
 export class User extends pulumi.CustomResource {
     /**
@@ -36,6 +38,7 @@ export class User extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: UserState, opts?: pulumi.CustomResourceOptions): User {
+        pulumi.log.warn("User is deprecated: azuredevops.entitlement.User has been deprecated in favor of azuredevops.User")
         return new User(name, <any>state, { ...opts, id: id });
     }
 
@@ -85,8 +88,11 @@ export class User extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.entitlement.User has been deprecated in favor of azuredevops.User */
     constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.entitlement.User has been deprecated in favor of azuredevops.User */
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("User is deprecated: azuredevops.entitlement.User has been deprecated in favor of azuredevops.User")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as UserState | undefined;

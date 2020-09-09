@@ -14,6 +14,8 @@ __all__ = [
     'get_group',
 ]
 
+warnings.warn("azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup", DeprecationWarning)
+
 @pulumi.output_type
 class GetGroupResult:
     """
@@ -84,8 +86,8 @@ def get_group(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    project = azuredevops.Core.get_project(project_name="contoso-project")
-    test = azuredevops.Identities.get_group(project_id=project.id,
+    project = azuredevops.get_project(project_name="contoso-project")
+    test = azuredevops.get_group(project_id=project.id,
         name="Test Group")
     pulumi.export("groupId", test.id)
     pulumi.export("groupDescriptor", test.descriptor)
@@ -98,6 +100,7 @@ def get_group(name: Optional[str] = None,
     :param str name: The Group Name.
     :param str project_id: The Project Id.
     """
+    pulumi.log.warn("get_group is deprecated: azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup")
     __args__ = dict()
     __args__['name'] = name
     __args__['projectId'] = project_id

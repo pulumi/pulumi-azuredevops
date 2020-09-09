@@ -22,11 +22,11 @@ namespace Pulumi.AzureDevOps.Core
     /// {
     ///     public MyStack()
     ///     {
-    ///         var tf_project_test_001 = Output.Create(AzureDevOps.Core.GetProject.InvokeAsync(new AzureDevOps.Core.GetProjectArgs
+    ///         var tf_project_test_001 = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
     ///         {
     ///             ProjectName = "Test Project",
     ///         }));
-    ///         var my_project_features = new AzureDevOps.Core.ProjectFeatures("my-project-features", new AzureDevOps.Core.ProjectFeaturesArgs
+    ///         var my_project_features = new AzureDevOps.ProjectFeatures("my-project-features", new AzureDevOps.ProjectFeaturesArgs
     ///         {
     ///             ProjectId = tf_project_test_001.Apply(tf_project_test_001 =&gt; tf_project_test_001.Id),
     ///             Features = 
@@ -47,6 +47,7 @@ namespace Pulumi.AzureDevOps.Core
     /// 
     /// - **Project &amp; Team**: Read, Write, &amp; Manage
     /// </summary>
+    [Obsolete(@"azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures")]
     public partial class ProjectFeatures : Pulumi.CustomResource
     {
         /// <summary>

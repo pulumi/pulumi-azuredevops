@@ -9,9 +9,42 @@ import (
 
 // Use this data source to access information about an existing Group within Azure DevOps
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 			ProjectName: "contoso-project",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		test, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+// 			ProjectId: project.Id,
+// 			Name:      "Test Group",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("groupId", test.Id)
+// 		ctx.Export("groupDescriptor", test.Descriptor)
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
 	err := ctx.Invoke("azuredevops:Identities/getGroup:getGroup", args, &rv, opts...)

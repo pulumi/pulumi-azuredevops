@@ -10,8 +10,12 @@ from .. import _utilities, _tables
 
 __all__ = ['Queue']
 
+warnings.warn("azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue", DeprecationWarning)
+
 
 class Queue(pulumi.CustomResource):
+    warnings.warn("azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -25,7 +29,7 @@ class Queue(pulumi.CustomResource):
         Organization defined pool to a project.
 
         The created queue is not authorized for use by all pipeliens in the project. However,
-        the `Security.ResourceAuthorization` resource can be used to grant authorization.
+        the `ResourceAuthorization` resource can be used to grant authorization.
 
         ## Example Usage
 
@@ -33,13 +37,13 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project", project_name="Sample Project")
-        pool = azuredevops.Agent.get_pool(name="contoso-pool")
-        queue = azuredevops.agent.Queue("queue",
+        project = azuredevops.Project("project", project_name="Sample Project")
+        pool = azuredevops.get_pool(name="contoso-pool")
+        queue = azuredevops.Queue("queue",
             project_id=project.id,
             agent_pool_id=pool.id)
         # Grant acccess to queue to all pipelines in the project
-        auth = azuredevops.security.ResourceAuthorization("auth",
+        auth = azuredevops.ResourceAuthorization("auth",
             project_id=project.id,
             resource_id=queue.id,
             type="queue",
@@ -54,6 +58,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[float] agent_pool_id: The ID of the organization agent pool.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
+        pulumi.log.warn("Queue is deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

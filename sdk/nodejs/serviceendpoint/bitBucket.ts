@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Core.Project("project", {
+ * const project = new azuredevops.Project("project", {
  *     projectName: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const serviceendpoint = new azuredevops.ServiceEndpoint.BitBucket("serviceendpoint", {
+ * const serviceendpoint = new azuredevops.BitBucket("serviceendpoint", {
  *     projectId: project.id,
  *     username: "xxxx",
  *     password: "xxxx",
@@ -30,6 +30,8 @@ import * as utilities from "../utilities";
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ *
+ * @deprecated azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket
  */
 export class BitBucket extends pulumi.CustomResource {
     /**
@@ -42,6 +44,7 @@ export class BitBucket extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BitBucketState, opts?: pulumi.CustomResourceOptions): BitBucket {
+        pulumi.log.warn("BitBucket is deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket")
         return new BitBucket(name, <any>state, { ...opts, id: id });
     }
 
@@ -89,8 +92,11 @@ export class BitBucket extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket */
     constructor(name: string, args: BitBucketArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket */
     constructor(name: string, argsOrState?: BitBucketArgs | BitBucketState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BitBucket is deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as BitBucketState | undefined;

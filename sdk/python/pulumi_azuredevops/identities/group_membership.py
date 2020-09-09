@@ -10,8 +10,12 @@ from .. import _utilities, _tables
 
 __all__ = ['GroupMembership']
 
+warnings.warn("azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership", DeprecationWarning)
+
 
 class GroupMembership(pulumi.CustomResource):
+    warnings.warn("azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,11 +34,11 @@ class GroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project", project_name="Test Project")
-        user = azuredevops.entitlement.User("user", principal_name="foo@contoso.com")
-        group = project.id.apply(lambda id: azuredevops.Identities.get_group(project_id=id,
+        project = azuredevops.Project("project", project_name="Test Project")
+        user = azuredevops.User("user", principal_name="foo@contoso.com")
+        group = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
             name="Build Administrators"))
-        membership = azuredevops.identities.GroupMembership("membership",
+        membership = azuredevops.GroupMembership("membership",
             group=group.descriptor,
             members=[user.descriptor])
         ```
@@ -50,12 +54,13 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The descriptor of the group being managed.
         :param pulumi.Input[List[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
-               > NOTE: It's possible to define group members both within the `Identities.GroupMembership resource` via the members block and by using the `Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+               > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] mode: The mode how the resource manages group members.
                * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
                * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
                > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
+        pulumi.log.warn("GroupMembership is deprecated: azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -102,7 +107,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The descriptor of the group being managed.
         :param pulumi.Input[List[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
-               > NOTE: It's possible to define group members both within the `Identities.GroupMembership resource` via the members block and by using the `Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+               > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] mode: The mode how the resource manages group members.
                * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
                * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
@@ -130,7 +135,7 @@ class GroupMembership(pulumi.CustomResource):
     def members(self) -> pulumi.Output[List[str]]:
         """
         A list of user or group descriptors that will become members of the group.
-        > NOTE: It's possible to define group members both within the `Identities.GroupMembership resource` via the members block and by using the `Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         """
         return pulumi.get(self, "members")
 

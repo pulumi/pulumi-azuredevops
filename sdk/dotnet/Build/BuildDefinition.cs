@@ -22,44 +22,44 @@ namespace Pulumi.AzureDevOps.Build
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
-    ///         var repository = new AzureDevOps.Repository.Git("repository", new AzureDevOps.Repository.GitArgs
+    ///         var repository = new AzureDevOps.Git("repository", new AzureDevOps.GitArgs
     ///         {
     ///             ProjectId = project.Id,
-    ///             Initialization = new AzureDevOps.Repository.Inputs.GitInitializationArgs
+    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///             {
     ///                 InitType = "Clean",
     ///             },
     ///         });
-    ///         var vars = new AzureDevOps.Pipeline.VariableGroup("vars", new AzureDevOps.Pipeline.VariableGroupArgs
+    ///         var vars = new AzureDevOps.VariableGroup("vars", new AzureDevOps.VariableGroupArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             Description = "Managed by Terraform",
     ///             AllowAccess = true,
     ///             Variables = 
     ///             {
-    ///                 new AzureDevOps.Pipeline.Inputs.VariableGroupVariableArgs
+    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
     ///                 {
     ///                     Name = "FOO",
     ///                     Value = "BAR",
     ///                 },
     ///             },
     ///         });
-    ///         var build = new AzureDevOps.Build.BuildDefinition("build", new AzureDevOps.Build.BuildDefinitionArgs
+    ///         var build = new AzureDevOps.BuildDefinition("build", new AzureDevOps.BuildDefinitionArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             Path = "\\ExampleFolder",
-    ///             CiTrigger = new AzureDevOps.Build.Inputs.BuildDefinitionCiTriggerArgs
+    ///             CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
     ///             {
     ///                 UseYaml = true,
     ///             },
-    ///             Repository = new AzureDevOps.Build.Inputs.BuildDefinitionRepositoryArgs
+    ///             Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
     ///             {
     ///                 RepoType = "TfsGit",
     ///                 RepoId = repository.Id,
@@ -72,12 +72,12 @@ namespace Pulumi.AzureDevOps.Build
     ///             },
     ///             Variables = 
     ///             {
-    ///                 new AzureDevOps.Build.Inputs.BuildDefinitionVariableArgs
+    ///                 new AzureDevOps.Inputs.BuildDefinitionVariableArgs
     ///                 {
     ///                     Name = "PipelineVariable",
     ///                     Value = "Go Microsoft!",
     ///                 },
-    ///                 new AzureDevOps.Build.Inputs.BuildDefinitionVariableArgs
+    ///                 new AzureDevOps.Inputs.BuildDefinitionVariableArgs
     ///                 {
     ///                     Name = "PipelineSecret",
     ///                     SecretValue = "ZGV2cw",
@@ -93,6 +93,7 @@ namespace Pulumi.AzureDevOps.Build
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
     /// </summary>
+    [Obsolete(@"azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition")]
     public partial class BuildDefinition : Pulumi.CustomResource
     {
         /// <summary>

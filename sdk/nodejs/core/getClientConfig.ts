@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const clientConfig = azuredevops.Core.getClientConfig({});
+ * const clientConfig = azuredevops.getClientConfig({});
  * export const orgUrl = clientConfig.then(clientConfig => clientConfig.organizationUrl);
  * ```
  */
+/** @deprecated azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
+    pulumi.log.warn("getClientConfig is deprecated: azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig")
     if (!opts) {
         opts = {}
     }

@@ -18,29 +18,28 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Pipeline"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
 // 			ProjectName: pulumi.String("Test Project"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = Pipeline.NewVariableGroup(ctx, "variablegroup", &Pipeline.VariableGroupArgs{
+// 		_, err = azuredevops.NewVariableGroup(ctx, "variablegroup", &azuredevops.VariableGroupArgs{
 // 			ProjectId:   project.ID(),
 // 			Description: pulumi.String("Test Variable Group Description"),
 // 			AllowAccess: pulumi.Bool(true),
-// 			Variables: Pipeline.VariableGroupVariableArray{
-// 				&Pipeline.VariableGroupVariableArgs{
+// 			Variables: azuredevops.VariableGroupVariableArray{
+// 				&azuredevops.VariableGroupVariableArgs{
 // 					Name:  pulumi.String("key"),
 // 					Value: pulumi.String("value"),
 // 				},
-// 				&Pipeline.VariableGroupVariableArgs{
+// 				&azuredevops.VariableGroupVariableArgs{
 // 					Name:     pulumi.String("Account Password"),
 // 					Value:    pulumi.String("p@ssword123"),
 // 					IsSecret: pulumi.Bool(true),
@@ -62,6 +61,8 @@ import (
 // ## PAT Permissions Required
 //
 // - **Variable Groups**: Read, Create, & Manage
+//
+// Deprecated: azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup
 type VariableGroup struct {
 	pulumi.CustomResourceState
 

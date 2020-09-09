@@ -30,7 +30,7 @@ const (
 	mainPkg = "azuredevops"
 
 	// modules:
-	//mainMod = "index"
+	mainMod = "index"
 )
 
 // makeMember manufactures a type token for the package and the given module and type.
@@ -92,171 +92,8 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources: map[string]*tfbridge.ResourceInfo{
-			"azuredevops_resource_authorization": {
-				Tok: makeResource("Security", "ResourceAuthorization"),
-				Docs: &tfbridge.DocInfo{
-					Source: "resource_authorization.html.markdown",
-				},
-			},
-			"azuredevops_branch_policy_build_validation": {
-				Tok: makeResource("Policy", "BranchPolicyBuildValidation"),
-				Docs: &tfbridge.DocInfo{
-					Source: "branch_policy_build_validation.html.markdown",
-				},
-			},
-			"azuredevops_branch_policy_min_reviewers": {
-				Tok: makeResource("Policy", "BranchPolicyMinReviewers"),
-				Docs: &tfbridge.DocInfo{
-					Source: "branch_policy_min_reviewers.html.markdown",
-				},
-			},
-			"azuredevops_build_definition": {
-				Tok: makeResource("Build", "BuildDefinition"),
-				Docs: &tfbridge.DocInfo{
-					Source: "build_definition.html.markdown",
-				},
-			},
-			"azuredevops_project": {
-				Tok: makeResource("Core", "Project"),
-				Docs: &tfbridge.DocInfo{
-					Source: "project.html.markdown",
-				},
-			},
-			"azuredevops_project_features": {
-				Tok: makeResource("Core", "ProjectFeatures"),
-				Docs: &tfbridge.DocInfo{
-					Source: "project_features.html.markdown",
-				},
-			},
-			"azuredevops_variable_group": {
-				Tok: makeResource("Pipeline", "VariableGroup"),
-				Docs: &tfbridge.DocInfo{
-					Source: "variable_group.html.markdown",
-				},
-			},
-			"azuredevops_serviceendpoint_azurerm": {
-				Tok: makeResource("ServiceEndpoint", "AzureRM"),
-				Docs: &tfbridge.DocInfo{
-					Source: "serviceendpoint_azurerm.html.markdown",
-				},
-			},
-			"azuredevops_serviceendpoint_bitbucket": {
-				Tok: makeResource("ServiceEndpoint", "BitBucket"),
-				Docs: &tfbridge.DocInfo{
-					Source: "serviceendpoint_bitbucket.html.markdown",
-				},
-			},
-			"azuredevops_serviceendpoint_dockerregistry": {
-				Tok: makeResource("ServiceEndpoint", "DockerRegistry"),
-				Docs: &tfbridge.DocInfo{
-					Source: "serviceendpoint_dockerregistry.html.markdown",
-				},
-				Fields: map[string]*tfbridge.SchemaInfo{
-					"docker_registry": {
-						CSharpName: "DockerRegistryUrl",
-					},
-				},
-			},
-			"azuredevops_serviceendpoint_github": {
-				Tok: makeResource("ServiceEndpoint", "GitHub"),
-				Docs: &tfbridge.DocInfo{
-					Source: "serviceendpoint_github.html.markdown",
-				},
-			},
-			"azuredevops_serviceendpoint_kubernetes": {
-				Tok: makeResource("ServiceEndpoint", "Kubernetes"),
-				Docs: &tfbridge.DocInfo{
-					Source: "serviceendpoint_kubernetes.html.markdown",
-				},
-			},
-			"azuredevops_git_repository": {
-				Tok: makeResource("Repository", "Git"),
-				Docs: &tfbridge.DocInfo{
-					Source: "azure_git_repository.html.markdown",
-				},
-			},
-			"azuredevops_user_entitlement": {
-				Tok: makeResource("Entitlement", "User"),
-				Docs: &tfbridge.DocInfo{
-					Source: "user_entitlement.html.markdown",
-				},
-			},
-			"azuredevops_group_membership": {
-				Tok: makeResource("Identities", "GroupMembership"),
-				Docs: &tfbridge.DocInfo{
-					Source: "group_membership.html.markdown",
-				},
-			},
-			"azuredevops_agent_pool": {
-				Tok: makeResource("Agent", "Pool"),
-				Docs: &tfbridge.DocInfo{
-					Source: "agent_pool.html.markdown",
-				},
-			},
-			"azuredevops_agent_queue": {
-				Tok: makeResource("Agent", "Queue"),
-				Docs: &tfbridge.DocInfo{
-					Source: "agent_queue.html.markdown",
-				},
-			},
-			"azuredevops_group": {
-				Tok: makeResource("Identities", "Group"),
-				Docs: &tfbridge.DocInfo{
-					Source: "group.html.markdown",
-				},
-			},
-		},
-		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"azuredevops_agent_pool": {
-				Tok: makeDataSource("Agent", "getPool"),
-				Docs: &tfbridge.DocInfo{
-					Source: "data_agent_pool.html.markdown",
-				},
-			},
-			"azuredevops_agent_pools": {
-				Tok: makeDataSource("Agent", "getPools"),
-				Docs: &tfbridge.DocInfo{
-					Source: "data_agent_pools.html.markdown",
-				},
-			},
-			"azuredevops_client_config": {
-				Tok: makeDataSource("Core", "getClientConfig"),
-				Docs: &tfbridge.DocInfo{
-					Source: "data_client_config.html.markdown",
-				},
-			},
-			"azuredevops_group": {
-				Tok: makeDataSource("Identities", "getGroup"),
-				Docs: &tfbridge.DocInfo{
-					Source: "data_group.html.markdown",
-				},
-			},
-			"azuredevops_project": {
-				Tok: makeDataSource("Core", "getProject"),
-				Docs: &tfbridge.DocInfo{
-					Source: "data_project.html.markdown",
-				},
-			},
-			"azuredevops_projects": {
-				Tok: makeDataSource("Core", "getProjects"),
-				Docs: &tfbridge.DocInfo{
-					Source: "data_projects.html.markdown",
-				},
-			},
-			"azuredevops_git_repositories": {
-				Tok: makeDataSource("Repository", "getRepositories"),
-				Docs: &tfbridge.DocInfo{
-					Source: "data_git_repositories.html.markdown",
-				},
-			},
-			"azuredevops_users": {
-				Tok: makeDataSource("Identities", "getUsers"),
-				Docs: &tfbridge.DocInfo{
-					Source: "data_users.html.markdown",
-				},
-			},
-		},
+		Resources: map[string]*tfbridge.ResourceInfo{},
+		DataSources: map[string]*tfbridge.DataSourceInfo{},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^2.0.0",
@@ -282,6 +119,139 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 	}
+
+	prov.RenameResourceWithAlias("azuredevops_resource_authorization",
+		makeResource("Security", "ResourceAuthorization"),
+		makeResource(mainMod, "ResourceAuthorization"), "Security", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "resource_authorization.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_branch_policy_build_validation",
+		makeResource("Policy", "BranchPolicyBuildValidation"),
+		makeResource(mainMod, "BranchPolicyBuildValidation"), "Policy", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "branch_policy_build_validation.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_branch_policy_min_reviewers",
+		makeResource("Policy", "BranchPolicyMinReviewers"),
+		makeResource(mainMod, "BranchPolicyMinReviewers"), "Policy", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "branch_policy_min_reviewers.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_build_definition",
+		makeResource("Build", "BuildDefinition"),
+		makeResource(mainMod, "BuildDefinition"), "Build", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "build_definition.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_project",
+		makeResource("Core", "Project"),
+		makeResource(mainMod, "Project"), "Core", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "project.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_project_features",
+		makeResource("Core", "ProjectFeatures"),
+		makeResource(mainMod, "ProjectFeatures"), "Core", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "project_features.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_variable_group",
+		makeResource("Pipeline", "VariableGroup"),
+		makeResource(mainMod, "VariableGroup"), "Pipeline", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "variable_group.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_azurerm",
+		makeResource("ServiceEndpoint", "AzureRM"),
+		makeResource(mainMod, "AzureRM"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "serviceendpoint_azurerm.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_bitbucket",
+		makeResource("ServiceEndpoint", "BitBucket"),
+		makeResource(mainMod, "BitBucket"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "serviceendpoint_bitbucket.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_dockerregistry",
+		makeResource("ServiceEndpoint", "DockerRegistry"),
+		makeResource(mainMod, "DockerRegistry"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Source: "serviceendpoint_dockerregistry.html.markdown",
+			},
+			Fields: map[string]*tfbridge.SchemaInfo{
+				"docker_registry": {
+					CSharpName: "DockerRegistryUrl",
+				},
+			},
+		})
+	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_github",
+		makeResource("ServiceEndpoint", "GitHub"),
+		makeResource(mainMod, "GitHub"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "serviceendpoint_github.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_kubernetes",
+		makeResource("ServiceEndpoint", "Kubernetes"),
+		makeResource(mainMod, "Kubernetes"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "serviceendpoint_kubernetes.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_git_repository",
+		makeResource("Repository", "Git"),
+		makeResource(mainMod, "Git"), "Repository", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "azure_git_repository.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_user_entitlement",
+		makeResource("Entitlement", "User"),
+		makeResource(mainMod, "User"), "Entitlement", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "user_entitlement.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_group_membership",
+		makeResource("Identities", "GroupMembership"),
+		makeResource(mainMod, "GroupMembership"), "Identities", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "group_membership.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_agent_pool",
+		makeResource("Agent", "Pool"),
+		makeResource(mainMod, "Pool"), "Agent", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "agent_pool.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_agent_queue",
+		makeResource("Agent", "Queue"),
+		makeResource(mainMod, "Queue"), "Agent", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "agent_queue.html.markdown"},
+		})
+	prov.RenameResourceWithAlias("azuredevops_group",
+		makeResource("Identities", "Group"),
+		makeResource(mainMod, "Group"), "Identities", mainMod, &tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "group.html.markdown"},
+		})
+
+	prov.RenameDataSource("azuredevops_agent_pool", makeDataSource("Agent", "getPool"),
+		makeDataSource(mainMod, "getPool"), "Agent", mainMod, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "data_agent_pool.html.markdown"},
+		})
+	prov.RenameDataSource("azuredevops_agent_pools", makeDataSource("Agent", "getPools"),
+		makeDataSource(mainMod, "getPools"), "Agent", mainMod, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "data_agent_pools.html.markdown"},
+		})
+	prov.RenameDataSource("azuredevops_client_config", makeDataSource("Core", "getClientConfig"),
+		makeDataSource(mainMod, "getClientConfig"), "Core", mainMod, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "data_client_config.html.markdown"},
+		})
+	prov.RenameDataSource("azuredevops_group", makeDataSource("Identities", "getGroup"),
+		makeDataSource(mainMod, "getGroup"), "Identities", mainMod, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "data_group.html.markdown"},
+		})
+	prov.RenameDataSource("azuredevops_project", makeDataSource("Core", "getProject"),
+		makeDataSource(mainMod, "getProject"), "Core", mainMod, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "data_project.html.markdown"},
+		})
+	prov.RenameDataSource("azuredevops_projects", makeDataSource("Core", "getProjects"),
+		makeDataSource(mainMod, "getProjects"), "Core", mainMod, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "data_projects.html.markdown"},
+		})
+	prov.RenameDataSource("azuredevops_git_repositories",
+		makeDataSource("Repository", "getRepositories"),
+		makeDataSource(mainMod, "getRepositories"), "Repository", mainMod, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "data_git_repositories.html.markdown"},
+		})
+	prov.RenameDataSource("azuredevops_users",
+		makeDataSource("Identities", "getUsers"),
+		makeDataSource(mainMod, "getUsers"), "Identities", mainMod, &tfbridge.DataSourceInfo{
+			Docs: &tfbridge.DocInfo{Source: "data_users.html.markdown"},
+		})
 
 	// For all resources with name properties, we will add an auto-name property.  Make sure to skip those that
 	// already have a name mapping entry, since those may have custom overrides set above (e.g., for length).

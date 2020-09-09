@@ -29,18 +29,18 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
-    ///         var endpointazure = new AzureDevOps.ServiceEndpoint.AzureRM("endpointazure", new AzureDevOps.ServiceEndpoint.AzureRMArgs
+    ///         var endpointazure = new AzureDevOps.AzureRM("endpointazure", new AzureDevOps.AzureRMArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             ServiceEndpointName = "TestServiceRM",
-    ///             Credentials = new AzureDevOps.ServiceEndpoint.Inputs.AzureRMCredentialsArgs
+    ///             Credentials = new AzureDevOps.Inputs.AzureRMCredentialsArgs
     ///             {
     ///                 Serviceprincipalid = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
     ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -63,14 +63,14 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
-    ///         var endpointazure = new AzureDevOps.ServiceEndpoint.AzureRM("endpointazure", new AzureDevOps.ServiceEndpoint.AzureRMArgs
+    ///         var endpointazure = new AzureDevOps.AzureRM("endpointazure", new AzureDevOps.AzureRMArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             ServiceEndpointName = "TestServiceRM",
@@ -86,6 +86,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
     /// </summary>
+    [Obsolete(@"azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM")]
     public partial class AzureRM : Pulumi.CustomResource
     {
         [Output("authorization")]

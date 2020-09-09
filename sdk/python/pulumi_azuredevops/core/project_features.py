@@ -10,8 +10,12 @@ from .. import _utilities, _tables
 
 __all__ = ['ProjectFeatures']
 
+warnings.warn("azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures", DeprecationWarning)
+
 
 class ProjectFeatures(pulumi.CustomResource):
+    warnings.warn("azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -29,8 +33,8 @@ class ProjectFeatures(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        tf_project_test_001 = azuredevops.Core.get_project(project_name="Test Project")
-        my_project_features = azuredevops.core.ProjectFeatures("my-project-features",
+        tf_project_test_001 = azuredevops.get_project(project_name="Test Project")
+        my_project_features = azuredevops.ProjectFeatures("my-project-features",
             project_id=tf_project_test_001.id,
             features={
                 "testplans": "disabled",
@@ -50,6 +54,7 @@ class ProjectFeatures(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
                Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         """
+        pulumi.log.warn("ProjectFeatures is deprecated: azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

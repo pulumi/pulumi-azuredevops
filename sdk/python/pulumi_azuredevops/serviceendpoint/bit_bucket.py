@@ -10,8 +10,12 @@ from .. import _utilities, _tables
 
 __all__ = ['BitBucket']
 
+warnings.warn("azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket", DeprecationWarning)
+
 
 class BitBucket(pulumi.CustomResource):
+    warnings.warn("azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,12 +37,12 @@ class BitBucket(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project",
+        project = azuredevops.Project("project",
             project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        serviceendpoint = azuredevops.service_endpoint.BitBucket("serviceendpoint",
+        serviceendpoint = azuredevops.BitBucket("serviceendpoint",
             project_id=project.id,
             username="xxxx",
             password="xxxx",
@@ -56,6 +60,7 @@ class BitBucket(pulumi.CustomResource):
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Bitbucket account username.
         """
+        pulumi.log.warn("BitBucket is deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

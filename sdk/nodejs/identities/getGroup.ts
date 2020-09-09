@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = azuredevops.Core.getProject({
+ * const project = azuredevops.getProject({
  *     projectName: "contoso-project",
  * });
- * const test = project.then(project => azuredevops.Identities.getGroup({
+ * const test = project.then(project => azuredevops.getGroup({
  *     projectId: project.id,
  *     name: "Test Group",
  * }));
@@ -29,7 +29,9 @@ import * as utilities from "../utilities";
  *
  * * [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
  */
+/** @deprecated azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
+    pulumi.log.warn("getGroup is deprecated: azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup")
     if (!opts) {
         opts = {}
     }

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureDevOps.Agent
 {
+    [Obsolete(@"azuredevops.agent.getPools has been deprecated in favor of azuredevops.getPools")]
     public static class GetPools
     {
         /// <summary>
@@ -27,7 +28,7 @@ namespace Pulumi.AzureDevOps.Agent
         /// {
         ///     public MyStack()
         ///     {
-        ///         var pools = Output.Create(AzureDevOps.Agent.GetPools.InvokeAsync());
+        ///         var pools = Output.Create(AzureDevOps.GetPools.InvokeAsync());
         ///         this.AgentPoolName = pools.Apply(pools =&gt; pools.AgentPools.Select(__item =&gt; __item.Name).ToList());
         ///         this.AutoProvision = pools.Apply(pools =&gt; pools.AgentPools.Select(__item =&gt; __item.AutoProvision).ToList());
         ///         this.PoolType = pools.Apply(pools =&gt; pools.AgentPools.Select(__item =&gt; __item.PoolType).ToList());

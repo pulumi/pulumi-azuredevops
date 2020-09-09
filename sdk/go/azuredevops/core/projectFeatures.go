@@ -12,6 +12,38 @@ import (
 
 // Manages features for Azure DevOps projects
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		tf_project_test_001, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 			ProjectName: "Test Project",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewProjectFeatures(ctx, "my_project_features", &azuredevops.ProjectFeaturesArgs{
+// 			ProjectId: pulumi.String(tf_project_test_001.Id),
+// 			Features: pulumi.StringMap{
+// 				"testplans": pulumi.String("disabled"),
+// 				"artifacts": pulumi.String("enabled"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // No official documentation available
@@ -19,6 +51,8 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: Read, Write, & Manage
+//
+// Deprecated: azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures
 type ProjectFeatures struct {
 	pulumi.CustomResourceState
 

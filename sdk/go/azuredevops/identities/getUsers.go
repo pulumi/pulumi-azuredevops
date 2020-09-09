@@ -9,9 +9,63 @@ import (
 
 // Use this data source to access information about an existing users within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "contoso-user@contoso.onmicrosoft.com"
+// 		_, err := azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
+// 			PrincipalName: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.GetUsers(ctx, nil, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := "aad"
+// 		_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
+// 			Origin: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
+// 			SubjectTypes: []string{
+// 				"aad",
+// 				"msa",
+// 			},
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt2 := "aad"
+// 		opt3 := "a7ead982-8438-4cd2-b9e3-c3aa51a7b675"
+// 		_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
+// 			Origin:   &opt2,
+// 			OriginId: &opt3,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
 	var rv GetUsersResult
 	err := ctx.Invoke("azuredevops:Identities/getUsers:getUsers", args, &rv, opts...)

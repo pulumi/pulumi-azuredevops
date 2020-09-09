@@ -16,13 +16,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Core.Project("project", {
+ * const project = new azuredevops.Project("project", {
  *     projectName: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const repo = new azuredevops.Repository.Git("repo", {
+ * const repo = new azuredevops.Git("repo", {
  *     projectId: project.id,
  *     initialization: {
  *         initType: "Clean",
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const repo = new azuredevops.Repository.Git("repo", {
+ * const repo = new azuredevops.Git("repo", {
  *     projectId: azuredevops_project.project.id,
  *     parentId: azuredevops_git_repository.parent.id,
  * });
@@ -43,6 +43,8 @@ import * as utilities from "../utilities";
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
+ *
+ * @deprecated azuredevops.repository.Git has been deprecated in favor of azuredevops.Git
  */
 export class Git extends pulumi.CustomResource {
     /**
@@ -55,6 +57,7 @@ export class Git extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GitState, opts?: pulumi.CustomResourceOptions): Git {
+        pulumi.log.warn("Git is deprecated: azuredevops.repository.Git has been deprecated in favor of azuredevops.Git")
         return new Git(name, <any>state, { ...opts, id: id });
     }
 
@@ -121,8 +124,11 @@ export class Git extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.repository.Git has been deprecated in favor of azuredevops.Git */
     constructor(name: string, args: GitArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.repository.Git has been deprecated in favor of azuredevops.Git */
     constructor(name: string, argsOrState?: GitArgs | GitState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Git is deprecated: azuredevops.repository.Git has been deprecated in favor of azuredevops.Git")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as GitState | undefined;

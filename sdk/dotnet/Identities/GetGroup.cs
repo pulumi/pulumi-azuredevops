@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureDevOps.Identities
 {
+    [Obsolete(@"azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup")]
     public static class GetGroup
     {
         /// <summary>
@@ -26,11 +27,11 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = Output.Create(AzureDevOps.Core.GetProject.InvokeAsync(new AzureDevOps.Core.GetProjectArgs
+        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
         ///         {
         ///             ProjectName = "contoso-project",
         ///         }));
-        ///         var test = project.Apply(project =&gt; Output.Create(AzureDevOps.Identities.GetGroup.InvokeAsync(new AzureDevOps.Identities.GetGroupArgs
+        ///         var test = project.Apply(project =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
         ///         {
         ///             ProjectId = project.Id,
         ///             Name = "Test Group",

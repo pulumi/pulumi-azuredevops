@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// Organization defined pool to a project.
     /// 
     /// The created queue is not authorized for use by all pipeliens in the project. However,
-    /// the `azuredevops.Security.ResourceAuthorization` resource can be used to grant authorization.
+    /// the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
     /// 
     /// ## Example Usage
     /// 
@@ -26,21 +26,21 @@ namespace Pulumi.AzureDevOps.Agent
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Sample Project",
     ///         });
-    ///         var pool = Output.Create(AzureDevOps.Agent.GetPool.InvokeAsync(new AzureDevOps.Agent.GetPoolArgs
+    ///         var pool = Output.Create(AzureDevOps.GetPool.InvokeAsync(new AzureDevOps.GetPoolArgs
     ///         {
     ///             Name = "contoso-pool",
     ///         }));
-    ///         var queue = new AzureDevOps.Agent.Queue("queue", new AzureDevOps.Agent.QueueArgs
+    ///         var queue = new AzureDevOps.Queue("queue", new AzureDevOps.QueueArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             AgentPoolId = pool.Apply(pool =&gt; pool.Id),
     ///         });
     ///         // Grant acccess to queue to all pipelines in the project
-    ///         var auth = new AzureDevOps.Security.ResourceAuthorization("auth", new AzureDevOps.Security.ResourceAuthorizationArgs
+    ///         var auth = new AzureDevOps.ResourceAuthorization("auth", new AzureDevOps.ResourceAuthorizationArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             ResourceId = queue.Id,
@@ -55,6 +55,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
     /// </summary>
+    [Obsolete(@"azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

@@ -19,14 +19,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Repository"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
 // 			ProjectName:      pulumi.String("Sample Project"),
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
@@ -35,9 +34,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = Repository.NewGit(ctx, "repo", &Repository.GitArgs{
+// 		_, err = azuredevops.NewGit(ctx, "repo", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &Repository.GitInitializationArgs{
+// 			Initialization: &azuredevops.GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -51,6 +50,8 @@ import (
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.repository.Git has been deprecated in favor of azuredevops.Git
 type Git struct {
 	pulumi.CustomResourceState
 

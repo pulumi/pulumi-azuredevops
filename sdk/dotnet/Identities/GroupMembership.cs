@@ -22,20 +22,20 @@ namespace Pulumi.AzureDevOps.Identities
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Test Project",
     ///         });
-    ///         var user = new AzureDevOps.Entitlement.User("user", new AzureDevOps.Entitlement.UserArgs
+    ///         var user = new AzureDevOps.User("user", new AzureDevOps.UserArgs
     ///         {
     ///             PrincipalName = "foo@contoso.com",
     ///         });
-    ///         var @group = project.Id.Apply(id =&gt; AzureDevOps.Identities.GetGroup.InvokeAsync(new AzureDevOps.Identities.GetGroupArgs
+    ///         var @group = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
     ///         {
     ///             ProjectId = id,
     ///             Name = "Build Administrators",
     ///         }));
-    ///         var membership = new AzureDevOps.Identities.GroupMembership("membership", new AzureDevOps.Identities.GroupMembershipArgs
+    ///         var membership = new AzureDevOps.GroupMembership("membership", new AzureDevOps.GroupMembershipArgs
     ///         {
     ///             Group = @group.Apply(@group =&gt; @group.Descriptor),
     ///             Members = 
@@ -55,6 +55,7 @@ namespace Pulumi.AzureDevOps.Identities
     /// 
     /// - **Deployment Groups**: Read &amp; Manage
     /// </summary>
+    [Obsolete(@"azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership")]
     public partial class GroupMembership : Pulumi.CustomResource
     {
         /// <summary>
@@ -65,7 +66,7 @@ namespace Pulumi.AzureDevOps.Identities
 
         /// <summary>
         /// A list of user or group descriptors that will become members of the group.
-        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Identities.GroupMembership resource` via the members block and by using the `azuredevops.Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
@@ -136,7 +137,7 @@ namespace Pulumi.AzureDevOps.Identities
 
         /// <summary>
         /// A list of user or group descriptors that will become members of the group.
-        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Identities.GroupMembership resource` via the members block and by using the `azuredevops.Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {
@@ -171,7 +172,7 @@ namespace Pulumi.AzureDevOps.Identities
 
         /// <summary>
         /// A list of user or group descriptors that will become members of the group.
-        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Identities.GroupMembership resource` via the members block and by using the `azuredevops.Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {
