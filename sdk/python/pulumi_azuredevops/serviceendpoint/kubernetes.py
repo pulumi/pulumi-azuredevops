@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Kubernetes']
 
+warnings.warn("azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes", DeprecationWarning)
+
 
 class Kubernetes(pulumi.CustomResource):
+    warnings.warn("azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,7 +34,7 @@ class Kubernetes(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## # ServiceEndpoint.Kubernetes
+        ## # Kubernetes
 
         Manages a Kubernetes service endpoint within Azure DevOps.
 
@@ -48,6 +52,7 @@ class Kubernetes(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]] service_accounts: The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
+        pulumi.log.warn("Kubernetes is deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

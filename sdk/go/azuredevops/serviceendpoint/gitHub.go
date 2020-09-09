@@ -18,14 +18,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/ServiceEndpoint"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
 // 			ProjectName:      pulumi.String("Sample Project"),
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
@@ -34,10 +33,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = ServiceEndpoint.NewGitHub(ctx, "serviceendpointGh1", &ServiceEndpoint.GitHubArgs{
+// 		_, err = azuredevops.NewGitHub(ctx, "serviceendpointGh1", &azuredevops.GitHubArgs{
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("Sample GithHub Personal Access Token"),
-// 			AuthPersonal: &ServiceEndpoint.GitHubAuthPersonalArgs{
+// 			AuthPersonal: &azuredevops.GitHubAuthPersonalArgs{
 // 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
 // 		})
@@ -53,16 +52,16 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/ServiceEndpoint"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ServiceEndpoint.NewGitHub(ctx, "serviceendpointGh2", &ServiceEndpoint.GitHubArgs{
+// 		_, err := azuredevops.NewGitHub(ctx, "serviceendpointGh2", &azuredevops.GitHubArgs{
 // 			ProjectId:           pulumi.Any(azuredevops_project.Project.Id),
 // 			ServiceEndpointName: pulumi.String("Sample GithHub Grant"),
-// 			AuthOauth: &ServiceEndpoint.GitHubAuthOauthArgs{
+// 			AuthOauth: &azuredevops.GitHubAuthOauthArgs{
 // 				OauthConfigurationId: pulumi.String("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
 // 			},
 // 		})
@@ -78,13 +77,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/ServiceEndpoint"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := ServiceEndpoint.NewGitHub(ctx, "serviceendpointGh3", &ServiceEndpoint.GitHubArgs{
+// 		_, err := azuredevops.NewGitHub(ctx, "serviceendpointGh3", &azuredevops.GitHubArgs{
 // 			ProjectId:           pulumi.Any(azuredevops_project.Project.Id),
 // 			ServiceEndpointName: pulumi.String("Sample GithHub Apps: Azure Pipelines"),
 // 			Description:         pulumi.String(""),
@@ -99,6 +98,8 @@ import (
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub
 type GitHub struct {
 	pulumi.CustomResourceState
 

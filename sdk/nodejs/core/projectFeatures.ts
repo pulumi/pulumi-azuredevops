@@ -13,10 +13,10 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const tf-project-test-001 = azuredevops.Core.getProject({
+ * const tf-project-test-001 = azuredevops.getProject({
  *     projectName: "Test Project",
  * });
- * const my_project_features = new azuredevops.Core.ProjectFeatures("my-project-features", {
+ * const my_project_features = new azuredevops.ProjectFeatures("my-project-features", {
  *     projectId: tf_project_test_001.then(tf_project_test_001 => tf_project_test_001.id),
  *     features: {
  *         testplans: "disabled",
@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  * ## PAT Permissions Required
  *
  * - **Project & Team**: Read, Write, & Manage
+ *
+ * @deprecated azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures
  */
 export class ProjectFeatures extends pulumi.CustomResource {
     /**
@@ -43,6 +45,7 @@ export class ProjectFeatures extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProjectFeaturesState, opts?: pulumi.CustomResourceOptions): ProjectFeatures {
+        pulumi.log.warn("ProjectFeatures is deprecated: azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures")
         return new ProjectFeatures(name, <any>state, { ...opts, id: id });
     }
 
@@ -74,8 +77,11 @@ export class ProjectFeatures extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures */
     constructor(name: string, args: ProjectFeaturesArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures */
     constructor(name: string, argsOrState?: ProjectFeaturesArgs | ProjectFeaturesState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("ProjectFeatures is deprecated: azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ProjectFeaturesState | undefined;

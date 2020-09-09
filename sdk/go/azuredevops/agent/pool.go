@@ -17,13 +17,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Agent"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := Agent.NewPool(ctx, "pool", &Agent.PoolArgs{
+// 		_, err := azuredevops.NewPool(ctx, "pool", &azuredevops.PoolArgs{
 // 			AutoProvision: pulumi.Bool(false),
 // 		})
 // 		if err != nil {
@@ -36,6 +36,8 @@ import (
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool
 type Pool struct {
 	pulumi.CustomResourceState
 

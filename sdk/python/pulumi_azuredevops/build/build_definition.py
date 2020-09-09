@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['BuildDefinition']
 
+warnings.warn("azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition", DeprecationWarning)
+
 
 class BuildDefinition(pulumi.CustomResource):
+    warnings.warn("azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -38,31 +42,31 @@ class BuildDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project",
+        project = azuredevops.Project("project",
             project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        repository = azuredevops.repository.Git("repository",
+        repository = azuredevops.Git("repository",
             project_id=project.id,
-            initialization=azuredevops.repository.GitInitializationArgs(
+            initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        vars = azuredevops.pipeline.VariableGroup("vars",
+        vars = azuredevops.VariableGroup("vars",
             project_id=project.id,
             description="Managed by Terraform",
             allow_access=True,
-            variables=[azuredevops.pipeline.VariableGroupVariableArgs(
+            variables=[azuredevops.VariableGroupVariableArgs(
                 name="FOO",
                 value="BAR",
             )])
-        build = azuredevops.build.BuildDefinition("build",
+        build = azuredevops.BuildDefinition("build",
             project_id=project.id,
             path="\\ExampleFolder",
-            ci_trigger=azuredevops.build.BuildDefinitionCiTriggerArgs(
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=True,
             ),
-            repository=azuredevops.build.BuildDefinitionRepositoryArgs(
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
                 repo_id=repository.id,
                 branch_name=repository.default_branch,
@@ -70,11 +74,11 @@ class BuildDefinition(pulumi.CustomResource):
             ),
             variable_groups=[vars.id],
             variables=[
-                azuredevops.build.BuildDefinitionVariableArgs(
+                azuredevops.BuildDefinitionVariableArgs(
                     name="PipelineVariable",
                     value="Go Microsoft!",
                 ),
-                azuredevops.build.BuildDefinitionVariableArgs(
+                azuredevops.BuildDefinitionVariableArgs(
                     name="PipelineSecret",
                     secret_value="ZGV2cw",
                     is_secret=True,
@@ -96,6 +100,7 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[float]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
         """
+        pulumi.log.warn("BuildDefinition is deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

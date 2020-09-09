@@ -18,33 +18,30 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Build"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Policy"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Repository"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
 // 			ProjectName: pulumi.String("Sample Project"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		git, err := Repository.NewGit(ctx, "git", &Repository.GitArgs{
+// 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &Repository.GitInitializationArgs{
+// 			Initialization: &azuredevops.GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		buildDefinition, err := Build.NewBuildDefinition(ctx, "buildDefinition", &Build.BuildDefinitionArgs{
+// 		buildDefinition, err := azuredevops.NewBuildDefinition(ctx, "buildDefinition", &azuredevops.BuildDefinitionArgs{
 // 			ProjectId: project.ID(),
-// 			Repository: &Build.BuildDefinitionRepositoryArgs{
+// 			Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 // 				RepoType: pulumi.String("TfsGit"),
 // 				RepoId:   git.ID(),
 // 				YmlPath:  pulumi.String("azure-pipelines.yml"),
@@ -53,21 +50,21 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = Policy.NewBranchPolicyBuildValidation(ctx, "branchPolicyBuildValidation", &Policy.BranchPolicyBuildValidationArgs{
+// 		_, err = azuredevops.NewBranchPolicyBuildValidation(ctx, "branchPolicyBuildValidation", &azuredevops.BranchPolicyBuildValidationArgs{
 // 			ProjectId: project.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
-// 			Settings: &Policy.BranchPolicyBuildValidationSettingsArgs{
+// 			Settings: &azuredevops.BranchPolicyBuildValidationSettingsArgs{
 // 				DisplayName:       pulumi.String("Don't break the build!"),
 // 				BuildDefinitionId: buildDefinition.ID(),
 // 				ValidDuration:     pulumi.Int(720),
-// 				Scopes: Policy.BranchPolicyBuildValidationSettingsScopeArray{
-// 					&Policy.BranchPolicyBuildValidationSettingsScopeArgs{
+// 				Scopes: azuredevops.BranchPolicyBuildValidationSettingsScopeArray{
+// 					&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
 // 						RepositoryId:  git.ID(),
 // 						RepositoryRef: git.DefaultBranch,
 // 						MatchType:     pulumi.String("Exact"),
 // 					},
-// 					&Policy.BranchPolicyBuildValidationSettingsScopeArgs{
+// 					&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
 // 						RepositoryId:  git.ID(),
 // 						RepositoryRef: pulumi.String("refs/heads/releases"),
 // 						MatchType:     pulumi.String("Prefix"),
@@ -85,6 +82,8 @@ import (
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation
 type BranchPolicyBuildValidation struct {
 	pulumi.CustomResourceState
 

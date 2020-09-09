@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Core.Project("project", {projectName: "Test Project"});
- * const user = new azuredevops.Entitlement.User("user", {principalName: "foo@contoso.com"});
- * const group = project.id.apply(id => azuredevops.Identities.getGroup({
+ * const project = new azuredevops.Project("project", {projectName: "Test Project"});
+ * const user = new azuredevops.User("user", {principalName: "foo@contoso.com"});
+ * const group = project.id.apply(id => azuredevops.getGroup({
  *     projectId: id,
  *     name: "Build Administrators",
  * }));
- * const membership = new azuredevops.Identities.GroupMembership("membership", {
+ * const membership = new azuredevops.GroupMembership("membership", {
  *     group: group.descriptor,
  *     members: [user.descriptor],
  * });
@@ -31,6 +31,8 @@ import * as utilities from "../utilities";
  * ## PAT Permissions Required
  *
  * - **Deployment Groups**: Read & Manage
+ *
+ * @deprecated azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership
  */
 export class GroupMembership extends pulumi.CustomResource {
     /**
@@ -43,6 +45,7 @@ export class GroupMembership extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GroupMembershipState, opts?: pulumi.CustomResourceOptions): GroupMembership {
+        pulumi.log.warn("GroupMembership is deprecated: azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership")
         return new GroupMembership(name, <any>state, { ...opts, id: id });
     }
 
@@ -66,7 +69,7 @@ export class GroupMembership extends pulumi.CustomResource {
     public readonly group!: pulumi.Output<string>;
     /**
      * A list of user or group descriptors that will become members of the group.
-     * > NOTE: It's possible to define group members both within the `azuredevops.Identities.GroupMembership resource` via the members block and by using the `azuredevops.Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+     * > NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
     public readonly members!: pulumi.Output<string[]>;
     /**
@@ -84,8 +87,11 @@ export class GroupMembership extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership */
     constructor(name: string, args: GroupMembershipArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership */
     constructor(name: string, argsOrState?: GroupMembershipArgs | GroupMembershipState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("GroupMembership is deprecated: azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as GroupMembershipState | undefined;
@@ -125,7 +131,7 @@ export interface GroupMembershipState {
     readonly group?: pulumi.Input<string>;
     /**
      * A list of user or group descriptors that will become members of the group.
-     * > NOTE: It's possible to define group members both within the `azuredevops.Identities.GroupMembership resource` via the members block and by using the `azuredevops.Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+     * > NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
     readonly members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -147,7 +153,7 @@ export interface GroupMembershipArgs {
     readonly group: pulumi.Input<string>;
     /**
      * A list of user or group descriptors that will become members of the group.
-     * > NOTE: It's possible to define group members both within the `azuredevops.Identities.GroupMembership resource` via the members block and by using the `azuredevops.Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+     * > NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
     readonly members: pulumi.Input<pulumi.Input<string>[]>;
     /**

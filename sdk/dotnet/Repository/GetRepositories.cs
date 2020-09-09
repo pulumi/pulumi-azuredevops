@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureDevOps.Repository
 {
+    [Obsolete(@"azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories")]
     public static class GetRepositories
     {
         /// <summary>
@@ -26,16 +27,16 @@ namespace Pulumi.AzureDevOps.Repository
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = Output.Create(AzureDevOps.Core.GetProject.InvokeAsync(new AzureDevOps.Core.GetProjectArgs
+        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
         ///         {
         ///             ProjectName = "contoso-project",
         ///         }));
-        ///         var allRepos = project.Apply(project =&gt; Output.Create(AzureDevOps.Repository.GetRepositories.InvokeAsync(new AzureDevOps.Repository.GetRepositoriesArgs
+        ///         var allRepos = project.Apply(project =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
         ///         {
         ///             ProjectId = project.Id,
         ///             IncludeHidden = true,
         ///         })));
-        ///         var singleRepo = project.Apply(project =&gt; Output.Create(AzureDevOps.Repository.GetRepositories.InvokeAsync(new AzureDevOps.Repository.GetRepositoriesArgs
+        ///         var singleRepo = project.Apply(project =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
         ///         {
         ///             ProjectId = project.Id,
         ///             Name = "contoso-repo",

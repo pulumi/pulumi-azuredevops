@@ -15,19 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Core.Project("project", {
+ * const project = new azuredevops.Project("project", {
  *     projectName: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const repository = new azuredevops.Repository.Git("repository", {
+ * const repository = new azuredevops.Git("repository", {
  *     projectId: project.id,
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const vars = new azuredevops.Pipeline.VariableGroup("vars", {
+ * const vars = new azuredevops.VariableGroup("vars", {
  *     projectId: project.id,
  *     description: "Managed by Terraform",
  *     allowAccess: true,
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *         value: "BAR",
  *     }],
  * });
- * const build = new azuredevops.Build.BuildDefinition("build", {
+ * const build = new azuredevops.BuildDefinition("build", {
  *     projectId: project.id,
  *     path: "\\ExampleFolder",
  *     ciTrigger: {
@@ -65,6 +65,8 @@ import * as utilities from "../utilities";
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
+ *
+ * @deprecated azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition
  */
 export class BuildDefinition extends pulumi.CustomResource {
     /**
@@ -77,6 +79,7 @@ export class BuildDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BuildDefinitionState, opts?: pulumi.CustomResourceOptions): BuildDefinition {
+        pulumi.log.warn("BuildDefinition is deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition")
         return new BuildDefinition(name, <any>state, { ...opts, id: id });
     }
 
@@ -139,8 +142,11 @@ export class BuildDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition */
     constructor(name: string, args: BuildDefinitionArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition */
     constructor(name: string, argsOrState?: BuildDefinitionArgs | BuildDefinitionState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BuildDefinition is deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as BuildDefinitionState | undefined;

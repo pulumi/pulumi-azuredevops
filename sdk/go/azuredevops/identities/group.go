@@ -18,6 +18,8 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: Read, Write, & Manage
+//
+// Deprecated: azuredevops.identities.Group has been deprecated in favor of azuredevops.Group
 type Group struct {
 	pulumi.CustomResourceState
 
@@ -31,7 +33,7 @@ type Group struct {
 	Domain pulumi.StringOutput `pulumi:"domain"`
 	// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
 	Mail pulumi.StringOutput `pulumi:"mail"`
-	// > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the   `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members pulumi.StringArrayOutput `pulumi:"members"`
 	// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
 	Origin pulumi.StringOutput `pulumi:"origin"`
@@ -85,7 +87,7 @@ type groupState struct {
 	Domain *string `pulumi:"domain"`
 	// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
 	Mail *string `pulumi:"mail"`
-	// > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the   `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members []string `pulumi:"members"`
 	// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
 	Origin *string `pulumi:"origin"`
@@ -112,7 +114,7 @@ type GroupState struct {
 	Domain pulumi.StringPtrInput
 	// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
 	Mail pulumi.StringPtrInput
-	// > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the   `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members pulumi.StringArrayInput
 	// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
 	Origin pulumi.StringPtrInput
@@ -139,7 +141,7 @@ type groupArgs struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
 	Mail *string `pulumi:"mail"`
-	// > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the   `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members []string `pulumi:"members"`
 	// The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `displayName` arguments cannot be used simultaneously with `originId`.
 	OriginId *string `pulumi:"originId"`
@@ -155,7 +157,7 @@ type GroupArgs struct {
 	DisplayName pulumi.StringPtrInput
 	// The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `originId` and `displayName` arguments cannot be used simultaneously with `mail`.
 	Mail pulumi.StringPtrInput
-	// > NOTE: It's possible to define group members both within the `Identities.Group` resource via the members block and by using the   `Identities.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the   `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members pulumi.StringArrayInput
 	// The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `displayName` arguments cannot be used simultaneously with `originId`.
 	OriginId pulumi.StringPtrInput

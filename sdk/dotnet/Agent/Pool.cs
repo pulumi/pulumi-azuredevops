@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// {
     ///     public MyStack()
     ///     {
-    ///         var pool = new AzureDevOps.Agent.Pool("pool", new AzureDevOps.Agent.PoolArgs
+    ///         var pool = new AzureDevOps.Pool("pool", new AzureDevOps.PoolArgs
     ///         {
     ///             AutoProvision = false,
     ///         });
@@ -34,6 +34,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
     /// </summary>
+    [Obsolete(@"azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>

@@ -23,17 +23,17 @@ namespace Pulumi.AzureDevOps.Repository
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
-    ///         var repo = new AzureDevOps.Repository.Git("repo", new AzureDevOps.Repository.GitArgs
+    ///         var repo = new AzureDevOps.Git("repo", new AzureDevOps.GitArgs
     ///         {
     ///             ProjectId = project.Id,
-    ///             Initialization = new AzureDevOps.Repository.Inputs.GitInitializationArgs
+    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///             {
     ///                 InitType = "Clean",
     ///             },
@@ -46,6 +46,7 @@ namespace Pulumi.AzureDevOps.Repository
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
     /// </summary>
+    [Obsolete(@"azuredevops.repository.Git has been deprecated in favor of azuredevops.Git")]
     public partial class Git : Pulumi.CustomResource
     {
         /// <summary>

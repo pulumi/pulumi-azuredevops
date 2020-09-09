@@ -3,7 +3,35 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
+from .azure_rm import *
+from .bit_bucket import *
+from .branch_policy_build_validation import *
+from .branch_policy_min_reviewers import *
+from .build_definition import *
+from .docker_registry import *
+from .get_client_config import *
+from .get_group import *
+from .get_pool import *
+from .get_pools import *
+from .get_project import *
+from .get_projects import *
+from .get_repositories import *
+from .get_users import *
+from .git import *
+from .git_hub import *
+from .group import *
+from .group_membership import *
+from .kubernetes import *
+from .pool import *
+from .project import *
+from .project_features import *
 from .provider import *
+from .queue import *
+from .resource_authorization import *
+from .user import *
+from .variable_group import *
+from ._inputs import *
+from . import outputs
 
 # Make subpackages available:
 from . import (

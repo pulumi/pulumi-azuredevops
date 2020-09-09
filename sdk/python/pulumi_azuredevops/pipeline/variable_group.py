@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['VariableGroup']
 
+warnings.warn("azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup", DeprecationWarning)
+
 
 class VariableGroup(pulumi.CustomResource):
+    warnings.warn("azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,17 +39,17 @@ class VariableGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project", project_name="Test Project")
-        variablegroup = azuredevops.pipeline.VariableGroup("variablegroup",
+        project = azuredevops.Project("project", project_name="Test Project")
+        variablegroup = azuredevops.VariableGroup("variablegroup",
             project_id=project.id,
             description="Test Variable Group Description",
             allow_access=True,
             variables=[
-                azuredevops.pipeline.VariableGroupVariableArgs(
+                azuredevops.VariableGroupVariableArgs(
                     name="key",
                     value="value",
                 ),
-                azuredevops.pipeline.VariableGroupVariableArgs(
+                azuredevops.VariableGroupVariableArgs(
                     name="Account Password",
                     value="p@ssword123",
                     is_secret=True,
@@ -69,6 +73,7 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
         """
+        pulumi.log.warn("VariableGroup is deprecated: azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

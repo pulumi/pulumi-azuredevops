@@ -10,8 +10,12 @@ from .. import _utilities, _tables
 
 __all__ = ['ResourceAuthorization']
 
+warnings.warn("azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization", DeprecationWarning)
+
 
 class ResourceAuthorization(pulumi.CustomResource):
+    warnings.warn("azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -23,7 +27,7 @@ class ResourceAuthorization(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## # Security.ResourceAuthorization
+        ## # ResourceAuthorization
 
         Manages authorization of resources, e.g. for access in build pipelines.
 
@@ -35,14 +39,14 @@ class ResourceAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project", project_name="Test Project")
-        bitbucket_account = azuredevops.service_endpoint.BitBucket("bitbucketAccount",
+        project = azuredevops.Project("project", project_name="Test Project")
+        bitbucket_account = azuredevops.BitBucket("bitbucketAccount",
             project_id=project.id,
             username="xxxx",
             password="xxxx",
             service_endpoint_name="test-bitbucket",
             description="test")
-        auth = azuredevops.security.ResourceAuthorization("auth",
+        auth = azuredevops.ResourceAuthorization("auth",
             project_id=project.id,
             resource_id=bitbucket_account.id,
             authorized=True)
@@ -58,6 +62,7 @@ class ResourceAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
         :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
         """
+        pulumi.log.warn("ResourceAuthorization is deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

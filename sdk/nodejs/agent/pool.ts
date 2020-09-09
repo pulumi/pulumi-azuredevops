@@ -13,13 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const pool = new azuredevops.Agent.Pool("pool", {
+ * const pool = new azuredevops.Pool("pool", {
  *     autoProvision: false,
  * });
  * ```
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+ *
+ * @deprecated azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool
  */
 export class Pool extends pulumi.CustomResource {
     /**
@@ -32,6 +34,7 @@ export class Pool extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: PoolState, opts?: pulumi.CustomResourceOptions): Pool {
+        pulumi.log.warn("Pool is deprecated: azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool")
         return new Pool(name, <any>state, { ...opts, id: id });
     }
 
@@ -69,8 +72,11 @@ export class Pool extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool */
     constructor(name: string, args?: PoolArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool */
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Pool is deprecated: azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as PoolState | undefined;

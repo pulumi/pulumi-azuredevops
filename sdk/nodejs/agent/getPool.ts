@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const pool = azuredevops.Agent.getPool({
+ * const pool = azuredevops.getPool({
  *     name: "Sample Agent Pool",
  * });
  * export const name = pool.then(pool => pool.name);
@@ -26,7 +26,9 @@ import * as utilities from "../utilities";
  *
  * - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
  */
+/** @deprecated azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
+    pulumi.log.warn("getPool is deprecated: azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool")
     if (!opts) {
         opts = {}
     }

@@ -22,18 +22,18 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
-    ///         var serviceendpointGh1 = new AzureDevOps.ServiceEndpoint.GitHub("serviceendpointGh1", new AzureDevOps.ServiceEndpoint.GitHubArgs
+    ///         var serviceendpointGh1 = new AzureDevOps.GitHub("serviceendpointGh1", new AzureDevOps.GitHubArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             ServiceEndpointName = "Sample GithHub Personal Access Token",
-    ///             AuthPersonal = new AzureDevOps.ServiceEndpoint.Inputs.GitHubAuthPersonalArgs
+    ///             AuthPersonal = new AzureDevOps.Inputs.GitHubAuthPersonalArgs
     ///             {
     ///                 PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     ///             },
@@ -51,11 +51,11 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// {
     ///     public MyStack()
     ///     {
-    ///         var serviceendpointGh2 = new AzureDevOps.ServiceEndpoint.GitHub("serviceendpointGh2", new AzureDevOps.ServiceEndpoint.GitHubArgs
+    ///         var serviceendpointGh2 = new AzureDevOps.GitHub("serviceendpointGh2", new AzureDevOps.GitHubArgs
     ///         {
     ///             ProjectId = azuredevops_project.Project.Id,
     ///             ServiceEndpointName = "Sample GithHub Grant",
-    ///             AuthOauth = new AzureDevOps.ServiceEndpoint.Inputs.GitHubAuthOauthArgs
+    ///             AuthOauth = new AzureDevOps.Inputs.GitHubAuthOauthArgs
     ///             {
     ///                 OauthConfigurationId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
     ///             },
@@ -73,7 +73,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// {
     ///     public MyStack()
     ///     {
-    ///         var serviceendpointGh3 = new AzureDevOps.ServiceEndpoint.GitHub("serviceendpointGh3", new AzureDevOps.ServiceEndpoint.GitHubArgs
+    ///         var serviceendpointGh3 = new AzureDevOps.GitHub("serviceendpointGh3", new AzureDevOps.GitHubArgs
     ///         {
     ///             ProjectId = azuredevops_project.Project.Id,
     ///             ServiceEndpointName = "Sample GithHub Apps: Azure Pipelines",
@@ -87,6 +87,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// 
     /// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
     /// </summary>
+    [Obsolete(@"azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub")]
     public partial class GitHub : Pulumi.CustomResource
     {
         /// <summary>

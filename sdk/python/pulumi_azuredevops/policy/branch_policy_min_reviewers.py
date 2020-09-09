@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['BranchPolicyMinReviewers']
 
+warnings.warn("azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers", DeprecationWarning)
+
 
 class BranchPolicyMinReviewers(pulumi.CustomResource):
+    warnings.warn("azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,26 +37,26 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project", project_name="Sample Project")
-        git = azuredevops.repository.Git("git",
+        project = azuredevops.Project("project", project_name="Sample Project")
+        git = azuredevops.Git("git",
             project_id=project.id,
-            initialization=azuredevops.repository.GitInitializationArgs(
+            initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        branch_policy_min_reviewers = azuredevops.policy.BranchPolicyMinReviewers("branchPolicyMinReviewers",
+        branch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers("branchPolicyMinReviewers",
             project_id=project.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.policy.BranchPolicyMinReviewersSettingsArgs(
+            settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(
                 reviewer_count=2,
                 submitter_can_vote=False,
                 scopes=[
-                    azuredevops.policy.BranchPolicyMinReviewersSettingsScopeArgs(
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
                         repository_id=git.id,
                         repository_ref=git.default_branch,
                         match_type="Exact",
                     ),
-                    azuredevops.policy.BranchPolicyMinReviewersSettingsScopeArgs(
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
                         repository_id=git.id,
                         repository_ref="refs/heads/releases",
                         match_type="Prefix",
@@ -71,6 +75,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[pulumi.InputType['BranchPolicyMinReviewersSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
         """
+        pulumi.log.warn("BranchPolicyMinReviewers is deprecated: azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

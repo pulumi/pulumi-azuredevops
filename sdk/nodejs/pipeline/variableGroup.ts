@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Core.Project("project", {projectName: "Test Project"});
- * const variablegroup = new azuredevops.Pipeline.VariableGroup("variablegroup", {
+ * const project = new azuredevops.Project("project", {projectName: "Test Project"});
+ * const variablegroup = new azuredevops.VariableGroup("variablegroup", {
  *     projectId: project.id,
  *     description: "Test Variable Group Description",
  *     allowAccess: true,
@@ -41,6 +41,8 @@ import * as utilities from "../utilities";
  * ## PAT Permissions Required
  *
  * - **Variable Groups**: Read, Create, & Manage
+ *
+ * @deprecated azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup
  */
 export class VariableGroup extends pulumi.CustomResource {
     /**
@@ -53,6 +55,7 @@ export class VariableGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: VariableGroupState, opts?: pulumi.CustomResourceOptions): VariableGroup {
+        pulumi.log.warn("VariableGroup is deprecated: azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup")
         return new VariableGroup(name, <any>state, { ...opts, id: id });
     }
 
@@ -99,8 +102,11 @@ export class VariableGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup */
     constructor(name: string, args: VariableGroupArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup */
     constructor(name: string, argsOrState?: VariableGroupArgs | VariableGroupState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("VariableGroup is deprecated: azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as VariableGroupState | undefined;

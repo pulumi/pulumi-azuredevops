@@ -9,9 +9,36 @@ import (
 
 // Use this data source to access information about an existing Agent Pool within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		pool, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
+// 			Name: "Sample Agent Pool",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		ctx.Export("name", pool.Name)
+// 		ctx.Export("poolType", pool.PoolType)
+// 		ctx.Export("autoProvision", pool.AutoProvision)
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
 	err := ctx.Invoke("azuredevops:Agent/getPool:getPool", args, &rv, opts...)

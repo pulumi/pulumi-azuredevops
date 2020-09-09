@@ -22,23 +22,23 @@ namespace Pulumi.AzureDevOps.Pipeline
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Core.Project("project", new AzureDevOps.Core.ProjectArgs
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///             ProjectName = "Test Project",
     ///         });
-    ///         var variablegroup = new AzureDevOps.Pipeline.VariableGroup("variablegroup", new AzureDevOps.Pipeline.VariableGroupArgs
+    ///         var variablegroup = new AzureDevOps.VariableGroup("variablegroup", new AzureDevOps.VariableGroupArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             Description = "Test Variable Group Description",
     ///             AllowAccess = true,
     ///             Variables = 
     ///             {
-    ///                 new AzureDevOps.Pipeline.Inputs.VariableGroupVariableArgs
+    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
     ///                 {
     ///                     Name = "key",
     ///                     Value = "value",
     ///                 },
-    ///                 new AzureDevOps.Pipeline.Inputs.VariableGroupVariableArgs
+    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
     ///                 {
     ///                     Name = "Account Password",
     ///                     Value = "p@ssword123",
@@ -59,6 +59,7 @@ namespace Pulumi.AzureDevOps.Pipeline
     /// 
     /// - **Variable Groups**: Read, Create, &amp; Manage
     /// </summary>
+    [Obsolete(@"azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup")]
     public partial class VariableGroup : Pulumi.CustomResource
     {
         /// <summary>

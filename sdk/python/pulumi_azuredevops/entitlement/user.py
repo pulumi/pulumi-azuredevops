@@ -10,8 +10,12 @@ from .. import _utilities, _tables
 
 __all__ = ['User']
 
+warnings.warn("azuredevops.entitlement.User has been deprecated in favor of azuredevops.User", DeprecationWarning)
+
 
 class User(pulumi.CustomResource):
+    warnings.warn("azuredevops.entitlement.User has been deprecated in favor of azuredevops.User", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -32,7 +36,7 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        user = azuredevops.entitlement.User("user", principal_name="foo@contoso.com")
+        user = azuredevops.User("user", principal_name="foo@contoso.com")
         ```
         ## Relevant Links
 
@@ -50,6 +54,7 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
         """
+        pulumi.log.warn("User is deprecated: azuredevops.entitlement.User has been deprecated in favor of azuredevops.User")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

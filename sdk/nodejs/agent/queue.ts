@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  * Organization defined pool to a project.
  *
  * The created queue is not authorized for use by all pipeliens in the project. However,
- * the `azuredevops.Security.ResourceAuthorization` resource can be used to grant authorization.
+ * the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
  *
  * ## Example Usage
  *
@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Core.Project("project", {projectName: "Sample Project"});
- * const pool = azuredevops.Agent.getPool({
+ * const project = new azuredevops.Project("project", {projectName: "Sample Project"});
+ * const pool = azuredevops.getPool({
  *     name: "contoso-pool",
  * });
- * const queue = new azuredevops.Agent.Queue("queue", {
+ * const queue = new azuredevops.Queue("queue", {
  *     projectId: project.id,
  *     agentPoolId: pool.then(pool => pool.id),
  * });
  * // Grant acccess to queue to all pipelines in the project
- * const auth = new azuredevops.Security.ResourceAuthorization("auth", {
+ * const auth = new azuredevops.ResourceAuthorization("auth", {
  *     projectId: project.id,
  *     resourceId: queue.id,
  *     type: "queue",
@@ -36,6 +36,8 @@ import * as utilities from "../utilities";
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+ *
+ * @deprecated azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue
  */
 export class Queue extends pulumi.CustomResource {
     /**
@@ -48,6 +50,7 @@ export class Queue extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: QueueState, opts?: pulumi.CustomResourceOptions): Queue {
+        pulumi.log.warn("Queue is deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")
         return new Queue(name, <any>state, { ...opts, id: id });
     }
 
@@ -81,8 +84,11 @@ export class Queue extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue */
     constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue */
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Queue is deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as QueueState | undefined;

@@ -14,6 +14,8 @@ __all__ = [
     'get_project',
 ]
 
+warnings.warn("azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject", DeprecationWarning)
+
 @pulumi.output_type
 class GetProjectResult:
     """
@@ -116,7 +118,7 @@ def get_project(project_name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    project = azuredevops.Core.get_project(project_name="Sample Project")
+    project = azuredevops.get_project(project_name="Sample Project")
     pulumi.export("id", project.id)
     pulumi.export("projectName", project.project_name)
     pulumi.export("visibility", project.visibility)
@@ -131,6 +133,7 @@ def get_project(project_name: Optional[str] = None,
 
     :param str project_name: Name of the Project.
     """
+    pulumi.log.warn("get_project is deprecated: azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject")
     __args__ = dict()
     __args__['projectName'] = project_name
     if opts is None:

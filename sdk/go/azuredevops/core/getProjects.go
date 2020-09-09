@@ -9,9 +9,56 @@ import (
 
 // Use this data source to access information about existing Projects within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "contoso"
+// 		opt1 := "wellFormed"
+// 		test, err := azuredevops.GetProjects(ctx, &azuredevops.GetProjectsArgs{
+// 			ProjectName: &opt0,
+// 			State:       &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		var splat0 []string
+// 		for _, val0 := range test.Projects {
+// 			splat0 = append(splat0, val0.ProjectId)
+// 		}
+// 		ctx.Export("projectId", splat0)
+// 		var splat1 []string
+// 		for _, val0 := range test.Projects {
+// 			splat1 = append(splat1, val0.Name)
+// 		}
+// 		ctx.Export("projectName", splat1)
+// 		var splat2 []string
+// 		for _, val0 := range test.Projects {
+// 			splat2 = append(splat2, val0.ProjectUrl)
+// 		}
+// 		ctx.Export("projectUrl", splat2)
+// 		var splat3 []string
+// 		for _, val0 := range test.Projects {
+// 			splat3 = append(splat3, val0.State)
+// 		}
+// 		ctx.Export("state", splat3)
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects
 func GetProjects(ctx *pulumi.Context, args *GetProjectsArgs, opts ...pulumi.InvokeOption) (*GetProjectsResult, error) {
 	var rv GetProjectsResult
 	err := ctx.Invoke("azuredevops:Core/getProjects:getProjects", args, &rv, opts...)

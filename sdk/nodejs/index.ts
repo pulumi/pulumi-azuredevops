@@ -2,7 +2,33 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
+export * from "./azureRM";
+export * from "./bitBucket";
+export * from "./branchPolicyBuildValidation";
+export * from "./branchPolicyMinReviewers";
+export * from "./buildDefinition";
+export * from "./dockerRegistry";
+export * from "./getClientConfig";
+export * from "./getGroup";
+export * from "./getPool";
+export * from "./getPools";
+export * from "./getProject";
+export * from "./getProjects";
+export * from "./getRepositories";
+export * from "./getUsers";
+export * from "./git";
+export * from "./gitHub";
+export * from "./group";
+export * from "./groupMembership";
+export * from "./kubernetes";
+export * from "./pool";
+export * from "./project";
+export * from "./projectFeatures";
 export * from "./provider";
+export * from "./queue";
+export * from "./resourceAuthorization";
+export * from "./user";
+export * from "./variableGroup";
 
 // Export sub-modules:
 import * as agent from "./agent";

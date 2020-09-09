@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Core.Project("project", {projectName: "Sample Project"});
- * const git = new azuredevops.Repository.Git("git", {
+ * const project = new azuredevops.Project("project", {projectName: "Sample Project"});
+ * const git = new azuredevops.Git("git", {
  *     projectId: project.id,
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const branchPolicyMinReviewers = new azuredevops.Policy.BranchPolicyMinReviewers("branchPolicyMinReviewers", {
+ * const branchPolicyMinReviewers = new azuredevops.BranchPolicyMinReviewers("branchPolicyMinReviewers", {
  *     projectId: project.id,
  *     enabled: true,
  *     blocking: true,
@@ -47,6 +47,8 @@ import * as utilities from "../utilities";
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+ *
+ * @deprecated azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers
  */
 export class BranchPolicyMinReviewers extends pulumi.CustomResource {
     /**
@@ -59,6 +61,7 @@ export class BranchPolicyMinReviewers extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: BranchPolicyMinReviewersState, opts?: pulumi.CustomResourceOptions): BranchPolicyMinReviewers {
+        pulumi.log.warn("BranchPolicyMinReviewers is deprecated: azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers")
         return new BranchPolicyMinReviewers(name, <any>state, { ...opts, id: id });
     }
 
@@ -100,8 +103,11 @@ export class BranchPolicyMinReviewers extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers */
     constructor(name: string, args: BranchPolicyMinReviewersArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers */
     constructor(name: string, argsOrState?: BranchPolicyMinReviewersArgs | BranchPolicyMinReviewersState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("BranchPolicyMinReviewers is deprecated: azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as BranchPolicyMinReviewersState | undefined;

@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['Git']
 
+warnings.warn("azuredevops.repository.Git has been deprecated in favor of azuredevops.Git", DeprecationWarning)
+
 
 class Git(pulumi.CustomResource):
+    warnings.warn("azuredevops.repository.Git has been deprecated in favor of azuredevops.Git", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -35,14 +39,14 @@ class Git(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project",
+        project = azuredevops.Project("project",
             project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        repo = azuredevops.repository.Git("repo",
+        repo = azuredevops.Git("repo",
             project_id=project.id,
-            initialization=azuredevops.repository.GitInitializationArgs(
+            initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
         ```
@@ -57,6 +61,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] project_id: The project ID or project name.
         """
+        pulumi.log.warn("Git is deprecated: azuredevops.repository.Git has been deprecated in favor of azuredevops.Git")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

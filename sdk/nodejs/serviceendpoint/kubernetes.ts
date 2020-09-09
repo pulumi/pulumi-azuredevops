@@ -7,13 +7,15 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * ## # azuredevops.ServiceEndpoint.Kubernetes
+ * ## # azuredevops.Kubernetes
  *
  * Manages a Kubernetes service endpoint within Azure DevOps.
  *
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ *
+ * @deprecated azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes
  */
 export class Kubernetes extends pulumi.CustomResource {
     /**
@@ -26,6 +28,7 @@ export class Kubernetes extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: KubernetesState, opts?: pulumi.CustomResourceOptions): Kubernetes {
+        pulumi.log.warn("Kubernetes is deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes")
         return new Kubernetes(name, <any>state, { ...opts, id: id });
     }
 
@@ -81,8 +84,11 @@ export class Kubernetes extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes */
     constructor(name: string, args: KubernetesArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes */
     constructor(name: string, argsOrState?: KubernetesArgs | KubernetesState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Kubernetes is deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as KubernetesState | undefined;

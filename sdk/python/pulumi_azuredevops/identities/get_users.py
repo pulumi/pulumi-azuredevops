@@ -15,6 +15,8 @@ __all__ = [
     'get_users',
 ]
 
+warnings.warn("azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers", DeprecationWarning)
+
 @pulumi.output_type
 class GetUsersResult:
     """
@@ -114,14 +116,14 @@ def get_users(origin: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    user = azuredevops.Identities.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
-    all_users = azuredevops.Identities.get_users()
-    all_from_origin = azuredevops.Identities.get_users(origin="aad")
-    all_from_subject_types = azuredevops.Identities.get_users(subject_types=[
+    user = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
+    all_users = azuredevops.get_users()
+    all_from_origin = azuredevops.get_users(origin="aad")
+    all_from_subject_types = azuredevops.get_users(subject_types=[
         "aad",
         "msa",
     ])
-    all_from_origin_id = azuredevops.Identities.get_users(origin="aad",
+    all_from_origin_id = azuredevops.get_users(origin="aad",
         origin_id="a7ead982-8438-4cd2-b9e3-c3aa51a7b675")
     ```
     ## Relevant Links
@@ -134,6 +136,7 @@ def get_users(origin: Optional[str] = None,
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param List[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """
+    pulumi.log.warn("get_users is deprecated: azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers")
     __args__ = dict()
     __args__['origin'] = origin
     __args__['originId'] = origin_id

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureDevOps.Core
 {
+    [Obsolete(@"azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig")]
     public static class GetClientConfig
     {
         /// <summary>
@@ -26,7 +27,7 @@ namespace Pulumi.AzureDevOps.Core
         /// {
         ///     public MyStack()
         ///     {
-        ///         var clientConfig = Output.Create(AzureDevOps.Core.GetClientConfig.InvokeAsync());
+        ///         var clientConfig = Output.Create(AzureDevOps.GetClientConfig.InvokeAsync());
         ///         this.OrgUrl = clientConfig.Apply(clientConfig =&gt; clientConfig.OrganizationUrl);
         ///     }
         /// 

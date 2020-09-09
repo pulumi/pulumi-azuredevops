@@ -10,8 +10,12 @@ from .. import _utilities, _tables
 
 __all__ = ['Pool']
 
+warnings.warn("azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool", DeprecationWarning)
+
 
 class Pool(pulumi.CustomResource):
+    warnings.warn("azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -30,7 +34,7 @@ class Pool(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        pool = azuredevops.agent.Pool("pool", auto_provision=False)
+        pool = azuredevops.Pool("pool", auto_provision=False)
         ```
         ## Relevant Links
 
@@ -42,6 +46,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
         """
+        pulumi.log.warn("Pool is deprecated: azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

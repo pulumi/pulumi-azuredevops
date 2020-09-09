@@ -9,9 +9,51 @@ import (
 
 // Use this data source to access information about an existing Git Repositories within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 			ProjectName: "contoso-project",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt0 := project.Id
+// 		opt1 := true
+// 		_, err = azuredevops.GetRepositories(ctx, &azuredevops.GetRepositoriesArgs{
+// 			ProjectId:     &opt0,
+// 			IncludeHidden: &opt1,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt2 := project.Id
+// 		opt3 := "contoso-repo"
+// 		_, err = azuredevops.GetRepositories(ctx, &azuredevops.GetRepositoriesArgs{
+// 			ProjectId: &opt2,
+// 			Name:      &opt3,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories
 func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
 	var rv GetRepositoriesResult
 	err := ctx.Invoke("azuredevops:Repository/getRepositories:getRepositories", args, &rv, opts...)

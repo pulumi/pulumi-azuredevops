@@ -12,6 +12,45 @@ import (
 
 // Manages group membership within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 			ProjectName: pulumi.String("Test Project"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		user, err := azuredevops.NewUser(ctx, "user", &azuredevops.UserArgs{
+// 			PrincipalName: pulumi.String("foo@contoso.com"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewGroupMembership(ctx, "membership", &azuredevops.GroupMembershipArgs{
+// 			Group: group.ApplyT(func(group azuredevops.LookupGroupResult) (string, error) {
+// 				return group.Descriptor, nil
+// 			}).(pulumi.StringOutput),
+// 			Members: pulumi.StringArray{
+// 				user.Descriptor,
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
@@ -19,13 +58,15 @@ import (
 // ## PAT Permissions Required
 //
 // - **Deployment Groups**: Read & Manage
+//
+// Deprecated: azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
 	// The descriptor of the group being managed.
 	Group pulumi.StringOutput `pulumi:"group"`
 	// A list of user or group descriptors that will become members of the group.
-	// > NOTE: It's possible to define group members both within the `Identities.GroupMembership resource` via the members block and by using the `Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members pulumi.StringArrayOutput `pulumi:"members"`
 	// The mode how the resource manages group members.
 	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
@@ -71,7 +112,7 @@ type groupMembershipState struct {
 	// The descriptor of the group being managed.
 	Group *string `pulumi:"group"`
 	// A list of user or group descriptors that will become members of the group.
-	// > NOTE: It's possible to define group members both within the `Identities.GroupMembership resource` via the members block and by using the `Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members []string `pulumi:"members"`
 	// The mode how the resource manages group members.
 	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
@@ -84,7 +125,7 @@ type GroupMembershipState struct {
 	// The descriptor of the group being managed.
 	Group pulumi.StringPtrInput
 	// A list of user or group descriptors that will become members of the group.
-	// > NOTE: It's possible to define group members both within the `Identities.GroupMembership resource` via the members block and by using the `Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members pulumi.StringArrayInput
 	// The mode how the resource manages group members.
 	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
@@ -101,7 +142,7 @@ type groupMembershipArgs struct {
 	// The descriptor of the group being managed.
 	Group string `pulumi:"group"`
 	// A list of user or group descriptors that will become members of the group.
-	// > NOTE: It's possible to define group members both within the `Identities.GroupMembership resource` via the members block and by using the `Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members []string `pulumi:"members"`
 	// The mode how the resource manages group members.
 	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
@@ -115,7 +156,7 @@ type GroupMembershipArgs struct {
 	// The descriptor of the group being managed.
 	Group pulumi.StringInput
 	// A list of user or group descriptors that will become members of the group.
-	// > NOTE: It's possible to define group members both within the `Identities.GroupMembership resource` via the members block and by using the `Identities.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members pulumi.StringArrayInput
 	// The mode how the resource manages group members.
 	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group

@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = azuredevops.Core.getProject({
+ * const project = azuredevops.getProject({
  *     projectName: "contoso-project",
  * });
- * const allRepos = project.then(project => azuredevops.Repository.getRepositories({
+ * const allRepos = project.then(project => azuredevops.getRepositories({
  *     projectId: project.id,
  *     includeHidden: true,
  * }));
- * const singleRepo = project.then(project => azuredevops.Repository.getRepositories({
+ * const singleRepo = project.then(project => azuredevops.getRepositories({
  *     projectId: project.id,
  *     name: "contoso-repo",
  * }));
@@ -31,7 +31,9 @@ import * as utilities from "../utilities";
  *
  * - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
  */
+/** @deprecated azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories */
 export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
+    pulumi.log.warn("getRepositories is deprecated: azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories")
     args = args || {};
     if (!opts) {
         opts = {}

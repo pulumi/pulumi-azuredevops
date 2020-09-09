@@ -12,8 +12,12 @@ from ._inputs import *
 
 __all__ = ['BranchPolicyBuildValidation']
 
+warnings.warn("azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation", DeprecationWarning)
+
 
 class BranchPolicyBuildValidation(pulumi.CustomResource):
+    warnings.warn("azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation", DeprecationWarning)
+
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -33,34 +37,34 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.core.Project("project", project_name="Sample Project")
-        git = azuredevops.repository.Git("git",
+        project = azuredevops.Project("project", project_name="Sample Project")
+        git = azuredevops.Git("git",
             project_id=project.id,
-            initialization=azuredevops.repository.GitInitializationArgs(
+            initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        build_definition = azuredevops.build.BuildDefinition("buildDefinition",
+        build_definition = azuredevops.BuildDefinition("buildDefinition",
             project_id=project.id,
-            repository=azuredevops.build.BuildDefinitionRepositoryArgs(
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
                 repo_id=git.id,
                 yml_path="azure-pipelines.yml",
             ))
-        branch_policy_build_validation = azuredevops.policy.BranchPolicyBuildValidation("branchPolicyBuildValidation",
+        branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("branchPolicyBuildValidation",
             project_id=project.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.policy.BranchPolicyBuildValidationSettingsArgs(
+            settings=azuredevops.BranchPolicyBuildValidationSettingsArgs(
                 display_name="Don't break the build!",
                 build_definition_id=build_definition.id,
                 valid_duration=720,
                 scopes=[
-                    azuredevops.policy.BranchPolicyBuildValidationSettingsScopeArgs(
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
                         repository_id=git.id,
                         repository_ref=git.default_branch,
                         match_type="Exact",
                     ),
-                    azuredevops.policy.BranchPolicyBuildValidationSettingsScopeArgs(
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
                         repository_id=git.id,
                         repository_ref="refs/heads/releases",
                         match_type="Prefix",
@@ -79,6 +83,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[pulumi.InputType['BranchPolicyBuildValidationSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
         """
+        pulumi.log.warn("BranchPolicyBuildValidation is deprecated: azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

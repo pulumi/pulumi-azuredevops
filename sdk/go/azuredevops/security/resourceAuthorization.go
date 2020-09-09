@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// ## # Security.ResourceAuthorization
+// ## # ResourceAuthorization
 //
 // Manages authorization of resources, e.g. for access in build pipelines.
 //
@@ -22,21 +22,19 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Security"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/ServiceEndpoint"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
 // 			ProjectName: pulumi.String("Test Project"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bitbucketAccount, err := ServiceEndpoint.NewBitBucket(ctx, "bitbucketAccount", &ServiceEndpoint.BitBucketArgs{
+// 		bitbucketAccount, err := azuredevops.NewBitBucket(ctx, "bitbucketAccount", &azuredevops.BitBucketArgs{
 // 			ProjectId:           project.ID(),
 // 			Username:            pulumi.String("xxxx"),
 // 			Password:            pulumi.String("xxxx"),
@@ -46,7 +44,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = Security.NewResourceAuthorization(ctx, "auth", &Security.ResourceAuthorizationArgs{
+// 		_, err = azuredevops.NewResourceAuthorization(ctx, "auth", &azuredevops.ResourceAuthorizationArgs{
 // 			ProjectId:  project.ID(),
 // 			ResourceId: bitbucketAccount.ID(),
 // 			Authorized: pulumi.Bool(true),
@@ -61,6 +59,8 @@ import (
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
+//
+// Deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization
 type ResourceAuthorization struct {
 	pulumi.CustomResourceState
 

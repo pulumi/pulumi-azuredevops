@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Core.Project("project", {
+ * const project = new azuredevops.Project("project", {
  *     description: "Test Project Description",
  *     features: {
  *         artifacts: "disabled",
@@ -32,6 +32,8 @@ import * as utilities from "../utilities";
  * ## PAT Permissions Required
  *
  * - **Project & Team**: Read, Write, & Manage
+ *
+ * @deprecated azuredevops.core.Project has been deprecated in favor of azuredevops.Project
  */
 export class Project extends pulumi.CustomResource {
     /**
@@ -44,6 +46,7 @@ export class Project extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ProjectState, opts?: pulumi.CustomResourceOptions): Project {
+        pulumi.log.warn("Project is deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project")
         return new Project(name, <any>state, { ...opts, id: id });
     }
 
@@ -98,8 +101,11 @@ export class Project extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated azuredevops.core.Project has been deprecated in favor of azuredevops.Project */
     constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions)
+    /** @deprecated azuredevops.core.Project has been deprecated in favor of azuredevops.Project */
     constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Project is deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as ProjectState | undefined;

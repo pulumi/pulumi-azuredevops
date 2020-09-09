@@ -17,13 +17,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Entitlement"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := Entitlement.NewUser(ctx, "user", &Entitlement.UserArgs{
+// 		_, err := azuredevops.NewUser(ctx, "user", &azuredevops.UserArgs{
 // 			PrincipalName: pulumi.String("foo@contoso.com"),
 // 		})
 // 		if err != nil {
@@ -40,6 +40,8 @@ import (
 // ## PAT Permissions Required
 //
 // - **Member Entitlement Management**: Read & Write
+//
+// Deprecated: azuredevops.entitlement.User has been deprecated in favor of azuredevops.User
 type User struct {
 	pulumi.CustomResourceState
 

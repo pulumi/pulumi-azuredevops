@@ -15,6 +15,8 @@ __all__ = [
     'get_repositories',
 ]
 
+warnings.warn("azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories", DeprecationWarning)
+
 @pulumi.output_type
 class GetRepositoriesResult:
     """
@@ -101,10 +103,10 @@ def get_repositories(include_hidden: Optional[bool] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    project = azuredevops.Core.get_project(project_name="contoso-project")
-    all_repos = azuredevops.Repository.get_repositories(project_id=project.id,
+    project = azuredevops.get_project(project_name="contoso-project")
+    all_repos = azuredevops.get_repositories(project_id=project.id,
         include_hidden=True)
-    single_repo = azuredevops.Repository.get_repositories(project_id=project.id,
+    single_repo = azuredevops.get_repositories(project_id=project.id,
         name="contoso-repo")
     ```
     ## Relevant Links
@@ -115,6 +117,7 @@ def get_repositories(include_hidden: Optional[bool] = None,
     :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
     :param str project_id: ID of project to list Git repositories
     """
+    pulumi.log.warn("get_repositories is deprecated: azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories")
     __args__ = dict()
     __args__['includeHidden'] = include_hidden
     __args__['name'] = name

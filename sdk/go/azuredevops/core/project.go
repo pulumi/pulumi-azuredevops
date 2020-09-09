@@ -18,13 +18,13 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/Core"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := Core.NewProject(ctx, "project", &Core.ProjectArgs{
+// 		_, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
 // 			Description: pulumi.String("Test Project Description"),
 // 			Features: pulumi.StringMap{
 // 				"artifacts": pulumi.String("disabled"),
@@ -49,6 +49,8 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: Read, Write, & Manage
+//
+// Deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project
 type Project struct {
 	pulumi.CustomResourceState
 
