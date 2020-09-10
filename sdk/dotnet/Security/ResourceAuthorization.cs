@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Security
 {
     /// <summary>
-    /// ## # azuredevops.ResourceAuthorization
-    /// 
     /// Manages authorization of resources, e.g. for access in build pipelines.
     /// 
     /// Currently supported resources: service endpoint (aka service connection, endpoint).
@@ -28,9 +26,8 @@ namespace Pulumi.AzureDevOps.Security
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Test Project",
     ///         });
-    ///         var bitbucketAccount = new AzureDevOps.BitBucket("bitbucketAccount", new AzureDevOps.BitBucketArgs
+    ///         var bitbucketAccount = new AzureDevOps.ServiceEndpointBitBucket("bitbucketAccount", new AzureDevOps.ServiceEndpointBitBucketArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             Username = "xxxx",
@@ -50,7 +47,7 @@ namespace Pulumi.AzureDevOps.Security
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
     /// </summary>
     [Obsolete(@"azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization")]
     public partial class ResourceAuthorization : Pulumi.CustomResource
@@ -62,6 +59,12 @@ namespace Pulumi.AzureDevOps.Security
         public Output<bool> Authorized { get; private set; } = null!;
 
         /// <summary>
+        /// The ID of the build definition to authorize. Type: string.
+        /// </summary>
+        [Output("definitionId")]
+        public Output<int?> DefinitionId { get; private set; } = null!;
+
+        /// <summary>
         /// The project ID or project name. Type: string.
         /// </summary>
         [Output("projectId")]
@@ -71,10 +74,10 @@ namespace Pulumi.AzureDevOps.Security
         /// The ID of the resource to authorize. Type: string.
         /// </summary>
         [Output("resourceId")]
-        public Output<string?> ResourceId { get; private set; } = null!;
+        public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
+        /// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
         /// </summary>
         [Output("type")]
         public Output<string?> Type { get; private set; } = null!;
@@ -132,6 +135,12 @@ namespace Pulumi.AzureDevOps.Security
         public Input<bool> Authorized { get; set; } = null!;
 
         /// <summary>
+        /// The ID of the build definition to authorize. Type: string.
+        /// </summary>
+        [Input("definitionId")]
+        public Input<int>? DefinitionId { get; set; }
+
+        /// <summary>
         /// The project ID or project name. Type: string.
         /// </summary>
         [Input("projectId", required: true)]
@@ -140,11 +149,11 @@ namespace Pulumi.AzureDevOps.Security
         /// <summary>
         /// The ID of the resource to authorize. Type: string.
         /// </summary>
-        [Input("resourceId")]
-        public Input<string>? ResourceId { get; set; }
+        [Input("resourceId", required: true)]
+        public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
+        /// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -163,6 +172,12 @@ namespace Pulumi.AzureDevOps.Security
         public Input<bool>? Authorized { get; set; }
 
         /// <summary>
+        /// The ID of the build definition to authorize. Type: string.
+        /// </summary>
+        [Input("definitionId")]
+        public Input<int>? DefinitionId { get; set; }
+
+        /// <summary>
         /// The project ID or project name. Type: string.
         /// </summary>
         [Input("projectId")]
@@ -175,7 +190,7 @@ namespace Pulumi.AzureDevOps.Security
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
+        /// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

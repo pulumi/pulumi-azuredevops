@@ -18,10 +18,10 @@ import (
 	"unicode"
 
 	"github.com/hashicorp/terraform-plugin-sdk/terraform"
+	"github.com/microsoft/terraform-provider-azuredevops/azuredevops"
 	"github.com/pulumi/pulumi-terraform-bridge/v2/pkg/tfbridge"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v2/go/common/tokens"
-	"github.com/terraform-providers/terraform-provider-azuredevops/azuredevops"
 )
 
 // all of the token components used below.
@@ -79,6 +79,7 @@ func Provider() tfbridge.ProviderInfo {
 		License:     "Apache-2.0",
 		Homepage:    "https://pulumi.io",
 		Repository:  "https://github.com/pulumi/pulumi-azuredevops",
+		GitHubOrg:   "microsoft",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"org_service_url": {
 				Default: &tfbridge.DefaultInfo{
@@ -92,8 +93,49 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		PreConfigureCallback: preConfigureCallback,
-		Resources: map[string]*tfbridge.ResourceInfo{},
-		DataSources: map[string]*tfbridge.DataSourceInfo{},
+		Resources: map[string]*tfbridge.ResourceInfo{
+			"azuredevops_area_permissions": {
+				Tok: makeResource(mainMod, "AreaPermissions"),
+			},
+			"azuredevops_branch_policy_auto_reviewers": {
+				Tok: makeResource(mainMod, "BranchPolicyAutoReviewers"),
+			},
+			"azuredevops_branch_policy_comment_resolution": {
+				Tok: makeResource(mainMod, "BranchPolicyCommentResolution"),
+			},
+			"azuredevops_branch_policy_work_item_linking": {
+				Tok: makeResource(mainMod, "BranchPolicyWorkItemLinking"),
+			},
+			"azuredevops_git_permissions": {
+				Tok: makeResource(mainMod, "GitPermissions"),
+			},
+			"azuredevops_iteration_permissions": {
+				Tok: makeResource(mainMod, "IterativePermissions"),
+			},
+			"azuredevops_project_permissions": {
+				Tok: makeResource(mainMod, "ProjectPermissions"),
+			},
+			"azuredevops_serviceendpoint_aws": {
+				Tok: makeResource(mainMod, "ServiceEndpointAws"),
+			},
+			"azuredevops_serviceendpoint_azurecr": {
+				Tok: makeResource(mainMod, "ServiceEndpointAzureEcr"),
+			},
+			"azuredevops_workitemquery_permissions": {
+				Tok: makeResource(mainMod, "WorkItemQueryPermissions"),
+			},
+		},
+		DataSources: map[string]*tfbridge.DataSourceInfo{
+			"azuredevops_area": {
+				Tok: makeDataSource(mainMod, "getArea"),
+			},
+			"azuredevops_git_repository": {
+				Tok: makeDataSource(mainMod, "getGitRepository"),
+			},
+			"azuredevops_iteration": {
+				Tok: makeDataSource(mainMod, "getIteration"),
+			},
+		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
 				"@pulumi/pulumi": "^2.0.0",
@@ -157,17 +199,17 @@ func Provider() tfbridge.ProviderInfo {
 		})
 	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_azurerm",
 		makeResource("ServiceEndpoint", "AzureRM"),
-		makeResource(mainMod, "AzureRM"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+		makeResource(mainMod, "ServiceEndpointAzureRM"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "serviceendpoint_azurerm.html.markdown"},
 		})
 	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_bitbucket",
 		makeResource("ServiceEndpoint", "BitBucket"),
-		makeResource(mainMod, "BitBucket"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+		makeResource(mainMod, "ServiceEndpointBitBucket"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "serviceendpoint_bitbucket.html.markdown"},
 		})
 	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_dockerregistry",
 		makeResource("ServiceEndpoint", "DockerRegistry"),
-		makeResource(mainMod, "DockerRegistry"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+		makeResource(mainMod, "ServiceEndpointDockerRegistry"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{
 				Source: "serviceendpoint_dockerregistry.html.markdown",
 			},
@@ -179,12 +221,12 @@ func Provider() tfbridge.ProviderInfo {
 		})
 	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_github",
 		makeResource("ServiceEndpoint", "GitHub"),
-		makeResource(mainMod, "GitHub"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+		makeResource(mainMod, "ServiceEndpointGitHub"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "serviceendpoint_github.html.markdown"},
 		})
 	prov.RenameResourceWithAlias("azuredevops_serviceendpoint_kubernetes",
 		makeResource("ServiceEndpoint", "Kubernetes"),
-		makeResource(mainMod, "Kubernetes"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
+		makeResource(mainMod, "ServiceEndpointKubernetes"), "ServiceEndpoint", mainMod, &tfbridge.ResourceInfo{
 			Docs: &tfbridge.DocInfo{Source: "serviceendpoint_kubernetes.html.markdown"},
 		})
 	prov.RenameResourceWithAlias("azuredevops_git_repository",

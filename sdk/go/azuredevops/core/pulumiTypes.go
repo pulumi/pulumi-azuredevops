@@ -11,7 +11,7 @@ import (
 )
 
 type GetProjectsProject struct {
-	// Project name.
+	// Name of the Project, if not specified all projects will be returned.
 	Name string `pulumi:"name"`
 	// Project identifier.
 	ProjectId string `pulumi:"projectId"`
@@ -33,7 +33,7 @@ type GetProjectsProjectInput interface {
 }
 
 type GetProjectsProjectArgs struct {
-	// Project name.
+	// Name of the Project, if not specified all projects will be returned.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Project identifier.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
@@ -94,7 +94,7 @@ func (o GetProjectsProjectOutput) ToGetProjectsProjectOutputWithContext(ctx cont
 	return o
 }
 
-// Project name.
+// Name of the Project, if not specified all projects will be returned.
 func (o GetProjectsProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.Name }).(pulumi.StringOutput)
 }

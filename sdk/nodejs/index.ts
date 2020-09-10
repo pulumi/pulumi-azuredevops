@@ -2,14 +2,18 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 // Export members:
-export * from "./azureRM";
-export * from "./bitBucket";
+export * from "./areaPermissions";
+export * from "./branchPolicyAutoReviewers";
 export * from "./branchPolicyBuildValidation";
+export * from "./branchPolicyCommentResolution";
 export * from "./branchPolicyMinReviewers";
+export * from "./branchPolicyWorkItemLinking";
 export * from "./buildDefinition";
-export * from "./dockerRegistry";
+export * from "./getArea";
 export * from "./getClientConfig";
+export * from "./getGitRepository";
 export * from "./getGroup";
+export * from "./getIteration";
 export * from "./getPool";
 export * from "./getPools";
 export * from "./getProject";
@@ -17,18 +21,27 @@ export * from "./getProjects";
 export * from "./getRepositories";
 export * from "./getUsers";
 export * from "./git";
-export * from "./gitHub";
+export * from "./gitPermissions";
 export * from "./group";
 export * from "./groupMembership";
-export * from "./kubernetes";
+export * from "./iterativePermissions";
 export * from "./pool";
 export * from "./project";
 export * from "./projectFeatures";
+export * from "./projectPermissions";
 export * from "./provider";
 export * from "./queue";
 export * from "./resourceAuthorization";
+export * from "./serviceEndpointAws";
+export * from "./serviceEndpointAzureEcr";
+export * from "./serviceEndpointAzureRM";
+export * from "./serviceEndpointBitBucket";
+export * from "./serviceEndpointDockerRegistry";
+export * from "./serviceEndpointGitHub";
+export * from "./serviceEndpointKubernetes";
 export * from "./user";
 export * from "./variableGroup";
+export * from "./workItemQueryPermissions";
 
 // Export sub-modules:
 import * as agent from "./agent";

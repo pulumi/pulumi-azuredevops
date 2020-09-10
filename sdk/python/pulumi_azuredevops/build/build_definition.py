@@ -37,13 +37,12 @@ class BuildDefinition(pulumi.CustomResource):
         Manages a Build Definition within Azure DevOps.
 
         ## Example Usage
-
+        ### Tfs
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
-            project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
@@ -85,15 +84,36 @@ class BuildDefinition(pulumi.CustomResource):
                 ),
             ])
         ```
+        ### GitHub Enterprise
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        sample_dotnetcore_app_release = azuredevops.BuildDefinition("sampleDotnetcoreAppRelease",
+            project_id=azuredevops_project["project"]["id"],
+            path="\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=True,
+            ),
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="GitHubEnterprise",
+                repo_id="<GitHub Org>/<Repo Name>",
+                github_enterprise_url="https://github.company.com",
+                branch_name="master",
+                yml_path="azure-pipelines.yml",
+                service_connection_id="...",
+            ))
+        ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
-        :param pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']] ci_trigger: Continuous Integration Integration trigger.
+        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build.
+        :param pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']] ci_trigger: Continuous Integration trigger.
         :param pulumi.Input[str] name: The name of the build definition.
+        :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']] pull_request_trigger: Pull Request Integration Integration trigger.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']] repository: A `repository` block as documented below.
@@ -159,9 +179,10 @@ class BuildDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
-        :param pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']] ci_trigger: Continuous Integration Integration trigger.
+        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build.
+        :param pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']] ci_trigger: Continuous Integration trigger.
         :param pulumi.Input[str] name: The name of the build definition.
+        :param pulumi.Input[str] path: The folder path of the build definition.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']] pull_request_trigger: Pull Request Integration Integration trigger.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']] repository: A `repository` block as documented below.
@@ -189,7 +210,7 @@ class BuildDefinition(pulumi.CustomResource):
     @pulumi.getter(name="agentPoolName")
     def agent_pool_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+        The agent pool that should execute the build.
         """
         return pulumi.get(self, "agent_pool_name")
 
@@ -197,7 +218,7 @@ class BuildDefinition(pulumi.CustomResource):
     @pulumi.getter(name="ciTrigger")
     def ci_trigger(self) -> pulumi.Output[Optional['outputs.BuildDefinitionCiTrigger']]:
         """
-        Continuous Integration Integration trigger.
+        Continuous Integration trigger.
         """
         return pulumi.get(self, "ci_trigger")
 
@@ -212,6 +233,9 @@ class BuildDefinition(pulumi.CustomResource):
     @property
     @pulumi.getter
     def path(self) -> pulumi.Output[Optional[str]]:
+        """
+        The folder path of the build definition.
+        """
         return pulumi.get(self, "path")
 
     @property

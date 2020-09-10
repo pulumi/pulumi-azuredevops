@@ -9,11 +9,16 @@ from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
 from . import _utilities, _tables
 
 __all__ = [
-    'AzureRMCredentialsArgs',
+    'BranchPolicyAutoReviewersSettingsArgs',
+    'BranchPolicyAutoReviewersSettingsScopeArgs',
     'BranchPolicyBuildValidationSettingsArgs',
     'BranchPolicyBuildValidationSettingsScopeArgs',
+    'BranchPolicyCommentResolutionSettingsArgs',
+    'BranchPolicyCommentResolutionSettingsScopeArgs',
     'BranchPolicyMinReviewersSettingsArgs',
     'BranchPolicyMinReviewersSettingsScopeArgs',
+    'BranchPolicyWorkItemLinkingSettingsArgs',
+    'BranchPolicyWorkItemLinkingSettingsScopeArgs',
     'BuildDefinitionCiTriggerArgs',
     'BuildDefinitionCiTriggerOverrideArgs',
     'BuildDefinitionCiTriggerOverrideBranchFilterArgs',
@@ -25,63 +30,155 @@ __all__ = [
     'BuildDefinitionPullRequestTriggerOverridePathFilterArgs',
     'BuildDefinitionRepositoryArgs',
     'BuildDefinitionVariableArgs',
-    'GitHubAuthOauthArgs',
-    'GitHubAuthPersonalArgs',
     'GitInitializationArgs',
-    'KubernetesAzureSubscriptionArgs',
-    'KubernetesKubeconfigArgs',
-    'KubernetesServiceAccountArgs',
+    'ServiceEndpointAzureRMCredentialsArgs',
+    'ServiceEndpointGitHubAuthOauthArgs',
+    'ServiceEndpointGitHubAuthPersonalArgs',
+    'ServiceEndpointKubernetesAzureSubscriptionArgs',
+    'ServiceEndpointKubernetesKubeconfigArgs',
+    'ServiceEndpointKubernetesServiceAccountArgs',
     'VariableGroupKeyVaultArgs',
     'VariableGroupVariableArgs',
 ]
 
 @pulumi.input_type
-class AzureRMCredentialsArgs:
+class BranchPolicyAutoReviewersSettingsArgs:
     def __init__(__self__, *,
-                 serviceprincipalid: pulumi.Input[str],
-                 serviceprincipalkey: pulumi.Input[str],
-                 serviceprincipalkey_hash: Optional[pulumi.Input[str]] = None):
+                 auto_reviewer_ids: pulumi.Input[List[pulumi.Input[str]]],
+                 scopes: pulumi.Input[List[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]],
+                 message: Optional[pulumi.Input[str]] = None,
+                 path_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 submitter_can_vote: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[str] serviceprincipalid: The service principal application Id
-        :param pulumi.Input[str] serviceprincipalkey: The service principal secret.
+        :param pulumi.Input[List[pulumi.Input[str]]] auto_reviewer_ids: Required reviewers ids. Supports multiples user Ids.
+        :param pulumi.Input[List[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[str] message: Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
+        :param pulumi.Input[List[pulumi.Input[str]]] path_filters: Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+        :param pulumi.Input[bool] submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
-        pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
-        pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
-        if serviceprincipalkey_hash is not None:
-            pulumi.set(__self__, "serviceprincipalkey_hash", serviceprincipalkey_hash)
+        pulumi.set(__self__, "auto_reviewer_ids", auto_reviewer_ids)
+        pulumi.set(__self__, "scopes", scopes)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+        if path_filters is not None:
+            pulumi.set(__self__, "path_filters", path_filters)
+        if submitter_can_vote is not None:
+            pulumi.set(__self__, "submitter_can_vote", submitter_can_vote)
+
+    @property
+    @pulumi.getter(name="autoReviewerIds")
+    def auto_reviewer_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+        """
+        Required reviewers ids. Supports multiples user Ids.
+        """
+        return pulumi.get(self, "auto_reviewer_ids")
+
+    @auto_reviewer_ids.setter
+    def auto_reviewer_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+        pulumi.set(self, "auto_reviewer_ids", value)
 
     @property
     @pulumi.getter
-    def serviceprincipalid(self) -> pulumi.Input[str]:
+    def scopes(self) -> pulumi.Input[List[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]]:
         """
-        The service principal application Id
+        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
-        return pulumi.get(self, "serviceprincipalid")
+        return pulumi.get(self, "scopes")
 
-    @serviceprincipalid.setter
-    def serviceprincipalid(self, value: pulumi.Input[str]):
-        pulumi.set(self, "serviceprincipalid", value)
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[List[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]]):
+        pulumi.set(self, "scopes", value)
 
     @property
     @pulumi.getter
-    def serviceprincipalkey(self) -> pulumi.Input[str]:
+    def message(self) -> Optional[pulumi.Input[str]]:
         """
-        The service principal secret.
+        Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
         """
-        return pulumi.get(self, "serviceprincipalkey")
+        return pulumi.get(self, "message")
 
-    @serviceprincipalkey.setter
-    def serviceprincipalkey(self, value: pulumi.Input[str]):
-        pulumi.set(self, "serviceprincipalkey", value)
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "message", value)
 
     @property
-    @pulumi.getter(name="serviceprincipalkeyHash")
-    def serviceprincipalkey_hash(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "serviceprincipalkey_hash")
+    @pulumi.getter(name="pathFilters")
+    def path_filters(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+        """
+        return pulumi.get(self, "path_filters")
 
-    @serviceprincipalkey_hash.setter
-    def serviceprincipalkey_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "serviceprincipalkey_hash", value)
+    @path_filters.setter
+    def path_filters(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "path_filters", value)
+
+    @property
+    @pulumi.getter(name="submitterCanVote")
+    def submitter_can_vote(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Controls whether or not the submitter's vote counts. Defaults to `false`.
+        """
+        return pulumi.get(self, "submitter_can_vote")
+
+    @submitter_can_vote.setter
+    def submitter_can_vote(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "submitter_can_vote", value)
+
+
+@pulumi.input_type
+class BranchPolicyAutoReviewersSettingsScopeArgs:
+    def __init__(__self__, *,
+                 match_type: Optional[pulumi.Input[str]] = None,
+                 repository_id: Optional[pulumi.Input[str]] = None,
+                 repository_ref: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+        :param pulumi.Input[str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+        :param pulumi.Input[str] repository_ref: The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+        if match_type is not None:
+            pulumi.set(__self__, "match_type", match_type)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+        if repository_ref is not None:
+            pulumi.set(__self__, "repository_ref", repository_ref)
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+        """
+        return pulumi.get(self, "match_type")
+
+    @match_type.setter
+    def match_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_type", value)
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_id", value)
+
+    @property
+    @pulumi.getter(name="repositoryRef")
+    def repository_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+        return pulumi.get(self, "repository_ref")
+
+    @repository_ref.setter
+    def repository_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_ref", value)
 
 
 @pulumi.input_type
@@ -90,6 +187,7 @@ class BranchPolicyBuildValidationSettingsArgs:
                  build_definition_id: pulumi.Input[float],
                  display_name: pulumi.Input[str],
                  scopes: pulumi.Input[List[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]],
+                 filename_patterns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  manual_queue_only: Optional[pulumi.Input[bool]] = None,
                  queue_on_source_update_only: Optional[pulumi.Input[bool]] = None,
                  valid_duration: Optional[pulumi.Input[float]] = None):
@@ -97,6 +195,7 @@ class BranchPolicyBuildValidationSettingsArgs:
         :param pulumi.Input[float] build_definition_id: The ID of the build to monitor for the policy.
         :param pulumi.Input[str] display_name: The display name for the policy.
         :param pulumi.Input[List[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[List[pulumi.Input[str]]] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param pulumi.Input[bool] manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param pulumi.Input[bool] queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
         :param pulumi.Input[float] valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
@@ -104,6 +203,8 @@ class BranchPolicyBuildValidationSettingsArgs:
         pulumi.set(__self__, "build_definition_id", build_definition_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "scopes", scopes)
+        if filename_patterns is not None:
+            pulumi.set(__self__, "filename_patterns", filename_patterns)
         if manual_queue_only is not None:
             pulumi.set(__self__, "manual_queue_only", manual_queue_only)
         if queue_on_source_update_only is not None:
@@ -148,6 +249,18 @@ class BranchPolicyBuildValidationSettingsArgs:
         pulumi.set(self, "scopes", value)
 
     @property
+    @pulumi.getter(name="filenamePatterns")
+    def filename_patterns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        """
+        return pulumi.get(self, "filename_patterns")
+
+    @filename_patterns.setter
+    def filename_patterns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "filename_patterns", value)
+
+    @property
     @pulumi.getter(name="manualQueueOnly")
     def manual_queue_only(self) -> Optional[pulumi.Input[bool]]:
         """
@@ -186,6 +299,83 @@ class BranchPolicyBuildValidationSettingsArgs:
 
 @pulumi.input_type
 class BranchPolicyBuildValidationSettingsScopeArgs:
+    def __init__(__self__, *,
+                 match_type: Optional[pulumi.Input[str]] = None,
+                 repository_id: Optional[pulumi.Input[str]] = None,
+                 repository_ref: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+        :param pulumi.Input[str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+        :param pulumi.Input[str] repository_ref: The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+        if match_type is not None:
+            pulumi.set(__self__, "match_type", match_type)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+        if repository_ref is not None:
+            pulumi.set(__self__, "repository_ref", repository_ref)
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+        """
+        return pulumi.get(self, "match_type")
+
+    @match_type.setter
+    def match_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_type", value)
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_id", value)
+
+    @property
+    @pulumi.getter(name="repositoryRef")
+    def repository_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+        return pulumi.get(self, "repository_ref")
+
+    @repository_ref.setter
+    def repository_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_ref", value)
+
+
+@pulumi.input_type
+class BranchPolicyCommentResolutionSettingsArgs:
+    def __init__(__self__, *,
+                 scopes: pulumi.Input[List[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]):
+        """
+        :param pulumi.Input[List[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+        pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[List[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]:
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[List[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]):
+        pulumi.set(self, "scopes", value)
+
+
+@pulumi.input_type
+class BranchPolicyCommentResolutionSettingsScopeArgs:
     def __init__(__self__, *,
                  match_type: Optional[pulumi.Input[str]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
@@ -294,6 +484,83 @@ class BranchPolicyMinReviewersSettingsArgs:
 
 @pulumi.input_type
 class BranchPolicyMinReviewersSettingsScopeArgs:
+    def __init__(__self__, *,
+                 match_type: Optional[pulumi.Input[str]] = None,
+                 repository_id: Optional[pulumi.Input[str]] = None,
+                 repository_ref: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+        :param pulumi.Input[str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+        :param pulumi.Input[str] repository_ref: The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+        if match_type is not None:
+            pulumi.set(__self__, "match_type", match_type)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+        if repository_ref is not None:
+            pulumi.set(__self__, "repository_ref", repository_ref)
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+        """
+        return pulumi.get(self, "match_type")
+
+    @match_type.setter
+    def match_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_type", value)
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_id", value)
+
+    @property
+    @pulumi.getter(name="repositoryRef")
+    def repository_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+        return pulumi.get(self, "repository_ref")
+
+    @repository_ref.setter
+    def repository_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_ref", value)
+
+
+@pulumi.input_type
+class BranchPolicyWorkItemLinkingSettingsArgs:
+    def __init__(__self__, *,
+                 scopes: pulumi.Input[List[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]):
+        """
+        :param pulumi.Input[List[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+        pulumi.set(__self__, "scopes", scopes)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[List[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]:
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[List[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]):
+        pulumi.set(self, "scopes", value)
+
+
+@pulumi.input_type
+class BranchPolicyWorkItemLinkingSettingsScopeArgs:
     def __init__(__self__, *,
                  match_type: Optional[pulumi.Input[str]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,
@@ -577,7 +844,7 @@ class BuildDefinitionPullRequestTriggerArgs:
                  use_yaml: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input['BuildDefinitionPullRequestTriggerForksArgs'] forks: Set permissions for Forked repositories.
-        :param pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs'] override: Override the azure-pipeline file and use a this configuration for all builds.
+        :param pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs'] override: Override the azure-pipeline file and use this configuration for all builds.
         :param pulumi.Input[bool] use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
         pulumi.set(__self__, "forks", forks)
@@ -624,7 +891,7 @@ class BuildDefinitionPullRequestTriggerArgs:
     @pulumi.getter
     def override(self) -> Optional[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs']]:
         """
-        Override the azure-pipeline file and use a this configuration for all builds.
+        Override the azure-pipeline file and use this configuration for all builds.
         """
         return pulumi.get(self, "override")
 
@@ -822,19 +1089,27 @@ class BuildDefinitionRepositoryArgs:
                  repo_type: pulumi.Input[str],
                  yml_path: pulumi.Input[str],
                  branch_name: Optional[pulumi.Input[str]] = None,
+                 github_enterprise_url: Optional[pulumi.Input[str]] = None,
+                 report_build_status: Optional[pulumi.Input[bool]] = None,
                  service_connection_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] repo_id: The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-        :param pulumi.Input[str] repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+        :param pulumi.Input[str] repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         :param pulumi.Input[str] yml_path: The path of the Yaml file describing the build definition.
         :param pulumi.Input[str] branch_name: The branch name for which builds are triggered. Defaults to `master`.
-        :param pulumi.Input[str] service_connection_id: The service connection ID. Used if the `repo_type` is `GitHub`.
+        :param pulumi.Input[str] github_enterprise_url: The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        :param pulumi.Input[bool] report_build_status: Report build status. Default is true.
+        :param pulumi.Input[str] service_connection_id: The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
         pulumi.set(__self__, "repo_id", repo_id)
         pulumi.set(__self__, "repo_type", repo_type)
         pulumi.set(__self__, "yml_path", yml_path)
         if branch_name is not None:
             pulumi.set(__self__, "branch_name", branch_name)
+        if github_enterprise_url is not None:
+            pulumi.set(__self__, "github_enterprise_url", github_enterprise_url)
+        if report_build_status is not None:
+            pulumi.set(__self__, "report_build_status", report_build_status)
         if service_connection_id is not None:
             pulumi.set(__self__, "service_connection_id", service_connection_id)
 
@@ -854,7 +1129,7 @@ class BuildDefinitionRepositoryArgs:
     @pulumi.getter(name="repoType")
     def repo_type(self) -> pulumi.Input[str]:
         """
-        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         """
         return pulumi.get(self, "repo_type")
 
@@ -887,10 +1162,34 @@ class BuildDefinitionRepositoryArgs:
         pulumi.set(self, "branch_name", value)
 
     @property
+    @pulumi.getter(name="githubEnterpriseUrl")
+    def github_enterprise_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        """
+        return pulumi.get(self, "github_enterprise_url")
+
+    @github_enterprise_url.setter
+    def github_enterprise_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "github_enterprise_url", value)
+
+    @property
+    @pulumi.getter(name="reportBuildStatus")
+    def report_build_status(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Report build status. Default is true.
+        """
+        return pulumi.get(self, "report_build_status")
+
+    @report_build_status.setter
+    def report_build_status(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "report_build_status", value)
+
+    @property
     @pulumi.getter(name="serviceConnectionId")
     def service_connection_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The service connection ID. Used if the `repo_type` is `GitHub`.
+        The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
         return pulumi.get(self, "service_connection_id")
 
@@ -986,7 +1285,110 @@ class BuildDefinitionVariableArgs:
 
 
 @pulumi.input_type
-class GitHubAuthOauthArgs:
+class GitInitializationArgs:
+    def __init__(__self__, *,
+                 init_type: pulumi.Input[str],
+                 source_type: Optional[pulumi.Input[str]] = None,
+                 source_url: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+        :param pulumi.Input[str] source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
+        :param pulumi.Input[str] source_url: The URL of the source repository. Used if the `init_type` is `Import`.
+        """
+        pulumi.set(__self__, "init_type", init_type)
+        if source_type is not None:
+            pulumi.set(__self__, "source_type", source_type)
+        if source_url is not None:
+            pulumi.set(__self__, "source_url", source_url)
+
+    @property
+    @pulumi.getter(name="initType")
+    def init_type(self) -> pulumi.Input[str]:
+        """
+        The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+        """
+        return pulumi.get(self, "init_type")
+
+    @init_type.setter
+    def init_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "init_type", value)
+
+    @property
+    @pulumi.getter(name="sourceType")
+    def source_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
+        """
+        return pulumi.get(self, "source_type")
+
+    @source_type.setter
+    def source_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_type", value)
+
+    @property
+    @pulumi.getter(name="sourceUrl")
+    def source_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The URL of the source repository. Used if the `init_type` is `Import`.
+        """
+        return pulumi.get(self, "source_url")
+
+    @source_url.setter
+    def source_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_url", value)
+
+
+@pulumi.input_type
+class ServiceEndpointAzureRMCredentialsArgs:
+    def __init__(__self__, *,
+                 serviceprincipalid: pulumi.Input[str],
+                 serviceprincipalkey: pulumi.Input[str],
+                 serviceprincipalkey_hash: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] serviceprincipalid: The service principal application Id
+        :param pulumi.Input[str] serviceprincipalkey: The service principal secret.
+        """
+        pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
+        pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
+        if serviceprincipalkey_hash is not None:
+            pulumi.set(__self__, "serviceprincipalkey_hash", serviceprincipalkey_hash)
+
+    @property
+    @pulumi.getter
+    def serviceprincipalid(self) -> pulumi.Input[str]:
+        """
+        The service principal application Id
+        """
+        return pulumi.get(self, "serviceprincipalid")
+
+    @serviceprincipalid.setter
+    def serviceprincipalid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "serviceprincipalid", value)
+
+    @property
+    @pulumi.getter
+    def serviceprincipalkey(self) -> pulumi.Input[str]:
+        """
+        The service principal secret.
+        """
+        return pulumi.get(self, "serviceprincipalkey")
+
+    @serviceprincipalkey.setter
+    def serviceprincipalkey(self, value: pulumi.Input[str]):
+        pulumi.set(self, "serviceprincipalkey", value)
+
+    @property
+    @pulumi.getter(name="serviceprincipalkeyHash")
+    def serviceprincipalkey_hash(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "serviceprincipalkey_hash")
+
+    @serviceprincipalkey_hash.setter
+    def serviceprincipalkey_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "serviceprincipalkey_hash", value)
+
+
+@pulumi.input_type
+class ServiceEndpointGitHubAuthOauthArgs:
     def __init__(__self__, *,
                  oauth_configuration_id: pulumi.Input[str]):
         pulumi.set(__self__, "oauth_configuration_id", oauth_configuration_id)
@@ -1002,7 +1404,7 @@ class GitHubAuthOauthArgs:
 
 
 @pulumi.input_type
-class GitHubAuthPersonalArgs:
+class ServiceEndpointGitHubAuthPersonalArgs:
     def __init__(__self__, *,
                  personal_access_token: pulumi.Input[str],
                  personal_access_token_hash: Optional[pulumi.Input[str]] = None):
@@ -1036,61 +1438,7 @@ class GitHubAuthPersonalArgs:
 
 
 @pulumi.input_type
-class GitInitializationArgs:
-    def __init__(__self__, *,
-                 init_type: pulumi.Input[str],
-                 source_type: Optional[pulumi.Input[str]] = None,
-                 source_url: Optional[pulumi.Input[str]] = None):
-        """
-        :param pulumi.Input[str] init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
-        :param pulumi.Input[str] source_type: Type type of the source repository. Used if the `init_type` is `Import`.
-        :param pulumi.Input[str] source_url: The URL of the source repository. Used if the `init_type` is `Import`.
-        """
-        pulumi.set(__self__, "init_type", init_type)
-        if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
-        if source_url is not None:
-            pulumi.set(__self__, "source_url", source_url)
-
-    @property
-    @pulumi.getter(name="initType")
-    def init_type(self) -> pulumi.Input[str]:
-        """
-        The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
-        """
-        return pulumi.get(self, "init_type")
-
-    @init_type.setter
-    def init_type(self, value: pulumi.Input[str]):
-        pulumi.set(self, "init_type", value)
-
-    @property
-    @pulumi.getter(name="sourceType")
-    def source_type(self) -> Optional[pulumi.Input[str]]:
-        """
-        Type type of the source repository. Used if the `init_type` is `Import`.
-        """
-        return pulumi.get(self, "source_type")
-
-    @source_type.setter
-    def source_type(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_type", value)
-
-    @property
-    @pulumi.getter(name="sourceUrl")
-    def source_url(self) -> Optional[pulumi.Input[str]]:
-        """
-        The URL of the source repository. Used if the `init_type` is `Import`.
-        """
-        return pulumi.get(self, "source_url")
-
-    @source_url.setter
-    def source_url(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "source_url", value)
-
-
-@pulumi.input_type
-class KubernetesAzureSubscriptionArgs:
+class ServiceEndpointKubernetesAzureSubscriptionArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[str],
                  resourcegroup_id: pulumi.Input[str],
@@ -1101,7 +1449,7 @@ class KubernetesAzureSubscriptionArgs:
                  namespace: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cluster_name: The name of the Kubernetes cluster.
-        :param pulumi.Input[str] resourcegroup_id: The resource group id, to which the Kubernetes cluster is deployed.
+        :param pulumi.Input[str] resourcegroup_id: The resource group name, to which the Kubernetes cluster is deployed.
         :param pulumi.Input[str] subscription_id: The id of the Azure subscription.
         :param pulumi.Input[str] subscription_name: The name of the Azure subscription.
         :param pulumi.Input[str] tenant_id: The id of the tenant used by the subscription.
@@ -1134,7 +1482,7 @@ class KubernetesAzureSubscriptionArgs:
     @pulumi.getter(name="resourcegroupId")
     def resourcegroup_id(self) -> pulumi.Input[str]:
         """
-        The resource group id, to which the Kubernetes cluster is deployed.
+        The resource group name, to which the Kubernetes cluster is deployed.
         """
         return pulumi.get(self, "resourcegroup_id")
 
@@ -1204,7 +1552,7 @@ class KubernetesAzureSubscriptionArgs:
 
 
 @pulumi.input_type
-class KubernetesKubeconfigArgs:
+class ServiceEndpointKubernetesKubeconfigArgs:
     def __init__(__self__, *,
                  kube_config: pulumi.Input[str],
                  accept_untrusted_certs: Optional[pulumi.Input[bool]] = None,
@@ -1270,7 +1618,7 @@ class KubernetesKubeconfigArgs:
 
 
 @pulumi.input_type
-class KubernetesServiceAccountArgs:
+class ServiceEndpointKubernetesServiceAccountArgs:
     def __init__(__self__, *,
                  ca_cert: pulumi.Input[str],
                  token: pulumi.Input[str],

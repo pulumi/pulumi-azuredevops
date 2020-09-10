@@ -15,6 +15,8 @@ type BranchPolicyBuildValidationSettings struct {
 	BuildDefinitionId int `pulumi:"buildDefinitionId"`
 	// The display name for the policy.
 	DisplayName string `pulumi:"displayName"`
+	// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	FilenamePatterns []string `pulumi:"filenamePatterns"`
 	// If set to true, the build will need to be manually queued. Defaults to `false`
 	ManualQueueOnly *bool `pulumi:"manualQueueOnly"`
 	// True if the build should queue on source updates only. Defaults to `true`.
@@ -41,6 +43,8 @@ type BranchPolicyBuildValidationSettingsArgs struct {
 	BuildDefinitionId pulumi.IntInput `pulumi:"buildDefinitionId"`
 	// The display name for the policy.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	FilenamePatterns pulumi.StringArrayInput `pulumi:"filenamePatterns"`
 	// If set to true, the build will need to be manually queued. Defaults to `false`
 	ManualQueueOnly pulumi.BoolPtrInput `pulumi:"manualQueueOnly"`
 	// True if the build should queue on source updates only. Defaults to `true`.
@@ -138,6 +142,11 @@ func (o BranchPolicyBuildValidationSettingsOutput) DisplayName() pulumi.StringOu
 	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+func (o BranchPolicyBuildValidationSettingsOutput) FilenamePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) []string { return v.FilenamePatterns }).(pulumi.StringArrayOutput)
+}
+
 // If set to true, the build will need to be manually queued. Defaults to `false`
 func (o BranchPolicyBuildValidationSettingsOutput) ManualQueueOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) *bool { return v.ManualQueueOnly }).(pulumi.BoolPtrOutput)
@@ -196,6 +205,16 @@ func (o BranchPolicyBuildValidationSettingsPtrOutput) DisplayName() pulumi.Strin
 		}
 		return &v.DisplayName
 	}).(pulumi.StringPtrOutput)
+}
+
+// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+func (o BranchPolicyBuildValidationSettingsPtrOutput) FilenamePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyBuildValidationSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FilenamePatterns
+	}).(pulumi.StringArrayOutput)
 }
 
 // If set to true, the build will need to be manually queued. Defaults to `false`

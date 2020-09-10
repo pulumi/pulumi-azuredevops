@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Build
     /// Manages a Build Definition within Azure DevOps.
     /// 
     /// ## Example Usage
-    /// 
+    /// ### Tfs
     /// ```csharp
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
@@ -24,7 +24,6 @@ namespace Pulumi.AzureDevOps.Build
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
@@ -89,21 +88,52 @@ namespace Pulumi.AzureDevOps.Build
     /// 
     /// }
     /// ```
+    /// ### GitHub Enterprise
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var sampleDotnetcoreAppRelease = new AzureDevOps.BuildDefinition("sampleDotnetcoreAppRelease", new AzureDevOps.BuildDefinitionArgs
+    ///         {
+    ///             ProjectId = azuredevops_project.Project.Id,
+    ///             Path = "\\ExampleFolder",
+    ///             CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
+    ///             {
+    ///                 UseYaml = true,
+    ///             },
+    ///             Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
+    ///             {
+    ///                 RepoType = "GitHubEnterprise",
+    ///                 RepoId = "&lt;GitHub Org&gt;/&lt;Repo Name&gt;",
+    ///                 GithubEnterpriseUrl = "https://github.company.com",
+    ///                 BranchName = "master",
+    ///                 YmlPath = "azure-pipelines.yml",
+    ///                 ServiceConnectionId = "...",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
     /// </summary>
     [Obsolete(@"azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition")]
     public partial class BuildDefinition : Pulumi.CustomResource
     {
         /// <summary>
-        /// The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+        /// The agent pool that should execute the build.
         /// </summary>
         [Output("agentPoolName")]
         public Output<string?> AgentPoolName { get; private set; } = null!;
 
         /// <summary>
-        /// Continuous Integration Integration trigger.
+        /// Continuous Integration trigger.
         /// </summary>
         [Output("ciTrigger")]
         public Output<Outputs.BuildDefinitionCiTrigger?> CiTrigger { get; private set; } = null!;
@@ -114,6 +144,9 @@ namespace Pulumi.AzureDevOps.Build
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The folder path of the build definition.
+        /// </summary>
         [Output("path")]
         public Output<string?> Path { get; private set; } = null!;
 
@@ -200,13 +233,13 @@ namespace Pulumi.AzureDevOps.Build
     public sealed class BuildDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+        /// The agent pool that should execute the build.
         /// </summary>
         [Input("agentPoolName")]
         public Input<string>? AgentPoolName { get; set; }
 
         /// <summary>
-        /// Continuous Integration Integration trigger.
+        /// Continuous Integration trigger.
         /// </summary>
         [Input("ciTrigger")]
         public Input<Inputs.BuildDefinitionCiTriggerArgs>? CiTrigger { get; set; }
@@ -217,6 +250,9 @@ namespace Pulumi.AzureDevOps.Build
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The folder path of the build definition.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 
@@ -270,13 +306,13 @@ namespace Pulumi.AzureDevOps.Build
     public sealed class BuildDefinitionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+        /// The agent pool that should execute the build.
         /// </summary>
         [Input("agentPoolName")]
         public Input<string>? AgentPoolName { get; set; }
 
         /// <summary>
-        /// Continuous Integration Integration trigger.
+        /// Continuous Integration trigger.
         /// </summary>
         [Input("ciTrigger")]
         public Input<Inputs.BuildDefinitionCiTriggerGetArgs>? CiTrigger { get; set; }
@@ -287,6 +323,9 @@ namespace Pulumi.AzureDevOps.Build
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The folder path of the build definition.
+        /// </summary>
         [Input("path")]
         public Input<string>? Path { get; set; }
 

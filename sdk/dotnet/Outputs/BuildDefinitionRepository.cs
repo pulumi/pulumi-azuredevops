@@ -18,15 +18,23 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string? BranchName;
         /// <summary>
+        /// The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        /// </summary>
+        public readonly string? GithubEnterpriseUrl;
+        /// <summary>
         /// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `&lt;GitHub Org&gt;/&lt;Repo Name&gt;`. For `Bitbucket` repos, this will take the form of `&lt;Workspace ID&gt;/&lt;Repo Name&gt;`.
         /// </summary>
         public readonly string RepoId;
         /// <summary>
-        /// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+        /// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         /// </summary>
         public readonly string RepoType;
         /// <summary>
-        /// The service connection ID. Used if the `repo_type` is `GitHub`.
+        /// Report build status. Default is true.
+        /// </summary>
+        public readonly bool? ReportBuildStatus;
+        /// <summary>
+        /// The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         /// </summary>
         public readonly string? ServiceConnectionId;
         /// <summary>
@@ -38,17 +46,23 @@ namespace Pulumi.AzureDevOps.Outputs
         private BuildDefinitionRepository(
             string? branchName,
 
+            string? githubEnterpriseUrl,
+
             string repoId,
 
             string repoType,
+
+            bool? reportBuildStatus,
 
             string? serviceConnectionId,
 
             string ymlPath)
         {
             BranchName = branchName;
+            GithubEnterpriseUrl = githubEnterpriseUrl;
             RepoId = repoId;
             RepoType = repoType;
+            ReportBuildStatus = reportBuildStatus;
             ServiceConnectionId = serviceConnectionId;
             YmlPath = ymlPath;
         }

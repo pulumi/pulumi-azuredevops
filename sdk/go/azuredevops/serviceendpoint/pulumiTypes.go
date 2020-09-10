@@ -454,7 +454,7 @@ type KubernetesAzureSubscription struct {
 	ClusterName string `pulumi:"clusterName"`
 	// The Kubernetes namespace. Default value is "default".
 	Namespace *string `pulumi:"namespace"`
-	// The resource group id, to which the Kubernetes cluster is deployed.
+	// The resource group name, to which the Kubernetes cluster is deployed.
 	ResourcegroupId string `pulumi:"resourcegroupId"`
 	// The id of the Azure subscription.
 	SubscriptionId string `pulumi:"subscriptionId"`
@@ -482,7 +482,7 @@ type KubernetesAzureSubscriptionArgs struct {
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The Kubernetes namespace. Default value is "default".
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// The resource group id, to which the Kubernetes cluster is deployed.
+	// The resource group name, to which the Kubernetes cluster is deployed.
 	ResourcegroupId pulumi.StringInput `pulumi:"resourcegroupId"`
 	// The id of the Azure subscription.
 	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
@@ -558,7 +558,7 @@ func (o KubernetesAzureSubscriptionOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesAzureSubscription) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The resource group id, to which the Kubernetes cluster is deployed.
+// The resource group name, to which the Kubernetes cluster is deployed.
 func (o KubernetesAzureSubscriptionOutput) ResourcegroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesAzureSubscription) string { return v.ResourcegroupId }).(pulumi.StringOutput)
 }

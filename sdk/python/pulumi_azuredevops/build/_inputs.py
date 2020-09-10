@@ -252,7 +252,7 @@ class BuildDefinitionPullRequestTriggerArgs:
                  use_yaml: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input['BuildDefinitionPullRequestTriggerForksArgs'] forks: Set permissions for Forked repositories.
-        :param pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs'] override: Override the azure-pipeline file and use a this configuration for all builds.
+        :param pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs'] override: Override the azure-pipeline file and use this configuration for all builds.
         :param pulumi.Input[bool] use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
         pulumi.set(__self__, "forks", forks)
@@ -299,7 +299,7 @@ class BuildDefinitionPullRequestTriggerArgs:
     @pulumi.getter
     def override(self) -> Optional[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideArgs']]:
         """
-        Override the azure-pipeline file and use a this configuration for all builds.
+        Override the azure-pipeline file and use this configuration for all builds.
         """
         return pulumi.get(self, "override")
 
@@ -497,19 +497,27 @@ class BuildDefinitionRepositoryArgs:
                  repo_type: pulumi.Input[str],
                  yml_path: pulumi.Input[str],
                  branch_name: Optional[pulumi.Input[str]] = None,
+                 github_enterprise_url: Optional[pulumi.Input[str]] = None,
+                 report_build_status: Optional[pulumi.Input[bool]] = None,
                  service_connection_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] repo_id: The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-        :param pulumi.Input[str] repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+        :param pulumi.Input[str] repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         :param pulumi.Input[str] yml_path: The path of the Yaml file describing the build definition.
         :param pulumi.Input[str] branch_name: The branch name for which builds are triggered. Defaults to `master`.
-        :param pulumi.Input[str] service_connection_id: The service connection ID. Used if the `repo_type` is `GitHub`.
+        :param pulumi.Input[str] github_enterprise_url: The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        :param pulumi.Input[bool] report_build_status: Report build status. Default is true.
+        :param pulumi.Input[str] service_connection_id: The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
         pulumi.set(__self__, "repo_id", repo_id)
         pulumi.set(__self__, "repo_type", repo_type)
         pulumi.set(__self__, "yml_path", yml_path)
         if branch_name is not None:
             pulumi.set(__self__, "branch_name", branch_name)
+        if github_enterprise_url is not None:
+            pulumi.set(__self__, "github_enterprise_url", github_enterprise_url)
+        if report_build_status is not None:
+            pulumi.set(__self__, "report_build_status", report_build_status)
         if service_connection_id is not None:
             pulumi.set(__self__, "service_connection_id", service_connection_id)
 
@@ -529,7 +537,7 @@ class BuildDefinitionRepositoryArgs:
     @pulumi.getter(name="repoType")
     def repo_type(self) -> pulumi.Input[str]:
         """
-        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         """
         return pulumi.get(self, "repo_type")
 
@@ -562,10 +570,34 @@ class BuildDefinitionRepositoryArgs:
         pulumi.set(self, "branch_name", value)
 
     @property
+    @pulumi.getter(name="githubEnterpriseUrl")
+    def github_enterprise_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        """
+        return pulumi.get(self, "github_enterprise_url")
+
+    @github_enterprise_url.setter
+    def github_enterprise_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "github_enterprise_url", value)
+
+    @property
+    @pulumi.getter(name="reportBuildStatus")
+    def report_build_status(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Report build status. Default is true.
+        """
+        return pulumi.get(self, "report_build_status")
+
+    @report_build_status.setter
+    def report_build_status(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "report_build_status", value)
+
+    @property
     @pulumi.getter(name="serviceConnectionId")
     def service_connection_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The service connection ID. Used if the `repo_type` is `GitHub`.
+        The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
         return pulumi.get(self, "service_connection_id")
 

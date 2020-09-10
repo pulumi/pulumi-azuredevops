@@ -13,7 +13,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {projectName: "Test Project"});
+ * const project = new azuredevops.Project("project", {});
  * const tf-project-readers = project.id.apply(id => azuredevops.getGroup({
  *     projectId: id,
  *     name: "Readers",
@@ -34,7 +34,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
  *
  * ## PAT Permissions Required
  *
@@ -89,7 +89,7 @@ export class Group extends pulumi.CustomResource {
      */
     public readonly mail!: pulumi.Output<string>;
     /**
-     * > NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the   `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+     * > NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
     public readonly members!: pulumi.Output<string[]>;
     /**
@@ -194,7 +194,7 @@ export interface GroupState {
      */
     readonly mail?: pulumi.Input<string>;
     /**
-     * > NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the   `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+     * > NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
     readonly members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -240,7 +240,7 @@ export interface GroupArgs {
      */
     readonly mail?: pulumi.Input<string>;
     /**
-     * > NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the   `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+     * > NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
     readonly members?: pulumi.Input<pulumi.Input<string>[]>;
     /**

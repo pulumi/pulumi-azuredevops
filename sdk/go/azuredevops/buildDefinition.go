@@ -12,18 +12,53 @@ import (
 
 // Manages a Build Definition within Azure DevOps.
 //
+// ## Example Usage
+// ### GitHub Enterprise
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azuredevops.NewBuildDefinition(ctx, "sampleDotnetcoreAppRelease", &azuredevops.BuildDefinitionArgs{
+// 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
+// 			Path:      pulumi.String("\\ExampleFolder"),
+// 			CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
+// 				UseYaml: pulumi.Bool(true),
+// 			},
+// 			Repository: &azuredevops.BuildDefinitionRepositoryArgs{
+// 				RepoType:            pulumi.String("GitHubEnterprise"),
+// 				RepoId:              pulumi.String("<GitHub Org>/<Repo Name>"),
+// 				GithubEnterpriseUrl: pulumi.String("https://github.company.com"),
+// 				BranchName:          pulumi.String("master"),
+// 				YmlPath:             pulumi.String("azure-pipelines.yml"),
+// 				ServiceConnectionId: pulumi.String("..."),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
 type BuildDefinition struct {
 	pulumi.CustomResourceState
 
-	// The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+	// The agent pool that should execute the build.
 	AgentPoolName pulumi.StringPtrOutput `pulumi:"agentPoolName"`
-	// Continuous Integration Integration trigger.
+	// Continuous Integration trigger.
 	CiTrigger BuildDefinitionCiTriggerPtrOutput `pulumi:"ciTrigger"`
 	// The name of the build definition.
-	Name pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The folder path of the build definition.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The project ID or project name.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -79,12 +114,13 @@ func GetBuildDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BuildDefinition resources.
 type buildDefinitionState struct {
-	// The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+	// The agent pool that should execute the build.
 	AgentPoolName *string `pulumi:"agentPoolName"`
-	// Continuous Integration Integration trigger.
+	// Continuous Integration trigger.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
 	// The name of the build definition.
 	Name *string `pulumi:"name"`
+	// The folder path of the build definition.
 	Path *string `pulumi:"path"`
 	// The project ID or project name.
 	ProjectId *string `pulumi:"projectId"`
@@ -101,12 +137,13 @@ type buildDefinitionState struct {
 }
 
 type BuildDefinitionState struct {
-	// The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+	// The agent pool that should execute the build.
 	AgentPoolName pulumi.StringPtrInput
-	// Continuous Integration Integration trigger.
+	// Continuous Integration trigger.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
 	// The name of the build definition.
 	Name pulumi.StringPtrInput
+	// The folder path of the build definition.
 	Path pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringPtrInput
@@ -127,12 +164,13 @@ func (BuildDefinitionState) ElementType() reflect.Type {
 }
 
 type buildDefinitionArgs struct {
-	// The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+	// The agent pool that should execute the build.
 	AgentPoolName *string `pulumi:"agentPoolName"`
-	// Continuous Integration Integration trigger.
+	// Continuous Integration trigger.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
 	// The name of the build definition.
 	Name *string `pulumi:"name"`
+	// The folder path of the build definition.
 	Path *string `pulumi:"path"`
 	// The project ID or project name.
 	ProjectId string `pulumi:"projectId"`
@@ -148,12 +186,13 @@ type buildDefinitionArgs struct {
 
 // The set of arguments for constructing a BuildDefinition resource.
 type BuildDefinitionArgs struct {
-	// The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+	// The agent pool that should execute the build.
 	AgentPoolName pulumi.StringPtrInput
-	// Continuous Integration Integration trigger.
+	// Continuous Integration trigger.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
 	// The name of the build definition.
 	Name pulumi.StringPtrInput
+	// The folder path of the build definition.
 	Path pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringInput

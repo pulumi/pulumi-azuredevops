@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class GetProjectsProjectResult
     {
         /// <summary>
-        /// Project name.
+        /// Name of the Project, if not specified all projects will be returned.
         /// </summary>
         public readonly string Name;
         /// <summary>

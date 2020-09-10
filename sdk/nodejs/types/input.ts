@@ -5,16 +5,42 @@ import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
 
-export interface AzureRMCredentials {
+export interface BranchPolicyAutoReviewersSettings {
     /**
-     * The service principal application Id
+     * Required reviewers ids. Supports multiples user Ids.
      */
-    serviceprincipalid: pulumi.Input<string>;
+    autoReviewerIds: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The service principal secret.
+     * Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
      */
-    serviceprincipalkey: pulumi.Input<string>;
-    serviceprincipalkeyHash?: pulumi.Input<string>;
+    message?: pulumi.Input<string>;
+    /**
+     * Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+     */
+    pathFilters?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     */
+    scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyAutoReviewersSettingsScope>[]>;
+    /**
+     * Controls whether or not the submitter's vote counts. Defaults to `false`.
+     */
+    submitterCanVote?: pulumi.Input<boolean>;
+}
+
+export interface BranchPolicyAutoReviewersSettingsScope {
+    /**
+     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     */
+    matchType?: pulumi.Input<string>;
+    /**
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     */
+    repositoryId?: pulumi.Input<string>;
+    /**
+     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     */
+    repositoryRef?: pulumi.Input<string>;
 }
 
 export interface BranchPolicyBuildValidationSettings {
@@ -26,6 +52,10 @@ export interface BranchPolicyBuildValidationSettings {
      * The display name for the policy.
      */
     displayName: pulumi.Input<string>;
+    /**
+     * If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+     */
+    filenamePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * If set to true, the build will need to be manually queued. Defaults to `false`
      */
@@ -59,6 +89,28 @@ export interface BranchPolicyBuildValidationSettingsScope {
     repositoryRef?: pulumi.Input<string>;
 }
 
+export interface BranchPolicyCommentResolutionSettings {
+    /**
+     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     */
+    scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyCommentResolutionSettingsScope>[]>;
+}
+
+export interface BranchPolicyCommentResolutionSettingsScope {
+    /**
+     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     */
+    matchType?: pulumi.Input<string>;
+    /**
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     */
+    repositoryId?: pulumi.Input<string>;
+    /**
+     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     */
+    repositoryRef?: pulumi.Input<string>;
+}
+
 export interface BranchPolicyMinReviewersSettings {
     /**
      * The number of reviewrs needed to approve.
@@ -75,6 +127,28 @@ export interface BranchPolicyMinReviewersSettings {
 }
 
 export interface BranchPolicyMinReviewersSettingsScope {
+    /**
+     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     */
+    matchType?: pulumi.Input<string>;
+    /**
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     */
+    repositoryId?: pulumi.Input<string>;
+    /**
+     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     */
+    repositoryRef?: pulumi.Input<string>;
+}
+
+export interface BranchPolicyWorkItemLinkingSettings {
+    /**
+     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     */
+    scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyWorkItemLinkingSettingsScope>[]>;
+}
+
+export interface BranchPolicyWorkItemLinkingSettingsScope {
     /**
      * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
      */
@@ -157,7 +231,7 @@ export interface BuildDefinitionPullRequestTrigger {
     forks: pulumi.Input<inputs.BuildDefinitionPullRequestTriggerForks>;
     initialBranch?: pulumi.Input<string>;
     /**
-     * Override the azure-pipeline file and use a this configuration for all builds.
+     * Override the azure-pipeline file and use this configuration for all builds.
      */
     override?: pulumi.Input<inputs.BuildDefinitionPullRequestTriggerOverride>;
     /**
@@ -220,15 +294,23 @@ export interface BuildDefinitionRepository {
      */
     branchName?: pulumi.Input<string>;
     /**
+     * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+     */
+    githubEnterpriseUrl?: pulumi.Input<string>;
+    /**
      * The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
      */
     repoId: pulumi.Input<string>;
     /**
-     * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+     * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      */
     repoType: pulumi.Input<string>;
     /**
-     * The service connection ID. Used if the `repoType` is `GitHub`.
+     * Report build status. Default is true.
+     */
+    reportBuildStatus?: pulumi.Input<boolean>;
+    /**
+     * The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
      */
     serviceConnectionId?: pulumi.Input<string>;
     /**
@@ -260,25 +342,13 @@ export interface BuildDefinitionVariable {
     value?: pulumi.Input<string>;
 }
 
-export interface GitHubAuthOauth {
-    oauthConfigurationId: pulumi.Input<string>;
-}
-
-export interface GitHubAuthPersonal {
-    /**
-     * The Personal Access Token for Github.
-     */
-    personalAccessToken: pulumi.Input<string>;
-    personalAccessTokenHash?: pulumi.Input<string>;
-}
-
 export interface GitInitialization {
     /**
-     * The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+     * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
      */
     initType: pulumi.Input<string>;
     /**
-     * Type type of the source repository. Used if the `initType` is `Import`.
+     * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
      */
     sourceType?: pulumi.Input<string>;
     /**
@@ -287,7 +357,31 @@ export interface GitInitialization {
     sourceUrl?: pulumi.Input<string>;
 }
 
-export interface KubernetesAzureSubscription {
+export interface ServiceEndpointAzureRMCredentials {
+    /**
+     * The service principal application Id
+     */
+    serviceprincipalid: pulumi.Input<string>;
+    /**
+     * The service principal secret.
+     */
+    serviceprincipalkey: pulumi.Input<string>;
+    serviceprincipalkeyHash?: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointGitHubAuthOauth {
+    oauthConfigurationId: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointGitHubAuthPersonal {
+    /**
+     * The Personal Access Token for Github.
+     */
+    personalAccessToken: pulumi.Input<string>;
+    personalAccessTokenHash?: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointKubernetesAzureSubscription {
     /**
      * Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
      */
@@ -301,7 +395,7 @@ export interface KubernetesAzureSubscription {
      */
     namespace?: pulumi.Input<string>;
     /**
-     * The resource group id, to which the Kubernetes cluster is deployed.
+     * The resource group name, to which the Kubernetes cluster is deployed.
      */
     resourcegroupId: pulumi.Input<string>;
     /**
@@ -318,7 +412,7 @@ export interface KubernetesAzureSubscription {
     tenantId: pulumi.Input<string>;
 }
 
-export interface KubernetesKubeconfig {
+export interface ServiceEndpointKubernetesKubeconfig {
     /**
      * Set this option to allow clients to accept a self-signed certificate.
      */
@@ -334,7 +428,7 @@ export interface KubernetesKubeconfig {
     kubeConfigHash?: pulumi.Input<string>;
 }
 
-export interface KubernetesServiceAccount {
+export interface ServiceEndpointKubernetesServiceAccount {
     /**
      * The certificate from a Kubernetes secret object.
      */
@@ -448,7 +542,7 @@ export namespace Build {
         forks: pulumi.Input<inputs.Build.BuildDefinitionPullRequestTriggerForks>;
         initialBranch?: pulumi.Input<string>;
         /**
-         * Override the azure-pipeline file and use a this configuration for all builds.
+         * Override the azure-pipeline file and use this configuration for all builds.
          */
         override?: pulumi.Input<inputs.Build.BuildDefinitionPullRequestTriggerOverride>;
         /**
@@ -511,15 +605,23 @@ export namespace Build {
          */
         branchName?: pulumi.Input<string>;
         /**
+         * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+         */
+        githubEnterpriseUrl?: pulumi.Input<string>;
+        /**
          * The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
          */
         repoId: pulumi.Input<string>;
         /**
-         * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+         * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
          */
         repoType: pulumi.Input<string>;
         /**
-         * The service connection ID. Used if the `repoType` is `GitHub`.
+         * Report build status. Default is true.
+         */
+        reportBuildStatus?: pulumi.Input<boolean>;
+        /**
+         * The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
          */
         serviceConnectionId?: pulumi.Input<string>;
         /**
@@ -601,6 +703,10 @@ export namespace Policy {
          */
         displayName: pulumi.Input<string>;
         /**
+         * If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+         */
+        filenamePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
          * If set to true, the build will need to be manually queued. Defaults to `false`
          */
         manualQueueOnly?: pulumi.Input<boolean>;
@@ -667,11 +773,11 @@ export namespace Policy {
 export namespace Repository {
     export interface GitInitialization {
         /**
-         * The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+         * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
          */
         initType: pulumi.Input<string>;
         /**
-         * Type type of the source repository. Used if the `initType` is `Import`.
+         * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
          */
         sourceType?: pulumi.Input<string>;
         /**
@@ -720,7 +826,7 @@ export namespace ServiceEndpoint {
          */
         namespace?: pulumi.Input<string>;
         /**
-         * The resource group id, to which the Kubernetes cluster is deployed.
+         * The resource group name, to which the Kubernetes cluster is deployed.
          */
         resourcegroupId: pulumi.Input<string>;
         /**

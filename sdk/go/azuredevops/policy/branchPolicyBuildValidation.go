@@ -24,9 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName: pulumi.String("Sample Project"),
-// 		})
+// 		project, err := azuredevops.NewProject(ctx, "project", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -58,6 +56,11 @@ import (
 // 				DisplayName:       pulumi.String("Don't break the build!"),
 // 				BuildDefinitionId: buildDefinition.ID(),
 // 				ValidDuration:     pulumi.Int(720),
+// 				FilenamePatterns: pulumi.StringArray{
+// 					pulumi.String("/WebApp/*"),
+// 					pulumi.String("!/WebApp/Tests/*"),
+// 					pulumi.String("*.cs"),
+// 				},
 // 				Scopes: azuredevops.BranchPolicyBuildValidationSettingsScopeArray{
 // 					&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
 // 						RepositoryId:  git.ID(),
@@ -81,7 +84,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
 //
 // Deprecated: azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation
 type BranchPolicyBuildValidation struct {

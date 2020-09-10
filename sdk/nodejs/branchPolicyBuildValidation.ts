@@ -15,7 +15,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {projectName: "Sample Project"});
+ * const project = new azuredevops.Project("project", {});
  * const git = new azuredevops.Git("git", {
  *     projectId: project.id,
  *     initialization: {
@@ -38,6 +38,11 @@ import * as utilities from "./utilities";
  *         displayName: "Don't break the build!",
  *         buildDefinitionId: buildDefinition.id,
  *         validDuration: 720,
+ *         filenamePatterns: [
+ *             "/WebApp/*",
+ *             "!/WebApp/Tests/*",
+ *             "*.cs",
+ *         ],
  *         scopes: [
  *             {
  *                 repositoryId: git.id,
@@ -55,7 +60,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
  */
 export class BranchPolicyBuildValidation extends pulumi.CustomResource {
     /**

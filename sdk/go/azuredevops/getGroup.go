@@ -9,40 +9,9 @@ import (
 
 // Use this data source to access information about an existing Group within Azure DevOps
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
-// 			ProjectName: "contoso-project",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		test, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
-// 			ProjectId: project.Id,
-// 			Name:      "Test Group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("groupId", test.Id)
-// 		ctx.Export("groupDescriptor", test.Descriptor)
-// 		return nil
-// 	})
-// }
-// ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
 	err := ctx.Invoke("azuredevops:index/getGroup:getGroup", args, &rv, opts...)
@@ -65,7 +34,11 @@ type LookupGroupResult struct {
 	// The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations.
 	Descriptor string `pulumi:"descriptor"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	Name      string `pulumi:"name"`
+	Id   string `pulumi:"id"`
+	Name string `pulumi:"name"`
+	// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+	Origin string `pulumi:"origin"`
+	// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+	OriginId  string `pulumi:"originId"`
 	ProjectId string `pulumi:"projectId"`
 }

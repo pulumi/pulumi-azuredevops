@@ -24,8 +24,8 @@ import (
 // 		opt0 := "contoso"
 // 		opt1 := "wellFormed"
 // 		test, err := azuredevops.GetProjects(ctx, &azuredevops.GetProjectsArgs{
-// 			ProjectName: &opt0,
-// 			State:       &opt1,
+// 			Name:  &opt0,
+// 			State: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -39,7 +39,7 @@ import (
 // 		for _, val0 := range test.Projects {
 // 			splat1 = append(splat1, val0.Name)
 // 		}
-// 		ctx.Export("projectName", splat1)
+// 		ctx.Export("name", splat1)
 // 		var splat2 []string
 // 		for _, val0 := range test.Projects {
 // 			splat2 = append(splat2, val0.ProjectUrl)
@@ -69,7 +69,7 @@ func GetProjects(ctx *pulumi.Context, args *GetProjectsArgs, opts ...pulumi.Invo
 // A collection of arguments for invoking getProjects.
 type GetProjectsArgs struct {
 	// Name of the Project, if not specified all projects will be returned.
-	ProjectName *string `pulumi:"projectName"`
+	Name *string `pulumi:"name"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
 	State *string `pulumi:"state"`
 }
@@ -77,8 +77,9 @@ type GetProjectsArgs struct {
 // A collection of values returned by getProjects.
 type GetProjectsResult struct {
 	// The provider-assigned unique ID for this managed resource.
-	Id          string  `pulumi:"id"`
-	ProjectName *string `pulumi:"projectName"`
+	Id string `pulumi:"id"`
+	// Project name.
+	Name *string `pulumi:"name"`
 	// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
 	Projects []GetProjectsProject `pulumi:"projects"`
 	// Project state.

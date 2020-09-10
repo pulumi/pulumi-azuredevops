@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['AzureRM']
 
-warnings.warn("azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM", DeprecationWarning)
+warnings.warn("azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM", DeprecationWarning)
 
 
 class AzureRM(pulumi.CustomResource):
-    warnings.warn("azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM", DeprecationWarning)
+    warnings.warn("azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -50,14 +50,14 @@ class AzureRM(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
-            project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        endpointazure = azuredevops.AzureRM("endpointazure",
+        endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
             project_id=project.id,
             service_endpoint_name="TestServiceRM",
-            credentials=azuredevops.AzureRMCredentialsArgs(
+            description="Managed by Terraform",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
                 serviceprincipalid="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
                 serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ),
@@ -72,20 +72,20 @@ class AzureRM(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
-            project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        endpointazure = azuredevops.AzureRM("endpointazure",
+        endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
             project_id=project.id,
             service_endpoint_name="TestServiceRM",
+            description="Managed by Terraform",
             azurerm_spn_tenantid="xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
             azurerm_subscription_id="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
             azurerm_subscription_name="Microsoft Azure DEMO")
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -93,11 +93,12 @@ class AzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] azurerm_subscription_id: The subscription Id of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
         :param pulumi.Input[pulumi.InputType['AzureRMCredentialsArgs']] credentials: A `credentials` block.
+        :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
-        pulumi.log.warn("AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM")
+        pulumi.log.warn("AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__
@@ -164,6 +165,7 @@ class AzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] azurerm_subscription_id: The subscription Id of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
         :param pulumi.Input[pulumi.InputType['AzureRMCredentialsArgs']] credentials: A `credentials` block.
+        :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -223,6 +225,9 @@ class AzureRM(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
+        """
+        Service connection description.
+        """
         return pulumi.get(self, "description")
 
     @property

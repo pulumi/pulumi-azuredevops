@@ -25,7 +25,6 @@ namespace Pulumi.AzureDevOps.Repository
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
@@ -42,15 +41,62 @@ namespace Pulumi.AzureDevOps.Repository
     /// 
     /// }
     /// ```
+    /// ### Create Fork of another Azure DevOps Git repository
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var repo = new AzureDevOps.Git("repo", new AzureDevOps.GitArgs
+    ///         {
+    ///             ProjectId = azuredevops_project.Project.Id,
+    ///             ParentRepositoryId = azuredevops_git_repository.Parent.Id,
+    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             {
+    ///                 InitType = "Clean",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Create Import from another Git repository
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var repo = new AzureDevOps.Git("repo", new AzureDevOps.GitArgs
+    ///         {
+    ///             ProjectId = azuredevops_project.Project.Id,
+    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             {
+    ///                 InitType = "Import",
+    ///                 SourceType = "Git",
+    ///                 SourceUrl = "https://github.com/microsoft/terraform-provider-azuredevops.git",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
     /// </summary>
     [Obsolete(@"azuredevops.repository.Git has been deprecated in favor of azuredevops.Git")]
     public partial class Git : Pulumi.CustomResource
     {
         /// <summary>
-        /// The ref of the default branch.
+        /// The ref of the default branch. Will be used as the branch name for initialized repositories.
         /// </summary>
         [Output("defaultBranch")]
         public Output<string> DefaultBranch { get; private set; } = null!;
@@ -59,7 +105,7 @@ namespace Pulumi.AzureDevOps.Repository
         /// An `initialization` block as documented below.
         /// </summary>
         [Output("initialization")]
-        public Output<Outputs.GitInitialization?> Initialization { get; private set; } = null!;
+        public Output<Outputs.GitInitialization> Initialization { get; private set; } = null!;
 
         /// <summary>
         /// True if the repository was created as a fork.
@@ -73,6 +119,9 @@ namespace Pulumi.AzureDevOps.Repository
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The ID of a Git project from which a fork is to be created.
+        /// </summary>
         [Output("parentRepositoryId")]
         public Output<string?> ParentRepositoryId { get; private set; } = null!;
 
@@ -159,7 +208,7 @@ namespace Pulumi.AzureDevOps.Repository
     public sealed class GitArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ref of the default branch.
+        /// The ref of the default branch. Will be used as the branch name for initialized repositories.
         /// </summary>
         [Input("defaultBranch")]
         public Input<string>? DefaultBranch { get; set; }
@@ -167,8 +216,8 @@ namespace Pulumi.AzureDevOps.Repository
         /// <summary>
         /// An `initialization` block as documented below.
         /// </summary>
-        [Input("initialization")]
-        public Input<Inputs.GitInitializationArgs>? Initialization { get; set; }
+        [Input("initialization", required: true)]
+        public Input<Inputs.GitInitializationArgs> Initialization { get; set; } = null!;
 
         /// <summary>
         /// The name of the git repository.
@@ -176,6 +225,9 @@ namespace Pulumi.AzureDevOps.Repository
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of a Git project from which a fork is to be created.
+        /// </summary>
         [Input("parentRepositoryId")]
         public Input<string>? ParentRepositoryId { get; set; }
 
@@ -193,7 +245,7 @@ namespace Pulumi.AzureDevOps.Repository
     public sealed class GitState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ref of the default branch.
+        /// The ref of the default branch. Will be used as the branch name for initialized repositories.
         /// </summary>
         [Input("defaultBranch")]
         public Input<string>? DefaultBranch { get; set; }
@@ -216,6 +268,9 @@ namespace Pulumi.AzureDevOps.Repository
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of a Git project from which a fork is to be created.
+        /// </summary>
         [Input("parentRepositoryId")]
         public Input<string>? ParentRepositoryId { get; set; }
 

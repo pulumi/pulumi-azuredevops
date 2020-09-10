@@ -6,7 +6,6 @@ package azuredevops
 import (
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
@@ -30,7 +29,6 @@ import (
 // 				"artifacts": pulumi.String("disabled"),
 // 				"testplans": pulumi.String("disabled"),
 // 			},
-// 			ProjectName:      pulumi.String("Test Project"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			Visibility:       pulumi.String("private"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
@@ -44,7 +42,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
 //
 // ## PAT Permissions Required
 //
@@ -57,10 +55,10 @@ type Project struct {
 	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapOutput `pulumi:"features"`
+	// The Project Name.
+	Name pulumi.StringOutput `pulumi:"name"`
 	// The Process Template ID used by the Project.
 	ProcessTemplateId pulumi.StringOutput `pulumi:"processTemplateId"`
-	// The Project Name.
-	ProjectName pulumi.StringOutput `pulumi:"projectName"`
 	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl pulumi.StringPtrOutput `pulumi:"versionControl"`
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
@@ -72,9 +70,6 @@ type Project struct {
 // NewProject registers a new resource with the given unique name, arguments, and options.
 func NewProject(ctx *pulumi.Context,
 	name string, args *ProjectArgs, opts ...pulumi.ResourceOption) (*Project, error) {
-	if args == nil || args.ProjectName == nil {
-		return nil, errors.New("missing required argument 'ProjectName'")
-	}
 	if args == nil {
 		args = &ProjectArgs{}
 	}
@@ -111,10 +106,10 @@ type projectState struct {
 	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features map[string]string `pulumi:"features"`
+	// The Project Name.
+	Name *string `pulumi:"name"`
 	// The Process Template ID used by the Project.
 	ProcessTemplateId *string `pulumi:"processTemplateId"`
-	// The Project Name.
-	ProjectName *string `pulumi:"projectName"`
 	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl *string `pulumi:"versionControl"`
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
@@ -129,10 +124,10 @@ type ProjectState struct {
 	// Defines the status (`enabled`, `disabled`) of the project features.\
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapInput
+	// The Project Name.
+	Name pulumi.StringPtrInput
 	// The Process Template ID used by the Project.
 	ProcessTemplateId pulumi.StringPtrInput
-	// The Project Name.
-	ProjectName pulumi.StringPtrInput
 	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl pulumi.StringPtrInput
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
@@ -152,7 +147,7 @@ type projectArgs struct {
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features map[string]string `pulumi:"features"`
 	// The Project Name.
-	ProjectName string `pulumi:"projectName"`
+	Name *string `pulumi:"name"`
 	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl *string `pulumi:"versionControl"`
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
@@ -169,7 +164,7 @@ type ProjectArgs struct {
 	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapInput
 	// The Project Name.
-	ProjectName pulumi.StringInput
+	Name pulumi.StringPtrInput
 	// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
 	VersionControl pulumi.StringPtrInput
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.

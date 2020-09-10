@@ -21,6 +21,7 @@ class BranchPolicyBuildValidationSettingsArgs:
                  build_definition_id: pulumi.Input[float],
                  display_name: pulumi.Input[str],
                  scopes: pulumi.Input[List[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]],
+                 filename_patterns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
                  manual_queue_only: Optional[pulumi.Input[bool]] = None,
                  queue_on_source_update_only: Optional[pulumi.Input[bool]] = None,
                  valid_duration: Optional[pulumi.Input[float]] = None):
@@ -28,6 +29,7 @@ class BranchPolicyBuildValidationSettingsArgs:
         :param pulumi.Input[float] build_definition_id: The ID of the build to monitor for the policy.
         :param pulumi.Input[str] display_name: The display name for the policy.
         :param pulumi.Input[List[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[List[pulumi.Input[str]]] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param pulumi.Input[bool] manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param pulumi.Input[bool] queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
         :param pulumi.Input[float] valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
@@ -35,6 +37,8 @@ class BranchPolicyBuildValidationSettingsArgs:
         pulumi.set(__self__, "build_definition_id", build_definition_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "scopes", scopes)
+        if filename_patterns is not None:
+            pulumi.set(__self__, "filename_patterns", filename_patterns)
         if manual_queue_only is not None:
             pulumi.set(__self__, "manual_queue_only", manual_queue_only)
         if queue_on_source_update_only is not None:
@@ -77,6 +81,18 @@ class BranchPolicyBuildValidationSettingsArgs:
     @scopes.setter
     def scopes(self, value: pulumi.Input[List[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]]):
         pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="filenamePatterns")
+    def filename_patterns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+        """
+        If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        """
+        return pulumi.get(self, "filename_patterns")
+
+    @filename_patterns.setter
+    def filename_patterns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+        pulumi.set(self, "filename_patterns", value)
 
     @property
     @pulumi.getter(name="manualQueueOnly")

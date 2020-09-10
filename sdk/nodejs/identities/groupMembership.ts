@@ -13,7 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {projectName: "Test Project"});
+ * const project = new azuredevops.Project("project", {});
  * const user = new azuredevops.User("user", {principalName: "foo@contoso.com"});
  * const group = project.id.apply(id => azuredevops.getGroup({
  *     projectId: id,
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
+ * - [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
  *
  * ## PAT Permissions Required
  *
@@ -74,8 +74,8 @@ export class GroupMembership extends pulumi.CustomResource {
     public readonly members!: pulumi.Output<string[]>;
     /**
      * The mode how the resource manages group members.
-     * * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      */
     public readonly mode!: pulumi.Output<string | undefined>;
@@ -136,8 +136,8 @@ export interface GroupMembershipState {
     readonly members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The mode how the resource manages group members.
-     * * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      */
     readonly mode?: pulumi.Input<string>;
@@ -158,8 +158,8 @@ export interface GroupMembershipArgs {
     readonly members: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The mode how the resource manages group members.
-     * * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      */
     readonly mode?: pulumi.Input<string>;

@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint.Inputs
         public Input<string>? Namespace { get; set; }
 
         /// <summary>
-        /// The resource group id, to which the Kubernetes cluster is deployed.
+        /// The resource group name, to which the Kubernetes cluster is deployed.
         /// </summary>
         [Input("resourcegroupId", required: true)]
         public Input<string> ResourcegroupId { get; set; } = null!;

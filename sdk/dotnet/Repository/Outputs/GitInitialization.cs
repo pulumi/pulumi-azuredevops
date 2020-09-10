@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Repository.Outputs
     public sealed class GitInitialization
     {
         /// <summary>
-        /// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+        /// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
         /// </summary>
         public readonly string InitType;
         /// <summary>
-        /// Type type of the source repository. Used if the `init_type` is `Import`.
+        /// Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
         /// </summary>
         public readonly string? SourceType;
         /// <summary>

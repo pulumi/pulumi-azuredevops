@@ -31,16 +31,16 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
-    ///         var endpointazure = new AzureDevOps.AzureRM("endpointazure", new AzureDevOps.AzureRMArgs
+    ///         var endpointazure = new AzureDevOps.ServiceEndpointAzureRM("endpointazure", new AzureDevOps.ServiceEndpointAzureRMArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             ServiceEndpointName = "TestServiceRM",
-    ///             Credentials = new AzureDevOps.Inputs.AzureRMCredentialsArgs
+    ///             Description = "Managed by Terraform",
+    ///             Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
     ///             {
     ///                 Serviceprincipalid = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
     ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -65,15 +65,15 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
-    ///         var endpointazure = new AzureDevOps.AzureRM("endpointazure", new AzureDevOps.AzureRMArgs
+    ///         var endpointazure = new AzureDevOps.ServiceEndpointAzureRM("endpointazure", new AzureDevOps.ServiceEndpointAzureRMArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             ServiceEndpointName = "TestServiceRM",
+    ///             Description = "Managed by Terraform",
     ///             AzurermSpnTenantid = "xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
     ///             AzurermSubscriptionId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
     ///             AzurermSubscriptionName = "Microsoft Azure DEMO",
@@ -84,9 +84,9 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
     /// </summary>
-    [Obsolete(@"azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM")]
+    [Obsolete(@"azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM")]
     public partial class AzureRM : Pulumi.CustomResource
     {
         [Output("authorization")]
@@ -116,6 +116,9 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         [Output("credentials")]
         public Output<Outputs.AzureRMCredentials?> Credentials { get; private set; } = null!;
 
+        /// <summary>
+        /// Service connection description.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -215,6 +218,9 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         [Input("credentials")]
         public Input<Inputs.AzureRMCredentialsArgs>? Credentials { get; set; }
 
+        /// <summary>
+        /// Service connection description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -275,6 +281,9 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         [Input("credentials")]
         public Input<Inputs.AzureRMCredentialsGetArgs>? Credentials { get; set; }
 
+        /// <summary>
+        /// Service connection description.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

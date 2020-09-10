@@ -9,25 +9,9 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about an existing Group within Azure DevOps
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const project = azuredevops.getProject({
- *     projectName: "contoso-project",
- * });
- * const test = project.then(project => azuredevops.getGroup({
- *     projectId: project.id,
- *     name: "Test Group",
- * }));
- * export const groupId = test.then(test => test.id);
- * export const groupDescriptor = test.then(test => test.descriptor);
- * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
  */
 /** @deprecated azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
@@ -72,5 +56,13 @@ export interface GetGroupResult {
      */
     readonly id: string;
     readonly name: string;
+    /**
+     * The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+     */
+    readonly origin: string;
+    /**
+     * The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+     */
+    readonly originId: string;
     readonly projectId: string;
 }

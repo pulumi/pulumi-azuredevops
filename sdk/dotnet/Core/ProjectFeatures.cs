@@ -12,33 +12,6 @@ namespace Pulumi.AzureDevOps.Core
     /// <summary>
     /// Manages features for Azure DevOps projects
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// class MyStack : Stack
-    /// {
-    ///     public MyStack()
-    ///     {
-    ///         var tf_project_test_001 = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-    ///         {
-    ///             ProjectName = "Test Project",
-    ///         }));
-    ///         var my_project_features = new AzureDevOps.ProjectFeatures("my-project-features", new AzureDevOps.ProjectFeaturesArgs
-    ///         {
-    ///             ProjectId = tf_project_test_001.Apply(tf_project_test_001 =&gt; tf_project_test_001.Id),
-    ///             Features = 
-    ///             {
-    ///                 { "testplans", "disabled" },
-    ///                 { "artifacts", "enabled" },
-    ///             },
-    ///         });
-    ///     }
-    /// 
-    /// }
-    /// ```
     /// ## Relevant Links
     /// 
     /// No official documentation available

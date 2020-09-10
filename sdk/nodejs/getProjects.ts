@@ -16,11 +16,11 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const test = azuredevops.getProjects({
- *     projectName: "contoso",
+ *     name: "contoso",
  *     state: "wellFormed",
  * });
  * export const projectId = test.then(test => test.projects.map(__item => __item.projectId));
- * export const projectName = test.then(test => test.projects.map(__item => __item.name));
+ * export const name = test.then(test => test.projects.map(__item => __item.name));
  * export const projectUrl = test.then(test => test.projects.map(__item => __item.projectUrl));
  * export const state = test.then(test => test.projects.map(__item => __item.state));
  * ```
@@ -38,7 +38,7 @@ export function getProjects(args?: GetProjectsArgs, opts?: pulumi.InvokeOptions)
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azuredevops:index/getProjects:getProjects", {
-        "projectName": args.projectName,
+        "name": args.name,
         "state": args.state,
     }, opts);
 }
@@ -50,7 +50,7 @@ export interface GetProjectsArgs {
     /**
      * Name of the Project, if not specified all projects will be returned.
      */
-    readonly projectName?: string;
+    readonly name?: string;
     /**
      * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
      */
@@ -65,7 +65,10 @@ export interface GetProjectsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly projectName?: string;
+    /**
+     * Project name.
+     */
+    readonly name?: string;
     /**
      * A list of existing projects in your Azure DevOps Organization with details about every project which includes:
      */

@@ -33,7 +33,7 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project", project_name="Test Project")
+        project = azuredevops.Project("project")
         tf_project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
             name="Readers"))
         tf_project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
@@ -49,7 +49,7 @@ class Group(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
 
         ## PAT Permissions Required
 
@@ -60,7 +60,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Description of the Project.
         :param pulumi.Input[str] display_name: The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
         :param pulumi.Input[str] mail: The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
-        :param pulumi.Input[List[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the   `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        :param pulumi.Input[List[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] origin_id: The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
         :param pulumi.Input[str] scope: The scope of the group. A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization.x
         """
@@ -129,7 +129,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
         :param pulumi.Input[str] domain: This represents the name of the container of origin for a graph member.
         :param pulumi.Input[str] mail: The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
-        :param pulumi.Input[List[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the   `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        :param pulumi.Input[List[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier (ex:AD, AAD, MSA)
         :param pulumi.Input[str] origin_id: The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
         :param pulumi.Input[str] principal_name: This is the PrincipalName of this graph member from the source provider.
@@ -199,7 +199,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[List[str]]:
         """
-        > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the   `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         """
         return pulumi.get(self, "members")
 

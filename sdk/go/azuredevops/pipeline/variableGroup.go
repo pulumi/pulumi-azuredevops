@@ -24,9 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName: pulumi.String("Test Project"),
-// 		})
+// 		project, err := azuredevops.NewProject(ctx, "project", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -55,8 +53,8 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
-// * [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
 //
 // ## PAT Permissions Required
 //

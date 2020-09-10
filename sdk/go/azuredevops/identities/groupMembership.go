@@ -24,9 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName: pulumi.String("Test Project"),
-// 		})
+// 		project, err := azuredevops.NewProject(ctx, "project", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -53,7 +51,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
+// - [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
 //
 // ## PAT Permissions Required
 //
@@ -69,8 +67,8 @@ type GroupMembership struct {
 	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members pulumi.StringArrayOutput `pulumi:"members"`
 	// The mode how the resource manages group members.
-	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-	// * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+	// - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
 	// > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 }
@@ -115,8 +113,8 @@ type groupMembershipState struct {
 	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members []string `pulumi:"members"`
 	// The mode how the resource manages group members.
-	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-	// * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+	// - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
 	// > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
 	Mode *string `pulumi:"mode"`
 }
@@ -128,8 +126,8 @@ type GroupMembershipState struct {
 	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members pulumi.StringArrayInput
 	// The mode how the resource manages group members.
-	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-	// * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+	// - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
 	// > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
 	Mode pulumi.StringPtrInput
 }
@@ -145,8 +143,8 @@ type groupMembershipArgs struct {
 	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members []string `pulumi:"members"`
 	// The mode how the resource manages group members.
-	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-	// * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+	// - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
 	// > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
 	Mode *string `pulumi:"mode"`
 }
@@ -159,8 +157,8 @@ type GroupMembershipArgs struct {
 	// > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
 	Members pulumi.StringArrayInput
 	// The mode how the resource manages group members.
-	// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-	// * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+	// - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
 	// > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
 	Mode pulumi.StringPtrInput
 }

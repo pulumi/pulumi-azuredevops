@@ -22,6 +22,7 @@ class BranchPolicyBuildValidationSettings(dict):
                  build_definition_id: float,
                  display_name: str,
                  scopes: List['outputs.BranchPolicyBuildValidationSettingsScope'],
+                 filename_patterns: Optional[List[str]] = None,
                  manual_queue_only: Optional[bool] = None,
                  queue_on_source_update_only: Optional[bool] = None,
                  valid_duration: Optional[float] = None):
@@ -29,6 +30,7 @@ class BranchPolicyBuildValidationSettings(dict):
         :param float build_definition_id: The ID of the build to monitor for the policy.
         :param str display_name: The display name for the policy.
         :param List['BranchPolicyBuildValidationSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param List[str] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param bool manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param bool queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
         :param float valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
@@ -36,6 +38,8 @@ class BranchPolicyBuildValidationSettings(dict):
         pulumi.set(__self__, "build_definition_id", build_definition_id)
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "scopes", scopes)
+        if filename_patterns is not None:
+            pulumi.set(__self__, "filename_patterns", filename_patterns)
         if manual_queue_only is not None:
             pulumi.set(__self__, "manual_queue_only", manual_queue_only)
         if queue_on_source_update_only is not None:
@@ -66,6 +70,14 @@ class BranchPolicyBuildValidationSettings(dict):
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="filenamePatterns")
+    def filename_patterns(self) -> Optional[List[str]]:
+        """
+        If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        """
+        return pulumi.get(self, "filename_patterns")
 
     @property
     @pulumi.getter(name="manualQueueOnly")

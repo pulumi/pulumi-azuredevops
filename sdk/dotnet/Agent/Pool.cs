@@ -32,7 +32,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
     /// </summary>
     [Obsolete(@"azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool")]
     public partial class Pool : Pulumi.CustomResource
@@ -50,7 +50,7 @@ namespace Pulumi.AzureDevOps.Agent
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+        /// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         /// </summary>
         [Output("poolType")]
         public Output<string?> PoolType { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.AzureDevOps.Agent
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+        /// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         /// </summary>
         [Input("poolType")]
         public Input<string>? PoolType { get; set; }
@@ -139,7 +139,7 @@ namespace Pulumi.AzureDevOps.Agent
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+        /// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         /// </summary>
         [Input("poolType")]
         public Input<string>? PoolType { get; set; }

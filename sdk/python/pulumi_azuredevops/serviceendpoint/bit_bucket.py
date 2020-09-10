@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['BitBucket']
 
-warnings.warn("azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket", DeprecationWarning)
+warnings.warn("azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket", DeprecationWarning)
 
 
 class BitBucket(pulumi.CustomResource):
-    warnings.warn("azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket", DeprecationWarning)
+    warnings.warn("azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -38,11 +38,10 @@ class BitBucket(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
-            project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        serviceendpoint = azuredevops.BitBucket("serviceendpoint",
+        serviceendpoint = azuredevops.ServiceEndpointBitBucket("serviceendpoint",
             project_id=project.id,
             username="xxxx",
             password="xxxx",
@@ -51,7 +50,7 @@ class BitBucket(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -60,7 +59,7 @@ class BitBucket(pulumi.CustomResource):
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Bitbucket account username.
         """
-        pulumi.log.warn("BitBucket is deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket")
+        pulumi.log.warn("BitBucket is deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

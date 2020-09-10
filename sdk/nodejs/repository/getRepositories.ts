@@ -7,26 +7,9 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
- * Use this data source to access information about an existing Git Repositories within Azure DevOps.
+ * Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
+ * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const project = azuredevops.getProject({
- *     projectName: "contoso-project",
- * });
- * const allRepos = project.then(project => azuredevops.getRepositories({
- *     projectId: project.id,
- *     includeHidden: true,
- * }));
- * const singleRepo = project.then(project => azuredevops.getRepositories({
- *     projectId: project.id,
- *     name: "contoso-repo",
- * }));
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)

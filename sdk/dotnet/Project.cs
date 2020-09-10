@@ -30,7 +30,6 @@ namespace Pulumi.AzureDevOps
     ///                 { "artifacts", "disabled" },
     ///                 { "testplans", "disabled" },
     ///             },
-    ///             ProjectName = "Test Project",
     ///             VersionControl = "Git",
     ///             Visibility = "private",
     ///             WorkItemTemplate = "Agile",
@@ -41,7 +40,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
     /// 
     /// ## PAT Permissions Required
     /// 
@@ -63,16 +62,16 @@ namespace Pulumi.AzureDevOps
         public Output<ImmutableDictionary<string, string>?> Features { get; private set; } = null!;
 
         /// <summary>
+        /// The Project Name.
+        /// </summary>
+        [Output("name")]
+        public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
         /// The Process Template ID used by the Project.
         /// </summary>
         [Output("processTemplateId")]
         public Output<string> ProcessTemplateId { get; private set; } = null!;
-
-        /// <summary>
-        /// The Project Name.
-        /// </summary>
-        [Output("projectName")]
-        public Output<string> ProjectName { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
@@ -100,7 +99,7 @@ namespace Pulumi.AzureDevOps
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Project(string name, ProjectArgs args, CustomResourceOptions? options = null)
+        public Project(string name, ProjectArgs? args = null, CustomResourceOptions? options = null)
             : base("azuredevops:index/project:Project", name, args ?? new ProjectArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -164,8 +163,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The Project Name.
         /// </summary>
-        [Input("projectName", required: true)]
-        public Input<string> ProjectName { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
@@ -212,16 +211,16 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
+        /// The Project Name.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// The Process Template ID used by the Project.
         /// </summary>
         [Input("processTemplateId")]
         public Input<string>? ProcessTemplateId { get; set; }
-
-        /// <summary>
-        /// The Project Name.
-        /// </summary>
-        [Input("projectName")]
-        public Input<string>? ProjectName { get; set; }
 
         /// <summary>
         /// Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.

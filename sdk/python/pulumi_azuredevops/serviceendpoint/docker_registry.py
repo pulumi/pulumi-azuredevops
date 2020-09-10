@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['DockerRegistry']
 
-warnings.warn("azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry", DeprecationWarning)
+warnings.warn("azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry", DeprecationWarning)
 
 
 class DockerRegistry(pulumi.CustomResource):
-    warnings.warn("azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry", DeprecationWarning)
+    warnings.warn("azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -41,12 +41,11 @@ class DockerRegistry(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
-            project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
         # dockerhub registry service connection
-        dockerhubregistry = azuredevops.DockerRegistry("dockerhubregistry",
+        dockerhubregistry = azuredevops.ServiceEndpointDockerRegistry("dockerhubregistry",
             project_id=project.id,
             service_endpoint_name="Sample Docker Hub",
             docker_username="sample",
@@ -54,7 +53,7 @@ class DockerRegistry(pulumi.CustomResource):
             docker_password="12345",
             registry_type="DockerHub")
         # other docker registry service connection
-        otherregistry = azuredevops.DockerRegistry("otherregistry",
+        otherregistry = azuredevops.ServiceEndpointDockerRegistry("otherregistry",
             project_id=project.id,
             service_endpoint_name="Sample Docker Registry",
             docker_registry="https://sample.azurecr.io/v1",
@@ -64,8 +63,8 @@ class DockerRegistry(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
-        * [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
+        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -78,7 +77,7 @@ class DockerRegistry(pulumi.CustomResource):
         :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
-        pulumi.log.warn("DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry")
+        pulumi.log.warn("DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

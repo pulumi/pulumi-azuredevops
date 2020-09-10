@@ -22,13 +22,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
-// 			ProjectName: "Sample Project",
+// 			ProjectIdentifier: "Sample Project",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		ctx.Export("id", project.Id)
-// 		ctx.Export("projectName", project.ProjectName)
+// 		ctx.Export("name", project.Name)
 // 		ctx.Export("visibility", project.Visibility)
 // 		ctx.Export("versionControl", project.VersionControl)
 // 		ctx.Export("workItemTemplate", project.WorkItemTemplate)
@@ -53,8 +53,8 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getProject.
 type LookupProjectArgs struct {
-	// Name of the Project.
-	ProjectName string `pulumi:"projectName"`
+	// Name or ID of the Project.
+	ProjectIdentifier string `pulumi:"projectIdentifier"`
 }
 
 // A collection of values returned by getProject.
@@ -63,8 +63,9 @@ type LookupProjectResult struct {
 	Features    map[string]interface{} `pulumi:"features"`
 	// The provider-assigned unique ID for this managed resource.
 	Id                string `pulumi:"id"`
+	Name              string `pulumi:"name"`
 	ProcessTemplateId string `pulumi:"processTemplateId"`
-	ProjectName       string `pulumi:"projectName"`
+	ProjectIdentifier string `pulumi:"projectIdentifier"`
 	VersionControl    string `pulumi:"versionControl"`
 	Visibility        string `pulumi:"visibility"`
 	WorkItemTemplate  string `pulumi:"workItemTemplate"`

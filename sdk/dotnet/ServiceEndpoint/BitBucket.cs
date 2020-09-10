@@ -24,12 +24,11 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
-    ///         var serviceendpoint = new AzureDevOps.BitBucket("serviceendpoint", new AzureDevOps.BitBucketArgs
+    ///         var serviceendpoint = new AzureDevOps.ServiceEndpointBitBucket("serviceendpoint", new AzureDevOps.ServiceEndpointBitBucketArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             Username = "xxxx",
@@ -43,9 +42,9 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
     /// </summary>
-    [Obsolete(@"azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket")]
+    [Obsolete(@"azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket")]
     public partial class BitBucket : Pulumi.CustomResource
     {
         [Output("authorization")]

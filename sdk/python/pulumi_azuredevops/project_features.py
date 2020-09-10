@@ -23,20 +23,6 @@ class ProjectFeatures(pulumi.CustomResource):
         """
         Manages features for Azure DevOps projects
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        tf_project_test_001 = azuredevops.get_project(project_name="Test Project")
-        my_project_features = azuredevops.ProjectFeatures("my-project-features",
-            project_id=tf_project_test_001.id,
-            features={
-                "testplans": "disabled",
-                "artifacts": "enabled",
-            })
-        ```
         ## Relevant Links
 
         No official documentation available

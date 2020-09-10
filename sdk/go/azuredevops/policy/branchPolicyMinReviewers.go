@@ -24,9 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName: pulumi.String("Sample Project"),
-// 		})
+// 		project, err := azuredevops.NewProject(ctx, "project", nil)
 // 		if err != nil {
 // 			return err
 // 		}
@@ -69,7 +67,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
 //
 // Deprecated: azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers
 type BranchPolicyMinReviewers struct {
