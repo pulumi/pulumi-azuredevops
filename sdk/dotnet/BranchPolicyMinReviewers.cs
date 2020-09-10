@@ -24,7 +24,6 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Sample Project",
     ///         });
     ///         var git = new AzureDevOps.Git("git", new AzureDevOps.GitArgs
     ///         {
@@ -66,7 +65,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
     /// </summary>
     public partial class BranchPolicyMinReviewers : Pulumi.CustomResource
     {

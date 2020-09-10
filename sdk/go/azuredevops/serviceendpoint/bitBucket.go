@@ -25,7 +25,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName:      pulumi.String("Sample Project"),
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
@@ -33,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewBitBucket(ctx, "serviceendpoint", &azuredevops.BitBucketArgs{
+// 		_, err = azuredevops.NewServiceEndpointBitBucket(ctx, "serviceendpoint", &azuredevops.ServiceEndpointBitBucketArgs{
 // 			ProjectId:           project.ID(),
 // 			Username:            pulumi.String("xxxx"),
 // 			Password:            pulumi.String("xxxx"),
@@ -49,9 +48,9 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 //
-// Deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.BitBucket
+// Deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket
 type BitBucket struct {
 	pulumi.CustomResourceState
 

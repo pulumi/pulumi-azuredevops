@@ -11,9 +11,9 @@ import (
 )
 
 type GitInitialization struct {
-	// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 	InitType string `pulumi:"initType"`
-	// Type type of the source repository. Used if the `initType` is `Import`.
+	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
 	SourceType *string `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
 	SourceUrl *string `pulumi:"sourceUrl"`
@@ -31,9 +31,9 @@ type GitInitializationInput interface {
 }
 
 type GitInitializationArgs struct {
-	// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 	InitType pulumi.StringInput `pulumi:"initType"`
-	// Type type of the source repository. Used if the `initType` is `Import`.
+	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
 	SourceUrl pulumi.StringPtrInput `pulumi:"sourceUrl"`
@@ -116,12 +116,12 @@ func (o GitInitializationOutput) ToGitInitializationPtrOutputWithContext(ctx con
 	}).(GitInitializationPtrOutput)
 }
 
-// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 func (o GitInitializationOutput) InitType() pulumi.StringOutput {
 	return o.ApplyT(func(v GitInitialization) string { return v.InitType }).(pulumi.StringOutput)
 }
 
-// Type type of the source repository. Used if the `initType` is `Import`.
+// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
 func (o GitInitializationOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitInitialization) *string { return v.SourceType }).(pulumi.StringPtrOutput)
 }
@@ -149,7 +149,7 @@ func (o GitInitializationPtrOutput) Elem() GitInitializationOutput {
 	return o.ApplyT(func(v *GitInitialization) GitInitialization { return *v }).(GitInitializationOutput)
 }
 
-// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitInitialization) *string {
 		if v == nil {
@@ -159,7 +159,7 @@ func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type type of the source repository. Used if the `initType` is `Import`.
+// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
 func (o GitInitializationPtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitInitialization) *string {
 		if v == nil {

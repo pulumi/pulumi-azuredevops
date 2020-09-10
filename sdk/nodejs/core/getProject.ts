@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = azuredevops.getProject({
- *     projectName: "Sample Project",
+ *     projectIdentifier: "Sample Project",
  * });
  * export const id = project.then(project => project.id);
- * export const projectName = project.then(project => project.projectName);
+ * export const name = project.then(project => project.name);
  * export const visibility = project.then(project => project.visibility);
  * export const versionControl = project.then(project => project.versionControl);
  * export const workItemTemplate = project.then(project => project.workItemTemplate);
@@ -40,7 +40,7 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azuredevops:Core/getProject:getProject", {
-        "projectName": args.projectName,
+        "projectIdentifier": args.projectIdentifier,
     }, opts);
 }
 
@@ -49,9 +49,9 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetProjectArgs {
     /**
-     * Name of the Project.
+     * Name or ID of the Project.
      */
-    readonly projectName: string;
+    readonly projectIdentifier: string;
 }
 
 /**
@@ -64,8 +64,9 @@ export interface GetProjectResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly name: string;
     readonly processTemplateId: string;
-    readonly projectName: string;
+    readonly projectIdentifier: string;
     readonly versionControl: string;
     readonly visibility: string;
     readonly workItemTemplate: string;

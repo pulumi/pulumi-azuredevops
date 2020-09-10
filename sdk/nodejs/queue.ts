@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Manages an agent queue within Azure DevOps. In the UI, this is equivelant to adding an
+ * Manages an agent queue within Azure DevOps. In the UI, this is equivalent to adding an
  * Organization defined pool to a project.
  *
- * The created queue is not authorized for use by all pipeliens in the project. However,
+ * The created queue is not authorized for use by all pipelines in the project. However,
  * the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
  *
  * ## Example Usage
@@ -17,7 +17,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {projectName: "Sample Project"});
+ * const project = new azuredevops.Project("project", {});
  * const pool = azuredevops.getPool({
  *     name: "contoso-pool",
  * });
@@ -35,7 +35,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
  */
 export class Queue extends pulumi.CustomResource {
     /**

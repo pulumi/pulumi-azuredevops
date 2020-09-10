@@ -20,7 +20,7 @@ namespace Pulumi.AzureDevOps.Outputs
         public readonly Outputs.BuildDefinitionPullRequestTriggerForks Forks;
         public readonly string? InitialBranch;
         /// <summary>
-        /// Override the azure-pipeline file and use a this configuration for all builds.
+        /// Override the azure-pipeline file and use this configuration for all builds.
         /// </summary>
         public readonly Outputs.BuildDefinitionPullRequestTriggerOverride? Override;
         /// <summary>

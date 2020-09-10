@@ -14,42 +14,9 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Group within Azure DevOps
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             ProjectName = "contoso-project",
-        ///         }));
-        ///         var test = project.Apply(project =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
-        ///         {
-        ///             ProjectId = project.Id,
-        ///             Name = "Test Group",
-        ///         })));
-        ///         this.GroupId = test.Apply(test =&gt; test.Id);
-        ///         this.GroupDescriptor = test.Apply(test =&gt; test.Descriptor);
-        ///     }
-        /// 
-        ///     [Output("groupId")]
-        ///     public Output&lt;string&gt; GroupId { get; set; }
-        ///     [Output("groupDescriptor")]
-        ///     public Output&lt;string&gt; GroupDescriptor { get; set; }
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// * [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azuredevops:index/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
@@ -88,6 +55,14 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Id;
         public readonly string Name;
+        /// <summary>
+        /// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+        /// </summary>
+        public readonly string Origin;
+        /// <summary>
+        /// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+        /// </summary>
+        public readonly string OriginId;
         public readonly string ProjectId;
 
         [OutputConstructor]
@@ -98,11 +73,17 @@ namespace Pulumi.AzureDevOps
 
             string name,
 
+            string origin,
+
+            string originId,
+
             string projectId)
         {
             Descriptor = descriptor;
             Id = id;
             Name = name;
+            Origin = origin;
+            OriginId = originId;
             ProjectId = projectId;
         }
     }

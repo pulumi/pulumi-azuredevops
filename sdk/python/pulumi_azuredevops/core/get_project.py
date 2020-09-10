@@ -21,7 +21,7 @@ class GetProjectResult:
     """
     A collection of values returned by getProject.
     """
-    def __init__(__self__, description=None, features=None, id=None, process_template_id=None, project_name=None, version_control=None, visibility=None, work_item_template=None):
+    def __init__(__self__, description=None, features=None, id=None, name=None, process_template_id=None, project_identifier=None, version_control=None, visibility=None, work_item_template=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -31,12 +31,15 @@ class GetProjectResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
         if process_template_id and not isinstance(process_template_id, str):
             raise TypeError("Expected argument 'process_template_id' to be a str")
         pulumi.set(__self__, "process_template_id", process_template_id)
-        if project_name and not isinstance(project_name, str):
-            raise TypeError("Expected argument 'project_name' to be a str")
-        pulumi.set(__self__, "project_name", project_name)
+        if project_identifier and not isinstance(project_identifier, str):
+            raise TypeError("Expected argument 'project_identifier' to be a str")
+        pulumi.set(__self__, "project_identifier", project_identifier)
         if version_control and not isinstance(version_control, str):
             raise TypeError("Expected argument 'version_control' to be a str")
         pulumi.set(__self__, "version_control", version_control)
@@ -66,14 +69,19 @@ class GetProjectResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
     @pulumi.getter(name="processTemplateId")
     def process_template_id(self) -> str:
         return pulumi.get(self, "process_template_id")
 
     @property
-    @pulumi.getter(name="projectName")
-    def project_name(self) -> str:
-        return pulumi.get(self, "project_name")
+    @pulumi.getter(name="projectIdentifier")
+    def project_identifier(self) -> str:
+        return pulumi.get(self, "project_identifier")
 
     @property
     @pulumi.getter(name="versionControl")
@@ -100,14 +108,15 @@ class AwaitableGetProjectResult(GetProjectResult):
             description=self.description,
             features=self.features,
             id=self.id,
+            name=self.name,
             process_template_id=self.process_template_id,
-            project_name=self.project_name,
+            project_identifier=self.project_identifier,
             version_control=self.version_control,
             visibility=self.visibility,
             work_item_template=self.work_item_template)
 
 
-def get_project(project_name: Optional[str] = None,
+def get_project(project_identifier: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetProjectResult:
     """
     Use this data source to access information about an existing Project within Azure DevOps.
@@ -118,9 +127,9 @@ def get_project(project_name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    project = azuredevops.get_project(project_name="Sample Project")
+    project = azuredevops.get_project(project_identifier="Sample Project")
     pulumi.export("id", project.id)
-    pulumi.export("projectName", project.project_name)
+    pulumi.export("name", project.name)
     pulumi.export("visibility", project.visibility)
     pulumi.export("versionControl", project.version_control)
     pulumi.export("workItemTemplate", project.work_item_template)
@@ -131,11 +140,11 @@ def get_project(project_name: Optional[str] = None,
     - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
 
 
-    :param str project_name: Name of the Project.
+    :param str project_identifier: Name or ID of the Project.
     """
     pulumi.log.warn("get_project is deprecated: azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject")
     __args__ = dict()
-    __args__['projectName'] = project_name
+    __args__['projectIdentifier'] = project_identifier
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -146,8 +155,9 @@ def get_project(project_name: Optional[str] = None,
         description=__ret__.description,
         features=__ret__.features,
         id=__ret__.id,
+        name=__ret__.name,
         process_template_id=__ret__.process_template_id,
-        project_name=__ret__.project_name,
+        project_identifier=__ret__.project_identifier,
         version_control=__ret__.version_control,
         visibility=__ret__.visibility,
         work_item_template=__ret__.work_item_template)

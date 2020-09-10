@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['GitHub']
 
-warnings.warn("azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub", DeprecationWarning)
+warnings.warn("azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub", DeprecationWarning)
 
 
 class GitHub(pulumi.CustomResource):
-    warnings.warn("azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub", DeprecationWarning)
+    warnings.warn("azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -40,14 +40,13 @@ class GitHub(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project",
-            project_name="Sample Project",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        serviceendpoint_gh1 = azuredevops.GitHub("serviceendpointGh1",
+        serviceendpoint_gh1 = azuredevops.ServiceEndpointGitHub("serviceendpointGh1",
             project_id=project.id,
             service_endpoint_name="Sample GithHub Personal Access Token",
-            auth_personal=azuredevops.GitHubAuthPersonalArgs(
+            auth_personal=azuredevops.ServiceEndpointGitHubAuthPersonalArgs(
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
         ```
@@ -56,10 +55,10 @@ class GitHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        serviceendpoint_gh2 = azuredevops.GitHub("serviceendpointGh2",
+        serviceendpoint_gh2 = azuredevops.ServiceEndpointGitHub("serviceendpointGh2",
             project_id=azuredevops_project["project"]["id"],
             service_endpoint_name="Sample GithHub Grant",
-            auth_oauth=azuredevops.GitHubAuthOauthArgs(
+            auth_oauth=azuredevops.ServiceEndpointGitHubAuthOauthArgs(
                 oauth_configuration_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
             ))
         ```
@@ -68,14 +67,14 @@ class GitHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        serviceendpoint_gh3 = azuredevops.GitHub("serviceendpointGh3",
+        serviceendpoint_gh3 = azuredevops.ServiceEndpointGitHub("serviceendpointGh3",
             project_id=azuredevops_project["project"]["id"],
             service_endpoint_name="Sample GithHub Apps: Azure Pipelines",
             description="")
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,7 +83,7 @@ class GitHub(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
-        pulumi.log.warn("GitHub is deprecated: azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub")
+        pulumi.log.warn("GitHub is deprecated: azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

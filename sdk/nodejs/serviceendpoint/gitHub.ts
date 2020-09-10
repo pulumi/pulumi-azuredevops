@@ -16,12 +16,11 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {
- *     projectName: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const serviceendpointGh1 = new azuredevops.GitHub("serviceendpointGh1", {
+ * const serviceendpointGh1 = new azuredevops.ServiceEndpointGitHub("serviceendpointGh1", {
  *     projectId: project.id,
  *     serviceEndpointName: "Sample GithHub Personal Access Token",
  *     authPersonal: {
@@ -34,7 +33,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const serviceendpointGh2 = new azuredevops.GitHub("serviceendpointGh2", {
+ * const serviceendpointGh2 = new azuredevops.ServiceEndpointGitHub("serviceendpointGh2", {
  *     projectId: azuredevops_project.project.id,
  *     serviceEndpointName: "Sample GithHub Grant",
  *     authOauth: {
@@ -47,7 +46,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const serviceendpointGh3 = new azuredevops.GitHub("serviceendpointGh3", {
+ * const serviceendpointGh3 = new azuredevops.ServiceEndpointGitHub("serviceendpointGh3", {
  *     projectId: azuredevops_project.project.id,
  *     serviceEndpointName: "Sample GithHub Apps: Azure Pipelines",
  *     description: "",
@@ -55,9 +54,9 @@ import * as utilities from "../utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
  *
- * @deprecated azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub
+ * @deprecated azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub
  */
 export class GitHub extends pulumi.CustomResource {
     /**
@@ -70,7 +69,7 @@ export class GitHub extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: GitHubState, opts?: pulumi.CustomResourceOptions): GitHub {
-        pulumi.log.warn("GitHub is deprecated: azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub")
+        pulumi.log.warn("GitHub is deprecated: azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub")
         return new GitHub(name, <any>state, { ...opts, id: id });
     }
 
@@ -114,11 +113,11 @@ export class GitHub extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub */
+    /** @deprecated azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub */
     constructor(name: string, args: GitHubArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub */
+    /** @deprecated azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub */
     constructor(name: string, argsOrState?: GitHubArgs | GitHubState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("GitHub is deprecated: azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.GitHub")
+        pulumi.log.warn("GitHub is deprecated: azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as GitHubState | undefined;

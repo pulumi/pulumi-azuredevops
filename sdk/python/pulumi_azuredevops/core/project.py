@@ -21,7 +21,7 @@ class Project(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 project_name: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
                  version_control: Optional[pulumi.Input[str]] = None,
                  visibility: Optional[pulumi.Input[str]] = None,
                  work_item_template: Optional[pulumi.Input[str]] = None,
@@ -43,14 +43,13 @@ class Project(pulumi.CustomResource):
                 "artifacts": "disabled",
                 "testplans": "disabled",
             },
-            project_name="Test Project",
             version_control="Git",
             visibility="private",
             work_item_template="Agile")
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
 
         ## PAT Permissions Required
 
@@ -61,7 +60,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Description of the Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
                Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-        :param pulumi.Input[str] project_name: The Project Name.
+        :param pulumi.Input[str] name: The Project Name.
         :param pulumi.Input[str] version_control: Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
         :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
         :param pulumi.Input[str] work_item_template: Specifies the work item template. Defaults to `Agile`.
@@ -86,9 +85,7 @@ class Project(pulumi.CustomResource):
 
             __props__['description'] = description
             __props__['features'] = features
-            if project_name is None:
-                raise TypeError("Missing required property 'project_name'")
-            __props__['project_name'] = project_name
+            __props__['name'] = name
             __props__['version_control'] = version_control
             __props__['visibility'] = visibility
             __props__['work_item_template'] = work_item_template
@@ -105,8 +102,8 @@ class Project(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             description: Optional[pulumi.Input[str]] = None,
             features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            name: Optional[pulumi.Input[str]] = None,
             process_template_id: Optional[pulumi.Input[str]] = None,
-            project_name: Optional[pulumi.Input[str]] = None,
             version_control: Optional[pulumi.Input[str]] = None,
             visibility: Optional[pulumi.Input[str]] = None,
             work_item_template: Optional[pulumi.Input[str]] = None) -> 'Project':
@@ -120,8 +117,8 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Description of the Project.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
                Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        :param pulumi.Input[str] name: The Project Name.
         :param pulumi.Input[str] process_template_id: The Process Template ID used by the Project.
-        :param pulumi.Input[str] project_name: The Project Name.
         :param pulumi.Input[str] version_control: Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
         :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
         :param pulumi.Input[str] work_item_template: Specifies the work item template. Defaults to `Agile`.
@@ -132,8 +129,8 @@ class Project(pulumi.CustomResource):
 
         __props__["description"] = description
         __props__["features"] = features
+        __props__["name"] = name
         __props__["process_template_id"] = process_template_id
-        __props__["project_name"] = project_name
         __props__["version_control"] = version_control
         __props__["visibility"] = visibility
         __props__["work_item_template"] = work_item_template
@@ -157,20 +154,20 @@ class Project(pulumi.CustomResource):
         return pulumi.get(self, "features")
 
     @property
+    @pulumi.getter
+    def name(self) -> pulumi.Output[str]:
+        """
+        The Project Name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
     @pulumi.getter(name="processTemplateId")
     def process_template_id(self) -> pulumi.Output[str]:
         """
         The Process Template ID used by the Project.
         """
         return pulumi.get(self, "process_template_id")
-
-    @property
-    @pulumi.getter(name="projectName")
-    def project_name(self) -> pulumi.Output[str]:
-        """
-        The Project Name.
-        """
-        return pulumi.get(self, "project_name")
 
     @property
     @pulumi.getter(name="versionControl")

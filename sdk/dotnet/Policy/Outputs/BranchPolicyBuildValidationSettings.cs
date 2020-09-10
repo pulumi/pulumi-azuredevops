@@ -22,6 +22,10 @@ namespace Pulumi.AzureDevOps.Policy.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        /// </summary>
+        public readonly ImmutableArray<string> FilenamePatterns;
+        /// <summary>
         /// If set to true, the build will need to be manually queued. Defaults to `false`
         /// </summary>
         public readonly bool? ManualQueueOnly;
@@ -44,6 +48,8 @@ namespace Pulumi.AzureDevOps.Policy.Outputs
 
             string displayName,
 
+            ImmutableArray<string> filenamePatterns,
+
             bool? manualQueueOnly,
 
             bool? queueOnSourceUpdateOnly,
@@ -54,6 +60,7 @@ namespace Pulumi.AzureDevOps.Policy.Outputs
         {
             BuildDefinitionId = buildDefinitionId;
             DisplayName = displayName;
+            FilenamePatterns = filenamePatterns;
             ManualQueueOnly = manualQueueOnly;
             QueueOnSourceUpdateOnly = queueOnSourceUpdateOnly;
             Scopes = scopes;

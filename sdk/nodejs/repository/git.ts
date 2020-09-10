@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {
- *     projectName: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
@@ -37,12 +36,30 @@ import * as utilities from "../utilities";
  *
  * const repo = new azuredevops.Git("repo", {
  *     projectId: azuredevops_project.project.id,
- *     parentId: azuredevops_git_repository.parent.id,
+ *     parentRepositoryId: azuredevops_git_repository.parent.id,
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * ```
+ * ### Create Import from another Git repository
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const repo = new azuredevops.Git("repo", {
+ *     projectId: azuredevops_project.project.id,
+ *     initialization: {
+ *         initType: "Import",
+ *         sourceType: "Git",
+ *         sourceUrl: "https://github.com/microsoft/terraform-provider-azuredevops.git",
+ *     },
  * });
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
  *
  * @deprecated azuredevops.repository.Git has been deprecated in favor of azuredevops.Git
  */
@@ -76,13 +93,13 @@ export class Git extends pulumi.CustomResource {
     }
 
     /**
-     * The ref of the default branch.
+     * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
     public readonly defaultBranch!: pulumi.Output<string>;
     /**
      * An `initialization` block as documented below.
      */
-    public readonly initialization!: pulumi.Output<outputs.Repository.GitInitialization | undefined>;
+    public readonly initialization!: pulumi.Output<outputs.Repository.GitInitialization>;
     /**
      * True if the repository was created as a fork.
      */
@@ -91,6 +108,9 @@ export class Git extends pulumi.CustomResource {
      * The name of the git repository.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of a Git project from which a fork is to be created.
+     */
     public readonly parentRepositoryId!: pulumi.Output<string | undefined>;
     /**
      * The project ID or project name.
@@ -145,6 +165,9 @@ export class Git extends pulumi.CustomResource {
             inputs["webUrl"] = state ? state.webUrl : undefined;
         } else {
             const args = argsOrState as GitArgs | undefined;
+            if (!args || args.initialization === undefined) {
+                throw new Error("Missing required property 'initialization'");
+            }
             if (!args || args.projectId === undefined) {
                 throw new Error("Missing required property 'projectId'");
             }
@@ -176,7 +199,7 @@ export class Git extends pulumi.CustomResource {
  */
 export interface GitState {
     /**
-     * The ref of the default branch.
+     * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
     readonly defaultBranch?: pulumi.Input<string>;
     /**
@@ -191,6 +214,9 @@ export interface GitState {
      * The name of the git repository.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ID of a Git project from which a fork is to be created.
+     */
     readonly parentRepositoryId?: pulumi.Input<string>;
     /**
      * The project ID or project name.
@@ -223,17 +249,20 @@ export interface GitState {
  */
 export interface GitArgs {
     /**
-     * The ref of the default branch.
+     * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
     readonly defaultBranch?: pulumi.Input<string>;
     /**
      * An `initialization` block as documented below.
      */
-    readonly initialization?: pulumi.Input<inputs.Repository.GitInitialization>;
+    readonly initialization: pulumi.Input<inputs.Repository.GitInitialization>;
     /**
      * The name of the git repository.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The ID of a Git project from which a fork is to be created.
+     */
     readonly parentRepositoryId?: pulumi.Input<string>;
     /**
      * The project ID or project name.

@@ -32,7 +32,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName:      pulumi.String("Sample Project"),
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
@@ -40,10 +39,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewAzureRM(ctx, "endpointazure", &azuredevops.AzureRMArgs{
+// 		_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "endpointazure", &azuredevops.ServiceEndpointAzureRMArgs{
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("TestServiceRM"),
-// 			Credentials: &azuredevops.AzureRMCredentialsArgs{
+// 			Description:         pulumi.String("Managed by Terraform"),
+// 			Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
 // 				Serviceprincipalid:  pulumi.String("xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"),
 // 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
@@ -71,7 +71,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName:      pulumi.String("Sample Project"),
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
@@ -79,9 +78,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewAzureRM(ctx, "endpointazure", &azuredevops.AzureRMArgs{
+// 		_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "endpointazure", &azuredevops.ServiceEndpointAzureRMArgs{
 // 			ProjectId:               project.ID(),
 // 			ServiceEndpointName:     pulumi.String("TestServiceRM"),
+// 			Description:             pulumi.String("Managed by Terraform"),
 // 			AzurermSpnTenantid:      pulumi.String("xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx"),
 // 			AzurermSubscriptionId:   pulumi.String("xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"),
 // 			AzurermSubscriptionName: pulumi.String("Microsoft Azure DEMO"),
@@ -95,9 +95,9 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 //
-// Deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM
+// Deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM
 type AzureRM struct {
 	pulumi.CustomResourceState
 
@@ -110,7 +110,8 @@ type AzureRM struct {
 	AzurermSubscriptionName pulumi.StringOutput `pulumi:"azurermSubscriptionName"`
 	// A `credentials` block.
 	Credentials AzureRMCredentialsPtrOutput `pulumi:"credentials"`
-	Description pulumi.StringPtrOutput      `pulumi:"description"`
+	// Service connection description.
+	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The project ID or project name.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The resource group used for scope of automatic service endpoint.
@@ -171,7 +172,8 @@ type azureRMState struct {
 	AzurermSubscriptionName *string `pulumi:"azurermSubscriptionName"`
 	// A `credentials` block.
 	Credentials *AzureRMCredentials `pulumi:"credentials"`
-	Description *string             `pulumi:"description"`
+	// Service connection description.
+	Description *string `pulumi:"description"`
 	// The project ID or project name.
 	ProjectId *string `pulumi:"projectId"`
 	// The resource group used for scope of automatic service endpoint.
@@ -190,6 +192,7 @@ type AzureRMState struct {
 	AzurermSubscriptionName pulumi.StringPtrInput
 	// A `credentials` block.
 	Credentials AzureRMCredentialsPtrInput
+	// Service connection description.
 	Description pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringPtrInput
@@ -213,7 +216,8 @@ type azureRMArgs struct {
 	AzurermSubscriptionName string `pulumi:"azurermSubscriptionName"`
 	// A `credentials` block.
 	Credentials *AzureRMCredentials `pulumi:"credentials"`
-	Description *string             `pulumi:"description"`
+	// Service connection description.
+	Description *string `pulumi:"description"`
 	// The project ID or project name.
 	ProjectId string `pulumi:"projectId"`
 	// The resource group used for scope of automatic service endpoint.
@@ -233,6 +237,7 @@ type AzureRMArgs struct {
 	AzurermSubscriptionName pulumi.StringInput
 	// A `credentials` block.
 	Credentials AzureRMCredentialsPtrInput
+	// Service connection description.
 	Description pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringInput

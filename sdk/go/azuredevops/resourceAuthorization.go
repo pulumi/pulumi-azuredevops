@@ -10,8 +10,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// ## # ResourceAuthorization
-//
 // Manages authorization of resources, e.g. for access in build pipelines.
 //
 // Currently supported resources: service endpoint (aka service connection, endpoint).
@@ -28,13 +26,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName: pulumi.String("Test Project"),
-// 		})
+// 		project, err := azuredevops.NewProject(ctx, "project", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		bitbucketAccount, err := azuredevops.NewBitBucket(ctx, "bitbucketAccount", &azuredevops.BitBucketArgs{
+// 		bitbucketAccount, err := azuredevops.NewServiceEndpointBitBucket(ctx, "bitbucketAccount", &azuredevops.ServiceEndpointBitBucketArgs{
 // 			ProjectId:           project.ID(),
 // 			Username:            pulumi.String("xxxx"),
 // 			Password:            pulumi.String("xxxx"),
@@ -58,17 +54,19 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
 type ResourceAuthorization struct {
 	pulumi.CustomResourceState
 
 	// Set to true to allow public access in the project. Type: boolean.
 	Authorized pulumi.BoolOutput `pulumi:"authorized"`
+	// The ID of the build definition to authorize. Type: string.
+	DefinitionId pulumi.IntPtrOutput `pulumi:"definitionId"`
 	// The project ID or project name. Type: string.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The ID of the resource to authorize. Type: string.
-	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
-	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
+	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
+	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
 	Type pulumi.StringPtrOutput `pulumi:"type"`
 }
 
@@ -80,6 +78,9 @@ func NewResourceAuthorization(ctx *pulumi.Context,
 	}
 	if args == nil || args.ProjectId == nil {
 		return nil, errors.New("missing required argument 'ProjectId'")
+	}
+	if args == nil || args.ResourceId == nil {
+		return nil, errors.New("missing required argument 'ResourceId'")
 	}
 	if args == nil {
 		args = &ResourceAuthorizationArgs{}
@@ -114,22 +115,26 @@ func GetResourceAuthorization(ctx *pulumi.Context,
 type resourceAuthorizationState struct {
 	// Set to true to allow public access in the project. Type: boolean.
 	Authorized *bool `pulumi:"authorized"`
+	// The ID of the build definition to authorize. Type: string.
+	DefinitionId *int `pulumi:"definitionId"`
 	// The project ID or project name. Type: string.
 	ProjectId *string `pulumi:"projectId"`
 	// The ID of the resource to authorize. Type: string.
 	ResourceId *string `pulumi:"resourceId"`
-	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
+	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
 	Type *string `pulumi:"type"`
 }
 
 type ResourceAuthorizationState struct {
 	// Set to true to allow public access in the project. Type: boolean.
 	Authorized pulumi.BoolPtrInput
+	// The ID of the build definition to authorize. Type: string.
+	DefinitionId pulumi.IntPtrInput
 	// The project ID or project name. Type: string.
 	ProjectId pulumi.StringPtrInput
 	// The ID of the resource to authorize. Type: string.
 	ResourceId pulumi.StringPtrInput
-	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
+	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
 	Type pulumi.StringPtrInput
 }
 
@@ -140,11 +145,13 @@ func (ResourceAuthorizationState) ElementType() reflect.Type {
 type resourceAuthorizationArgs struct {
 	// Set to true to allow public access in the project. Type: boolean.
 	Authorized bool `pulumi:"authorized"`
+	// The ID of the build definition to authorize. Type: string.
+	DefinitionId *int `pulumi:"definitionId"`
 	// The project ID or project name. Type: string.
 	ProjectId string `pulumi:"projectId"`
 	// The ID of the resource to authorize. Type: string.
-	ResourceId *string `pulumi:"resourceId"`
-	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
+	ResourceId string `pulumi:"resourceId"`
+	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
 	Type *string `pulumi:"type"`
 }
 
@@ -152,11 +159,13 @@ type resourceAuthorizationArgs struct {
 type ResourceAuthorizationArgs struct {
 	// Set to true to allow public access in the project. Type: boolean.
 	Authorized pulumi.BoolInput
+	// The ID of the build definition to authorize. Type: string.
+	DefinitionId pulumi.IntPtrInput
 	// The project ID or project name. Type: string.
 	ProjectId pulumi.StringInput
 	// The ID of the resource to authorize. Type: string.
-	ResourceId pulumi.StringPtrInput
-	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`. Default value: `endpoint`.
+	ResourceId pulumi.StringInput
+	// The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
 	Type pulumi.StringPtrInput
 }
 

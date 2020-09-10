@@ -3,14 +3,18 @@
 # *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 # Export this package's modules as members:
-from .azure_rm import *
-from .bit_bucket import *
+from .area_permissions import *
+from .branch_policy_auto_reviewers import *
 from .branch_policy_build_validation import *
+from .branch_policy_comment_resolution import *
 from .branch_policy_min_reviewers import *
+from .branch_policy_work_item_linking import *
 from .build_definition import *
-from .docker_registry import *
+from .get_area import *
 from .get_client_config import *
+from .get_git_repository import *
 from .get_group import *
+from .get_iteration import *
 from .get_pool import *
 from .get_pools import *
 from .get_project import *
@@ -18,18 +22,27 @@ from .get_projects import *
 from .get_repositories import *
 from .get_users import *
 from .git import *
-from .git_hub import *
+from .git_permissions import *
 from .group import *
 from .group_membership import *
-from .kubernetes import *
+from .iterative_permissions import *
 from .pool import *
 from .project import *
 from .project_features import *
+from .project_permissions import *
 from .provider import *
 from .queue import *
 from .resource_authorization import *
+from .service_endpoint_aws import *
+from .service_endpoint_azure_ecr import *
+from .service_endpoint_azure_rm import *
+from .service_endpoint_bit_bucket import *
+from .service_endpoint_docker_registry import *
+from .service_endpoint_git_hub import *
+from .service_endpoint_kubernetes import *
 from .user import *
 from .variable_group import *
+from .work_item_query_permissions import *
 from ._inputs import *
 from . import outputs
 

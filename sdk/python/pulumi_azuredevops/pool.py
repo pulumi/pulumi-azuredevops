@@ -34,13 +34,13 @@ class Pool(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_provision: Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the agent pool.
-        :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+        :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -86,7 +86,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_provision: Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the agent pool.
-        :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+        :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -117,7 +117,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="poolType")
     def pool_type(self) -> pulumi.Output[Optional[str]]:
         """
-        Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+        Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
         return pulumi.get(self, "pool_type")
 

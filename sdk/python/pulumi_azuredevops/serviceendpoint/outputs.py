@@ -113,7 +113,7 @@ class KubernetesAzureSubscription(dict):
                  namespace: Optional[str] = None):
         """
         :param str cluster_name: The name of the Kubernetes cluster.
-        :param str resourcegroup_id: The resource group id, to which the Kubernetes cluster is deployed.
+        :param str resourcegroup_id: The resource group name, to which the Kubernetes cluster is deployed.
         :param str subscription_id: The id of the Azure subscription.
         :param str subscription_name: The name of the Azure subscription.
         :param str tenant_id: The id of the tenant used by the subscription.
@@ -142,7 +142,7 @@ class KubernetesAzureSubscription(dict):
     @pulumi.getter(name="resourcegroupId")
     def resourcegroup_id(self) -> str:
         """
-        The resource group id, to which the Kubernetes cluster is deployed.
+        The resource group name, to which the Kubernetes cluster is deployed.
         """
         return pulumi.get(self, "resourcegroup_id")
 

@@ -35,7 +35,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
 type Pool struct {
 	pulumi.CustomResourceState
 
@@ -43,7 +43,7 @@ type Pool struct {
 	AutoProvision pulumi.BoolPtrOutput `pulumi:"autoProvision"`
 	// The name of the agent pool.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
 	PoolType pulumi.StringPtrOutput `pulumi:"poolType"`
 }
 
@@ -85,7 +85,7 @@ type poolState struct {
 	AutoProvision *bool `pulumi:"autoProvision"`
 	// The name of the agent pool.
 	Name *string `pulumi:"name"`
-	// Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
 	PoolType *string `pulumi:"poolType"`
 }
 
@@ -94,7 +94,7 @@ type PoolState struct {
 	AutoProvision pulumi.BoolPtrInput
 	// The name of the agent pool.
 	Name pulumi.StringPtrInput
-	// Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
 	PoolType pulumi.StringPtrInput
 }
 
@@ -107,7 +107,7 @@ type poolArgs struct {
 	AutoProvision *bool `pulumi:"autoProvision"`
 	// The name of the agent pool.
 	Name *string `pulumi:"name"`
-	// Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
 	PoolType *string `pulumi:"poolType"`
 }
 
@@ -117,7 +117,7 @@ type PoolArgs struct {
 	AutoProvision pulumi.BoolPtrInput
 	// The name of the agent pool.
 	Name pulumi.StringPtrInput
-	// Specifies whether the agent pool type is Automation or Deployment.  Defaults to `automation`.
+	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
 	PoolType pulumi.StringPtrInput
 }
 

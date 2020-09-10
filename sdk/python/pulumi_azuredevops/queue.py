@@ -21,10 +21,10 @@ class Queue(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages an agent queue within Azure DevOps. In the UI, this is equivelant to adding an
+        Manages an agent queue within Azure DevOps. In the UI, this is equivalent to adding an
         Organization defined pool to a project.
 
-        The created queue is not authorized for use by all pipeliens in the project. However,
+        The created queue is not authorized for use by all pipelines in the project. However,
         the `ResourceAuthorization` resource can be used to grant authorization.
 
         ## Example Usage
@@ -33,7 +33,7 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project", project_name="Sample Project")
+        project = azuredevops.Project("project")
         pool = azuredevops.get_pool(name="contoso-pool")
         queue = azuredevops.Queue("queue",
             project_id=project.id,
@@ -47,7 +47,7 @@ class Queue(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

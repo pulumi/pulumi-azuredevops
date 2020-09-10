@@ -10,15 +10,13 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.ServiceEndpoint
 {
     /// <summary>
-    /// ## # azuredevops.Kubernetes
-    /// 
     /// Manages a Kubernetes service endpoint within Azure DevOps.
     /// 
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
     /// </summary>
-    [Obsolete(@"azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes")]
+    [Obsolete(@"azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes")]
     public partial class Kubernetes : Pulumi.CustomResource
     {
         /// <summary>

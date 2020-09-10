@@ -25,7 +25,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName:      pulumi.String("Sample Project"),
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
@@ -33,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewDockerRegistry(ctx, "dockerhubregistry", &azuredevops.DockerRegistryArgs{
+// 		_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "dockerhubregistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("Sample Docker Hub"),
 // 			DockerUsername:      pulumi.String("sample"),
@@ -44,7 +43,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewDockerRegistry(ctx, "otherregistry", &azuredevops.DockerRegistryArgs{
+// 		_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "otherregistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("Sample Docker Registry"),
 // 			DockerRegistry:      pulumi.String("https://sample.azurecr.io/v1"),
@@ -61,10 +60,10 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
-// * [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
+// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
 //
-// Deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry
+// Deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry
 type DockerRegistry struct {
 	pulumi.CustomResourceState
 

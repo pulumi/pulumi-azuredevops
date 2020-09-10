@@ -24,7 +24,6 @@ namespace Pulumi.AzureDevOps.Identities
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Test Project",
     ///         });
     ///         var user = new AzureDevOps.User("user", new AzureDevOps.UserArgs
     ///         {
@@ -49,7 +48,7 @@ namespace Pulumi.AzureDevOps.Identities
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
+    /// - [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
     /// 
     /// ## PAT Permissions Required
     /// 
@@ -73,8 +72,8 @@ namespace Pulumi.AzureDevOps.Identities
 
         /// <summary>
         /// The mode how the resource manages group members.
-        /// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-        /// * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+        /// - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+        /// - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         /// &gt; NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         /// </summary>
         [Output("mode")]
@@ -147,8 +146,8 @@ namespace Pulumi.AzureDevOps.Identities
 
         /// <summary>
         /// The mode how the resource manages group members.
-        /// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-        /// * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+        /// - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+        /// - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         /// &gt; NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         /// </summary>
         [Input("mode")]
@@ -182,8 +181,8 @@ namespace Pulumi.AzureDevOps.Identities
 
         /// <summary>
         /// The mode how the resource manages group members.
-        /// * `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-        /// * `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+        /// - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+        /// - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         /// &gt; NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         /// </summary>
         [Input("mode")]

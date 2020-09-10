@@ -14,13 +14,12 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {
- *     projectName: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
  * // dockerhub registry service connection
- * const dockerhubregistry = new azuredevops.DockerRegistry("dockerhubregistry", {
+ * const dockerhubregistry = new azuredevops.ServiceEndpointDockerRegistry("dockerhubregistry", {
  *     projectId: project.id,
  *     serviceEndpointName: "Sample Docker Hub",
  *     dockerUsername: "sample",
@@ -29,7 +28,7 @@ import * as utilities from "../utilities";
  *     registryType: "DockerHub",
  * });
  * // other docker registry service connection
- * const otherregistry = new azuredevops.DockerRegistry("otherregistry", {
+ * const otherregistry = new azuredevops.ServiceEndpointDockerRegistry("otherregistry", {
  *     projectId: project.id,
  *     serviceEndpointName: "Sample Docker Registry",
  *     dockerRegistry: "https://sample.azurecr.io/v1",
@@ -40,10 +39,10 @@ import * as utilities from "../utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
- * * [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
+ * - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
  *
- * @deprecated azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry
+ * @deprecated azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry
  */
 export class DockerRegistry extends pulumi.CustomResource {
     /**
@@ -56,7 +55,7 @@ export class DockerRegistry extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: DockerRegistryState, opts?: pulumi.CustomResourceOptions): DockerRegistry {
-        pulumi.log.warn("DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry")
+        pulumi.log.warn("DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry")
         return new DockerRegistry(name, <any>state, { ...opts, id: id });
     }
 
@@ -119,11 +118,11 @@ export class DockerRegistry extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry */
+    /** @deprecated azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry */
     constructor(name: string, args: DockerRegistryArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry */
+    /** @deprecated azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry */
     constructor(name: string, argsOrState?: DockerRegistryArgs | DockerRegistryState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry")
+        pulumi.log.warn("DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as DockerRegistryState | undefined;

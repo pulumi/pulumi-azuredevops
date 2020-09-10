@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  *         artifacts: "disabled",
  *         testplans: "disabled",
  *     },
- *     projectName: "Test Project",
  *     versionControl: "Git",
  *     visibility: "private",
  *     workItemTemplate: "Agile",
@@ -27,7 +26,7 @@ import * as utilities from "../utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
  *
  * ## PAT Permissions Required
  *
@@ -74,13 +73,13 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly features!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
+     * The Project Name.
+     */
+    public readonly name!: pulumi.Output<string>;
+    /**
      * The Process Template ID used by the Project.
      */
     public /*out*/ readonly processTemplateId!: pulumi.Output<string>;
-    /**
-     * The Project Name.
-     */
-    public readonly projectName!: pulumi.Output<string>;
     /**
      * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
      */
@@ -102,7 +101,7 @@ export class Project extends pulumi.CustomResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     /** @deprecated azuredevops.core.Project has been deprecated in favor of azuredevops.Project */
-    constructor(name: string, args: ProjectArgs, opts?: pulumi.CustomResourceOptions)
+    constructor(name: string, args?: ProjectArgs, opts?: pulumi.CustomResourceOptions)
     /** @deprecated azuredevops.core.Project has been deprecated in favor of azuredevops.Project */
     constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Project is deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project")
@@ -111,19 +110,16 @@ export class Project extends pulumi.CustomResource {
             const state = argsOrState as ProjectState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["features"] = state ? state.features : undefined;
+            inputs["name"] = state ? state.name : undefined;
             inputs["processTemplateId"] = state ? state.processTemplateId : undefined;
-            inputs["projectName"] = state ? state.projectName : undefined;
             inputs["versionControl"] = state ? state.versionControl : undefined;
             inputs["visibility"] = state ? state.visibility : undefined;
             inputs["workItemTemplate"] = state ? state.workItemTemplate : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            if (!args || args.projectName === undefined) {
-                throw new Error("Missing required property 'projectName'");
-            }
             inputs["description"] = args ? args.description : undefined;
             inputs["features"] = args ? args.features : undefined;
-            inputs["projectName"] = args ? args.projectName : undefined;
+            inputs["name"] = args ? args.name : undefined;
             inputs["versionControl"] = args ? args.versionControl : undefined;
             inputs["visibility"] = args ? args.visibility : undefined;
             inputs["workItemTemplate"] = args ? args.workItemTemplate : undefined;
@@ -154,13 +150,13 @@ export interface ProjectState {
      */
     readonly features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The Project Name.
+     */
+    readonly name?: pulumi.Input<string>;
+    /**
      * The Process Template ID used by the Project.
      */
     readonly processTemplateId?: pulumi.Input<string>;
-    /**
-     * The Project Name.
-     */
-    readonly projectName?: pulumi.Input<string>;
     /**
      * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
      */
@@ -191,7 +187,7 @@ export interface ProjectArgs {
     /**
      * The Project Name.
      */
-    readonly projectName: pulumi.Input<string>;
+    readonly name?: pulumi.Input<string>;
     /**
      * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
      */

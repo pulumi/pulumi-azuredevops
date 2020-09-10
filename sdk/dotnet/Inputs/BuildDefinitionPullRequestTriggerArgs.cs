@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string>? InitialBranch { get; set; }
 
         /// <summary>
-        /// Override the azure-pipeline file and use a this configuration for all builds.
+        /// Override the azure-pipeline file and use this configuration for all builds.
         /// </summary>
         [Input("override")]
         public Input<Inputs.BuildDefinitionPullRequestTriggerOverrideArgs>? Override { get; set; }

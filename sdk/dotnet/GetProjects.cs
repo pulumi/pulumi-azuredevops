@@ -29,19 +29,19 @@ namespace Pulumi.AzureDevOps
         ///     {
         ///         var test = Output.Create(AzureDevOps.GetProjects.InvokeAsync(new AzureDevOps.GetProjectsArgs
         ///         {
-        ///             ProjectName = "contoso",
+        ///             Name = "contoso",
         ///             State = "wellFormed",
         ///         }));
         ///         this.ProjectId = test.Apply(test =&gt; test.Projects.Select(__item =&gt; __item.ProjectId).ToList());
-        ///         this.ProjectName = test.Apply(test =&gt; test.Projects.Select(__item =&gt; __item.Name).ToList());
+        ///         this.Name = test.Apply(test =&gt; test.Projects.Select(__item =&gt; __item.Name).ToList());
         ///         this.ProjectUrl = test.Apply(test =&gt; test.Projects.Select(__item =&gt; __item.ProjectUrl).ToList());
         ///         this.State = test.Apply(test =&gt; test.Projects.Select(__item =&gt; __item.State).ToList());
         ///     }
         /// 
         ///     [Output("projectId")]
         ///     public Output&lt;string&gt; ProjectId { get; set; }
-        ///     [Output("projectName")]
-        ///     public Output&lt;string&gt; ProjectName { get; set; }
+        ///     [Output("name")]
+        ///     public Output&lt;string&gt; Name { get; set; }
         ///     [Output("projectUrl")]
         ///     public Output&lt;string&gt; ProjectUrl { get; set; }
         ///     [Output("state")]
@@ -64,8 +64,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Name of the Project, if not specified all projects will be returned.
         /// </summary>
-        [Input("projectName")]
-        public string? ProjectName { get; set; }
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
@@ -86,7 +86,10 @@ namespace Pulumi.AzureDevOps
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
-        public readonly string? ProjectName;
+        /// <summary>
+        /// Project name.
+        /// </summary>
+        public readonly string? Name;
         /// <summary>
         /// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
         /// </summary>
@@ -100,14 +103,14 @@ namespace Pulumi.AzureDevOps
         private GetProjectsResult(
             string id,
 
-            string? projectName,
+            string? name,
 
             ImmutableArray<Outputs.GetProjectsProjectResult> projects,
 
             string? state)
         {
             Id = id;
-            ProjectName = projectName;
+            Name = name;
             Projects = projects;
             State = state;
         }

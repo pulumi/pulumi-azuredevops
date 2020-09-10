@@ -24,7 +24,6 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Test Project",
     ///         });
     ///         var tf_project_readers = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
     ///         {
@@ -53,7 +52,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
     /// 
     /// ## PAT Permissions Required
     /// 
@@ -92,7 +91,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> Mail { get; private set; } = null!;
 
         /// <summary>
-        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the   `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
@@ -205,7 +204,7 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _members;
 
         /// <summary>
-        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the   `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {
@@ -266,7 +265,7 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _members;
 
         /// <summary>
-        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the   `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        /// &gt; NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {

@@ -24,7 +24,6 @@ namespace Pulumi.AzureDevOps.Policy
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Sample Project",
     ///         });
     ///         var git = new AzureDevOps.Git("git", new AzureDevOps.GitArgs
     ///         {
@@ -54,6 +53,12 @@ namespace Pulumi.AzureDevOps.Policy
     ///                 DisplayName = "Don't break the build!",
     ///                 BuildDefinitionId = buildDefinition.Id,
     ///                 ValidDuration = 720,
+    ///                 FilenamePatterns = 
+    ///                 {
+    ///                     "/WebApp/*",
+    ///                     "!/WebApp/Tests/*",
+    ///                     "*.cs",
+    ///                 },
     ///                 Scopes = 
     ///                 {
     ///                     new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
@@ -77,7 +82,7 @@ namespace Pulumi.AzureDevOps.Policy
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
     /// </summary>
     [Obsolete(@"azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation")]
     public partial class BranchPolicyBuildValidation : Pulumi.CustomResource

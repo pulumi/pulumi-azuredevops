@@ -7,23 +7,6 @@ import * as utilities from "../utilities";
 /**
  * Manages features for Azure DevOps projects
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const tf-project-test-001 = azuredevops.getProject({
- *     projectName: "Test Project",
- * });
- * const my_project_features = new azuredevops.ProjectFeatures("my-project-features", {
- *     projectId: tf_project_test_001.then(tf_project_test_001 => tf_project_test_001.id),
- *     features: {
- *         testplans: "disabled",
- *         artifacts: "enabled",
- *     },
- * });
- * ```
  * ## Relevant Links
  *
  * No official documentation available

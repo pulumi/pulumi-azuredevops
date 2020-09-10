@@ -24,6 +24,18 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("displayName", required: true)]
         public Input<string> DisplayName { get; set; } = null!;
 
+        [Input("filenamePatterns")]
+        private InputList<string>? _filenamePatterns;
+
+        /// <summary>
+        /// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        /// </summary>
+        public InputList<string> FilenamePatterns
+        {
+            get => _filenamePatterns ?? (_filenamePatterns = new InputList<string>());
+            set => _filenamePatterns = value;
+        }
+
         /// <summary>
         /// If set to true, the build will need to be manually queued. Defaults to `false`
         /// </summary>

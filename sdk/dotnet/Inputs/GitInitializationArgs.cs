@@ -13,13 +13,13 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class GitInitializationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+        /// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
         /// </summary>
         [Input("initType", required: true)]
         public Input<string> InitType { get; set; } = null!;
 
         /// <summary>
-        /// Type type of the source repository. Used if the `init_type` is `Import`.
+        /// Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }

@@ -607,7 +607,7 @@ type BuildDefinitionPullRequestTrigger struct {
 	// Set permissions for Forked repositories.
 	Forks         BuildDefinitionPullRequestTriggerForks `pulumi:"forks"`
 	InitialBranch *string                                `pulumi:"initialBranch"`
-	// Override the azure-pipeline file and use a this configuration for all builds.
+	// Override the azure-pipeline file and use this configuration for all builds.
 	Override *BuildDefinitionPullRequestTriggerOverride `pulumi:"override"`
 	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
 	UseYaml *bool `pulumi:"useYaml"`
@@ -629,7 +629,7 @@ type BuildDefinitionPullRequestTriggerArgs struct {
 	// Set permissions for Forked repositories.
 	Forks         BuildDefinitionPullRequestTriggerForksInput `pulumi:"forks"`
 	InitialBranch pulumi.StringPtrInput                       `pulumi:"initialBranch"`
-	// Override the azure-pipeline file and use a this configuration for all builds.
+	// Override the azure-pipeline file and use this configuration for all builds.
 	Override BuildDefinitionPullRequestTriggerOverridePtrInput `pulumi:"override"`
 	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
 	UseYaml pulumi.BoolPtrInput `pulumi:"useYaml"`
@@ -724,7 +724,7 @@ func (o BuildDefinitionPullRequestTriggerOutput) InitialBranch() pulumi.StringPt
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *string { return v.InitialBranch }).(pulumi.StringPtrOutput)
 }
 
-// Override the azure-pipeline file and use a this configuration for all builds.
+// Override the azure-pipeline file and use this configuration for all builds.
 func (o BuildDefinitionPullRequestTriggerOutput) Override() BuildDefinitionPullRequestTriggerOverridePtrOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTriggerOverride {
 		return v.Override
@@ -782,7 +782,7 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) InitialBranch() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Override the azure-pipeline file and use a this configuration for all builds.
+// Override the azure-pipeline file and use this configuration for all builds.
 func (o BuildDefinitionPullRequestTriggerPtrOutput) Override() BuildDefinitionPullRequestTriggerOverridePtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTriggerOverride {
 		if v == nil {
@@ -1342,11 +1342,15 @@ func (o BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput) Index(i 
 type BuildDefinitionRepository struct {
 	// The branch name for which builds are triggered. Defaults to `master`.
 	BranchName *string `pulumi:"branchName"`
+	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+	GithubEnterpriseUrl *string `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId string `pulumi:"repoId"`
-	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType string `pulumi:"repoType"`
-	// The service connection ID. Used if the `repoType` is `GitHub`.
+	// Report build status. Default is true.
+	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
+	// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
 	// The path of the Yaml file describing the build definition.
 	YmlPath string `pulumi:"ymlPath"`
@@ -1366,11 +1370,15 @@ type BuildDefinitionRepositoryInput interface {
 type BuildDefinitionRepositoryArgs struct {
 	// The branch name for which builds are triggered. Defaults to `master`.
 	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
+	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+	GithubEnterpriseUrl pulumi.StringPtrInput `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId pulumi.StringInput `pulumi:"repoId"`
-	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType pulumi.StringInput `pulumi:"repoType"`
-	// The service connection ID. Used if the `repoType` is `GitHub`.
+	// Report build status. Default is true.
+	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
+	// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
 	// The path of the Yaml file describing the build definition.
 	YmlPath pulumi.StringInput `pulumi:"ymlPath"`
@@ -1458,17 +1466,27 @@ func (o BuildDefinitionRepositoryOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }
 
+// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+func (o BuildDefinitionRepositoryOutput) GithubEnterpriseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.GithubEnterpriseUrl }).(pulumi.StringPtrOutput)
+}
+
 // The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 func (o BuildDefinitionRepositoryOutput) RepoId() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoId }).(pulumi.StringOutput)
 }
 
-// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryOutput) RepoType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoType }).(pulumi.StringOutput)
 }
 
-// The service connection ID. Used if the `repoType` is `GitHub`.
+// Report build status. Default is true.
+func (o BuildDefinitionRepositoryOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionRepository) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
+}
+
+// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 func (o BuildDefinitionRepositoryOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.ServiceConnectionId }).(pulumi.StringPtrOutput)
 }
@@ -1506,6 +1524,16 @@ func (o BuildDefinitionRepositoryPtrOutput) BranchName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+func (o BuildDefinitionRepositoryPtrOutput) GithubEnterpriseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GithubEnterpriseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 // The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 func (o BuildDefinitionRepositoryPtrOutput) RepoId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
@@ -1516,7 +1544,7 @@ func (o BuildDefinitionRepositoryPtrOutput) RepoId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryPtrOutput) RepoType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -1526,7 +1554,17 @@ func (o BuildDefinitionRepositoryPtrOutput) RepoType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service connection ID. Used if the `repoType` is `GitHub`.
+// Report build status. Default is true.
+func (o BuildDefinitionRepositoryPtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BuildDefinitionRepository) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReportBuildStatus
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 func (o BuildDefinitionRepositoryPtrOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {

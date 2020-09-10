@@ -37,7 +37,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project", project_name="Sample Project")
+        project = azuredevops.Project("project")
         git = azuredevops.Git("git",
             project_id=project.id,
             initialization=azuredevops.GitInitializationArgs(
@@ -66,7 +66,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

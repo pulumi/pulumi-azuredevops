@@ -23,14 +23,14 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {
- *     projectName: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const endpointazure = new azuredevops.AzureRM("endpointazure", {
+ * const endpointazure = new azuredevops.ServiceEndpointAzureRM("endpointazure", {
  *     projectId: project.id,
  *     serviceEndpointName: "TestServiceRM",
+ *     description: "Managed by Terraform",
  *     credentials: {
  *         serviceprincipalid: "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
  *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -47,14 +47,14 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {
- *     projectName: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const endpointazure = new azuredevops.AzureRM("endpointazure", {
+ * const endpointazure = new azuredevops.ServiceEndpointAzureRM("endpointazure", {
  *     projectId: project.id,
  *     serviceEndpointName: "TestServiceRM",
+ *     description: "Managed by Terraform",
  *     azurermSpnTenantid: "xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
  *     azurermSubscriptionId: "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
  *     azurermSubscriptionName: "Microsoft Azure DEMO",
@@ -62,9 +62,9 @@ import * as utilities from "../utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
  *
- * @deprecated azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM
+ * @deprecated azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM
  */
 export class AzureRM extends pulumi.CustomResource {
     /**
@@ -77,7 +77,7 @@ export class AzureRM extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: AzureRMState, opts?: pulumi.CustomResourceOptions): AzureRM {
-        pulumi.log.warn("AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM")
+        pulumi.log.warn("AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM")
         return new AzureRM(name, <any>state, { ...opts, id: id });
     }
 
@@ -112,6 +112,9 @@ export class AzureRM extends pulumi.CustomResource {
      * A `credentials` block.
      */
     public readonly credentials!: pulumi.Output<outputs.ServiceEndpoint.AzureRMCredentials | undefined>;
+    /**
+     * Service connection description.
+     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The project ID or project name.
@@ -133,11 +136,11 @@ export class AzureRM extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM */
+    /** @deprecated azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM */
     constructor(name: string, args: AzureRMArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM */
+    /** @deprecated azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM */
     constructor(name: string, argsOrState?: AzureRMArgs | AzureRMState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.AzureRM")
+        pulumi.log.warn("AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM")
         let inputs: pulumi.Inputs = {};
         if (opts && opts.id) {
             const state = argsOrState as AzureRMState | undefined;
@@ -209,6 +212,9 @@ export interface AzureRMState {
      * A `credentials` block.
      */
     readonly credentials?: pulumi.Input<inputs.ServiceEndpoint.AzureRMCredentials>;
+    /**
+     * Service connection description.
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
@@ -245,6 +251,9 @@ export interface AzureRMArgs {
      * A `credentials` block.
      */
     readonly credentials?: pulumi.Input<inputs.ServiceEndpoint.AzureRMCredentials>;
+    /**
+     * Service connection description.
+     */
     readonly description?: pulumi.Input<string>;
     /**
      * The project ID or project name.

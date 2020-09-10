@@ -26,7 +26,6 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			ProjectName:      pulumi.String("Sample Project"),
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
@@ -47,22 +46,76 @@ import (
 // 	})
 // }
 // ```
+// ### Create Fork of another Azure DevOps Git repository
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azuredevops.NewGit(ctx, "repo", &azuredevops.GitArgs{
+// 			ProjectId:          pulumi.Any(azuredevops_project.Project.Id),
+// 			ParentRepositoryId: pulumi.Any(azuredevops_git_repository.Parent.Id),
+// 			Initialization: &azuredevops.GitInitializationArgs{
+// 				InitType: pulumi.String("Clean"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### Create Import from another Git repository
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azuredevops.NewGit(ctx, "repo", &azuredevops.GitArgs{
+// 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
+// 			Initialization: &azuredevops.GitInitializationArgs{
+// 				InitType:   pulumi.String("Import"),
+// 				SourceType: pulumi.String("Git"),
+// 				SourceUrl:  pulumi.String("https://github.com/microsoft/terraform-provider-azuredevops.git"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
 //
 // Deprecated: azuredevops.repository.Git has been deprecated in favor of azuredevops.Git
 type Git struct {
 	pulumi.CustomResourceState
 
-	// The ref of the default branch.
+	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch pulumi.StringOutput `pulumi:"defaultBranch"`
 	// An `initialization` block as documented below.
-	Initialization GitInitializationPtrOutput `pulumi:"initialization"`
+	Initialization GitInitializationOutput `pulumi:"initialization"`
 	// True if the repository was created as a fork.
 	IsFork pulumi.BoolOutput `pulumi:"isFork"`
 	// The name of the git repository.
-	Name               pulumi.StringOutput    `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of a Git project from which a fork is to be created.
 	ParentRepositoryId pulumi.StringPtrOutput `pulumi:"parentRepositoryId"`
 	// The project ID or project name.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -81,6 +134,9 @@ type Git struct {
 // NewGit registers a new resource with the given unique name, arguments, and options.
 func NewGit(ctx *pulumi.Context,
 	name string, args *GitArgs, opts ...pulumi.ResourceOption) (*Git, error) {
+	if args == nil || args.Initialization == nil {
+		return nil, errors.New("missing required argument 'Initialization'")
+	}
 	if args == nil || args.ProjectId == nil {
 		return nil, errors.New("missing required argument 'ProjectId'")
 	}
@@ -109,14 +165,15 @@ func GetGit(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Git resources.
 type gitState struct {
-	// The ref of the default branch.
+	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// An `initialization` block as documented below.
 	Initialization *GitInitialization `pulumi:"initialization"`
 	// True if the repository was created as a fork.
 	IsFork *bool `pulumi:"isFork"`
 	// The name of the git repository.
-	Name               *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The ID of a Git project from which a fork is to be created.
 	ParentRepositoryId *string `pulumi:"parentRepositoryId"`
 	// The project ID or project name.
 	ProjectId *string `pulumi:"projectId"`
@@ -133,14 +190,15 @@ type gitState struct {
 }
 
 type GitState struct {
-	// The ref of the default branch.
+	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch pulumi.StringPtrInput
 	// An `initialization` block as documented below.
 	Initialization GitInitializationPtrInput
 	// True if the repository was created as a fork.
 	IsFork pulumi.BoolPtrInput
 	// The name of the git repository.
-	Name               pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The ID of a Git project from which a fork is to be created.
 	ParentRepositoryId pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringPtrInput
@@ -161,12 +219,13 @@ func (GitState) ElementType() reflect.Type {
 }
 
 type gitArgs struct {
-	// The ref of the default branch.
+	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch *string `pulumi:"defaultBranch"`
 	// An `initialization` block as documented below.
-	Initialization *GitInitialization `pulumi:"initialization"`
+	Initialization GitInitialization `pulumi:"initialization"`
 	// The name of the git repository.
-	Name               *string `pulumi:"name"`
+	Name *string `pulumi:"name"`
+	// The ID of a Git project from which a fork is to be created.
 	ParentRepositoryId *string `pulumi:"parentRepositoryId"`
 	// The project ID or project name.
 	ProjectId string `pulumi:"projectId"`
@@ -174,12 +233,13 @@ type gitArgs struct {
 
 // The set of arguments for constructing a Git resource.
 type GitArgs struct {
-	// The ref of the default branch.
+	// The ref of the default branch. Will be used as the branch name for initialized repositories.
 	DefaultBranch pulumi.StringPtrInput
 	// An `initialization` block as documented below.
-	Initialization GitInitializationPtrInput
+	Initialization GitInitializationInput
 	// The name of the git repository.
-	Name               pulumi.StringPtrInput
+	Name pulumi.StringPtrInput
+	// The ID of a Git project from which a fork is to be created.
 	ParentRepositoryId pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringInput

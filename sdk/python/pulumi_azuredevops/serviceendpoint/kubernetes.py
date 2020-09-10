@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['Kubernetes']
 
-warnings.warn("azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes", DeprecationWarning)
+warnings.warn("azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes", DeprecationWarning)
 
 
 class Kubernetes(pulumi.CustomResource):
-    warnings.warn("azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes", DeprecationWarning)
+    warnings.warn("azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -34,13 +34,11 @@ class Kubernetes(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        ## # Kubernetes
-
         Manages a Kubernetes service endpoint within Azure DevOps.
 
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -52,7 +50,7 @@ class Kubernetes(pulumi.CustomResource):
         :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]] service_accounts: The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
-        pulumi.log.warn("Kubernetes is deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.Kubernetes")
+        pulumi.log.warn("Kubernetes is deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

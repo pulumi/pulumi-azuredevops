@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Agent
 {
     /// <summary>
-    /// Manages an agent queue within Azure DevOps. In the UI, this is equivelant to adding an
+    /// Manages an agent queue within Azure DevOps. In the UI, this is equivalent to adding an
     /// Organization defined pool to a project.
     /// 
-    /// The created queue is not authorized for use by all pipeliens in the project. However,
+    /// The created queue is not authorized for use by all pipelines in the project. However,
     /// the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
     /// 
     /// ## Example Usage
@@ -28,7 +28,6 @@ namespace Pulumi.AzureDevOps.Agent
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Sample Project",
     ///         });
     ///         var pool = Output.Create(AzureDevOps.GetPool.InvokeAsync(new AzureDevOps.GetPoolArgs
     ///         {
@@ -53,7 +52,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
     /// </summary>
     [Obsolete(@"azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")]
     public partial class Queue : Pulumi.CustomResource

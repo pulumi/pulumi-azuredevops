@@ -24,13 +24,12 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///     {
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectName = "Sample Project",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
     ///         // dockerhub registry service connection
-    ///         var dockerhubregistry = new AzureDevOps.DockerRegistry("dockerhubregistry", new AzureDevOps.DockerRegistryArgs
+    ///         var dockerhubregistry = new AzureDevOps.ServiceEndpointDockerRegistry("dockerhubregistry", new AzureDevOps.ServiceEndpointDockerRegistryArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             ServiceEndpointName = "Sample Docker Hub",
@@ -40,7 +39,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///             RegistryType = "DockerHub",
     ///         });
     ///         // other docker registry service connection
-    ///         var otherregistry = new AzureDevOps.DockerRegistry("otherregistry", new AzureDevOps.DockerRegistryArgs
+    ///         var otherregistry = new AzureDevOps.ServiceEndpointDockerRegistry("otherregistry", new AzureDevOps.ServiceEndpointDockerRegistryArgs
     ///         {
     ///             ProjectId = project.Id,
     ///             ServiceEndpointName = "Sample Docker Registry",
@@ -55,10 +54,10 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
-    /// * [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&amp;tabs=yaml#sep-docreg)
+    /// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&amp;tabs=yaml#sep-docreg)
     /// </summary>
-    [Obsolete(@"azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.DockerRegistry")]
+    [Obsolete(@"azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry")]
     public partial class DockerRegistry : Pulumi.CustomResource
     {
         [Output("authorization")]

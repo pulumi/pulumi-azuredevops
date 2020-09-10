@@ -10,169 +10,326 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-type AzureRMCredentials struct {
-	// The service principal application Id
-	Serviceprincipalid string `pulumi:"serviceprincipalid"`
-	// The service principal secret.
-	Serviceprincipalkey     string  `pulumi:"serviceprincipalkey"`
-	ServiceprincipalkeyHash *string `pulumi:"serviceprincipalkeyHash"`
+type BranchPolicyAutoReviewersSettings struct {
+	// Required reviewers ids. Supports multiples user Ids.
+	AutoReviewerIds []string `pulumi:"autoReviewerIds"`
+	// Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
+	Message *string `pulumi:"message"`
+	// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+	PathFilters []string `pulumi:"pathFilters"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	Scopes []BranchPolicyAutoReviewersSettingsScope `pulumi:"scopes"`
+	// Controls whether or not the submitter's vote counts. Defaults to `false`.
+	SubmitterCanVote *bool `pulumi:"submitterCanVote"`
 }
 
-// AzureRMCredentialsInput is an input type that accepts AzureRMCredentialsArgs and AzureRMCredentialsOutput values.
-// You can construct a concrete instance of `AzureRMCredentialsInput` via:
+// BranchPolicyAutoReviewersSettingsInput is an input type that accepts BranchPolicyAutoReviewersSettingsArgs and BranchPolicyAutoReviewersSettingsOutput values.
+// You can construct a concrete instance of `BranchPolicyAutoReviewersSettingsInput` via:
 //
-//          AzureRMCredentialsArgs{...}
-type AzureRMCredentialsInput interface {
+//          BranchPolicyAutoReviewersSettingsArgs{...}
+type BranchPolicyAutoReviewersSettingsInput interface {
 	pulumi.Input
 
-	ToAzureRMCredentialsOutput() AzureRMCredentialsOutput
-	ToAzureRMCredentialsOutputWithContext(context.Context) AzureRMCredentialsOutput
+	ToBranchPolicyAutoReviewersSettingsOutput() BranchPolicyAutoReviewersSettingsOutput
+	ToBranchPolicyAutoReviewersSettingsOutputWithContext(context.Context) BranchPolicyAutoReviewersSettingsOutput
 }
 
-type AzureRMCredentialsArgs struct {
-	// The service principal application Id
-	Serviceprincipalid pulumi.StringInput `pulumi:"serviceprincipalid"`
-	// The service principal secret.
-	Serviceprincipalkey     pulumi.StringInput    `pulumi:"serviceprincipalkey"`
-	ServiceprincipalkeyHash pulumi.StringPtrInput `pulumi:"serviceprincipalkeyHash"`
+type BranchPolicyAutoReviewersSettingsArgs struct {
+	// Required reviewers ids. Supports multiples user Ids.
+	AutoReviewerIds pulumi.StringArrayInput `pulumi:"autoReviewerIds"`
+	// Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
+	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+	PathFilters pulumi.StringArrayInput `pulumi:"pathFilters"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	Scopes BranchPolicyAutoReviewersSettingsScopeArrayInput `pulumi:"scopes"`
+	// Controls whether or not the submitter's vote counts. Defaults to `false`.
+	SubmitterCanVote pulumi.BoolPtrInput `pulumi:"submitterCanVote"`
 }
 
-func (AzureRMCredentialsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureRMCredentials)(nil)).Elem()
+func (BranchPolicyAutoReviewersSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyAutoReviewersSettings)(nil)).Elem()
 }
 
-func (i AzureRMCredentialsArgs) ToAzureRMCredentialsOutput() AzureRMCredentialsOutput {
-	return i.ToAzureRMCredentialsOutputWithContext(context.Background())
+func (i BranchPolicyAutoReviewersSettingsArgs) ToBranchPolicyAutoReviewersSettingsOutput() BranchPolicyAutoReviewersSettingsOutput {
+	return i.ToBranchPolicyAutoReviewersSettingsOutputWithContext(context.Background())
 }
 
-func (i AzureRMCredentialsArgs) ToAzureRMCredentialsOutputWithContext(ctx context.Context) AzureRMCredentialsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureRMCredentialsOutput)
+func (i BranchPolicyAutoReviewersSettingsArgs) ToBranchPolicyAutoReviewersSettingsOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersSettingsOutput)
 }
 
-func (i AzureRMCredentialsArgs) ToAzureRMCredentialsPtrOutput() AzureRMCredentialsPtrOutput {
-	return i.ToAzureRMCredentialsPtrOutputWithContext(context.Background())
+func (i BranchPolicyAutoReviewersSettingsArgs) ToBranchPolicyAutoReviewersSettingsPtrOutput() BranchPolicyAutoReviewersSettingsPtrOutput {
+	return i.ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(context.Background())
 }
 
-func (i AzureRMCredentialsArgs) ToAzureRMCredentialsPtrOutputWithContext(ctx context.Context) AzureRMCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureRMCredentialsOutput).ToAzureRMCredentialsPtrOutputWithContext(ctx)
+func (i BranchPolicyAutoReviewersSettingsArgs) ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersSettingsOutput).ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(ctx)
 }
 
-// AzureRMCredentialsPtrInput is an input type that accepts AzureRMCredentialsArgs, AzureRMCredentialsPtr and AzureRMCredentialsPtrOutput values.
-// You can construct a concrete instance of `AzureRMCredentialsPtrInput` via:
+// BranchPolicyAutoReviewersSettingsPtrInput is an input type that accepts BranchPolicyAutoReviewersSettingsArgs, BranchPolicyAutoReviewersSettingsPtr and BranchPolicyAutoReviewersSettingsPtrOutput values.
+// You can construct a concrete instance of `BranchPolicyAutoReviewersSettingsPtrInput` via:
 //
-//          AzureRMCredentialsArgs{...}
+//          BranchPolicyAutoReviewersSettingsArgs{...}
 //
 //  or:
 //
 //          nil
-type AzureRMCredentialsPtrInput interface {
+type BranchPolicyAutoReviewersSettingsPtrInput interface {
 	pulumi.Input
 
-	ToAzureRMCredentialsPtrOutput() AzureRMCredentialsPtrOutput
-	ToAzureRMCredentialsPtrOutputWithContext(context.Context) AzureRMCredentialsPtrOutput
+	ToBranchPolicyAutoReviewersSettingsPtrOutput() BranchPolicyAutoReviewersSettingsPtrOutput
+	ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(context.Context) BranchPolicyAutoReviewersSettingsPtrOutput
 }
 
-type azureRMCredentialsPtrType AzureRMCredentialsArgs
+type branchPolicyAutoReviewersSettingsPtrType BranchPolicyAutoReviewersSettingsArgs
 
-func AzureRMCredentialsPtr(v *AzureRMCredentialsArgs) AzureRMCredentialsPtrInput {
-	return (*azureRMCredentialsPtrType)(v)
+func BranchPolicyAutoReviewersSettingsPtr(v *BranchPolicyAutoReviewersSettingsArgs) BranchPolicyAutoReviewersSettingsPtrInput {
+	return (*branchPolicyAutoReviewersSettingsPtrType)(v)
 }
 
-func (*azureRMCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureRMCredentials)(nil)).Elem()
+func (*branchPolicyAutoReviewersSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyAutoReviewersSettings)(nil)).Elem()
 }
 
-func (i *azureRMCredentialsPtrType) ToAzureRMCredentialsPtrOutput() AzureRMCredentialsPtrOutput {
-	return i.ToAzureRMCredentialsPtrOutputWithContext(context.Background())
+func (i *branchPolicyAutoReviewersSettingsPtrType) ToBranchPolicyAutoReviewersSettingsPtrOutput() BranchPolicyAutoReviewersSettingsPtrOutput {
+	return i.ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(context.Background())
 }
 
-func (i *azureRMCredentialsPtrType) ToAzureRMCredentialsPtrOutputWithContext(ctx context.Context) AzureRMCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(AzureRMCredentialsPtrOutput)
+func (i *branchPolicyAutoReviewersSettingsPtrType) ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersSettingsPtrOutput)
 }
 
-type AzureRMCredentialsOutput struct{ *pulumi.OutputState }
+type BranchPolicyAutoReviewersSettingsOutput struct{ *pulumi.OutputState }
 
-func (AzureRMCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AzureRMCredentials)(nil)).Elem()
+func (BranchPolicyAutoReviewersSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyAutoReviewersSettings)(nil)).Elem()
 }
 
-func (o AzureRMCredentialsOutput) ToAzureRMCredentialsOutput() AzureRMCredentialsOutput {
+func (o BranchPolicyAutoReviewersSettingsOutput) ToBranchPolicyAutoReviewersSettingsOutput() BranchPolicyAutoReviewersSettingsOutput {
 	return o
 }
 
-func (o AzureRMCredentialsOutput) ToAzureRMCredentialsOutputWithContext(ctx context.Context) AzureRMCredentialsOutput {
+func (o BranchPolicyAutoReviewersSettingsOutput) ToBranchPolicyAutoReviewersSettingsOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsOutput {
 	return o
 }
 
-func (o AzureRMCredentialsOutput) ToAzureRMCredentialsPtrOutput() AzureRMCredentialsPtrOutput {
-	return o.ToAzureRMCredentialsPtrOutputWithContext(context.Background())
+func (o BranchPolicyAutoReviewersSettingsOutput) ToBranchPolicyAutoReviewersSettingsPtrOutput() BranchPolicyAutoReviewersSettingsPtrOutput {
+	return o.ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(context.Background())
 }
 
-func (o AzureRMCredentialsOutput) ToAzureRMCredentialsPtrOutputWithContext(ctx context.Context) AzureRMCredentialsPtrOutput {
-	return o.ApplyT(func(v AzureRMCredentials) *AzureRMCredentials {
+func (o BranchPolicyAutoReviewersSettingsOutput) ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsPtrOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) *BranchPolicyAutoReviewersSettings {
 		return &v
-	}).(AzureRMCredentialsPtrOutput)
+	}).(BranchPolicyAutoReviewersSettingsPtrOutput)
 }
 
-// The service principal application Id
-func (o AzureRMCredentialsOutput) Serviceprincipalid() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureRMCredentials) string { return v.Serviceprincipalid }).(pulumi.StringOutput)
+// Required reviewers ids. Supports multiples user Ids.
+func (o BranchPolicyAutoReviewersSettingsOutput) AutoReviewerIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) []string { return v.AutoReviewerIds }).(pulumi.StringArrayOutput)
 }
 
-// The service principal secret.
-func (o AzureRMCredentialsOutput) Serviceprincipalkey() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureRMCredentials) string { return v.Serviceprincipalkey }).(pulumi.StringOutput)
+// Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
+func (o BranchPolicyAutoReviewersSettingsOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
-func (o AzureRMCredentialsOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureRMCredentials) *string { return v.ServiceprincipalkeyHash }).(pulumi.StringPtrOutput)
+// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+func (o BranchPolicyAutoReviewersSettingsOutput) PathFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) []string { return v.PathFilters }).(pulumi.StringArrayOutput)
 }
 
-type AzureRMCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (AzureRMCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**AzureRMCredentials)(nil)).Elem()
+// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+func (o BranchPolicyAutoReviewersSettingsOutput) Scopes() BranchPolicyAutoReviewersSettingsScopeArrayOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) []BranchPolicyAutoReviewersSettingsScope { return v.Scopes }).(BranchPolicyAutoReviewersSettingsScopeArrayOutput)
 }
 
-func (o AzureRMCredentialsPtrOutput) ToAzureRMCredentialsPtrOutput() AzureRMCredentialsPtrOutput {
+// Controls whether or not the submitter's vote counts. Defaults to `false`.
+func (o BranchPolicyAutoReviewersSettingsOutput) SubmitterCanVote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) *bool { return v.SubmitterCanVote }).(pulumi.BoolPtrOutput)
+}
+
+type BranchPolicyAutoReviewersSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyAutoReviewersSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyAutoReviewersSettings)(nil)).Elem()
+}
+
+func (o BranchPolicyAutoReviewersSettingsPtrOutput) ToBranchPolicyAutoReviewersSettingsPtrOutput() BranchPolicyAutoReviewersSettingsPtrOutput {
 	return o
 }
 
-func (o AzureRMCredentialsPtrOutput) ToAzureRMCredentialsPtrOutputWithContext(ctx context.Context) AzureRMCredentialsPtrOutput {
+func (o BranchPolicyAutoReviewersSettingsPtrOutput) ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsPtrOutput {
 	return o
 }
 
-func (o AzureRMCredentialsPtrOutput) Elem() AzureRMCredentialsOutput {
-	return o.ApplyT(func(v *AzureRMCredentials) AzureRMCredentials { return *v }).(AzureRMCredentialsOutput)
+func (o BranchPolicyAutoReviewersSettingsPtrOutput) Elem() BranchPolicyAutoReviewersSettingsOutput {
+	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) BranchPolicyAutoReviewersSettings { return *v }).(BranchPolicyAutoReviewersSettingsOutput)
 }
 
-// The service principal application Id
-func (o AzureRMCredentialsPtrOutput) Serviceprincipalid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureRMCredentials) *string {
+// Required reviewers ids. Supports multiples user Ids.
+func (o BranchPolicyAutoReviewersSettingsPtrOutput) AutoReviewerIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) []string {
 		if v == nil {
 			return nil
 		}
-		return &v.Serviceprincipalid
-	}).(pulumi.StringPtrOutput)
+		return v.AutoReviewerIds
+	}).(pulumi.StringArrayOutput)
 }
 
-// The service principal secret.
-func (o AzureRMCredentialsPtrOutput) Serviceprincipalkey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureRMCredentials) *string {
+// Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
+func (o BranchPolicyAutoReviewersSettingsPtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Serviceprincipalkey
+		return v.Message
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o AzureRMCredentialsPtrOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureRMCredentials) *string {
+// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+func (o BranchPolicyAutoReviewersSettingsPtrOutput) PathFilters() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) []string {
 		if v == nil {
 			return nil
 		}
-		return v.ServiceprincipalkeyHash
-	}).(pulumi.StringPtrOutput)
+		return v.PathFilters
+	}).(pulumi.StringArrayOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+func (o BranchPolicyAutoReviewersSettingsPtrOutput) Scopes() BranchPolicyAutoReviewersSettingsScopeArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) []BranchPolicyAutoReviewersSettingsScope {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(BranchPolicyAutoReviewersSettingsScopeArrayOutput)
+}
+
+// Controls whether or not the submitter's vote counts. Defaults to `false`.
+func (o BranchPolicyAutoReviewersSettingsPtrOutput) SubmitterCanVote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.SubmitterCanVote
+	}).(pulumi.BoolPtrOutput)
+}
+
+type BranchPolicyAutoReviewersSettingsScope struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+	MatchType *string `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	RepositoryRef *string `pulumi:"repositoryRef"`
+}
+
+// BranchPolicyAutoReviewersSettingsScopeInput is an input type that accepts BranchPolicyAutoReviewersSettingsScopeArgs and BranchPolicyAutoReviewersSettingsScopeOutput values.
+// You can construct a concrete instance of `BranchPolicyAutoReviewersSettingsScopeInput` via:
+//
+//          BranchPolicyAutoReviewersSettingsScopeArgs{...}
+type BranchPolicyAutoReviewersSettingsScopeInput interface {
+	pulumi.Input
+
+	ToBranchPolicyAutoReviewersSettingsScopeOutput() BranchPolicyAutoReviewersSettingsScopeOutput
+	ToBranchPolicyAutoReviewersSettingsScopeOutputWithContext(context.Context) BranchPolicyAutoReviewersSettingsScopeOutput
+}
+
+type BranchPolicyAutoReviewersSettingsScopeArgs struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	RepositoryRef pulumi.StringPtrInput `pulumi:"repositoryRef"`
+}
+
+func (BranchPolicyAutoReviewersSettingsScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyAutoReviewersSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyAutoReviewersSettingsScopeArgs) ToBranchPolicyAutoReviewersSettingsScopeOutput() BranchPolicyAutoReviewersSettingsScopeOutput {
+	return i.ToBranchPolicyAutoReviewersSettingsScopeOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyAutoReviewersSettingsScopeArgs) ToBranchPolicyAutoReviewersSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersSettingsScopeOutput)
+}
+
+// BranchPolicyAutoReviewersSettingsScopeArrayInput is an input type that accepts BranchPolicyAutoReviewersSettingsScopeArray and BranchPolicyAutoReviewersSettingsScopeArrayOutput values.
+// You can construct a concrete instance of `BranchPolicyAutoReviewersSettingsScopeArrayInput` via:
+//
+//          BranchPolicyAutoReviewersSettingsScopeArray{ BranchPolicyAutoReviewersSettingsScopeArgs{...} }
+type BranchPolicyAutoReviewersSettingsScopeArrayInput interface {
+	pulumi.Input
+
+	ToBranchPolicyAutoReviewersSettingsScopeArrayOutput() BranchPolicyAutoReviewersSettingsScopeArrayOutput
+	ToBranchPolicyAutoReviewersSettingsScopeArrayOutputWithContext(context.Context) BranchPolicyAutoReviewersSettingsScopeArrayOutput
+}
+
+type BranchPolicyAutoReviewersSettingsScopeArray []BranchPolicyAutoReviewersSettingsScopeInput
+
+func (BranchPolicyAutoReviewersSettingsScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyAutoReviewersSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyAutoReviewersSettingsScopeArray) ToBranchPolicyAutoReviewersSettingsScopeArrayOutput() BranchPolicyAutoReviewersSettingsScopeArrayOutput {
+	return i.ToBranchPolicyAutoReviewersSettingsScopeArrayOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyAutoReviewersSettingsScopeArray) ToBranchPolicyAutoReviewersSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersSettingsScopeArrayOutput)
+}
+
+type BranchPolicyAutoReviewersSettingsScopeOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyAutoReviewersSettingsScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyAutoReviewersSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyAutoReviewersSettingsScopeOutput) ToBranchPolicyAutoReviewersSettingsScopeOutput() BranchPolicyAutoReviewersSettingsScopeOutput {
+	return o
+}
+
+func (o BranchPolicyAutoReviewersSettingsScopeOutput) ToBranchPolicyAutoReviewersSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsScopeOutput {
+	return o
+}
+
+// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+func (o BranchPolicyAutoReviewersSettingsScopeOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettingsScope) *string { return v.MatchType }).(pulumi.StringPtrOutput)
+}
+
+// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+func (o BranchPolicyAutoReviewersSettingsScopeOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettingsScope) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+func (o BranchPolicyAutoReviewersSettingsScopeOutput) RepositoryRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettingsScope) *string { return v.RepositoryRef }).(pulumi.StringPtrOutput)
+}
+
+type BranchPolicyAutoReviewersSettingsScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyAutoReviewersSettingsScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyAutoReviewersSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyAutoReviewersSettingsScopeArrayOutput) ToBranchPolicyAutoReviewersSettingsScopeArrayOutput() BranchPolicyAutoReviewersSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyAutoReviewersSettingsScopeArrayOutput) ToBranchPolicyAutoReviewersSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyAutoReviewersSettingsScopeArrayOutput) Index(i pulumi.IntInput) BranchPolicyAutoReviewersSettingsScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyAutoReviewersSettingsScope {
+		return vs[0].([]BranchPolicyAutoReviewersSettingsScope)[vs[1].(int)]
+	}).(BranchPolicyAutoReviewersSettingsScopeOutput)
 }
 
 type BranchPolicyBuildValidationSettings struct {
@@ -180,6 +337,8 @@ type BranchPolicyBuildValidationSettings struct {
 	BuildDefinitionId int `pulumi:"buildDefinitionId"`
 	// The display name for the policy.
 	DisplayName string `pulumi:"displayName"`
+	// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	FilenamePatterns []string `pulumi:"filenamePatterns"`
 	// If set to true, the build will need to be manually queued. Defaults to `false`
 	ManualQueueOnly *bool `pulumi:"manualQueueOnly"`
 	// True if the build should queue on source updates only. Defaults to `true`.
@@ -206,6 +365,8 @@ type BranchPolicyBuildValidationSettingsArgs struct {
 	BuildDefinitionId pulumi.IntInput `pulumi:"buildDefinitionId"`
 	// The display name for the policy.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	FilenamePatterns pulumi.StringArrayInput `pulumi:"filenamePatterns"`
 	// If set to true, the build will need to be manually queued. Defaults to `false`
 	ManualQueueOnly pulumi.BoolPtrInput `pulumi:"manualQueueOnly"`
 	// True if the build should queue on source updates only. Defaults to `true`.
@@ -303,6 +464,11 @@ func (o BranchPolicyBuildValidationSettingsOutput) DisplayName() pulumi.StringOu
 	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
+// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+func (o BranchPolicyBuildValidationSettingsOutput) FilenamePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) []string { return v.FilenamePatterns }).(pulumi.StringArrayOutput)
+}
+
 // If set to true, the build will need to be manually queued. Defaults to `false`
 func (o BranchPolicyBuildValidationSettingsOutput) ManualQueueOnly() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) *bool { return v.ManualQueueOnly }).(pulumi.BoolPtrOutput)
@@ -361,6 +527,16 @@ func (o BranchPolicyBuildValidationSettingsPtrOutput) DisplayName() pulumi.Strin
 		}
 		return &v.DisplayName
 	}).(pulumi.StringPtrOutput)
+}
+
+// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+func (o BranchPolicyBuildValidationSettingsPtrOutput) FilenamePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyBuildValidationSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FilenamePatterns
+	}).(pulumi.StringArrayOutput)
 }
 
 // If set to true, the build will need to be manually queued. Defaults to `false`
@@ -516,6 +692,254 @@ func (o BranchPolicyBuildValidationSettingsScopeArrayOutput) Index(i pulumi.IntI
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyBuildValidationSettingsScope {
 		return vs[0].([]BranchPolicyBuildValidationSettingsScope)[vs[1].(int)]
 	}).(BranchPolicyBuildValidationSettingsScopeOutput)
+}
+
+type BranchPolicyCommentResolutionSettings struct {
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	Scopes []BranchPolicyCommentResolutionSettingsScope `pulumi:"scopes"`
+}
+
+// BranchPolicyCommentResolutionSettingsInput is an input type that accepts BranchPolicyCommentResolutionSettingsArgs and BranchPolicyCommentResolutionSettingsOutput values.
+// You can construct a concrete instance of `BranchPolicyCommentResolutionSettingsInput` via:
+//
+//          BranchPolicyCommentResolutionSettingsArgs{...}
+type BranchPolicyCommentResolutionSettingsInput interface {
+	pulumi.Input
+
+	ToBranchPolicyCommentResolutionSettingsOutput() BranchPolicyCommentResolutionSettingsOutput
+	ToBranchPolicyCommentResolutionSettingsOutputWithContext(context.Context) BranchPolicyCommentResolutionSettingsOutput
+}
+
+type BranchPolicyCommentResolutionSettingsArgs struct {
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	Scopes BranchPolicyCommentResolutionSettingsScopeArrayInput `pulumi:"scopes"`
+}
+
+func (BranchPolicyCommentResolutionSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyCommentResolutionSettings)(nil)).Elem()
+}
+
+func (i BranchPolicyCommentResolutionSettingsArgs) ToBranchPolicyCommentResolutionSettingsOutput() BranchPolicyCommentResolutionSettingsOutput {
+	return i.ToBranchPolicyCommentResolutionSettingsOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyCommentResolutionSettingsArgs) ToBranchPolicyCommentResolutionSettingsOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionSettingsOutput)
+}
+
+func (i BranchPolicyCommentResolutionSettingsArgs) ToBranchPolicyCommentResolutionSettingsPtrOutput() BranchPolicyCommentResolutionSettingsPtrOutput {
+	return i.ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyCommentResolutionSettingsArgs) ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionSettingsOutput).ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(ctx)
+}
+
+// BranchPolicyCommentResolutionSettingsPtrInput is an input type that accepts BranchPolicyCommentResolutionSettingsArgs, BranchPolicyCommentResolutionSettingsPtr and BranchPolicyCommentResolutionSettingsPtrOutput values.
+// You can construct a concrete instance of `BranchPolicyCommentResolutionSettingsPtrInput` via:
+//
+//          BranchPolicyCommentResolutionSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type BranchPolicyCommentResolutionSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBranchPolicyCommentResolutionSettingsPtrOutput() BranchPolicyCommentResolutionSettingsPtrOutput
+	ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(context.Context) BranchPolicyCommentResolutionSettingsPtrOutput
+}
+
+type branchPolicyCommentResolutionSettingsPtrType BranchPolicyCommentResolutionSettingsArgs
+
+func BranchPolicyCommentResolutionSettingsPtr(v *BranchPolicyCommentResolutionSettingsArgs) BranchPolicyCommentResolutionSettingsPtrInput {
+	return (*branchPolicyCommentResolutionSettingsPtrType)(v)
+}
+
+func (*branchPolicyCommentResolutionSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyCommentResolutionSettings)(nil)).Elem()
+}
+
+func (i *branchPolicyCommentResolutionSettingsPtrType) ToBranchPolicyCommentResolutionSettingsPtrOutput() BranchPolicyCommentResolutionSettingsPtrOutput {
+	return i.ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *branchPolicyCommentResolutionSettingsPtrType) ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionSettingsPtrOutput)
+}
+
+type BranchPolicyCommentResolutionSettingsOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyCommentResolutionSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyCommentResolutionSettings)(nil)).Elem()
+}
+
+func (o BranchPolicyCommentResolutionSettingsOutput) ToBranchPolicyCommentResolutionSettingsOutput() BranchPolicyCommentResolutionSettingsOutput {
+	return o
+}
+
+func (o BranchPolicyCommentResolutionSettingsOutput) ToBranchPolicyCommentResolutionSettingsOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsOutput {
+	return o
+}
+
+func (o BranchPolicyCommentResolutionSettingsOutput) ToBranchPolicyCommentResolutionSettingsPtrOutput() BranchPolicyCommentResolutionSettingsPtrOutput {
+	return o.ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BranchPolicyCommentResolutionSettingsOutput) ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsPtrOutput {
+	return o.ApplyT(func(v BranchPolicyCommentResolutionSettings) *BranchPolicyCommentResolutionSettings {
+		return &v
+	}).(BranchPolicyCommentResolutionSettingsPtrOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+func (o BranchPolicyCommentResolutionSettingsOutput) Scopes() BranchPolicyCommentResolutionSettingsScopeArrayOutput {
+	return o.ApplyT(func(v BranchPolicyCommentResolutionSettings) []BranchPolicyCommentResolutionSettingsScope {
+		return v.Scopes
+	}).(BranchPolicyCommentResolutionSettingsScopeArrayOutput)
+}
+
+type BranchPolicyCommentResolutionSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyCommentResolutionSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyCommentResolutionSettings)(nil)).Elem()
+}
+
+func (o BranchPolicyCommentResolutionSettingsPtrOutput) ToBranchPolicyCommentResolutionSettingsPtrOutput() BranchPolicyCommentResolutionSettingsPtrOutput {
+	return o
+}
+
+func (o BranchPolicyCommentResolutionSettingsPtrOutput) ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsPtrOutput {
+	return o
+}
+
+func (o BranchPolicyCommentResolutionSettingsPtrOutput) Elem() BranchPolicyCommentResolutionSettingsOutput {
+	return o.ApplyT(func(v *BranchPolicyCommentResolutionSettings) BranchPolicyCommentResolutionSettings { return *v }).(BranchPolicyCommentResolutionSettingsOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+func (o BranchPolicyCommentResolutionSettingsPtrOutput) Scopes() BranchPolicyCommentResolutionSettingsScopeArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyCommentResolutionSettings) []BranchPolicyCommentResolutionSettingsScope {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(BranchPolicyCommentResolutionSettingsScopeArrayOutput)
+}
+
+type BranchPolicyCommentResolutionSettingsScope struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+	MatchType *string `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	RepositoryRef *string `pulumi:"repositoryRef"`
+}
+
+// BranchPolicyCommentResolutionSettingsScopeInput is an input type that accepts BranchPolicyCommentResolutionSettingsScopeArgs and BranchPolicyCommentResolutionSettingsScopeOutput values.
+// You can construct a concrete instance of `BranchPolicyCommentResolutionSettingsScopeInput` via:
+//
+//          BranchPolicyCommentResolutionSettingsScopeArgs{...}
+type BranchPolicyCommentResolutionSettingsScopeInput interface {
+	pulumi.Input
+
+	ToBranchPolicyCommentResolutionSettingsScopeOutput() BranchPolicyCommentResolutionSettingsScopeOutput
+	ToBranchPolicyCommentResolutionSettingsScopeOutputWithContext(context.Context) BranchPolicyCommentResolutionSettingsScopeOutput
+}
+
+type BranchPolicyCommentResolutionSettingsScopeArgs struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	RepositoryRef pulumi.StringPtrInput `pulumi:"repositoryRef"`
+}
+
+func (BranchPolicyCommentResolutionSettingsScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyCommentResolutionSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyCommentResolutionSettingsScopeArgs) ToBranchPolicyCommentResolutionSettingsScopeOutput() BranchPolicyCommentResolutionSettingsScopeOutput {
+	return i.ToBranchPolicyCommentResolutionSettingsScopeOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyCommentResolutionSettingsScopeArgs) ToBranchPolicyCommentResolutionSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionSettingsScopeOutput)
+}
+
+// BranchPolicyCommentResolutionSettingsScopeArrayInput is an input type that accepts BranchPolicyCommentResolutionSettingsScopeArray and BranchPolicyCommentResolutionSettingsScopeArrayOutput values.
+// You can construct a concrete instance of `BranchPolicyCommentResolutionSettingsScopeArrayInput` via:
+//
+//          BranchPolicyCommentResolutionSettingsScopeArray{ BranchPolicyCommentResolutionSettingsScopeArgs{...} }
+type BranchPolicyCommentResolutionSettingsScopeArrayInput interface {
+	pulumi.Input
+
+	ToBranchPolicyCommentResolutionSettingsScopeArrayOutput() BranchPolicyCommentResolutionSettingsScopeArrayOutput
+	ToBranchPolicyCommentResolutionSettingsScopeArrayOutputWithContext(context.Context) BranchPolicyCommentResolutionSettingsScopeArrayOutput
+}
+
+type BranchPolicyCommentResolutionSettingsScopeArray []BranchPolicyCommentResolutionSettingsScopeInput
+
+func (BranchPolicyCommentResolutionSettingsScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyCommentResolutionSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyCommentResolutionSettingsScopeArray) ToBranchPolicyCommentResolutionSettingsScopeArrayOutput() BranchPolicyCommentResolutionSettingsScopeArrayOutput {
+	return i.ToBranchPolicyCommentResolutionSettingsScopeArrayOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyCommentResolutionSettingsScopeArray) ToBranchPolicyCommentResolutionSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionSettingsScopeArrayOutput)
+}
+
+type BranchPolicyCommentResolutionSettingsScopeOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyCommentResolutionSettingsScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyCommentResolutionSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyCommentResolutionSettingsScopeOutput) ToBranchPolicyCommentResolutionSettingsScopeOutput() BranchPolicyCommentResolutionSettingsScopeOutput {
+	return o
+}
+
+func (o BranchPolicyCommentResolutionSettingsScopeOutput) ToBranchPolicyCommentResolutionSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsScopeOutput {
+	return o
+}
+
+// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+func (o BranchPolicyCommentResolutionSettingsScopeOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyCommentResolutionSettingsScope) *string { return v.MatchType }).(pulumi.StringPtrOutput)
+}
+
+// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+func (o BranchPolicyCommentResolutionSettingsScopeOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyCommentResolutionSettingsScope) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+func (o BranchPolicyCommentResolutionSettingsScopeOutput) RepositoryRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyCommentResolutionSettingsScope) *string { return v.RepositoryRef }).(pulumi.StringPtrOutput)
+}
+
+type BranchPolicyCommentResolutionSettingsScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyCommentResolutionSettingsScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyCommentResolutionSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyCommentResolutionSettingsScopeArrayOutput) ToBranchPolicyCommentResolutionSettingsScopeArrayOutput() BranchPolicyCommentResolutionSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyCommentResolutionSettingsScopeArrayOutput) ToBranchPolicyCommentResolutionSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyCommentResolutionSettingsScopeArrayOutput) Index(i pulumi.IntInput) BranchPolicyCommentResolutionSettingsScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyCommentResolutionSettingsScope {
+		return vs[0].([]BranchPolicyCommentResolutionSettingsScope)[vs[1].(int)]
+	}).(BranchPolicyCommentResolutionSettingsScopeOutput)
 }
 
 type BranchPolicyMinReviewersSettings struct {
@@ -800,6 +1224,254 @@ func (o BranchPolicyMinReviewersSettingsScopeArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyMinReviewersSettingsScope {
 		return vs[0].([]BranchPolicyMinReviewersSettingsScope)[vs[1].(int)]
 	}).(BranchPolicyMinReviewersSettingsScopeOutput)
+}
+
+type BranchPolicyWorkItemLinkingSettings struct {
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	Scopes []BranchPolicyWorkItemLinkingSettingsScope `pulumi:"scopes"`
+}
+
+// BranchPolicyWorkItemLinkingSettingsInput is an input type that accepts BranchPolicyWorkItemLinkingSettingsArgs and BranchPolicyWorkItemLinkingSettingsOutput values.
+// You can construct a concrete instance of `BranchPolicyWorkItemLinkingSettingsInput` via:
+//
+//          BranchPolicyWorkItemLinkingSettingsArgs{...}
+type BranchPolicyWorkItemLinkingSettingsInput interface {
+	pulumi.Input
+
+	ToBranchPolicyWorkItemLinkingSettingsOutput() BranchPolicyWorkItemLinkingSettingsOutput
+	ToBranchPolicyWorkItemLinkingSettingsOutputWithContext(context.Context) BranchPolicyWorkItemLinkingSettingsOutput
+}
+
+type BranchPolicyWorkItemLinkingSettingsArgs struct {
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	Scopes BranchPolicyWorkItemLinkingSettingsScopeArrayInput `pulumi:"scopes"`
+}
+
+func (BranchPolicyWorkItemLinkingSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyWorkItemLinkingSettings)(nil)).Elem()
+}
+
+func (i BranchPolicyWorkItemLinkingSettingsArgs) ToBranchPolicyWorkItemLinkingSettingsOutput() BranchPolicyWorkItemLinkingSettingsOutput {
+	return i.ToBranchPolicyWorkItemLinkingSettingsOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyWorkItemLinkingSettingsArgs) ToBranchPolicyWorkItemLinkingSettingsOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingSettingsOutput)
+}
+
+func (i BranchPolicyWorkItemLinkingSettingsArgs) ToBranchPolicyWorkItemLinkingSettingsPtrOutput() BranchPolicyWorkItemLinkingSettingsPtrOutput {
+	return i.ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyWorkItemLinkingSettingsArgs) ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingSettingsOutput).ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(ctx)
+}
+
+// BranchPolicyWorkItemLinkingSettingsPtrInput is an input type that accepts BranchPolicyWorkItemLinkingSettingsArgs, BranchPolicyWorkItemLinkingSettingsPtr and BranchPolicyWorkItemLinkingSettingsPtrOutput values.
+// You can construct a concrete instance of `BranchPolicyWorkItemLinkingSettingsPtrInput` via:
+//
+//          BranchPolicyWorkItemLinkingSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type BranchPolicyWorkItemLinkingSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBranchPolicyWorkItemLinkingSettingsPtrOutput() BranchPolicyWorkItemLinkingSettingsPtrOutput
+	ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(context.Context) BranchPolicyWorkItemLinkingSettingsPtrOutput
+}
+
+type branchPolicyWorkItemLinkingSettingsPtrType BranchPolicyWorkItemLinkingSettingsArgs
+
+func BranchPolicyWorkItemLinkingSettingsPtr(v *BranchPolicyWorkItemLinkingSettingsArgs) BranchPolicyWorkItemLinkingSettingsPtrInput {
+	return (*branchPolicyWorkItemLinkingSettingsPtrType)(v)
+}
+
+func (*branchPolicyWorkItemLinkingSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyWorkItemLinkingSettings)(nil)).Elem()
+}
+
+func (i *branchPolicyWorkItemLinkingSettingsPtrType) ToBranchPolicyWorkItemLinkingSettingsPtrOutput() BranchPolicyWorkItemLinkingSettingsPtrOutput {
+	return i.ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *branchPolicyWorkItemLinkingSettingsPtrType) ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingSettingsPtrOutput)
+}
+
+type BranchPolicyWorkItemLinkingSettingsOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyWorkItemLinkingSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyWorkItemLinkingSettings)(nil)).Elem()
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsOutput) ToBranchPolicyWorkItemLinkingSettingsOutput() BranchPolicyWorkItemLinkingSettingsOutput {
+	return o
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsOutput) ToBranchPolicyWorkItemLinkingSettingsOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsOutput {
+	return o
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsOutput) ToBranchPolicyWorkItemLinkingSettingsPtrOutput() BranchPolicyWorkItemLinkingSettingsPtrOutput {
+	return o.ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsOutput) ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsPtrOutput {
+	return o.ApplyT(func(v BranchPolicyWorkItemLinkingSettings) *BranchPolicyWorkItemLinkingSettings {
+		return &v
+	}).(BranchPolicyWorkItemLinkingSettingsPtrOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+func (o BranchPolicyWorkItemLinkingSettingsOutput) Scopes() BranchPolicyWorkItemLinkingSettingsScopeArrayOutput {
+	return o.ApplyT(func(v BranchPolicyWorkItemLinkingSettings) []BranchPolicyWorkItemLinkingSettingsScope {
+		return v.Scopes
+	}).(BranchPolicyWorkItemLinkingSettingsScopeArrayOutput)
+}
+
+type BranchPolicyWorkItemLinkingSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyWorkItemLinkingSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyWorkItemLinkingSettings)(nil)).Elem()
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsPtrOutput) ToBranchPolicyWorkItemLinkingSettingsPtrOutput() BranchPolicyWorkItemLinkingSettingsPtrOutput {
+	return o
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsPtrOutput) ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsPtrOutput {
+	return o
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsPtrOutput) Elem() BranchPolicyWorkItemLinkingSettingsOutput {
+	return o.ApplyT(func(v *BranchPolicyWorkItemLinkingSettings) BranchPolicyWorkItemLinkingSettings { return *v }).(BranchPolicyWorkItemLinkingSettingsOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+func (o BranchPolicyWorkItemLinkingSettingsPtrOutput) Scopes() BranchPolicyWorkItemLinkingSettingsScopeArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyWorkItemLinkingSettings) []BranchPolicyWorkItemLinkingSettingsScope {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(BranchPolicyWorkItemLinkingSettingsScopeArrayOutput)
+}
+
+type BranchPolicyWorkItemLinkingSettingsScope struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+	MatchType *string `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	RepositoryRef *string `pulumi:"repositoryRef"`
+}
+
+// BranchPolicyWorkItemLinkingSettingsScopeInput is an input type that accepts BranchPolicyWorkItemLinkingSettingsScopeArgs and BranchPolicyWorkItemLinkingSettingsScopeOutput values.
+// You can construct a concrete instance of `BranchPolicyWorkItemLinkingSettingsScopeInput` via:
+//
+//          BranchPolicyWorkItemLinkingSettingsScopeArgs{...}
+type BranchPolicyWorkItemLinkingSettingsScopeInput interface {
+	pulumi.Input
+
+	ToBranchPolicyWorkItemLinkingSettingsScopeOutput() BranchPolicyWorkItemLinkingSettingsScopeOutput
+	ToBranchPolicyWorkItemLinkingSettingsScopeOutputWithContext(context.Context) BranchPolicyWorkItemLinkingSettingsScopeOutput
+}
+
+type BranchPolicyWorkItemLinkingSettingsScopeArgs struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	RepositoryRef pulumi.StringPtrInput `pulumi:"repositoryRef"`
+}
+
+func (BranchPolicyWorkItemLinkingSettingsScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyWorkItemLinkingSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyWorkItemLinkingSettingsScopeArgs) ToBranchPolicyWorkItemLinkingSettingsScopeOutput() BranchPolicyWorkItemLinkingSettingsScopeOutput {
+	return i.ToBranchPolicyWorkItemLinkingSettingsScopeOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyWorkItemLinkingSettingsScopeArgs) ToBranchPolicyWorkItemLinkingSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingSettingsScopeOutput)
+}
+
+// BranchPolicyWorkItemLinkingSettingsScopeArrayInput is an input type that accepts BranchPolicyWorkItemLinkingSettingsScopeArray and BranchPolicyWorkItemLinkingSettingsScopeArrayOutput values.
+// You can construct a concrete instance of `BranchPolicyWorkItemLinkingSettingsScopeArrayInput` via:
+//
+//          BranchPolicyWorkItemLinkingSettingsScopeArray{ BranchPolicyWorkItemLinkingSettingsScopeArgs{...} }
+type BranchPolicyWorkItemLinkingSettingsScopeArrayInput interface {
+	pulumi.Input
+
+	ToBranchPolicyWorkItemLinkingSettingsScopeArrayOutput() BranchPolicyWorkItemLinkingSettingsScopeArrayOutput
+	ToBranchPolicyWorkItemLinkingSettingsScopeArrayOutputWithContext(context.Context) BranchPolicyWorkItemLinkingSettingsScopeArrayOutput
+}
+
+type BranchPolicyWorkItemLinkingSettingsScopeArray []BranchPolicyWorkItemLinkingSettingsScopeInput
+
+func (BranchPolicyWorkItemLinkingSettingsScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyWorkItemLinkingSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyWorkItemLinkingSettingsScopeArray) ToBranchPolicyWorkItemLinkingSettingsScopeArrayOutput() BranchPolicyWorkItemLinkingSettingsScopeArrayOutput {
+	return i.ToBranchPolicyWorkItemLinkingSettingsScopeArrayOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyWorkItemLinkingSettingsScopeArray) ToBranchPolicyWorkItemLinkingSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingSettingsScopeArrayOutput)
+}
+
+type BranchPolicyWorkItemLinkingSettingsScopeOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyWorkItemLinkingSettingsScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyWorkItemLinkingSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsScopeOutput) ToBranchPolicyWorkItemLinkingSettingsScopeOutput() BranchPolicyWorkItemLinkingSettingsScopeOutput {
+	return o
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsScopeOutput) ToBranchPolicyWorkItemLinkingSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsScopeOutput {
+	return o
+}
+
+// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+func (o BranchPolicyWorkItemLinkingSettingsScopeOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyWorkItemLinkingSettingsScope) *string { return v.MatchType }).(pulumi.StringPtrOutput)
+}
+
+// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+func (o BranchPolicyWorkItemLinkingSettingsScopeOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyWorkItemLinkingSettingsScope) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+func (o BranchPolicyWorkItemLinkingSettingsScopeOutput) RepositoryRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyWorkItemLinkingSettingsScope) *string { return v.RepositoryRef }).(pulumi.StringPtrOutput)
+}
+
+type BranchPolicyWorkItemLinkingSettingsScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyWorkItemLinkingSettingsScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyWorkItemLinkingSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsScopeArrayOutput) ToBranchPolicyWorkItemLinkingSettingsScopeArrayOutput() BranchPolicyWorkItemLinkingSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsScopeArrayOutput) ToBranchPolicyWorkItemLinkingSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyWorkItemLinkingSettingsScopeArrayOutput) Index(i pulumi.IntInput) BranchPolicyWorkItemLinkingSettingsScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyWorkItemLinkingSettingsScope {
+		return vs[0].([]BranchPolicyWorkItemLinkingSettingsScope)[vs[1].(int)]
+	}).(BranchPolicyWorkItemLinkingSettingsScopeOutput)
 }
 
 type BuildDefinitionCiTrigger struct {
@@ -1399,7 +2071,7 @@ type BuildDefinitionPullRequestTrigger struct {
 	// Set permissions for Forked repositories.
 	Forks         BuildDefinitionPullRequestTriggerForks `pulumi:"forks"`
 	InitialBranch *string                                `pulumi:"initialBranch"`
-	// Override the azure-pipeline file and use a this configuration for all builds.
+	// Override the azure-pipeline file and use this configuration for all builds.
 	Override *BuildDefinitionPullRequestTriggerOverride `pulumi:"override"`
 	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
 	UseYaml *bool `pulumi:"useYaml"`
@@ -1421,7 +2093,7 @@ type BuildDefinitionPullRequestTriggerArgs struct {
 	// Set permissions for Forked repositories.
 	Forks         BuildDefinitionPullRequestTriggerForksInput `pulumi:"forks"`
 	InitialBranch pulumi.StringPtrInput                       `pulumi:"initialBranch"`
-	// Override the azure-pipeline file and use a this configuration for all builds.
+	// Override the azure-pipeline file and use this configuration for all builds.
 	Override BuildDefinitionPullRequestTriggerOverridePtrInput `pulumi:"override"`
 	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
 	UseYaml pulumi.BoolPtrInput `pulumi:"useYaml"`
@@ -1516,7 +2188,7 @@ func (o BuildDefinitionPullRequestTriggerOutput) InitialBranch() pulumi.StringPt
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *string { return v.InitialBranch }).(pulumi.StringPtrOutput)
 }
 
-// Override the azure-pipeline file and use a this configuration for all builds.
+// Override the azure-pipeline file and use this configuration for all builds.
 func (o BuildDefinitionPullRequestTriggerOutput) Override() BuildDefinitionPullRequestTriggerOverridePtrOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTriggerOverride {
 		return v.Override
@@ -1574,7 +2246,7 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) InitialBranch() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Override the azure-pipeline file and use a this configuration for all builds.
+// Override the azure-pipeline file and use this configuration for all builds.
 func (o BuildDefinitionPullRequestTriggerPtrOutput) Override() BuildDefinitionPullRequestTriggerOverridePtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTriggerOverride {
 		if v == nil {
@@ -2134,11 +2806,15 @@ func (o BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput) Index(i 
 type BuildDefinitionRepository struct {
 	// The branch name for which builds are triggered. Defaults to `master`.
 	BranchName *string `pulumi:"branchName"`
+	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+	GithubEnterpriseUrl *string `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId string `pulumi:"repoId"`
-	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType string `pulumi:"repoType"`
-	// The service connection ID. Used if the `repoType` is `GitHub`.
+	// Report build status. Default is true.
+	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
+	// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
 	// The path of the Yaml file describing the build definition.
 	YmlPath string `pulumi:"ymlPath"`
@@ -2158,11 +2834,15 @@ type BuildDefinitionRepositoryInput interface {
 type BuildDefinitionRepositoryArgs struct {
 	// The branch name for which builds are triggered. Defaults to `master`.
 	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
+	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+	GithubEnterpriseUrl pulumi.StringPtrInput `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId pulumi.StringInput `pulumi:"repoId"`
-	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType pulumi.StringInput `pulumi:"repoType"`
-	// The service connection ID. Used if the `repoType` is `GitHub`.
+	// Report build status. Default is true.
+	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
+	// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
 	// The path of the Yaml file describing the build definition.
 	YmlPath pulumi.StringInput `pulumi:"ymlPath"`
@@ -2250,17 +2930,27 @@ func (o BuildDefinitionRepositoryOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }
 
+// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+func (o BuildDefinitionRepositoryOutput) GithubEnterpriseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.GithubEnterpriseUrl }).(pulumi.StringPtrOutput)
+}
+
 // The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 func (o BuildDefinitionRepositoryOutput) RepoId() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoId }).(pulumi.StringOutput)
 }
 
-// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryOutput) RepoType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoType }).(pulumi.StringOutput)
 }
 
-// The service connection ID. Used if the `repoType` is `GitHub`.
+// Report build status. Default is true.
+func (o BuildDefinitionRepositoryOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionRepository) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
+}
+
+// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 func (o BuildDefinitionRepositoryOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.ServiceConnectionId }).(pulumi.StringPtrOutput)
 }
@@ -2298,6 +2988,16 @@ func (o BuildDefinitionRepositoryPtrOutput) BranchName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+func (o BuildDefinitionRepositoryPtrOutput) GithubEnterpriseUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GithubEnterpriseUrl
+	}).(pulumi.StringPtrOutput)
+}
+
 // The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 func (o BuildDefinitionRepositoryPtrOutput) RepoId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
@@ -2308,7 +3008,7 @@ func (o BuildDefinitionRepositoryPtrOutput) RepoId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket`. Defaults to `Github`.
+// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryPtrOutput) RepoType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -2318,7 +3018,17 @@ func (o BuildDefinitionRepositoryPtrOutput) RepoType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service connection ID. Used if the `repoType` is `GitHub`.
+// Report build status. Default is true.
+func (o BuildDefinitionRepositoryPtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BuildDefinitionRepository) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.ReportBuildStatus
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 func (o BuildDefinitionRepositoryPtrOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -2471,282 +3181,10 @@ func (o BuildDefinitionVariableArrayOutput) Index(i pulumi.IntInput) BuildDefini
 	}).(BuildDefinitionVariableOutput)
 }
 
-type GitHubAuthOauth struct {
-	OauthConfigurationId string `pulumi:"oauthConfigurationId"`
-}
-
-// GitHubAuthOauthInput is an input type that accepts GitHubAuthOauthArgs and GitHubAuthOauthOutput values.
-// You can construct a concrete instance of `GitHubAuthOauthInput` via:
-//
-//          GitHubAuthOauthArgs{...}
-type GitHubAuthOauthInput interface {
-	pulumi.Input
-
-	ToGitHubAuthOauthOutput() GitHubAuthOauthOutput
-	ToGitHubAuthOauthOutputWithContext(context.Context) GitHubAuthOauthOutput
-}
-
-type GitHubAuthOauthArgs struct {
-	OauthConfigurationId pulumi.StringInput `pulumi:"oauthConfigurationId"`
-}
-
-func (GitHubAuthOauthArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitHubAuthOauth)(nil)).Elem()
-}
-
-func (i GitHubAuthOauthArgs) ToGitHubAuthOauthOutput() GitHubAuthOauthOutput {
-	return i.ToGitHubAuthOauthOutputWithContext(context.Background())
-}
-
-func (i GitHubAuthOauthArgs) ToGitHubAuthOauthOutputWithContext(ctx context.Context) GitHubAuthOauthOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthOauthOutput)
-}
-
-func (i GitHubAuthOauthArgs) ToGitHubAuthOauthPtrOutput() GitHubAuthOauthPtrOutput {
-	return i.ToGitHubAuthOauthPtrOutputWithContext(context.Background())
-}
-
-func (i GitHubAuthOauthArgs) ToGitHubAuthOauthPtrOutputWithContext(ctx context.Context) GitHubAuthOauthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthOauthOutput).ToGitHubAuthOauthPtrOutputWithContext(ctx)
-}
-
-// GitHubAuthOauthPtrInput is an input type that accepts GitHubAuthOauthArgs, GitHubAuthOauthPtr and GitHubAuthOauthPtrOutput values.
-// You can construct a concrete instance of `GitHubAuthOauthPtrInput` via:
-//
-//          GitHubAuthOauthArgs{...}
-//
-//  or:
-//
-//          nil
-type GitHubAuthOauthPtrInput interface {
-	pulumi.Input
-
-	ToGitHubAuthOauthPtrOutput() GitHubAuthOauthPtrOutput
-	ToGitHubAuthOauthPtrOutputWithContext(context.Context) GitHubAuthOauthPtrOutput
-}
-
-type gitHubAuthOauthPtrType GitHubAuthOauthArgs
-
-func GitHubAuthOauthPtr(v *GitHubAuthOauthArgs) GitHubAuthOauthPtrInput {
-	return (*gitHubAuthOauthPtrType)(v)
-}
-
-func (*gitHubAuthOauthPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GitHubAuthOauth)(nil)).Elem()
-}
-
-func (i *gitHubAuthOauthPtrType) ToGitHubAuthOauthPtrOutput() GitHubAuthOauthPtrOutput {
-	return i.ToGitHubAuthOauthPtrOutputWithContext(context.Background())
-}
-
-func (i *gitHubAuthOauthPtrType) ToGitHubAuthOauthPtrOutputWithContext(ctx context.Context) GitHubAuthOauthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthOauthPtrOutput)
-}
-
-type GitHubAuthOauthOutput struct{ *pulumi.OutputState }
-
-func (GitHubAuthOauthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitHubAuthOauth)(nil)).Elem()
-}
-
-func (o GitHubAuthOauthOutput) ToGitHubAuthOauthOutput() GitHubAuthOauthOutput {
-	return o
-}
-
-func (o GitHubAuthOauthOutput) ToGitHubAuthOauthOutputWithContext(ctx context.Context) GitHubAuthOauthOutput {
-	return o
-}
-
-func (o GitHubAuthOauthOutput) ToGitHubAuthOauthPtrOutput() GitHubAuthOauthPtrOutput {
-	return o.ToGitHubAuthOauthPtrOutputWithContext(context.Background())
-}
-
-func (o GitHubAuthOauthOutput) ToGitHubAuthOauthPtrOutputWithContext(ctx context.Context) GitHubAuthOauthPtrOutput {
-	return o.ApplyT(func(v GitHubAuthOauth) *GitHubAuthOauth {
-		return &v
-	}).(GitHubAuthOauthPtrOutput)
-}
-func (o GitHubAuthOauthOutput) OauthConfigurationId() pulumi.StringOutput {
-	return o.ApplyT(func(v GitHubAuthOauth) string { return v.OauthConfigurationId }).(pulumi.StringOutput)
-}
-
-type GitHubAuthOauthPtrOutput struct{ *pulumi.OutputState }
-
-func (GitHubAuthOauthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GitHubAuthOauth)(nil)).Elem()
-}
-
-func (o GitHubAuthOauthPtrOutput) ToGitHubAuthOauthPtrOutput() GitHubAuthOauthPtrOutput {
-	return o
-}
-
-func (o GitHubAuthOauthPtrOutput) ToGitHubAuthOauthPtrOutputWithContext(ctx context.Context) GitHubAuthOauthPtrOutput {
-	return o
-}
-
-func (o GitHubAuthOauthPtrOutput) Elem() GitHubAuthOauthOutput {
-	return o.ApplyT(func(v *GitHubAuthOauth) GitHubAuthOauth { return *v }).(GitHubAuthOauthOutput)
-}
-
-func (o GitHubAuthOauthPtrOutput) OauthConfigurationId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHubAuthOauth) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OauthConfigurationId
-	}).(pulumi.StringPtrOutput)
-}
-
-type GitHubAuthPersonal struct {
-	// The Personal Access Token for Github.
-	PersonalAccessToken     string  `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
-}
-
-// GitHubAuthPersonalInput is an input type that accepts GitHubAuthPersonalArgs and GitHubAuthPersonalOutput values.
-// You can construct a concrete instance of `GitHubAuthPersonalInput` via:
-//
-//          GitHubAuthPersonalArgs{...}
-type GitHubAuthPersonalInput interface {
-	pulumi.Input
-
-	ToGitHubAuthPersonalOutput() GitHubAuthPersonalOutput
-	ToGitHubAuthPersonalOutputWithContext(context.Context) GitHubAuthPersonalOutput
-}
-
-type GitHubAuthPersonalArgs struct {
-	// The Personal Access Token for Github.
-	PersonalAccessToken     pulumi.StringInput    `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash pulumi.StringPtrInput `pulumi:"personalAccessTokenHash"`
-}
-
-func (GitHubAuthPersonalArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitHubAuthPersonal)(nil)).Elem()
-}
-
-func (i GitHubAuthPersonalArgs) ToGitHubAuthPersonalOutput() GitHubAuthPersonalOutput {
-	return i.ToGitHubAuthPersonalOutputWithContext(context.Background())
-}
-
-func (i GitHubAuthPersonalArgs) ToGitHubAuthPersonalOutputWithContext(ctx context.Context) GitHubAuthPersonalOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthPersonalOutput)
-}
-
-func (i GitHubAuthPersonalArgs) ToGitHubAuthPersonalPtrOutput() GitHubAuthPersonalPtrOutput {
-	return i.ToGitHubAuthPersonalPtrOutputWithContext(context.Background())
-}
-
-func (i GitHubAuthPersonalArgs) ToGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) GitHubAuthPersonalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthPersonalOutput).ToGitHubAuthPersonalPtrOutputWithContext(ctx)
-}
-
-// GitHubAuthPersonalPtrInput is an input type that accepts GitHubAuthPersonalArgs, GitHubAuthPersonalPtr and GitHubAuthPersonalPtrOutput values.
-// You can construct a concrete instance of `GitHubAuthPersonalPtrInput` via:
-//
-//          GitHubAuthPersonalArgs{...}
-//
-//  or:
-//
-//          nil
-type GitHubAuthPersonalPtrInput interface {
-	pulumi.Input
-
-	ToGitHubAuthPersonalPtrOutput() GitHubAuthPersonalPtrOutput
-	ToGitHubAuthPersonalPtrOutputWithContext(context.Context) GitHubAuthPersonalPtrOutput
-}
-
-type gitHubAuthPersonalPtrType GitHubAuthPersonalArgs
-
-func GitHubAuthPersonalPtr(v *GitHubAuthPersonalArgs) GitHubAuthPersonalPtrInput {
-	return (*gitHubAuthPersonalPtrType)(v)
-}
-
-func (*gitHubAuthPersonalPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GitHubAuthPersonal)(nil)).Elem()
-}
-
-func (i *gitHubAuthPersonalPtrType) ToGitHubAuthPersonalPtrOutput() GitHubAuthPersonalPtrOutput {
-	return i.ToGitHubAuthPersonalPtrOutputWithContext(context.Background())
-}
-
-func (i *gitHubAuthPersonalPtrType) ToGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) GitHubAuthPersonalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthPersonalPtrOutput)
-}
-
-type GitHubAuthPersonalOutput struct{ *pulumi.OutputState }
-
-func (GitHubAuthPersonalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitHubAuthPersonal)(nil)).Elem()
-}
-
-func (o GitHubAuthPersonalOutput) ToGitHubAuthPersonalOutput() GitHubAuthPersonalOutput {
-	return o
-}
-
-func (o GitHubAuthPersonalOutput) ToGitHubAuthPersonalOutputWithContext(ctx context.Context) GitHubAuthPersonalOutput {
-	return o
-}
-
-func (o GitHubAuthPersonalOutput) ToGitHubAuthPersonalPtrOutput() GitHubAuthPersonalPtrOutput {
-	return o.ToGitHubAuthPersonalPtrOutputWithContext(context.Background())
-}
-
-func (o GitHubAuthPersonalOutput) ToGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) GitHubAuthPersonalPtrOutput {
-	return o.ApplyT(func(v GitHubAuthPersonal) *GitHubAuthPersonal {
-		return &v
-	}).(GitHubAuthPersonalPtrOutput)
-}
-
-// The Personal Access Token for Github.
-func (o GitHubAuthPersonalOutput) PersonalAccessToken() pulumi.StringOutput {
-	return o.ApplyT(func(v GitHubAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
-}
-
-func (o GitHubAuthPersonalOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GitHubAuthPersonal) *string { return v.PersonalAccessTokenHash }).(pulumi.StringPtrOutput)
-}
-
-type GitHubAuthPersonalPtrOutput struct{ *pulumi.OutputState }
-
-func (GitHubAuthPersonalPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GitHubAuthPersonal)(nil)).Elem()
-}
-
-func (o GitHubAuthPersonalPtrOutput) ToGitHubAuthPersonalPtrOutput() GitHubAuthPersonalPtrOutput {
-	return o
-}
-
-func (o GitHubAuthPersonalPtrOutput) ToGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) GitHubAuthPersonalPtrOutput {
-	return o
-}
-
-func (o GitHubAuthPersonalPtrOutput) Elem() GitHubAuthPersonalOutput {
-	return o.ApplyT(func(v *GitHubAuthPersonal) GitHubAuthPersonal { return *v }).(GitHubAuthPersonalOutput)
-}
-
-// The Personal Access Token for Github.
-func (o GitHubAuthPersonalPtrOutput) PersonalAccessToken() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHubAuthPersonal) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PersonalAccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GitHubAuthPersonalPtrOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHubAuthPersonal) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PersonalAccessTokenHash
-	}).(pulumi.StringPtrOutput)
-}
-
 type GitInitialization struct {
-	// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 	InitType string `pulumi:"initType"`
-	// Type type of the source repository. Used if the `initType` is `Import`.
+	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
 	SourceType *string `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
 	SourceUrl *string `pulumi:"sourceUrl"`
@@ -2764,9 +3202,9 @@ type GitInitializationInput interface {
 }
 
 type GitInitializationArgs struct {
-	// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 	InitType pulumi.StringInput `pulumi:"initType"`
-	// Type type of the source repository. Used if the `initType` is `Import`.
+	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
 	SourceUrl pulumi.StringPtrInput `pulumi:"sourceUrl"`
@@ -2849,12 +3287,12 @@ func (o GitInitializationOutput) ToGitInitializationPtrOutputWithContext(ctx con
 	}).(GitInitializationPtrOutput)
 }
 
-// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 func (o GitInitializationOutput) InitType() pulumi.StringOutput {
 	return o.ApplyT(func(v GitInitialization) string { return v.InitType }).(pulumi.StringOutput)
 }
 
-// Type type of the source repository. Used if the `initType` is `Import`.
+// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
 func (o GitInitializationOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitInitialization) *string { return v.SourceType }).(pulumi.StringPtrOutput)
 }
@@ -2882,7 +3320,7 @@ func (o GitInitializationPtrOutput) Elem() GitInitializationOutput {
 	return o.ApplyT(func(v *GitInitialization) GitInitialization { return *v }).(GitInitializationOutput)
 }
 
-// The type of repository to create. Valid values: `Uninitialized`, `Clean`, or `Import`. Defaults to `Uninitialized`.
+// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitInitialization) *string {
 		if v == nil {
@@ -2892,7 +3330,7 @@ func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type type of the source repository. Used if the `initType` is `Import`.
+// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
 func (o GitInitializationPtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitInitialization) *string {
 		if v == nil {
@@ -2912,14 +3350,451 @@ func (o GitInitializationPtrOutput) SourceUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-type KubernetesAzureSubscription struct {
+type ServiceEndpointAzureRMCredentials struct {
+	// The service principal application Id
+	Serviceprincipalid string `pulumi:"serviceprincipalid"`
+	// The service principal secret.
+	Serviceprincipalkey     string  `pulumi:"serviceprincipalkey"`
+	ServiceprincipalkeyHash *string `pulumi:"serviceprincipalkeyHash"`
+}
+
+// ServiceEndpointAzureRMCredentialsInput is an input type that accepts ServiceEndpointAzureRMCredentialsArgs and ServiceEndpointAzureRMCredentialsOutput values.
+// You can construct a concrete instance of `ServiceEndpointAzureRMCredentialsInput` via:
+//
+//          ServiceEndpointAzureRMCredentialsArgs{...}
+type ServiceEndpointAzureRMCredentialsInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureRMCredentialsOutput() ServiceEndpointAzureRMCredentialsOutput
+	ToServiceEndpointAzureRMCredentialsOutputWithContext(context.Context) ServiceEndpointAzureRMCredentialsOutput
+}
+
+type ServiceEndpointAzureRMCredentialsArgs struct {
+	// The service principal application Id
+	Serviceprincipalid pulumi.StringInput `pulumi:"serviceprincipalid"`
+	// The service principal secret.
+	Serviceprincipalkey     pulumi.StringInput    `pulumi:"serviceprincipalkey"`
+	ServiceprincipalkeyHash pulumi.StringPtrInput `pulumi:"serviceprincipalkeyHash"`
+}
+
+func (ServiceEndpointAzureRMCredentialsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureRMCredentials)(nil)).Elem()
+}
+
+func (i ServiceEndpointAzureRMCredentialsArgs) ToServiceEndpointAzureRMCredentialsOutput() ServiceEndpointAzureRMCredentialsOutput {
+	return i.ToServiceEndpointAzureRMCredentialsOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureRMCredentialsArgs) ToServiceEndpointAzureRMCredentialsOutputWithContext(ctx context.Context) ServiceEndpointAzureRMCredentialsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMCredentialsOutput)
+}
+
+func (i ServiceEndpointAzureRMCredentialsArgs) ToServiceEndpointAzureRMCredentialsPtrOutput() ServiceEndpointAzureRMCredentialsPtrOutput {
+	return i.ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureRMCredentialsArgs) ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMCredentialsOutput).ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointAzureRMCredentialsPtrInput is an input type that accepts ServiceEndpointAzureRMCredentialsArgs, ServiceEndpointAzureRMCredentialsPtr and ServiceEndpointAzureRMCredentialsPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointAzureRMCredentialsPtrInput` via:
+//
+//          ServiceEndpointAzureRMCredentialsArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointAzureRMCredentialsPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureRMCredentialsPtrOutput() ServiceEndpointAzureRMCredentialsPtrOutput
+	ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(context.Context) ServiceEndpointAzureRMCredentialsPtrOutput
+}
+
+type serviceEndpointAzureRMCredentialsPtrType ServiceEndpointAzureRMCredentialsArgs
+
+func ServiceEndpointAzureRMCredentialsPtr(v *ServiceEndpointAzureRMCredentialsArgs) ServiceEndpointAzureRMCredentialsPtrInput {
+	return (*serviceEndpointAzureRMCredentialsPtrType)(v)
+}
+
+func (*serviceEndpointAzureRMCredentialsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAzureRMCredentials)(nil)).Elem()
+}
+
+func (i *serviceEndpointAzureRMCredentialsPtrType) ToServiceEndpointAzureRMCredentialsPtrOutput() ServiceEndpointAzureRMCredentialsPtrOutput {
+	return i.ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointAzureRMCredentialsPtrType) ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMCredentialsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMCredentialsPtrOutput)
+}
+
+type ServiceEndpointAzureRMCredentialsOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAzureRMCredentialsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureRMCredentials)(nil)).Elem()
+}
+
+func (o ServiceEndpointAzureRMCredentialsOutput) ToServiceEndpointAzureRMCredentialsOutput() ServiceEndpointAzureRMCredentialsOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMCredentialsOutput) ToServiceEndpointAzureRMCredentialsOutputWithContext(ctx context.Context) ServiceEndpointAzureRMCredentialsOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMCredentialsOutput) ToServiceEndpointAzureRMCredentialsPtrOutput() ServiceEndpointAzureRMCredentialsPtrOutput {
+	return o.ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointAzureRMCredentialsOutput) ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMCredentialsPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) *ServiceEndpointAzureRMCredentials {
+		return &v
+	}).(ServiceEndpointAzureRMCredentialsPtrOutput)
+}
+
+// The service principal application Id
+func (o ServiceEndpointAzureRMCredentialsOutput) Serviceprincipalid() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) string { return v.Serviceprincipalid }).(pulumi.StringOutput)
+}
+
+// The service principal secret.
+func (o ServiceEndpointAzureRMCredentialsOutput) Serviceprincipalkey() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) string { return v.Serviceprincipalkey }).(pulumi.StringOutput)
+}
+
+func (o ServiceEndpointAzureRMCredentialsOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) *string { return v.ServiceprincipalkeyHash }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointAzureRMCredentialsPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAzureRMCredentialsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAzureRMCredentials)(nil)).Elem()
+}
+
+func (o ServiceEndpointAzureRMCredentialsPtrOutput) ToServiceEndpointAzureRMCredentialsPtrOutput() ServiceEndpointAzureRMCredentialsPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMCredentialsPtrOutput) ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMCredentialsPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMCredentialsPtrOutput) Elem() ServiceEndpointAzureRMCredentialsOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) ServiceEndpointAzureRMCredentials { return *v }).(ServiceEndpointAzureRMCredentialsOutput)
+}
+
+// The service principal application Id
+func (o ServiceEndpointAzureRMCredentialsPtrOutput) Serviceprincipalid() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Serviceprincipalid
+	}).(pulumi.StringPtrOutput)
+}
+
+// The service principal secret.
+func (o ServiceEndpointAzureRMCredentialsPtrOutput) Serviceprincipalkey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Serviceprincipalkey
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointAzureRMCredentialsPtrOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceprincipalkeyHash
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointGitHubAuthOauth struct {
+	OauthConfigurationId string `pulumi:"oauthConfigurationId"`
+}
+
+// ServiceEndpointGitHubAuthOauthInput is an input type that accepts ServiceEndpointGitHubAuthOauthArgs and ServiceEndpointGitHubAuthOauthOutput values.
+// You can construct a concrete instance of `ServiceEndpointGitHubAuthOauthInput` via:
+//
+//          ServiceEndpointGitHubAuthOauthArgs{...}
+type ServiceEndpointGitHubAuthOauthInput interface {
+	pulumi.Input
+
+	ToServiceEndpointGitHubAuthOauthOutput() ServiceEndpointGitHubAuthOauthOutput
+	ToServiceEndpointGitHubAuthOauthOutputWithContext(context.Context) ServiceEndpointGitHubAuthOauthOutput
+}
+
+type ServiceEndpointGitHubAuthOauthArgs struct {
+	OauthConfigurationId pulumi.StringInput `pulumi:"oauthConfigurationId"`
+}
+
+func (ServiceEndpointGitHubAuthOauthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHubAuthOauth)(nil)).Elem()
+}
+
+func (i ServiceEndpointGitHubAuthOauthArgs) ToServiceEndpointGitHubAuthOauthOutput() ServiceEndpointGitHubAuthOauthOutput {
+	return i.ToServiceEndpointGitHubAuthOauthOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointGitHubAuthOauthArgs) ToServiceEndpointGitHubAuthOauthOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthOauthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubAuthOauthOutput)
+}
+
+func (i ServiceEndpointGitHubAuthOauthArgs) ToServiceEndpointGitHubAuthOauthPtrOutput() ServiceEndpointGitHubAuthOauthPtrOutput {
+	return i.ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointGitHubAuthOauthArgs) ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubAuthOauthOutput).ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointGitHubAuthOauthPtrInput is an input type that accepts ServiceEndpointGitHubAuthOauthArgs, ServiceEndpointGitHubAuthOauthPtr and ServiceEndpointGitHubAuthOauthPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointGitHubAuthOauthPtrInput` via:
+//
+//          ServiceEndpointGitHubAuthOauthArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointGitHubAuthOauthPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointGitHubAuthOauthPtrOutput() ServiceEndpointGitHubAuthOauthPtrOutput
+	ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(context.Context) ServiceEndpointGitHubAuthOauthPtrOutput
+}
+
+type serviceEndpointGitHubAuthOauthPtrType ServiceEndpointGitHubAuthOauthArgs
+
+func ServiceEndpointGitHubAuthOauthPtr(v *ServiceEndpointGitHubAuthOauthArgs) ServiceEndpointGitHubAuthOauthPtrInput {
+	return (*serviceEndpointGitHubAuthOauthPtrType)(v)
+}
+
+func (*serviceEndpointGitHubAuthOauthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointGitHubAuthOauth)(nil)).Elem()
+}
+
+func (i *serviceEndpointGitHubAuthOauthPtrType) ToServiceEndpointGitHubAuthOauthPtrOutput() ServiceEndpointGitHubAuthOauthPtrOutput {
+	return i.ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointGitHubAuthOauthPtrType) ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthOauthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubAuthOauthPtrOutput)
+}
+
+type ServiceEndpointGitHubAuthOauthOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointGitHubAuthOauthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHubAuthOauth)(nil)).Elem()
+}
+
+func (o ServiceEndpointGitHubAuthOauthOutput) ToServiceEndpointGitHubAuthOauthOutput() ServiceEndpointGitHubAuthOauthOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubAuthOauthOutput) ToServiceEndpointGitHubAuthOauthOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthOauthOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubAuthOauthOutput) ToServiceEndpointGitHubAuthOauthPtrOutput() ServiceEndpointGitHubAuthOauthPtrOutput {
+	return o.ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointGitHubAuthOauthOutput) ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthOauthPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointGitHubAuthOauth) *ServiceEndpointGitHubAuthOauth {
+		return &v
+	}).(ServiceEndpointGitHubAuthOauthPtrOutput)
+}
+func (o ServiceEndpointGitHubAuthOauthOutput) OauthConfigurationId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointGitHubAuthOauth) string { return v.OauthConfigurationId }).(pulumi.StringOutput)
+}
+
+type ServiceEndpointGitHubAuthOauthPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointGitHubAuthOauthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointGitHubAuthOauth)(nil)).Elem()
+}
+
+func (o ServiceEndpointGitHubAuthOauthPtrOutput) ToServiceEndpointGitHubAuthOauthPtrOutput() ServiceEndpointGitHubAuthOauthPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubAuthOauthPtrOutput) ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthOauthPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubAuthOauthPtrOutput) Elem() ServiceEndpointGitHubAuthOauthOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubAuthOauth) ServiceEndpointGitHubAuthOauth { return *v }).(ServiceEndpointGitHubAuthOauthOutput)
+}
+
+func (o ServiceEndpointGitHubAuthOauthPtrOutput) OauthConfigurationId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubAuthOauth) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.OauthConfigurationId
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointGitHubAuthPersonal struct {
+	// The Personal Access Token for Github.
+	PersonalAccessToken     string  `pulumi:"personalAccessToken"`
+	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
+}
+
+// ServiceEndpointGitHubAuthPersonalInput is an input type that accepts ServiceEndpointGitHubAuthPersonalArgs and ServiceEndpointGitHubAuthPersonalOutput values.
+// You can construct a concrete instance of `ServiceEndpointGitHubAuthPersonalInput` via:
+//
+//          ServiceEndpointGitHubAuthPersonalArgs{...}
+type ServiceEndpointGitHubAuthPersonalInput interface {
+	pulumi.Input
+
+	ToServiceEndpointGitHubAuthPersonalOutput() ServiceEndpointGitHubAuthPersonalOutput
+	ToServiceEndpointGitHubAuthPersonalOutputWithContext(context.Context) ServiceEndpointGitHubAuthPersonalOutput
+}
+
+type ServiceEndpointGitHubAuthPersonalArgs struct {
+	// The Personal Access Token for Github.
+	PersonalAccessToken     pulumi.StringInput    `pulumi:"personalAccessToken"`
+	PersonalAccessTokenHash pulumi.StringPtrInput `pulumi:"personalAccessTokenHash"`
+}
+
+func (ServiceEndpointGitHubAuthPersonalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHubAuthPersonal)(nil)).Elem()
+}
+
+func (i ServiceEndpointGitHubAuthPersonalArgs) ToServiceEndpointGitHubAuthPersonalOutput() ServiceEndpointGitHubAuthPersonalOutput {
+	return i.ToServiceEndpointGitHubAuthPersonalOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointGitHubAuthPersonalArgs) ToServiceEndpointGitHubAuthPersonalOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthPersonalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubAuthPersonalOutput)
+}
+
+func (i ServiceEndpointGitHubAuthPersonalArgs) ToServiceEndpointGitHubAuthPersonalPtrOutput() ServiceEndpointGitHubAuthPersonalPtrOutput {
+	return i.ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointGitHubAuthPersonalArgs) ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthPersonalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubAuthPersonalOutput).ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointGitHubAuthPersonalPtrInput is an input type that accepts ServiceEndpointGitHubAuthPersonalArgs, ServiceEndpointGitHubAuthPersonalPtr and ServiceEndpointGitHubAuthPersonalPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointGitHubAuthPersonalPtrInput` via:
+//
+//          ServiceEndpointGitHubAuthPersonalArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointGitHubAuthPersonalPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointGitHubAuthPersonalPtrOutput() ServiceEndpointGitHubAuthPersonalPtrOutput
+	ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(context.Context) ServiceEndpointGitHubAuthPersonalPtrOutput
+}
+
+type serviceEndpointGitHubAuthPersonalPtrType ServiceEndpointGitHubAuthPersonalArgs
+
+func ServiceEndpointGitHubAuthPersonalPtr(v *ServiceEndpointGitHubAuthPersonalArgs) ServiceEndpointGitHubAuthPersonalPtrInput {
+	return (*serviceEndpointGitHubAuthPersonalPtrType)(v)
+}
+
+func (*serviceEndpointGitHubAuthPersonalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointGitHubAuthPersonal)(nil)).Elem()
+}
+
+func (i *serviceEndpointGitHubAuthPersonalPtrType) ToServiceEndpointGitHubAuthPersonalPtrOutput() ServiceEndpointGitHubAuthPersonalPtrOutput {
+	return i.ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointGitHubAuthPersonalPtrType) ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthPersonalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubAuthPersonalPtrOutput)
+}
+
+type ServiceEndpointGitHubAuthPersonalOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointGitHubAuthPersonalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHubAuthPersonal)(nil)).Elem()
+}
+
+func (o ServiceEndpointGitHubAuthPersonalOutput) ToServiceEndpointGitHubAuthPersonalOutput() ServiceEndpointGitHubAuthPersonalOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubAuthPersonalOutput) ToServiceEndpointGitHubAuthPersonalOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthPersonalOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubAuthPersonalOutput) ToServiceEndpointGitHubAuthPersonalPtrOutput() ServiceEndpointGitHubAuthPersonalPtrOutput {
+	return o.ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointGitHubAuthPersonalOutput) ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthPersonalPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointGitHubAuthPersonal) *ServiceEndpointGitHubAuthPersonal {
+		return &v
+	}).(ServiceEndpointGitHubAuthPersonalPtrOutput)
+}
+
+// The Personal Access Token for Github.
+func (o ServiceEndpointGitHubAuthPersonalOutput) PersonalAccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointGitHubAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
+}
+
+func (o ServiceEndpointGitHubAuthPersonalOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointGitHubAuthPersonal) *string { return v.PersonalAccessTokenHash }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointGitHubAuthPersonalPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointGitHubAuthPersonalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointGitHubAuthPersonal)(nil)).Elem()
+}
+
+func (o ServiceEndpointGitHubAuthPersonalPtrOutput) ToServiceEndpointGitHubAuthPersonalPtrOutput() ServiceEndpointGitHubAuthPersonalPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubAuthPersonalPtrOutput) ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthPersonalPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubAuthPersonalPtrOutput) Elem() ServiceEndpointGitHubAuthPersonalOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubAuthPersonal) ServiceEndpointGitHubAuthPersonal { return *v }).(ServiceEndpointGitHubAuthPersonalOutput)
+}
+
+// The Personal Access Token for Github.
+func (o ServiceEndpointGitHubAuthPersonalPtrOutput) PersonalAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubAuthPersonal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PersonalAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointGitHubAuthPersonalPtrOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubAuthPersonal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PersonalAccessTokenHash
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointKubernetesAzureSubscription struct {
 	// Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
 	AzureEnvironment *string `pulumi:"azureEnvironment"`
 	// The name of the Kubernetes cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The Kubernetes namespace. Default value is "default".
 	Namespace *string `pulumi:"namespace"`
-	// The resource group id, to which the Kubernetes cluster is deployed.
+	// The resource group name, to which the Kubernetes cluster is deployed.
 	ResourcegroupId string `pulumi:"resourcegroupId"`
 	// The id of the Azure subscription.
 	SubscriptionId string `pulumi:"subscriptionId"`
@@ -2929,25 +3804,25 @@ type KubernetesAzureSubscription struct {
 	TenantId string `pulumi:"tenantId"`
 }
 
-// KubernetesAzureSubscriptionInput is an input type that accepts KubernetesAzureSubscriptionArgs and KubernetesAzureSubscriptionOutput values.
-// You can construct a concrete instance of `KubernetesAzureSubscriptionInput` via:
+// ServiceEndpointKubernetesAzureSubscriptionInput is an input type that accepts ServiceEndpointKubernetesAzureSubscriptionArgs and ServiceEndpointKubernetesAzureSubscriptionOutput values.
+// You can construct a concrete instance of `ServiceEndpointKubernetesAzureSubscriptionInput` via:
 //
-//          KubernetesAzureSubscriptionArgs{...}
-type KubernetesAzureSubscriptionInput interface {
+//          ServiceEndpointKubernetesAzureSubscriptionArgs{...}
+type ServiceEndpointKubernetesAzureSubscriptionInput interface {
 	pulumi.Input
 
-	ToKubernetesAzureSubscriptionOutput() KubernetesAzureSubscriptionOutput
-	ToKubernetesAzureSubscriptionOutputWithContext(context.Context) KubernetesAzureSubscriptionOutput
+	ToServiceEndpointKubernetesAzureSubscriptionOutput() ServiceEndpointKubernetesAzureSubscriptionOutput
+	ToServiceEndpointKubernetesAzureSubscriptionOutputWithContext(context.Context) ServiceEndpointKubernetesAzureSubscriptionOutput
 }
 
-type KubernetesAzureSubscriptionArgs struct {
+type ServiceEndpointKubernetesAzureSubscriptionArgs struct {
 	// Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
 	AzureEnvironment pulumi.StringPtrInput `pulumi:"azureEnvironment"`
 	// The name of the Kubernetes cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The Kubernetes namespace. Default value is "default".
 	Namespace pulumi.StringPtrInput `pulumi:"namespace"`
-	// The resource group id, to which the Kubernetes cluster is deployed.
+	// The resource group name, to which the Kubernetes cluster is deployed.
 	ResourcegroupId pulumi.StringInput `pulumi:"resourcegroupId"`
 	// The id of the Azure subscription.
 	SubscriptionId pulumi.StringInput `pulumi:"subscriptionId"`
@@ -2957,113 +3832,113 @@ type KubernetesAzureSubscriptionArgs struct {
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
 }
 
-func (KubernetesAzureSubscriptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesAzureSubscription)(nil)).Elem()
+func (ServiceEndpointKubernetesAzureSubscriptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointKubernetesAzureSubscription)(nil)).Elem()
 }
 
-func (i KubernetesAzureSubscriptionArgs) ToKubernetesAzureSubscriptionOutput() KubernetesAzureSubscriptionOutput {
-	return i.ToKubernetesAzureSubscriptionOutputWithContext(context.Background())
+func (i ServiceEndpointKubernetesAzureSubscriptionArgs) ToServiceEndpointKubernetesAzureSubscriptionOutput() ServiceEndpointKubernetesAzureSubscriptionOutput {
+	return i.ToServiceEndpointKubernetesAzureSubscriptionOutputWithContext(context.Background())
 }
 
-func (i KubernetesAzureSubscriptionArgs) ToKubernetesAzureSubscriptionOutputWithContext(ctx context.Context) KubernetesAzureSubscriptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesAzureSubscriptionOutput)
+func (i ServiceEndpointKubernetesAzureSubscriptionArgs) ToServiceEndpointKubernetesAzureSubscriptionOutputWithContext(ctx context.Context) ServiceEndpointKubernetesAzureSubscriptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesAzureSubscriptionOutput)
 }
 
-// KubernetesAzureSubscriptionArrayInput is an input type that accepts KubernetesAzureSubscriptionArray and KubernetesAzureSubscriptionArrayOutput values.
-// You can construct a concrete instance of `KubernetesAzureSubscriptionArrayInput` via:
+// ServiceEndpointKubernetesAzureSubscriptionArrayInput is an input type that accepts ServiceEndpointKubernetesAzureSubscriptionArray and ServiceEndpointKubernetesAzureSubscriptionArrayOutput values.
+// You can construct a concrete instance of `ServiceEndpointKubernetesAzureSubscriptionArrayInput` via:
 //
-//          KubernetesAzureSubscriptionArray{ KubernetesAzureSubscriptionArgs{...} }
-type KubernetesAzureSubscriptionArrayInput interface {
+//          ServiceEndpointKubernetesAzureSubscriptionArray{ ServiceEndpointKubernetesAzureSubscriptionArgs{...} }
+type ServiceEndpointKubernetesAzureSubscriptionArrayInput interface {
 	pulumi.Input
 
-	ToKubernetesAzureSubscriptionArrayOutput() KubernetesAzureSubscriptionArrayOutput
-	ToKubernetesAzureSubscriptionArrayOutputWithContext(context.Context) KubernetesAzureSubscriptionArrayOutput
+	ToServiceEndpointKubernetesAzureSubscriptionArrayOutput() ServiceEndpointKubernetesAzureSubscriptionArrayOutput
+	ToServiceEndpointKubernetesAzureSubscriptionArrayOutputWithContext(context.Context) ServiceEndpointKubernetesAzureSubscriptionArrayOutput
 }
 
-type KubernetesAzureSubscriptionArray []KubernetesAzureSubscriptionInput
+type ServiceEndpointKubernetesAzureSubscriptionArray []ServiceEndpointKubernetesAzureSubscriptionInput
 
-func (KubernetesAzureSubscriptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesAzureSubscription)(nil)).Elem()
+func (ServiceEndpointKubernetesAzureSubscriptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointKubernetesAzureSubscription)(nil)).Elem()
 }
 
-func (i KubernetesAzureSubscriptionArray) ToKubernetesAzureSubscriptionArrayOutput() KubernetesAzureSubscriptionArrayOutput {
-	return i.ToKubernetesAzureSubscriptionArrayOutputWithContext(context.Background())
+func (i ServiceEndpointKubernetesAzureSubscriptionArray) ToServiceEndpointKubernetesAzureSubscriptionArrayOutput() ServiceEndpointKubernetesAzureSubscriptionArrayOutput {
+	return i.ToServiceEndpointKubernetesAzureSubscriptionArrayOutputWithContext(context.Background())
 }
 
-func (i KubernetesAzureSubscriptionArray) ToKubernetesAzureSubscriptionArrayOutputWithContext(ctx context.Context) KubernetesAzureSubscriptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesAzureSubscriptionArrayOutput)
+func (i ServiceEndpointKubernetesAzureSubscriptionArray) ToServiceEndpointKubernetesAzureSubscriptionArrayOutputWithContext(ctx context.Context) ServiceEndpointKubernetesAzureSubscriptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesAzureSubscriptionArrayOutput)
 }
 
-type KubernetesAzureSubscriptionOutput struct{ *pulumi.OutputState }
+type ServiceEndpointKubernetesAzureSubscriptionOutput struct{ *pulumi.OutputState }
 
-func (KubernetesAzureSubscriptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesAzureSubscription)(nil)).Elem()
+func (ServiceEndpointKubernetesAzureSubscriptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointKubernetesAzureSubscription)(nil)).Elem()
 }
 
-func (o KubernetesAzureSubscriptionOutput) ToKubernetesAzureSubscriptionOutput() KubernetesAzureSubscriptionOutput {
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) ToServiceEndpointKubernetesAzureSubscriptionOutput() ServiceEndpointKubernetesAzureSubscriptionOutput {
 	return o
 }
 
-func (o KubernetesAzureSubscriptionOutput) ToKubernetesAzureSubscriptionOutputWithContext(ctx context.Context) KubernetesAzureSubscriptionOutput {
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) ToServiceEndpointKubernetesAzureSubscriptionOutputWithContext(ctx context.Context) ServiceEndpointKubernetesAzureSubscriptionOutput {
 	return o
 }
 
 // Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
-func (o KubernetesAzureSubscriptionOutput) AzureEnvironment() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesAzureSubscription) *string { return v.AzureEnvironment }).(pulumi.StringPtrOutput)
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) AzureEnvironment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesAzureSubscription) *string { return v.AzureEnvironment }).(pulumi.StringPtrOutput)
 }
 
 // The name of the Kubernetes cluster.
-func (o KubernetesAzureSubscriptionOutput) ClusterName() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesAzureSubscription) string { return v.ClusterName }).(pulumi.StringOutput)
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) ClusterName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesAzureSubscription) string { return v.ClusterName }).(pulumi.StringOutput)
 }
 
 // The Kubernetes namespace. Default value is "default".
-func (o KubernetesAzureSubscriptionOutput) Namespace() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesAzureSubscription) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesAzureSubscription) *string { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The resource group id, to which the Kubernetes cluster is deployed.
-func (o KubernetesAzureSubscriptionOutput) ResourcegroupId() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesAzureSubscription) string { return v.ResourcegroupId }).(pulumi.StringOutput)
+// The resource group name, to which the Kubernetes cluster is deployed.
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) ResourcegroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesAzureSubscription) string { return v.ResourcegroupId }).(pulumi.StringOutput)
 }
 
 // The id of the Azure subscription.
-func (o KubernetesAzureSubscriptionOutput) SubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesAzureSubscription) string { return v.SubscriptionId }).(pulumi.StringOutput)
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesAzureSubscription) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 // The name of the Azure subscription.
-func (o KubernetesAzureSubscriptionOutput) SubscriptionName() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesAzureSubscription) string { return v.SubscriptionName }).(pulumi.StringOutput)
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) SubscriptionName() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesAzureSubscription) string { return v.SubscriptionName }).(pulumi.StringOutput)
 }
 
 // The id of the tenant used by the subscription.
-func (o KubernetesAzureSubscriptionOutput) TenantId() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesAzureSubscription) string { return v.TenantId }).(pulumi.StringOutput)
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesAzureSubscription) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-type KubernetesAzureSubscriptionArrayOutput struct{ *pulumi.OutputState }
+type ServiceEndpointKubernetesAzureSubscriptionArrayOutput struct{ *pulumi.OutputState }
 
-func (KubernetesAzureSubscriptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesAzureSubscription)(nil)).Elem()
+func (ServiceEndpointKubernetesAzureSubscriptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointKubernetesAzureSubscription)(nil)).Elem()
 }
 
-func (o KubernetesAzureSubscriptionArrayOutput) ToKubernetesAzureSubscriptionArrayOutput() KubernetesAzureSubscriptionArrayOutput {
+func (o ServiceEndpointKubernetesAzureSubscriptionArrayOutput) ToServiceEndpointKubernetesAzureSubscriptionArrayOutput() ServiceEndpointKubernetesAzureSubscriptionArrayOutput {
 	return o
 }
 
-func (o KubernetesAzureSubscriptionArrayOutput) ToKubernetesAzureSubscriptionArrayOutputWithContext(ctx context.Context) KubernetesAzureSubscriptionArrayOutput {
+func (o ServiceEndpointKubernetesAzureSubscriptionArrayOutput) ToServiceEndpointKubernetesAzureSubscriptionArrayOutputWithContext(ctx context.Context) ServiceEndpointKubernetesAzureSubscriptionArrayOutput {
 	return o
 }
 
-func (o KubernetesAzureSubscriptionArrayOutput) Index(i pulumi.IntInput) KubernetesAzureSubscriptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesAzureSubscription {
-		return vs[0].([]KubernetesAzureSubscription)[vs[1].(int)]
-	}).(KubernetesAzureSubscriptionOutput)
+func (o ServiceEndpointKubernetesAzureSubscriptionArrayOutput) Index(i pulumi.IntInput) ServiceEndpointKubernetesAzureSubscriptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointKubernetesAzureSubscription {
+		return vs[0].([]ServiceEndpointKubernetesAzureSubscription)[vs[1].(int)]
+	}).(ServiceEndpointKubernetesAzureSubscriptionOutput)
 }
 
-type KubernetesKubeconfig struct {
+type ServiceEndpointKubernetesKubeconfig struct {
 	// Set this option to allow clients to accept a self-signed certificate.
 	AcceptUntrustedCerts *bool `pulumi:"acceptUntrustedCerts"`
 	// Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
@@ -3073,18 +3948,18 @@ type KubernetesKubeconfig struct {
 	KubeConfigHash *string `pulumi:"kubeConfigHash"`
 }
 
-// KubernetesKubeconfigInput is an input type that accepts KubernetesKubeconfigArgs and KubernetesKubeconfigOutput values.
-// You can construct a concrete instance of `KubernetesKubeconfigInput` via:
+// ServiceEndpointKubernetesKubeconfigInput is an input type that accepts ServiceEndpointKubernetesKubeconfigArgs and ServiceEndpointKubernetesKubeconfigOutput values.
+// You can construct a concrete instance of `ServiceEndpointKubernetesKubeconfigInput` via:
 //
-//          KubernetesKubeconfigArgs{...}
-type KubernetesKubeconfigInput interface {
+//          ServiceEndpointKubernetesKubeconfigArgs{...}
+type ServiceEndpointKubernetesKubeconfigInput interface {
 	pulumi.Input
 
-	ToKubernetesKubeconfigOutput() KubernetesKubeconfigOutput
-	ToKubernetesKubeconfigOutputWithContext(context.Context) KubernetesKubeconfigOutput
+	ToServiceEndpointKubernetesKubeconfigOutput() ServiceEndpointKubernetesKubeconfigOutput
+	ToServiceEndpointKubernetesKubeconfigOutputWithContext(context.Context) ServiceEndpointKubernetesKubeconfigOutput
 }
 
-type KubernetesKubeconfigArgs struct {
+type ServiceEndpointKubernetesKubeconfigArgs struct {
 	// Set this option to allow clients to accept a self-signed certificate.
 	AcceptUntrustedCerts pulumi.BoolPtrInput `pulumi:"acceptUntrustedCerts"`
 	// Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
@@ -3094,97 +3969,97 @@ type KubernetesKubeconfigArgs struct {
 	KubeConfigHash pulumi.StringPtrInput `pulumi:"kubeConfigHash"`
 }
 
-func (KubernetesKubeconfigArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesKubeconfig)(nil)).Elem()
+func (ServiceEndpointKubernetesKubeconfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointKubernetesKubeconfig)(nil)).Elem()
 }
 
-func (i KubernetesKubeconfigArgs) ToKubernetesKubeconfigOutput() KubernetesKubeconfigOutput {
-	return i.ToKubernetesKubeconfigOutputWithContext(context.Background())
+func (i ServiceEndpointKubernetesKubeconfigArgs) ToServiceEndpointKubernetesKubeconfigOutput() ServiceEndpointKubernetesKubeconfigOutput {
+	return i.ToServiceEndpointKubernetesKubeconfigOutputWithContext(context.Background())
 }
 
-func (i KubernetesKubeconfigArgs) ToKubernetesKubeconfigOutputWithContext(ctx context.Context) KubernetesKubeconfigOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesKubeconfigOutput)
+func (i ServiceEndpointKubernetesKubeconfigArgs) ToServiceEndpointKubernetesKubeconfigOutputWithContext(ctx context.Context) ServiceEndpointKubernetesKubeconfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesKubeconfigOutput)
 }
 
-// KubernetesKubeconfigArrayInput is an input type that accepts KubernetesKubeconfigArray and KubernetesKubeconfigArrayOutput values.
-// You can construct a concrete instance of `KubernetesKubeconfigArrayInput` via:
+// ServiceEndpointKubernetesKubeconfigArrayInput is an input type that accepts ServiceEndpointKubernetesKubeconfigArray and ServiceEndpointKubernetesKubeconfigArrayOutput values.
+// You can construct a concrete instance of `ServiceEndpointKubernetesKubeconfigArrayInput` via:
 //
-//          KubernetesKubeconfigArray{ KubernetesKubeconfigArgs{...} }
-type KubernetesKubeconfigArrayInput interface {
+//          ServiceEndpointKubernetesKubeconfigArray{ ServiceEndpointKubernetesKubeconfigArgs{...} }
+type ServiceEndpointKubernetesKubeconfigArrayInput interface {
 	pulumi.Input
 
-	ToKubernetesKubeconfigArrayOutput() KubernetesKubeconfigArrayOutput
-	ToKubernetesKubeconfigArrayOutputWithContext(context.Context) KubernetesKubeconfigArrayOutput
+	ToServiceEndpointKubernetesKubeconfigArrayOutput() ServiceEndpointKubernetesKubeconfigArrayOutput
+	ToServiceEndpointKubernetesKubeconfigArrayOutputWithContext(context.Context) ServiceEndpointKubernetesKubeconfigArrayOutput
 }
 
-type KubernetesKubeconfigArray []KubernetesKubeconfigInput
+type ServiceEndpointKubernetesKubeconfigArray []ServiceEndpointKubernetesKubeconfigInput
 
-func (KubernetesKubeconfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesKubeconfig)(nil)).Elem()
+func (ServiceEndpointKubernetesKubeconfigArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointKubernetesKubeconfig)(nil)).Elem()
 }
 
-func (i KubernetesKubeconfigArray) ToKubernetesKubeconfigArrayOutput() KubernetesKubeconfigArrayOutput {
-	return i.ToKubernetesKubeconfigArrayOutputWithContext(context.Background())
+func (i ServiceEndpointKubernetesKubeconfigArray) ToServiceEndpointKubernetesKubeconfigArrayOutput() ServiceEndpointKubernetesKubeconfigArrayOutput {
+	return i.ToServiceEndpointKubernetesKubeconfigArrayOutputWithContext(context.Background())
 }
 
-func (i KubernetesKubeconfigArray) ToKubernetesKubeconfigArrayOutputWithContext(ctx context.Context) KubernetesKubeconfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesKubeconfigArrayOutput)
+func (i ServiceEndpointKubernetesKubeconfigArray) ToServiceEndpointKubernetesKubeconfigArrayOutputWithContext(ctx context.Context) ServiceEndpointKubernetesKubeconfigArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesKubeconfigArrayOutput)
 }
 
-type KubernetesKubeconfigOutput struct{ *pulumi.OutputState }
+type ServiceEndpointKubernetesKubeconfigOutput struct{ *pulumi.OutputState }
 
-func (KubernetesKubeconfigOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesKubeconfig)(nil)).Elem()
+func (ServiceEndpointKubernetesKubeconfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointKubernetesKubeconfig)(nil)).Elem()
 }
 
-func (o KubernetesKubeconfigOutput) ToKubernetesKubeconfigOutput() KubernetesKubeconfigOutput {
+func (o ServiceEndpointKubernetesKubeconfigOutput) ToServiceEndpointKubernetesKubeconfigOutput() ServiceEndpointKubernetesKubeconfigOutput {
 	return o
 }
 
-func (o KubernetesKubeconfigOutput) ToKubernetesKubeconfigOutputWithContext(ctx context.Context) KubernetesKubeconfigOutput {
+func (o ServiceEndpointKubernetesKubeconfigOutput) ToServiceEndpointKubernetesKubeconfigOutputWithContext(ctx context.Context) ServiceEndpointKubernetesKubeconfigOutput {
 	return o
 }
 
 // Set this option to allow clients to accept a self-signed certificate.
-func (o KubernetesKubeconfigOutput) AcceptUntrustedCerts() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v KubernetesKubeconfig) *bool { return v.AcceptUntrustedCerts }).(pulumi.BoolPtrOutput)
+func (o ServiceEndpointKubernetesKubeconfigOutput) AcceptUntrustedCerts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesKubeconfig) *bool { return v.AcceptUntrustedCerts }).(pulumi.BoolPtrOutput)
 }
 
 // Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
-func (o KubernetesKubeconfigOutput) ClusterContext() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesKubeconfig) *string { return v.ClusterContext }).(pulumi.StringPtrOutput)
+func (o ServiceEndpointKubernetesKubeconfigOutput) ClusterContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesKubeconfig) *string { return v.ClusterContext }).(pulumi.StringPtrOutput)
 }
 
 // The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
-func (o KubernetesKubeconfigOutput) KubeConfig() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesKubeconfig) string { return v.KubeConfig }).(pulumi.StringOutput)
+func (o ServiceEndpointKubernetesKubeconfigOutput) KubeConfig() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesKubeconfig) string { return v.KubeConfig }).(pulumi.StringOutput)
 }
 
-func (o KubernetesKubeconfigOutput) KubeConfigHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesKubeconfig) *string { return v.KubeConfigHash }).(pulumi.StringPtrOutput)
+func (o ServiceEndpointKubernetesKubeconfigOutput) KubeConfigHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesKubeconfig) *string { return v.KubeConfigHash }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesKubeconfigArrayOutput struct{ *pulumi.OutputState }
+type ServiceEndpointKubernetesKubeconfigArrayOutput struct{ *pulumi.OutputState }
 
-func (KubernetesKubeconfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesKubeconfig)(nil)).Elem()
+func (ServiceEndpointKubernetesKubeconfigArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointKubernetesKubeconfig)(nil)).Elem()
 }
 
-func (o KubernetesKubeconfigArrayOutput) ToKubernetesKubeconfigArrayOutput() KubernetesKubeconfigArrayOutput {
+func (o ServiceEndpointKubernetesKubeconfigArrayOutput) ToServiceEndpointKubernetesKubeconfigArrayOutput() ServiceEndpointKubernetesKubeconfigArrayOutput {
 	return o
 }
 
-func (o KubernetesKubeconfigArrayOutput) ToKubernetesKubeconfigArrayOutputWithContext(ctx context.Context) KubernetesKubeconfigArrayOutput {
+func (o ServiceEndpointKubernetesKubeconfigArrayOutput) ToServiceEndpointKubernetesKubeconfigArrayOutputWithContext(ctx context.Context) ServiceEndpointKubernetesKubeconfigArrayOutput {
 	return o
 }
 
-func (o KubernetesKubeconfigArrayOutput) Index(i pulumi.IntInput) KubernetesKubeconfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesKubeconfig {
-		return vs[0].([]KubernetesKubeconfig)[vs[1].(int)]
-	}).(KubernetesKubeconfigOutput)
+func (o ServiceEndpointKubernetesKubeconfigArrayOutput) Index(i pulumi.IntInput) ServiceEndpointKubernetesKubeconfigOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointKubernetesKubeconfig {
+		return vs[0].([]ServiceEndpointKubernetesKubeconfig)[vs[1].(int)]
+	}).(ServiceEndpointKubernetesKubeconfigOutput)
 }
 
-type KubernetesServiceAccount struct {
+type ServiceEndpointKubernetesServiceAccount struct {
 	// The certificate from a Kubernetes secret object.
 	CaCert     string  `pulumi:"caCert"`
 	CaCertHash *string `pulumi:"caCertHash"`
@@ -3193,18 +4068,18 @@ type KubernetesServiceAccount struct {
 	TokenHash *string `pulumi:"tokenHash"`
 }
 
-// KubernetesServiceAccountInput is an input type that accepts KubernetesServiceAccountArgs and KubernetesServiceAccountOutput values.
-// You can construct a concrete instance of `KubernetesServiceAccountInput` via:
+// ServiceEndpointKubernetesServiceAccountInput is an input type that accepts ServiceEndpointKubernetesServiceAccountArgs and ServiceEndpointKubernetesServiceAccountOutput values.
+// You can construct a concrete instance of `ServiceEndpointKubernetesServiceAccountInput` via:
 //
-//          KubernetesServiceAccountArgs{...}
-type KubernetesServiceAccountInput interface {
+//          ServiceEndpointKubernetesServiceAccountArgs{...}
+type ServiceEndpointKubernetesServiceAccountInput interface {
 	pulumi.Input
 
-	ToKubernetesServiceAccountOutput() KubernetesServiceAccountOutput
-	ToKubernetesServiceAccountOutputWithContext(context.Context) KubernetesServiceAccountOutput
+	ToServiceEndpointKubernetesServiceAccountOutput() ServiceEndpointKubernetesServiceAccountOutput
+	ToServiceEndpointKubernetesServiceAccountOutputWithContext(context.Context) ServiceEndpointKubernetesServiceAccountOutput
 }
 
-type KubernetesServiceAccountArgs struct {
+type ServiceEndpointKubernetesServiceAccountArgs struct {
 	// The certificate from a Kubernetes secret object.
 	CaCert     pulumi.StringInput    `pulumi:"caCert"`
 	CaCertHash pulumi.StringPtrInput `pulumi:"caCertHash"`
@@ -3213,93 +4088,93 @@ type KubernetesServiceAccountArgs struct {
 	TokenHash pulumi.StringPtrInput `pulumi:"tokenHash"`
 }
 
-func (KubernetesServiceAccountArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesServiceAccount)(nil)).Elem()
+func (ServiceEndpointKubernetesServiceAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointKubernetesServiceAccount)(nil)).Elem()
 }
 
-func (i KubernetesServiceAccountArgs) ToKubernetesServiceAccountOutput() KubernetesServiceAccountOutput {
-	return i.ToKubernetesServiceAccountOutputWithContext(context.Background())
+func (i ServiceEndpointKubernetesServiceAccountArgs) ToServiceEndpointKubernetesServiceAccountOutput() ServiceEndpointKubernetesServiceAccountOutput {
+	return i.ToServiceEndpointKubernetesServiceAccountOutputWithContext(context.Background())
 }
 
-func (i KubernetesServiceAccountArgs) ToKubernetesServiceAccountOutputWithContext(ctx context.Context) KubernetesServiceAccountOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesServiceAccountOutput)
+func (i ServiceEndpointKubernetesServiceAccountArgs) ToServiceEndpointKubernetesServiceAccountOutputWithContext(ctx context.Context) ServiceEndpointKubernetesServiceAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesServiceAccountOutput)
 }
 
-// KubernetesServiceAccountArrayInput is an input type that accepts KubernetesServiceAccountArray and KubernetesServiceAccountArrayOutput values.
-// You can construct a concrete instance of `KubernetesServiceAccountArrayInput` via:
+// ServiceEndpointKubernetesServiceAccountArrayInput is an input type that accepts ServiceEndpointKubernetesServiceAccountArray and ServiceEndpointKubernetesServiceAccountArrayOutput values.
+// You can construct a concrete instance of `ServiceEndpointKubernetesServiceAccountArrayInput` via:
 //
-//          KubernetesServiceAccountArray{ KubernetesServiceAccountArgs{...} }
-type KubernetesServiceAccountArrayInput interface {
+//          ServiceEndpointKubernetesServiceAccountArray{ ServiceEndpointKubernetesServiceAccountArgs{...} }
+type ServiceEndpointKubernetesServiceAccountArrayInput interface {
 	pulumi.Input
 
-	ToKubernetesServiceAccountArrayOutput() KubernetesServiceAccountArrayOutput
-	ToKubernetesServiceAccountArrayOutputWithContext(context.Context) KubernetesServiceAccountArrayOutput
+	ToServiceEndpointKubernetesServiceAccountArrayOutput() ServiceEndpointKubernetesServiceAccountArrayOutput
+	ToServiceEndpointKubernetesServiceAccountArrayOutputWithContext(context.Context) ServiceEndpointKubernetesServiceAccountArrayOutput
 }
 
-type KubernetesServiceAccountArray []KubernetesServiceAccountInput
+type ServiceEndpointKubernetesServiceAccountArray []ServiceEndpointKubernetesServiceAccountInput
 
-func (KubernetesServiceAccountArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesServiceAccount)(nil)).Elem()
+func (ServiceEndpointKubernetesServiceAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointKubernetesServiceAccount)(nil)).Elem()
 }
 
-func (i KubernetesServiceAccountArray) ToKubernetesServiceAccountArrayOutput() KubernetesServiceAccountArrayOutput {
-	return i.ToKubernetesServiceAccountArrayOutputWithContext(context.Background())
+func (i ServiceEndpointKubernetesServiceAccountArray) ToServiceEndpointKubernetesServiceAccountArrayOutput() ServiceEndpointKubernetesServiceAccountArrayOutput {
+	return i.ToServiceEndpointKubernetesServiceAccountArrayOutputWithContext(context.Background())
 }
 
-func (i KubernetesServiceAccountArray) ToKubernetesServiceAccountArrayOutputWithContext(ctx context.Context) KubernetesServiceAccountArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesServiceAccountArrayOutput)
+func (i ServiceEndpointKubernetesServiceAccountArray) ToServiceEndpointKubernetesServiceAccountArrayOutputWithContext(ctx context.Context) ServiceEndpointKubernetesServiceAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesServiceAccountArrayOutput)
 }
 
-type KubernetesServiceAccountOutput struct{ *pulumi.OutputState }
+type ServiceEndpointKubernetesServiceAccountOutput struct{ *pulumi.OutputState }
 
-func (KubernetesServiceAccountOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*KubernetesServiceAccount)(nil)).Elem()
+func (ServiceEndpointKubernetesServiceAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointKubernetesServiceAccount)(nil)).Elem()
 }
 
-func (o KubernetesServiceAccountOutput) ToKubernetesServiceAccountOutput() KubernetesServiceAccountOutput {
+func (o ServiceEndpointKubernetesServiceAccountOutput) ToServiceEndpointKubernetesServiceAccountOutput() ServiceEndpointKubernetesServiceAccountOutput {
 	return o
 }
 
-func (o KubernetesServiceAccountOutput) ToKubernetesServiceAccountOutputWithContext(ctx context.Context) KubernetesServiceAccountOutput {
+func (o ServiceEndpointKubernetesServiceAccountOutput) ToServiceEndpointKubernetesServiceAccountOutputWithContext(ctx context.Context) ServiceEndpointKubernetesServiceAccountOutput {
 	return o
 }
 
 // The certificate from a Kubernetes secret object.
-func (o KubernetesServiceAccountOutput) CaCert() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesServiceAccount) string { return v.CaCert }).(pulumi.StringOutput)
+func (o ServiceEndpointKubernetesServiceAccountOutput) CaCert() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) string { return v.CaCert }).(pulumi.StringOutput)
 }
 
-func (o KubernetesServiceAccountOutput) CaCertHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesServiceAccount) *string { return v.CaCertHash }).(pulumi.StringPtrOutput)
+func (o ServiceEndpointKubernetesServiceAccountOutput) CaCertHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) *string { return v.CaCertHash }).(pulumi.StringPtrOutput)
 }
 
 // The token from a Kubernetes secret object.
-func (o KubernetesServiceAccountOutput) Token() pulumi.StringOutput {
-	return o.ApplyT(func(v KubernetesServiceAccount) string { return v.Token }).(pulumi.StringOutput)
+func (o ServiceEndpointKubernetesServiceAccountOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) string { return v.Token }).(pulumi.StringOutput)
 }
 
-func (o KubernetesServiceAccountOutput) TokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesServiceAccount) *string { return v.TokenHash }).(pulumi.StringPtrOutput)
+func (o ServiceEndpointKubernetesServiceAccountOutput) TokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) *string { return v.TokenHash }).(pulumi.StringPtrOutput)
 }
 
-type KubernetesServiceAccountArrayOutput struct{ *pulumi.OutputState }
+type ServiceEndpointKubernetesServiceAccountArrayOutput struct{ *pulumi.OutputState }
 
-func (KubernetesServiceAccountArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesServiceAccount)(nil)).Elem()
+func (ServiceEndpointKubernetesServiceAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointKubernetesServiceAccount)(nil)).Elem()
 }
 
-func (o KubernetesServiceAccountArrayOutput) ToKubernetesServiceAccountArrayOutput() KubernetesServiceAccountArrayOutput {
+func (o ServiceEndpointKubernetesServiceAccountArrayOutput) ToServiceEndpointKubernetesServiceAccountArrayOutput() ServiceEndpointKubernetesServiceAccountArrayOutput {
 	return o
 }
 
-func (o KubernetesServiceAccountArrayOutput) ToKubernetesServiceAccountArrayOutputWithContext(ctx context.Context) KubernetesServiceAccountArrayOutput {
+func (o ServiceEndpointKubernetesServiceAccountArrayOutput) ToServiceEndpointKubernetesServiceAccountArrayOutputWithContext(ctx context.Context) ServiceEndpointKubernetesServiceAccountArrayOutput {
 	return o
 }
 
-func (o KubernetesServiceAccountArrayOutput) Index(i pulumi.IntInput) KubernetesServiceAccountOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesServiceAccount {
-		return vs[0].([]KubernetesServiceAccount)[vs[1].(int)]
-	}).(KubernetesServiceAccountOutput)
+func (o ServiceEndpointKubernetesServiceAccountArrayOutput) Index(i pulumi.IntInput) ServiceEndpointKubernetesServiceAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointKubernetesServiceAccount {
+		return vs[0].([]ServiceEndpointKubernetesServiceAccount)[vs[1].(int)]
+	}).(ServiceEndpointKubernetesServiceAccountOutput)
 }
 
 type VariableGroupKeyVault struct {
@@ -3590,6 +4465,242 @@ func (o VariableGroupVariableArrayOutput) Index(i pulumi.IntInput) VariableGroup
 	}).(VariableGroupVariableOutput)
 }
 
+type GetAreaChildren struct {
+	HasChildren bool   `pulumi:"hasChildren"`
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
+	Path        string `pulumi:"path"`
+	ProjectId   string `pulumi:"projectId"`
+}
+
+// GetAreaChildrenInput is an input type that accepts GetAreaChildrenArgs and GetAreaChildrenOutput values.
+// You can construct a concrete instance of `GetAreaChildrenInput` via:
+//
+//          GetAreaChildrenArgs{...}
+type GetAreaChildrenInput interface {
+	pulumi.Input
+
+	ToGetAreaChildrenOutput() GetAreaChildrenOutput
+	ToGetAreaChildrenOutputWithContext(context.Context) GetAreaChildrenOutput
+}
+
+type GetAreaChildrenArgs struct {
+	HasChildren pulumi.BoolInput   `pulumi:"hasChildren"`
+	Id          pulumi.StringInput `pulumi:"id"`
+	Name        pulumi.StringInput `pulumi:"name"`
+	Path        pulumi.StringInput `pulumi:"path"`
+	ProjectId   pulumi.StringInput `pulumi:"projectId"`
+}
+
+func (GetAreaChildrenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAreaChildren)(nil)).Elem()
+}
+
+func (i GetAreaChildrenArgs) ToGetAreaChildrenOutput() GetAreaChildrenOutput {
+	return i.ToGetAreaChildrenOutputWithContext(context.Background())
+}
+
+func (i GetAreaChildrenArgs) ToGetAreaChildrenOutputWithContext(ctx context.Context) GetAreaChildrenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAreaChildrenOutput)
+}
+
+// GetAreaChildrenArrayInput is an input type that accepts GetAreaChildrenArray and GetAreaChildrenArrayOutput values.
+// You can construct a concrete instance of `GetAreaChildrenArrayInput` via:
+//
+//          GetAreaChildrenArray{ GetAreaChildrenArgs{...} }
+type GetAreaChildrenArrayInput interface {
+	pulumi.Input
+
+	ToGetAreaChildrenArrayOutput() GetAreaChildrenArrayOutput
+	ToGetAreaChildrenArrayOutputWithContext(context.Context) GetAreaChildrenArrayOutput
+}
+
+type GetAreaChildrenArray []GetAreaChildrenInput
+
+func (GetAreaChildrenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAreaChildren)(nil)).Elem()
+}
+
+func (i GetAreaChildrenArray) ToGetAreaChildrenArrayOutput() GetAreaChildrenArrayOutput {
+	return i.ToGetAreaChildrenArrayOutputWithContext(context.Background())
+}
+
+func (i GetAreaChildrenArray) ToGetAreaChildrenArrayOutputWithContext(ctx context.Context) GetAreaChildrenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAreaChildrenArrayOutput)
+}
+
+type GetAreaChildrenOutput struct{ *pulumi.OutputState }
+
+func (GetAreaChildrenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAreaChildren)(nil)).Elem()
+}
+
+func (o GetAreaChildrenOutput) ToGetAreaChildrenOutput() GetAreaChildrenOutput {
+	return o
+}
+
+func (o GetAreaChildrenOutput) ToGetAreaChildrenOutputWithContext(ctx context.Context) GetAreaChildrenOutput {
+	return o
+}
+
+func (o GetAreaChildrenOutput) HasChildren() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetAreaChildren) bool { return v.HasChildren }).(pulumi.BoolOutput)
+}
+
+func (o GetAreaChildrenOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAreaChildren) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetAreaChildrenOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAreaChildren) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetAreaChildrenOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAreaChildren) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o GetAreaChildrenOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAreaChildren) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+type GetAreaChildrenArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAreaChildrenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAreaChildren)(nil)).Elem()
+}
+
+func (o GetAreaChildrenArrayOutput) ToGetAreaChildrenArrayOutput() GetAreaChildrenArrayOutput {
+	return o
+}
+
+func (o GetAreaChildrenArrayOutput) ToGetAreaChildrenArrayOutputWithContext(ctx context.Context) GetAreaChildrenArrayOutput {
+	return o
+}
+
+func (o GetAreaChildrenArrayOutput) Index(i pulumi.IntInput) GetAreaChildrenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAreaChildren {
+		return vs[0].([]GetAreaChildren)[vs[1].(int)]
+	}).(GetAreaChildrenOutput)
+}
+
+type GetIterationChildren struct {
+	HasChildren bool   `pulumi:"hasChildren"`
+	Id          string `pulumi:"id"`
+	Name        string `pulumi:"name"`
+	Path        string `pulumi:"path"`
+	ProjectId   string `pulumi:"projectId"`
+}
+
+// GetIterationChildrenInput is an input type that accepts GetIterationChildrenArgs and GetIterationChildrenOutput values.
+// You can construct a concrete instance of `GetIterationChildrenInput` via:
+//
+//          GetIterationChildrenArgs{...}
+type GetIterationChildrenInput interface {
+	pulumi.Input
+
+	ToGetIterationChildrenOutput() GetIterationChildrenOutput
+	ToGetIterationChildrenOutputWithContext(context.Context) GetIterationChildrenOutput
+}
+
+type GetIterationChildrenArgs struct {
+	HasChildren pulumi.BoolInput   `pulumi:"hasChildren"`
+	Id          pulumi.StringInput `pulumi:"id"`
+	Name        pulumi.StringInput `pulumi:"name"`
+	Path        pulumi.StringInput `pulumi:"path"`
+	ProjectId   pulumi.StringInput `pulumi:"projectId"`
+}
+
+func (GetIterationChildrenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIterationChildren)(nil)).Elem()
+}
+
+func (i GetIterationChildrenArgs) ToGetIterationChildrenOutput() GetIterationChildrenOutput {
+	return i.ToGetIterationChildrenOutputWithContext(context.Background())
+}
+
+func (i GetIterationChildrenArgs) ToGetIterationChildrenOutputWithContext(ctx context.Context) GetIterationChildrenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIterationChildrenOutput)
+}
+
+// GetIterationChildrenArrayInput is an input type that accepts GetIterationChildrenArray and GetIterationChildrenArrayOutput values.
+// You can construct a concrete instance of `GetIterationChildrenArrayInput` via:
+//
+//          GetIterationChildrenArray{ GetIterationChildrenArgs{...} }
+type GetIterationChildrenArrayInput interface {
+	pulumi.Input
+
+	ToGetIterationChildrenArrayOutput() GetIterationChildrenArrayOutput
+	ToGetIterationChildrenArrayOutputWithContext(context.Context) GetIterationChildrenArrayOutput
+}
+
+type GetIterationChildrenArray []GetIterationChildrenInput
+
+func (GetIterationChildrenArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIterationChildren)(nil)).Elem()
+}
+
+func (i GetIterationChildrenArray) ToGetIterationChildrenArrayOutput() GetIterationChildrenArrayOutput {
+	return i.ToGetIterationChildrenArrayOutputWithContext(context.Background())
+}
+
+func (i GetIterationChildrenArray) ToGetIterationChildrenArrayOutputWithContext(ctx context.Context) GetIterationChildrenArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetIterationChildrenArrayOutput)
+}
+
+type GetIterationChildrenOutput struct{ *pulumi.OutputState }
+
+func (GetIterationChildrenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIterationChildren)(nil)).Elem()
+}
+
+func (o GetIterationChildrenOutput) ToGetIterationChildrenOutput() GetIterationChildrenOutput {
+	return o
+}
+
+func (o GetIterationChildrenOutput) ToGetIterationChildrenOutputWithContext(ctx context.Context) GetIterationChildrenOutput {
+	return o
+}
+
+func (o GetIterationChildrenOutput) HasChildren() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetIterationChildren) bool { return v.HasChildren }).(pulumi.BoolOutput)
+}
+
+func (o GetIterationChildrenOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIterationChildren) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetIterationChildrenOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIterationChildren) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetIterationChildrenOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIterationChildren) string { return v.Path }).(pulumi.StringOutput)
+}
+
+func (o GetIterationChildrenOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIterationChildren) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+type GetIterationChildrenArrayOutput struct{ *pulumi.OutputState }
+
+func (GetIterationChildrenArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetIterationChildren)(nil)).Elem()
+}
+
+func (o GetIterationChildrenArrayOutput) ToGetIterationChildrenArrayOutput() GetIterationChildrenArrayOutput {
+	return o
+}
+
+func (o GetIterationChildrenArrayOutput) ToGetIterationChildrenArrayOutputWithContext(ctx context.Context) GetIterationChildrenArrayOutput {
+	return o
+}
+
+func (o GetIterationChildrenArrayOutput) Index(i pulumi.IntInput) GetIterationChildrenOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetIterationChildren {
+		return vs[0].([]GetIterationChildren)[vs[1].(int)]
+	}).(GetIterationChildrenOutput)
+}
+
 type GetPoolsAgentPool struct {
 	// Specifies whether or not a queue should be automatically provisioned for each project collection.
 	AutoProvision bool `pulumi:"autoProvision"`
@@ -3712,7 +4823,7 @@ func (o GetPoolsAgentPoolArrayOutput) Index(i pulumi.IntInput) GetPoolsAgentPool
 }
 
 type GetProjectsProject struct {
-	// Project name.
+	// Name of the Project, if not specified all projects will be returned.
 	Name string `pulumi:"name"`
 	// Project identifier.
 	ProjectId string `pulumi:"projectId"`
@@ -3734,7 +4845,7 @@ type GetProjectsProjectInput interface {
 }
 
 type GetProjectsProjectArgs struct {
-	// Project name.
+	// Name of the Project, if not specified all projects will be returned.
 	Name pulumi.StringInput `pulumi:"name"`
 	// Project identifier.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
@@ -3795,7 +4906,7 @@ func (o GetProjectsProjectOutput) ToGetProjectsProjectOutputWithContext(ctx cont
 	return o
 }
 
-// Project name.
+// Name of the Project, if not specified all projects will be returned.
 func (o GetProjectsProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -4147,16 +5258,26 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
-	pulumi.RegisterOutputType(AzureRMCredentialsOutput{})
-	pulumi.RegisterOutputType(AzureRMCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsOutput{})
+	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsPtrOutput{})
+	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsScopeOutput{})
+	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsScopeArrayOutput{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationSettingsOutput{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationSettingsScopeOutput{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationSettingsScopeArrayOutput{})
+	pulumi.RegisterOutputType(BranchPolicyCommentResolutionSettingsOutput{})
+	pulumi.RegisterOutputType(BranchPolicyCommentResolutionSettingsPtrOutput{})
+	pulumi.RegisterOutputType(BranchPolicyCommentResolutionSettingsScopeOutput{})
+	pulumi.RegisterOutputType(BranchPolicyCommentResolutionSettingsScopeArrayOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsScopeOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsScopeArrayOutput{})
+	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsOutput{})
+	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsPtrOutput{})
+	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsScopeOutput{})
+	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsScopeArrayOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerPtrOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerOverrideOutput{})
@@ -4179,22 +5300,28 @@ func init() {
 	pulumi.RegisterOutputType(BuildDefinitionRepositoryPtrOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionVariableOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionVariableArrayOutput{})
-	pulumi.RegisterOutputType(GitHubAuthOauthOutput{})
-	pulumi.RegisterOutputType(GitHubAuthOauthPtrOutput{})
-	pulumi.RegisterOutputType(GitHubAuthPersonalOutput{})
-	pulumi.RegisterOutputType(GitHubAuthPersonalPtrOutput{})
 	pulumi.RegisterOutputType(GitInitializationOutput{})
 	pulumi.RegisterOutputType(GitInitializationPtrOutput{})
-	pulumi.RegisterOutputType(KubernetesAzureSubscriptionOutput{})
-	pulumi.RegisterOutputType(KubernetesAzureSubscriptionArrayOutput{})
-	pulumi.RegisterOutputType(KubernetesKubeconfigOutput{})
-	pulumi.RegisterOutputType(KubernetesKubeconfigArrayOutput{})
-	pulumi.RegisterOutputType(KubernetesServiceAccountOutput{})
-	pulumi.RegisterOutputType(KubernetesServiceAccountArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAzureRMCredentialsOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAzureRMCredentialsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthOauthOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthOauthPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthPersonalOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthPersonalPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesAzureSubscriptionOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesAzureSubscriptionArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesKubeconfigOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesKubeconfigArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesServiceAccountOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesServiceAccountArrayOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableArrayOutput{})
+	pulumi.RegisterOutputType(GetAreaChildrenOutput{})
+	pulumi.RegisterOutputType(GetAreaChildrenArrayOutput{})
+	pulumi.RegisterOutputType(GetIterationChildrenOutput{})
+	pulumi.RegisterOutputType(GetIterationChildrenArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolsAgentPoolOutput{})
 	pulumi.RegisterOutputType(GetPoolsAgentPoolArrayOutput{})
 	pulumi.RegisterOutputType(GetProjectsProjectOutput{})

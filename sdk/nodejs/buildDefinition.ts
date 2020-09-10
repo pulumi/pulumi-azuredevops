@@ -10,13 +10,12 @@ import * as utilities from "./utilities";
  * Manages a Build Definition within Azure DevOps.
  *
  * ## Example Usage
- *
+ * ### Tfs
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {
- *     projectName: "Sample Project",
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
@@ -62,9 +61,30 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * ### GitHub Enterprise
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const sampleDotnetcoreAppRelease = new azuredevops.BuildDefinition("sampleDotnetcoreAppRelease", {
+ *     projectId: azuredevops_project.project.id,
+ *     path: "\\ExampleFolder",
+ *     ciTrigger: {
+ *         useYaml: true,
+ *     },
+ *     repository: {
+ *         repoType: "GitHubEnterprise",
+ *         repoId: "<GitHub Org>/<Repo Name>",
+ *         githubEnterpriseUrl: "https://github.company.com",
+ *         branchName: "master",
+ *         ymlPath: "azure-pipelines.yml",
+ *         serviceConnectionId: "...",
+ *     },
+ * });
+ * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
  */
 export class BuildDefinition extends pulumi.CustomResource {
     /**
@@ -95,17 +115,20 @@ export class BuildDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+     * The agent pool that should execute the build.
      */
     public readonly agentPoolName!: pulumi.Output<string | undefined>;
     /**
-     * Continuous Integration Integration trigger.
+     * Continuous Integration trigger.
      */
     public readonly ciTrigger!: pulumi.Output<outputs.BuildDefinitionCiTrigger | undefined>;
     /**
      * The name of the build definition.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The folder path of the build definition.
+     */
     public readonly path!: pulumi.Output<string | undefined>;
     /**
      * The project ID or project name.
@@ -191,17 +214,20 @@ export class BuildDefinition extends pulumi.CustomResource {
  */
 export interface BuildDefinitionState {
     /**
-     * The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+     * The agent pool that should execute the build.
      */
     readonly agentPoolName?: pulumi.Input<string>;
     /**
-     * Continuous Integration Integration trigger.
+     * Continuous Integration trigger.
      */
     readonly ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
     /**
      * The name of the build definition.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The folder path of the build definition.
+     */
     readonly path?: pulumi.Input<string>;
     /**
      * The project ID or project name.
@@ -234,17 +260,20 @@ export interface BuildDefinitionState {
  */
 export interface BuildDefinitionArgs {
     /**
-     * The agent pool that should execute the build. Defaults to `Hosted Ubuntu 1604`.
+     * The agent pool that should execute the build.
      */
     readonly agentPoolName?: pulumi.Input<string>;
     /**
-     * Continuous Integration Integration trigger.
+     * Continuous Integration trigger.
      */
     readonly ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
     /**
      * The name of the build definition.
      */
     readonly name?: pulumi.Input<string>;
+    /**
+     * The folder path of the build definition.
+     */
     readonly path?: pulumi.Input<string>;
     /**
      * The project ID or project name.

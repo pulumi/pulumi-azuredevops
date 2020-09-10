@@ -19,7 +19,7 @@ class GetGroupResult:
     """
     A collection of values returned by getGroup.
     """
-    def __init__(__self__, descriptor=None, id=None, name=None, project_id=None):
+    def __init__(__self__, descriptor=None, id=None, name=None, origin=None, origin_id=None, project_id=None):
         if descriptor and not isinstance(descriptor, str):
             raise TypeError("Expected argument 'descriptor' to be a str")
         pulumi.set(__self__, "descriptor", descriptor)
@@ -29,6 +29,12 @@ class GetGroupResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if origin and not isinstance(origin, str):
+            raise TypeError("Expected argument 'origin' to be a str")
+        pulumi.set(__self__, "origin", origin)
+        if origin_id and not isinstance(origin_id, str):
+            raise TypeError("Expected argument 'origin_id' to be a str")
+        pulumi.set(__self__, "origin_id", origin_id)
         if project_id and not isinstance(project_id, str):
             raise TypeError("Expected argument 'project_id' to be a str")
         pulumi.set(__self__, "project_id", project_id)
@@ -55,6 +61,22 @@ class GetGroupResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter
+    def origin(self) -> str:
+        """
+        The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter(name="originId")
+    def origin_id(self) -> str:
+        """
+        The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+        """
+        return pulumi.get(self, "origin_id")
+
+    @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
         return pulumi.get(self, "project_id")
@@ -69,6 +91,8 @@ class AwaitableGetGroupResult(GetGroupResult):
             descriptor=self.descriptor,
             id=self.id,
             name=self.name,
+            origin=self.origin,
+            origin_id=self.origin_id,
             project_id=self.project_id)
 
 
@@ -78,21 +102,9 @@ def get_group(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Group within Azure DevOps
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    project = azuredevops.get_project(project_name="contoso-project")
-    test = azuredevops.get_group(project_id=project.id,
-        name="Test Group")
-    pulumi.export("groupId", test.id)
-    pulumi.export("groupDescriptor", test.descriptor)
-    ```
     ## Relevant Links
 
-    * [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
 
 
     :param str name: The Group Name.
@@ -111,4 +123,6 @@ def get_group(name: Optional[str] = None,
         descriptor=__ret__.descriptor,
         id=__ret__.id,
         name=__ret__.name,
+        origin=__ret__.origin,
+        origin_id=__ret__.origin_id,
         project_id=__ret__.project_id)

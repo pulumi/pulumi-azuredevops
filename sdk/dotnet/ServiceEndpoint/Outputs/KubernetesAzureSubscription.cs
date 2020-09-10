@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint.Outputs
         /// </summary>
         public readonly string? Namespace;
         /// <summary>
-        /// The resource group id, to which the Kubernetes cluster is deployed.
+        /// The resource group name, to which the Kubernetes cluster is deployed.
         /// </summary>
         public readonly string ResourcegroupId;
         /// <summary>

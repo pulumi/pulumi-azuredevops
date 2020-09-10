@@ -28,10 +28,10 @@ namespace Pulumi.AzureDevOps
         ///     {
         ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
         ///         {
-        ///             ProjectName = "Sample Project",
+        ///             ProjectIdentifier = "Sample Project",
         ///         }));
         ///         this.Id = project.Apply(project =&gt; project.Id);
-        ///         this.ProjectName = project.Apply(project =&gt; project.ProjectName);
+        ///         this.Name = project.Apply(project =&gt; project.Name);
         ///         this.Visibility = project.Apply(project =&gt; project.Visibility);
         ///         this.VersionControl = project.Apply(project =&gt; project.VersionControl);
         ///         this.WorkItemTemplate = project.Apply(project =&gt; project.WorkItemTemplate);
@@ -40,8 +40,8 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     [Output("id")]
         ///     public Output&lt;string&gt; Id { get; set; }
-        ///     [Output("projectName")]
-        ///     public Output&lt;string&gt; ProjectName { get; set; }
+        ///     [Output("name")]
+        ///     public Output&lt;string&gt; Name { get; set; }
         ///     [Output("visibility")]
         ///     public Output&lt;string&gt; Visibility { get; set; }
         ///     [Output("versionControl")]
@@ -66,10 +66,10 @@ namespace Pulumi.AzureDevOps
     public sealed class GetProjectArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Project.
+        /// Name or ID of the Project.
         /// </summary>
-        [Input("projectName", required: true)]
-        public string ProjectName { get; set; } = null!;
+        [Input("projectIdentifier", required: true)]
+        public string ProjectIdentifier { get; set; } = null!;
 
         public GetProjectArgs()
         {
@@ -86,8 +86,9 @@ namespace Pulumi.AzureDevOps
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string Name;
         public readonly string ProcessTemplateId;
-        public readonly string ProjectName;
+        public readonly string ProjectIdentifier;
         public readonly string VersionControl;
         public readonly string Visibility;
         public readonly string WorkItemTemplate;
@@ -100,9 +101,11 @@ namespace Pulumi.AzureDevOps
 
             string id,
 
+            string name,
+
             string processTemplateId,
 
-            string projectName,
+            string projectIdentifier,
 
             string versionControl,
 
@@ -113,8 +116,9 @@ namespace Pulumi.AzureDevOps
             Description = description;
             Features = features;
             Id = id;
+            Name = name;
             ProcessTemplateId = processTemplateId;
-            ProjectName = projectName;
+            ProjectIdentifier = projectIdentifier;
             VersionControl = versionControl;
             Visibility = visibility;
             WorkItemTemplate = workItemTemplate;
