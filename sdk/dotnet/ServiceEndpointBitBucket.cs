@@ -107,7 +107,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azuredevops:ServiceEndpoint/bitBucket:BitBucket"},
+                    new Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/bitBucket:BitBucket"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
