@@ -872,4 +872,3 @@ export namespace ServiceEndpoint {
         tokenHash?: pulumi.Input<string>;
     }
 }
-

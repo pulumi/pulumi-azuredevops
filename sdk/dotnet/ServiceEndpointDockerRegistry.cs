@@ -141,7 +141,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry"},
+                    new Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

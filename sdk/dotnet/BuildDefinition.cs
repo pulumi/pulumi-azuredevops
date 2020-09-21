@@ -210,7 +210,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azuredevops:Build/buildDefinition:BuildDefinition"},
+                    new Pulumi.Alias { Type = "azuredevops:Build/buildDefinition:BuildDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

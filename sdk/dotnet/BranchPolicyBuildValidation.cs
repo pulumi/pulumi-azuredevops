@@ -135,7 +135,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation"},
+                    new Pulumi.Alias { Type = "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

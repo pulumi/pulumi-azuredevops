@@ -118,7 +118,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers"},
+                    new Pulumi.Alias { Type = "azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

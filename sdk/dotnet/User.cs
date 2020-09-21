@@ -101,7 +101,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azuredevops:Entitlement/user:User"},
+                    new Pulumi.Alias { Type = "azuredevops:Entitlement/user:User"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

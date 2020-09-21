@@ -79,7 +79,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azuredevops:Agent/pool:Pool"},
+                    new Pulumi.Alias { Type = "azuredevops:Agent/pool:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

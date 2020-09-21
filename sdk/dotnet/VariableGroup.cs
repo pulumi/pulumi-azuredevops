@@ -118,7 +118,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Alias { Type = "azuredevops:Pipeline/variableGroup:VariableGroup"},
+                    new Pulumi.Alias { Type = "azuredevops:Pipeline/variableGroup:VariableGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
