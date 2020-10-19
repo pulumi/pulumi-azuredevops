@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -66,7 +66,7 @@ class GetRepositoriesRepositoryResult(dict):
                  name: str,
                  project_id: str,
                  remote_url: str,
-                 size: float,
+                 size: int,
                  ssh_url: str,
                  url: str,
                  web_url: str):
@@ -76,7 +76,7 @@ class GetRepositoriesRepositoryResult(dict):
         :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
         :param str project_id: ID of project to list Git repositories
         :param str remote_url: HTTPS Url to clone the Git repository
-        :param float size: Compressed size (bytes) of the repository.
+        :param int size: Compressed size (bytes) of the repository.
         :param str ssh_url: SSH Url to clone the Git repository
         :param str url: Details REST API endpoint for the Git Repository.
         :param str web_url: Url of the Git repository web view
@@ -133,7 +133,7 @@ class GetRepositoriesRepositoryResult(dict):
 
     @property
     @pulumi.getter
-    def size(self) -> float:
+    def size(self) -> int:
         """
         Compressed size (bytes) of the repository.
         """

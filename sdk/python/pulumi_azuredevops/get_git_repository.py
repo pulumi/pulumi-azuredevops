@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -38,8 +38,8 @@ class GetGitRepositoryResult:
         if remote_url and not isinstance(remote_url, str):
             raise TypeError("Expected argument 'remote_url' to be a str")
         pulumi.set(__self__, "remote_url", remote_url)
-        if size and not isinstance(size, float):
-            raise TypeError("Expected argument 'size' to be a float")
+        if size and not isinstance(size, int):
+            raise TypeError("Expected argument 'size' to be a int")
         pulumi.set(__self__, "size", size)
         if ssh_url and not isinstance(ssh_url, str):
             raise TypeError("Expected argument 'ssh_url' to be a str")
@@ -86,7 +86,7 @@ class GetGitRepositoryResult:
 
     @property
     @pulumi.getter
-    def size(self) -> float:
+    def size(self) -> int:
         return pulumi.get(self, "size")
 
     @property

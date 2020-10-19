@@ -28,6 +28,7 @@ CHANGELOG
   ** `azuredevops.repository`  
   ** `azuredevops.security`  
   ** `azuredevops.serviceendpoint`  
+* Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
 
 ---
 

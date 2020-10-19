@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -51,16 +51,16 @@ __all__ = [
 @pulumi.output_type
 class BranchPolicyAutoReviewersSettings(dict):
     def __init__(__self__, *,
-                 auto_reviewer_ids: List[str],
-                 scopes: List['outputs.BranchPolicyAutoReviewersSettingsScope'],
+                 auto_reviewer_ids: Sequence[str],
+                 scopes: Sequence['outputs.BranchPolicyAutoReviewersSettingsScope'],
                  message: Optional[str] = None,
-                 path_filters: Optional[List[str]] = None,
+                 path_filters: Optional[Sequence[str]] = None,
                  submitter_can_vote: Optional[bool] = None):
         """
-        :param List[str] auto_reviewer_ids: Required reviewers ids. Supports multiples user Ids.
-        :param List['BranchPolicyAutoReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence[str] auto_reviewer_ids: Required reviewers ids. Supports multiples user Ids.
+        :param Sequence['BranchPolicyAutoReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param str message: Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
-        :param List[str] path_filters: Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+        :param Sequence[str] path_filters: Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
         :param bool submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
         pulumi.set(__self__, "auto_reviewer_ids", auto_reviewer_ids)
@@ -74,7 +74,7 @@ class BranchPolicyAutoReviewersSettings(dict):
 
     @property
     @pulumi.getter(name="autoReviewerIds")
-    def auto_reviewer_ids(self) -> List[str]:
+    def auto_reviewer_ids(self) -> Sequence[str]:
         """
         Required reviewers ids. Supports multiples user Ids.
         """
@@ -82,7 +82,7 @@ class BranchPolicyAutoReviewersSettings(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List['outputs.BranchPolicyAutoReviewersSettingsScope']:
+    def scopes(self) -> Sequence['outputs.BranchPolicyAutoReviewersSettingsScope']:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
@@ -98,7 +98,7 @@ class BranchPolicyAutoReviewersSettings(dict):
 
     @property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[List[str]]:
+    def path_filters(self) -> Optional[Sequence[str]]:
         """
         Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
         """
@@ -165,21 +165,21 @@ class BranchPolicyAutoReviewersSettingsScope(dict):
 @pulumi.output_type
 class BranchPolicyBuildValidationSettings(dict):
     def __init__(__self__, *,
-                 build_definition_id: float,
+                 build_definition_id: int,
                  display_name: str,
-                 scopes: List['outputs.BranchPolicyBuildValidationSettingsScope'],
-                 filename_patterns: Optional[List[str]] = None,
+                 scopes: Sequence['outputs.BranchPolicyBuildValidationSettingsScope'],
+                 filename_patterns: Optional[Sequence[str]] = None,
                  manual_queue_only: Optional[bool] = None,
                  queue_on_source_update_only: Optional[bool] = None,
-                 valid_duration: Optional[float] = None):
+                 valid_duration: Optional[int] = None):
         """
-        :param float build_definition_id: The ID of the build to monitor for the policy.
+        :param int build_definition_id: The ID of the build to monitor for the policy.
         :param str display_name: The display name for the policy.
-        :param List['BranchPolicyBuildValidationSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        :param List[str] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        :param Sequence['BranchPolicyBuildValidationSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence[str] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param bool manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param bool queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
-        :param float valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+        :param int valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
         """
         pulumi.set(__self__, "build_definition_id", build_definition_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -195,7 +195,7 @@ class BranchPolicyBuildValidationSettings(dict):
 
     @property
     @pulumi.getter(name="buildDefinitionId")
-    def build_definition_id(self) -> float:
+    def build_definition_id(self) -> int:
         """
         The ID of the build to monitor for the policy.
         """
@@ -211,7 +211,7 @@ class BranchPolicyBuildValidationSettings(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List['outputs.BranchPolicyBuildValidationSettingsScope']:
+    def scopes(self) -> Sequence['outputs.BranchPolicyBuildValidationSettingsScope']:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
@@ -219,7 +219,7 @@ class BranchPolicyBuildValidationSettings(dict):
 
     @property
     @pulumi.getter(name="filenamePatterns")
-    def filename_patterns(self) -> Optional[List[str]]:
+    def filename_patterns(self) -> Optional[Sequence[str]]:
         """
         If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         """
@@ -243,7 +243,7 @@ class BranchPolicyBuildValidationSettings(dict):
 
     @property
     @pulumi.getter(name="validDuration")
-    def valid_duration(self) -> Optional[float]:
+    def valid_duration(self) -> Optional[int]:
         """
         The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
         """
@@ -302,15 +302,15 @@ class BranchPolicyBuildValidationSettingsScope(dict):
 @pulumi.output_type
 class BranchPolicyCommentResolutionSettings(dict):
     def __init__(__self__, *,
-                 scopes: List['outputs.BranchPolicyCommentResolutionSettingsScope']):
+                 scopes: Sequence['outputs.BranchPolicyCommentResolutionSettingsScope']):
         """
-        :param List['BranchPolicyCommentResolutionSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence['BranchPolicyCommentResolutionSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         pulumi.set(__self__, "scopes", scopes)
 
     @property
     @pulumi.getter
-    def scopes(self) -> List['outputs.BranchPolicyCommentResolutionSettingsScope']:
+    def scopes(self) -> Sequence['outputs.BranchPolicyCommentResolutionSettingsScope']:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
@@ -369,12 +369,12 @@ class BranchPolicyCommentResolutionSettingsScope(dict):
 @pulumi.output_type
 class BranchPolicyMinReviewersSettings(dict):
     def __init__(__self__, *,
-                 reviewer_count: float,
-                 scopes: List['outputs.BranchPolicyMinReviewersSettingsScope'],
+                 reviewer_count: int,
+                 scopes: Sequence['outputs.BranchPolicyMinReviewersSettingsScope'],
                  submitter_can_vote: Optional[bool] = None):
         """
-        :param float reviewer_count: The number of reviewrs needed to approve.
-        :param List['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param int reviewer_count: The number of reviewrs needed to approve.
+        :param Sequence['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param bool submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
         pulumi.set(__self__, "reviewer_count", reviewer_count)
@@ -384,7 +384,7 @@ class BranchPolicyMinReviewersSettings(dict):
 
     @property
     @pulumi.getter(name="reviewerCount")
-    def reviewer_count(self) -> float:
+    def reviewer_count(self) -> int:
         """
         The number of reviewrs needed to approve.
         """
@@ -392,7 +392,7 @@ class BranchPolicyMinReviewersSettings(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List['outputs.BranchPolicyMinReviewersSettingsScope']:
+    def scopes(self) -> Sequence['outputs.BranchPolicyMinReviewersSettingsScope']:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
@@ -459,15 +459,15 @@ class BranchPolicyMinReviewersSettingsScope(dict):
 @pulumi.output_type
 class BranchPolicyWorkItemLinkingSettings(dict):
     def __init__(__self__, *,
-                 scopes: List['outputs.BranchPolicyWorkItemLinkingSettingsScope']):
+                 scopes: Sequence['outputs.BranchPolicyWorkItemLinkingSettingsScope']):
         """
-        :param List['BranchPolicyWorkItemLinkingSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence['BranchPolicyWorkItemLinkingSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         pulumi.set(__self__, "scopes", scopes)
 
     @property
     @pulumi.getter
-    def scopes(self) -> List['outputs.BranchPolicyWorkItemLinkingSettingsScope']:
+    def scopes(self) -> Sequence['outputs.BranchPolicyWorkItemLinkingSettingsScope']:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
@@ -561,17 +561,17 @@ class BuildDefinitionCiTrigger(dict):
 class BuildDefinitionCiTriggerOverride(dict):
     def __init__(__self__, *,
                  batch: Optional[bool] = None,
-                 branch_filters: Optional[List['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']] = None,
-                 max_concurrent_builds_per_branch: Optional[float] = None,
-                 path_filters: Optional[List['outputs.BuildDefinitionCiTriggerOverridePathFilter']] = None,
-                 polling_interval: Optional[float] = None,
+                 branch_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']] = None,
+                 max_concurrent_builds_per_branch: Optional[int] = None,
+                 path_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']] = None,
+                 polling_interval: Optional[int] = None,
                  polling_job_id: Optional[str] = None):
         """
         :param bool batch: If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
-        :param List['BuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
-        :param float max_concurrent_builds_per_branch: The number of max builds per branch. Defaults to `1`.
-        :param List['BuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-        :param float polling_interval: How often the external repository is polled. Defaults to `0`.
+        :param Sequence['BuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
+        :param int max_concurrent_builds_per_branch: The number of max builds per branch. Defaults to `1`.
+        :param Sequence['BuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        :param int polling_interval: How often the external repository is polled. Defaults to `0`.
         :param str polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
         if batch is not None:
@@ -597,7 +597,7 @@ class BuildDefinitionCiTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="branchFilters")
-    def branch_filters(self) -> Optional[List['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']]:
+    def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']]:
         """
         The branches to include and exclude from the trigger.
         """
@@ -605,7 +605,7 @@ class BuildDefinitionCiTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="maxConcurrentBuildsPerBranch")
-    def max_concurrent_builds_per_branch(self) -> Optional[float]:
+    def max_concurrent_builds_per_branch(self) -> Optional[int]:
         """
         The number of max builds per branch. Defaults to `1`.
         """
@@ -613,7 +613,7 @@ class BuildDefinitionCiTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[List['outputs.BuildDefinitionCiTriggerOverridePathFilter']]:
+    def path_filters(self) -> Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']]:
         """
         Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
@@ -621,7 +621,7 @@ class BuildDefinitionCiTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="pollingInterval")
-    def polling_interval(self) -> Optional[float]:
+    def polling_interval(self) -> Optional[int]:
         """
         How often the external repository is polled. Defaults to `0`.
         """
@@ -642,11 +642,11 @@ class BuildDefinitionCiTriggerOverride(dict):
 @pulumi.output_type
 class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
     def __init__(__self__, *,
-                 excludes: Optional[List[str]] = None,
-                 includes: Optional[List[str]] = None):
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
         """
-        :param List[str] excludes: List of branch patterns to exclude.
-        :param List[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -655,7 +655,7 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[List[str]]:
+    def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
         """
@@ -663,7 +663,7 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[List[str]]:
+    def includes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to include.
         """
@@ -676,11 +676,11 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
 @pulumi.output_type
 class BuildDefinitionCiTriggerOverridePathFilter(dict):
     def __init__(__self__, *,
-                 excludes: Optional[List[str]] = None,
-                 includes: Optional[List[str]] = None):
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
         """
-        :param List[str] excludes: List of branch patterns to exclude.
-        :param List[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -689,7 +689,7 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[List[str]]:
+    def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
         """
@@ -697,7 +697,7 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[List[str]]:
+    def includes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to include.
         """
@@ -804,12 +804,12 @@ class BuildDefinitionPullRequestTriggerForks(dict):
 class BuildDefinitionPullRequestTriggerOverride(dict):
     def __init__(__self__, *,
                  auto_cancel: Optional[bool] = None,
-                 branch_filters: Optional[List['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
-                 path_filters: Optional[List['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']] = None):
+                 branch_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
+                 path_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']] = None):
         """
         :param bool auto_cancel: . Defaults to `true`.
-        :param List['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
-        :param List['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        :param Sequence['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
+        :param Sequence['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         if auto_cancel is not None:
             pulumi.set(__self__, "auto_cancel", auto_cancel)
@@ -828,7 +828,7 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="branchFilters")
-    def branch_filters(self) -> Optional[List['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']]:
+    def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']]:
         """
         The branches to include and exclude from the trigger.
         """
@@ -836,7 +836,7 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[List['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']]:
+    def path_filters(self) -> Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']]:
         """
         Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
@@ -849,11 +849,11 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
     def __init__(__self__, *,
-                 excludes: Optional[List[str]] = None,
-                 includes: Optional[List[str]] = None):
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
         """
-        :param List[str] excludes: List of branch patterns to exclude.
-        :param List[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -862,7 +862,7 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[List[str]]:
+    def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
         """
@@ -870,7 +870,7 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[List[str]]:
+    def includes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to include.
         """
@@ -883,11 +883,11 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
     def __init__(__self__, *,
-                 excludes: Optional[List[str]] = None,
-                 includes: Optional[List[str]] = None):
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
         """
-        :param List[str] excludes: List of branch patterns to exclude.
-        :param List[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -896,7 +896,7 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[List[str]]:
+    def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
         """
@@ -904,7 +904,7 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[List[str]]:
+    def includes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to include.
         """
@@ -1586,7 +1586,7 @@ class GetIterationChildrenResult(dict):
 class GetPoolsAgentPoolResult(dict):
     def __init__(__self__, *,
                  auto_provision: bool,
-                 id: float,
+                 id: int,
                  name: str,
                  pool_type: str):
         """
@@ -1609,7 +1609,7 @@ class GetPoolsAgentPoolResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> float:
+    def id(self) -> int:
         return pulumi.get(self, "id")
 
     @property
@@ -1688,7 +1688,7 @@ class GetRepositoriesRepositoryResult(dict):
                  name: str,
                  project_id: str,
                  remote_url: str,
-                 size: float,
+                 size: int,
                  ssh_url: str,
                  url: str,
                  web_url: str):
@@ -1698,7 +1698,7 @@ class GetRepositoriesRepositoryResult(dict):
         :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
         :param str project_id: ID of project to list Git repositories
         :param str remote_url: HTTPS Url to clone the Git repository
-        :param float size: Compressed size (bytes) of the repository.
+        :param int size: Compressed size (bytes) of the repository.
         :param str ssh_url: SSH Url to clone the Git repository
         :param str url: Details REST API endpoint for the Git Repository.
         :param str web_url: Url of the Git repository web view
@@ -1755,7 +1755,7 @@ class GetRepositoriesRepositoryResult(dict):
 
     @property
     @pulumi.getter
-    def size(self) -> float:
+    def size(self) -> int:
         """
         Compressed size (bytes) of the repository.
         """

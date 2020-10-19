@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -26,7 +26,7 @@ class VariableGroup(pulumi.CustomResource):
                  key_vault: Optional[pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -71,7 +71,7 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Variable Group.
         :param pulumi.Input[str] name: The name of the Variable Group.
         :param pulumi.Input[str] project_id: The project ID or project name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
         """
         pulumi.log.warn("VariableGroup is deprecated: azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup")
         if __name__ is not None:
@@ -116,7 +116,7 @@ class VariableGroup(pulumi.CustomResource):
             key_vault: Optional[pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']]] = None,
             name: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None) -> 'VariableGroup':
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None) -> 'VariableGroup':
         """
         Get an existing VariableGroup resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -128,7 +128,7 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of the Variable Group.
         :param pulumi.Input[str] name: The name of the Variable Group.
         :param pulumi.Input[str] project_id: The project ID or project name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -181,7 +181,7 @@ class VariableGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variables(self) -> pulumi.Output[List['outputs.VariableGroupVariable']]:
+    def variables(self) -> pulumi.Output[Sequence['outputs.VariableGroupVariable']]:
         """
         One or more `variable` blocks as documented below.
         """

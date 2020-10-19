@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,8 +24,8 @@ class BuildDefinition(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[str]] = None,
                  pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
-                 variable_groups: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-                 variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None,
+                 variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None,
                  __props__=None,
                  __name__=None,
                  __opts__=None):
@@ -113,8 +113,8 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']] pull_request_trigger: Pull Request Integration Integration trigger.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']] repository: A `repository` block as documented below.
-        :param pulumi.Input[List[pulumi.Input[float]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
         """
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
@@ -166,9 +166,9 @@ class BuildDefinition(pulumi.CustomResource):
             project_id: Optional[pulumi.Input[str]] = None,
             pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
             repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
-            revision: Optional[pulumi.Input[float]] = None,
-            variable_groups: Optional[pulumi.Input[List[pulumi.Input[float]]]] = None,
-            variables: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None) -> 'BuildDefinition':
+            revision: Optional[pulumi.Input[int]] = None,
+            variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+            variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None) -> 'BuildDefinition':
         """
         Get an existing BuildDefinition resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -183,9 +183,9 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']] pull_request_trigger: Pull Request Integration Integration trigger.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']] repository: A `repository` block as documented below.
-        :param pulumi.Input[float] revision: The revision of the build definition
-        :param pulumi.Input[List[pulumi.Input[float]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
+        :param pulumi.Input[int] revision: The revision of the build definition
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -261,7 +261,7 @@ class BuildDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def revision(self) -> pulumi.Output[float]:
+    def revision(self) -> pulumi.Output[int]:
         """
         The revision of the build definition
         """
@@ -269,7 +269,7 @@ class BuildDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="variableGroups")
-    def variable_groups(self) -> pulumi.Output[Optional[List[float]]]:
+    def variable_groups(self) -> pulumi.Output[Optional[Sequence[int]]]:
         """
         A list of variable group IDs (integers) to link to the build definition.
         """
@@ -277,7 +277,7 @@ class BuildDefinition(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def variables(self) -> pulumi.Output[Optional[List['outputs.BuildDefinitionVariable']]]:
+    def variables(self) -> pulumi.Output[Optional[Sequence['outputs.BuildDefinitionVariable']]]:
         """
         A list of `variable` blocks, as documented below.
         """
