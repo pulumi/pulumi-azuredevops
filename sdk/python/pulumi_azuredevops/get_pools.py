@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -30,7 +30,7 @@ class GetPoolsResult:
 
     @property
     @pulumi.getter(name="agentPools")
-    def agent_pools(self) -> List['outputs.GetPoolsAgentPoolResult']:
+    def agent_pools(self) -> Sequence['outputs.GetPoolsAgentPoolResult']:
         """
         A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:
         """

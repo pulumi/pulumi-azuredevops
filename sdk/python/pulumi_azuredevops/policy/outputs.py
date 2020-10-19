@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -19,21 +19,21 @@ __all__ = [
 @pulumi.output_type
 class BranchPolicyBuildValidationSettings(dict):
     def __init__(__self__, *,
-                 build_definition_id: float,
+                 build_definition_id: int,
                  display_name: str,
-                 scopes: List['outputs.BranchPolicyBuildValidationSettingsScope'],
-                 filename_patterns: Optional[List[str]] = None,
+                 scopes: Sequence['outputs.BranchPolicyBuildValidationSettingsScope'],
+                 filename_patterns: Optional[Sequence[str]] = None,
                  manual_queue_only: Optional[bool] = None,
                  queue_on_source_update_only: Optional[bool] = None,
-                 valid_duration: Optional[float] = None):
+                 valid_duration: Optional[int] = None):
         """
-        :param float build_definition_id: The ID of the build to monitor for the policy.
+        :param int build_definition_id: The ID of the build to monitor for the policy.
         :param str display_name: The display name for the policy.
-        :param List['BranchPolicyBuildValidationSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        :param List[str] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        :param Sequence['BranchPolicyBuildValidationSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence[str] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param bool manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param bool queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
-        :param float valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+        :param int valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
         """
         pulumi.set(__self__, "build_definition_id", build_definition_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -49,7 +49,7 @@ class BranchPolicyBuildValidationSettings(dict):
 
     @property
     @pulumi.getter(name="buildDefinitionId")
-    def build_definition_id(self) -> float:
+    def build_definition_id(self) -> int:
         """
         The ID of the build to monitor for the policy.
         """
@@ -65,7 +65,7 @@ class BranchPolicyBuildValidationSettings(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List['outputs.BranchPolicyBuildValidationSettingsScope']:
+    def scopes(self) -> Sequence['outputs.BranchPolicyBuildValidationSettingsScope']:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
@@ -73,7 +73,7 @@ class BranchPolicyBuildValidationSettings(dict):
 
     @property
     @pulumi.getter(name="filenamePatterns")
-    def filename_patterns(self) -> Optional[List[str]]:
+    def filename_patterns(self) -> Optional[Sequence[str]]:
         """
         If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         """
@@ -97,7 +97,7 @@ class BranchPolicyBuildValidationSettings(dict):
 
     @property
     @pulumi.getter(name="validDuration")
-    def valid_duration(self) -> Optional[float]:
+    def valid_duration(self) -> Optional[int]:
         """
         The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
         """
@@ -156,12 +156,12 @@ class BranchPolicyBuildValidationSettingsScope(dict):
 @pulumi.output_type
 class BranchPolicyMinReviewersSettings(dict):
     def __init__(__self__, *,
-                 reviewer_count: float,
-                 scopes: List['outputs.BranchPolicyMinReviewersSettingsScope'],
+                 reviewer_count: int,
+                 scopes: Sequence['outputs.BranchPolicyMinReviewersSettingsScope'],
                  submitter_can_vote: Optional[bool] = None):
         """
-        :param float reviewer_count: The number of reviewrs needed to approve.
-        :param List['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param int reviewer_count: The number of reviewrs needed to approve.
+        :param Sequence['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param bool submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
         pulumi.set(__self__, "reviewer_count", reviewer_count)
@@ -171,7 +171,7 @@ class BranchPolicyMinReviewersSettings(dict):
 
     @property
     @pulumi.getter(name="reviewerCount")
-    def reviewer_count(self) -> float:
+    def reviewer_count(self) -> int:
         """
         The number of reviewrs needed to approve.
         """
@@ -179,7 +179,7 @@ class BranchPolicyMinReviewersSettings(dict):
 
     @property
     @pulumi.getter
-    def scopes(self) -> List['outputs.BranchPolicyMinReviewersSettingsScope']:
+    def scopes(self) -> Sequence['outputs.BranchPolicyMinReviewersSettingsScope']:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """

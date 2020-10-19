@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['GroupMembership']
@@ -20,7 +20,7 @@ class GroupMembership(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  group: Optional[pulumi.Input[str]] = None,
-                 members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  mode: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -53,7 +53,7 @@ class GroupMembership(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The descriptor of the group being managed.
-        :param pulumi.Input[List[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
                > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] mode: The mode how the resource manages group members.
                - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
@@ -96,7 +96,7 @@ class GroupMembership(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             group: Optional[pulumi.Input[str]] = None,
-            members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             mode: Optional[pulumi.Input[str]] = None) -> 'GroupMembership':
         """
         Get an existing GroupMembership resource's state with the given name, id, and optional extra
@@ -106,7 +106,7 @@ class GroupMembership(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The descriptor of the group being managed.
-        :param pulumi.Input[List[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
                > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] mode: The mode how the resource manages group members.
                - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
@@ -132,7 +132,7 @@ class GroupMembership(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def members(self) -> pulumi.Output[List[str]]:
+    def members(self) -> pulumi.Output[Sequence[str]]:
         """
         A list of user or group descriptors that will become members of the group.
         > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.

@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -61,17 +61,17 @@ class BuildDefinitionCiTrigger(dict):
 class BuildDefinitionCiTriggerOverride(dict):
     def __init__(__self__, *,
                  batch: Optional[bool] = None,
-                 branch_filters: Optional[List['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']] = None,
-                 max_concurrent_builds_per_branch: Optional[float] = None,
-                 path_filters: Optional[List['outputs.BuildDefinitionCiTriggerOverridePathFilter']] = None,
-                 polling_interval: Optional[float] = None,
+                 branch_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']] = None,
+                 max_concurrent_builds_per_branch: Optional[int] = None,
+                 path_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']] = None,
+                 polling_interval: Optional[int] = None,
                  polling_job_id: Optional[str] = None):
         """
         :param bool batch: If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
-        :param List['BuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
-        :param float max_concurrent_builds_per_branch: The number of max builds per branch. Defaults to `1`.
-        :param List['BuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-        :param float polling_interval: How often the external repository is polled. Defaults to `0`.
+        :param Sequence['BuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
+        :param int max_concurrent_builds_per_branch: The number of max builds per branch. Defaults to `1`.
+        :param Sequence['BuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        :param int polling_interval: How often the external repository is polled. Defaults to `0`.
         :param str polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
         if batch is not None:
@@ -97,7 +97,7 @@ class BuildDefinitionCiTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="branchFilters")
-    def branch_filters(self) -> Optional[List['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']]:
+    def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']]:
         """
         The branches to include and exclude from the trigger.
         """
@@ -105,7 +105,7 @@ class BuildDefinitionCiTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="maxConcurrentBuildsPerBranch")
-    def max_concurrent_builds_per_branch(self) -> Optional[float]:
+    def max_concurrent_builds_per_branch(self) -> Optional[int]:
         """
         The number of max builds per branch. Defaults to `1`.
         """
@@ -113,7 +113,7 @@ class BuildDefinitionCiTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[List['outputs.BuildDefinitionCiTriggerOverridePathFilter']]:
+    def path_filters(self) -> Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']]:
         """
         Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
@@ -121,7 +121,7 @@ class BuildDefinitionCiTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="pollingInterval")
-    def polling_interval(self) -> Optional[float]:
+    def polling_interval(self) -> Optional[int]:
         """
         How often the external repository is polled. Defaults to `0`.
         """
@@ -142,11 +142,11 @@ class BuildDefinitionCiTriggerOverride(dict):
 @pulumi.output_type
 class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
     def __init__(__self__, *,
-                 excludes: Optional[List[str]] = None,
-                 includes: Optional[List[str]] = None):
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
         """
-        :param List[str] excludes: List of branch patterns to exclude.
-        :param List[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -155,7 +155,7 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[List[str]]:
+    def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
         """
@@ -163,7 +163,7 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[List[str]]:
+    def includes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to include.
         """
@@ -176,11 +176,11 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
 @pulumi.output_type
 class BuildDefinitionCiTriggerOverridePathFilter(dict):
     def __init__(__self__, *,
-                 excludes: Optional[List[str]] = None,
-                 includes: Optional[List[str]] = None):
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
         """
-        :param List[str] excludes: List of branch patterns to exclude.
-        :param List[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -189,7 +189,7 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[List[str]]:
+    def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
         """
@@ -197,7 +197,7 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[List[str]]:
+    def includes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to include.
         """
@@ -304,12 +304,12 @@ class BuildDefinitionPullRequestTriggerForks(dict):
 class BuildDefinitionPullRequestTriggerOverride(dict):
     def __init__(__self__, *,
                  auto_cancel: Optional[bool] = None,
-                 branch_filters: Optional[List['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
-                 path_filters: Optional[List['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']] = None):
+                 branch_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
+                 path_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']] = None):
         """
         :param bool auto_cancel: . Defaults to `true`.
-        :param List['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
-        :param List['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        :param Sequence['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
+        :param Sequence['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         if auto_cancel is not None:
             pulumi.set(__self__, "auto_cancel", auto_cancel)
@@ -328,7 +328,7 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="branchFilters")
-    def branch_filters(self) -> Optional[List['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']]:
+    def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']]:
         """
         The branches to include and exclude from the trigger.
         """
@@ -336,7 +336,7 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
 
     @property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[List['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']]:
+    def path_filters(self) -> Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']]:
         """
         Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
@@ -349,11 +349,11 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
     def __init__(__self__, *,
-                 excludes: Optional[List[str]] = None,
-                 includes: Optional[List[str]] = None):
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
         """
-        :param List[str] excludes: List of branch patterns to exclude.
-        :param List[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -362,7 +362,7 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[List[str]]:
+    def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
         """
@@ -370,7 +370,7 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[List[str]]:
+    def includes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to include.
         """
@@ -383,11 +383,11 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
     def __init__(__self__, *,
-                 excludes: Optional[List[str]] = None,
-                 includes: Optional[List[str]] = None):
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
         """
-        :param List[str] excludes: List of branch patterns to exclude.
-        :param List[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -396,7 +396,7 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[List[str]]:
+    def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
         """
@@ -404,7 +404,7 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[List[str]]:
+    def includes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to include.
         """

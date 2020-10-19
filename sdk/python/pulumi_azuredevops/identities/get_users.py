@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 
@@ -76,12 +76,12 @@ class GetUsersResult:
 
     @property
     @pulumi.getter(name="subjectTypes")
-    def subject_types(self) -> Optional[List[str]]:
+    def subject_types(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "subject_types")
 
     @property
     @pulumi.getter
-    def users(self) -> List['outputs.GetUsersUserResult']:
+    def users(self) -> Sequence['outputs.GetUsersUserResult']:
         """
         A list of existing users in your Azure DevOps Organization with details about every single user which includes:
         """
@@ -105,7 +105,7 @@ class AwaitableGetUsersResult(GetUsersResult):
 def get_users(origin: Optional[str] = None,
               origin_id: Optional[str] = None,
               principal_name: Optional[str] = None,
-              subject_types: Optional[List[str]] = None,
+              subject_types: Optional[Sequence[str]] = None,
               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetUsersResult:
     """
     Use this data source to access information about an existing users within Azure DevOps.
@@ -134,7 +134,7 @@ def get_users(origin: Optional[str] = None,
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
     :param str origin_id: The unique identifier from the system of origin.
     :param str principal_name: The PrincipalName of this graph member from the source provider.
-    :param List[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+    :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """
     pulumi.log.warn("get_users is deprecated: azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers")
     __args__ = dict()

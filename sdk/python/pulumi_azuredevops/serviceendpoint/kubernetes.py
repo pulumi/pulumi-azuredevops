@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -24,11 +24,11 @@ class Kubernetes(pulumi.CustomResource):
                  apiserver_url: Optional[pulumi.Input[str]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  authorization_type: Optional[pulumi.Input[str]] = None,
-                 azure_subscriptions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesAzureSubscriptionArgs']]]]] = None,
+                 azure_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesAzureSubscriptionArgs']]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
-                 kubeconfigs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesKubeconfigArgs']]]]] = None,
+                 kubeconfigs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesKubeconfigArgs']]]]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 service_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]]] = None,
+                 service_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -44,10 +44,10 @@ class Kubernetes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] apiserver_url: The Service Endpoint description.
         :param pulumi.Input[str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesAzureSubscriptionArgs']]]] azure_subscriptions: The configuration for authorization_type="AzureSubscription".
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesKubeconfigArgs']]]] kubeconfigs: The configuration for authorization_type="Kubeconfig".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesAzureSubscriptionArgs']]]] azure_subscriptions: The configuration for authorization_type="AzureSubscription".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesKubeconfigArgs']]]] kubeconfigs: The configuration for authorization_type="Kubeconfig".
         :param pulumi.Input[str] project_id: The project ID or project name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]] service_accounts: The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]] service_accounts: The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         pulumi.log.warn("Kubernetes is deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes")
@@ -98,11 +98,11 @@ class Kubernetes(pulumi.CustomResource):
             apiserver_url: Optional[pulumi.Input[str]] = None,
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             authorization_type: Optional[pulumi.Input[str]] = None,
-            azure_subscriptions: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesAzureSubscriptionArgs']]]]] = None,
+            azure_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesAzureSubscriptionArgs']]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
-            kubeconfigs: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesKubeconfigArgs']]]]] = None,
+            kubeconfigs: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesKubeconfigArgs']]]]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            service_accounts: Optional[pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]]] = None,
+            service_accounts: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None) -> 'Kubernetes':
         """
         Get an existing Kubernetes resource's state with the given name, id, and optional extra
@@ -113,10 +113,10 @@ class Kubernetes(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] apiserver_url: The Service Endpoint description.
         :param pulumi.Input[str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesAzureSubscriptionArgs']]]] azure_subscriptions: The configuration for authorization_type="AzureSubscription".
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesKubeconfigArgs']]]] kubeconfigs: The configuration for authorization_type="Kubeconfig".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesAzureSubscriptionArgs']]]] azure_subscriptions: The configuration for authorization_type="AzureSubscription".
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesKubeconfigArgs']]]] kubeconfigs: The configuration for authorization_type="Kubeconfig".
         :param pulumi.Input[str] project_id: The project ID or project name.
-        :param pulumi.Input[List[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]] service_accounts: The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KubernetesServiceAccountArgs']]]] service_accounts: The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -157,7 +157,7 @@ class Kubernetes(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="azureSubscriptions")
-    def azure_subscriptions(self) -> pulumi.Output[Optional[List['outputs.KubernetesAzureSubscription']]]:
+    def azure_subscriptions(self) -> pulumi.Output[Optional[Sequence['outputs.KubernetesAzureSubscription']]]:
         """
         The configuration for authorization_type="AzureSubscription".
         """
@@ -170,7 +170,7 @@ class Kubernetes(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def kubeconfigs(self) -> pulumi.Output[Optional[List['outputs.KubernetesKubeconfig']]]:
+    def kubeconfigs(self) -> pulumi.Output[Optional[Sequence['outputs.KubernetesKubeconfig']]]:
         """
         The configuration for authorization_type="Kubeconfig".
         """
@@ -186,7 +186,7 @@ class Kubernetes(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="serviceAccounts")
-    def service_accounts(self) -> pulumi.Output[Optional[List['outputs.KubernetesServiceAccount']]]:
+    def service_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.KubernetesServiceAccount']]]:
         """
         The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
         """

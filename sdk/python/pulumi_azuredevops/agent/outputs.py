@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = [
@@ -16,7 +16,7 @@ __all__ = [
 class GetPoolsAgentPoolResult(dict):
     def __init__(__self__, *,
                  auto_provision: bool,
-                 id: float,
+                 id: int,
                  name: str,
                  pool_type: str):
         """
@@ -39,7 +39,7 @@ class GetPoolsAgentPoolResult(dict):
 
     @property
     @pulumi.getter
-    def id(self) -> float:
+    def id(self) -> int:
         return pulumi.get(self, "id")
 
     @property

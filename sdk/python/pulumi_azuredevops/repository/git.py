@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
@@ -138,7 +138,7 @@ class Git(pulumi.CustomResource):
             parent_repository_id: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             remote_url: Optional[pulumi.Input[str]] = None,
-            size: Optional[pulumi.Input[float]] = None,
+            size: Optional[pulumi.Input[int]] = None,
             ssh_url: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None,
             web_url: Optional[pulumi.Input[str]] = None) -> 'Git':
@@ -156,7 +156,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] remote_url: Git HTTPS URL of the repository
-        :param pulumi.Input[float] size: Size in bytes.
+        :param pulumi.Input[int] size: Size in bytes.
         :param pulumi.Input[str] ssh_url: Git SSH URL of the repository.
         :param pulumi.Input[str] url: REST API URL of the repository.
         :param pulumi.Input[str] web_url: Web link to the repository.
@@ -236,7 +236,7 @@ class Git(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def size(self) -> pulumi.Output[float]:
+    def size(self) -> pulumi.Output[int]:
         """
         Size in bytes.
         """

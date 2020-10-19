@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -45,7 +45,7 @@ class GetIterationResult:
 
     @property
     @pulumi.getter
-    def childrens(self) -> List['outputs.GetIterationChildrenResult']:
+    def childrens(self) -> Sequence['outputs.GetIterationChildrenResult']:
         return pulumi.get(self, "childrens")
 
     @property

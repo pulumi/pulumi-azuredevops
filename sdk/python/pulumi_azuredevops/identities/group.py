@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Group']
@@ -22,7 +22,7 @@ class Group(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  mail: Optional[pulumi.Input[str]] = None,
-                 members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  origin_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
                  __props__=None,
@@ -64,7 +64,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] description: The Description of the Project.
         :param pulumi.Input[str] display_name: The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
         :param pulumi.Input[str] mail: The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
-        :param pulumi.Input[List[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] origin_id: The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
         :param pulumi.Input[str] scope: The scope of the group. A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization.x
         """
@@ -113,7 +113,7 @@ class Group(pulumi.CustomResource):
             display_name: Optional[pulumi.Input[str]] = None,
             domain: Optional[pulumi.Input[str]] = None,
             mail: Optional[pulumi.Input[str]] = None,
-            members: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+            members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             origin: Optional[pulumi.Input[str]] = None,
             origin_id: Optional[pulumi.Input[str]] = None,
             principal_name: Optional[pulumi.Input[str]] = None,
@@ -132,7 +132,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] display_name: The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
         :param pulumi.Input[str] domain: This represents the name of the container of origin for a graph member.
         :param pulumi.Input[str] mail: The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
-        :param pulumi.Input[List[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier (ex:AD, AAD, MSA)
         :param pulumi.Input[str] origin_id: The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
         :param pulumi.Input[str] principal_name: This is the PrincipalName of this graph member from the source provider.
@@ -200,7 +200,7 @@ class Group(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def members(self) -> pulumi.Output[List[str]]:
+    def members(self) -> pulumi.Output[Sequence[str]]:
         """
         > NOTE: It's possible to define group members both within the `Group` resource via the members block and by using the `GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
         """

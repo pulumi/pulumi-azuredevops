@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['ResourceAuthorization']
@@ -20,7 +20,7 @@ class ResourceAuthorization(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  authorized: Optional[pulumi.Input[bool]] = None,
-                 definition_id: Optional[pulumi.Input[float]] = None,
+                 definition_id: Optional[pulumi.Input[int]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
@@ -57,7 +57,7 @@ class ResourceAuthorization(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] authorized: Set to true to allow public access in the project. Type: boolean.
-        :param pulumi.Input[float] definition_id: The ID of the build definition to authorize. Type: string.
+        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize. Type: string.
         :param pulumi.Input[str] project_id: The project ID or project name. Type: string.
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
         :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
@@ -102,7 +102,7 @@ class ResourceAuthorization(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             authorized: Optional[pulumi.Input[bool]] = None,
-            definition_id: Optional[pulumi.Input[float]] = None,
+            definition_id: Optional[pulumi.Input[int]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             resource_id: Optional[pulumi.Input[str]] = None,
             type: Optional[pulumi.Input[str]] = None) -> 'ResourceAuthorization':
@@ -114,7 +114,7 @@ class ResourceAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] authorized: Set to true to allow public access in the project. Type: boolean.
-        :param pulumi.Input[float] definition_id: The ID of the build definition to authorize. Type: string.
+        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize. Type: string.
         :param pulumi.Input[str] project_id: The project ID or project name. Type: string.
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
         :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
@@ -140,7 +140,7 @@ class ResourceAuthorization(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="definitionId")
-    def definition_id(self) -> pulumi.Output[Optional[float]]:
+    def definition_id(self) -> pulumi.Output[Optional[int]]:
         """
         The ID of the build definition to authorize. Type: string.
         """

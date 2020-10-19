@@ -35,1641 +35,6 @@
         }
     },
     "types": {
-        "azuredevops:/BranchPolicyAutoReviewersSettings:BranchPolicyAutoReviewersSettings": {
-            "properties": {
-                "autoReviewerIds": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Required reviewers ids. Supports multiples user Ids.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "message": {
-                    "type": "string",
-                    "description": "Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "pathFilters": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "scopes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyAutoReviewersSettingsScope:BranchPolicyAutoReviewersSettingsScope"
-                    },
-                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "submitterCanVote": {
-                    "type": "boolean",
-                    "description": "Controls whether or not the submitter's vote counts. Defaults to `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "autoReviewerIds",
-                "scopes"
-            ]
-        },
-        "azuredevops:/BranchPolicyAutoReviewersSettingsScope:BranchPolicyAutoReviewersSettingsScope": {
-            "properties": {
-                "matchType": {
-                    "type": "string",
-                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryId": {
-                    "type": "string",
-                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryRef": {
-                    "type": "string",
-                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BranchPolicyBuildValidationSettings:BranchPolicyBuildValidationSettings": {
-            "properties": {
-                "buildDefinitionId": {
-                    "type": "integer",
-                    "description": "The ID of the build to monitor for the policy.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "displayName": {
-                    "type": "string",
-                    "description": "The display name for the policy.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "filenamePatterns": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[\"/WebApp/Models/Data.cs\", \"/WebApp/*\", \"*.cs\"]`. Paths prefixed with \"!\" are excluded. Example: `[\"/WebApp/*\", \"!/WebApp/Tests/*\"]`. Order is significant.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "manualQueueOnly": {
-                    "type": "boolean",
-                    "description": "If set to true, the build will need to be manually queued. Defaults to `false`\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "queueOnSourceUpdateOnly": {
-                    "type": "boolean",
-                    "description": "True if the build should queue on source updates only. Defaults to `true`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "scopes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyBuildValidationSettingsScope:BranchPolicyBuildValidationSettingsScope"
-                    },
-                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "validDuration": {
-                    "type": "integer",
-                    "description": "The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "buildDefinitionId",
-                "displayName",
-                "scopes"
-            ]
-        },
-        "azuredevops:/BranchPolicyBuildValidationSettingsScope:BranchPolicyBuildValidationSettingsScope": {
-            "properties": {
-                "matchType": {
-                    "type": "string",
-                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryId": {
-                    "type": "string",
-                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryRef": {
-                    "type": "string",
-                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BranchPolicyCommentResolutionSettings:BranchPolicyCommentResolutionSettings": {
-            "properties": {
-                "scopes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyCommentResolutionSettingsScope:BranchPolicyCommentResolutionSettingsScope"
-                    },
-                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "scopes"
-            ]
-        },
-        "azuredevops:/BranchPolicyCommentResolutionSettingsScope:BranchPolicyCommentResolutionSettingsScope": {
-            "properties": {
-                "matchType": {
-                    "type": "string",
-                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryId": {
-                    "type": "string",
-                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryRef": {
-                    "type": "string",
-                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings": {
-            "properties": {
-                "reviewerCount": {
-                    "type": "integer",
-                    "description": "The number of reviewrs needed to approve.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "scopes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyMinReviewersSettingsScope:BranchPolicyMinReviewersSettingsScope"
-                    },
-                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "submitterCanVote": {
-                    "type": "boolean",
-                    "description": "Controls whether or not the submitter's vote counts. Defaults to `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "reviewerCount",
-                "scopes"
-            ]
-        },
-        "azuredevops:/BranchPolicyMinReviewersSettingsScope:BranchPolicyMinReviewersSettingsScope": {
-            "properties": {
-                "matchType": {
-                    "type": "string",
-                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryId": {
-                    "type": "string",
-                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryRef": {
-                    "type": "string",
-                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BranchPolicyWorkItemLinkingSettings:BranchPolicyWorkItemLinkingSettings": {
-            "properties": {
-                "scopes": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyWorkItemLinkingSettingsScope:BranchPolicyWorkItemLinkingSettingsScope"
-                    },
-                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "scopes"
-            ]
-        },
-        "azuredevops:/BranchPolicyWorkItemLinkingSettingsScope:BranchPolicyWorkItemLinkingSettingsScope": {
-            "properties": {
-                "matchType": {
-                    "type": "string",
-                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryId": {
-                    "type": "string",
-                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repositoryRef": {
-                    "type": "string",
-                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger": {
-            "properties": {
-                "override": {
-                    "$ref": "#/types/azuredevops:/BuildDefinitionCiTriggerOverride:BuildDefinitionCiTriggerOverride",
-                    "description": "Override the azure-pipeline file and use a this configuration for all builds.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "useYaml": {
-                    "type": "boolean",
-                    "description": "Use the azure-pipeline file for the build configuration. Defaults to `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BuildDefinitionCiTriggerOverride:BuildDefinitionCiTriggerOverride": {
-            "properties": {
-                "batch": {
-                    "type": "boolean",
-                    "description": "If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "branchFilters": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/azuredevops:/BuildDefinitionCiTriggerOverrideBranchFilter:BuildDefinitionCiTriggerOverrideBranchFilter"
-                    },
-                    "description": "The branches to include and exclude from the trigger.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "maxConcurrentBuildsPerBranch": {
-                    "type": "integer",
-                    "description": "The number of max builds per branch. Defaults to `1`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "pathFilters": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/azuredevops:/BuildDefinitionCiTriggerOverridePathFilter:BuildDefinitionCiTriggerOverridePathFilter"
-                    },
-                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "pollingInterval": {
-                    "type": "integer",
-                    "description": "How often the external repository is polled. Defaults to `0`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "pollingJobId": {
-                    "type": "string",
-                    "description": "This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "pollingJobId"
-                    ]
-                }
-            }
-        },
-        "azuredevops:/BuildDefinitionCiTriggerOverrideBranchFilter:BuildDefinitionCiTriggerOverrideBranchFilter": {
-            "properties": {
-                "excludes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of branch patterns to exclude.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "includes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of branch patterns to include.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BuildDefinitionCiTriggerOverridePathFilter:BuildDefinitionCiTriggerOverridePathFilter": {
-            "properties": {
-                "excludes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of branch patterns to exclude.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "includes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of branch patterns to include.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger": {
-            "properties": {
-                "commentRequired": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "forks": {
-                    "$ref": "#/types/azuredevops:/BuildDefinitionPullRequestTriggerForks:BuildDefinitionPullRequestTriggerForks",
-                    "description": "Set permissions for Forked repositories.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "initialBranch": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "override": {
-                    "$ref": "#/types/azuredevops:/BuildDefinitionPullRequestTriggerOverride:BuildDefinitionPullRequestTriggerOverride",
-                    "description": "Override the azure-pipeline file and use this configuration for all builds.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "useYaml": {
-                    "type": "boolean",
-                    "description": "Use the azure-pipeline file for the build configuration. Defaults to `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "forks"
-            ]
-        },
-        "azuredevops:/BuildDefinitionPullRequestTriggerForks:BuildDefinitionPullRequestTriggerForks": {
-            "properties": {
-                "enabled": {
-                    "type": "boolean",
-                    "description": "Build pull requests form forms of this repository.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "shareSecrets": {
-                    "type": "boolean",
-                    "description": "Make secrets available to builds of forks.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "enabled",
-                "shareSecrets"
-            ]
-        },
-        "azuredevops:/BuildDefinitionPullRequestTriggerOverride:BuildDefinitionPullRequestTriggerOverride": {
-            "properties": {
-                "autoCancel": {
-                    "type": "boolean",
-                    "description": ". Defaults to `true`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "branchFilters": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/azuredevops:/BuildDefinitionPullRequestTriggerOverrideBranchFilter:BuildDefinitionPullRequestTriggerOverrideBranchFilter"
-                    },
-                    "description": "The branches to include and exclude from the trigger.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "pathFilters": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/types/azuredevops:/BuildDefinitionPullRequestTriggerOverridePathFilter:BuildDefinitionPullRequestTriggerOverridePathFilter"
-                    },
-                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BuildDefinitionPullRequestTriggerOverrideBranchFilter:BuildDefinitionPullRequestTriggerOverrideBranchFilter": {
-            "properties": {
-                "excludes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of branch patterns to exclude.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "includes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of branch patterns to include.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BuildDefinitionPullRequestTriggerOverridePathFilter:BuildDefinitionPullRequestTriggerOverridePathFilter": {
-            "properties": {
-                "excludes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of branch patterns to exclude.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "includes": {
-                    "type": "array",
-                    "items": {
-                        "type": "string"
-                    },
-                    "description": "List of branch patterns to include.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object"
-        },
-        "azuredevops:/BuildDefinitionRepository:BuildDefinitionRepository": {
-            "properties": {
-                "branchName": {
-                    "type": "string",
-                    "description": "The branch name for which builds are triggered. Defaults to `master`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "githubEnterpriseUrl": {
-                    "type": "string",
-                    "description": "The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repoId": {
-                    "type": "string",
-                    "description": "The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `\u003cGitHub Org\u003e/\u003cRepo Name\u003e`. For `Bitbucket` repos, this will take the form of `\u003cWorkspace ID\u003e/\u003cRepo Name\u003e`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "repoType": {
-                    "type": "string",
-                    "description": "The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "reportBuildStatus": {
-                    "type": "boolean",
-                    "description": "Report build status. Default is true.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "serviceConnectionId": {
-                    "type": "string",
-                    "description": "The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "ymlPath": {
-                    "type": "string",
-                    "description": "The path of the Yaml file describing the build definition.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "repoId",
-                "repoType",
-                "ymlPath"
-            ]
-        },
-        "azuredevops:/BuildDefinitionVariable:BuildDefinitionVariable": {
-            "properties": {
-                "allowOverride": {
-                    "type": "boolean",
-                    "description": "True if the variable can be overridden. Defaults to `true`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "isSecret": {
-                    "type": "boolean",
-                    "description": "True if the variable is a secret. Defaults to `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the variable.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "secretValue": {
-                    "type": "string",
-                    "description": "The secret value of the variable. Used when `is_secret` set to `true`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "value": {
-                    "type": "string",
-                    "description": "The value of the variable.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "name"
-            ]
-        },
-        "azuredevops:/GitInitialization:GitInitialization": {
-            "properties": {
-                "initType": {
-                    "type": "string",
-                    "description": "The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "sourceType": {
-                    "type": "string",
-                    "description": "Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "sourceUrl": {
-                    "type": "string",
-                    "description": "The URL of the source repository. Used if the `init_type` is `Import`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "initType"
-            ]
-        },
-        "azuredevops:/ServiceEndpointAzureRMCredentials:ServiceEndpointAzureRMCredentials": {
-            "properties": {
-                "serviceprincipalid": {
-                    "type": "string",
-                    "description": "The service principal application Id\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "serviceprincipalkey": {
-                    "type": "string",
-                    "description": "The service principal secret.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "serviceprincipalkeyHash": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "serviceprincipalid",
-                "serviceprincipalkey"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "serviceprincipalid",
-                        "serviceprincipalkey",
-                        "serviceprincipalkeyHash"
-                    ]
-                }
-            }
-        },
-        "azuredevops:/ServiceEndpointGitHubAuthOauth:ServiceEndpointGitHubAuthOauth": {
-            "properties": {
-                "oauthConfigurationId": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "oauthConfigurationId"
-            ]
-        },
-        "azuredevops:/ServiceEndpointGitHubAuthPersonal:ServiceEndpointGitHubAuthPersonal": {
-            "properties": {
-                "personalAccessToken": {
-                    "type": "string",
-                    "description": "The Personal Access Token for Github.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "personalAccessTokenHash": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "personalAccessToken"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "personalAccessToken",
-                        "personalAccessTokenHash"
-                    ]
-                }
-            }
-        },
-        "azuredevops:/ServiceEndpointKubernetesAzureSubscription:ServiceEndpointKubernetesAzureSubscription": {
-            "properties": {
-                "azureEnvironment": {
-                    "type": "string",
-                    "description": "Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "clusterName": {
-                    "type": "string",
-                    "description": "The name of the Kubernetes cluster.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "namespace": {
-                    "type": "string",
-                    "description": "The Kubernetes namespace. Default value is \"default\".\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "resourcegroupId": {
-                    "type": "string",
-                    "description": "The resource group name, to which the Kubernetes cluster is deployed.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "subscriptionId": {
-                    "type": "string",
-                    "description": "The id of the Azure subscription.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "subscriptionName": {
-                    "type": "string",
-                    "description": "The name of the Azure subscription.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "tenantId": {
-                    "type": "string",
-                    "description": "The id of the tenant used by the subscription.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "clusterName",
-                "resourcegroupId",
-                "subscriptionId",
-                "subscriptionName",
-                "tenantId"
-            ]
-        },
-        "azuredevops:/ServiceEndpointKubernetesKubeconfig:ServiceEndpointKubernetesKubeconfig": {
-            "properties": {
-                "acceptUntrustedCerts": {
-                    "type": "boolean",
-                    "description": "Set this option to allow clients to accept a self-signed certificate.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "clusterContext": {
-                    "type": "string",
-                    "description": "Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "kubeConfig": {
-                    "type": "string",
-                    "description": "The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "kubeConfigHash": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "kubeConfig"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "kubeConfig",
-                        "kubeConfigHash"
-                    ]
-                }
-            }
-        },
-        "azuredevops:/ServiceEndpointKubernetesServiceAccount:ServiceEndpointKubernetesServiceAccount": {
-            "properties": {
-                "caCert": {
-                    "type": "string",
-                    "description": "The certificate from a Kubernetes secret object.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "caCertHash": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "token": {
-                    "type": "string",
-                    "description": "The token from a Kubernetes secret object.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "tokenHash": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "caCert",
-                "token"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "caCert",
-                        "caCertHash",
-                        "token",
-                        "tokenHash"
-                    ]
-                }
-            }
-        },
-        "azuredevops:/VariableGroupKeyVault:VariableGroupKeyVault": {
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "The name of the Variable Group.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "serviceEndpointId": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "name",
-                "serviceEndpointId"
-            ]
-        },
-        "azuredevops:/VariableGroupVariable:VariableGroupVariable": {
-            "properties": {
-                "contentType": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "enabled": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "expires": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "isSecret": {
-                    "type": "boolean",
-                    "description": "A boolean flag describing if the variable value is sensitive. Defaults to `false`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The key value used for the variable. Must be unique within the Variable Group.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "secretValue": {
-                    "type": "string",
-                    "description": "The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "value": {
-                    "type": "string",
-                    "description": "The value of the variable. If omitted, it will default to empty string.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "name"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredOutputs": [
-                        "contentType",
-                        "enabled",
-                        "expires",
-                        "name"
-                    ]
-                }
-            }
-        },
-        "azuredevops:/getAreaChildren:getAreaChildren": {
-            "properties": {
-                "hasChildren": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "projectId": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "hasChildren",
-                "id",
-                "name",
-                "path",
-                "projectId"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
-        },
-        "azuredevops:/getIterationChildren:getIterationChildren": {
-            "properties": {
-                "hasChildren": {
-                    "type": "boolean",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "id": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "name": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "path": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "projectId": {
-                    "type": "string",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "hasChildren",
-                "id",
-                "name",
-                "path",
-                "projectId"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
-        },
-        "azuredevops:/getPoolsAgentPool:getPoolsAgentPool": {
-            "properties": {
-                "autoProvision": {
-                    "type": "boolean",
-                    "description": "Specifies whether or not a queue should be automatically provisioned for each project collection.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "id": {
-                    "type": "integer",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "name": {
-                    "type": "string",
-                    "description": "The name of the agent pool\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "poolType": {
-                    "type": "string",
-                    "description": "Specifies whether the agent pool type is Automation or Deployment.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "autoProvision",
-                "id",
-                "name",
-                "poolType"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
-        },
-        "azuredevops:/getProjectsProject:getProjectsProject": {
-            "properties": {
-                "name": {
-                    "type": "string",
-                    "description": "Name of the Project, if not specified all projects will be returned.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "projectId": {
-                    "type": "string",
-                    "description": "Project identifier.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "projectUrl": {
-                    "type": "string",
-                    "description": "Url to the full version of the object.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "state": {
-                    "type": "string",
-                    "description": "State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "name",
-                "projectId",
-                "projectUrl",
-                "state"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
-        },
-        "azuredevops:/getRepositoriesRepository:getRepositoriesRepository": {
-            "properties": {
-                "defaultBranch": {
-                    "type": "string",
-                    "description": "The ref of the default branch.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "id": {
-                    "type": "string",
-                    "description": "Git repository identifier.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "name": {
-                    "type": "string",
-                    "description": "Name of the Git repository to retrieve; requires `project_id` to be specified as well\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "projectId": {
-                    "type": "string",
-                    "description": "ID of project to list Git repositories\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "remoteUrl": {
-                    "type": "string",
-                    "description": "HTTPS Url to clone the Git repository\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "size": {
-                    "type": "integer",
-                    "description": "Compressed size (bytes) of the repository.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "sshUrl": {
-                    "type": "string",
-                    "description": "SSH Url to clone the Git repository\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "url": {
-                    "type": "string",
-                    "description": "Details REST API endpoint for the Git Repository.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "webUrl": {
-                    "type": "string",
-                    "description": "Url of the Git repository web view\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "defaultBranch",
-                "id",
-                "name",
-                "projectId",
-                "remoteUrl",
-                "size",
-                "sshUrl",
-                "url",
-                "webUrl"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
-        },
-        "azuredevops:/getUsersUser:getUsersUser": {
-            "properties": {
-                "descriptor": {
-                    "type": "string",
-                    "description": "The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "displayName": {
-                    "type": "string",
-                    "description": "This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "mailAddress": {
-                    "type": "string",
-                    "description": "The email address of record for a given graph member. This may be different than the principal name.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "origin": {
-                    "type": "string",
-                    "description": "The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "originId": {
-                    "type": "string",
-                    "description": "The unique identifier from the system of origin.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                },
-                "principalName": {
-                    "type": "string",
-                    "description": "The PrincipalName of this graph member from the source provider.\n",
-                    "language": {
-                        "python": {
-                            "mapCase": false
-                        }
-                    }
-                }
-            },
-            "type": "object",
-            "required": [
-                "descriptor",
-                "displayName",
-                "mailAddress",
-                "origin",
-                "principalName"
-            ],
-            "language": {
-                "nodejs": {
-                    "requiredInputs": []
-                }
-            }
-        },
         "azuredevops:Agent/getPoolsAgentPool:getPoolsAgentPool": {
             "properties": {
                 "autoProvision": {
@@ -2989,6 +1354,1641 @@
                         "token",
                         "tokenHash"
                     ]
+                }
+            }
+        },
+        "azuredevops:index/BranchPolicyAutoReviewersSettings:BranchPolicyAutoReviewersSettings": {
+            "properties": {
+                "autoReviewerIds": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Required reviewers ids. Supports multiples user Ids.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "message": {
+                    "type": "string",
+                    "description": "Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pathFilters": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BranchPolicyAutoReviewersSettingsScope:BranchPolicyAutoReviewersSettingsScope"
+                    },
+                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "submitterCanVote": {
+                    "type": "boolean",
+                    "description": "Controls whether or not the submitter's vote counts. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "autoReviewerIds",
+                "scopes"
+            ]
+        },
+        "azuredevops:index/BranchPolicyAutoReviewersSettingsScope:BranchPolicyAutoReviewersSettingsScope": {
+            "properties": {
+                "matchType": {
+                    "type": "string",
+                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryRef": {
+                    "type": "string",
+                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BranchPolicyBuildValidationSettings:BranchPolicyBuildValidationSettings": {
+            "properties": {
+                "buildDefinitionId": {
+                    "type": "integer",
+                    "description": "The ID of the build to monitor for the policy.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name for the policy.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filenamePatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[\"/WebApp/Models/Data.cs\", \"/WebApp/*\", \"*.cs\"]`. Paths prefixed with \"!\" are excluded. Example: `[\"/WebApp/*\", \"!/WebApp/Tests/*\"]`. Order is significant.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "manualQueueOnly": {
+                    "type": "boolean",
+                    "description": "If set to true, the build will need to be manually queued. Defaults to `false`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "queueOnSourceUpdateOnly": {
+                    "type": "boolean",
+                    "description": "True if the build should queue on source updates only. Defaults to `true`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BranchPolicyBuildValidationSettingsScope:BranchPolicyBuildValidationSettingsScope"
+                    },
+                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "validDuration": {
+                    "type": "integer",
+                    "description": "The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "buildDefinitionId",
+                "displayName",
+                "scopes"
+            ]
+        },
+        "azuredevops:index/BranchPolicyBuildValidationSettingsScope:BranchPolicyBuildValidationSettingsScope": {
+            "properties": {
+                "matchType": {
+                    "type": "string",
+                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryRef": {
+                    "type": "string",
+                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BranchPolicyCommentResolutionSettings:BranchPolicyCommentResolutionSettings": {
+            "properties": {
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BranchPolicyCommentResolutionSettingsScope:BranchPolicyCommentResolutionSettingsScope"
+                    },
+                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "scopes"
+            ]
+        },
+        "azuredevops:index/BranchPolicyCommentResolutionSettingsScope:BranchPolicyCommentResolutionSettingsScope": {
+            "properties": {
+                "matchType": {
+                    "type": "string",
+                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryRef": {
+                    "type": "string",
+                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings": {
+            "properties": {
+                "reviewerCount": {
+                    "type": "integer",
+                    "description": "The number of reviewrs needed to approve.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BranchPolicyMinReviewersSettingsScope:BranchPolicyMinReviewersSettingsScope"
+                    },
+                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "submitterCanVote": {
+                    "type": "boolean",
+                    "description": "Controls whether or not the submitter's vote counts. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "reviewerCount",
+                "scopes"
+            ]
+        },
+        "azuredevops:index/BranchPolicyMinReviewersSettingsScope:BranchPolicyMinReviewersSettingsScope": {
+            "properties": {
+                "matchType": {
+                    "type": "string",
+                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryRef": {
+                    "type": "string",
+                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BranchPolicyWorkItemLinkingSettings:BranchPolicyWorkItemLinkingSettings": {
+            "properties": {
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BranchPolicyWorkItemLinkingSettingsScope:BranchPolicyWorkItemLinkingSettingsScope"
+                    },
+                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "scopes"
+            ]
+        },
+        "azuredevops:index/BranchPolicyWorkItemLinkingSettingsScope:BranchPolicyWorkItemLinkingSettingsScope": {
+            "properties": {
+                "matchType": {
+                    "type": "string",
+                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryRef": {
+                    "type": "string",
+                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger": {
+            "properties": {
+                "override": {
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionCiTriggerOverride:BuildDefinitionCiTriggerOverride",
+                    "description": "Override the azure-pipeline file and use a this configuration for all builds.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "useYaml": {
+                    "type": "boolean",
+                    "description": "Use the azure-pipeline file for the build configuration. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BuildDefinitionCiTriggerOverride:BuildDefinitionCiTriggerOverride": {
+            "properties": {
+                "batch": {
+                    "type": "boolean",
+                    "description": "If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "branchFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionCiTriggerOverrideBranchFilter:BuildDefinitionCiTriggerOverrideBranchFilter"
+                    },
+                    "description": "The branches to include and exclude from the trigger.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "maxConcurrentBuildsPerBranch": {
+                    "type": "integer",
+                    "description": "The number of max builds per branch. Defaults to `1`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pathFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionCiTriggerOverridePathFilter:BuildDefinitionCiTriggerOverridePathFilter"
+                    },
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pollingInterval": {
+                    "type": "integer",
+                    "description": "How often the external repository is polled. Defaults to `0`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pollingJobId": {
+                    "type": "string",
+                    "description": "This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "pollingJobId"
+                    ]
+                }
+            }
+        },
+        "azuredevops:index/BuildDefinitionCiTriggerOverrideBranchFilter:BuildDefinitionCiTriggerOverrideBranchFilter": {
+            "properties": {
+                "excludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of branch patterns to exclude.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of branch patterns to include.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BuildDefinitionCiTriggerOverridePathFilter:BuildDefinitionCiTriggerOverridePathFilter": {
+            "properties": {
+                "excludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of branch patterns to exclude.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of branch patterns to include.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger": {
+            "properties": {
+                "commentRequired": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "forks": {
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerForks:BuildDefinitionPullRequestTriggerForks",
+                    "description": "Set permissions for Forked repositories.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "initialBranch": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "override": {
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerOverride:BuildDefinitionPullRequestTriggerOverride",
+                    "description": "Override the azure-pipeline file and use this configuration for all builds.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "useYaml": {
+                    "type": "boolean",
+                    "description": "Use the azure-pipeline file for the build configuration. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "forks"
+            ]
+        },
+        "azuredevops:index/BuildDefinitionPullRequestTriggerForks:BuildDefinitionPullRequestTriggerForks": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "description": "Build pull requests form forms of this repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "shareSecrets": {
+                    "type": "boolean",
+                    "description": "Make secrets available to builds of forks.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled",
+                "shareSecrets"
+            ]
+        },
+        "azuredevops:index/BuildDefinitionPullRequestTriggerOverride:BuildDefinitionPullRequestTriggerOverride": {
+            "properties": {
+                "autoCancel": {
+                    "type": "boolean",
+                    "description": ". Defaults to `true`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "branchFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerOverrideBranchFilter:BuildDefinitionPullRequestTriggerOverrideBranchFilter"
+                    },
+                    "description": "The branches to include and exclude from the trigger.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pathFilters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerOverridePathFilter:BuildDefinitionPullRequestTriggerOverridePathFilter"
+                    },
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BuildDefinitionPullRequestTriggerOverrideBranchFilter:BuildDefinitionPullRequestTriggerOverrideBranchFilter": {
+            "properties": {
+                "excludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of branch patterns to exclude.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of branch patterns to include.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BuildDefinitionPullRequestTriggerOverridePathFilter:BuildDefinitionPullRequestTriggerOverridePathFilter": {
+            "properties": {
+                "excludes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of branch patterns to exclude.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "includes": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "List of branch patterns to include.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository": {
+            "properties": {
+                "branchName": {
+                    "type": "string",
+                    "description": "The branch name for which builds are triggered. Defaults to `master`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "githubEnterpriseUrl": {
+                    "type": "string",
+                    "description": "The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repoId": {
+                    "type": "string",
+                    "description": "The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `\u003cGitHub Org\u003e/\u003cRepo Name\u003e`. For `Bitbucket` repos, this will take the form of `\u003cWorkspace ID\u003e/\u003cRepo Name\u003e`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repoType": {
+                    "type": "string",
+                    "description": "The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "reportBuildStatus": {
+                    "type": "boolean",
+                    "description": "Report build status. Default is true.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serviceConnectionId": {
+                    "type": "string",
+                    "description": "The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "ymlPath": {
+                    "type": "string",
+                    "description": "The path of the Yaml file describing the build definition.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "repoId",
+                "repoType",
+                "ymlPath"
+            ]
+        },
+        "azuredevops:index/BuildDefinitionVariable:BuildDefinitionVariable": {
+            "properties": {
+                "allowOverride": {
+                    "type": "boolean",
+                    "description": "True if the variable can be overridden. Defaults to `true`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isSecret": {
+                    "type": "boolean",
+                    "description": "True if the variable is a secret. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the variable.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secretValue": {
+                    "type": "string",
+                    "description": "The secret value of the variable. Used when `is_secret` set to `true`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the variable.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ]
+        },
+        "azuredevops:index/GitInitialization:GitInitialization": {
+            "properties": {
+                "initType": {
+                    "type": "string",
+                    "description": "The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourceType": {
+                    "type": "string",
+                    "description": "Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sourceUrl": {
+                    "type": "string",
+                    "description": "The URL of the source repository. Used if the `init_type` is `Import`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "initType"
+            ]
+        },
+        "azuredevops:index/ServiceEndpointAzureRMCredentials:ServiceEndpointAzureRMCredentials": {
+            "properties": {
+                "serviceprincipalid": {
+                    "type": "string",
+                    "description": "The service principal application Id\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serviceprincipalkey": {
+                    "type": "string",
+                    "description": "The service principal secret.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serviceprincipalkeyHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "serviceprincipalid",
+                "serviceprincipalkey"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "serviceprincipalid",
+                        "serviceprincipalkey",
+                        "serviceprincipalkeyHash"
+                    ]
+                }
+            }
+        },
+        "azuredevops:index/ServiceEndpointGitHubAuthOauth:ServiceEndpointGitHubAuthOauth": {
+            "properties": {
+                "oauthConfigurationId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "oauthConfigurationId"
+            ]
+        },
+        "azuredevops:index/ServiceEndpointGitHubAuthPersonal:ServiceEndpointGitHubAuthPersonal": {
+            "properties": {
+                "personalAccessToken": {
+                    "type": "string",
+                    "description": "The Personal Access Token for Github.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "personalAccessTokenHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "personalAccessToken"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "personalAccessToken",
+                        "personalAccessTokenHash"
+                    ]
+                }
+            }
+        },
+        "azuredevops:index/ServiceEndpointKubernetesAzureSubscription:ServiceEndpointKubernetesAzureSubscription": {
+            "properties": {
+                "azureEnvironment": {
+                    "type": "string",
+                    "description": "Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clusterName": {
+                    "type": "string",
+                    "description": "The name of the Kubernetes cluster.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "namespace": {
+                    "type": "string",
+                    "description": "The Kubernetes namespace. Default value is \"default\".\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourcegroupId": {
+                    "type": "string",
+                    "description": "The resource group name, to which the Kubernetes cluster is deployed.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subscriptionId": {
+                    "type": "string",
+                    "description": "The id of the Azure subscription.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "subscriptionName": {
+                    "type": "string",
+                    "description": "The name of the Azure subscription.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tenantId": {
+                    "type": "string",
+                    "description": "The id of the tenant used by the subscription.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "clusterName",
+                "resourcegroupId",
+                "subscriptionId",
+                "subscriptionName",
+                "tenantId"
+            ]
+        },
+        "azuredevops:index/ServiceEndpointKubernetesKubeconfig:ServiceEndpointKubernetesKubeconfig": {
+            "properties": {
+                "acceptUntrustedCerts": {
+                    "type": "boolean",
+                    "description": "Set this option to allow clients to accept a self-signed certificate.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clusterContext": {
+                    "type": "string",
+                    "description": "Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kubeConfig": {
+                    "type": "string",
+                    "description": "The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kubeConfigHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "kubeConfig"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "kubeConfig",
+                        "kubeConfigHash"
+                    ]
+                }
+            }
+        },
+        "azuredevops:index/ServiceEndpointKubernetesServiceAccount:ServiceEndpointKubernetesServiceAccount": {
+            "properties": {
+                "caCert": {
+                    "type": "string",
+                    "description": "The certificate from a Kubernetes secret object.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "caCertHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "token": {
+                    "type": "string",
+                    "description": "The token from a Kubernetes secret object.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tokenHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "caCert",
+                "token"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "caCert",
+                        "caCertHash",
+                        "token",
+                        "tokenHash"
+                    ]
+                }
+            }
+        },
+        "azuredevops:index/VariableGroupKeyVault:VariableGroupKeyVault": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "The name of the Variable Group.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serviceEndpointId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "serviceEndpointId"
+            ]
+        },
+        "azuredevops:index/VariableGroupVariable:VariableGroupVariable": {
+            "properties": {
+                "contentType": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "expires": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "isSecret": {
+                    "type": "boolean",
+                    "description": "A boolean flag describing if the variable value is sensitive. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The key value used for the variable. Must be unique within the Variable Group.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secretValue": {
+                    "type": "string",
+                    "description": "The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "description": "The value of the variable. If omitted, it will default to empty string.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "contentType",
+                        "enabled",
+                        "expires",
+                        "name"
+                    ]
+                }
+            }
+        },
+        "azuredevops:index/getAreaChildren:getAreaChildren": {
+            "properties": {
+                "hasChildren": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "projectId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "hasChildren",
+                "id",
+                "name",
+                "path",
+                "projectId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "azuredevops:index/getIterationChildren:getIterationChildren": {
+            "properties": {
+                "hasChildren": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "path": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "projectId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "hasChildren",
+                "id",
+                "name",
+                "path",
+                "projectId"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "azuredevops:index/getPoolsAgentPool:getPoolsAgentPool": {
+            "properties": {
+                "autoProvision": {
+                    "type": "boolean",
+                    "description": "Specifies whether or not a queue should be automatically provisioned for each project collection.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the agent pool\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "poolType": {
+                    "type": "string",
+                    "description": "Specifies whether the agent pool type is Automation or Deployment.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "autoProvision",
+                "id",
+                "name",
+                "poolType"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "azuredevops:index/getProjectsProject:getProjectsProject": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Project, if not specified all projects will be returned.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "Project identifier.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "projectUrl": {
+                    "type": "string",
+                    "description": "Url to the full version of the object.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "state": {
+                    "type": "string",
+                    "description": "State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "projectId",
+                "projectUrl",
+                "state"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "azuredevops:index/getRepositoriesRepository:getRepositoriesRepository": {
+            "properties": {
+                "defaultBranch": {
+                    "type": "string",
+                    "description": "The ref of the default branch.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "description": "Git repository identifier.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "description": "Name of the Git repository to retrieve; requires `project_id` to be specified as well\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "ID of project to list Git repositories\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "remoteUrl": {
+                    "type": "string",
+                    "description": "HTTPS Url to clone the Git repository\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "size": {
+                    "type": "integer",
+                    "description": "Compressed size (bytes) of the repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "sshUrl": {
+                    "type": "string",
+                    "description": "SSH Url to clone the Git repository\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Details REST API endpoint for the Git Repository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "webUrl": {
+                    "type": "string",
+                    "description": "Url of the Git repository web view\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "defaultBranch",
+                "id",
+                "name",
+                "projectId",
+                "remoteUrl",
+                "size",
+                "sshUrl",
+                "url",
+                "webUrl"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
+                }
+            }
+        },
+        "azuredevops:index/getUsersUser:getUsersUser": {
+            "properties": {
+                "descriptor": {
+                    "type": "string",
+                    "description": "The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "mailAddress": {
+                    "type": "string",
+                    "description": "The email address of record for a given graph member. This may be different than the principal name.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "origin": {
+                    "type": "string",
+                    "description": "The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "originId": {
+                    "type": "string",
+                    "description": "The unique identifier from the system of origin.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "principalName": {
+                    "type": "string",
+                    "description": "The PrincipalName of this graph member from the source provider.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "descriptor",
+                "displayName",
+                "mailAddress",
+                "origin",
+                "principalName"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredInputs": []
                 }
             }
         }
@@ -4996,7 +4996,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyAutoReviewersSettings:BranchPolicyAutoReviewersSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyAutoReviewersSettings:BranchPolicyAutoReviewersSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5018,7 +5018,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyAutoReviewersSettings:BranchPolicyAutoReviewersSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyAutoReviewersSettings:BranchPolicyAutoReviewersSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5042,7 +5042,7 @@
                         "description": "The ID of the project in which the policy will be created.\n"
                     },
                     "settings": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyAutoReviewersSettings:BranchPolicyAutoReviewersSettings",
+                        "$ref": "#/types/azuredevops:index/BranchPolicyAutoReviewersSettings:BranchPolicyAutoReviewersSettings",
                         "description": "Configuration for the policy. This block must be defined exactly once.\n"
                     }
                 },
@@ -5065,7 +5065,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyBuildValidationSettings:BranchPolicyBuildValidationSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyBuildValidationSettings:BranchPolicyBuildValidationSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5087,7 +5087,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyBuildValidationSettings:BranchPolicyBuildValidationSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyBuildValidationSettings:BranchPolicyBuildValidationSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5111,7 +5111,7 @@
                         "description": "The ID of the project in which the policy will be created.\n"
                     },
                     "settings": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyBuildValidationSettings:BranchPolicyBuildValidationSettings",
+                        "$ref": "#/types/azuredevops:index/BranchPolicyBuildValidationSettings:BranchPolicyBuildValidationSettings",
                         "description": "Configuration for the policy. This block must be defined exactly once.\n"
                     }
                 },
@@ -5139,7 +5139,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyCommentResolutionSettings:BranchPolicyCommentResolutionSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyCommentResolutionSettings:BranchPolicyCommentResolutionSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5161,7 +5161,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyCommentResolutionSettings:BranchPolicyCommentResolutionSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyCommentResolutionSettings:BranchPolicyCommentResolutionSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5185,7 +5185,7 @@
                         "description": "The ID of the project in which the policy will be created.\n"
                     },
                     "settings": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyCommentResolutionSettings:BranchPolicyCommentResolutionSettings",
+                        "$ref": "#/types/azuredevops:index/BranchPolicyCommentResolutionSettings:BranchPolicyCommentResolutionSettings",
                         "description": "Configuration for the policy. This block must be defined exactly once.\n"
                     }
                 },
@@ -5208,7 +5208,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5230,7 +5230,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5254,7 +5254,7 @@
                         "description": "The ID of the project in which the policy will be created.\n"
                     },
                     "settings": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings",
+                        "$ref": "#/types/azuredevops:index/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings",
                         "description": "Configuration for the policy. This block must be defined exactly once.\n"
                     }
                 },
@@ -5282,7 +5282,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyWorkItemLinkingSettings:BranchPolicyWorkItemLinkingSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyWorkItemLinkingSettings:BranchPolicyWorkItemLinkingSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5304,7 +5304,7 @@
                     "description": "The ID of the project in which the policy will be created.\n"
                 },
                 "settings": {
-                    "$ref": "#/types/azuredevops:/BranchPolicyWorkItemLinkingSettings:BranchPolicyWorkItemLinkingSettings",
+                    "$ref": "#/types/azuredevops:index/BranchPolicyWorkItemLinkingSettings:BranchPolicyWorkItemLinkingSettings",
                     "description": "Configuration for the policy. This block must be defined exactly once.\n"
                 }
             },
@@ -5328,7 +5328,7 @@
                         "description": "The ID of the project in which the policy will be created.\n"
                     },
                     "settings": {
-                        "$ref": "#/types/azuredevops:/BranchPolicyWorkItemLinkingSettings:BranchPolicyWorkItemLinkingSettings",
+                        "$ref": "#/types/azuredevops:index/BranchPolicyWorkItemLinkingSettings:BranchPolicyWorkItemLinkingSettings",
                         "description": "Configuration for the policy. This block must be defined exactly once.\n"
                     }
                 },
@@ -5343,7 +5343,7 @@
                     "description": "The agent pool that should execute the build.\n"
                 },
                 "ciTrigger": {
-                    "$ref": "#/types/azuredevops:/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
                     "description": "Continuous Integration trigger.\n"
                 },
                 "name": {
@@ -5359,11 +5359,11 @@
                     "description": "The project ID or project name.\n"
                 },
                 "pullRequestTrigger": {
-                    "$ref": "#/types/azuredevops:/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
                     "description": "Pull Request Integration Integration trigger.\n"
                 },
                 "repository": {
-                    "$ref": "#/types/azuredevops:/BuildDefinitionRepository:BuildDefinitionRepository",
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository",
                     "description": "A `repository` block as documented below.\n"
                 },
                 "revision": {
@@ -5380,7 +5380,7 @@
                 "variables": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/BuildDefinitionVariable:BuildDefinitionVariable"
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionVariable:BuildDefinitionVariable"
                     },
                     "description": "A list of `variable` blocks, as documented below.\n"
                 }
@@ -5397,7 +5397,7 @@
                     "description": "The agent pool that should execute the build.\n"
                 },
                 "ciTrigger": {
-                    "$ref": "#/types/azuredevops:/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
                     "description": "Continuous Integration trigger.\n"
                 },
                 "name": {
@@ -5413,11 +5413,11 @@
                     "description": "The project ID or project name.\n"
                 },
                 "pullRequestTrigger": {
-                    "$ref": "#/types/azuredevops:/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
                     "description": "Pull Request Integration Integration trigger.\n"
                 },
                 "repository": {
-                    "$ref": "#/types/azuredevops:/BuildDefinitionRepository:BuildDefinitionRepository",
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository",
                     "description": "A `repository` block as documented below.\n"
                 },
                 "variableGroups": {
@@ -5430,7 +5430,7 @@
                 "variables": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/BuildDefinitionVariable:BuildDefinitionVariable"
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionVariable:BuildDefinitionVariable"
                     },
                     "description": "A list of `variable` blocks, as documented below.\n"
                 }
@@ -5447,7 +5447,7 @@
                         "description": "The agent pool that should execute the build.\n"
                     },
                     "ciTrigger": {
-                        "$ref": "#/types/azuredevops:/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
                         "description": "Continuous Integration trigger.\n"
                     },
                     "name": {
@@ -5463,11 +5463,11 @@
                         "description": "The project ID or project name.\n"
                     },
                     "pullRequestTrigger": {
-                        "$ref": "#/types/azuredevops:/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
                         "description": "Pull Request Integration Integration trigger.\n"
                     },
                     "repository": {
-                        "$ref": "#/types/azuredevops:/BuildDefinitionRepository:BuildDefinitionRepository",
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository",
                         "description": "A `repository` block as documented below.\n"
                     },
                     "revision": {
@@ -5484,7 +5484,7 @@
                     "variables": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/BuildDefinitionVariable:BuildDefinitionVariable"
+                            "$ref": "#/types/azuredevops:index/BuildDefinitionVariable:BuildDefinitionVariable"
                         },
                         "description": "A list of `variable` blocks, as documented below.\n"
                     }
@@ -5505,7 +5505,7 @@
                     "description": "The ref of the default branch. Will be used as the branch name for initialized repositories.\n"
                 },
                 "initialization": {
-                    "$ref": "#/types/azuredevops:/GitInitialization:GitInitialization",
+                    "$ref": "#/types/azuredevops:index/GitInitialization:GitInitialization",
                     "description": "An `initialization` block as documented below.\n"
                 },
                 "isFork": {
@@ -5563,7 +5563,7 @@
                     "description": "The ref of the default branch. Will be used as the branch name for initialized repositories.\n"
                 },
                 "initialization": {
-                    "$ref": "#/types/azuredevops:/GitInitialization:GitInitialization",
+                    "$ref": "#/types/azuredevops:index/GitInitialization:GitInitialization",
                     "description": "An `initialization` block as documented below.\n"
                 },
                 "name": {
@@ -5591,7 +5591,7 @@
                         "description": "The ref of the default branch. Will be used as the branch name for initialized repositories.\n"
                     },
                     "initialization": {
-                        "$ref": "#/types/azuredevops:/GitInitialization:GitInitialization",
+                        "$ref": "#/types/azuredevops:index/GitInitialization:GitInitialization",
                         "description": "An `initialization` block as documented below.\n"
                     },
                     "isFork": {
@@ -6842,7 +6842,7 @@
                     "description": "The subscription Name of the targets.\n"
                 },
                 "credentials": {
-                    "$ref": "#/types/azuredevops:/ServiceEndpointAzureRMCredentials:ServiceEndpointAzureRMCredentials",
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointAzureRMCredentials:ServiceEndpointAzureRMCredentials",
                     "description": "A `credentials` block.\n"
                 },
                 "description": {
@@ -6890,7 +6890,7 @@
                     "description": "The subscription Name of the targets.\n"
                 },
                 "credentials": {
-                    "$ref": "#/types/azuredevops:/ServiceEndpointAzureRMCredentials:ServiceEndpointAzureRMCredentials",
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointAzureRMCredentials:ServiceEndpointAzureRMCredentials",
                     "description": "A `credentials` block.\n"
                 },
                 "description": {
@@ -6939,7 +6939,7 @@
                         "description": "The subscription Name of the targets.\n"
                     },
                     "credentials": {
-                        "$ref": "#/types/azuredevops:/ServiceEndpointAzureRMCredentials:ServiceEndpointAzureRMCredentials",
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointAzureRMCredentials:ServiceEndpointAzureRMCredentials",
                         "description": "A `credentials` block.\n"
                     },
                     "description": {
@@ -7255,11 +7255,11 @@
             "description": "Manages a GitHub service endpoint within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst serviceendpointGh1 = new azuredevops.ServiceEndpointGitHub(\"serviceendpointGh1\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample GithHub Personal Access Token\",\n    authPersonal: {\n        personalAccessToken: \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nserviceendpoint_gh1 = azuredevops.ServiceEndpointGitHub(\"serviceendpointGh1\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample GithHub Personal Access Token\",\n    auth_personal=azuredevops.ServiceEndpointGitHubAuthPersonalArgs(\n        personal_access_token=\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var serviceendpointGh1 = new AzureDevOps.ServiceEndpointGitHub(\"serviceendpointGh1\", new AzureDevOps.ServiceEndpointGitHubArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample GithHub Personal Access Token\",\n            AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubAuthPersonalArgs\n            {\n                PersonalAccessToken = \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointGitHub(ctx, \"serviceendpointGh1\", \u0026azuredevops.ServiceEndpointGitHubArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample GithHub Personal Access Token\"),\n\t\t\tAuthPersonal: \u0026azuredevops.ServiceEndpointGitHubAuthPersonalArgs{\n\t\t\t\tPersonalAccessToken: pulumi.String(\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst serviceendpointGh2 = new azuredevops.ServiceEndpointGitHub(\"serviceendpointGh2\", {\n    projectId: azuredevops_project.project.id,\n    serviceEndpointName: \"Sample GithHub Grant\",\n    authOauth: {\n        oauthConfigurationId: \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nserviceendpoint_gh2 = azuredevops.ServiceEndpointGitHub(\"serviceendpointGh2\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    service_endpoint_name=\"Sample GithHub Grant\",\n    auth_oauth=azuredevops.ServiceEndpointGitHubAuthOauthArgs(\n        oauth_configuration_id=\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var serviceendpointGh2 = new AzureDevOps.ServiceEndpointGitHub(\"serviceendpointGh2\", new AzureDevOps.ServiceEndpointGitHubArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            ServiceEndpointName = \"Sample GithHub Grant\",\n            AuthOauth = new AzureDevOps.Inputs.ServiceEndpointGitHubAuthOauthArgs\n            {\n                OauthConfigurationId = \"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewServiceEndpointGitHub(ctx, \"serviceendpointGh2\", \u0026azuredevops.ServiceEndpointGitHubArgs{\n\t\t\tProjectId:           pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample GithHub Grant\"),\n\t\t\tAuthOauth: \u0026azuredevops.ServiceEndpointGitHubAuthOauthArgs{\n\t\t\t\tOauthConfigurationId: pulumi.String(\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst serviceendpointGh3 = new azuredevops.ServiceEndpointGitHub(\"serviceendpointGh3\", {\n    projectId: azuredevops_project.project.id,\n    serviceEndpointName: \"Sample GithHub Apps: Azure Pipelines\",\n    description: \"\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nserviceendpoint_gh3 = azuredevops.ServiceEndpointGitHub(\"serviceendpointGh3\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    service_endpoint_name=\"Sample GithHub Apps: Azure Pipelines\",\n    description=\"\")\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var serviceendpointGh3 = new AzureDevOps.ServiceEndpointGitHub(\"serviceendpointGh3\", new AzureDevOps.ServiceEndpointGitHubArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            ServiceEndpointName = \"Sample GithHub Apps: Azure Pipelines\",\n            Description = \"\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewServiceEndpointGitHub(ctx, \"serviceendpointGh3\", \u0026azuredevops.ServiceEndpointGitHubArgs{\n\t\t\tProjectId:           pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample GithHub Apps: Azure Pipelines\"),\n\t\t\tDescription:         pulumi.String(\"\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)\n",
             "properties": {
                 "authOauth": {
-                    "$ref": "#/types/azuredevops:/ServiceEndpointGitHubAuthOauth:ServiceEndpointGitHubAuthOauth",
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubAuthOauth:ServiceEndpointGitHubAuthOauth",
                     "description": "An `auth_oauth` block as documented below. Allows connecting using an Oauth token.\n"
                 },
                 "authPersonal": {
-                    "$ref": "#/types/azuredevops:/ServiceEndpointGitHubAuthPersonal:ServiceEndpointGitHubAuthPersonal",
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubAuthPersonal:ServiceEndpointGitHubAuthPersonal",
                     "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
                 },
                 "authorization": {
@@ -7287,11 +7287,11 @@
             ],
             "inputProperties": {
                 "authOauth": {
-                    "$ref": "#/types/azuredevops:/ServiceEndpointGitHubAuthOauth:ServiceEndpointGitHubAuthOauth",
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubAuthOauth:ServiceEndpointGitHubAuthOauth",
                     "description": "An `auth_oauth` block as documented below. Allows connecting using an Oauth token.\n"
                 },
                 "authPersonal": {
-                    "$ref": "#/types/azuredevops:/ServiceEndpointGitHubAuthPersonal:ServiceEndpointGitHubAuthPersonal",
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubAuthPersonal:ServiceEndpointGitHubAuthPersonal",
                     "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
                 },
                 "authorization": {
@@ -7320,11 +7320,11 @@
                 "description": "Input properties used for looking up and filtering ServiceEndpointGitHub resources.\n",
                 "properties": {
                     "authOauth": {
-                        "$ref": "#/types/azuredevops:/ServiceEndpointGitHubAuthOauth:ServiceEndpointGitHubAuthOauth",
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubAuthOauth:ServiceEndpointGitHubAuthOauth",
                         "description": "An `auth_oauth` block as documented below. Allows connecting using an Oauth token.\n"
                     },
                     "authPersonal": {
-                        "$ref": "#/types/azuredevops:/ServiceEndpointGitHubAuthPersonal:ServiceEndpointGitHubAuthPersonal",
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubAuthPersonal:ServiceEndpointGitHubAuthPersonal",
                         "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
                     },
                     "authorization": {
@@ -7373,7 +7373,7 @@
                 "azureSubscriptions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/ServiceEndpointKubernetesAzureSubscription:ServiceEndpointKubernetesAzureSubscription"
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointKubernetesAzureSubscription:ServiceEndpointKubernetesAzureSubscription"
                     },
                     "description": "The configuration for authorization_type=\"AzureSubscription\".\n"
                 },
@@ -7383,7 +7383,7 @@
                 "kubeconfigs": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/ServiceEndpointKubernetesKubeconfig:ServiceEndpointKubernetesKubeconfig"
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointKubernetesKubeconfig:ServiceEndpointKubernetesKubeconfig"
                     },
                     "description": "The configuration for authorization_type=\"Kubeconfig\".\n"
                 },
@@ -7394,7 +7394,7 @@
                 "serviceAccounts": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/ServiceEndpointKubernetesServiceAccount:ServiceEndpointKubernetesServiceAccount"
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointKubernetesServiceAccount:ServiceEndpointKubernetesServiceAccount"
                     },
                     "description": "The configuration for authorization_type=\"ServiceAccount\". This type uses the credentials of a service account currently deployed to the cluster.\n"
                 },
@@ -7428,7 +7428,7 @@
                 "azureSubscriptions": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/ServiceEndpointKubernetesAzureSubscription:ServiceEndpointKubernetesAzureSubscription"
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointKubernetesAzureSubscription:ServiceEndpointKubernetesAzureSubscription"
                     },
                     "description": "The configuration for authorization_type=\"AzureSubscription\".\n"
                 },
@@ -7438,7 +7438,7 @@
                 "kubeconfigs": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/ServiceEndpointKubernetesKubeconfig:ServiceEndpointKubernetesKubeconfig"
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointKubernetesKubeconfig:ServiceEndpointKubernetesKubeconfig"
                     },
                     "description": "The configuration for authorization_type=\"Kubeconfig\".\n"
                 },
@@ -7449,7 +7449,7 @@
                 "serviceAccounts": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/ServiceEndpointKubernetesServiceAccount:ServiceEndpointKubernetesServiceAccount"
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointKubernetesServiceAccount:ServiceEndpointKubernetesServiceAccount"
                     },
                     "description": "The configuration for authorization_type=\"ServiceAccount\". This type uses the credentials of a service account currently deployed to the cluster.\n"
                 },
@@ -7484,7 +7484,7 @@
                     "azureSubscriptions": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/ServiceEndpointKubernetesAzureSubscription:ServiceEndpointKubernetesAzureSubscription"
+                            "$ref": "#/types/azuredevops:index/ServiceEndpointKubernetesAzureSubscription:ServiceEndpointKubernetesAzureSubscription"
                         },
                         "description": "The configuration for authorization_type=\"AzureSubscription\".\n"
                     },
@@ -7494,7 +7494,7 @@
                     "kubeconfigs": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/ServiceEndpointKubernetesKubeconfig:ServiceEndpointKubernetesKubeconfig"
+                            "$ref": "#/types/azuredevops:index/ServiceEndpointKubernetesKubeconfig:ServiceEndpointKubernetesKubeconfig"
                         },
                         "description": "The configuration for authorization_type=\"Kubeconfig\".\n"
                     },
@@ -7505,7 +7505,7 @@
                     "serviceAccounts": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/ServiceEndpointKubernetesServiceAccount:ServiceEndpointKubernetesServiceAccount"
+                            "$ref": "#/types/azuredevops:index/ServiceEndpointKubernetesServiceAccount:ServiceEndpointKubernetesServiceAccount"
                         },
                         "description": "The configuration for authorization_type=\"ServiceAccount\". This type uses the credentials of a service account currently deployed to the cluster.\n"
                     },
@@ -7626,7 +7626,7 @@
                     "description": "The description of the Variable Group.\n"
                 },
                 "keyVault": {
-                    "$ref": "#/types/azuredevops:/VariableGroupKeyVault:VariableGroupKeyVault"
+                    "$ref": "#/types/azuredevops:index/VariableGroupKeyVault:VariableGroupKeyVault"
                 },
                 "name": {
                     "type": "string",
@@ -7639,7 +7639,7 @@
                 "variables": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/VariableGroupVariable:VariableGroupVariable"
+                        "$ref": "#/types/azuredevops:index/VariableGroupVariable:VariableGroupVariable"
                     },
                     "description": "One or more `variable` blocks as documented below.\n"
                 }
@@ -7659,7 +7659,7 @@
                     "description": "The description of the Variable Group.\n"
                 },
                 "keyVault": {
-                    "$ref": "#/types/azuredevops:/VariableGroupKeyVault:VariableGroupKeyVault"
+                    "$ref": "#/types/azuredevops:index/VariableGroupKeyVault:VariableGroupKeyVault"
                 },
                 "name": {
                     "type": "string",
@@ -7672,7 +7672,7 @@
                 "variables": {
                     "type": "array",
                     "items": {
-                        "$ref": "#/types/azuredevops:/VariableGroupVariable:VariableGroupVariable"
+                        "$ref": "#/types/azuredevops:index/VariableGroupVariable:VariableGroupVariable"
                     },
                     "description": "One or more `variable` blocks as documented below.\n"
                 }
@@ -7693,7 +7693,7 @@
                         "description": "The description of the Variable Group.\n"
                     },
                     "keyVault": {
-                        "$ref": "#/types/azuredevops:/VariableGroupKeyVault:VariableGroupKeyVault"
+                        "$ref": "#/types/azuredevops:index/VariableGroupKeyVault:VariableGroupKeyVault"
                     },
                     "name": {
                         "type": "string",
@@ -7706,7 +7706,7 @@
                     "variables": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/VariableGroupVariable:VariableGroupVariable"
+                            "$ref": "#/types/azuredevops:index/VariableGroupVariable:VariableGroupVariable"
                         },
                         "description": "One or more `variable` blocks as documented below.\n"
                     }
@@ -8217,7 +8217,7 @@
                     "childrens": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/getAreaChildren:getAreaChildren"
+                            "$ref": "#/types/azuredevops:index/getAreaChildren:getAreaChildren"
                         }
                     },
                     "fetchChildren": {
@@ -8420,7 +8420,7 @@
                     "childrens": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/getIterationChildren:getIterationChildren"
+                            "$ref": "#/types/azuredevops:index/getIterationChildren:getIterationChildren"
                         }
                     },
                     "fetchChildren": {
@@ -8503,7 +8503,7 @@
                     "agentPools": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/getPoolsAgentPool:getPoolsAgentPool"
+                            "$ref": "#/types/azuredevops:index/getPoolsAgentPool:getPoolsAgentPool"
                         },
                         "description": "A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:\n"
                     },
@@ -8613,7 +8613,7 @@
                     "projects": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/getProjectsProject:getProjectsProject"
+                            "$ref": "#/types/azuredevops:index/getProjectsProject:getProjectsProject"
                         },
                         "description": "A list of existing projects in your Azure DevOps Organization with details about every project which includes:\n"
                     },
@@ -8669,7 +8669,7 @@
                     "repositories": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/getRepositoriesRepository:getRepositoriesRepository"
+                            "$ref": "#/types/azuredevops:index/getRepositoriesRepository:getRepositoriesRepository"
                         },
                         "description": "A list of existing projects in your Azure DevOps Organization with details about every project which includes:\n"
                     }
@@ -8736,7 +8736,7 @@
                     "users": {
                         "type": "array",
                         "items": {
-                            "$ref": "#/types/azuredevops:/getUsersUser:getUsersUser"
+                            "$ref": "#/types/azuredevops:index/getUsersUser:getUsersUser"
                         },
                         "description": "A list of existing users in your Azure DevOps Organization with details about every single user which includes:\n"
                     }

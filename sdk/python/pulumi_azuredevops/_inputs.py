@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 
 __all__ = [
@@ -44,16 +44,16 @@ __all__ = [
 @pulumi.input_type
 class BranchPolicyAutoReviewersSettingsArgs:
     def __init__(__self__, *,
-                 auto_reviewer_ids: pulumi.Input[List[pulumi.Input[str]]],
-                 scopes: pulumi.Input[List[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]],
+                 auto_reviewer_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]],
                  message: Optional[pulumi.Input[str]] = None,
-                 path_filters: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 path_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  submitter_can_vote: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] auto_reviewer_ids: Required reviewers ids. Supports multiples user Ids.
-        :param pulumi.Input[List[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_reviewer_ids: Required reviewers ids. Supports multiples user Ids.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param pulumi.Input[str] message: Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
-        :param pulumi.Input[List[pulumi.Input[str]]] path_filters: Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] path_filters: Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
         :param pulumi.Input[bool] submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
         pulumi.set(__self__, "auto_reviewer_ids", auto_reviewer_ids)
@@ -67,26 +67,26 @@ class BranchPolicyAutoReviewersSettingsArgs:
 
     @property
     @pulumi.getter(name="autoReviewerIds")
-    def auto_reviewer_ids(self) -> pulumi.Input[List[pulumi.Input[str]]]:
+    def auto_reviewer_ids(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
         Required reviewers ids. Supports multiples user Ids.
         """
         return pulumi.get(self, "auto_reviewer_ids")
 
     @auto_reviewer_ids.setter
-    def auto_reviewer_ids(self, value: pulumi.Input[List[pulumi.Input[str]]]):
+    def auto_reviewer_ids(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "auto_reviewer_ids", value)
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Input[List[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]]:
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]]:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: pulumi.Input[List[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]]):
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]]):
         pulumi.set(self, "scopes", value)
 
     @property
@@ -103,14 +103,14 @@ class BranchPolicyAutoReviewersSettingsArgs:
 
     @property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def path_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
         """
         return pulumi.get(self, "path_filters")
 
     @path_filters.setter
-    def path_filters(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def path_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "path_filters", value)
 
     @property
@@ -184,21 +184,21 @@ class BranchPolicyAutoReviewersSettingsScopeArgs:
 @pulumi.input_type
 class BranchPolicyBuildValidationSettingsArgs:
     def __init__(__self__, *,
-                 build_definition_id: pulumi.Input[float],
+                 build_definition_id: pulumi.Input[int],
                  display_name: pulumi.Input[str],
-                 scopes: pulumi.Input[List[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]],
-                 filename_patterns: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
+                 scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]],
+                 filename_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  manual_queue_only: Optional[pulumi.Input[bool]] = None,
                  queue_on_source_update_only: Optional[pulumi.Input[bool]] = None,
-                 valid_duration: Optional[pulumi.Input[float]] = None):
+                 valid_duration: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[float] build_definition_id: The ID of the build to monitor for the policy.
+        :param pulumi.Input[int] build_definition_id: The ID of the build to monitor for the policy.
         :param pulumi.Input[str] display_name: The display name for the policy.
-        :param pulumi.Input[List[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        :param pulumi.Input[List[pulumi.Input[str]]] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param pulumi.Input[bool] manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param pulumi.Input[bool] queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
-        :param pulumi.Input[float] valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
+        :param pulumi.Input[int] valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
         """
         pulumi.set(__self__, "build_definition_id", build_definition_id)
         pulumi.set(__self__, "display_name", display_name)
@@ -214,14 +214,14 @@ class BranchPolicyBuildValidationSettingsArgs:
 
     @property
     @pulumi.getter(name="buildDefinitionId")
-    def build_definition_id(self) -> pulumi.Input[float]:
+    def build_definition_id(self) -> pulumi.Input[int]:
         """
         The ID of the build to monitor for the policy.
         """
         return pulumi.get(self, "build_definition_id")
 
     @build_definition_id.setter
-    def build_definition_id(self, value: pulumi.Input[float]):
+    def build_definition_id(self, value: pulumi.Input[int]):
         pulumi.set(self, "build_definition_id", value)
 
     @property
@@ -238,26 +238,26 @@ class BranchPolicyBuildValidationSettingsArgs:
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Input[List[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]]:
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]]:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: pulumi.Input[List[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]]):
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['BranchPolicyBuildValidationSettingsScopeArgs']]]):
         pulumi.set(self, "scopes", value)
 
     @property
     @pulumi.getter(name="filenamePatterns")
-    def filename_patterns(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def filename_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         """
         return pulumi.get(self, "filename_patterns")
 
     @filename_patterns.setter
-    def filename_patterns(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def filename_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "filename_patterns", value)
 
     @property
@@ -286,14 +286,14 @@ class BranchPolicyBuildValidationSettingsArgs:
 
     @property
     @pulumi.getter(name="validDuration")
-    def valid_duration(self) -> Optional[pulumi.Input[float]]:
+    def valid_duration(self) -> Optional[pulumi.Input[int]]:
         """
         The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
         """
         return pulumi.get(self, "valid_duration")
 
     @valid_duration.setter
-    def valid_duration(self, value: Optional[pulumi.Input[float]]):
+    def valid_duration(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "valid_duration", value)
 
 
@@ -355,22 +355,22 @@ class BranchPolicyBuildValidationSettingsScopeArgs:
 @pulumi.input_type
 class BranchPolicyCommentResolutionSettingsArgs:
     def __init__(__self__, *,
-                 scopes: pulumi.Input[List[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]):
+                 scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]):
         """
-        :param pulumi.Input[List[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         pulumi.set(__self__, "scopes", scopes)
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Input[List[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]:
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: pulumi.Input[List[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]):
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['BranchPolicyCommentResolutionSettingsScopeArgs']]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -432,12 +432,12 @@ class BranchPolicyCommentResolutionSettingsScopeArgs:
 @pulumi.input_type
 class BranchPolicyMinReviewersSettingsArgs:
     def __init__(__self__, *,
-                 reviewer_count: pulumi.Input[float],
-                 scopes: pulumi.Input[List[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]],
+                 reviewer_count: pulumi.Input[int],
+                 scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]],
                  submitter_can_vote: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[float] reviewer_count: The number of reviewrs needed to approve.
-        :param pulumi.Input[List[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[int] reviewer_count: The number of reviewrs needed to approve.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param pulumi.Input[bool] submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
         pulumi.set(__self__, "reviewer_count", reviewer_count)
@@ -447,26 +447,26 @@ class BranchPolicyMinReviewersSettingsArgs:
 
     @property
     @pulumi.getter(name="reviewerCount")
-    def reviewer_count(self) -> pulumi.Input[float]:
+    def reviewer_count(self) -> pulumi.Input[int]:
         """
         The number of reviewrs needed to approve.
         """
         return pulumi.get(self, "reviewer_count")
 
     @reviewer_count.setter
-    def reviewer_count(self, value: pulumi.Input[float]):
+    def reviewer_count(self, value: pulumi.Input[int]):
         pulumi.set(self, "reviewer_count", value)
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Input[List[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]]:
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]]:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: pulumi.Input[List[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]]):
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]]):
         pulumi.set(self, "scopes", value)
 
     @property
@@ -540,22 +540,22 @@ class BranchPolicyMinReviewersSettingsScopeArgs:
 @pulumi.input_type
 class BranchPolicyWorkItemLinkingSettingsArgs:
     def __init__(__self__, *,
-                 scopes: pulumi.Input[List[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]):
+                 scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]):
         """
-        :param pulumi.Input[List[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         pulumi.set(__self__, "scopes", scopes)
 
     @property
     @pulumi.getter
-    def scopes(self) -> pulumi.Input[List[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]:
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]:
         """
         Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
     @scopes.setter
-    def scopes(self, value: pulumi.Input[List[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]):
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['BranchPolicyWorkItemLinkingSettingsScopeArgs']]]):
         pulumi.set(self, "scopes", value)
 
 
@@ -657,17 +657,17 @@ class BuildDefinitionCiTriggerArgs:
 class BuildDefinitionCiTriggerOverrideArgs:
     def __init__(__self__, *,
                  batch: Optional[pulumi.Input[bool]] = None,
-                 branch_filters: Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]]] = None,
-                 max_concurrent_builds_per_branch: Optional[pulumi.Input[float]] = None,
-                 path_filters: Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]] = None,
-                 polling_interval: Optional[pulumi.Input[float]] = None,
+                 branch_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]]] = None,
+                 max_concurrent_builds_per_branch: Optional[pulumi.Input[int]] = None,
+                 path_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]] = None,
+                 polling_interval: Optional[pulumi.Input[int]] = None,
                  polling_job_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[bool] batch: If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
-        :param pulumi.Input[List[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]] branch_filters: The branches to include and exclude from the trigger.
-        :param pulumi.Input[float] max_concurrent_builds_per_branch: The number of max builds per branch. Defaults to `1`.
-        :param pulumi.Input[List[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-        :param pulumi.Input[float] polling_interval: How often the external repository is polled. Defaults to `0`.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]] branch_filters: The branches to include and exclude from the trigger.
+        :param pulumi.Input[int] max_concurrent_builds_per_branch: The number of max builds per branch. Defaults to `1`.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        :param pulumi.Input[int] polling_interval: How often the external repository is polled. Defaults to `0`.
         :param pulumi.Input[str] polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
         if batch is not None:
@@ -697,50 +697,50 @@ class BuildDefinitionCiTriggerOverrideArgs:
 
     @property
     @pulumi.getter(name="branchFilters")
-    def branch_filters(self) -> Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]]]:
+    def branch_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]]]:
         """
         The branches to include and exclude from the trigger.
         """
         return pulumi.get(self, "branch_filters")
 
     @branch_filters.setter
-    def branch_filters(self, value: Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]]]):
+    def branch_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverrideBranchFilterArgs']]]]):
         pulumi.set(self, "branch_filters", value)
 
     @property
     @pulumi.getter(name="maxConcurrentBuildsPerBranch")
-    def max_concurrent_builds_per_branch(self) -> Optional[pulumi.Input[float]]:
+    def max_concurrent_builds_per_branch(self) -> Optional[pulumi.Input[int]]:
         """
         The number of max builds per branch. Defaults to `1`.
         """
         return pulumi.get(self, "max_concurrent_builds_per_branch")
 
     @max_concurrent_builds_per_branch.setter
-    def max_concurrent_builds_per_branch(self, value: Optional[pulumi.Input[float]]):
+    def max_concurrent_builds_per_branch(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "max_concurrent_builds_per_branch", value)
 
     @property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]:
+    def path_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]:
         """
         Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         return pulumi.get(self, "path_filters")
 
     @path_filters.setter
-    def path_filters(self, value: Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]):
+    def path_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionCiTriggerOverridePathFilterArgs']]]]):
         pulumi.set(self, "path_filters", value)
 
     @property
     @pulumi.getter(name="pollingInterval")
-    def polling_interval(self) -> Optional[pulumi.Input[float]]:
+    def polling_interval(self) -> Optional[pulumi.Input[int]]:
         """
         How often the external repository is polled. Defaults to `0`.
         """
         return pulumi.get(self, "polling_interval")
 
     @polling_interval.setter
-    def polling_interval(self, value: Optional[pulumi.Input[float]]):
+    def polling_interval(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "polling_interval", value)
 
     @property
@@ -759,11 +759,11 @@ class BuildDefinitionCiTriggerOverrideArgs:
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverrideBranchFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
-        :param pulumi.Input[List[pulumi.Input[str]]] includes: List of branch patterns to include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -772,37 +772,37 @@ class BuildDefinitionCiTriggerOverrideBranchFilterArgs:
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excludes", value)
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "includes", value)
 
 
 @pulumi.input_type
 class BuildDefinitionCiTriggerOverridePathFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
-        :param pulumi.Input[List[pulumi.Input[str]]] includes: List of branch patterns to include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -811,26 +811,26 @@ class BuildDefinitionCiTriggerOverridePathFilterArgs:
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excludes", value)
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "includes", value)
 
 
@@ -953,12 +953,12 @@ class BuildDefinitionPullRequestTriggerForksArgs:
 class BuildDefinitionPullRequestTriggerOverrideArgs:
     def __init__(__self__, *,
                  auto_cancel: Optional[pulumi.Input[bool]] = None,
-                 branch_filters: Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]]] = None,
-                 path_filters: Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]] = None):
+                 branch_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]]] = None,
+                 path_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]] = None):
         """
         :param pulumi.Input[bool] auto_cancel: . Defaults to `true`.
-        :param pulumi.Input[List[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]] branch_filters: The branches to include and exclude from the trigger.
-        :param pulumi.Input[List[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]] branch_filters: The branches to include and exclude from the trigger.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         if auto_cancel is not None:
             pulumi.set(__self__, "auto_cancel", auto_cancel)
@@ -981,37 +981,37 @@ class BuildDefinitionPullRequestTriggerOverrideArgs:
 
     @property
     @pulumi.getter(name="branchFilters")
-    def branch_filters(self) -> Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]]]:
+    def branch_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]]]:
         """
         The branches to include and exclude from the trigger.
         """
         return pulumi.get(self, "branch_filters")
 
     @branch_filters.setter
-    def branch_filters(self, value: Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]]]):
+    def branch_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs']]]]):
         pulumi.set(self, "branch_filters", value)
 
     @property
     @pulumi.getter(name="pathFilters")
-    def path_filters(self) -> Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]:
+    def path_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]:
         """
         Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         return pulumi.get(self, "path_filters")
 
     @path_filters.setter
-    def path_filters(self, value: Optional[pulumi.Input[List[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]):
+    def path_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionPullRequestTriggerOverridePathFilterArgs']]]]):
         pulumi.set(self, "path_filters", value)
 
 
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
-        :param pulumi.Input[List[pulumi.Input[str]]] includes: List of branch patterns to include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -1020,37 +1020,37 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs:
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excludes", value)
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "includes", value)
 
 
 @pulumi.input_type
 class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
     def __init__(__self__, *,
-                 excludes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None,
-                 includes: Optional[pulumi.Input[List[pulumi.Input[str]]]] = None):
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[List[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
-        :param pulumi.Input[List[pulumi.Input[str]]] includes: List of branch patterns to include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -1059,26 +1059,26 @@ class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
 
     @property
     @pulumi.getter
-    def excludes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
     @excludes.setter
-    def excludes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "excludes", value)
 
     @property
     @pulumi.getter
-    def includes(self) -> Optional[pulumi.Input[List[pulumi.Input[str]]]]:
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
-    def includes(self, value: Optional[pulumi.Input[List[pulumi.Input[str]]]]):
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "includes", value)
 
 

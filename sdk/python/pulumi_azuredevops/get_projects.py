@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from . import _utilities, _tables
 from . import outputs
 
@@ -52,7 +52,7 @@ class GetProjectsResult:
 
     @property
     @pulumi.getter
-    def projects(self) -> List['outputs.GetProjectsProjectResult']:
+    def projects(self) -> Sequence['outputs.GetProjectsProjectResult']:
         """
         A list of existing projects in your Azure DevOps Organization with details about every project which includes:
         """

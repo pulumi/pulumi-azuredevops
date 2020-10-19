@@ -5,7 +5,7 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Dict, List, Mapping, Optional, Tuple, Union
+from typing import Any, Mapping, Optional, Sequence, Union
 from .. import _utilities, _tables
 
 __all__ = ['Queue']
@@ -19,7 +19,7 @@ class Queue(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 agent_pool_id: Optional[pulumi.Input[float]] = None,
+                 agent_pool_id: Optional[pulumi.Input[int]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None,
                  __name__=None,
@@ -55,7 +55,7 @@ class Queue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] agent_pool_id: The ID of the organization agent pool.
+        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
         pulumi.log.warn("Queue is deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")
@@ -92,7 +92,7 @@ class Queue(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
-            agent_pool_id: Optional[pulumi.Input[float]] = None,
+            agent_pool_id: Optional[pulumi.Input[int]] = None,
             project_id: Optional[pulumi.Input[str]] = None) -> 'Queue':
         """
         Get an existing Queue resource's state with the given name, id, and optional extra
@@ -101,7 +101,7 @@ class Queue(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[float] agent_pool_id: The ID of the organization agent pool.
+        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -114,7 +114,7 @@ class Queue(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="agentPoolId")
-    def agent_pool_id(self) -> pulumi.Output[float]:
+    def agent_pool_id(self) -> pulumi.Output[int]:
         """
         The ID of the organization agent pool.
         """
