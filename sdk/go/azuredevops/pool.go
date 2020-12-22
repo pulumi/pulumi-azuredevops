@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -36,6 +37,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Agent Pools can be imported using the agent pool ID, e.g.
+//
+// ```sh
+//  $ pulumi import azuredevops:index/pool:Pool azuredevops_agent_pool.pool 42
+// ```
 type Pool struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +62,7 @@ func NewPool(ctx *pulumi.Context,
 	if args == nil {
 		args = &PoolArgs{}
 	}
+
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azuredevops:Agent/pool:Pool"),
@@ -123,4 +133,43 @@ type PoolArgs struct {
 
 func (PoolArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*poolArgs)(nil)).Elem()
+}
+
+type PoolInput interface {
+	pulumi.Input
+
+	ToPoolOutput() PoolOutput
+	ToPoolOutputWithContext(ctx context.Context) PoolOutput
+}
+
+func (Pool) ElementType() reflect.Type {
+	return reflect.TypeOf((*Pool)(nil)).Elem()
+}
+
+func (i Pool) ToPoolOutput() PoolOutput {
+	return i.ToPoolOutputWithContext(context.Background())
+}
+
+func (i Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PoolOutput)
+}
+
+type PoolOutput struct {
+	*pulumi.OutputState
+}
+
+func (PoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PoolOutput)(nil)).Elem()
+}
+
+func (o PoolOutput) ToPoolOutput() PoolOutput {
+	return o
+}
+
+func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(PoolOutput{})
 }

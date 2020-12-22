@@ -4,6 +4,7 @@
 package serviceendpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -63,6 +64,14 @@ import (
 // - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 // - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
 //
+// ## Import
+//
+// Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry azuredevops_serviceendpoint_dockerregistry.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
+//
 // Deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry
 type DockerRegistry struct {
 	pulumi.CustomResourceState
@@ -91,20 +100,21 @@ type DockerRegistry struct {
 // NewDockerRegistry registers a new resource with the given unique name, arguments, and options.
 func NewDockerRegistry(ctx *pulumi.Context,
 	name string, args *DockerRegistryArgs, opts ...pulumi.ResourceOption) (*DockerRegistry, error) {
-	if args == nil || args.DockerRegistry == nil {
-		return nil, errors.New("missing required argument 'DockerRegistry'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.RegistryType == nil {
-		return nil, errors.New("missing required argument 'RegistryType'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
 	if args == nil {
-		args = &DockerRegistryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DockerRegistry == nil {
+		return nil, errors.New("invalid value for required argument 'DockerRegistry'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.RegistryType == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryType'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	var resource DockerRegistry
 	err := ctx.RegisterResource("azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry", name, args, &resource, opts...)
@@ -218,4 +228,43 @@ type DockerRegistryArgs struct {
 
 func (DockerRegistryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*dockerRegistryArgs)(nil)).Elem()
+}
+
+type DockerRegistryInput interface {
+	pulumi.Input
+
+	ToDockerRegistryOutput() DockerRegistryOutput
+	ToDockerRegistryOutputWithContext(ctx context.Context) DockerRegistryOutput
+}
+
+func (DockerRegistry) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerRegistry)(nil)).Elem()
+}
+
+func (i DockerRegistry) ToDockerRegistryOutput() DockerRegistryOutput {
+	return i.ToDockerRegistryOutputWithContext(context.Background())
+}
+
+func (i DockerRegistry) ToDockerRegistryOutputWithContext(ctx context.Context) DockerRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryOutput)
+}
+
+type DockerRegistryOutput struct {
+	*pulumi.OutputState
+}
+
+func (DockerRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerRegistryOutput)(nil)).Elem()
+}
+
+func (o DockerRegistryOutput) ToDockerRegistryOutput() DockerRegistryOutput {
+	return o
+}
+
+func (o DockerRegistryOutput) ToDockerRegistryOutputWithContext(ctx context.Context) DockerRegistryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(DockerRegistryOutput{})
 }

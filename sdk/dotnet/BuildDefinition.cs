@@ -122,6 +122,20 @@ namespace Pulumi.AzureDevOps
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:index/buildDefinition:BuildDefinition build "Test Project"/10
+    /// ```
+    /// 
+    ///  or
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:index/buildDefinition:BuildDefinition build 00000000-0000-0000-0000-000000000000/0
+    /// ```
     /// </summary>
     public partial class BuildDefinition : Pulumi.CustomResource
     {

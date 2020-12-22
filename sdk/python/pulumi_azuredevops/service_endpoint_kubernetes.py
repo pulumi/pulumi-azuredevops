@@ -36,6 +36,14 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 
+        ## Import
+
+        Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes azuredevops_serviceendpoint_kubernetes.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] apiserver_url: The Service Endpoint description.
@@ -63,21 +71,21 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if apiserver_url is None:
+            if apiserver_url is None and not opts.urn:
                 raise TypeError("Missing required property 'apiserver_url'")
             __props__['apiserver_url'] = apiserver_url
             __props__['authorization'] = authorization
-            if authorization_type is None:
+            if authorization_type is None and not opts.urn:
                 raise TypeError("Missing required property 'authorization_type'")
             __props__['authorization_type'] = authorization_type
             __props__['azure_subscriptions'] = azure_subscriptions
             __props__['description'] = description
             __props__['kubeconfigs'] = kubeconfigs
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
             __props__['service_accounts'] = service_accounts
-            if service_endpoint_name is None:
+            if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__['service_endpoint_name'] = service_endpoint_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/kubernetes:Kubernetes")])

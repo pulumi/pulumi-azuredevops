@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -29,14 +28,14 @@ import * as utilities from "./utilities";
  * });
  * const endpointazure = new azuredevops.ServiceEndpointAzureRM("endpointazure", {
  *     projectId: project.id,
- *     serviceEndpointName: "TestServiceRM",
+ *     serviceEndpointName: "Sample AzureRM",
  *     description: "Managed by Terraform",
  *     credentials: {
- *         serviceprincipalid: "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
- *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
+ *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  *     },
- *     azurermSpnTenantid: "xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
- *     azurermSubscriptionId: "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionName: "Sample Subscription",
  * });
  * ```
@@ -53,16 +52,24 @@ import * as utilities from "./utilities";
  * });
  * const endpointazure = new azuredevops.ServiceEndpointAzureRM("endpointazure", {
  *     projectId: project.id,
- *     serviceEndpointName: "TestServiceRM",
+ *     serviceEndpointName: "Sample AzureRM",
  *     description: "Managed by Terraform",
- *     azurermSpnTenantid: "xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
- *     azurermSubscriptionId: "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionName: "Microsoft Azure DEMO",
  * });
  * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ *
+ * ## Import
+ *
+ * Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM azuredevops_serviceendpoint_azurerm.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ * ```
  */
 export class ServiceEndpointAzureRM extends pulumi.CustomResource {
     /**
@@ -149,19 +156,19 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureRMArgs | undefined;
-            if (!args || args.azurermSpnTenantid === undefined) {
+            if ((!args || args.azurermSpnTenantid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azurermSpnTenantid'");
             }
-            if (!args || args.azurermSubscriptionId === undefined) {
+            if ((!args || args.azurermSubscriptionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azurermSubscriptionId'");
             }
-            if (!args || args.azurermSubscriptionName === undefined) {
+            if ((!args || args.azurermSubscriptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azurermSubscriptionName'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if (!args || args.serviceEndpointName === undefined) {
+            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["authorization"] = args ? args.authorization : undefined;

@@ -74,7 +74,7 @@ class Git(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -102,12 +102,12 @@ class Git(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['default_branch'] = default_branch
-            if initialization is None:
+            if initialization is None and not opts.urn:
                 raise TypeError("Missing required property 'initialization'")
             __props__['initialization'] = initialization
             __props__['name'] = name
             __props__['parent_repository_id'] = parent_repository_id
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
             __props__['is_fork'] = None

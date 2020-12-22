@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -27,7 +26,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             name: "Account Password",
- *             value: "p@ssword123",
+ *             secretValue: "p@ssword123",
  *             isSecret: true,
  *         },
  *     ],
@@ -41,6 +40,22 @@ import * as utilities from "../utilities";
  * ## PAT Permissions Required
  *
  * - **Variable Groups**: Read, Create, & Manage
+ *
+ * ## Import
+ *
+ * **Variable groups containing secret values cannot be imported.** Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup "Test Project/10"
+ * ```
+ *
+ *  or
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup 00000000-0000-0000-0000-000000000000/0
+ * ```
+ *
+ *  _Note that for secret variables, the import command retrieve blank value in the tfstate._
  *
  * @deprecated azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup
  */
@@ -118,10 +133,10 @@ export class VariableGroup extends pulumi.CustomResource {
             inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as VariableGroupArgs | undefined;
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if (!args || args.variables === undefined) {
+            if ((!args || args.variables === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'variables'");
             }
             inputs["allowAccess"] = args ? args.allowAccess : undefined;

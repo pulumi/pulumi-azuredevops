@@ -107,13 +107,13 @@ export class ResourceAuthorization extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ResourceAuthorizationArgs | undefined;
-            if (!args || args.authorized === undefined) {
+            if ((!args || args.authorized === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorized'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if (!args || args.resourceId === undefined) {
+            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceId'");
             }
             inputs["authorized"] = args ? args.authorized : undefined;

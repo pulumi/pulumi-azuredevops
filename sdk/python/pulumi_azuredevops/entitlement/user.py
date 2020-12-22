@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['User']
 
-warnings.warn("azuredevops.entitlement.User has been deprecated in favor of azuredevops.User", DeprecationWarning)
+warnings.warn("""azuredevops.entitlement.User has been deprecated in favor of azuredevops.User""", DeprecationWarning)
 
 
 class User(pulumi.CustomResource):
-    warnings.warn("azuredevops.entitlement.User has been deprecated in favor of azuredevops.User", DeprecationWarning)
+    warnings.warn("""azuredevops.entitlement.User has been deprecated in favor of azuredevops.User""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -45,6 +45,10 @@ class User(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Member Entitlement Management**: Read & Write
+
+        ## Import
+
+        The resources allows the import via the UUID of a user entitlement or by using the principal name of a user owning an entitlement.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

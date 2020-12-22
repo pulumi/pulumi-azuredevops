@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,10 +35,10 @@ import (
 // 		}
 // 		_, err = azuredevops.NewServiceEndpointBitBucket(ctx, "serviceendpoint", &azuredevops.ServiceEndpointBitBucketArgs{
 // 			ProjectId:           project.ID(),
-// 			Username:            pulumi.String("xxxx"),
-// 			Password:            pulumi.String("xxxx"),
-// 			ServiceEndpointName: pulumi.String("test-bitbucket"),
-// 			Description:         pulumi.String("test"),
+// 			Username:            pulumi.String("username"),
+// 			Password:            pulumi.String("password"),
+// 			ServiceEndpointName: pulumi.String("Sample Bitbucket"),
+// 			Description:         pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -49,6 +50,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket azuredevops_serviceendpoint_bitbucket.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
 type ServiceEndpointBitBucket struct {
 	pulumi.CustomResourceState
 
@@ -69,20 +78,21 @@ type ServiceEndpointBitBucket struct {
 // NewServiceEndpointBitBucket registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointBitBucket(ctx *pulumi.Context,
 	name string, args *ServiceEndpointBitBucketArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointBitBucket, error) {
-	if args == nil || args.Password == nil {
-		return nil, errors.New("missing required argument 'Password'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
-	if args == nil || args.Username == nil {
-		return nil, errors.New("missing required argument 'Username'")
-	}
 	if args == nil {
-		args = &ServiceEndpointBitBucketArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
+	}
+	if args.Username == nil {
+		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -174,4 +184,43 @@ type ServiceEndpointBitBucketArgs struct {
 
 func (ServiceEndpointBitBucketArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointBitBucketArgs)(nil)).Elem()
+}
+
+type ServiceEndpointBitBucketInput interface {
+	pulumi.Input
+
+	ToServiceEndpointBitBucketOutput() ServiceEndpointBitBucketOutput
+	ToServiceEndpointBitBucketOutputWithContext(ctx context.Context) ServiceEndpointBitBucketOutput
+}
+
+func (ServiceEndpointBitBucket) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointBitBucket)(nil)).Elem()
+}
+
+func (i ServiceEndpointBitBucket) ToServiceEndpointBitBucketOutput() ServiceEndpointBitBucketOutput {
+	return i.ToServiceEndpointBitBucketOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointBitBucket) ToServiceEndpointBitBucketOutputWithContext(ctx context.Context) ServiceEndpointBitBucketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketOutput)
+}
+
+type ServiceEndpointBitBucketOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointBitBucketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointBitBucketOutput)(nil)).Elem()
+}
+
+func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketOutput() ServiceEndpointBitBucketOutput {
+	return o
+}
+
+func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketOutputWithContext(ctx context.Context) ServiceEndpointBitBucketOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceEndpointBitBucketOutput{})
 }

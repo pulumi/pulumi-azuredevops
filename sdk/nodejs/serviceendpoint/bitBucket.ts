@@ -20,15 +20,23 @@ import * as utilities from "../utilities";
  * });
  * const serviceendpoint = new azuredevops.ServiceEndpointBitBucket("serviceendpoint", {
  *     projectId: project.id,
- *     username: "xxxx",
- *     password: "xxxx",
- *     serviceEndpointName: "test-bitbucket",
- *     description: "test",
+ *     username: "username",
+ *     password: "password",
+ *     serviceEndpointName: "Sample Bitbucket",
+ *     description: "Managed by Terraform",
  * });
  * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ *
+ * ## Import
+ *
+ * Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket azuredevops_serviceendpoint_bitbucket.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ * ```
  *
  * @deprecated azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket
  */
@@ -108,16 +116,16 @@ export class BitBucket extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as BitBucketArgs | undefined;
-            if (!args || args.password === undefined) {
+            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'password'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if (!args || args.serviceEndpointName === undefined) {
+            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if (!args || args.username === undefined) {
+            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["authorization"] = args ? args.authorization : undefined;

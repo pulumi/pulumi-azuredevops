@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,10 +37,10 @@ import (
 // 			ProjectId:               project.ID(),
 // 			ServiceEndpointName:     pulumi.String("Sample AzureCR"),
 // 			ResourceGroup:           pulumi.String("sample-rg"),
-// 			AzurecrSpnTenantid:      pulumi.String("72f987tg-95f1-87af-91bh-2d8jd091db47"),
+// 			AzurecrSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			AzurecrName:             pulumi.String("sampleAcr"),
-// 			AzurecrSubscriptionId:   pulumi.String("f7ooi795-c577-6210-9886-a5e898uue3gc"),
-// 			AzurecrSubscriptionName: pulumi.String("sample"),
+// 			AzurecrSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			AzurecrSubscriptionName: pulumi.String("sampleSub"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -52,6 +53,14 @@ import (
 //
 // - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 // - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
+//
+// ## Import
+//
+// Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr azuredevops_serviceendpoint_azurecr.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
 type ServiceEndpointAzureEcr struct {
 	pulumi.CustomResourceState
 
@@ -77,29 +86,30 @@ type ServiceEndpointAzureEcr struct {
 // NewServiceEndpointAzureEcr registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointAzureEcr(ctx *pulumi.Context,
 	name string, args *ServiceEndpointAzureEcrArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointAzureEcr, error) {
-	if args == nil || args.AzurecrName == nil {
-		return nil, errors.New("missing required argument 'AzurecrName'")
-	}
-	if args == nil || args.AzurecrSpnTenantid == nil {
-		return nil, errors.New("missing required argument 'AzurecrSpnTenantid'")
-	}
-	if args == nil || args.AzurecrSubscriptionId == nil {
-		return nil, errors.New("missing required argument 'AzurecrSubscriptionId'")
-	}
-	if args == nil || args.AzurecrSubscriptionName == nil {
-		return nil, errors.New("missing required argument 'AzurecrSubscriptionName'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.ResourceGroup == nil {
-		return nil, errors.New("missing required argument 'ResourceGroup'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
 	if args == nil {
-		args = &ServiceEndpointAzureEcrArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AzurecrName == nil {
+		return nil, errors.New("invalid value for required argument 'AzurecrName'")
+	}
+	if args.AzurecrSpnTenantid == nil {
+		return nil, errors.New("invalid value for required argument 'AzurecrSpnTenantid'")
+	}
+	if args.AzurecrSubscriptionId == nil {
+		return nil, errors.New("invalid value for required argument 'AzurecrSubscriptionId'")
+	}
+	if args.AzurecrSubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'AzurecrSubscriptionName'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.ResourceGroup == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceGroup'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	var resource ServiceEndpointAzureEcr
 	err := ctx.RegisterResource("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr", name, args, &resource, opts...)
@@ -209,4 +219,43 @@ type ServiceEndpointAzureEcrArgs struct {
 
 func (ServiceEndpointAzureEcrArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointAzureEcrArgs)(nil)).Elem()
+}
+
+type ServiceEndpointAzureEcrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureEcrOutput() ServiceEndpointAzureEcrOutput
+	ToServiceEndpointAzureEcrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrOutput
+}
+
+func (ServiceEndpointAzureEcr) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureEcr)(nil)).Elem()
+}
+
+func (i ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutput() ServiceEndpointAzureEcrOutput {
+	return i.ToServiceEndpointAzureEcrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrOutput)
+}
+
+type ServiceEndpointAzureEcrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointAzureEcrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureEcrOutput)(nil)).Elem()
+}
+
+func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrOutput() ServiceEndpointAzureEcrOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceEndpointAzureEcrOutput{})
 }

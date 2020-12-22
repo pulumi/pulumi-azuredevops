@@ -46,6 +46,10 @@ class GroupMembership(pulumi.CustomResource):
 
         - **Deployment Groups**: Read & Manage
 
+        ## Import
+
+        Not supported.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] group: The descriptor of the group being managed.
@@ -73,10 +77,10 @@ class GroupMembership(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if group is None:
+            if group is None and not opts.urn:
                 raise TypeError("Missing required property 'group'")
             __props__['group'] = group
-            if members is None:
+            if members is None and not opts.urn:
                 raise TypeError("Missing required property 'members'")
             __props__['members'] = members
             __props__['mode'] = mode

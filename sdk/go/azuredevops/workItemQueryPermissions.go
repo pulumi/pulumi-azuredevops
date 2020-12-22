@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -95,6 +96,10 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
+//
+// ## Import
+//
+// The resource does not support import.
 type WorkItemQueryPermissions struct {
 	pulumi.CustomResourceState
 
@@ -113,17 +118,18 @@ type WorkItemQueryPermissions struct {
 // NewWorkItemQueryPermissions registers a new resource with the given unique name, arguments, and options.
 func NewWorkItemQueryPermissions(ctx *pulumi.Context,
 	name string, args *WorkItemQueryPermissionsArgs, opts ...pulumi.ResourceOption) (*WorkItemQueryPermissions, error) {
-	if args == nil || args.Permissions == nil {
-		return nil, errors.New("missing required argument 'Permissions'")
-	}
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &WorkItemQueryPermissionsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Permissions == nil {
+		return nil, errors.New("invalid value for required argument 'Permissions'")
+	}
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	var resource WorkItemQueryPermissions
 	err := ctx.RegisterResource("azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions", name, args, &resource, opts...)
@@ -205,4 +211,43 @@ type WorkItemQueryPermissionsArgs struct {
 
 func (WorkItemQueryPermissionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*workItemQueryPermissionsArgs)(nil)).Elem()
+}
+
+type WorkItemQueryPermissionsInput interface {
+	pulumi.Input
+
+	ToWorkItemQueryPermissionsOutput() WorkItemQueryPermissionsOutput
+	ToWorkItemQueryPermissionsOutputWithContext(ctx context.Context) WorkItemQueryPermissionsOutput
+}
+
+func (WorkItemQueryPermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkItemQueryPermissions)(nil)).Elem()
+}
+
+func (i WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutput() WorkItemQueryPermissionsOutput {
+	return i.ToWorkItemQueryPermissionsOutputWithContext(context.Background())
+}
+
+func (i WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutputWithContext(ctx context.Context) WorkItemQueryPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkItemQueryPermissionsOutput)
+}
+
+type WorkItemQueryPermissionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (WorkItemQueryPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkItemQueryPermissionsOutput)(nil)).Elem()
+}
+
+func (o WorkItemQueryPermissionsOutput) ToWorkItemQueryPermissionsOutput() WorkItemQueryPermissionsOutput {
+	return o
+}
+
+func (o WorkItemQueryPermissionsOutput) ToWorkItemQueryPermissionsOutputWithContext(ctx context.Context) WorkItemQueryPermissionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(WorkItemQueryPermissionsOutput{})
 }

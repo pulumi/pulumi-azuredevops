@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -56,6 +57,10 @@ import (
 // ## PAT Permissions Required
 //
 // - **Deployment Groups**: Read & Manage
+//
+// ## Import
+//
+// Not supported.
 type GroupMembership struct {
 	pulumi.CustomResourceState
 
@@ -74,14 +79,15 @@ type GroupMembership struct {
 // NewGroupMembership registers a new resource with the given unique name, arguments, and options.
 func NewGroupMembership(ctx *pulumi.Context,
 	name string, args *GroupMembershipArgs, opts ...pulumi.ResourceOption) (*GroupMembership, error) {
-	if args == nil || args.Group == nil {
-		return nil, errors.New("missing required argument 'Group'")
-	}
-	if args == nil || args.Members == nil {
-		return nil, errors.New("missing required argument 'Members'")
-	}
 	if args == nil {
-		args = &GroupMembershipArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Group == nil {
+		return nil, errors.New("invalid value for required argument 'Group'")
+	}
+	if args.Members == nil {
+		return nil, errors.New("invalid value for required argument 'Members'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -169,4 +175,43 @@ type GroupMembershipArgs struct {
 
 func (GroupMembershipArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupMembershipArgs)(nil)).Elem()
+}
+
+type GroupMembershipInput interface {
+	pulumi.Input
+
+	ToGroupMembershipOutput() GroupMembershipOutput
+	ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput
+}
+
+func (GroupMembership) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMembership)(nil)).Elem()
+}
+
+func (i GroupMembership) ToGroupMembershipOutput() GroupMembershipOutput {
+	return i.ToGroupMembershipOutputWithContext(context.Background())
+}
+
+func (i GroupMembership) ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupMembershipOutput)
+}
+
+type GroupMembershipOutput struct {
+	*pulumi.OutputState
+}
+
+func (GroupMembershipOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupMembershipOutput)(nil)).Elem()
+}
+
+func (o GroupMembershipOutput) ToGroupMembershipOutput() GroupMembershipOutput {
+	return o
+}
+
+func (o GroupMembershipOutput) ToGroupMembershipOutputWithContext(ctx context.Context) GroupMembershipOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GroupMembershipOutput{})
 }

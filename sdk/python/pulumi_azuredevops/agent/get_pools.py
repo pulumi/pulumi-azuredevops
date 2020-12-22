@@ -15,7 +15,7 @@ __all__ = [
     'get_pools',
 ]
 
-warnings.warn("azuredevops.agent.getPools has been deprecated in favor of azuredevops.getPools", DeprecationWarning)
+warnings.warn("""azuredevops.agent.getPools has been deprecated in favor of azuredevops.getPools""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPoolsResult:

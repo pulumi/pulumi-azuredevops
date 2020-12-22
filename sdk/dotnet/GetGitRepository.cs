@@ -11,6 +11,41 @@ namespace Pulumi.AzureDevOps
 {
     public static class GetGitRepository
     {
+        /// <summary>
+        /// Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
+        /// To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         {
+        ///             Name = "contoso-project",
+        ///         }));
+        ///         var singleRepo = project.Apply(project =&gt; Output.Create(AzureDevOps.GetGitRepository.InvokeAsync(new AzureDevOps.GetGitRepositoryArgs
+        ///         {
+        ///             ProjectId = project.Id,
+        ///             Name = "contoso-repo",
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+        /// </summary>
         public static Task<GetGitRepositoryResult> InvokeAsync(GetGitRepositoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGitRepositoryResult>("azuredevops:index/getGitRepository:getGitRepository", args ?? new GetGitRepositoryArgs(), options.WithVersion());
     }
@@ -18,9 +53,15 @@ namespace Pulumi.AzureDevOps
 
     public sealed class GetGitRepositoryArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// Name of the Git repository to retrieve
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// ID of project to list Git repositories
+        /// </summary>
         [Input("projectId", required: true)]
         public string ProjectId { get; set; } = null!;
 
@@ -33,18 +74,42 @@ namespace Pulumi.AzureDevOps
     [OutputType]
     public sealed class GetGitRepositoryResult
     {
+        /// <summary>
+        /// The ref of the default branch.
+        /// </summary>
         public readonly string DefaultBranch;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly bool IsFork;
+        /// <summary>
+        /// Git repository name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Project identifier to which the Git repository belongs.
+        /// </summary>
         public readonly string ProjectId;
+        /// <summary>
+        /// HTTPS Url to clone the Git repository
+        /// </summary>
         public readonly string RemoteUrl;
+        /// <summary>
+        /// Compressed size (bytes) of the repository.
+        /// </summary>
         public readonly int Size;
+        /// <summary>
+        /// SSH Url to clone the Git repository
+        /// </summary>
         public readonly string SshUrl;
+        /// <summary>
+        /// Details REST API endpoint for the Git Repository.
+        /// </summary>
         public readonly string Url;
+        /// <summary>
+        /// Url of the Git repository web view
+        /// </summary>
         public readonly string WebUrl;
 
         [OutputConstructor]

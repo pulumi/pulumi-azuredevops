@@ -37,6 +37,7 @@
         "core/projectFeatures.ts",
         "entitlement/index.ts",
         "entitlement/user.ts",
+        "getAgentQueue.ts",
         "getArea.ts",
         "getClientConfig.ts",
         "getGitRepository.ts",

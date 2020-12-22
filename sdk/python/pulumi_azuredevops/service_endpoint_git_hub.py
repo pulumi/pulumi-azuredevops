@@ -43,7 +43,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             project_id=project.id,
             service_endpoint_name="Sample GithHub Personal Access Token",
             auth_personal=azuredevops.ServiceEndpointGitHubAuthPersonalArgs(
-                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
         ```
 
@@ -55,7 +55,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             project_id=azuredevops_project["project"]["id"],
             service_endpoint_name="Sample GithHub Grant",
             auth_oauth=azuredevops.ServiceEndpointGitHubAuthOauthArgs(
-                oauth_configuration_id="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+                oauth_configuration_id="00000000-0000-0000-0000-000000000000",
             ))
         ```
 
@@ -70,7 +70,15 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub azuredevops_serviceendpoint_github.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -100,10 +108,10 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
             __props__['auth_personal'] = auth_personal
             __props__['authorization'] = authorization
             __props__['description'] = description
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
-            if service_endpoint_name is None:
+            if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__['service_endpoint_name'] = service_endpoint_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/gitHub:GitHub")])

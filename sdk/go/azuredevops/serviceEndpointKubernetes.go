@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -15,6 +16,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes azuredevops_serviceendpoint_kubernetes.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
 type ServiceEndpointKubernetes struct {
 	pulumi.CustomResourceState
 
@@ -39,20 +48,21 @@ type ServiceEndpointKubernetes struct {
 // NewServiceEndpointKubernetes registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointKubernetes(ctx *pulumi.Context,
 	name string, args *ServiceEndpointKubernetesArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointKubernetes, error) {
-	if args == nil || args.ApiserverUrl == nil {
-		return nil, errors.New("missing required argument 'ApiserverUrl'")
-	}
-	if args == nil || args.AuthorizationType == nil {
-		return nil, errors.New("missing required argument 'AuthorizationType'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
 	if args == nil {
-		args = &ServiceEndpointKubernetesArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ApiserverUrl == nil {
+		return nil, errors.New("invalid value for required argument 'ApiserverUrl'")
+	}
+	if args.AuthorizationType == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorizationType'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -164,4 +174,43 @@ type ServiceEndpointKubernetesArgs struct {
 
 func (ServiceEndpointKubernetesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointKubernetesArgs)(nil)).Elem()
+}
+
+type ServiceEndpointKubernetesInput interface {
+	pulumi.Input
+
+	ToServiceEndpointKubernetesOutput() ServiceEndpointKubernetesOutput
+	ToServiceEndpointKubernetesOutputWithContext(ctx context.Context) ServiceEndpointKubernetesOutput
+}
+
+func (ServiceEndpointKubernetes) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointKubernetes)(nil)).Elem()
+}
+
+func (i ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutput() ServiceEndpointKubernetesOutput {
+	return i.ToServiceEndpointKubernetesOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutputWithContext(ctx context.Context) ServiceEndpointKubernetesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesOutput)
+}
+
+type ServiceEndpointKubernetesOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointKubernetesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointKubernetesOutput)(nil)).Elem()
+}
+
+func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesOutput() ServiceEndpointKubernetesOutput {
+	return o
+}
+
+func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesOutputWithContext(ctx context.Context) ServiceEndpointKubernetesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesOutput{})
 }

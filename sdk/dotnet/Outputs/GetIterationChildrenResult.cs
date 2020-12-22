@@ -13,10 +13,25 @@ namespace Pulumi.AzureDevOps.Outputs
     [OutputType]
     public sealed class GetIterationChildrenResult
     {
+        /// <summary>
+        /// Indicator if the child Iteration node has child nodes
+        /// </summary>
         public readonly bool HasChildren;
+        /// <summary>
+        /// The id of the child Iteration node
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the child Iteration node
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// The project ID.
+        /// </summary>
         public readonly string ProjectId;
 
         [OutputConstructor]

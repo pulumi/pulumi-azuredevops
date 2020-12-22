@@ -43,15 +43,23 @@ class ServiceEndpointAws(pulumi.CustomResource):
             work_item_template="Agile")
         serviceendpoint = azuredevops.ServiceEndpointAws("serviceendpoint",
             project_id=project.id,
-            service_endpoint_name="aws_serviceendpoint",
+            service_endpoint_name="Sample AWS",
             description="Managed by AzureDevOps",
-            access_key_id="xxxx",
-            secret_access_key="xxxx")
+            access_key_id="00000000-0000-0000-0000-000000000000",
+            secret_access_key="accesskey")
         ```
         ## Relevant Links
 
         * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
         * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -81,21 +89,21 @@ class ServiceEndpointAws(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if access_key_id is None:
+            if access_key_id is None and not opts.urn:
                 raise TypeError("Missing required property 'access_key_id'")
             __props__['access_key_id'] = access_key_id
             __props__['authorization'] = authorization
             __props__['description'] = description
             __props__['external_id'] = external_id
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
             __props__['role_session_name'] = role_session_name
             __props__['role_to_assume'] = role_to_assume
-            if secret_access_key is None:
+            if secret_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_access_key'")
             __props__['secret_access_key'] = secret_access_key
-            if service_endpoint_name is None:
+            if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__['service_endpoint_name'] = service_endpoint_name
             __props__['session_token'] = session_token

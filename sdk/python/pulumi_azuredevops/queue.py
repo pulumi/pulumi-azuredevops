@@ -49,6 +49,14 @@ class Queue(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
 
+        ## Import
+
+        Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:index/queue:Queue q 44cbf614-4dfd-4032-9fae-87b0da3bec30/1381
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
@@ -71,10 +79,10 @@ class Queue(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if agent_pool_id is None:
+            if agent_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_pool_id'")
             __props__['agent_pool_id'] = agent_pool_id
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Agent/queue:Queue")])

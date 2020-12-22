@@ -4,6 +4,7 @@
 package pipeline
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -38,9 +39,9 @@ import (
 // 					Value: pulumi.String("value"),
 // 				},
 // 				&azuredevops.VariableGroupVariableArgs{
-// 					Name:     pulumi.String("Account Password"),
-// 					Value:    pulumi.String("p@ssword123"),
-// 					IsSecret: pulumi.Bool(true),
+// 					Name:        pulumi.String("Account Password"),
+// 					SecretValue: pulumi.String("p@ssword123"),
+// 					IsSecret:    pulumi.Bool(true),
 // 				},
 // 			},
 // 		})
@@ -59,6 +60,22 @@ import (
 // ## PAT Permissions Required
 //
 // - **Variable Groups**: Read, Create, & Manage
+//
+// ## Import
+//
+// **Variable groups containing secret values cannot be imported.** Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
+//
+// ```sh
+//  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup "Test Project/10"
+// ```
+//
+//  or
+//
+// ```sh
+//  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup 00000000-0000-0000-0000-000000000000/0
+// ```
+//
+//  _Note that for secret variables, the import command retrieve blank value in the tfstate._
 //
 // Deprecated: azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup
 type VariableGroup struct {
@@ -80,14 +97,15 @@ type VariableGroup struct {
 // NewVariableGroup registers a new resource with the given unique name, arguments, and options.
 func NewVariableGroup(ctx *pulumi.Context,
 	name string, args *VariableGroupArgs, opts ...pulumi.ResourceOption) (*VariableGroup, error) {
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.Variables == nil {
-		return nil, errors.New("missing required argument 'Variables'")
-	}
 	if args == nil {
-		args = &VariableGroupArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.Variables == nil {
+		return nil, errors.New("invalid value for required argument 'Variables'")
 	}
 	var resource VariableGroup
 	err := ctx.RegisterResource("azuredevops:Pipeline/variableGroup:VariableGroup", name, args, &resource, opts...)
@@ -173,4 +191,43 @@ type VariableGroupArgs struct {
 
 func (VariableGroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*variableGroupArgs)(nil)).Elem()
+}
+
+type VariableGroupInput interface {
+	pulumi.Input
+
+	ToVariableGroupOutput() VariableGroupOutput
+	ToVariableGroupOutputWithContext(ctx context.Context) VariableGroupOutput
+}
+
+func (VariableGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableGroup)(nil)).Elem()
+}
+
+func (i VariableGroup) ToVariableGroupOutput() VariableGroupOutput {
+	return i.ToVariableGroupOutputWithContext(context.Background())
+}
+
+func (i VariableGroup) ToVariableGroupOutputWithContext(ctx context.Context) VariableGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupOutput)
+}
+
+type VariableGroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (VariableGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableGroupOutput)(nil)).Elem()
+}
+
+func (o VariableGroupOutput) ToVariableGroupOutput() VariableGroupOutput {
+	return o
+}
+
+func (o VariableGroupOutput) ToVariableGroupOutputWithContext(ctx context.Context) VariableGroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(VariableGroupOutput{})
 }

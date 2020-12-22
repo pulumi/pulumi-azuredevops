@@ -72,6 +72,10 @@ class IterativePermissions(pulumi.CustomResource):
 
         - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
 
+        ## Import
+
+        The resource does not support import.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] path: The name of the branch to assign the permissions.
@@ -98,13 +102,13 @@ class IterativePermissions(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['path'] = path
-            if permissions is None:
+            if permissions is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions'")
             __props__['permissions'] = permissions
-            if principal is None:
+            if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__['principal'] = principal
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
             __props__['replace'] = replace

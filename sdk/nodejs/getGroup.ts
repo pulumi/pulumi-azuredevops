@@ -2,13 +2,33 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an existing Group within Azure DevOps
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const project = azuredevops.getProject({
+ *     name: "contoso-project",
+ * });
+ * const test = project.then(project => azuredevops.getGroup({
+ *     projectId: project.id,
+ *     name: "Test Group",
+ * }));
+ * export const groupId = test.then(test => test.id);
+ * export const groupDescriptor = test.then(test => test.descriptor);
+ * const test-collection-group = azuredevops.getGroup({
+ *     name: "Project Collection Administrators",
+ * });
+ * export const collectionGroupId = test_collection_group.then(test_collection_group => test_collection_group.id);
+ * export const collectionGroupDescriptor = test_collection_group.then(test_collection_group => test_collection_group.descriptor);
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
@@ -36,9 +56,9 @@ export interface GetGroupArgs {
      */
     readonly name: string;
     /**
-     * The Project Id.
+     * The Project ID. If no project ID is specified the project collection groups will be searched.
      */
-    readonly projectId: string;
+    readonly projectId?: string;
 }
 
 /**
@@ -62,5 +82,5 @@ export interface GetGroupResult {
      * The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
      */
     readonly originId: string;
-    readonly projectId: string;
+    readonly projectId?: string;
 }

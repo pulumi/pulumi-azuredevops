@@ -2,10 +2,43 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const project = new azuredevops.Project("project", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const root-iteration = project.id.apply(id => azuredevops.getIteration({
+ *     projectId: id,
+ *     path: "/",
+ *     fetchChildren: true,
+ * }));
+ * const child-iteration = project.id.apply(id => azuredevops.getIteration({
+ *     projectId: id,
+ *     path: "/Iteration 1",
+ *     fetchChildren: true,
+ * }));
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+ *
+ * ## PAT Permissions Required
+ *
+ * - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
+ */
 export function getIteration(args: GetIterationArgs, opts?: pulumi.InvokeOptions): Promise<GetIterationResult> {
     if (!opts) {
         opts = {}
@@ -25,8 +58,17 @@ export function getIteration(args: GetIterationArgs, opts?: pulumi.InvokeOptions
  * A collection of arguments for invoking getIteration.
  */
 export interface GetIterationArgs {
+    /**
+     * Read children nodes, _Depth_: 1, _Default_: `true`
+     */
     readonly fetchChildren?: boolean;
+    /**
+     * The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+     */
     readonly path?: string;
+    /**
+     * The project ID.
+     */
     readonly projectId: string;
 }
 
@@ -34,14 +76,29 @@ export interface GetIterationArgs {
  * A collection of values returned by getIteration.
  */
 export interface GetIterationResult {
+    /**
+     * A list of `children` blocks as defined below, empty if `hasChildren == false`
+     */
     readonly childrens: outputs.GetIterationChildren[];
     readonly fetchChildren?: boolean;
+    /**
+     * Indicator if the child Iteration node has child nodes
+     */
     readonly hasChildren: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * The name of the child Iteration node
+     */
     readonly name: string;
+    /**
+     * The complete path (in relative URL format) of the child Iteration
+     */
     readonly path: string;
+    /**
+     * The project ID of the child Iteration node
+     */
     readonly projectId: string;
 }

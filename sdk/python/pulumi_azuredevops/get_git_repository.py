@@ -54,6 +54,9 @@ class GetGitRepositoryResult:
     @property
     @pulumi.getter(name="defaultBranch")
     def default_branch(self) -> str:
+        """
+        The ref of the default branch.
+        """
         return pulumi.get(self, "default_branch")
 
     @property
@@ -72,36 +75,57 @@ class GetGitRepositoryResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        Git repository name.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
+        """
+        Project identifier to which the Git repository belongs.
+        """
         return pulumi.get(self, "project_id")
 
     @property
     @pulumi.getter(name="remoteUrl")
     def remote_url(self) -> str:
+        """
+        HTTPS Url to clone the Git repository
+        """
         return pulumi.get(self, "remote_url")
 
     @property
     @pulumi.getter
     def size(self) -> int:
+        """
+        Compressed size (bytes) of the repository.
+        """
         return pulumi.get(self, "size")
 
     @property
     @pulumi.getter(name="sshUrl")
     def ssh_url(self) -> str:
+        """
+        SSH Url to clone the Git repository
+        """
         return pulumi.get(self, "ssh_url")
 
     @property
     @pulumi.getter
     def url(self) -> str:
+        """
+        Details REST API endpoint for the Git Repository.
+        """
         return pulumi.get(self, "url")
 
     @property
     @pulumi.getter(name="webUrl")
     def web_url(self) -> str:
+        """
+        Url of the Git repository web view
+        """
         return pulumi.get(self, "web_url")
 
 
@@ -127,7 +151,26 @@ def get_git_repository(name: Optional[str] = None,
                        project_id: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGitRepositoryResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
+    To read information about **multiple** Git Repositories use the data source `getRepositories`
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    project = azuredevops.get_project(name="contoso-project")
+    single_repo = azuredevops.get_git_repository(project_id=project.id,
+        name="contoso-repo")
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+
+
+    :param str name: Name of the Git repository to retrieve
+    :param str project_id: ID of project to list Git repositories
     """
     __args__ = dict()
     __args__['name'] = name

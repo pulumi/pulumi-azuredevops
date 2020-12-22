@@ -8,3 +8,29 @@ from .get_users import *
 from .group import *
 from .group_membership import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azuredevops:Identities/group:Group":
+                return Group(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:Identities/groupMembership:GroupMembership":
+                return GroupMembership(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azuredevops", "Identities/group", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "Identities/groupMembership", _module_instance)
+
+_register_module()

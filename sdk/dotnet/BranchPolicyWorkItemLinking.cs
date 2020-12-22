@@ -64,6 +64,14 @@ namespace Pulumi.AzureDevOps
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking p 00000000-0000-0000-0000-000000000000/0
+    /// ```
     /// </summary>
     public partial class BranchPolicyWorkItemLinking : Pulumi.CustomResource
     {

@@ -46,6 +46,9 @@ class GetIterationResult:
     @property
     @pulumi.getter
     def childrens(self) -> Sequence['outputs.GetIterationChildrenResult']:
+        """
+        A list of `children` blocks as defined below, empty if `has_children == false`
+        """
         return pulumi.get(self, "childrens")
 
     @property
@@ -56,6 +59,9 @@ class GetIterationResult:
     @property
     @pulumi.getter(name="hasChildren")
     def has_children(self) -> bool:
+        """
+        Indicator if the child Iteration node has child nodes
+        """
         return pulumi.get(self, "has_children")
 
     @property
@@ -69,16 +75,25 @@ class GetIterationResult:
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the child Iteration node
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        The complete path (in relative URL format) of the child Iteration
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
+        """
+        The project ID of the child Iteration node
+        """
         return pulumi.get(self, "project_id")
 
 
@@ -102,7 +117,38 @@ def get_iteration(fetch_children: Optional[bool] = None,
                   project_id: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIterationResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    project = azuredevops.Project("project",
+        work_item_template="Agile",
+        version_control="Git",
+        visibility="private",
+        description="Managed by Terraform")
+    root_iteration = project.id.apply(lambda id: azuredevops.get_iteration(project_id=id,
+        path="/",
+        fetch_children=True))
+    child_iteration = project.id.apply(lambda id: azuredevops.get_iteration(project_id=id,
+        path="/Iteration 1",
+        fetch_children=True))
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+
+    ## PAT Permissions Required
+
+    - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
+
+
+    :param bool fetch_children: Read children nodes, _Depth_: 1, _Default_: `true`
+    :param str path: The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+    :param str project_id: The project ID.
     """
     __args__ = dict()
     __args__['fetchChildren'] = fetch_children

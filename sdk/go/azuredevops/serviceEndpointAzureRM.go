@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,14 +42,14 @@ import (
 // 		}
 // 		_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "endpointazure", &azuredevops.ServiceEndpointAzureRMArgs{
 // 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("TestServiceRM"),
+// 			ServiceEndpointName: pulumi.String("Sample AzureRM"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 			Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
-// 				Serviceprincipalid:  pulumi.String("xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"),
-// 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+// 				Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
-// 			AzurermSpnTenantid:      pulumi.String("xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx"),
-// 			AzurermSubscriptionId:   pulumi.String("xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"),
+// 			AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			AzurermSubscriptionName: pulumi.String("Sample Subscription"),
 // 		})
 // 		if err != nil {
@@ -80,10 +81,10 @@ import (
 // 		}
 // 		_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "endpointazure", &azuredevops.ServiceEndpointAzureRMArgs{
 // 			ProjectId:               project.ID(),
-// 			ServiceEndpointName:     pulumi.String("TestServiceRM"),
+// 			ServiceEndpointName:     pulumi.String("Sample AzureRM"),
 // 			Description:             pulumi.String("Managed by Terraform"),
-// 			AzurermSpnTenantid:      pulumi.String("xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx"),
-// 			AzurermSubscriptionId:   pulumi.String("xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"),
+// 			AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			AzurermSubscriptionName: pulumi.String("Microsoft Azure DEMO"),
 // 		})
 // 		if err != nil {
@@ -96,6 +97,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM azuredevops_serviceendpoint_azurerm.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
 type ServiceEndpointAzureRM struct {
 	pulumi.CustomResourceState
 
@@ -121,23 +130,24 @@ type ServiceEndpointAzureRM struct {
 // NewServiceEndpointAzureRM registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointAzureRM(ctx *pulumi.Context,
 	name string, args *ServiceEndpointAzureRMArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointAzureRM, error) {
-	if args == nil || args.AzurermSpnTenantid == nil {
-		return nil, errors.New("missing required argument 'AzurermSpnTenantid'")
-	}
-	if args == nil || args.AzurermSubscriptionId == nil {
-		return nil, errors.New("missing required argument 'AzurermSubscriptionId'")
-	}
-	if args == nil || args.AzurermSubscriptionName == nil {
-		return nil, errors.New("missing required argument 'AzurermSubscriptionName'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
 	if args == nil {
-		args = &ServiceEndpointAzureRMArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AzurermSpnTenantid == nil {
+		return nil, errors.New("invalid value for required argument 'AzurermSpnTenantid'")
+	}
+	if args.AzurermSubscriptionId == nil {
+		return nil, errors.New("invalid value for required argument 'AzurermSubscriptionId'")
+	}
+	if args.AzurermSubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'AzurermSubscriptionName'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -253,4 +263,43 @@ type ServiceEndpointAzureRMArgs struct {
 
 func (ServiceEndpointAzureRMArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointAzureRMArgs)(nil)).Elem()
+}
+
+type ServiceEndpointAzureRMInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureRMOutput() ServiceEndpointAzureRMOutput
+	ToServiceEndpointAzureRMOutputWithContext(ctx context.Context) ServiceEndpointAzureRMOutput
+}
+
+func (ServiceEndpointAzureRM) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureRM)(nil)).Elem()
+}
+
+func (i ServiceEndpointAzureRM) ToServiceEndpointAzureRMOutput() ServiceEndpointAzureRMOutput {
+	return i.ToServiceEndpointAzureRMOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureRM) ToServiceEndpointAzureRMOutputWithContext(ctx context.Context) ServiceEndpointAzureRMOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMOutput)
+}
+
+type ServiceEndpointAzureRMOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointAzureRMOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureRMOutput)(nil)).Elem()
+}
+
+func (o ServiceEndpointAzureRMOutput) ToServiceEndpointAzureRMOutput() ServiceEndpointAzureRMOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMOutput) ToServiceEndpointAzureRMOutputWithContext(ctx context.Context) ServiceEndpointAzureRMOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceEndpointAzureRMOutput{})
 }

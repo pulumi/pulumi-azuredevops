@@ -1510,6 +1510,13 @@ class GetAreaChildrenResult(dict):
                  name: str,
                  path: str,
                  project_id: str):
+        """
+        :param bool has_children: Indicator if the child Area node has child nodes
+        :param str id: The id of the child Area node
+        :param str name: The name of the child Area node
+        :param str path: The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+        :param str project_id: The project ID.
+        """
         pulumi.set(__self__, "has_children", has_children)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1519,26 +1526,41 @@ class GetAreaChildrenResult(dict):
     @property
     @pulumi.getter(name="hasChildren")
     def has_children(self) -> bool:
+        """
+        Indicator if the child Area node has child nodes
+        """
         return pulumi.get(self, "has_children")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The id of the child Area node
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the child Area node
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
+        """
+        The project ID.
+        """
         return pulumi.get(self, "project_id")
 
 
@@ -1550,6 +1572,13 @@ class GetIterationChildrenResult(dict):
                  name: str,
                  path: str,
                  project_id: str):
+        """
+        :param bool has_children: Indicator if the child Iteration node has child nodes
+        :param str id: The id of the child Iteration node
+        :param str name: The name of the child Iteration node
+        :param str path: The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+        :param str project_id: The project ID.
+        """
         pulumi.set(__self__, "has_children", has_children)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
@@ -1559,26 +1588,41 @@ class GetIterationChildrenResult(dict):
     @property
     @pulumi.getter(name="hasChildren")
     def has_children(self) -> bool:
+        """
+        Indicator if the child Iteration node has child nodes
+        """
         return pulumi.get(self, "has_children")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The id of the child Iteration node
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the child Iteration node
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
     def path(self) -> str:
+        """
+        The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+        """
         return pulumi.get(self, "path")
 
     @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
+        """
+        The project ID.
+        """
         return pulumi.get(self, "project_id")
 
 

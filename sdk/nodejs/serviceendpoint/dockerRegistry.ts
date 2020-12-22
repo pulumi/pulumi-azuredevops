@@ -42,6 +42,14 @@ import * as utilities from "../utilities";
  * - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
  * - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
  *
+ * ## Import
+ *
+ * Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry azuredevops_serviceendpoint_dockerregistry.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ * ```
+ *
  * @deprecated azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry
  */
 export class DockerRegistry extends pulumi.CustomResource {
@@ -138,16 +146,16 @@ export class DockerRegistry extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as DockerRegistryArgs | undefined;
-            if (!args || args.dockerRegistry === undefined) {
+            if ((!args || args.dockerRegistry === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'dockerRegistry'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if (!args || args.registryType === undefined) {
+            if ((!args || args.registryType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'registryType'");
             }
-            if (!args || args.serviceEndpointName === undefined) {
+            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["authorization"] = args ? args.authorization : undefined;

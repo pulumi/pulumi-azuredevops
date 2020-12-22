@@ -31,10 +31,10 @@ namespace Pulumi.AzureDevOps
     ///         var serviceendpoint = new AzureDevOps.ServiceEndpointAws("serviceendpoint", new AzureDevOps.ServiceEndpointAwsArgs
     ///         {
     ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "aws_serviceendpoint",
+    ///             ServiceEndpointName = "Sample AWS",
     ///             Description = "Managed by AzureDevOps",
-    ///             AccessKeyId = "xxxx",
-    ///             SecretAccessKey = "xxxx",
+    ///             AccessKeyId = "00000000-0000-0000-0000-000000000000",
+    ///             SecretAccessKey = "accesskey",
     ///         });
     ///     }
     /// 
@@ -44,6 +44,14 @@ namespace Pulumi.AzureDevOps
     /// 
     /// * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
     /// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    /// ```
     /// </summary>
     public partial class ServiceEndpointAws : Pulumi.CustomResource
     {

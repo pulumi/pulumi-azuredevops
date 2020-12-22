@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+//
+// ```sh
+//  $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking p 00000000-0000-0000-0000-000000000000/0
+// ```
 type BranchPolicyWorkItemLinking struct {
 	pulumi.CustomResourceState
 
@@ -82,14 +91,15 @@ type BranchPolicyWorkItemLinking struct {
 // NewBranchPolicyWorkItemLinking registers a new resource with the given unique name, arguments, and options.
 func NewBranchPolicyWorkItemLinking(ctx *pulumi.Context,
 	name string, args *BranchPolicyWorkItemLinkingArgs, opts ...pulumi.ResourceOption) (*BranchPolicyWorkItemLinking, error) {
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.Settings == nil {
-		return nil, errors.New("missing required argument 'Settings'")
-	}
 	if args == nil {
-		args = &BranchPolicyWorkItemLinkingArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.Settings == nil {
+		return nil, errors.New("invalid value for required argument 'Settings'")
 	}
 	var resource BranchPolicyWorkItemLinking
 	err := ctx.RegisterResource("azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking", name, args, &resource, opts...)
@@ -163,4 +173,43 @@ type BranchPolicyWorkItemLinkingArgs struct {
 
 func (BranchPolicyWorkItemLinkingArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyWorkItemLinkingArgs)(nil)).Elem()
+}
+
+type BranchPolicyWorkItemLinkingInput interface {
+	pulumi.Input
+
+	ToBranchPolicyWorkItemLinkingOutput() BranchPolicyWorkItemLinkingOutput
+	ToBranchPolicyWorkItemLinkingOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingOutput
+}
+
+func (BranchPolicyWorkItemLinking) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyWorkItemLinking)(nil)).Elem()
+}
+
+func (i BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutput() BranchPolicyWorkItemLinkingOutput {
+	return i.ToBranchPolicyWorkItemLinkingOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingOutput)
+}
+
+type BranchPolicyWorkItemLinkingOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchPolicyWorkItemLinkingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyWorkItemLinkingOutput)(nil)).Elem()
+}
+
+func (o BranchPolicyWorkItemLinkingOutput) ToBranchPolicyWorkItemLinkingOutput() BranchPolicyWorkItemLinkingOutput {
+	return o
+}
+
+func (o BranchPolicyWorkItemLinkingOutput) ToBranchPolicyWorkItemLinkingOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingOutput{})
 }

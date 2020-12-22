@@ -16,6 +16,38 @@ namespace Pulumi.AzureDevOps.Repository
         /// Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
         /// To read informations about a **single** Git Repository use the data source `azuredevops.Git`
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         {
+        ///             Name = "contoso-project",
+        ///         }));
+        ///         var allRepos = project.Apply(project =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
+        ///         {
+        ///             ProjectId = project.Id,
+        ///             IncludeHidden = true,
+        ///         })));
+        ///         var singleRepo = project.Apply(project =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
+        ///         {
+        ///             ProjectId = project.Id,
+        ///             Name = "contoso-repo",
+        ///         })));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)

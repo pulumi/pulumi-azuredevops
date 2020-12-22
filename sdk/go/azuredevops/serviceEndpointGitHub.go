@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -36,7 +37,7 @@ import (
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("Sample GithHub Personal Access Token"),
 // 			AuthPersonal: &azuredevops.ServiceEndpointGitHubAuthPersonalArgs{
-// 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+// 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -61,7 +62,7 @@ import (
 // 			ProjectId:           pulumi.Any(azuredevops_project.Project.Id),
 // 			ServiceEndpointName: pulumi.String("Sample GithHub Grant"),
 // 			AuthOauth: &azuredevops.ServiceEndpointGitHubAuthOauthArgs{
-// 				OauthConfigurationId: pulumi.String("xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"),
+// 				OauthConfigurationId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -96,7 +97,15 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub azuredevops_serviceendpoint_github.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
 type ServiceEndpointGitHub struct {
 	pulumi.CustomResourceState
 
@@ -115,14 +124,15 @@ type ServiceEndpointGitHub struct {
 // NewServiceEndpointGitHub registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointGitHub(ctx *pulumi.Context,
 	name string, args *ServiceEndpointGitHubArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointGitHub, error) {
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
 	if args == nil {
-		args = &ServiceEndpointGitHubArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -210,4 +220,43 @@ type ServiceEndpointGitHubArgs struct {
 
 func (ServiceEndpointGitHubArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointGitHubArgs)(nil)).Elem()
+}
+
+type ServiceEndpointGitHubInput interface {
+	pulumi.Input
+
+	ToServiceEndpointGitHubOutput() ServiceEndpointGitHubOutput
+	ToServiceEndpointGitHubOutputWithContext(ctx context.Context) ServiceEndpointGitHubOutput
+}
+
+func (ServiceEndpointGitHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHub)(nil)).Elem()
+}
+
+func (i ServiceEndpointGitHub) ToServiceEndpointGitHubOutput() ServiceEndpointGitHubOutput {
+	return i.ToServiceEndpointGitHubOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointGitHub) ToServiceEndpointGitHubOutputWithContext(ctx context.Context) ServiceEndpointGitHubOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubOutput)
+}
+
+type ServiceEndpointGitHubOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointGitHubOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHubOutput)(nil)).Elem()
+}
+
+func (o ServiceEndpointGitHubOutput) ToServiceEndpointGitHubOutput() ServiceEndpointGitHubOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubOutput) ToServiceEndpointGitHubOutputWithContext(ctx context.Context) ServiceEndpointGitHubOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceEndpointGitHubOutput{})
 }

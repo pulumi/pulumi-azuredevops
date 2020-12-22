@@ -25,6 +25,10 @@ import * as utilities from "../utilities";
  *
  * - **Member Entitlement Management**: Read & Write
  *
+ * ## Import
+ *
+ * The resources allows the import via the UUID of a user entitlement or by using the principal name of a user owning an entitlement.
+ *
  * @deprecated azuredevops.entitlement.User has been deprecated in favor of azuredevops.User
  */
 export class User extends pulumi.CustomResource {

@@ -8,3 +8,29 @@ from .get_pools import *
 from .pool import *
 from .queue import *
 from . import outputs
+
+def _register_module():
+    import pulumi
+    from .. import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azuredevops:Agent/pool:Pool":
+                return Pool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:Agent/queue:Queue":
+                return Queue(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azuredevops", "Agent/pool", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "Agent/queue", _module_instance)
+
+_register_module()

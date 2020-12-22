@@ -45,6 +45,20 @@ namespace Pulumi.AzureDevOps.Core
     /// ## PAT Permissions Required
     /// 
     /// - **Project &amp; Team**: Read, Write, &amp; Manage
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:Core/project:Project project "Test Project"
+    /// ```
+    /// 
+    ///  or
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:Core/project:Project project 00000000-0000-0000-0000-000000000000
+    /// ```
     /// </summary>
     [Obsolete(@"azuredevops.core.Project has been deprecated in favor of azuredevops.Project")]
     public partial class Project : Pulumi.CustomResource

@@ -14,7 +14,7 @@ __all__ = [
     'get_client_config',
 ]
 
-warnings.warn("azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig", DeprecationWarning)
+warnings.warn("""azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig""", DeprecationWarning)
 
 @pulumi.output_type
 class GetClientConfigResult:

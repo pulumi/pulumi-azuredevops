@@ -23,16 +23,24 @@ import * as utilities from "./utilities";
  *     projectId: project.id,
  *     serviceEndpointName: "Sample AzureCR",
  *     resourceGroup: "sample-rg",
- *     azurecrSpnTenantid: "72f987tg-95f1-87af-91bh-2d8jd091db47",
+ *     azurecrSpnTenantid: "00000000-0000-0000-0000-000000000000",
  *     azurecrName: "sampleAcr",
- *     azurecrSubscriptionId: "f7ooi795-c577-6210-9886-a5e898uue3gc",
- *     azurecrSubscriptionName: "sample",
+ *     azurecrSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurecrSubscriptionName: "sampleSub",
  * });
  * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
  * - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
+ *
+ * ## Import
+ *
+ * Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr azuredevops_serviceendpoint_azurecr.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ * ```
  */
 export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
     /**
@@ -119,25 +127,25 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureEcrArgs | undefined;
-            if (!args || args.azurecrName === undefined) {
+            if ((!args || args.azurecrName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azurecrName'");
             }
-            if (!args || args.azurecrSpnTenantid === undefined) {
+            if ((!args || args.azurecrSpnTenantid === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azurecrSpnTenantid'");
             }
-            if (!args || args.azurecrSubscriptionId === undefined) {
+            if ((!args || args.azurecrSubscriptionId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azurecrSubscriptionId'");
             }
-            if (!args || args.azurecrSubscriptionName === undefined) {
+            if ((!args || args.azurecrSubscriptionName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'azurecrSubscriptionName'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if (!args || args.resourceGroup === undefined) {
+            if ((!args || args.resourceGroup === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            if (!args || args.serviceEndpointName === undefined) {
+            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["authorization"] = args ? args.authorization : undefined;

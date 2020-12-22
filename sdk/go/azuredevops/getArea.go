@@ -7,6 +7,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to access information about an existing Area (Component) within Azure DevOps.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			Visibility:       pulumi.String("private"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Relevant Links
+//
+// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+//
+// ## PAT Permissions Required
+//
+// - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
 func GetArea(ctx *pulumi.Context, args *GetAreaArgs, opts ...pulumi.InvokeOption) (*GetAreaResult, error) {
 	var rv GetAreaResult
 	err := ctx.Invoke("azuredevops:index/getArea:getArea", args, &rv, opts...)
@@ -18,19 +52,27 @@ func GetArea(ctx *pulumi.Context, args *GetAreaArgs, opts ...pulumi.InvokeOption
 
 // A collection of arguments for invoking getArea.
 type GetAreaArgs struct {
-	FetchChildren *bool   `pulumi:"fetchChildren"`
-	Path          *string `pulumi:"path"`
-	ProjectId     string  `pulumi:"projectId"`
+	// Read children nodes, _Depth_: 1, _Default_: `true`
+	FetchChildren *bool `pulumi:"fetchChildren"`
+	// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+	Path *string `pulumi:"path"`
+	// The project ID.
+	ProjectId string `pulumi:"projectId"`
 }
 
 // A collection of values returned by getArea.
 type GetAreaResult struct {
+	// A list of `children` blocks as defined below, empty if `hasChildren == false`
 	Childrens     []GetAreaChildren `pulumi:"childrens"`
 	FetchChildren *bool             `pulumi:"fetchChildren"`
-	HasChildren   bool              `pulumi:"hasChildren"`
+	// Indicator if the child Area node has child nodes
+	HasChildren bool `pulumi:"hasChildren"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	Name      string `pulumi:"name"`
-	Path      string `pulumi:"path"`
+	Id string `pulumi:"id"`
+	// The name of the child Area node
+	Name string `pulumi:"name"`
+	// The complete path (in relative URL format) of the child Area
+	Path string `pulumi:"path"`
+	// The project ID of the child Area node
 	ProjectId string `pulumi:"projectId"`
 }

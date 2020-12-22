@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['BitBucket']
 
-warnings.warn("azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket", DeprecationWarning)
+warnings.warn("""azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket""", DeprecationWarning)
 
 
 class BitBucket(pulumi.CustomResource):
-    warnings.warn("azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket", DeprecationWarning)
+    warnings.warn("""azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -43,14 +43,22 @@ class BitBucket(pulumi.CustomResource):
             work_item_template="Agile")
         serviceendpoint = azuredevops.ServiceEndpointBitBucket("serviceendpoint",
             project_id=project.id,
-            username="xxxx",
-            password="xxxx",
-            service_endpoint_name="test-bitbucket",
-            description="test")
+            username="username",
+            password="password",
+            service_endpoint_name="Sample Bitbucket",
+            description="Managed by Terraform")
         ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket azuredevops_serviceendpoint_bitbucket.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -79,16 +87,16 @@ class BitBucket(pulumi.CustomResource):
 
             __props__['authorization'] = authorization
             __props__['description'] = description
-            if password is None:
+            if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
             __props__['password'] = password
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
-            if service_endpoint_name is None:
+            if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__['service_endpoint_name'] = service_endpoint_name
-            if username is None:
+            if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__['username'] = username
             __props__['password_hash'] = None

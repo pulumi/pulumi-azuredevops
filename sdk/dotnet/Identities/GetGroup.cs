@@ -15,6 +15,49 @@ namespace Pulumi.AzureDevOps.Identities
         /// <summary>
         /// Use this data source to access information about an existing Group within Azure DevOps
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         {
+        ///             Name = "contoso-project",
+        ///         }));
+        ///         var test = project.Apply(project =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+        ///         {
+        ///             ProjectId = project.Id,
+        ///             Name = "Test Group",
+        ///         })));
+        ///         this.GroupId = test.Apply(test =&gt; test.Id);
+        ///         this.GroupDescriptor = test.Apply(test =&gt; test.Descriptor);
+        ///         var test_collection_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+        ///         {
+        ///             Name = "Project Collection Administrators",
+        ///         }));
+        ///         this.CollectionGroupId = test_collection_group.Apply(test_collection_group =&gt; test_collection_group.Id);
+        ///         this.CollectionGroupDescriptor = test_collection_group.Apply(test_collection_group =&gt; test_collection_group.Descriptor);
+        ///     }
+        /// 
+        ///     [Output("groupId")]
+        ///     public Output&lt;string&gt; GroupId { get; set; }
+        ///     [Output("groupDescriptor")]
+        ///     public Output&lt;string&gt; GroupDescriptor { get; set; }
+        ///     [Output("collectionGroupId")]
+        ///     public Output&lt;string&gt; CollectionGroupId { get; set; }
+        ///     [Output("collectionGroupDescriptor")]
+        ///     public Output&lt;string&gt; CollectionGroupDescriptor { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
@@ -33,10 +76,10 @@ namespace Pulumi.AzureDevOps.Identities
         public string Name { get; set; } = null!;
 
         /// <summary>
-        /// The Project Id.
+        /// The Project ID. If no project ID is specified the project collection groups will be searched.
         /// </summary>
-        [Input("projectId", required: true)]
-        public string ProjectId { get; set; } = null!;
+        [Input("projectId")]
+        public string? ProjectId { get; set; }
 
         public GetGroupArgs()
         {
@@ -64,7 +107,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
         /// </summary>
         public readonly string OriginId;
-        public readonly string ProjectId;
+        public readonly string? ProjectId;
 
         [OutputConstructor]
         private GetGroupResult(
@@ -78,7 +121,7 @@ namespace Pulumi.AzureDevOps.Identities
 
             string originId,
 
-            string projectId)
+            string? projectId)
         {
             Descriptor = descriptor;
             Id = id;

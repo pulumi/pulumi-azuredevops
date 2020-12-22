@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['Group']
 
-warnings.warn("azuredevops.identities.Group has been deprecated in favor of azuredevops.Group", DeprecationWarning)
+warnings.warn("""azuredevops.identities.Group has been deprecated in favor of azuredevops.Group""", DeprecationWarning)
 
 
 class Group(pulumi.CustomResource):
-    warnings.warn("azuredevops.identities.Group has been deprecated in favor of azuredevops.Group", DeprecationWarning)
+    warnings.warn("""azuredevops.identities.Group has been deprecated in favor of azuredevops.Group""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -58,6 +58,14 @@ class Group(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Project & Team**: Read, Write, & Manage
+
+        ## Import
+
+        Azure DevOps Projects can be imported using the group identity descriptor, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:Identities/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

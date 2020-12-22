@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -85,6 +84,20 @@ import * as utilities from "../utilities";
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
+ *
+ * ## Import
+ *
+ * Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition build "Test Project"/10
+ * ```
+ *
+ *  or
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition build 00000000-0000-0000-0000-000000000000/0
+ * ```
  *
  * @deprecated azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition
  */
@@ -185,10 +198,10 @@ export class BuildDefinition extends pulumi.CustomResource {
             inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as BuildDefinitionArgs | undefined;
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if (!args || args.repository === undefined) {
+            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["agentPoolName"] = args ? args.agentPoolName : undefined;

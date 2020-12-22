@@ -31,10 +31,10 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///         var serviceendpoint = new AzureDevOps.ServiceEndpointBitBucket("serviceendpoint", new AzureDevOps.ServiceEndpointBitBucketArgs
     ///         {
     ///             ProjectId = project.Id,
-    ///             Username = "xxxx",
-    ///             Password = "xxxx",
-    ///             ServiceEndpointName = "test-bitbucket",
-    ///             Description = "test",
+    ///             Username = "username",
+    ///             Password = "password",
+    ///             ServiceEndpointName = "Sample Bitbucket",
+    ///             Description = "Managed by Terraform",
     ///         });
     ///     }
     /// 
@@ -43,6 +43,14 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket azuredevops_serviceendpoint_bitbucket.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    /// ```
     /// </summary>
     [Obsolete(@"azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket")]
     public partial class BitBucket : Pulumi.CustomResource

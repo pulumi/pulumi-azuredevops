@@ -4,6 +4,7 @@
 package build
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -50,6 +51,20 @@ import (
 //
 // - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
 //
+// ## Import
+//
+// Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
+//
+// ```sh
+//  $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition build "Test Project"/10
+// ```
+//
+//  or
+//
+// ```sh
+//  $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition build 00000000-0000-0000-0000-000000000000/0
+// ```
+//
 // Deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition
 type BuildDefinition struct {
 	pulumi.CustomResourceState
@@ -79,14 +94,15 @@ type BuildDefinition struct {
 // NewBuildDefinition registers a new resource with the given unique name, arguments, and options.
 func NewBuildDefinition(ctx *pulumi.Context,
 	name string, args *BuildDefinitionArgs, opts ...pulumi.ResourceOption) (*BuildDefinition, error) {
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.Repository == nil {
-		return nil, errors.New("missing required argument 'Repository'")
-	}
 	if args == nil {
-		args = &BuildDefinitionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.Repository == nil {
+		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
 	var resource BuildDefinition
 	err := ctx.RegisterResource("azuredevops:Build/buildDefinition:BuildDefinition", name, args, &resource, opts...)
@@ -204,4 +220,43 @@ type BuildDefinitionArgs struct {
 
 func (BuildDefinitionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*buildDefinitionArgs)(nil)).Elem()
+}
+
+type BuildDefinitionInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionOutput() BuildDefinitionOutput
+	ToBuildDefinitionOutputWithContext(ctx context.Context) BuildDefinitionOutput
+}
+
+func (BuildDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinition)(nil)).Elem()
+}
+
+func (i BuildDefinition) ToBuildDefinitionOutput() BuildDefinitionOutput {
+	return i.ToBuildDefinitionOutputWithContext(context.Background())
+}
+
+func (i BuildDefinition) ToBuildDefinitionOutputWithContext(ctx context.Context) BuildDefinitionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionOutput)
+}
+
+type BuildDefinitionOutput struct {
+	*pulumi.OutputState
+}
+
+func (BuildDefinitionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionOutput)(nil)).Elem()
+}
+
+func (o BuildDefinitionOutput) ToBuildDefinitionOutput() BuildDefinitionOutput {
+	return o
+}
+
+func (o BuildDefinitionOutput) ToBuildDefinitionOutputWithContext(ctx context.Context) BuildDefinitionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BuildDefinitionOutput{})
 }
