@@ -2,6 +2,11 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 1.1.0 (2020-12-23)
 * Upgrade to v0.1.0 of the AzureDevOps Terraform Provider
 * Upgrade to pulumi-terraform-bridge v2.16.0
 * Upgrade to Pulumi v2.16.0 
@@ -29,8 +34,6 @@ CHANGELOG
   ** `azuredevops.repository`  
   ** `azuredevops.security`  
   ** `azuredevops.serviceendpoint`
-
----
 
 ## 1.0.0 (2020-06-20)
 * Initial release of the provider against v0.0.1 of the AzureDevOps Terraform Provider
