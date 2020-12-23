@@ -34,10 +34,10 @@ namespace Pulumi.AzureDevOps
     ///             ProjectId = project.Id,
     ///             ServiceEndpointName = "Sample AzureCR",
     ///             ResourceGroup = "sample-rg",
-    ///             AzurecrSpnTenantid = "72f987tg-95f1-87af-91bh-2d8jd091db47",
+    ///             AzurecrSpnTenantid = "00000000-0000-0000-0000-000000000000",
     ///             AzurecrName = "sampleAcr",
-    ///             AzurecrSubscriptionId = "f7ooi795-c577-6210-9886-a5e898uue3gc",
-    ///             AzurecrSubscriptionName = "sample",
+    ///             AzurecrSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///             AzurecrSubscriptionName = "sampleSub",
     ///         });
     ///     }
     /// 
@@ -47,6 +47,14 @@ namespace Pulumi.AzureDevOps
     /// 
     /// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
     /// - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr azuredevops_serviceendpoint_azurecr.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    /// ```
     /// </summary>
     public partial class ServiceEndpointAzureEcr : Pulumi.CustomResource
     {

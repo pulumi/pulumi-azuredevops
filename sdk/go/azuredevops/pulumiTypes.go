@@ -4466,11 +4466,16 @@ func (o VariableGroupVariableArrayOutput) Index(i pulumi.IntInput) VariableGroup
 }
 
 type GetAreaChildren struct {
-	HasChildren bool   `pulumi:"hasChildren"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
-	Path        string `pulumi:"path"`
-	ProjectId   string `pulumi:"projectId"`
+	// Indicator if the child Area node has child nodes
+	HasChildren bool `pulumi:"hasChildren"`
+	// The id of the child Area node
+	Id string `pulumi:"id"`
+	// The name of the child Area node
+	Name string `pulumi:"name"`
+	// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+	Path string `pulumi:"path"`
+	// The project ID.
+	ProjectId string `pulumi:"projectId"`
 }
 
 // GetAreaChildrenInput is an input type that accepts GetAreaChildrenArgs and GetAreaChildrenOutput values.
@@ -4485,11 +4490,16 @@ type GetAreaChildrenInput interface {
 }
 
 type GetAreaChildrenArgs struct {
-	HasChildren pulumi.BoolInput   `pulumi:"hasChildren"`
-	Id          pulumi.StringInput `pulumi:"id"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	Path        pulumi.StringInput `pulumi:"path"`
-	ProjectId   pulumi.StringInput `pulumi:"projectId"`
+	// Indicator if the child Area node has child nodes
+	HasChildren pulumi.BoolInput `pulumi:"hasChildren"`
+	// The id of the child Area node
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the child Area node
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+	Path pulumi.StringInput `pulumi:"path"`
+	// The project ID.
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
 }
 
 func (GetAreaChildrenArgs) ElementType() reflect.Type {
@@ -4543,22 +4553,27 @@ func (o GetAreaChildrenOutput) ToGetAreaChildrenOutputWithContext(ctx context.Co
 	return o
 }
 
+// Indicator if the child Area node has child nodes
 func (o GetAreaChildrenOutput) HasChildren() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetAreaChildren) bool { return v.HasChildren }).(pulumi.BoolOutput)
 }
 
+// The id of the child Area node
 func (o GetAreaChildrenOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAreaChildren) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The name of the child Area node
 func (o GetAreaChildrenOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAreaChildren) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
 func (o GetAreaChildrenOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAreaChildren) string { return v.Path }).(pulumi.StringOutput)
 }
 
+// The project ID.
 func (o GetAreaChildrenOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAreaChildren) string { return v.ProjectId }).(pulumi.StringOutput)
 }
@@ -4584,11 +4599,16 @@ func (o GetAreaChildrenArrayOutput) Index(i pulumi.IntInput) GetAreaChildrenOutp
 }
 
 type GetIterationChildren struct {
-	HasChildren bool   `pulumi:"hasChildren"`
-	Id          string `pulumi:"id"`
-	Name        string `pulumi:"name"`
-	Path        string `pulumi:"path"`
-	ProjectId   string `pulumi:"projectId"`
+	// Indicator if the child Iteration node has child nodes
+	HasChildren bool `pulumi:"hasChildren"`
+	// The id of the child Iteration node
+	Id string `pulumi:"id"`
+	// The name of the child Iteration node
+	Name string `pulumi:"name"`
+	// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+	Path string `pulumi:"path"`
+	// The project ID.
+	ProjectId string `pulumi:"projectId"`
 }
 
 // GetIterationChildrenInput is an input type that accepts GetIterationChildrenArgs and GetIterationChildrenOutput values.
@@ -4603,11 +4623,16 @@ type GetIterationChildrenInput interface {
 }
 
 type GetIterationChildrenArgs struct {
-	HasChildren pulumi.BoolInput   `pulumi:"hasChildren"`
-	Id          pulumi.StringInput `pulumi:"id"`
-	Name        pulumi.StringInput `pulumi:"name"`
-	Path        pulumi.StringInput `pulumi:"path"`
-	ProjectId   pulumi.StringInput `pulumi:"projectId"`
+	// Indicator if the child Iteration node has child nodes
+	HasChildren pulumi.BoolInput `pulumi:"hasChildren"`
+	// The id of the child Iteration node
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the child Iteration node
+	Name pulumi.StringInput `pulumi:"name"`
+	// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+	Path pulumi.StringInput `pulumi:"path"`
+	// The project ID.
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
 }
 
 func (GetIterationChildrenArgs) ElementType() reflect.Type {
@@ -4661,22 +4686,27 @@ func (o GetIterationChildrenOutput) ToGetIterationChildrenOutputWithContext(ctx 
 	return o
 }
 
+// Indicator if the child Iteration node has child nodes
 func (o GetIterationChildrenOutput) HasChildren() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetIterationChildren) bool { return v.HasChildren }).(pulumi.BoolOutput)
 }
 
+// The id of the child Iteration node
 func (o GetIterationChildrenOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIterationChildren) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The name of the child Iteration node
 func (o GetIterationChildrenOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIterationChildren) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
 func (o GetIterationChildrenOutput) Path() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIterationChildren) string { return v.Path }).(pulumi.StringOutput)
 }
 
+// The project ID.
 func (o GetIterationChildrenOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetIterationChildren) string { return v.ProjectId }).(pulumi.StringOutput)
 }

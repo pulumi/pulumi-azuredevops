@@ -57,6 +57,10 @@ import * as utilities from "./utilities";
  * ## PAT Permissions Required
  *
  * - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
+ *
+ * ## Import
+ *
+ * The resource does not support import.
  */
 export class IterativePermissions extends pulumi.CustomResource {
     /**
@@ -126,13 +130,13 @@ export class IterativePermissions extends pulumi.CustomResource {
             inputs["replace"] = state ? state.replace : undefined;
         } else {
             const args = argsOrState as IterativePermissionsArgs | undefined;
-            if (!args || args.permissions === undefined) {
+            if ((!args || args.permissions === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if (!args || args.principal === undefined) {
+            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'principal'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["path"] = args ? args.path : undefined;

@@ -12,6 +12,33 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages features for Azure DevOps projects
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var tf_project_test_001 = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+    ///         {
+    ///             Name = "Test Project",
+    ///         }));
+    ///         var my_project_features = new AzureDevOps.ProjectFeatures("my-project-features", new AzureDevOps.ProjectFeaturesArgs
+    ///         {
+    ///             ProjectId = tf_project_test_001.Apply(tf_project_test_001 =&gt; tf_project_test_001.Id),
+    ///             Features = 
+    ///             {
+    ///                 { "testplans", "disabled" },
+    ///                 { "artifacts", "enabled" },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Relevant Links
     /// 
     /// No official documentation available
@@ -19,6 +46,14 @@ namespace Pulumi.AzureDevOps
     /// ## PAT Permissions Required
     /// 
     /// - **Project &amp; Team**: Read, Write, &amp; Manage
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps feature settings can be imported using the project id, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures project_id 2785562e-8f45-4534-a10e-b9ca1666b17e
+    /// ```
     /// </summary>
     public partial class ProjectFeatures : Pulumi.CustomResource
     {

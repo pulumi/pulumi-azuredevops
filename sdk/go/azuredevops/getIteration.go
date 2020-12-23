@@ -7,6 +7,40 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			Visibility:       pulumi.String("private"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Relevant Links
+//
+// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+//
+// ## PAT Permissions Required
+//
+// - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
 func GetIteration(ctx *pulumi.Context, args *GetIterationArgs, opts ...pulumi.InvokeOption) (*GetIterationResult, error) {
 	var rv GetIterationResult
 	err := ctx.Invoke("azuredevops:index/getIteration:getIteration", args, &rv, opts...)
@@ -18,19 +52,27 @@ func GetIteration(ctx *pulumi.Context, args *GetIterationArgs, opts ...pulumi.In
 
 // A collection of arguments for invoking getIteration.
 type GetIterationArgs struct {
-	FetchChildren *bool   `pulumi:"fetchChildren"`
-	Path          *string `pulumi:"path"`
-	ProjectId     string  `pulumi:"projectId"`
+	// Read children nodes, _Depth_: 1, _Default_: `true`
+	FetchChildren *bool `pulumi:"fetchChildren"`
+	// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+	Path *string `pulumi:"path"`
+	// The project ID.
+	ProjectId string `pulumi:"projectId"`
 }
 
 // A collection of values returned by getIteration.
 type GetIterationResult struct {
+	// A list of `children` blocks as defined below, empty if `hasChildren == false`
 	Childrens     []GetIterationChildren `pulumi:"childrens"`
 	FetchChildren *bool                  `pulumi:"fetchChildren"`
-	HasChildren   bool                   `pulumi:"hasChildren"`
+	// Indicator if the child Iteration node has child nodes
+	HasChildren bool `pulumi:"hasChildren"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	Name      string `pulumi:"name"`
-	Path      string `pulumi:"path"`
+	Id string `pulumi:"id"`
+	// The name of the child Iteration node
+	Name string `pulumi:"name"`
+	// The complete path (in relative URL format) of the child Iteration
+	Path string `pulumi:"path"`
+	// The project ID of the child Iteration node
 	ProjectId string `pulumi:"projectId"`
 }

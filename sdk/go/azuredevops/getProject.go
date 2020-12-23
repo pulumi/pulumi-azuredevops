@@ -21,8 +21,9 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "Sample Project"
 // 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
-// 			ProjectIdentifier: "Sample Project",
+// 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -51,8 +52,10 @@ func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getProject.
 type LookupProjectArgs struct {
-	// Name or ID of the Project.
-	ProjectIdentifier string `pulumi:"projectIdentifier"`
+	// Name of the Project.
+	Name *string `pulumi:"name"`
+	// ID of the Project.
+	ProjectId *string `pulumi:"projectId"`
 }
 
 // A collection of values returned by getProject.
@@ -60,11 +63,11 @@ type LookupProjectResult struct {
 	Description string                 `pulumi:"description"`
 	Features    map[string]interface{} `pulumi:"features"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                string `pulumi:"id"`
-	Name              string `pulumi:"name"`
-	ProcessTemplateId string `pulumi:"processTemplateId"`
-	ProjectIdentifier string `pulumi:"projectIdentifier"`
-	VersionControl    string `pulumi:"versionControl"`
-	Visibility        string `pulumi:"visibility"`
-	WorkItemTemplate  string `pulumi:"workItemTemplate"`
+	Id                string  `pulumi:"id"`
+	Name              *string `pulumi:"name"`
+	ProcessTemplateId string  `pulumi:"processTemplateId"`
+	ProjectId         *string `pulumi:"projectId"`
+	VersionControl    string  `pulumi:"versionControl"`
+	Visibility        string  `pulumi:"visibility"`
+	WorkItemTemplate  string  `pulumi:"workItemTemplate"`
 }

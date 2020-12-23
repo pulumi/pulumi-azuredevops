@@ -53,6 +53,10 @@ namespace Pulumi.AzureDevOps
     /// ## PAT Permissions Required
     /// 
     /// - **Deployment Groups**: Read &amp; Manage
+    /// 
+    /// ## Import
+    /// 
+    /// Not supported.
     /// </summary>
     public partial class GroupMembership : Pulumi.CustomResource
     {

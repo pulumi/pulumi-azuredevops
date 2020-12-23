@@ -34,7 +34,7 @@ namespace Pulumi.AzureDevOps
     ///             ServiceEndpointName = "Sample GithHub Personal Access Token",
     ///             AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubAuthPersonalArgs
     ///             {
-    ///                 PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///                 PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     ///             },
     ///         });
     ///     }
@@ -56,7 +56,7 @@ namespace Pulumi.AzureDevOps
     ///             ServiceEndpointName = "Sample GithHub Grant",
     ///             AuthOauth = new AzureDevOps.Inputs.ServiceEndpointGitHubAuthOauthArgs
     ///             {
-    ///                 OauthConfigurationId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+    ///                 OauthConfigurationId = "00000000-0000-0000-0000-000000000000",
     ///             },
     ///         });
     ///     }
@@ -84,7 +84,15 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub azuredevops_serviceendpoint_github.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    /// ```
     /// </summary>
     public partial class ServiceEndpointGitHub : Pulumi.CustomResource
     {

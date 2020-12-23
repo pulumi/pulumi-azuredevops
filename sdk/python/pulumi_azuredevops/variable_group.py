@@ -47,7 +47,7 @@ class VariableGroup(pulumi.CustomResource):
                 ),
                 azuredevops.VariableGroupVariableArgs(
                     name="Account Password",
-                    value="p@ssword123",
+                    secret_value="p@ssword123",
                     is_secret=True,
                 ),
             ])
@@ -60,6 +60,22 @@ class VariableGroup(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Variable Groups**: Read, Create, & Manage
+
+        ## Import
+
+        **Variable groups containing secret values cannot be imported.** Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:index/variableGroup:VariableGroup variablegroup "Test Project/10"
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import azuredevops:index/variableGroup:VariableGroup variablegroup 00000000-0000-0000-0000-000000000000/0
+        ```
+
+         _Note that for secret variables, the import command retrieve blank value in the tfstate._
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -90,10 +106,10 @@ class VariableGroup(pulumi.CustomResource):
             __props__['description'] = description
             __props__['key_vault'] = key_vault
             __props__['name'] = name
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
-            if variables is None:
+            if variables is None and not opts.urn:
                 raise TypeError("Missing required property 'variables'")
             __props__['variables'] = variables
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Pipeline/variableGroup:VariableGroup")])

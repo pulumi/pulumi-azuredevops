@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -73,17 +74,18 @@ type ResourceAuthorization struct {
 // NewResourceAuthorization registers a new resource with the given unique name, arguments, and options.
 func NewResourceAuthorization(ctx *pulumi.Context,
 	name string, args *ResourceAuthorizationArgs, opts ...pulumi.ResourceOption) (*ResourceAuthorization, error) {
-	if args == nil || args.Authorized == nil {
-		return nil, errors.New("missing required argument 'Authorized'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.ResourceId == nil {
-		return nil, errors.New("missing required argument 'ResourceId'")
-	}
 	if args == nil {
-		args = &ResourceAuthorizationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Authorized == nil {
+		return nil, errors.New("invalid value for required argument 'Authorized'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.ResourceId == nil {
+		return nil, errors.New("invalid value for required argument 'ResourceId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -171,4 +173,43 @@ type ResourceAuthorizationArgs struct {
 
 func (ResourceAuthorizationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*resourceAuthorizationArgs)(nil)).Elem()
+}
+
+type ResourceAuthorizationInput interface {
+	pulumi.Input
+
+	ToResourceAuthorizationOutput() ResourceAuthorizationOutput
+	ToResourceAuthorizationOutputWithContext(ctx context.Context) ResourceAuthorizationOutput
+}
+
+func (ResourceAuthorization) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAuthorization)(nil)).Elem()
+}
+
+func (i ResourceAuthorization) ToResourceAuthorizationOutput() ResourceAuthorizationOutput {
+	return i.ToResourceAuthorizationOutputWithContext(context.Background())
+}
+
+func (i ResourceAuthorization) ToResourceAuthorizationOutputWithContext(ctx context.Context) ResourceAuthorizationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationOutput)
+}
+
+type ResourceAuthorizationOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceAuthorizationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAuthorizationOutput)(nil)).Elem()
+}
+
+func (o ResourceAuthorizationOutput) ToResourceAuthorizationOutput() ResourceAuthorizationOutput {
+	return o
+}
+
+func (o ResourceAuthorizationOutput) ToResourceAuthorizationOutputWithContext(ctx context.Context) ResourceAuthorizationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ResourceAuthorizationOutput{})
 }

@@ -2,8 +2,9 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.8.0
-* Upgrade to Pulumi v2.10.0, which has added type annotations and input/output classes to Python  
+* Upgrade to v0.1.0 of the AzureDevOps Terraform Provider
+* Upgrade to pulumi-terraform-bridge v2.16.0
+* Upgrade to Pulumi v2.16.0 
   **Please Note:**  
   The NodeJS and Go SDKs have lowercased all provider modules.
   `azuredevops.Agent` will now be `azuredevops.agent` in Go, NodeJS and Python SDKs.
@@ -27,9 +28,7 @@ CHANGELOG
   ** `azuredevops.policy`  
   ** `azuredevops.repository`  
   ** `azuredevops.security`  
-  ** `azuredevops.serviceendpoint`  
-* Upgrade to Pulumi v2.12.0 and pulumi-terraform-bridge v2.11.0
-* Improving the accuracy of previews leading to a more accurate understanding of what will actually change rather than assuming all output properties will change
+  ** `azuredevops.serviceendpoint`
 
 ---
 

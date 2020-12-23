@@ -53,6 +53,14 @@ namespace Pulumi.AzureDevOps.Agent
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:Agent/queue:Queue q 44cbf614-4dfd-4032-9fae-87b0da3bec30/1381
+    /// ```
     /// </summary>
     [Obsolete(@"azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")]
     public partial class Queue : Pulumi.CustomResource

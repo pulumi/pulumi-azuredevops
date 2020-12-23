@@ -7,6 +7,42 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
+// Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
+// To read information about **multiple** Git Repositories use the data source `getRepositories`
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "contoso-project"
+// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.GetGitRepository(ctx, &azuredevops.GetGitRepositoryArgs{
+// 			ProjectId: project.Id,
+// 			Name:      "contoso-repo",
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ## Relevant Links
+//
+// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
 func GetGitRepository(ctx *pulumi.Context, args *GetGitRepositoryArgs, opts ...pulumi.InvokeOption) (*GetGitRepositoryResult, error) {
 	var rv GetGitRepositoryResult
 	err := ctx.Invoke("azuredevops:index/getGitRepository:getGitRepository", args, &rv, opts...)
@@ -18,21 +54,31 @@ func GetGitRepository(ctx *pulumi.Context, args *GetGitRepositoryArgs, opts ...p
 
 // A collection of arguments for invoking getGitRepository.
 type GetGitRepositoryArgs struct {
-	Name      string `pulumi:"name"`
+	// Name of the Git repository to retrieve
+	Name string `pulumi:"name"`
+	// ID of project to list Git repositories
 	ProjectId string `pulumi:"projectId"`
 }
 
 // A collection of values returned by getGitRepository.
 type GetGitRepositoryResult struct {
+	// The ref of the default branch.
 	DefaultBranch string `pulumi:"defaultBranch"`
 	// The provider-assigned unique ID for this managed resource.
-	Id        string `pulumi:"id"`
-	IsFork    bool   `pulumi:"isFork"`
-	Name      string `pulumi:"name"`
+	Id     string `pulumi:"id"`
+	IsFork bool   `pulumi:"isFork"`
+	// Git repository name.
+	Name string `pulumi:"name"`
+	// Project identifier to which the Git repository belongs.
 	ProjectId string `pulumi:"projectId"`
+	// HTTPS Url to clone the Git repository
 	RemoteUrl string `pulumi:"remoteUrl"`
-	Size      int    `pulumi:"size"`
-	SshUrl    string `pulumi:"sshUrl"`
-	Url       string `pulumi:"url"`
-	WebUrl    string `pulumi:"webUrl"`
+	// Compressed size (bytes) of the repository.
+	Size int `pulumi:"size"`
+	// SSH Url to clone the Git repository
+	SshUrl string `pulumi:"sshUrl"`
+	// Details REST API endpoint for the Git Repository.
+	Url string `pulumi:"url"`
+	// Url of the Git repository web view
+	WebUrl string `pulumi:"webUrl"`
 }

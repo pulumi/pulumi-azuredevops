@@ -4,6 +4,7 @@
 package agent
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 //
 // - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
 //
+// ## Import
+//
+// Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
+//
+// ```sh
+//  $ pulumi import azuredevops:Agent/queue:Queue q 44cbf614-4dfd-4032-9fae-87b0da3bec30/1381
+// ```
+//
 // Deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue
 type Queue struct {
 	pulumi.CustomResourceState
@@ -75,14 +84,15 @@ type Queue struct {
 // NewQueue registers a new resource with the given unique name, arguments, and options.
 func NewQueue(ctx *pulumi.Context,
 	name string, args *QueueArgs, opts ...pulumi.ResourceOption) (*Queue, error) {
-	if args == nil || args.AgentPoolId == nil {
-		return nil, errors.New("missing required argument 'AgentPoolId'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &QueueArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AgentPoolId == nil {
+		return nil, errors.New("invalid value for required argument 'AgentPoolId'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	var resource Queue
 	err := ctx.RegisterResource("azuredevops:Agent/queue:Queue", name, args, &resource, opts...)
@@ -140,4 +150,43 @@ type QueueArgs struct {
 
 func (QueueArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*queueArgs)(nil)).Elem()
+}
+
+type QueueInput interface {
+	pulumi.Input
+
+	ToQueueOutput() QueueOutput
+	ToQueueOutputWithContext(ctx context.Context) QueueOutput
+}
+
+func (Queue) ElementType() reflect.Type {
+	return reflect.TypeOf((*Queue)(nil)).Elem()
+}
+
+func (i Queue) ToQueueOutput() QueueOutput {
+	return i.ToQueueOutputWithContext(context.Background())
+}
+
+func (i Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(QueueOutput)
+}
+
+type QueueOutput struct {
+	*pulumi.OutputState
+}
+
+func (QueueOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*QueueOutput)(nil)).Elem()
+}
+
+func (o QueueOutput) ToQueueOutput() QueueOutput {
+	return o
+}
+
+func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(QueueOutput{})
 }

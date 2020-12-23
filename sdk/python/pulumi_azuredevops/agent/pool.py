@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['Pool']
 
-warnings.warn("azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool", DeprecationWarning)
+warnings.warn("""azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool""", DeprecationWarning)
 
 
 class Pool(pulumi.CustomResource):
-    warnings.warn("azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool", DeprecationWarning)
+    warnings.warn("""azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -39,6 +39,14 @@ class Pool(pulumi.CustomResource):
         ## Relevant Links
 
         - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Agent Pools can be imported using the agent pool ID, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:Agent/pool:Pool azuredevops_agent_pool.pool 42
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -12,6 +11,14 @@ import * as utilities from "./utilities";
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ *
+ * ## Import
+ *
+ * Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes azuredevops_serviceendpoint_kubernetes.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ * ```
  */
 export class ServiceEndpointKubernetes extends pulumi.CustomResource {
     /**
@@ -95,16 +102,16 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointKubernetesArgs | undefined;
-            if (!args || args.apiserverUrl === undefined) {
+            if ((!args || args.apiserverUrl === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'apiserverUrl'");
             }
-            if (!args || args.authorizationType === undefined) {
+            if ((!args || args.authorizationType === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'authorizationType'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if (!args || args.serviceEndpointName === undefined) {
+            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["apiserverUrl"] = args ? args.apiserverUrl : undefined;

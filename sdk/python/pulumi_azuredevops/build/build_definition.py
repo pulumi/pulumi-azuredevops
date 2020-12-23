@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['BuildDefinition']
 
-warnings.warn("azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition", DeprecationWarning)
+warnings.warn("""azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition""", DeprecationWarning)
 
 
 class BuildDefinition(pulumi.CustomResource):
-    warnings.warn("azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition", DeprecationWarning)
+    warnings.warn("""azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -108,6 +108,20 @@ class BuildDefinition(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
 
+        ## Import
+
+        Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition build "Test Project"/10
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition build 00000000-0000-0000-0000-000000000000/0
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build.
@@ -142,11 +156,11 @@ class BuildDefinition(pulumi.CustomResource):
             __props__['ci_trigger'] = ci_trigger
             __props__['name'] = name
             __props__['path'] = path
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
             __props__['pull_request_trigger'] = pull_request_trigger
-            if repository is None:
+            if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__['repository'] = repository
             __props__['variable_groups'] = variable_groups

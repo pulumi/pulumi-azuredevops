@@ -4,6 +4,7 @@
 package serviceendpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,10 +35,10 @@ import (
 // 		}
 // 		_, err = azuredevops.NewServiceEndpointBitBucket(ctx, "serviceendpoint", &azuredevops.ServiceEndpointBitBucketArgs{
 // 			ProjectId:           project.ID(),
-// 			Username:            pulumi.String("xxxx"),
-// 			Password:            pulumi.String("xxxx"),
-// 			ServiceEndpointName: pulumi.String("test-bitbucket"),
-// 			Description:         pulumi.String("test"),
+// 			Username:            pulumi.String("username"),
+// 			Password:            pulumi.String("password"),
+// 			ServiceEndpointName: pulumi.String("Sample Bitbucket"),
+// 			Description:         pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -49,6 +50,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket azuredevops_serviceendpoint_bitbucket.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
 //
 // Deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket
 type BitBucket struct {
@@ -71,20 +80,21 @@ type BitBucket struct {
 // NewBitBucket registers a new resource with the given unique name, arguments, and options.
 func NewBitBucket(ctx *pulumi.Context,
 	name string, args *BitBucketArgs, opts ...pulumi.ResourceOption) (*BitBucket, error) {
-	if args == nil || args.Password == nil {
-		return nil, errors.New("missing required argument 'Password'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
-	if args == nil || args.Username == nil {
-		return nil, errors.New("missing required argument 'Username'")
-	}
 	if args == nil {
-		args = &BitBucketArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Password == nil {
+		return nil, errors.New("invalid value for required argument 'Password'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
+	}
+	if args.Username == nil {
+		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	var resource BitBucket
 	err := ctx.RegisterResource("azuredevops:ServiceEndpoint/bitBucket:BitBucket", name, args, &resource, opts...)
@@ -170,4 +180,43 @@ type BitBucketArgs struct {
 
 func (BitBucketArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*bitBucketArgs)(nil)).Elem()
+}
+
+type BitBucketInput interface {
+	pulumi.Input
+
+	ToBitBucketOutput() BitBucketOutput
+	ToBitBucketOutputWithContext(ctx context.Context) BitBucketOutput
+}
+
+func (BitBucket) ElementType() reflect.Type {
+	return reflect.TypeOf((*BitBucket)(nil)).Elem()
+}
+
+func (i BitBucket) ToBitBucketOutput() BitBucketOutput {
+	return i.ToBitBucketOutputWithContext(context.Background())
+}
+
+func (i BitBucket) ToBitBucketOutputWithContext(ctx context.Context) BitBucketOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BitBucketOutput)
+}
+
+type BitBucketOutput struct {
+	*pulumi.OutputState
+}
+
+func (BitBucketOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BitBucketOutput)(nil)).Elem()
+}
+
+func (o BitBucketOutput) ToBitBucketOutput() BitBucketOutput {
+	return o
+}
+
+func (o BitBucketOutput) ToBitBucketOutputWithContext(ctx context.Context) BitBucketOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BitBucketOutput{})
 }

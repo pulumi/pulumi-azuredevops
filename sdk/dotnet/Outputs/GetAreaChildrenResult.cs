@@ -13,10 +13,25 @@ namespace Pulumi.AzureDevOps.Outputs
     [OutputType]
     public sealed class GetAreaChildrenResult
     {
+        /// <summary>
+        /// Indicator if the child Area node has child nodes
+        /// </summary>
         public readonly bool HasChildren;
+        /// <summary>
+        /// The id of the child Area node
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the child Area node
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+        /// </summary>
         public readonly string Path;
+        /// <summary>
+        /// The project ID.
+        /// </summary>
         public readonly string ProjectId;
 
         [OutputConstructor]

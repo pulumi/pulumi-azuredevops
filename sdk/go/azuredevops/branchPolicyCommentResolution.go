@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -66,6 +67,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+//
+// ```sh
+//  $ pulumi import azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution p 00000000-0000-0000-0000-000000000000/0
+// ```
 type BranchPolicyCommentResolution struct {
 	pulumi.CustomResourceState
 
@@ -82,14 +91,15 @@ type BranchPolicyCommentResolution struct {
 // NewBranchPolicyCommentResolution registers a new resource with the given unique name, arguments, and options.
 func NewBranchPolicyCommentResolution(ctx *pulumi.Context,
 	name string, args *BranchPolicyCommentResolutionArgs, opts ...pulumi.ResourceOption) (*BranchPolicyCommentResolution, error) {
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.Settings == nil {
-		return nil, errors.New("missing required argument 'Settings'")
-	}
 	if args == nil {
-		args = &BranchPolicyCommentResolutionArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.Settings == nil {
+		return nil, errors.New("invalid value for required argument 'Settings'")
 	}
 	var resource BranchPolicyCommentResolution
 	err := ctx.RegisterResource("azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution", name, args, &resource, opts...)
@@ -163,4 +173,43 @@ type BranchPolicyCommentResolutionArgs struct {
 
 func (BranchPolicyCommentResolutionArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyCommentResolutionArgs)(nil)).Elem()
+}
+
+type BranchPolicyCommentResolutionInput interface {
+	pulumi.Input
+
+	ToBranchPolicyCommentResolutionOutput() BranchPolicyCommentResolutionOutput
+	ToBranchPolicyCommentResolutionOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionOutput
+}
+
+func (BranchPolicyCommentResolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyCommentResolution)(nil)).Elem()
+}
+
+func (i BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutput() BranchPolicyCommentResolutionOutput {
+	return i.ToBranchPolicyCommentResolutionOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionOutput)
+}
+
+type BranchPolicyCommentResolutionOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchPolicyCommentResolutionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyCommentResolutionOutput)(nil)).Elem()
+}
+
+func (o BranchPolicyCommentResolutionOutput) ToBranchPolicyCommentResolutionOutput() BranchPolicyCommentResolutionOutput {
+	return o
+}
+
+func (o BranchPolicyCommentResolutionOutput) ToBranchPolicyCommentResolutionOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BranchPolicyCommentResolutionOutput{})
 }

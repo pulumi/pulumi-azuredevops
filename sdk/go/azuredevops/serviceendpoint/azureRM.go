@@ -4,6 +4,7 @@
 package serviceendpoint
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -41,14 +42,14 @@ import (
 // 		}
 // 		_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "endpointazure", &azuredevops.ServiceEndpointAzureRMArgs{
 // 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("TestServiceRM"),
+// 			ServiceEndpointName: pulumi.String("Sample AzureRM"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 			Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
-// 				Serviceprincipalid:  pulumi.String("xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"),
-// 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+// 				Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
-// 			AzurermSpnTenantid:      pulumi.String("xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx"),
-// 			AzurermSubscriptionId:   pulumi.String("xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"),
+// 			AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			AzurermSubscriptionName: pulumi.String("Sample Subscription"),
 // 		})
 // 		if err != nil {
@@ -80,10 +81,10 @@ import (
 // 		}
 // 		_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "endpointazure", &azuredevops.ServiceEndpointAzureRMArgs{
 // 			ProjectId:               project.ID(),
-// 			ServiceEndpointName:     pulumi.String("TestServiceRM"),
+// 			ServiceEndpointName:     pulumi.String("Sample AzureRM"),
 // 			Description:             pulumi.String("Managed by Terraform"),
-// 			AzurermSpnTenantid:      pulumi.String("xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx"),
-// 			AzurermSubscriptionId:   pulumi.String("xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx"),
+// 			AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			AzurermSubscriptionName: pulumi.String("Microsoft Azure DEMO"),
 // 		})
 // 		if err != nil {
@@ -96,6 +97,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:ServiceEndpoint/azureRM:AzureRM azuredevops_serviceendpoint_azurerm.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
 //
 // Deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM
 type AzureRM struct {
@@ -123,23 +132,24 @@ type AzureRM struct {
 // NewAzureRM registers a new resource with the given unique name, arguments, and options.
 func NewAzureRM(ctx *pulumi.Context,
 	name string, args *AzureRMArgs, opts ...pulumi.ResourceOption) (*AzureRM, error) {
-	if args == nil || args.AzurermSpnTenantid == nil {
-		return nil, errors.New("missing required argument 'AzurermSpnTenantid'")
-	}
-	if args == nil || args.AzurermSubscriptionId == nil {
-		return nil, errors.New("missing required argument 'AzurermSubscriptionId'")
-	}
-	if args == nil || args.AzurermSubscriptionName == nil {
-		return nil, errors.New("missing required argument 'AzurermSubscriptionName'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
 	if args == nil {
-		args = &AzureRMArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AzurermSpnTenantid == nil {
+		return nil, errors.New("invalid value for required argument 'AzurermSpnTenantid'")
+	}
+	if args.AzurermSubscriptionId == nil {
+		return nil, errors.New("invalid value for required argument 'AzurermSubscriptionId'")
+	}
+	if args.AzurermSubscriptionName == nil {
+		return nil, errors.New("invalid value for required argument 'AzurermSubscriptionName'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	var resource AzureRM
 	err := ctx.RegisterResource("azuredevops:ServiceEndpoint/azureRM:AzureRM", name, args, &resource, opts...)
@@ -249,4 +259,43 @@ type AzureRMArgs struct {
 
 func (AzureRMArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*azureRMArgs)(nil)).Elem()
+}
+
+type AzureRMInput interface {
+	pulumi.Input
+
+	ToAzureRMOutput() AzureRMOutput
+	ToAzureRMOutputWithContext(ctx context.Context) AzureRMOutput
+}
+
+func (AzureRM) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureRM)(nil)).Elem()
+}
+
+func (i AzureRM) ToAzureRMOutput() AzureRMOutput {
+	return i.ToAzureRMOutputWithContext(context.Background())
+}
+
+func (i AzureRM) ToAzureRMOutputWithContext(ctx context.Context) AzureRMOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRMOutput)
+}
+
+type AzureRMOutput struct {
+	*pulumi.OutputState
+}
+
+func (AzureRMOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureRMOutput)(nil)).Elem()
+}
+
+func (o AzureRMOutput) ToAzureRMOutput() AzureRMOutput {
+	return o
+}
+
+func (o AzureRMOutput) ToAzureRMOutputWithContext(ctx context.Context) AzureRMOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AzureRMOutput{})
 }

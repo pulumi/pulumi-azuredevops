@@ -42,6 +42,10 @@ class User(pulumi.CustomResource):
 
         - **Member Entitlement Management**: Read & Write
 
+        ## Import
+
+        The resources allows the import via the UUID of a user entitlement or by using the principal name of a user owning an entitlement.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.

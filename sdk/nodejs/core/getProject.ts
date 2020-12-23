@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -16,7 +15,7 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = azuredevops.getProject({
- *     projectIdentifier: "Sample Project",
+ *     name: "Sample Project",
  * });
  * export const id = project.then(project => project.id);
  * export const name = project.then(project => project.name);
@@ -30,8 +29,9 @@ import * as utilities from "../utilities";
  * - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
  */
 /** @deprecated azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject */
-export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
+export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     pulumi.log.warn("getProject is deprecated: azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject")
+    args = args || {};
     if (!opts) {
         opts = {}
     }
@@ -40,7 +40,8 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
         opts.version = utilities.getVersion();
     }
     return pulumi.runtime.invoke("azuredevops:Core/getProject:getProject", {
-        "projectIdentifier": args.projectIdentifier,
+        "name": args.name,
+        "projectId": args.projectId,
     }, opts);
 }
 
@@ -49,9 +50,13 @@ export function getProject(args: GetProjectArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetProjectArgs {
     /**
-     * Name or ID of the Project.
+     * Name of the Project.
      */
-    readonly projectIdentifier: string;
+    readonly name?: string;
+    /**
+     * ID of the Project.
+     */
+    readonly projectId?: string;
 }
 
 /**
@@ -64,9 +69,9 @@ export interface GetProjectResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
-    readonly name: string;
+    readonly name?: string;
     readonly processTemplateId: string;
-    readonly projectIdentifier: string;
+    readonly projectId?: string;
     readonly versionControl: string;
     readonly visibility: string;
     readonly workItemTemplate: string;

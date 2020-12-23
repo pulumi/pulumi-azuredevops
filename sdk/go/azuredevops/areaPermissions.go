@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -26,6 +27,10 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
+//
+// ## Import
+//
+// The resource does not support import.
 type AreaPermissions struct {
 	pulumi.CustomResourceState
 
@@ -44,17 +49,18 @@ type AreaPermissions struct {
 // NewAreaPermissions registers a new resource with the given unique name, arguments, and options.
 func NewAreaPermissions(ctx *pulumi.Context,
 	name string, args *AreaPermissionsArgs, opts ...pulumi.ResourceOption) (*AreaPermissions, error) {
-	if args == nil || args.Permissions == nil {
-		return nil, errors.New("missing required argument 'Permissions'")
-	}
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &AreaPermissionsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Permissions == nil {
+		return nil, errors.New("invalid value for required argument 'Permissions'")
+	}
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	var resource AreaPermissions
 	err := ctx.RegisterResource("azuredevops:index/areaPermissions:AreaPermissions", name, args, &resource, opts...)
@@ -136,4 +142,43 @@ type AreaPermissionsArgs struct {
 
 func (AreaPermissionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*areaPermissionsArgs)(nil)).Elem()
+}
+
+type AreaPermissionsInput interface {
+	pulumi.Input
+
+	ToAreaPermissionsOutput() AreaPermissionsOutput
+	ToAreaPermissionsOutputWithContext(ctx context.Context) AreaPermissionsOutput
+}
+
+func (AreaPermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*AreaPermissions)(nil)).Elem()
+}
+
+func (i AreaPermissions) ToAreaPermissionsOutput() AreaPermissionsOutput {
+	return i.ToAreaPermissionsOutputWithContext(context.Background())
+}
+
+func (i AreaPermissions) ToAreaPermissionsOutputWithContext(ctx context.Context) AreaPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AreaPermissionsOutput)
+}
+
+type AreaPermissionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (AreaPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AreaPermissionsOutput)(nil)).Elem()
+}
+
+func (o AreaPermissionsOutput) ToAreaPermissionsOutput() AreaPermissionsOutput {
+	return o
+}
+
+func (o AreaPermissionsOutput) ToAreaPermissionsOutputWithContext(ctx context.Context) AreaPermissionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(AreaPermissionsOutput{})
 }

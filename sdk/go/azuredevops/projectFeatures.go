@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -12,6 +13,39 @@ import (
 
 // Manages features for Azure DevOps projects
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "Test Project"
+// 		tf_project_test_001, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewProjectFeatures(ctx, "my_project_features", &azuredevops.ProjectFeaturesArgs{
+// 			ProjectId: pulumi.String(tf_project_test_001.Id),
+// 			Features: pulumi.StringMap{
+// 				"testplans": pulumi.String("disabled"),
+// 				"artifacts": pulumi.String("enabled"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // No official documentation available
@@ -19,6 +53,14 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: Read, Write, & Manage
+//
+// ## Import
+//
+// Azure DevOps feature settings can be imported using the project id, e.g.
+//
+// ```sh
+//  $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures project_id 2785562e-8f45-4534-a10e-b9ca1666b17e
+// ```
 type ProjectFeatures struct {
 	pulumi.CustomResourceState
 
@@ -31,14 +73,15 @@ type ProjectFeatures struct {
 // NewProjectFeatures registers a new resource with the given unique name, arguments, and options.
 func NewProjectFeatures(ctx *pulumi.Context,
 	name string, args *ProjectFeaturesArgs, opts ...pulumi.ResourceOption) (*ProjectFeatures, error) {
-	if args == nil || args.Features == nil {
-		return nil, errors.New("missing required argument 'Features'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &ProjectFeaturesArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Features == nil {
+		return nil, errors.New("invalid value for required argument 'Features'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -102,4 +145,43 @@ type ProjectFeaturesArgs struct {
 
 func (ProjectFeaturesArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectFeaturesArgs)(nil)).Elem()
+}
+
+type ProjectFeaturesInput interface {
+	pulumi.Input
+
+	ToProjectFeaturesOutput() ProjectFeaturesOutput
+	ToProjectFeaturesOutputWithContext(ctx context.Context) ProjectFeaturesOutput
+}
+
+func (ProjectFeatures) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFeatures)(nil)).Elem()
+}
+
+func (i ProjectFeatures) ToProjectFeaturesOutput() ProjectFeaturesOutput {
+	return i.ToProjectFeaturesOutputWithContext(context.Background())
+}
+
+func (i ProjectFeatures) ToProjectFeaturesOutputWithContext(ctx context.Context) ProjectFeaturesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesOutput)
+}
+
+type ProjectFeaturesOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProjectFeaturesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFeaturesOutput)(nil)).Elem()
+}
+
+func (o ProjectFeaturesOutput) ToProjectFeaturesOutput() ProjectFeaturesOutput {
+	return o
+}
+
+func (o ProjectFeaturesOutput) ToProjectFeaturesOutputWithContext(ctx context.Context) ProjectFeaturesOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProjectFeaturesOutput{})
 }

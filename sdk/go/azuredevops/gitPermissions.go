@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -128,6 +129,10 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
+//
+// ## Import
+//
+// The resource does not support import.
 type GitPermissions struct {
 	pulumi.CustomResourceState
 
@@ -148,17 +153,18 @@ type GitPermissions struct {
 // NewGitPermissions registers a new resource with the given unique name, arguments, and options.
 func NewGitPermissions(ctx *pulumi.Context,
 	name string, args *GitPermissionsArgs, opts ...pulumi.ResourceOption) (*GitPermissions, error) {
-	if args == nil || args.Permissions == nil {
-		return nil, errors.New("missing required argument 'Permissions'")
-	}
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &GitPermissionsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Permissions == nil {
+		return nil, errors.New("invalid value for required argument 'Permissions'")
+	}
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	var resource GitPermissions
 	err := ctx.RegisterResource("azuredevops:index/gitPermissions:GitPermissions", name, args, &resource, opts...)
@@ -248,4 +254,43 @@ type GitPermissionsArgs struct {
 
 func (GitPermissionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gitPermissionsArgs)(nil)).Elem()
+}
+
+type GitPermissionsInput interface {
+	pulumi.Input
+
+	ToGitPermissionsOutput() GitPermissionsOutput
+	ToGitPermissionsOutputWithContext(ctx context.Context) GitPermissionsOutput
+}
+
+func (GitPermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitPermissions)(nil)).Elem()
+}
+
+func (i GitPermissions) ToGitPermissionsOutput() GitPermissionsOutput {
+	return i.ToGitPermissionsOutputWithContext(context.Background())
+}
+
+func (i GitPermissions) ToGitPermissionsOutputWithContext(ctx context.Context) GitPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsOutput)
+}
+
+type GitPermissionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (GitPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitPermissionsOutput)(nil)).Elem()
+}
+
+func (o GitPermissionsOutput) ToGitPermissionsOutput() GitPermissionsOutput {
+	return o
+}
+
+func (o GitPermissionsOutput) ToGitPermissionsOutputWithContext(ctx context.Context) GitPermissionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GitPermissionsOutput{})
 }

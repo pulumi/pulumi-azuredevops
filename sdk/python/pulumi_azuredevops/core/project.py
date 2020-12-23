@@ -10,11 +10,11 @@ from .. import _utilities, _tables
 
 __all__ = ['Project']
 
-warnings.warn("azuredevops.core.Project has been deprecated in favor of azuredevops.Project", DeprecationWarning)
+warnings.warn("""azuredevops.core.Project has been deprecated in favor of azuredevops.Project""", DeprecationWarning)
 
 
 class Project(pulumi.CustomResource):
-    warnings.warn("azuredevops.core.Project has been deprecated in favor of azuredevops.Project", DeprecationWarning)
+    warnings.warn("""azuredevops.core.Project has been deprecated in favor of azuredevops.Project""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -54,6 +54,20 @@ class Project(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Project & Team**: Read, Write, & Manage
+
+        ## Import
+
+        Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:Core/project:Project project "Test Project"
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import azuredevops:Core/project:Project project 00000000-0000-0000-0000-000000000000
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.

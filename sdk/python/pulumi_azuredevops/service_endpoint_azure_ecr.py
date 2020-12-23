@@ -45,15 +45,23 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             project_id=project.id,
             service_endpoint_name="Sample AzureCR",
             resource_group="sample-rg",
-            azurecr_spn_tenantid="72f987tg-95f1-87af-91bh-2d8jd091db47",
+            azurecr_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurecr_name="sampleAcr",
-            azurecr_subscription_id="f7ooi795-c577-6210-9886-a5e898uue3gc",
-            azurecr_subscription_name="sample")
+            azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurecr_subscription_name="sampleSub")
         ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
         - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
+
+        ## Import
+
+        Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr azuredevops_serviceendpoint_azurecr.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -84,26 +92,26 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorization'] = authorization
-            if azurecr_name is None:
+            if azurecr_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azurecr_name'")
             __props__['azurecr_name'] = azurecr_name
-            if azurecr_spn_tenantid is None:
+            if azurecr_spn_tenantid is None and not opts.urn:
                 raise TypeError("Missing required property 'azurecr_spn_tenantid'")
             __props__['azurecr_spn_tenantid'] = azurecr_spn_tenantid
-            if azurecr_subscription_id is None:
+            if azurecr_subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'azurecr_subscription_id'")
             __props__['azurecr_subscription_id'] = azurecr_subscription_id
-            if azurecr_subscription_name is None:
+            if azurecr_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azurecr_subscription_name'")
             __props__['azurecr_subscription_name'] = azurecr_subscription_name
             __props__['description'] = description
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
-            if resource_group is None:
+            if resource_group is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group'")
             __props__['resource_group'] = resource_group
-            if service_endpoint_name is None:
+            if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__['service_endpoint_name'] = service_endpoint_name
         super(ServiceEndpointAzureEcr, __self__).__init__(

@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -62,6 +63,14 @@ import (
 //
 // - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
 // - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
+//
+// ## Import
+//
+// Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry azuredevops_serviceendpoint_dockerregistry.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
 type ServiceEndpointDockerRegistry struct {
 	pulumi.CustomResourceState
 
@@ -89,20 +98,21 @@ type ServiceEndpointDockerRegistry struct {
 // NewServiceEndpointDockerRegistry registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointDockerRegistry(ctx *pulumi.Context,
 	name string, args *ServiceEndpointDockerRegistryArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointDockerRegistry, error) {
-	if args == nil || args.DockerRegistry == nil {
-		return nil, errors.New("missing required argument 'DockerRegistry'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.RegistryType == nil {
-		return nil, errors.New("missing required argument 'RegistryType'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
 	if args == nil {
-		args = &ServiceEndpointDockerRegistryArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.DockerRegistry == nil {
+		return nil, errors.New("invalid value for required argument 'DockerRegistry'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.RegistryType == nil {
+		return nil, errors.New("invalid value for required argument 'RegistryType'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -222,4 +232,43 @@ type ServiceEndpointDockerRegistryArgs struct {
 
 func (ServiceEndpointDockerRegistryArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointDockerRegistryArgs)(nil)).Elem()
+}
+
+type ServiceEndpointDockerRegistryInput interface {
+	pulumi.Input
+
+	ToServiceEndpointDockerRegistryOutput() ServiceEndpointDockerRegistryOutput
+	ToServiceEndpointDockerRegistryOutputWithContext(ctx context.Context) ServiceEndpointDockerRegistryOutput
+}
+
+func (ServiceEndpointDockerRegistry) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointDockerRegistry)(nil)).Elem()
+}
+
+func (i ServiceEndpointDockerRegistry) ToServiceEndpointDockerRegistryOutput() ServiceEndpointDockerRegistryOutput {
+	return i.ToServiceEndpointDockerRegistryOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointDockerRegistry) ToServiceEndpointDockerRegistryOutputWithContext(ctx context.Context) ServiceEndpointDockerRegistryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointDockerRegistryOutput)
+}
+
+type ServiceEndpointDockerRegistryOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointDockerRegistryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointDockerRegistryOutput)(nil)).Elem()
+}
+
+func (o ServiceEndpointDockerRegistryOutput) ToServiceEndpointDockerRegistryOutput() ServiceEndpointDockerRegistryOutput {
+	return o
+}
+
+func (o ServiceEndpointDockerRegistryOutput) ToServiceEndpointDockerRegistryOutputWithContext(ctx context.Context) ServiceEndpointDockerRegistryOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceEndpointDockerRegistryOutput{})
 }

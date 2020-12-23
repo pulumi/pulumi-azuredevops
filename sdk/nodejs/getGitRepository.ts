@@ -2,10 +2,31 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
+ * To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const project = azuredevops.getProject({
+ *     name: "contoso-project",
+ * });
+ * const singleRepo = project.then(project => azuredevops.getGitRepository({
+ *     projectId: project.id,
+ *     name: "contoso-repo",
+ * }));
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+ */
 export function getGitRepository(args: GetGitRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetGitRepositoryResult> {
     if (!opts) {
         opts = {}
@@ -24,7 +45,13 @@ export function getGitRepository(args: GetGitRepositoryArgs, opts?: pulumi.Invok
  * A collection of arguments for invoking getGitRepository.
  */
 export interface GetGitRepositoryArgs {
+    /**
+     * Name of the Git repository to retrieve
+     */
     readonly name: string;
+    /**
+     * ID of project to list Git repositories
+     */
     readonly projectId: string;
 }
 
@@ -32,17 +59,41 @@ export interface GetGitRepositoryArgs {
  * A collection of values returned by getGitRepository.
  */
 export interface GetGitRepositoryResult {
+    /**
+     * The ref of the default branch.
+     */
     readonly defaultBranch: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly isFork: boolean;
+    /**
+     * Git repository name.
+     */
     readonly name: string;
+    /**
+     * Project identifier to which the Git repository belongs.
+     */
     readonly projectId: string;
+    /**
+     * HTTPS Url to clone the Git repository
+     */
     readonly remoteUrl: string;
+    /**
+     * Compressed size (bytes) of the repository.
+     */
     readonly size: number;
+    /**
+     * SSH Url to clone the Git repository
+     */
     readonly sshUrl: string;
+    /**
+     * Details REST API endpoint for the Git Repository.
+     */
     readonly url: string;
+    /**
+     * Url of the Git repository web view
+     */
     readonly webUrl: string;
 }

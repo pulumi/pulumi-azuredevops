@@ -40,6 +40,14 @@ import * as utilities from "../utilities";
  *
  * - **Project & Team**: Read, Write, & Manage
  *
+ * ## Import
+ *
+ * Azure DevOps Projects can be imported using the group identity descriptor, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:Identities/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+ * ```
+ *
  * @deprecated azuredevops.identities.Group has been deprecated in favor of azuredevops.Group
  */
 export class Group extends pulumi.CustomResource {

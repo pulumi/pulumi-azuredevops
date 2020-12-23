@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -76,6 +77,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+//
+// ```sh
+//  $ pulumi import azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers p aa4a9756-8a86-4588-86d7-b3ee2d88b033/60
+// ```
 type BranchPolicyAutoReviewers struct {
 	pulumi.CustomResourceState
 
@@ -92,14 +101,15 @@ type BranchPolicyAutoReviewers struct {
 // NewBranchPolicyAutoReviewers registers a new resource with the given unique name, arguments, and options.
 func NewBranchPolicyAutoReviewers(ctx *pulumi.Context,
 	name string, args *BranchPolicyAutoReviewersArgs, opts ...pulumi.ResourceOption) (*BranchPolicyAutoReviewers, error) {
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.Settings == nil {
-		return nil, errors.New("missing required argument 'Settings'")
-	}
 	if args == nil {
-		args = &BranchPolicyAutoReviewersArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.Settings == nil {
+		return nil, errors.New("invalid value for required argument 'Settings'")
 	}
 	var resource BranchPolicyAutoReviewers
 	err := ctx.RegisterResource("azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers", name, args, &resource, opts...)
@@ -173,4 +183,43 @@ type BranchPolicyAutoReviewersArgs struct {
 
 func (BranchPolicyAutoReviewersArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyAutoReviewersArgs)(nil)).Elem()
+}
+
+type BranchPolicyAutoReviewersInput interface {
+	pulumi.Input
+
+	ToBranchPolicyAutoReviewersOutput() BranchPolicyAutoReviewersOutput
+	ToBranchPolicyAutoReviewersOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersOutput
+}
+
+func (BranchPolicyAutoReviewers) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyAutoReviewers)(nil)).Elem()
+}
+
+func (i BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersOutput() BranchPolicyAutoReviewersOutput {
+	return i.ToBranchPolicyAutoReviewersOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersOutput)
+}
+
+type BranchPolicyAutoReviewersOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchPolicyAutoReviewersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyAutoReviewersOutput)(nil)).Elem()
+}
+
+func (o BranchPolicyAutoReviewersOutput) ToBranchPolicyAutoReviewersOutput() BranchPolicyAutoReviewersOutput {
+	return o
+}
+
+func (o BranchPolicyAutoReviewersOutput) ToBranchPolicyAutoReviewersOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BranchPolicyAutoReviewersOutput{})
 }

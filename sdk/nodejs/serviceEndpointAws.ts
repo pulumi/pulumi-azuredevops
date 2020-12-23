@@ -20,16 +20,24 @@ import * as utilities from "./utilities";
  * });
  * const serviceendpoint = new azuredevops.ServiceEndpointAws("serviceendpoint", {
  *     projectId: project.id,
- *     serviceEndpointName: "aws_serviceendpoint",
+ *     serviceEndpointName: "Sample AWS",
  *     description: "Managed by AzureDevOps",
- *     accessKeyId: "xxxx",
- *     secretAccessKey: "xxxx",
+ *     accessKeyId: "00000000-0000-0000-0000-000000000000",
+ *     secretAccessKey: "accesskey",
  * });
  * ```
  * ## Relevant Links
  *
  * * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
  * * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ *
+ * ## Import
+ *
+ * Azure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ * ```
  */
 export class ServiceEndpointAws extends pulumi.CustomResource {
     /**
@@ -128,16 +136,16 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
             inputs["sessionTokenHash"] = state ? state.sessionTokenHash : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAwsArgs | undefined;
-            if (!args || args.accessKeyId === undefined) {
+            if ((!args || args.accessKeyId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'accessKeyId'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if (!args || args.secretAccessKey === undefined) {
+            if ((!args || args.secretAccessKey === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'secretAccessKey'");
             }
-            if (!args || args.serviceEndpointName === undefined) {
+            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["accessKeyId"] = args ? args.accessKeyId : undefined;

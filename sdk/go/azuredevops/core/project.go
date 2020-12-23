@@ -4,6 +4,7 @@
 package core
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -48,6 +49,20 @@ import (
 //
 // - **Project & Team**: Read, Write, & Manage
 //
+// ## Import
+//
+// Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
+//
+// ```sh
+//  $ pulumi import azuredevops:Core/project:Project project "Test Project"
+// ```
+//
+//  or
+//
+// ```sh
+//  $ pulumi import azuredevops:Core/project:Project project 00000000-0000-0000-0000-000000000000
+// ```
+//
 // Deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project
 type Project struct {
 	pulumi.CustomResourceState
@@ -75,6 +90,7 @@ func NewProject(ctx *pulumi.Context,
 	if args == nil {
 		args = &ProjectArgs{}
 	}
+
 	var resource Project
 	err := ctx.RegisterResource("azuredevops:Core/project:Project", name, args, &resource, opts...)
 	if err != nil {
@@ -171,4 +187,43 @@ type ProjectArgs struct {
 
 func (ProjectArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectArgs)(nil)).Elem()
+}
+
+type ProjectInput interface {
+	pulumi.Input
+
+	ToProjectOutput() ProjectOutput
+	ToProjectOutputWithContext(ctx context.Context) ProjectOutput
+}
+
+func (Project) ElementType() reflect.Type {
+	return reflect.TypeOf((*Project)(nil)).Elem()
+}
+
+func (i Project) ToProjectOutput() ProjectOutput {
+	return i.ToProjectOutputWithContext(context.Background())
+}
+
+func (i Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectOutput)
+}
+
+type ProjectOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProjectOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectOutput)(nil)).Elem()
+}
+
+func (o ProjectOutput) ToProjectOutput() ProjectOutput {
+	return o
+}
+
+func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProjectOutput{})
 }

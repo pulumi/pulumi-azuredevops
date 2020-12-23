@@ -55,6 +55,14 @@ class Group(pulumi.CustomResource):
 
         - **Project & Team**: Read, Write, & Manage
 
+        ## Import
+
+        Azure DevOps Projects can be imported using the group identity descriptor, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:index/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The Description of the Project.

@@ -38,15 +38,15 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///         var endpointazure = new AzureDevOps.ServiceEndpointAzureRM("endpointazure", new AzureDevOps.ServiceEndpointAzureRMArgs
     ///         {
     ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "TestServiceRM",
+    ///             ServiceEndpointName = "Sample AzureRM",
     ///             Description = "Managed by Terraform",
     ///             Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
     ///             {
-    ///                 Serviceprincipalid = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
-    ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///                 Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
+    ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
     ///             },
-    ///             AzurermSpnTenantid = "xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
-    ///             AzurermSubscriptionId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
+    ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///             AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///             AzurermSubscriptionName = "Sample Subscription",
     ///         });
     ///     }
@@ -72,10 +72,10 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///         var endpointazure = new AzureDevOps.ServiceEndpointAzureRM("endpointazure", new AzureDevOps.ServiceEndpointAzureRMArgs
     ///         {
     ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "TestServiceRM",
+    ///             ServiceEndpointName = "Sample AzureRM",
     ///             Description = "Managed by Terraform",
-    ///             AzurermSpnTenantid = "xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
-    ///             AzurermSubscriptionId = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
+    ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///             AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///             AzurermSubscriptionName = "Microsoft Azure DEMO",
     ///         });
     ///     }
@@ -85,6 +85,14 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// 
+    /// ## Import
+    /// 
+    /// Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+    /// 
+    /// ```sh
+    ///  $ pulumi import azuredevops:ServiceEndpoint/azureRM:AzureRM azuredevops_serviceendpoint_azurerm.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    /// ```
     /// </summary>
     [Obsolete(@"azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM")]
     public partial class AzureRM : Pulumi.CustomResource

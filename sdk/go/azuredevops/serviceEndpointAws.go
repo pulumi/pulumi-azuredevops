@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -34,10 +35,10 @@ import (
 // 		}
 // 		_, err = azuredevops.NewServiceEndpointAws(ctx, "serviceendpoint", &azuredevops.ServiceEndpointAwsArgs{
 // 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("aws_serviceendpoint"),
+// 			ServiceEndpointName: pulumi.String("Sample AWS"),
 // 			Description:         pulumi.String("Managed by AzureDevOps"),
-// 			AccessKeyId:         pulumi.String("xxxx"),
-// 			SecretAccessKey:     pulumi.String("xxxx"),
+// 			AccessKeyId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			SecretAccessKey:     pulumi.String("accesskey"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -50,6 +51,14 @@ import (
 //
 // * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
 // * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+//
+// ```sh
+//  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+// ```
 type ServiceEndpointAws struct {
 	pulumi.CustomResourceState
 
@@ -80,20 +89,21 @@ type ServiceEndpointAws struct {
 // NewServiceEndpointAws registers a new resource with the given unique name, arguments, and options.
 func NewServiceEndpointAws(ctx *pulumi.Context,
 	name string, args *ServiceEndpointAwsArgs, opts ...pulumi.ResourceOption) (*ServiceEndpointAws, error) {
-	if args == nil || args.AccessKeyId == nil {
-		return nil, errors.New("missing required argument 'AccessKeyId'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.SecretAccessKey == nil {
-		return nil, errors.New("missing required argument 'SecretAccessKey'")
-	}
-	if args == nil || args.ServiceEndpointName == nil {
-		return nil, errors.New("missing required argument 'ServiceEndpointName'")
-	}
 	if args == nil {
-		args = &ServiceEndpointAwsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.AccessKeyId == nil {
+		return nil, errors.New("invalid value for required argument 'AccessKeyId'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.SecretAccessKey == nil {
+		return nil, errors.New("invalid value for required argument 'SecretAccessKey'")
+	}
+	if args.ServiceEndpointName == nil {
+		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	var resource ServiceEndpointAws
 	err := ctx.RegisterResource("azuredevops:index/serviceEndpointAws:ServiceEndpointAws", name, args, &resource, opts...)
@@ -215,4 +225,43 @@ type ServiceEndpointAwsArgs struct {
 
 func (ServiceEndpointAwsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*serviceEndpointAwsArgs)(nil)).Elem()
+}
+
+type ServiceEndpointAwsInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAwsOutput() ServiceEndpointAwsOutput
+	ToServiceEndpointAwsOutputWithContext(ctx context.Context) ServiceEndpointAwsOutput
+}
+
+func (ServiceEndpointAws) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAws)(nil)).Elem()
+}
+
+func (i ServiceEndpointAws) ToServiceEndpointAwsOutput() ServiceEndpointAwsOutput {
+	return i.ToServiceEndpointAwsOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAws) ToServiceEndpointAwsOutputWithContext(ctx context.Context) ServiceEndpointAwsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsOutput)
+}
+
+type ServiceEndpointAwsOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointAwsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAwsOutput)(nil)).Elem()
+}
+
+func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsOutput() ServiceEndpointAwsOutput {
+	return o
+}
+
+func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsOutputWithContext(ctx context.Context) ServiceEndpointAwsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ServiceEndpointAwsOutput{})
 }

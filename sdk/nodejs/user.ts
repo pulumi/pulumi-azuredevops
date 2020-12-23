@@ -24,6 +24,10 @@ import * as utilities from "./utilities";
  * ## PAT Permissions Required
  *
  * - **Member Entitlement Management**: Read & Write
+ *
+ * ## Import
+ *
+ * The resources allows the import via the UUID of a user entitlement or by using the principal name of a user owning an entitlement.
  */
 export class User extends pulumi.CustomResource {
     /**

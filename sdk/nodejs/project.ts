@@ -31,6 +31,20 @@ import * as utilities from "./utilities";
  * ## PAT Permissions Required
  *
  * - **Project & Team**: Read, Write, & Manage
+ *
+ * ## Import
+ *
+ * Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:index/project:Project project "Test Project"
+ * ```
+ *
+ *  or
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:index/project:Project project 00000000-0000-0000-0000-000000000000
+ * ```
  */
 export class Project extends pulumi.CustomResource {
     /**

@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "./types/input";
-import * as outputs from "./types/output";
+import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -59,7 +58,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
  */
 export class Git extends pulumi.CustomResource {
     /**
@@ -159,10 +158,10 @@ export class Git extends pulumi.CustomResource {
             inputs["webUrl"] = state ? state.webUrl : undefined;
         } else {
             const args = argsOrState as GitArgs | undefined;
-            if (!args || args.initialization === undefined) {
+            if ((!args || args.initialization === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'initialization'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["defaultBranch"] = args ? args.defaultBranch : undefined;

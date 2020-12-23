@@ -53,6 +53,10 @@ namespace Pulumi.AzureDevOps.Identities
     /// ## PAT Permissions Required
     /// 
     /// - **Deployment Groups**: Read &amp; Manage
+    /// 
+    /// ## Import
+    /// 
+    /// Not supported.
     /// </summary>
     [Obsolete(@"azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership")]
     public partial class GroupMembership : Pulumi.CustomResource

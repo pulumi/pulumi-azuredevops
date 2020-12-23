@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -85,6 +86,14 @@ import (
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+//
+// ## Import
+//
+// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+//
+// ```sh
+//  $ pulumi import azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation p aa4a9756-8a86-4588-86d7-b3ee2d88b033/60
+// ```
 type BranchPolicyBuildValidation struct {
 	pulumi.CustomResourceState
 
@@ -101,14 +110,15 @@ type BranchPolicyBuildValidation struct {
 // NewBranchPolicyBuildValidation registers a new resource with the given unique name, arguments, and options.
 func NewBranchPolicyBuildValidation(ctx *pulumi.Context,
 	name string, args *BranchPolicyBuildValidationArgs, opts ...pulumi.ResourceOption) (*BranchPolicyBuildValidation, error) {
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
-	if args == nil || args.Settings == nil {
-		return nil, errors.New("missing required argument 'Settings'")
-	}
 	if args == nil {
-		args = &BranchPolicyBuildValidationArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
+	}
+	if args.Settings == nil {
+		return nil, errors.New("invalid value for required argument 'Settings'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -188,4 +198,43 @@ type BranchPolicyBuildValidationArgs struct {
 
 func (BranchPolicyBuildValidationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*branchPolicyBuildValidationArgs)(nil)).Elem()
+}
+
+type BranchPolicyBuildValidationInput interface {
+	pulumi.Input
+
+	ToBranchPolicyBuildValidationOutput() BranchPolicyBuildValidationOutput
+	ToBranchPolicyBuildValidationOutputWithContext(ctx context.Context) BranchPolicyBuildValidationOutput
+}
+
+func (BranchPolicyBuildValidation) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyBuildValidation)(nil)).Elem()
+}
+
+func (i BranchPolicyBuildValidation) ToBranchPolicyBuildValidationOutput() BranchPolicyBuildValidationOutput {
+	return i.ToBranchPolicyBuildValidationOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyBuildValidation) ToBranchPolicyBuildValidationOutputWithContext(ctx context.Context) BranchPolicyBuildValidationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationOutput)
+}
+
+type BranchPolicyBuildValidationOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchPolicyBuildValidationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyBuildValidationOutput)(nil)).Elem()
+}
+
+func (o BranchPolicyBuildValidationOutput) ToBranchPolicyBuildValidationOutput() BranchPolicyBuildValidationOutput {
+	return o
+}
+
+func (o BranchPolicyBuildValidationOutput) ToBranchPolicyBuildValidationOutputWithContext(ctx context.Context) BranchPolicyBuildValidationOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(BranchPolicyBuildValidationOutput{})
 }

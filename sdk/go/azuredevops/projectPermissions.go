@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -21,6 +22,10 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
+//
+// ## Import
+//
+// The resource does not support import.
 type ProjectPermissions struct {
 	pulumi.CustomResourceState
 
@@ -37,17 +42,18 @@ type ProjectPermissions struct {
 // NewProjectPermissions registers a new resource with the given unique name, arguments, and options.
 func NewProjectPermissions(ctx *pulumi.Context,
 	name string, args *ProjectPermissionsArgs, opts ...pulumi.ResourceOption) (*ProjectPermissions, error) {
-	if args == nil || args.Permissions == nil {
-		return nil, errors.New("missing required argument 'Permissions'")
-	}
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &ProjectPermissionsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Permissions == nil {
+		return nil, errors.New("invalid value for required argument 'Permissions'")
+	}
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	var resource ProjectPermissions
 	err := ctx.RegisterResource("azuredevops:index/projectPermissions:ProjectPermissions", name, args, &resource, opts...)
@@ -121,4 +127,43 @@ type ProjectPermissionsArgs struct {
 
 func (ProjectPermissionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*projectPermissionsArgs)(nil)).Elem()
+}
+
+type ProjectPermissionsInput interface {
+	pulumi.Input
+
+	ToProjectPermissionsOutput() ProjectPermissionsOutput
+	ToProjectPermissionsOutputWithContext(ctx context.Context) ProjectPermissionsOutput
+}
+
+func (ProjectPermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectPermissions)(nil)).Elem()
+}
+
+func (i ProjectPermissions) ToProjectPermissionsOutput() ProjectPermissionsOutput {
+	return i.ToProjectPermissionsOutputWithContext(context.Background())
+}
+
+func (i ProjectPermissions) ToProjectPermissionsOutputWithContext(ctx context.Context) ProjectPermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectPermissionsOutput)
+}
+
+type ProjectPermissionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProjectPermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectPermissionsOutput)(nil)).Elem()
+}
+
+func (o ProjectPermissionsOutput) ToProjectPermissionsOutput() ProjectPermissionsOutput {
+	return o
+}
+
+func (o ProjectPermissionsOutput) ToProjectPermissionsOutputWithContext(ctx context.Context) ProjectPermissionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(ProjectPermissionsOutput{})
 }

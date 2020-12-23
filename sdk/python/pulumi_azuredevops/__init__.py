@@ -10,6 +10,7 @@ from .branch_policy_comment_resolution import *
 from .branch_policy_min_reviewers import *
 from .branch_policy_work_item_linking import *
 from .build_definition import *
+from .get_agent_queue import *
 from .get_area import *
 from .get_client_config import *
 from .get_git_repository import *
@@ -60,3 +61,122 @@ from . import (
     security,
     serviceendpoint,
 )
+
+def _register_module():
+    import pulumi
+    from . import _utilities
+
+
+    class Module(pulumi.runtime.ResourceModule):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Module._version
+
+        def construct(self, name: str, typ: str, urn: str) -> pulumi.Resource:
+            if typ == "azuredevops:index/areaPermissions:AreaPermissions":
+                return AreaPermissions(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers":
+                return BranchPolicyAutoReviewers(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation":
+                return BranchPolicyBuildValidation(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution":
+                return BranchPolicyCommentResolution(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers":
+                return BranchPolicyMinReviewers(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking":
+                return BranchPolicyWorkItemLinking(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/buildDefinition:BuildDefinition":
+                return BuildDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/git:Git":
+                return Git(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/gitPermissions:GitPermissions":
+                return GitPermissions(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/group:Group":
+                return Group(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/groupMembership:GroupMembership":
+                return GroupMembership(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/iterativePermissions:IterativePermissions":
+                return IterativePermissions(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/pool:Pool":
+                return Pool(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/project:Project":
+                return Project(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/projectFeatures:ProjectFeatures":
+                return ProjectFeatures(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/projectPermissions:ProjectPermissions":
+                return ProjectPermissions(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/queue:Queue":
+                return Queue(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/resourceAuthorization:ResourceAuthorization":
+                return ResourceAuthorization(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
+                return ServiceEndpointAws(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr":
+                return ServiceEndpointAzureEcr(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM":
+                return ServiceEndpointAzureRM(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket":
+                return ServiceEndpointBitBucket(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry":
+                return ServiceEndpointDockerRegistry(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub":
+                return ServiceEndpointGitHub(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes":
+                return ServiceEndpointKubernetes(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/user:User":
+                return User(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/variableGroup:VariableGroup":
+                return VariableGroup(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions":
+                return WorkItemQueryPermissions(name, pulumi.ResourceOptions(urn=urn))
+            else:
+                raise Exception(f"unknown resource type {typ}")
+
+
+    _module_instance = Module()
+    pulumi.runtime.register_resource_module("azuredevops", "index/areaPermissions", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyAutoReviewers", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyBuildValidation", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyCommentResolution", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyMinReviewers", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyWorkItemLinking", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/buildDefinition", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/git", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/gitPermissions", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/group", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/groupMembership", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/iterativePermissions", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/pool", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/project", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/projectFeatures", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/projectPermissions", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/queue", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/resourceAuthorization", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAws", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAzureEcr", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAzureRM", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointBitBucket", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointDockerRegistry", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointGitHub", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointKubernetes", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/user", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/variableGroup", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/workItemQueryPermissions", _module_instance)
+
+
+    class Package(pulumi.runtime.ResourcePackage):
+        _version = _utilities.get_semver_version()
+
+        def version(self):
+            return Package._version
+
+        def construct_provider(self, name: str, typ: str, urn: str) -> pulumi.ProviderResource:
+            if typ != "pulumi:providers:azuredevops":
+                raise Exception(f"unknown provider type {typ}")
+            return Provider(name, pulumi.ResourceOptions(urn=urn))
+
+
+    pulumi.runtime.register_resource_package("azuredevops", Package())
+
+_register_module()

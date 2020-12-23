@@ -7,6 +7,23 @@ import * as utilities from "./utilities";
 /**
  * Manages features for Azure DevOps projects
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const tf-project-test-001 = azuredevops.getProject({
+ *     name: "Test Project",
+ * });
+ * const my_project_features = new azuredevops.ProjectFeatures("my-project-features", {
+ *     projectId: tf_project_test_001.then(tf_project_test_001 => tf_project_test_001.id),
+ *     features: {
+ *         testplans: "disabled",
+ *         artifacts: "enabled",
+ *     },
+ * });
+ * ```
  * ## Relevant Links
  *
  * No official documentation available
@@ -14,6 +31,14 @@ import * as utilities from "./utilities";
  * ## PAT Permissions Required
  *
  * - **Project & Team**: Read, Write, & Manage
+ *
+ * ## Import
+ *
+ * Azure DevOps feature settings can be imported using the project id, e.g.
+ *
+ * ```sh
+ *  $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures project_id 2785562e-8f45-4534-a10e-b9ca1666b17e
+ * ```
  */
 export class ProjectFeatures extends pulumi.CustomResource {
     /**
@@ -66,10 +91,10 @@ export class ProjectFeatures extends pulumi.CustomResource {
             inputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as ProjectFeaturesArgs | undefined;
-            if (!args || args.features === undefined) {
+            if ((!args || args.features === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'features'");
             }
-            if (!args || args.projectId === undefined) {
+            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["features"] = args ? args.features : undefined;

@@ -32,6 +32,10 @@ import * as utilities from "../utilities";
  *
  * - **Deployment Groups**: Read & Manage
  *
+ * ## Import
+ *
+ * Not supported.
+ *
  * @deprecated azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership
  */
 export class GroupMembership extends pulumi.CustomResource {
@@ -100,10 +104,10 @@ export class GroupMembership extends pulumi.CustomResource {
             inputs["mode"] = state ? state.mode : undefined;
         } else {
             const args = argsOrState as GroupMembershipArgs | undefined;
-            if (!args || args.group === undefined) {
+            if ((!args || args.group === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'group'");
             }
-            if (!args || args.members === undefined) {
+            if ((!args || args.members === undefined) && !(opts && opts.urn)) {
                 throw new Error("Missing required property 'members'");
             }
             inputs["group"] = args ? args.group : undefined;

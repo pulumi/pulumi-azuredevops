@@ -51,14 +51,14 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             work_item_template="Agile")
         endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
             project_id=project.id,
-            service_endpoint_name="TestServiceRM",
+            service_endpoint_name="Sample AzureRM",
             description="Managed by Terraform",
             credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
-                serviceprincipalid="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
-                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+                serviceprincipalid="00000000-0000-0000-0000-000000000000",
+                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ),
-            azurerm_spn_tenantid="xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
-            azurerm_subscription_id="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Sample Subscription")
         ```
         ### Automatic AzureRM Service Endpoint
@@ -73,15 +73,23 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             work_item_template="Agile")
         endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
             project_id=project.id,
-            service_endpoint_name="TestServiceRM",
+            service_endpoint_name="Sample AzureRM",
             description="Managed by Terraform",
-            azurerm_spn_tenantid="xxxxxxx-xxxx-xxx-xxxxx-xxxxxxxx",
-            azurerm_subscription_id="xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Microsoft Azure DEMO")
         ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM azuredevops_serviceendpoint_azurerm.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -112,22 +120,22 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             __props__ = dict()
 
             __props__['authorization'] = authorization
-            if azurerm_spn_tenantid is None:
+            if azurerm_spn_tenantid is None and not opts.urn:
                 raise TypeError("Missing required property 'azurerm_spn_tenantid'")
             __props__['azurerm_spn_tenantid'] = azurerm_spn_tenantid
-            if azurerm_subscription_id is None:
+            if azurerm_subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'azurerm_subscription_id'")
             __props__['azurerm_subscription_id'] = azurerm_subscription_id
-            if azurerm_subscription_name is None:
+            if azurerm_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azurerm_subscription_name'")
             __props__['azurerm_subscription_name'] = azurerm_subscription_name
             __props__['credentials'] = credentials
             __props__['description'] = description
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
             __props__['resource_group'] = resource_group
-            if service_endpoint_name is None:
+            if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__['service_endpoint_name'] = service_endpoint_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/azureRM:AzureRM")])

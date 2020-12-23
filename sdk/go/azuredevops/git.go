@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -101,7 +102,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
 type Git struct {
 	pulumi.CustomResourceState
 
@@ -132,14 +133,15 @@ type Git struct {
 // NewGit registers a new resource with the given unique name, arguments, and options.
 func NewGit(ctx *pulumi.Context,
 	name string, args *GitArgs, opts ...pulumi.ResourceOption) (*Git, error) {
-	if args == nil || args.Initialization == nil {
-		return nil, errors.New("missing required argument 'Initialization'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &GitArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Initialization == nil {
+		return nil, errors.New("invalid value for required argument 'Initialization'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -251,4 +253,43 @@ type GitArgs struct {
 
 func (GitArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*gitArgs)(nil)).Elem()
+}
+
+type GitInput interface {
+	pulumi.Input
+
+	ToGitOutput() GitOutput
+	ToGitOutputWithContext(ctx context.Context) GitOutput
+}
+
+func (Git) ElementType() reflect.Type {
+	return reflect.TypeOf((*Git)(nil)).Elem()
+}
+
+func (i Git) ToGitOutput() GitOutput {
+	return i.ToGitOutputWithContext(context.Background())
+}
+
+func (i Git) ToGitOutputWithContext(ctx context.Context) GitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitOutput)
+}
+
+type GitOutput struct {
+	*pulumi.OutputState
+}
+
+func (GitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitOutput)(nil)).Elem()
+}
+
+func (o GitOutput) ToGitOutput() GitOutput {
+	return o
+}
+
+func (o GitOutput) ToGitOutputWithContext(ctx context.Context) GitOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GitOutput{})
 }

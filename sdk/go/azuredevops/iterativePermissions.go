@@ -4,6 +4,7 @@
 package azuredevops
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pkg/errors"
@@ -76,6 +77,10 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
+//
+// ## Import
+//
+// The resource does not support import.
 type IterativePermissions struct {
 	pulumi.CustomResourceState
 
@@ -94,17 +99,18 @@ type IterativePermissions struct {
 // NewIterativePermissions registers a new resource with the given unique name, arguments, and options.
 func NewIterativePermissions(ctx *pulumi.Context,
 	name string, args *IterativePermissionsArgs, opts ...pulumi.ResourceOption) (*IterativePermissions, error) {
-	if args == nil || args.Permissions == nil {
-		return nil, errors.New("missing required argument 'Permissions'")
-	}
-	if args == nil || args.Principal == nil {
-		return nil, errors.New("missing required argument 'Principal'")
-	}
-	if args == nil || args.ProjectId == nil {
-		return nil, errors.New("missing required argument 'ProjectId'")
-	}
 	if args == nil {
-		args = &IterativePermissionsArgs{}
+		return nil, errors.New("missing one or more required arguments")
+	}
+
+	if args.Permissions == nil {
+		return nil, errors.New("invalid value for required argument 'Permissions'")
+	}
+	if args.Principal == nil {
+		return nil, errors.New("invalid value for required argument 'Principal'")
+	}
+	if args.ProjectId == nil {
+		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
 	var resource IterativePermissions
 	err := ctx.RegisterResource("azuredevops:index/iterativePermissions:IterativePermissions", name, args, &resource, opts...)
@@ -186,4 +192,43 @@ type IterativePermissionsArgs struct {
 
 func (IterativePermissionsArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*iterativePermissionsArgs)(nil)).Elem()
+}
+
+type IterativePermissionsInput interface {
+	pulumi.Input
+
+	ToIterativePermissionsOutput() IterativePermissionsOutput
+	ToIterativePermissionsOutputWithContext(ctx context.Context) IterativePermissionsOutput
+}
+
+func (IterativePermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*IterativePermissions)(nil)).Elem()
+}
+
+func (i IterativePermissions) ToIterativePermissionsOutput() IterativePermissionsOutput {
+	return i.ToIterativePermissionsOutputWithContext(context.Background())
+}
+
+func (i IterativePermissions) ToIterativePermissionsOutputWithContext(ctx context.Context) IterativePermissionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IterativePermissionsOutput)
+}
+
+type IterativePermissionsOutput struct {
+	*pulumi.OutputState
+}
+
+func (IterativePermissionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IterativePermissionsOutput)(nil)).Elem()
+}
+
+func (o IterativePermissionsOutput) ToIterativePermissionsOutput() IterativePermissionsOutput {
+	return o
+}
+
+func (o IterativePermissionsOutput) ToIterativePermissionsOutputWithContext(ctx context.Context) IterativePermissionsOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(IterativePermissionsOutput{})
 }

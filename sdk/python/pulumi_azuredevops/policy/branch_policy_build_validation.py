@@ -12,11 +12,11 @@ from ._inputs import *
 
 __all__ = ['BranchPolicyBuildValidation']
 
-warnings.warn("azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation", DeprecationWarning)
+warnings.warn("""azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation""", DeprecationWarning)
 
 
 class BranchPolicyBuildValidation(pulumi.CustomResource):
-    warnings.warn("azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation", DeprecationWarning)
+    warnings.warn("""azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation""", DeprecationWarning)
 
     def __init__(__self__,
                  resource_name: str,
@@ -81,6 +81,14 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
 
+        ## Import
+
+        Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+
+        ```sh
+         $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation p aa4a9756-8a86-4588-86d7-b3ee2d88b033/60
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -108,10 +116,10 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
 
             __props__['blocking'] = blocking
             __props__['enabled'] = enabled
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
-            if settings is None:
+            if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
             __props__['settings'] = settings
         super(BranchPolicyBuildValidation, __self__).__init__(

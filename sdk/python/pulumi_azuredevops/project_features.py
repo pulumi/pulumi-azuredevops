@@ -23,6 +23,20 @@ class ProjectFeatures(pulumi.CustomResource):
         """
         Manages features for Azure DevOps projects
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        tf_project_test_001 = azuredevops.get_project(name="Test Project")
+        my_project_features = azuredevops.ProjectFeatures("my-project-features",
+            project_id=tf_project_test_001.id,
+            features={
+                "testplans": "disabled",
+                "artifacts": "enabled",
+            })
+        ```
         ## Relevant Links
 
         No official documentation available
@@ -30,6 +44,14 @@ class ProjectFeatures(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Project & Team**: Read, Write, & Manage
+
+        ## Import
+
+        Azure DevOps feature settings can be imported using the project id, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures project_id 2785562e-8f45-4534-a10e-b9ca1666b17e
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -53,10 +75,10 @@ class ProjectFeatures(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if features is None:
+            if features is None and not opts.urn:
                 raise TypeError("Missing required property 'features'")
             __props__['features'] = features
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Core/projectFeatures:ProjectFeatures")])

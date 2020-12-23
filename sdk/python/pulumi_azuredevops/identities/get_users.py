@@ -15,7 +15,7 @@ __all__ = [
     'get_users',
 ]
 
-warnings.warn("azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers", DeprecationWarning)
+warnings.warn("""azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers""", DeprecationWarning)
 
 @pulumi.output_type
 class GetUsersResult:

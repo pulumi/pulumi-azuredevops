@@ -58,6 +58,10 @@ class ProjectPermissions(pulumi.CustomResource):
 
         - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
 
+        ## Import
+
+        The resource does not support import.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available
@@ -82,13 +86,13 @@ class ProjectPermissions(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = dict()
 
-            if permissions is None:
+            if permissions is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions'")
             __props__['permissions'] = permissions
-            if principal is None:
+            if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
             __props__['principal'] = principal
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
             __props__['replace'] = replace

@@ -37,6 +37,10 @@ namespace Pulumi.AzureDevOps
     /// ## PAT Permissions Required
     /// 
     /// - **Member Entitlement Management**: Read &amp; Write
+    /// 
+    /// ## Import
+    /// 
+    /// The resources allows the import via the UUID of a user entitlement or by using the principal name of a user owning an entitlement.
     /// </summary>
     public partial class User : Pulumi.CustomResource
     {

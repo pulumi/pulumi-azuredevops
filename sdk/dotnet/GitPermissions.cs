@@ -200,6 +200,10 @@ namespace Pulumi.AzureDevOps
     /// ## PAT Permissions Required
     /// 
     /// - **Project &amp; Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
+    /// 
+    /// ## Import
+    /// 
+    /// The resource does not support import.
     /// </summary>
     public partial class GitPermissions : Pulumi.CustomResource
     {

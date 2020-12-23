@@ -2,8 +2,7 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import * as inputs from "../types/input";
-import * as outputs from "../types/output";
+import { input as inputs, output as outputs } from "../types";
 
 export interface BranchPolicyAutoReviewersSettings {
     /**
@@ -343,18 +342,48 @@ export interface BuildDefinitionVariable {
 }
 
 export interface GetAreaChildren {
+    /**
+     * Indicator if the child Area node has child nodes
+     */
     hasChildren: boolean;
+    /**
+     * The id of the child Area node
+     */
     id: string;
+    /**
+     * The name of the child Area node
+     */
     name: string;
+    /**
+     * The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+     */
     path: string;
+    /**
+     * The project ID.
+     */
     projectId: string;
 }
 
 export interface GetIterationChildren {
+    /**
+     * Indicator if the child Iteration node has child nodes
+     */
     hasChildren: boolean;
+    /**
+     * The id of the child Iteration node
+     */
     id: string;
+    /**
+     * The name of the child Iteration node
+     */
     name: string;
+    /**
+     * The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+     */
     path: string;
+    /**
+     * The project ID.
+     */
     projectId: string;
 }
 

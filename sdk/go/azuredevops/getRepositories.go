@@ -10,6 +10,47 @@ import (
 // Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
 // To read informations about a **single** Git Repository use the data source `Git`
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		opt0 := "contoso-project"
+// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 			Name: &opt0,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt1 := project.Id
+// 		opt2 := true
+// 		_, err = azuredevops.GetRepositories(ctx, &azuredevops.GetRepositoriesArgs{
+// 			ProjectId:     &opt1,
+// 			IncludeHidden: &opt2,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		opt3 := project.Id
+// 		opt4 := "contoso-repo"
+// 		_, err = azuredevops.GetRepositories(ctx, &azuredevops.GetRepositoriesArgs{
+// 			ProjectId: &opt3,
+// 			Name:      &opt4,
+// 		}, nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)

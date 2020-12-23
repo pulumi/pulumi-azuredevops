@@ -4,6 +4,7 @@
 package identities
 
 import (
+	"context"
 	"reflect"
 
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
@@ -18,6 +19,14 @@ import (
 // ## PAT Permissions Required
 //
 // - **Project & Team**: Read, Write, & Manage
+//
+// ## Import
+//
+// Azure DevOps Projects can be imported using the group identity descriptor, e.g.
+//
+// ```sh
+//  $ pulumi import azuredevops:Identities/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+// ```
 //
 // Deprecated: azuredevops.identities.Group has been deprecated in favor of azuredevops.Group
 type Group struct {
@@ -55,6 +64,7 @@ func NewGroup(ctx *pulumi.Context,
 	if args == nil {
 		args = &GroupArgs{}
 	}
+
 	var resource Group
 	err := ctx.RegisterResource("azuredevops:Identities/group:Group", name, args, &resource, opts...)
 	if err != nil {
@@ -167,4 +177,43 @@ type GroupArgs struct {
 
 func (GroupArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*groupArgs)(nil)).Elem()
+}
+
+type GroupInput interface {
+	pulumi.Input
+
+	ToGroupOutput() GroupOutput
+	ToGroupOutputWithContext(ctx context.Context) GroupOutput
+}
+
+func (Group) ElementType() reflect.Type {
+	return reflect.TypeOf((*Group)(nil)).Elem()
+}
+
+func (i Group) ToGroupOutput() GroupOutput {
+	return i.ToGroupOutputWithContext(context.Background())
+}
+
+func (i Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GroupOutput)
+}
+
+type GroupOutput struct {
+	*pulumi.OutputState
+}
+
+func (GroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GroupOutput)(nil)).Elem()
+}
+
+func (o GroupOutput) ToGroupOutput() GroupOutput {
+	return o
+}
+
+func (o GroupOutput) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
+	return o
+}
+
+func init() {
+	pulumi.RegisterOutputType(GroupOutput{})
 }

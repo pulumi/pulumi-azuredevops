@@ -15,7 +15,7 @@ __all__ = [
     'get_projects',
 ]
 
-warnings.warn("azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects", DeprecationWarning)
+warnings.warn("""azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProjectsResult:

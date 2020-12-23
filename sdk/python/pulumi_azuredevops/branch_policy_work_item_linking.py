@@ -62,6 +62,14 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
 
+        ## Import
+
+        Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+
+        ```sh
+         $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking p 00000000-0000-0000-0000-000000000000/0
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -88,10 +96,10 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
 
             __props__['blocking'] = blocking
             __props__['enabled'] = enabled
-            if project_id is None:
+            if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__['project_id'] = project_id
-            if settings is None:
+            if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
             __props__['settings'] = settings
         super(BranchPolicyWorkItemLinking, __self__).__init__(
