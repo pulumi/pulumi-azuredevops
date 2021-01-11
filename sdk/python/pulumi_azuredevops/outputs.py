@@ -38,6 +38,7 @@ __all__ = [
     'ServiceEndpointKubernetesAzureSubscription',
     'ServiceEndpointKubernetesKubeconfig',
     'ServiceEndpointKubernetesServiceAccount',
+    'ServiceEndpointPipelineAuthPersonal',
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'GetAreaChildrenResult',
@@ -1082,7 +1083,7 @@ class GitInitialization(dict):
                  source_url: Optional[str] = None):
         """
         :param str init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
-        :param str source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
+        :param str source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param str source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         """
         pulumi.set(__self__, "init_type", init_type)
@@ -1103,7 +1104,7 @@ class GitInitialization(dict):
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[str]:
         """
-        Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
+        Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         """
         return pulumi.get(self, "source_type")
 
@@ -1212,6 +1213,7 @@ class ServiceEndpointKubernetesAzureSubscription(dict):
                  subscription_name: str,
                  tenant_id: str,
                  azure_environment: Optional[str] = None,
+                 cluster_admin: Optional[bool] = None,
                  namespace: Optional[str] = None):
         """
         :param str cluster_name: The name of the Kubernetes cluster.
@@ -1220,6 +1222,7 @@ class ServiceEndpointKubernetesAzureSubscription(dict):
         :param str subscription_name: The name of the Azure subscription.
         :param str tenant_id: The id of the tenant used by the subscription.
         :param str azure_environment: Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
+        :param bool cluster_admin: Set this option to allow use cluster admin credentials.
         :param str namespace: The Kubernetes namespace. Default value is "default".
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -1229,6 +1232,8 @@ class ServiceEndpointKubernetesAzureSubscription(dict):
         pulumi.set(__self__, "tenant_id", tenant_id)
         if azure_environment is not None:
             pulumi.set(__self__, "azure_environment", azure_environment)
+        if cluster_admin is not None:
+            pulumi.set(__self__, "cluster_admin", cluster_admin)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
 
@@ -1279,6 +1284,14 @@ class ServiceEndpointKubernetesAzureSubscription(dict):
         Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
         """
         return pulumi.get(self, "azure_environment")
+
+    @property
+    @pulumi.getter(name="clusterAdmin")
+    def cluster_admin(self) -> Optional[bool]:
+        """
+        Set this option to allow use cluster admin credentials.
+        """
+        return pulumi.get(self, "cluster_admin")
 
     @property
     @pulumi.getter
@@ -1388,6 +1401,35 @@ class ServiceEndpointKubernetesServiceAccount(dict):
     @pulumi.getter(name="tokenHash")
     def token_hash(self) -> Optional[str]:
         return pulumi.get(self, "token_hash")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEndpointPipelineAuthPersonal(dict):
+    def __init__(__self__, *,
+                 personal_access_token: str,
+                 personal_access_token_hash: Optional[str] = None):
+        """
+        :param str personal_access_token: The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+        """
+        pulumi.set(__self__, "personal_access_token", personal_access_token)
+        if personal_access_token_hash is not None:
+            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
+
+    @property
+    @pulumi.getter(name="personalAccessToken")
+    def personal_access_token(self) -> str:
+        """
+        The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+        """
+        return pulumi.get(self, "personal_access_token")
+
+    @property
+    @pulumi.getter(name="personalAccessTokenHash")
+    def personal_access_token_hash(self) -> Optional[str]:
+        return pulumi.get(self, "personal_access_token_hash")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

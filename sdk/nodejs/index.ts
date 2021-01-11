@@ -12,6 +12,7 @@ export * from "./branchPolicyCommentResolution";
 export * from "./branchPolicyMinReviewers";
 export * from "./branchPolicyWorkItemLinking";
 export * from "./buildDefinition";
+export * from "./buildDefinitionPermissions";
 export * from "./getAgentQueue";
 export * from "./getArea";
 export * from "./getClientConfig";
@@ -43,6 +44,7 @@ export * from "./serviceEndpointBitBucket";
 export * from "./serviceEndpointDockerRegistry";
 export * from "./serviceEndpointGitHub";
 export * from "./serviceEndpointKubernetes";
+export * from "./serviceEndpointPipeline";
 export * from "./user";
 export * from "./variableGroup";
 export * from "./workItemQueryPermissions";
@@ -84,6 +86,7 @@ import { BranchPolicyCommentResolution } from "./branchPolicyCommentResolution";
 import { BranchPolicyMinReviewers } from "./branchPolicyMinReviewers";
 import { BranchPolicyWorkItemLinking } from "./branchPolicyWorkItemLinking";
 import { BuildDefinition } from "./buildDefinition";
+import { BuildDefinitionPermissions } from "./buildDefinitionPermissions";
 import { Git } from "./git";
 import { GitPermissions } from "./gitPermissions";
 import { Group } from "./group";
@@ -102,6 +105,7 @@ import { ServiceEndpointBitBucket } from "./serviceEndpointBitBucket";
 import { ServiceEndpointDockerRegistry } from "./serviceEndpointDockerRegistry";
 import { ServiceEndpointGitHub } from "./serviceEndpointGitHub";
 import { ServiceEndpointKubernetes } from "./serviceEndpointKubernetes";
+import { ServiceEndpointPipeline } from "./serviceEndpointPipeline";
 import { User } from "./user";
 import { VariableGroup } from "./variableGroup";
 import { WorkItemQueryPermissions } from "./workItemQueryPermissions";
@@ -124,6 +128,8 @@ const _module = {
                 return new BranchPolicyWorkItemLinking(name, <any>undefined, { urn })
             case "azuredevops:index/buildDefinition:BuildDefinition":
                 return new BuildDefinition(name, <any>undefined, { urn })
+            case "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions":
+                return new BuildDefinitionPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/git:Git":
                 return new Git(name, <any>undefined, { urn })
             case "azuredevops:index/gitPermissions:GitPermissions":
@@ -160,6 +166,8 @@ const _module = {
                 return new ServiceEndpointGitHub(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes":
                 return new ServiceEndpointKubernetes(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
+                return new ServiceEndpointPipeline(name, <any>undefined, { urn })
             case "azuredevops:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "azuredevops:index/variableGroup:VariableGroup":
@@ -178,6 +186,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyCommentR
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyMinReviewers", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyWorkItemLinking", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinition", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinitionPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/git", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/group", _module)
@@ -196,6 +205,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointBitBu
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointDockerRegistry", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitHub", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointKubernetes", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointPipeline", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroup", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)

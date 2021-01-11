@@ -3184,7 +3184,7 @@ func (o BuildDefinitionVariableArrayOutput) Index(i pulumi.IntInput) BuildDefini
 type GitInitialization struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 	InitType string `pulumi:"initType"`
-	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
+	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 	SourceType *string `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
 	SourceUrl *string `pulumi:"sourceUrl"`
@@ -3204,7 +3204,7 @@ type GitInitializationInput interface {
 type GitInitializationArgs struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
 	InitType pulumi.StringInput `pulumi:"initType"`
-	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
+	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
 	SourceUrl pulumi.StringPtrInput `pulumi:"sourceUrl"`
@@ -3292,7 +3292,7 @@ func (o GitInitializationOutput) InitType() pulumi.StringOutput {
 	return o.ApplyT(func(v GitInitialization) string { return v.InitType }).(pulumi.StringOutput)
 }
 
-// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
+// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 func (o GitInitializationOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GitInitialization) *string { return v.SourceType }).(pulumi.StringPtrOutput)
 }
@@ -3330,7 +3330,7 @@ func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
+// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 func (o GitInitializationPtrOutput) SourceType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitInitialization) *string {
 		if v == nil {
@@ -3790,6 +3790,8 @@ func (o ServiceEndpointGitHubAuthPersonalPtrOutput) PersonalAccessTokenHash() pu
 type ServiceEndpointKubernetesAzureSubscription struct {
 	// Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
 	AzureEnvironment *string `pulumi:"azureEnvironment"`
+	// Set this option to allow use cluster admin credentials.
+	ClusterAdmin *bool `pulumi:"clusterAdmin"`
 	// The name of the Kubernetes cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The Kubernetes namespace. Default value is "default".
@@ -3818,6 +3820,8 @@ type ServiceEndpointKubernetesAzureSubscriptionInput interface {
 type ServiceEndpointKubernetesAzureSubscriptionArgs struct {
 	// Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
 	AzureEnvironment pulumi.StringPtrInput `pulumi:"azureEnvironment"`
+	// Set this option to allow use cluster admin credentials.
+	ClusterAdmin pulumi.BoolPtrInput `pulumi:"clusterAdmin"`
 	// The name of the Kubernetes cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The Kubernetes namespace. Default value is "default".
@@ -3886,6 +3890,11 @@ func (o ServiceEndpointKubernetesAzureSubscriptionOutput) ToServiceEndpointKuber
 // Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
 func (o ServiceEndpointKubernetesAzureSubscriptionOutput) AzureEnvironment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServiceEndpointKubernetesAzureSubscription) *string { return v.AzureEnvironment }).(pulumi.StringPtrOutput)
+}
+
+// Set this option to allow use cluster admin credentials.
+func (o ServiceEndpointKubernetesAzureSubscriptionOutput) ClusterAdmin() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetesAzureSubscription) *bool { return v.ClusterAdmin }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Kubernetes cluster.
@@ -4175,6 +4184,152 @@ func (o ServiceEndpointKubernetesServiceAccountArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointKubernetesServiceAccount {
 		return vs[0].([]ServiceEndpointKubernetesServiceAccount)[vs[1].(int)]
 	}).(ServiceEndpointKubernetesServiceAccountOutput)
+}
+
+type ServiceEndpointPipelineAuthPersonal struct {
+	// The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+	PersonalAccessToken     string  `pulumi:"personalAccessToken"`
+	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
+}
+
+// ServiceEndpointPipelineAuthPersonalInput is an input type that accepts ServiceEndpointPipelineAuthPersonalArgs and ServiceEndpointPipelineAuthPersonalOutput values.
+// You can construct a concrete instance of `ServiceEndpointPipelineAuthPersonalInput` via:
+//
+//          ServiceEndpointPipelineAuthPersonalArgs{...}
+type ServiceEndpointPipelineAuthPersonalInput interface {
+	pulumi.Input
+
+	ToServiceEndpointPipelineAuthPersonalOutput() ServiceEndpointPipelineAuthPersonalOutput
+	ToServiceEndpointPipelineAuthPersonalOutputWithContext(context.Context) ServiceEndpointPipelineAuthPersonalOutput
+}
+
+type ServiceEndpointPipelineAuthPersonalArgs struct {
+	// The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+	PersonalAccessToken     pulumi.StringInput    `pulumi:"personalAccessToken"`
+	PersonalAccessTokenHash pulumi.StringPtrInput `pulumi:"personalAccessTokenHash"`
+}
+
+func (ServiceEndpointPipelineAuthPersonalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointPipelineAuthPersonal)(nil)).Elem()
+}
+
+func (i ServiceEndpointPipelineAuthPersonalArgs) ToServiceEndpointPipelineAuthPersonalOutput() ServiceEndpointPipelineAuthPersonalOutput {
+	return i.ToServiceEndpointPipelineAuthPersonalOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointPipelineAuthPersonalArgs) ToServiceEndpointPipelineAuthPersonalOutputWithContext(ctx context.Context) ServiceEndpointPipelineAuthPersonalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelineAuthPersonalOutput)
+}
+
+func (i ServiceEndpointPipelineAuthPersonalArgs) ToServiceEndpointPipelineAuthPersonalPtrOutput() ServiceEndpointPipelineAuthPersonalPtrOutput {
+	return i.ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointPipelineAuthPersonalArgs) ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointPipelineAuthPersonalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelineAuthPersonalOutput).ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointPipelineAuthPersonalPtrInput is an input type that accepts ServiceEndpointPipelineAuthPersonalArgs, ServiceEndpointPipelineAuthPersonalPtr and ServiceEndpointPipelineAuthPersonalPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointPipelineAuthPersonalPtrInput` via:
+//
+//          ServiceEndpointPipelineAuthPersonalArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointPipelineAuthPersonalPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointPipelineAuthPersonalPtrOutput() ServiceEndpointPipelineAuthPersonalPtrOutput
+	ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(context.Context) ServiceEndpointPipelineAuthPersonalPtrOutput
+}
+
+type serviceEndpointPipelineAuthPersonalPtrType ServiceEndpointPipelineAuthPersonalArgs
+
+func ServiceEndpointPipelineAuthPersonalPtr(v *ServiceEndpointPipelineAuthPersonalArgs) ServiceEndpointPipelineAuthPersonalPtrInput {
+	return (*serviceEndpointPipelineAuthPersonalPtrType)(v)
+}
+
+func (*serviceEndpointPipelineAuthPersonalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointPipelineAuthPersonal)(nil)).Elem()
+}
+
+func (i *serviceEndpointPipelineAuthPersonalPtrType) ToServiceEndpointPipelineAuthPersonalPtrOutput() ServiceEndpointPipelineAuthPersonalPtrOutput {
+	return i.ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointPipelineAuthPersonalPtrType) ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointPipelineAuthPersonalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelineAuthPersonalPtrOutput)
+}
+
+type ServiceEndpointPipelineAuthPersonalOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointPipelineAuthPersonalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointPipelineAuthPersonal)(nil)).Elem()
+}
+
+func (o ServiceEndpointPipelineAuthPersonalOutput) ToServiceEndpointPipelineAuthPersonalOutput() ServiceEndpointPipelineAuthPersonalOutput {
+	return o
+}
+
+func (o ServiceEndpointPipelineAuthPersonalOutput) ToServiceEndpointPipelineAuthPersonalOutputWithContext(ctx context.Context) ServiceEndpointPipelineAuthPersonalOutput {
+	return o
+}
+
+func (o ServiceEndpointPipelineAuthPersonalOutput) ToServiceEndpointPipelineAuthPersonalPtrOutput() ServiceEndpointPipelineAuthPersonalPtrOutput {
+	return o.ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointPipelineAuthPersonalOutput) ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointPipelineAuthPersonalPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointPipelineAuthPersonal) *ServiceEndpointPipelineAuthPersonal {
+		return &v
+	}).(ServiceEndpointPipelineAuthPersonalPtrOutput)
+}
+
+// The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+func (o ServiceEndpointPipelineAuthPersonalOutput) PersonalAccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointPipelineAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
+}
+
+func (o ServiceEndpointPipelineAuthPersonalOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointPipelineAuthPersonal) *string { return v.PersonalAccessTokenHash }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointPipelineAuthPersonalPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointPipelineAuthPersonalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointPipelineAuthPersonal)(nil)).Elem()
+}
+
+func (o ServiceEndpointPipelineAuthPersonalPtrOutput) ToServiceEndpointPipelineAuthPersonalPtrOutput() ServiceEndpointPipelineAuthPersonalPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointPipelineAuthPersonalPtrOutput) ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointPipelineAuthPersonalPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointPipelineAuthPersonalPtrOutput) Elem() ServiceEndpointPipelineAuthPersonalOutput {
+	return o.ApplyT(func(v *ServiceEndpointPipelineAuthPersonal) ServiceEndpointPipelineAuthPersonal { return *v }).(ServiceEndpointPipelineAuthPersonalOutput)
+}
+
+// The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+func (o ServiceEndpointPipelineAuthPersonalPtrOutput) PersonalAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPipelineAuthPersonal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PersonalAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointPipelineAuthPersonalPtrOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointPipelineAuthPersonal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PersonalAccessTokenHash
+	}).(pulumi.StringPtrOutput)
 }
 
 type VariableGroupKeyVault struct {
@@ -5344,6 +5499,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesKubeconfigArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesServiceAccountOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesServiceAccountArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointPipelineAuthPersonalOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointPipelineAuthPersonalPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})

@@ -20,7 +20,7 @@ class GitInitializationArgs:
                  source_url: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
-        :param pulumi.Input[str] source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
+        :param pulumi.Input[str] source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param pulumi.Input[str] source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         """
         pulumi.set(__self__, "init_type", init_type)
@@ -45,7 +45,7 @@ class GitInitializationArgs:
     @pulumi.getter(name="sourceType")
     def source_type(self) -> Optional[pulumi.Input[str]]:
         """
-        Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
+        Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         """
         return pulumi.get(self, "source_type")
 

@@ -114,6 +114,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_workitemquery_permissions": {
 				Tok: makeResource(mainMod, "WorkItemQueryPermissions"),
 			},
+			"azuredevops_build_definition_permissions": {Tok: makeResource(mainMod, "BuildDefinitionPermissions")},
+			"azuredevops_serviceendpoint_runpipeline":  {Tok: makeResource(mainMod, "ServiceEndpointPipeline")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azuredevops_area": {

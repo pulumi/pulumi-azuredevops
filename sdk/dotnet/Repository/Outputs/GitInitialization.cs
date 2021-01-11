@@ -18,7 +18,7 @@ namespace Pulumi.AzureDevOps.Repository.Outputs
         /// </summary>
         public readonly string InitType;
         /// <summary>
-        /// Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
+        /// Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         /// </summary>
         public readonly string? SourceType;
         /// <summary>

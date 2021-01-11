@@ -19,6 +19,12 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint.Inputs
         public Input<string>? AzureEnvironment { get; set; }
 
         /// <summary>
+        /// Set this option to allow use cluster admin credentials.
+        /// </summary>
+        [Input("clusterAdmin")]
+        public Input<bool>? ClusterAdmin { get; set; }
+
+        /// <summary>
         /// The name of the Kubernetes cluster.
         /// </summary>
         [Input("clusterName", required: true)]

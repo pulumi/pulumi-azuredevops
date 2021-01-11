@@ -347,7 +347,7 @@ export interface GitInitialization {
      */
     initType: pulumi.Input<string>;
     /**
-     * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
+     * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
      */
     sourceType?: pulumi.Input<string>;
     /**
@@ -385,6 +385,10 @@ export interface ServiceEndpointKubernetesAzureSubscription {
      * Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
      */
     azureEnvironment?: pulumi.Input<string>;
+    /**
+     * Set this option to allow use cluster admin credentials.
+     */
+    clusterAdmin?: pulumi.Input<boolean>;
     /**
      * The name of the Kubernetes cluster.
      */
@@ -438,6 +442,14 @@ export interface ServiceEndpointKubernetesServiceAccount {
      */
     token: pulumi.Input<string>;
     tokenHash?: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointPipelineAuthPersonal {
+    /**
+     * The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+     */
+    personalAccessToken: pulumi.Input<string>;
+    personalAccessTokenHash?: pulumi.Input<string>;
 }
 
 export interface VariableGroupKeyVault {
@@ -776,7 +788,7 @@ export namespace Repository {
          */
         initType: pulumi.Input<string>;
         /**
-         * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
+         * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
          */
         sourceType?: pulumi.Input<string>;
         /**
@@ -816,6 +828,10 @@ export namespace ServiceEndpoint {
          * Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
          */
         azureEnvironment?: pulumi.Input<string>;
+        /**
+         * Set this option to allow use cluster admin credentials.
+         */
+        clusterAdmin?: pulumi.Input<boolean>;
         /**
          * The name of the Kubernetes cluster.
          */

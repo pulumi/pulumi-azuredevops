@@ -86,7 +86,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 
         ```sh
-         $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation p aa4a9756-8a86-4588-86d7-b3ee2d88b033/60
+         $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation p 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.

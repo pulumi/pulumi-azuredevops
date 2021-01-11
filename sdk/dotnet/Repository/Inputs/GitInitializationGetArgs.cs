@@ -19,7 +19,7 @@ namespace Pulumi.AzureDevOps.Repository.Inputs
         public Input<string> InitType { get; set; } = null!;
 
         /// <summary>
-        /// Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`. Defaults to `Git`.
+        /// Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         /// </summary>
         [Input("sourceType")]
         public Input<string>? SourceType { get; set; }
