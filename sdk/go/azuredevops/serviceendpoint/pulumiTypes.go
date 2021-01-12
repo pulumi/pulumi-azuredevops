@@ -450,6 +450,8 @@ func (o GitHubAuthPersonalPtrOutput) PersonalAccessTokenHash() pulumi.StringPtrO
 type KubernetesAzureSubscription struct {
 	// Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
 	AzureEnvironment *string `pulumi:"azureEnvironment"`
+	// Set this option to allow use cluster admin credentials.
+	ClusterAdmin *bool `pulumi:"clusterAdmin"`
 	// The name of the Kubernetes cluster.
 	ClusterName string `pulumi:"clusterName"`
 	// The Kubernetes namespace. Default value is "default".
@@ -478,6 +480,8 @@ type KubernetesAzureSubscriptionInput interface {
 type KubernetesAzureSubscriptionArgs struct {
 	// Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
 	AzureEnvironment pulumi.StringPtrInput `pulumi:"azureEnvironment"`
+	// Set this option to allow use cluster admin credentials.
+	ClusterAdmin pulumi.BoolPtrInput `pulumi:"clusterAdmin"`
 	// The name of the Kubernetes cluster.
 	ClusterName pulumi.StringInput `pulumi:"clusterName"`
 	// The Kubernetes namespace. Default value is "default".
@@ -546,6 +550,11 @@ func (o KubernetesAzureSubscriptionOutput) ToKubernetesAzureSubscriptionOutputWi
 // Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
 func (o KubernetesAzureSubscriptionOutput) AzureEnvironment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesAzureSubscription) *string { return v.AzureEnvironment }).(pulumi.StringPtrOutput)
+}
+
+// Set this option to allow use cluster admin credentials.
+func (o KubernetesAzureSubscriptionOutput) ClusterAdmin() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v KubernetesAzureSubscription) *bool { return v.ClusterAdmin }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Kubernetes cluster.

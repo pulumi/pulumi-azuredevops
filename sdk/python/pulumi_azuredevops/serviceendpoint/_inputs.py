@@ -125,6 +125,7 @@ class KubernetesAzureSubscriptionArgs:
                  subscription_name: pulumi.Input[str],
                  tenant_id: pulumi.Input[str],
                  azure_environment: Optional[pulumi.Input[str]] = None,
+                 cluster_admin: Optional[pulumi.Input[bool]] = None,
                  namespace: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] cluster_name: The name of the Kubernetes cluster.
@@ -133,6 +134,7 @@ class KubernetesAzureSubscriptionArgs:
         :param pulumi.Input[str] subscription_name: The name of the Azure subscription.
         :param pulumi.Input[str] tenant_id: The id of the tenant used by the subscription.
         :param pulumi.Input[str] azure_environment: Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
+        :param pulumi.Input[bool] cluster_admin: Set this option to allow use cluster admin credentials.
         :param pulumi.Input[str] namespace: The Kubernetes namespace. Default value is "default".
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
@@ -142,6 +144,8 @@ class KubernetesAzureSubscriptionArgs:
         pulumi.set(__self__, "tenant_id", tenant_id)
         if azure_environment is not None:
             pulumi.set(__self__, "azure_environment", azure_environment)
+        if cluster_admin is not None:
+            pulumi.set(__self__, "cluster_admin", cluster_admin)
         if namespace is not None:
             pulumi.set(__self__, "namespace", namespace)
 
@@ -216,6 +220,18 @@ class KubernetesAzureSubscriptionArgs:
     @azure_environment.setter
     def azure_environment(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "azure_environment", value)
+
+    @property
+    @pulumi.getter(name="clusterAdmin")
+    def cluster_admin(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Set this option to allow use cluster admin credentials.
+        """
+        return pulumi.get(self, "cluster_admin")
+
+    @cluster_admin.setter
+    def cluster_admin(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "cluster_admin", value)
 
     @property
     @pulumi.getter

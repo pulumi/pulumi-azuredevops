@@ -494,7 +494,7 @@ export interface GitInitialization {
      */
     initType: string;
     /**
-     * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
+     * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
      */
     sourceType?: string;
     /**
@@ -532,6 +532,10 @@ export interface ServiceEndpointKubernetesAzureSubscription {
      * Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
      */
     azureEnvironment?: string;
+    /**
+     * Set this option to allow use cluster admin credentials.
+     */
+    clusterAdmin?: boolean;
     /**
      * The name of the Kubernetes cluster.
      */
@@ -585,6 +589,14 @@ export interface ServiceEndpointKubernetesServiceAccount {
      */
     token: string;
     tokenHash: string;
+}
+
+export interface ServiceEndpointPipelineAuthPersonal {
+    /**
+     * The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
+     */
+    personalAccessToken: string;
+    personalAccessTokenHash: string;
 }
 
 export interface VariableGroupKeyVault {
@@ -1021,7 +1033,7 @@ export namespace Repository {
          */
         initType: string;
         /**
-         * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`. Defaults to `Git`.
+         * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
          */
         sourceType?: string;
         /**
@@ -1061,6 +1073,10 @@ export namespace ServiceEndpoint {
          * Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
          */
         azureEnvironment?: string;
+        /**
+         * Set this option to allow use cluster admin credentials.
+         */
+        clusterAdmin?: boolean;
         /**
          * The name of the Kubernetes cluster.
          */

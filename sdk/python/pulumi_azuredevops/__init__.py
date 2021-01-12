@@ -10,6 +10,7 @@ from .branch_policy_comment_resolution import *
 from .branch_policy_min_reviewers import *
 from .branch_policy_work_item_linking import *
 from .build_definition import *
+from .build_definition_permissions import *
 from .get_agent_queue import *
 from .get_area import *
 from .get_client_config import *
@@ -41,6 +42,7 @@ from .service_endpoint_bit_bucket import *
 from .service_endpoint_docker_registry import *
 from .service_endpoint_git_hub import *
 from .service_endpoint_kubernetes import *
+from .service_endpoint_pipeline import *
 from .user import *
 from .variable_group import *
 from .work_item_query_permissions import *
@@ -88,6 +90,8 @@ def _register_module():
                 return BranchPolicyWorkItemLinking(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/buildDefinition:BuildDefinition":
                 return BuildDefinition(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions":
+                return BuildDefinitionPermissions(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/git:Git":
                 return Git(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/gitPermissions:GitPermissions":
@@ -124,6 +128,8 @@ def _register_module():
                 return ServiceEndpointGitHub(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes":
                 return ServiceEndpointKubernetes(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
+                return ServiceEndpointPipeline(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/user:User":
                 return User(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/variableGroup:VariableGroup":
@@ -142,6 +148,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyMinReviewers", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyWorkItemLinking", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/buildDefinition", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/buildDefinitionPermissions", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/git", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/gitPermissions", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/group", _module_instance)
@@ -160,6 +167,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointDockerRegistry", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointGitHub", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointKubernetes", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointPipeline", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/user", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/variableGroup", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/workItemQueryPermissions", _module_instance)

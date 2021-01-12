@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:Agent/queue:Queue q 44cbf614-4dfd-4032-9fae-87b0da3bec30/1381
+ *  $ pulumi import azuredevops:Agent/queue:Queue q 00000000-0000-0000-0000-000000000000/0
  * ```
  *
  * @deprecated azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue

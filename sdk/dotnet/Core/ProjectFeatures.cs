@@ -52,7 +52,7 @@ namespace Pulumi.AzureDevOps.Core
     /// Azure DevOps feature settings can be imported using the project id, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:Core/projectFeatures:ProjectFeatures project_id 2785562e-8f45-4534-a10e-b9ca1666b17e
+    ///  $ pulumi import azuredevops:Core/projectFeatures:ProjectFeatures project_id 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures")]

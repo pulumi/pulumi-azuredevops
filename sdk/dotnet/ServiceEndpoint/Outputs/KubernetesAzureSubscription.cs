@@ -18,6 +18,10 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint.Outputs
         /// </summary>
         public readonly string? AzureEnvironment;
         /// <summary>
+        /// Set this option to allow use cluster admin credentials.
+        /// </summary>
+        public readonly bool? ClusterAdmin;
+        /// <summary>
         /// The name of the Kubernetes cluster.
         /// </summary>
         public readonly string ClusterName;
@@ -46,6 +50,8 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint.Outputs
         private KubernetesAzureSubscription(
             string? azureEnvironment,
 
+            bool? clusterAdmin,
+
             string clusterName,
 
             string? @namespace,
@@ -59,6 +65,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint.Outputs
             string tenantId)
         {
             AzureEnvironment = azureEnvironment;
+            ClusterAdmin = clusterAdmin;
             ClusterName = clusterName;
             Namespace = @namespace;
             ResourcegroupId = resourcegroupId;
