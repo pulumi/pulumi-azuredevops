@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to v0.1.1 of the AzureDevOps Terraform provider
+_(none)_
 
 ---
+
+## 1.1.1 (2021-01-12)
+* Upgrade to v0.1.1 of the AzureDevOps Terraform provider
 
 ## 1.1.0 (2020-12-23)
 * Upgrade to v0.1.0 of the AzureDevOps Terraform Provider
