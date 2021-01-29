@@ -61,6 +61,7 @@ namespace Pulumi.AzureDevOps.Core
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.core.Project has been deprecated in favor of azuredevops.Project")]
+    [AzureDevOpsResourceType("azuredevops:Core/project:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

@@ -43,6 +43,7 @@ namespace Pulumi.AzureDevOps.Entitlement
     /// The resources allows the import via the UUID of a user entitlement or by using the principal name of a user owning an entitlement.
     /// </summary>
     [Obsolete(@"azuredevops.entitlement.User has been deprecated in favor of azuredevops.User")]
+    [AzureDevOpsResourceType("azuredevops:Entitlement/user:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

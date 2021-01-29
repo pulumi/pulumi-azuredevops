@@ -64,6 +64,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// The resource does not support import.
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/projectPermissions:ProjectPermissions")]
     public partial class ProjectPermissions : Pulumi.CustomResource
     {
         /// <summary>

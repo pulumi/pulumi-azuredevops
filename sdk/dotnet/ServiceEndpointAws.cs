@@ -53,6 +53,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAws:ServiceEndpointAws")]
     public partial class ServiceEndpointAws : Pulumi.CustomResource
     {
         /// <summary>

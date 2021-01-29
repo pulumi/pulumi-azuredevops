@@ -53,6 +53,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket")]
+    [AzureDevOpsResourceType("azuredevops:ServiceEndpoint/bitBucket:BitBucket")]
     public partial class BitBucket : Pulumi.CustomResource
     {
         [Output("authorization")]

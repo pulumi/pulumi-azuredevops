@@ -94,6 +94,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM")]
     public partial class ServiceEndpointAzureRM : Pulumi.CustomResource
     {
         [Output("authorization")]

@@ -67,6 +67,7 @@ namespace Pulumi.AzureDevOps.Identities
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.identities.Group has been deprecated in favor of azuredevops.Group")]
+    [AzureDevOpsResourceType("azuredevops:Identities/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

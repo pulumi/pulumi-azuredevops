@@ -43,6 +43,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool")]
+    [AzureDevOpsResourceType("azuredevops:Agent/pool:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>

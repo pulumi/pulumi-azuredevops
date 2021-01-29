@@ -25,6 +25,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes")]
+    [AzureDevOpsResourceType("azuredevops:ServiceEndpoint/kubernetes:Kubernetes")]
     public partial class Kubernetes : Pulumi.CustomResource
     {
         /// <summary>

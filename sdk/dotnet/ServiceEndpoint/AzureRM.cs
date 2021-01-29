@@ -95,6 +95,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM")]
+    [AzureDevOpsResourceType("azuredevops:ServiceEndpoint/azureRM:AzureRM")]
     public partial class AzureRM : Pulumi.CustomResource
     {
         [Output("authorization")]

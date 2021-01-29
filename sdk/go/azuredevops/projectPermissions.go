@@ -136,15 +136,15 @@ type ProjectPermissionsInput interface {
 	ToProjectPermissionsOutputWithContext(ctx context.Context) ProjectPermissionsOutput
 }
 
-func (ProjectPermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectPermissions)(nil)).Elem()
+func (*ProjectPermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectPermissions)(nil))
 }
 
-func (i ProjectPermissions) ToProjectPermissionsOutput() ProjectPermissionsOutput {
+func (i *ProjectPermissions) ToProjectPermissionsOutput() ProjectPermissionsOutput {
 	return i.ToProjectPermissionsOutputWithContext(context.Background())
 }
 
-func (i ProjectPermissions) ToProjectPermissionsOutputWithContext(ctx context.Context) ProjectPermissionsOutput {
+func (i *ProjectPermissions) ToProjectPermissionsOutputWithContext(ctx context.Context) ProjectPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPermissionsOutput)
 }
 
@@ -153,7 +153,7 @@ type ProjectPermissionsOutput struct {
 }
 
 func (ProjectPermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectPermissionsOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProjectPermissions)(nil))
 }
 
 func (o ProjectPermissionsOutput) ToProjectPermissionsOutput() ProjectPermissionsOutput {

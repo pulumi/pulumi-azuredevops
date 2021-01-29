@@ -55,6 +55,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures project_id 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/projectFeatures:ProjectFeatures")]
     public partial class ProjectFeatures : Pulumi.CustomResource
     {
         /// <summary>

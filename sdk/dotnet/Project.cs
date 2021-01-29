@@ -60,6 +60,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/project:Project project 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/project:Project")]
     public partial class Project : Pulumi.CustomResource
     {
         /// <summary>

@@ -21,6 +21,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -54,6 +55,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -80,6 +82,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -262,15 +265,15 @@ type GitInput interface {
 	ToGitOutputWithContext(ctx context.Context) GitOutput
 }
 
-func (Git) ElementType() reflect.Type {
-	return reflect.TypeOf((*Git)(nil)).Elem()
+func (*Git) ElementType() reflect.Type {
+	return reflect.TypeOf((*Git)(nil))
 }
 
-func (i Git) ToGitOutput() GitOutput {
+func (i *Git) ToGitOutput() GitOutput {
 	return i.ToGitOutputWithContext(context.Background())
 }
 
-func (i Git) ToGitOutputWithContext(ctx context.Context) GitOutput {
+func (i *Git) ToGitOutputWithContext(ctx context.Context) GitOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitOutput)
 }
 
@@ -279,7 +282,7 @@ type GitOutput struct {
 }
 
 func (GitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitOutput)(nil)).Elem()
+	return reflect.TypeOf((*Git)(nil))
 }
 
 func (o GitOutput) ToGitOutput() GitOutput {

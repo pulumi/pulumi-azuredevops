@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -189,15 +189,15 @@ type BitBucketInput interface {
 	ToBitBucketOutputWithContext(ctx context.Context) BitBucketOutput
 }
 
-func (BitBucket) ElementType() reflect.Type {
-	return reflect.TypeOf((*BitBucket)(nil)).Elem()
+func (*BitBucket) ElementType() reflect.Type {
+	return reflect.TypeOf((*BitBucket)(nil))
 }
 
-func (i BitBucket) ToBitBucketOutput() BitBucketOutput {
+func (i *BitBucket) ToBitBucketOutput() BitBucketOutput {
 	return i.ToBitBucketOutputWithContext(context.Background())
 }
 
-func (i BitBucket) ToBitBucketOutputWithContext(ctx context.Context) BitBucketOutput {
+func (i *BitBucket) ToBitBucketOutputWithContext(ctx context.Context) BitBucketOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BitBucketOutput)
 }
 
@@ -206,7 +206,7 @@ type BitBucketOutput struct {
 }
 
 func (BitBucketOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BitBucketOutput)(nil)).Elem()
+	return reflect.TypeOf((*BitBucket)(nil))
 }
 
 func (o BitBucketOutput) ToBitBucketOutput() BitBucketOutput {

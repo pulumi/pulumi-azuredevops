@@ -80,6 +80,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// The resource does not support import.
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/iterativePermissions:IterativePermissions")]
     public partial class IterativePermissions : Pulumi.CustomResource
     {
         /// <summary>

@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -178,15 +178,15 @@ type ResourceAuthorizationInput interface {
 	ToResourceAuthorizationOutputWithContext(ctx context.Context) ResourceAuthorizationOutput
 }
 
-func (ResourceAuthorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAuthorization)(nil)).Elem()
+func (*ResourceAuthorization) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceAuthorization)(nil))
 }
 
-func (i ResourceAuthorization) ToResourceAuthorizationOutput() ResourceAuthorizationOutput {
+func (i *ResourceAuthorization) ToResourceAuthorizationOutput() ResourceAuthorizationOutput {
 	return i.ToResourceAuthorizationOutputWithContext(context.Background())
 }
 
-func (i ResourceAuthorization) ToResourceAuthorizationOutputWithContext(ctx context.Context) ResourceAuthorizationOutput {
+func (i *ResourceAuthorization) ToResourceAuthorizationOutputWithContext(ctx context.Context) ResourceAuthorizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationOutput)
 }
 
@@ -195,7 +195,7 @@ type ResourceAuthorizationOutput struct {
 }
 
 func (ResourceAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAuthorizationOutput)(nil)).Elem()
+	return reflect.TypeOf((*ResourceAuthorization)(nil))
 }
 
 func (o ResourceAuthorizationOutput) ToResourceAuthorizationOutput() ResourceAuthorizationOutput {

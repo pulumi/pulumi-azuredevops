@@ -66,6 +66,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/group:Group")]
     public partial class Group : Pulumi.CustomResource
     {
         /// <summary>

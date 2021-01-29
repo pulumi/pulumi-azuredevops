@@ -58,6 +58,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// Not supported.
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/groupMembership:GroupMembership")]
     public partial class GroupMembership : Pulumi.CustomResource
     {
         /// <summary>

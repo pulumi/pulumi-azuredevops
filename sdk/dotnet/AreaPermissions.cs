@@ -70,6 +70,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// The resource does not support import.
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/areaPermissions:AreaPermissions")]
     public partial class AreaPermissions : Pulumi.CustomResource
     {
         /// <summary>

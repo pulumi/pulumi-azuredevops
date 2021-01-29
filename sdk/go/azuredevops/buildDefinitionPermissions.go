@@ -149,15 +149,15 @@ type BuildDefinitionPermissionsInput interface {
 	ToBuildDefinitionPermissionsOutputWithContext(ctx context.Context) BuildDefinitionPermissionsOutput
 }
 
-func (BuildDefinitionPermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildDefinitionPermissions)(nil)).Elem()
+func (*BuildDefinitionPermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionPermissions)(nil))
 }
 
-func (i BuildDefinitionPermissions) ToBuildDefinitionPermissionsOutput() BuildDefinitionPermissionsOutput {
+func (i *BuildDefinitionPermissions) ToBuildDefinitionPermissionsOutput() BuildDefinitionPermissionsOutput {
 	return i.ToBuildDefinitionPermissionsOutputWithContext(context.Background())
 }
 
-func (i BuildDefinitionPermissions) ToBuildDefinitionPermissionsOutputWithContext(ctx context.Context) BuildDefinitionPermissionsOutput {
+func (i *BuildDefinitionPermissions) ToBuildDefinitionPermissionsOutputWithContext(ctx context.Context) BuildDefinitionPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsOutput)
 }
 
@@ -166,7 +166,7 @@ type BuildDefinitionPermissionsOutput struct {
 }
 
 func (BuildDefinitionPermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildDefinitionPermissionsOutput)(nil)).Elem()
+	return reflect.TypeOf((*BuildDefinitionPermissions)(nil))
 }
 
 func (o BuildDefinitionPermissionsOutput) ToBuildDefinitionPermissionsOutput() BuildDefinitionPermissionsOutput {

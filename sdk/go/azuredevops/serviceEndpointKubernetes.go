@@ -183,15 +183,15 @@ type ServiceEndpointKubernetesInput interface {
 	ToServiceEndpointKubernetesOutputWithContext(ctx context.Context) ServiceEndpointKubernetesOutput
 }
 
-func (ServiceEndpointKubernetes) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointKubernetes)(nil)).Elem()
+func (*ServiceEndpointKubernetes) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointKubernetes)(nil))
 }
 
-func (i ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutput() ServiceEndpointKubernetesOutput {
+func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutput() ServiceEndpointKubernetesOutput {
 	return i.ToServiceEndpointKubernetesOutputWithContext(context.Background())
 }
 
-func (i ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutputWithContext(ctx context.Context) ServiceEndpointKubernetesOutput {
+func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutputWithContext(ctx context.Context) ServiceEndpointKubernetesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesOutput)
 }
 
@@ -200,7 +200,7 @@ type ServiceEndpointKubernetesOutput struct {
 }
 
 func (ServiceEndpointKubernetesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointKubernetesOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceEndpointKubernetes)(nil))
 }
 
 func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesOutput() ServiceEndpointKubernetesOutput {

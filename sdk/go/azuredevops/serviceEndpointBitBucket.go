@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -193,15 +193,15 @@ type ServiceEndpointBitBucketInput interface {
 	ToServiceEndpointBitBucketOutputWithContext(ctx context.Context) ServiceEndpointBitBucketOutput
 }
 
-func (ServiceEndpointBitBucket) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointBitBucket)(nil)).Elem()
+func (*ServiceEndpointBitBucket) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointBitBucket)(nil))
 }
 
-func (i ServiceEndpointBitBucket) ToServiceEndpointBitBucketOutput() ServiceEndpointBitBucketOutput {
+func (i *ServiceEndpointBitBucket) ToServiceEndpointBitBucketOutput() ServiceEndpointBitBucketOutput {
 	return i.ToServiceEndpointBitBucketOutputWithContext(context.Background())
 }
 
-func (i ServiceEndpointBitBucket) ToServiceEndpointBitBucketOutputWithContext(ctx context.Context) ServiceEndpointBitBucketOutput {
+func (i *ServiceEndpointBitBucket) ToServiceEndpointBitBucketOutputWithContext(ctx context.Context) ServiceEndpointBitBucketOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketOutput)
 }
 
@@ -210,7 +210,7 @@ type ServiceEndpointBitBucketOutput struct {
 }
 
 func (ServiceEndpointBitBucketOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointBitBucketOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceEndpointBitBucket)(nil))
 }
 
 func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketOutput() ServiceEndpointBitBucketOutput {

@@ -30,7 +30,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -65,7 +65,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -220,15 +220,15 @@ type WorkItemQueryPermissionsInput interface {
 	ToWorkItemQueryPermissionsOutputWithContext(ctx context.Context) WorkItemQueryPermissionsOutput
 }
 
-func (WorkItemQueryPermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkItemQueryPermissions)(nil)).Elem()
+func (*WorkItemQueryPermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkItemQueryPermissions)(nil))
 }
 
-func (i WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutput() WorkItemQueryPermissionsOutput {
+func (i *WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutput() WorkItemQueryPermissionsOutput {
 	return i.ToWorkItemQueryPermissionsOutputWithContext(context.Background())
 }
 
-func (i WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutputWithContext(ctx context.Context) WorkItemQueryPermissionsOutput {
+func (i *WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutputWithContext(ctx context.Context) WorkItemQueryPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkItemQueryPermissionsOutput)
 }
 
@@ -237,7 +237,7 @@ type WorkItemQueryPermissionsOutput struct {
 }
 
 func (WorkItemQueryPermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkItemQueryPermissionsOutput)(nil)).Elem()
+	return reflect.TypeOf((*WorkItemQueryPermissions)(nil))
 }
 
 func (o WorkItemQueryPermissionsOutput) ToWorkItemQueryPermissionsOutput() WorkItemQueryPermissionsOutput {

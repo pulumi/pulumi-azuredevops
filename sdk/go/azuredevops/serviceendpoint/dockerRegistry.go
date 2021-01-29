@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -237,15 +237,15 @@ type DockerRegistryInput interface {
 	ToDockerRegistryOutputWithContext(ctx context.Context) DockerRegistryOutput
 }
 
-func (DockerRegistry) ElementType() reflect.Type {
-	return reflect.TypeOf((*DockerRegistry)(nil)).Elem()
+func (*DockerRegistry) ElementType() reflect.Type {
+	return reflect.TypeOf((*DockerRegistry)(nil))
 }
 
-func (i DockerRegistry) ToDockerRegistryOutput() DockerRegistryOutput {
+func (i *DockerRegistry) ToDockerRegistryOutput() DockerRegistryOutput {
 	return i.ToDockerRegistryOutputWithContext(context.Background())
 }
 
-func (i DockerRegistry) ToDockerRegistryOutputWithContext(ctx context.Context) DockerRegistryOutput {
+func (i *DockerRegistry) ToDockerRegistryOutputWithContext(ctx context.Context) DockerRegistryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryOutput)
 }
 
@@ -254,7 +254,7 @@ type DockerRegistryOutput struct {
 }
 
 func (DockerRegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DockerRegistryOutput)(nil)).Elem()
+	return reflect.TypeOf((*DockerRegistry)(nil))
 }
 
 func (o DockerRegistryOutput) ToDockerRegistryOutput() DockerRegistryOutput {

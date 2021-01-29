@@ -18,7 +18,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -142,15 +142,15 @@ type PoolInput interface {
 	ToPoolOutputWithContext(ctx context.Context) PoolOutput
 }
 
-func (Pool) ElementType() reflect.Type {
-	return reflect.TypeOf((*Pool)(nil)).Elem()
+func (*Pool) ElementType() reflect.Type {
+	return reflect.TypeOf((*Pool)(nil))
 }
 
-func (i Pool) ToPoolOutput() PoolOutput {
+func (i *Pool) ToPoolOutput() PoolOutput {
 	return i.ToPoolOutputWithContext(context.Background())
 }
 
-func (i Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
+func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolOutput)
 }
 
@@ -159,7 +159,7 @@ type PoolOutput struct {
 }
 
 func (PoolOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PoolOutput)(nil)).Elem()
+	return reflect.TypeOf((*Pool)(nil))
 }
 
 func (o PoolOutput) ToPoolOutput() PoolOutput {

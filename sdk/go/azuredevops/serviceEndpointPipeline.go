@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -183,15 +184,15 @@ type ServiceEndpointPipelineInput interface {
 	ToServiceEndpointPipelineOutputWithContext(ctx context.Context) ServiceEndpointPipelineOutput
 }
 
-func (ServiceEndpointPipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointPipeline)(nil)).Elem()
+func (*ServiceEndpointPipeline) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointPipeline)(nil))
 }
 
-func (i ServiceEndpointPipeline) ToServiceEndpointPipelineOutput() ServiceEndpointPipelineOutput {
+func (i *ServiceEndpointPipeline) ToServiceEndpointPipelineOutput() ServiceEndpointPipelineOutput {
 	return i.ToServiceEndpointPipelineOutputWithContext(context.Background())
 }
 
-func (i ServiceEndpointPipeline) ToServiceEndpointPipelineOutputWithContext(ctx context.Context) ServiceEndpointPipelineOutput {
+func (i *ServiceEndpointPipeline) ToServiceEndpointPipelineOutputWithContext(ctx context.Context) ServiceEndpointPipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelineOutput)
 }
 
@@ -200,7 +201,7 @@ type ServiceEndpointPipelineOutput struct {
 }
 
 func (ServiceEndpointPipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointPipelineOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceEndpointPipeline)(nil))
 }
 
 func (o ServiceEndpointPipelineOutput) ToServiceEndpointPipelineOutput() ServiceEndpointPipelineOutput {

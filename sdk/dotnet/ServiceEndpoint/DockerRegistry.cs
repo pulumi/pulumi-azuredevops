@@ -66,6 +66,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry")]
+    [AzureDevOpsResourceType("azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry")]
     public partial class DockerRegistry : Pulumi.CustomResource
     {
         [Output("authorization")]

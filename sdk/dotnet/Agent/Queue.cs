@@ -63,6 +63,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")]
+    [AzureDevOpsResourceType("azuredevops:Agent/queue:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {
         /// <summary>

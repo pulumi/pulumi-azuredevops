@@ -42,6 +42,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// The resources allows the import via the UUID of a user entitlement or by using the principal name of a user owning an entitlement.
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/user:User")]
     public partial class User : Pulumi.CustomResource
     {
         /// <summary>

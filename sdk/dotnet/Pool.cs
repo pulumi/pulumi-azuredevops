@@ -42,6 +42,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/pool:Pool pool 42
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/pool:Pool")]
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>

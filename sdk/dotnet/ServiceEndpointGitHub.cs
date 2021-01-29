@@ -94,6 +94,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub")]
     public partial class ServiceEndpointGitHub : Pulumi.CustomResource
     {
         /// <summary>

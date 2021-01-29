@@ -77,4 +77,11 @@ namespace Pulumi.AzureDevOps
             }
         }
     }
+
+    internal sealed class AzureDevOpsResourceTypeAttribute : Pulumi.ResourceTypeAttribute
+    {
+        public AzureDevOpsResourceTypeAttribute(string type) : base(type, Utilities.Version)
+        {
+        }
+    }
 }

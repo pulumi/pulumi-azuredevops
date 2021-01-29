@@ -137,6 +137,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/buildDefinition:BuildDefinition build 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/buildDefinition:BuildDefinition")]
     public partial class BuildDefinition : Pulumi.CustomResource
     {
         /// <summary>

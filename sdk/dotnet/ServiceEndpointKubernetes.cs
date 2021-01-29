@@ -24,6 +24,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes")]
     public partial class ServiceEndpointKubernetes : Pulumi.CustomResource
     {
         /// <summary>

@@ -92,6 +92,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/git:Git")]
     public partial class Git : Pulumi.CustomResource
     {
         /// <summary>
