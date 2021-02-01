@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade to pulumi-terraform-bridge v2.18.1
+_(none)_
 
 ---
+
+## 1.2.0 (2021-02-01)
+* Upgrade to pulumi-terraform-bridge v2.18.1
 
 ## 1.1.1 (2021-01-12)
 * Upgrade to v0.1.1 of the AzureDevOps Terraform provider
