@@ -27,6 +27,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -201,15 +202,15 @@ type IterativePermissionsInput interface {
 	ToIterativePermissionsOutputWithContext(ctx context.Context) IterativePermissionsOutput
 }
 
-func (IterativePermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*IterativePermissions)(nil)).Elem()
+func (*IterativePermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*IterativePermissions)(nil))
 }
 
-func (i IterativePermissions) ToIterativePermissionsOutput() IterativePermissionsOutput {
+func (i *IterativePermissions) ToIterativePermissionsOutput() IterativePermissionsOutput {
 	return i.ToIterativePermissionsOutputWithContext(context.Background())
 }
 
-func (i IterativePermissions) ToIterativePermissionsOutputWithContext(ctx context.Context) IterativePermissionsOutput {
+func (i *IterativePermissions) ToIterativePermissionsOutputWithContext(ctx context.Context) IterativePermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IterativePermissionsOutput)
 }
 
@@ -218,7 +219,7 @@ type IterativePermissionsOutput struct {
 }
 
 func (IterativePermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IterativePermissionsOutput)(nil)).Elem()
+	return reflect.TypeOf((*IterativePermissions)(nil))
 }
 
 func (o IterativePermissionsOutput) ToIterativePermissionsOutput() IterativePermissionsOutput {

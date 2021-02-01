@@ -30,7 +30,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -63,7 +63,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -98,7 +98,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -263,15 +263,15 @@ type GitPermissionsInput interface {
 	ToGitPermissionsOutputWithContext(ctx context.Context) GitPermissionsOutput
 }
 
-func (GitPermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitPermissions)(nil)).Elem()
+func (*GitPermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*GitPermissions)(nil))
 }
 
-func (i GitPermissions) ToGitPermissionsOutput() GitPermissionsOutput {
+func (i *GitPermissions) ToGitPermissionsOutput() GitPermissionsOutput {
 	return i.ToGitPermissionsOutputWithContext(context.Background())
 }
 
-func (i GitPermissions) ToGitPermissionsOutputWithContext(ctx context.Context) GitPermissionsOutput {
+func (i *GitPermissions) ToGitPermissionsOutputWithContext(ctx context.Context) GitPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsOutput)
 }
 
@@ -280,7 +280,7 @@ type GitPermissionsOutput struct {
 }
 
 func (GitPermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitPermissionsOutput)(nil)).Elem()
+	return reflect.TypeOf((*GitPermissions)(nil))
 }
 
 func (o GitPermissionsOutput) ToGitPermissionsOutput() GitPermissionsOutput {

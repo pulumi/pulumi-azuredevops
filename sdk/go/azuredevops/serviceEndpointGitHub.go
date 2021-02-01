@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -53,6 +54,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -77,7 +79,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -229,15 +231,15 @@ type ServiceEndpointGitHubInput interface {
 	ToServiceEndpointGitHubOutputWithContext(ctx context.Context) ServiceEndpointGitHubOutput
 }
 
-func (ServiceEndpointGitHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointGitHub)(nil)).Elem()
+func (*ServiceEndpointGitHub) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHub)(nil))
 }
 
-func (i ServiceEndpointGitHub) ToServiceEndpointGitHubOutput() ServiceEndpointGitHubOutput {
+func (i *ServiceEndpointGitHub) ToServiceEndpointGitHubOutput() ServiceEndpointGitHubOutput {
 	return i.ToServiceEndpointGitHubOutputWithContext(context.Background())
 }
 
-func (i ServiceEndpointGitHub) ToServiceEndpointGitHubOutputWithContext(ctx context.Context) ServiceEndpointGitHubOutput {
+func (i *ServiceEndpointGitHub) ToServiceEndpointGitHubOutputWithContext(ctx context.Context) ServiceEndpointGitHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubOutput)
 }
 
@@ -246,7 +248,7 @@ type ServiceEndpointGitHubOutput struct {
 }
 
 func (ServiceEndpointGitHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointGitHubOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceEndpointGitHub)(nil))
 }
 
 func (o ServiceEndpointGitHubOutput) ToServiceEndpointGitHubOutput() ServiceEndpointGitHubOutput {

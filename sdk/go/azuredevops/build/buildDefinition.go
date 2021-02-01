@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -229,15 +230,15 @@ type BuildDefinitionInput interface {
 	ToBuildDefinitionOutputWithContext(ctx context.Context) BuildDefinitionOutput
 }
 
-func (BuildDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildDefinition)(nil)).Elem()
+func (*BuildDefinition) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinition)(nil))
 }
 
-func (i BuildDefinition) ToBuildDefinitionOutput() BuildDefinitionOutput {
+func (i *BuildDefinition) ToBuildDefinitionOutput() BuildDefinitionOutput {
 	return i.ToBuildDefinitionOutputWithContext(context.Background())
 }
 
-func (i BuildDefinition) ToBuildDefinitionOutputWithContext(ctx context.Context) BuildDefinitionOutput {
+func (i *BuildDefinition) ToBuildDefinitionOutputWithContext(ctx context.Context) BuildDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionOutput)
 }
 
@@ -246,7 +247,7 @@ type BuildDefinitionOutput struct {
 }
 
 func (BuildDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildDefinitionOutput)(nil)).Elem()
+	return reflect.TypeOf((*BuildDefinition)(nil))
 }
 
 func (o BuildDefinitionOutput) ToBuildDefinitionOutput() BuildDefinitionOutput {

@@ -73,6 +73,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution p 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution")]
     public partial class BranchPolicyCommentResolution : Pulumi.CustomResource
     {
         /// <summary>

@@ -74,6 +74,7 @@ namespace Pulumi.AzureDevOps
     /// 
     ///  _Note that for secret variables, the import command retrieve blank value in the tfstate._
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/variableGroup:VariableGroup")]
     public partial class VariableGroup : Pulumi.CustomResource
     {
         /// <summary>

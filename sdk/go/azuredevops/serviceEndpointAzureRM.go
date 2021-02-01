@@ -27,6 +27,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -65,7 +66,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -272,15 +273,15 @@ type ServiceEndpointAzureRMInput interface {
 	ToServiceEndpointAzureRMOutputWithContext(ctx context.Context) ServiceEndpointAzureRMOutput
 }
 
-func (ServiceEndpointAzureRM) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAzureRM)(nil)).Elem()
+func (*ServiceEndpointAzureRM) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureRM)(nil))
 }
 
-func (i ServiceEndpointAzureRM) ToServiceEndpointAzureRMOutput() ServiceEndpointAzureRMOutput {
+func (i *ServiceEndpointAzureRM) ToServiceEndpointAzureRMOutput() ServiceEndpointAzureRMOutput {
 	return i.ToServiceEndpointAzureRMOutputWithContext(context.Background())
 }
 
-func (i ServiceEndpointAzureRM) ToServiceEndpointAzureRMOutputWithContext(ctx context.Context) ServiceEndpointAzureRMOutput {
+func (i *ServiceEndpointAzureRM) ToServiceEndpointAzureRMOutputWithContext(ctx context.Context) ServiceEndpointAzureRMOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMOutput)
 }
 
@@ -289,7 +290,7 @@ type ServiceEndpointAzureRMOutput struct {
 }
 
 func (ServiceEndpointAzureRMOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAzureRMOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceEndpointAzureRM)(nil))
 }
 
 func (o ServiceEndpointAzureRMOutput) ToServiceEndpointAzureRMOutput() ServiceEndpointAzureRMOutput {

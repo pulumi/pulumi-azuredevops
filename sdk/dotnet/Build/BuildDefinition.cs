@@ -138,6 +138,7 @@ namespace Pulumi.AzureDevOps.Build
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition")]
+    [AzureDevOpsResourceType("azuredevops:Build/buildDefinition:BuildDefinition")]
     public partial class BuildDefinition : Pulumi.CustomResource
     {
         /// <summary>

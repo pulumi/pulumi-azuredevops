@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -182,15 +183,15 @@ type BranchPolicyWorkItemLinkingInput interface {
 	ToBranchPolicyWorkItemLinkingOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingOutput
 }
 
-func (BranchPolicyWorkItemLinking) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyWorkItemLinking)(nil)).Elem()
+func (*BranchPolicyWorkItemLinking) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyWorkItemLinking)(nil))
 }
 
-func (i BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutput() BranchPolicyWorkItemLinkingOutput {
+func (i *BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutput() BranchPolicyWorkItemLinkingOutput {
 	return i.ToBranchPolicyWorkItemLinkingOutputWithContext(context.Background())
 }
 
-func (i BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingOutput {
+func (i *BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingOutput)
 }
 
@@ -199,7 +200,7 @@ type BranchPolicyWorkItemLinkingOutput struct {
 }
 
 func (BranchPolicyWorkItemLinkingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyWorkItemLinkingOutput)(nil)).Elem()
+	return reflect.TypeOf((*BranchPolicyWorkItemLinking)(nil))
 }
 
 func (o BranchPolicyWorkItemLinkingOutput) ToBranchPolicyWorkItemLinkingOutput() BranchPolicyWorkItemLinkingOutput {

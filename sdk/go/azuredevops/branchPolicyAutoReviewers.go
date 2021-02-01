@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -192,15 +193,15 @@ type BranchPolicyAutoReviewersInput interface {
 	ToBranchPolicyAutoReviewersOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersOutput
 }
 
-func (BranchPolicyAutoReviewers) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyAutoReviewers)(nil)).Elem()
+func (*BranchPolicyAutoReviewers) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyAutoReviewers)(nil))
 }
 
-func (i BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersOutput() BranchPolicyAutoReviewersOutput {
+func (i *BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersOutput() BranchPolicyAutoReviewersOutput {
 	return i.ToBranchPolicyAutoReviewersOutputWithContext(context.Background())
 }
 
-func (i BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersOutput {
+func (i *BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersOutput)
 }
 
@@ -209,7 +210,7 @@ type BranchPolicyAutoReviewersOutput struct {
 }
 
 func (BranchPolicyAutoReviewersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyAutoReviewersOutput)(nil)).Elem()
+	return reflect.TypeOf((*BranchPolicyAutoReviewers)(nil))
 }
 
 func (o BranchPolicyAutoReviewersOutput) ToBranchPolicyAutoReviewersOutput() BranchPolicyAutoReviewersOutput {

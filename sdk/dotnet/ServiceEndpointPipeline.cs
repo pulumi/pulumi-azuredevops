@@ -55,6 +55,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline serviceendpoint projectID/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline")]
     public partial class ServiceEndpointPipeline : Pulumi.CustomResource
     {
         /// <summary>

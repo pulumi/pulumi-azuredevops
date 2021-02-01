@@ -82,6 +82,7 @@ namespace Pulumi.AzureDevOps
     ///  $ pulumi import azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers p 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers")]
     public partial class BranchPolicyAutoReviewers : Pulumi.CustomResource
     {
         /// <summary>

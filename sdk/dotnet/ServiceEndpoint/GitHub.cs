@@ -95,6 +95,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub")]
+    [AzureDevOpsResourceType("azuredevops:ServiceEndpoint/gitHub:GitHub")]
     public partial class GitHub : Pulumi.CustomResource
     {
         /// <summary>

@@ -56,6 +56,7 @@ namespace Pulumi.AzureDevOps.Core
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures")]
+    [AzureDevOpsResourceType("azuredevops:Core/projectFeatures:ProjectFeatures")]
     public partial class ProjectFeatures : Pulumi.CustomResource
     {
         /// <summary>

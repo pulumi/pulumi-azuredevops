@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -234,15 +234,15 @@ type ServiceEndpointAwsInput interface {
 	ToServiceEndpointAwsOutputWithContext(ctx context.Context) ServiceEndpointAwsOutput
 }
 
-func (ServiceEndpointAws) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAws)(nil)).Elem()
+func (*ServiceEndpointAws) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAws)(nil))
 }
 
-func (i ServiceEndpointAws) ToServiceEndpointAwsOutput() ServiceEndpointAwsOutput {
+func (i *ServiceEndpointAws) ToServiceEndpointAwsOutput() ServiceEndpointAwsOutput {
 	return i.ToServiceEndpointAwsOutputWithContext(context.Background())
 }
 
-func (i ServiceEndpointAws) ToServiceEndpointAwsOutputWithContext(ctx context.Context) ServiceEndpointAwsOutput {
+func (i *ServiceEndpointAws) ToServiceEndpointAwsOutputWithContext(ctx context.Context) ServiceEndpointAwsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsOutput)
 }
 
@@ -251,7 +251,7 @@ type ServiceEndpointAwsOutput struct {
 }
 
 func (ServiceEndpointAwsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAwsOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceEndpointAws)(nil))
 }
 
 func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsOutput() ServiceEndpointAwsOutput {

@@ -59,6 +59,7 @@ namespace Pulumi.AzureDevOps.Identities
     /// Not supported.
     /// </summary>
     [Obsolete(@"azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership")]
+    [AzureDevOpsResourceType("azuredevops:Identities/groupMembership:GroupMembership")]
     public partial class GroupMembership : Pulumi.CustomResource
     {
         /// <summary>

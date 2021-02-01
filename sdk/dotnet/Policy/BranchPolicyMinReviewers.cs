@@ -76,6 +76,7 @@ namespace Pulumi.AzureDevOps.Policy
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers")]
+    [AzureDevOpsResourceType("azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers")]
     public partial class BranchPolicyMinReviewers : Pulumi.CustomResource
     {
         /// <summary>

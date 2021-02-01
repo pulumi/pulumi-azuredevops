@@ -148,6 +148,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// The resource does not support import.
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions")]
     public partial class WorkItemQueryPermissions : Pulumi.CustomResource
     {
         /// <summary>

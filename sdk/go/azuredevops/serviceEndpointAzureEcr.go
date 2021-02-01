@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -228,15 +228,15 @@ type ServiceEndpointAzureEcrInput interface {
 	ToServiceEndpointAzureEcrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrOutput
 }
 
-func (ServiceEndpointAzureEcr) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAzureEcr)(nil)).Elem()
+func (*ServiceEndpointAzureEcr) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointAzureEcr)(nil))
 }
 
-func (i ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutput() ServiceEndpointAzureEcrOutput {
+func (i *ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutput() ServiceEndpointAzureEcrOutput {
 	return i.ToServiceEndpointAzureEcrOutputWithContext(context.Background())
 }
 
-func (i ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrOutput {
+func (i *ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrOutput)
 }
 
@@ -245,7 +245,7 @@ type ServiceEndpointAzureEcrOutput struct {
 }
 
 func (ServiceEndpointAzureEcrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAzureEcrOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceEndpointAzureEcr)(nil))
 }
 
 func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrOutput() ServiceEndpointAzureEcrOutput {

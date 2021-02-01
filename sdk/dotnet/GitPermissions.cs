@@ -205,6 +205,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// The resource does not support import.
     /// </summary>
+    [AzureDevOpsResourceType("azuredevops:index/gitPermissions:GitPermissions")]
     public partial class GitPermissions : Pulumi.CustomResource
     {
         /// <summary>

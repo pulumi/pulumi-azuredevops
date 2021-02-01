@@ -151,15 +151,15 @@ type AreaPermissionsInput interface {
 	ToAreaPermissionsOutputWithContext(ctx context.Context) AreaPermissionsOutput
 }
 
-func (AreaPermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*AreaPermissions)(nil)).Elem()
+func (*AreaPermissions) ElementType() reflect.Type {
+	return reflect.TypeOf((*AreaPermissions)(nil))
 }
 
-func (i AreaPermissions) ToAreaPermissionsOutput() AreaPermissionsOutput {
+func (i *AreaPermissions) ToAreaPermissionsOutput() AreaPermissionsOutput {
 	return i.ToAreaPermissionsOutputWithContext(context.Background())
 }
 
-func (i AreaPermissions) ToAreaPermissionsOutputWithContext(ctx context.Context) AreaPermissionsOutput {
+func (i *AreaPermissions) ToAreaPermissionsOutputWithContext(ctx context.Context) AreaPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AreaPermissionsOutput)
 }
 
@@ -168,7 +168,7 @@ type AreaPermissionsOutput struct {
 }
 
 func (AreaPermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*AreaPermissionsOutput)(nil)).Elem()
+	return reflect.TypeOf((*AreaPermissions)(nil))
 }
 
 func (o AreaPermissionsOutput) ToAreaPermissionsOutput() AreaPermissionsOutput {

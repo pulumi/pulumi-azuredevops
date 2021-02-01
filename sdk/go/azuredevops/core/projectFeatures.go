@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -150,15 +151,15 @@ type ProjectFeaturesInput interface {
 	ToProjectFeaturesOutputWithContext(ctx context.Context) ProjectFeaturesOutput
 }
 
-func (ProjectFeatures) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectFeatures)(nil)).Elem()
+func (*ProjectFeatures) ElementType() reflect.Type {
+	return reflect.TypeOf((*ProjectFeatures)(nil))
 }
 
-func (i ProjectFeatures) ToProjectFeaturesOutput() ProjectFeaturesOutput {
+func (i *ProjectFeatures) ToProjectFeaturesOutput() ProjectFeaturesOutput {
 	return i.ToProjectFeaturesOutputWithContext(context.Background())
 }
 
-func (i ProjectFeatures) ToProjectFeaturesOutputWithContext(ctx context.Context) ProjectFeaturesOutput {
+func (i *ProjectFeatures) ToProjectFeaturesOutputWithContext(ctx context.Context) ProjectFeaturesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesOutput)
 }
 
@@ -167,7 +168,7 @@ type ProjectFeaturesOutput struct {
 }
 
 func (ProjectFeaturesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectFeaturesOutput)(nil)).Elem()
+	return reflect.TypeOf((*ProjectFeatures)(nil))
 }
 
 func (o ProjectFeaturesOutput) ToProjectFeaturesOutput() ProjectFeaturesOutput {

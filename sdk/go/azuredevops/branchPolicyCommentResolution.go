@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -182,15 +183,15 @@ type BranchPolicyCommentResolutionInput interface {
 	ToBranchPolicyCommentResolutionOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionOutput
 }
 
-func (BranchPolicyCommentResolution) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyCommentResolution)(nil)).Elem()
+func (*BranchPolicyCommentResolution) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyCommentResolution)(nil))
 }
 
-func (i BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutput() BranchPolicyCommentResolutionOutput {
+func (i *BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutput() BranchPolicyCommentResolutionOutput {
 	return i.ToBranchPolicyCommentResolutionOutputWithContext(context.Background())
 }
 
-func (i BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionOutput {
+func (i *BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionOutput)
 }
 
@@ -199,7 +200,7 @@ type BranchPolicyCommentResolutionOutput struct {
 }
 
 func (BranchPolicyCommentResolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyCommentResolutionOutput)(nil)).Elem()
+	return reflect.TypeOf((*BranchPolicyCommentResolution)(nil))
 }
 
 func (o BranchPolicyCommentResolutionOutput) ToBranchPolicyCommentResolutionOutput() BranchPolicyCommentResolutionOutput {

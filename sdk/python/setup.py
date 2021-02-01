@@ -48,7 +48,7 @@ setup(name='pulumi_azuredevops',
       packages=find_packages(),
       package_data={
           'pulumi_azuredevops': [
-              'py.typed'
+              'py.typed',
           ]
       },
       install_requires=[

@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -204,15 +205,15 @@ type VariableGroupInput interface {
 	ToVariableGroupOutputWithContext(ctx context.Context) VariableGroupOutput
 }
 
-func (VariableGroup) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariableGroup)(nil)).Elem()
+func (*VariableGroup) ElementType() reflect.Type {
+	return reflect.TypeOf((*VariableGroup)(nil))
 }
 
-func (i VariableGroup) ToVariableGroupOutput() VariableGroupOutput {
+func (i *VariableGroup) ToVariableGroupOutput() VariableGroupOutput {
 	return i.ToVariableGroupOutputWithContext(context.Background())
 }
 
-func (i VariableGroup) ToVariableGroupOutputWithContext(ctx context.Context) VariableGroupOutput {
+func (i *VariableGroup) ToVariableGroupOutputWithContext(ctx context.Context) VariableGroupOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupOutput)
 }
 
@@ -221,7 +222,7 @@ type VariableGroupOutput struct {
 }
 
 func (VariableGroupOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*VariableGroupOutput)(nil)).Elem()
+	return reflect.TypeOf((*VariableGroup)(nil))
 }
 
 func (o VariableGroupOutput) ToVariableGroupOutput() VariableGroupOutput {

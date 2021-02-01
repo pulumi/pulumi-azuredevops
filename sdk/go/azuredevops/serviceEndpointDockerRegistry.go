@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -241,15 +241,15 @@ type ServiceEndpointDockerRegistryInput interface {
 	ToServiceEndpointDockerRegistryOutputWithContext(ctx context.Context) ServiceEndpointDockerRegistryOutput
 }
 
-func (ServiceEndpointDockerRegistry) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointDockerRegistry)(nil)).Elem()
+func (*ServiceEndpointDockerRegistry) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointDockerRegistry)(nil))
 }
 
-func (i ServiceEndpointDockerRegistry) ToServiceEndpointDockerRegistryOutput() ServiceEndpointDockerRegistryOutput {
+func (i *ServiceEndpointDockerRegistry) ToServiceEndpointDockerRegistryOutput() ServiceEndpointDockerRegistryOutput {
 	return i.ToServiceEndpointDockerRegistryOutputWithContext(context.Background())
 }
 
-func (i ServiceEndpointDockerRegistry) ToServiceEndpointDockerRegistryOutputWithContext(ctx context.Context) ServiceEndpointDockerRegistryOutput {
+func (i *ServiceEndpointDockerRegistry) ToServiceEndpointDockerRegistryOutputWithContext(ctx context.Context) ServiceEndpointDockerRegistryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointDockerRegistryOutput)
 }
 
@@ -258,7 +258,7 @@ type ServiceEndpointDockerRegistryOutput struct {
 }
 
 func (ServiceEndpointDockerRegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointDockerRegistryOutput)(nil)).Elem()
+	return reflect.TypeOf((*ServiceEndpointDockerRegistry)(nil))
 }
 
 func (o ServiceEndpointDockerRegistryOutput) ToServiceEndpointDockerRegistryOutput() ServiceEndpointDockerRegistryOutput {

@@ -20,6 +20,7 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -207,15 +208,15 @@ type BranchPolicyBuildValidationInput interface {
 	ToBranchPolicyBuildValidationOutputWithContext(ctx context.Context) BranchPolicyBuildValidationOutput
 }
 
-func (BranchPolicyBuildValidation) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyBuildValidation)(nil)).Elem()
+func (*BranchPolicyBuildValidation) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyBuildValidation)(nil))
 }
 
-func (i BranchPolicyBuildValidation) ToBranchPolicyBuildValidationOutput() BranchPolicyBuildValidationOutput {
+func (i *BranchPolicyBuildValidation) ToBranchPolicyBuildValidationOutput() BranchPolicyBuildValidationOutput {
 	return i.ToBranchPolicyBuildValidationOutputWithContext(context.Background())
 }
 
-func (i BranchPolicyBuildValidation) ToBranchPolicyBuildValidationOutputWithContext(ctx context.Context) BranchPolicyBuildValidationOutput {
+func (i *BranchPolicyBuildValidation) ToBranchPolicyBuildValidationOutputWithContext(ctx context.Context) BranchPolicyBuildValidationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationOutput)
 }
 
@@ -224,7 +225,7 @@ type BranchPolicyBuildValidationOutput struct {
 }
 
 func (BranchPolicyBuildValidationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyBuildValidationOutput)(nil)).Elem()
+	return reflect.TypeOf((*BranchPolicyBuildValidation)(nil))
 }
 
 func (o BranchPolicyBuildValidationOutput) ToBranchPolicyBuildValidationOutput() BranchPolicyBuildValidationOutput {

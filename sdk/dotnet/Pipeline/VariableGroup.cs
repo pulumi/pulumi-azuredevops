@@ -75,6 +75,7 @@ namespace Pulumi.AzureDevOps.Pipeline
     ///  _Note that for secret variables, the import command retrieve blank value in the tfstate._
     /// </summary>
     [Obsolete(@"azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup")]
+    [AzureDevOpsResourceType("azuredevops:Pipeline/variableGroup:VariableGroup")]
     public partial class VariableGroup : Pulumi.CustomResource
     {
         /// <summary>
