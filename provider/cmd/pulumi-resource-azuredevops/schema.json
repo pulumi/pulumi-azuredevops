@@ -444,7 +444,7 @@
                 },
                 "repoType": {
                     "type": "string",
-                    "description": "The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.\n",
+                    "description": "The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -879,9 +879,54 @@
         },
         "azuredevops:Policy/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings": {
             "properties": {
+                "allowCompletionWithRejectsOrWaits": {
+                    "type": "boolean",
+                    "description": "Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "lastPusherCannotApprove": {
+                    "type": "boolean",
+                    "description": "Prohibit the most recent pusher from approving their own changes. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onLastIterationRequireVote": {
+                    "type": "boolean",
+                    "description": "On last iteration require vote. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onPushResetAllVotes": {
+                    "type": "boolean",
+                    "description": "When new changes are pushed reset all code reviewer votes. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onPushResetApprovedVotes": {
+                    "type": "boolean",
+                    "description": "When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "reviewerCount": {
                     "type": "integer",
-                    "description": "The number of reviewrs needed to approve.\n",
+                    "description": "The number of reviewers needed to approve.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -902,7 +947,7 @@
                 },
                 "submitterCanVote": {
                     "type": "boolean",
-                    "description": "Controls whether or not the submitter's vote counts. Defaults to `false`.\n",
+                    "description": "Allow requesters to approve their own changes. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -912,7 +957,6 @@
             },
             "type": "object",
             "required": [
-                "reviewerCount",
                 "scopes"
             ]
         },
@@ -1626,9 +1670,54 @@
         },
         "azuredevops:index/BranchPolicyMinReviewersSettings:BranchPolicyMinReviewersSettings": {
             "properties": {
+                "allowCompletionWithRejectsOrWaits": {
+                    "type": "boolean",
+                    "description": "Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "lastPusherCannotApprove": {
+                    "type": "boolean",
+                    "description": "Prohibit the most recent pusher from approving their own changes. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onLastIterationRequireVote": {
+                    "type": "boolean",
+                    "description": "On last iteration require vote. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onPushResetAllVotes": {
+                    "type": "boolean",
+                    "description": "When new changes are pushed reset all code reviewer votes. Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "onPushResetApprovedVotes": {
+                    "type": "boolean",
+                    "description": "When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
                 "reviewerCount": {
                     "type": "integer",
-                    "description": "The number of reviewrs needed to approve.\n",
+                    "description": "The number of reviewers needed to approve.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1649,7 +1738,7 @@
                 },
                 "submitterCanVote": {
                     "type": "boolean",
-                    "description": "Controls whether or not the submitter's vote counts. Defaults to `false`.\n",
+                    "description": "Allow requesters to approve their own changes. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1659,7 +1748,6 @@
             },
             "type": "object",
             "required": [
-                "reviewerCount",
                 "scopes"
             ]
         },
@@ -2105,7 +2193,7 @@
                 },
                 "repoType": {
                     "type": "string",
-                    "description": "The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.\n",
+                    "description": "The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2234,6 +2322,92 @@
             "required": [
                 "initType"
             ]
+        },
+        "azuredevops:index/ServiceEndpointArtifactoryAuthenticationBasic:ServiceEndpointArtifactoryAuthenticationBasic": {
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "description": "Artifactory Password.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "passwordHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Artifactory Username.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "usernameHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "password",
+                "username"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "password",
+                        "passwordHash",
+                        "username",
+                        "usernameHash"
+                    ]
+                }
+            }
+        },
+        "azuredevops:index/ServiceEndpointArtifactoryAuthenticationToken:ServiceEndpointArtifactoryAuthenticationToken": {
+            "properties": {
+                "token": {
+                    "type": "string",
+                    "description": "Authentication Token generated through Artifactory.\n* `authentication_basic`\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "tokenHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "token"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "token",
+                        "tokenHash"
+                    ]
+                }
+            }
         },
         "azuredevops:index/ServiceEndpointAzureRMCredentials:ServiceEndpointAzureRMCredentials": {
             "properties": {
@@ -3976,7 +4150,7 @@
             "deprecationMessage": "azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation"
         },
         "azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers": {
-            "description": "Manages a minimum reviewer branch policy within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst git = new azuredevops.Git(\"git\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst branchPolicyMinReviewers = new azuredevops.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\", {\n    projectId: project.id,\n    enabled: true,\n    blocking: true,\n    settings: {\n        reviewerCount: 2,\n        submitterCanVote: false,\n        scopes: [\n            {\n                repositoryId: git.id,\n                repositoryRef: git.defaultBranch,\n                matchType: \"Exact\",\n            },\n            {\n                repositoryId: git.id,\n                repositoryRef: \"refs/heads/releases\",\n                matchType: \"Prefix\",\n            },\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\ngit = azuredevops.Git(\"git\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nbranch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\",\n    project_id=project.id,\n    enabled=True,\n    blocking=True,\n    settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(\n        reviewer_count=2,\n        submitter_can_vote=False,\n        scopes=[\n            azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(\n                repository_id=git.id,\n                repository_ref=git.default_branch,\n                match_type=\"Exact\",\n            ),\n            azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(\n                repository_id=git.id,\n                repository_ref=\"refs/heads/releases\",\n                match_type=\"Prefix\",\n            ),\n        ],\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var git = new AzureDevOps.Git(\"git\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var branchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\", new AzureDevOps.BranchPolicyMinReviewersArgs\n        {\n            ProjectId = project.Id,\n            Enabled = true,\n            Blocking = true,\n            Settings = new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsArgs\n            {\n                ReviewerCount = 2,\n                SubmitterCanVote = false,\n                Scopes = \n                {\n                    new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                        RepositoryRef = git.DefaultBranch,\n                        MatchType = \"Exact\",\n                    },\n                    new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                        RepositoryRef = \"refs/heads/releases\",\n                        MatchType = \"Prefix\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops\"\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgit, err := azuredevops.NewGit(ctx, \"git\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBranchPolicyMinReviewers(ctx, \"branchPolicyMinReviewers\", \u0026azuredevops.BranchPolicyMinReviewersArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tBlocking:  pulumi.Bool(true),\n\t\t\tSettings: \u0026azuredevops.BranchPolicyMinReviewersSettingsArgs{\n\t\t\t\tReviewerCount:    pulumi.Int(2),\n\t\t\t\tSubmitterCanVote: pulumi.Bool(false),\n\t\t\t\tScopes: azuredevops.BranchPolicyMinReviewersSettingsScopeArray{\n\t\t\t\t\t\u0026azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  git.ID(),\n\t\t\t\t\t\tRepositoryRef: git.DefaultBranch,\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Exact\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  git.ID(),\n\t\t\t\t\t\tRepositoryRef: pulumi.String(\"refs/heads/releases\"),\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Prefix\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Branch Policies can be imported using the project ID and policy configuration ID\n\n```sh\n $ pulumi import azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers p 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
+            "description": "Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst git = new azuredevops.Git(\"git\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst branchPolicyMinReviewers = new azuredevops.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\", {\n    projectId: project.id,\n    enabled: true,\n    blocking: true,\n    settings: {\n        reviewerCount: 7,\n        submitterCanVote: false,\n        lastPusherCannotApprove: true,\n        allowCompletionWithRejectsOrWaits: false,\n        onPushResetApprovedVotes: true,\n        onLastIterationRequireVote: false,\n        scopes: [\n            {\n                repositoryId: git.id,\n                repositoryRef: git.defaultBranch,\n                matchType: \"Exact\",\n            },\n            {\n                repositoryId: undefined,\n                repositoryRef: \"refs/heads/releases\",\n                matchType: \"Prefix\",\n            },\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\ngit = azuredevops.Git(\"git\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nbranch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\",\n    project_id=project.id,\n    enabled=True,\n    blocking=True,\n    settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(\n        reviewer_count=7,\n        submitter_can_vote=False,\n        last_pusher_cannot_approve=True,\n        allow_completion_with_rejects_or_waits=False,\n        on_push_reset_approved_votes=True,\n        on_last_iteration_require_vote=False,\n        scopes=[\n            azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(\n                repository_id=git.id,\n                repository_ref=git.default_branch,\n                match_type=\"Exact\",\n            ),\n            azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(\n                repository_id=None,\n                repository_ref=\"refs/heads/releases\",\n                match_type=\"Prefix\",\n            ),\n        ],\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var git = new AzureDevOps.Git(\"git\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var branchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\", new AzureDevOps.BranchPolicyMinReviewersArgs\n        {\n            ProjectId = project.Id,\n            Enabled = true,\n            Blocking = true,\n            Settings = new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsArgs\n            {\n                ReviewerCount = 7,\n                SubmitterCanVote = false,\n                LastPusherCannotApprove = true,\n                AllowCompletionWithRejectsOrWaits = false,\n                OnPushResetApprovedVotes = true,\n                OnLastIterationRequireVote = false,\n                Scopes = \n                {\n                    new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                        RepositoryRef = git.DefaultBranch,\n                        MatchType = \"Exact\",\n                    },\n                    new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs\n                    {\n                        RepositoryId = null,\n                        RepositoryRef = \"refs/heads/releases\",\n                        MatchType = \"Prefix\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops\"\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgit, err := azuredevops.NewGit(ctx, \"git\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBranchPolicyMinReviewers(ctx, \"branchPolicyMinReviewers\", \u0026azuredevops.BranchPolicyMinReviewersArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tBlocking:  pulumi.Bool(true),\n\t\t\tSettings: \u0026azuredevops.BranchPolicyMinReviewersSettingsArgs{\n\t\t\t\tReviewerCount:                     pulumi.Int(7),\n\t\t\t\tSubmitterCanVote:                  pulumi.Bool(false),\n\t\t\t\tLastPusherCannotApprove:           pulumi.Bool(true),\n\t\t\t\tAllowCompletionWithRejectsOrWaits: pulumi.Bool(false),\n\t\t\t\tOnPushResetApprovedVotes:          pulumi.Bool(true),\n\t\t\t\tOnLastIterationRequireVote:        pulumi.Bool(false),\n\t\t\t\tScopes: azuredevops.BranchPolicyMinReviewersSettingsScopeArray{\n\t\t\t\t\t\u0026azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  git.ID(),\n\t\t\t\t\t\tRepositoryRef: git.DefaultBranch,\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Exact\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  nil,\n\t\t\t\t\t\tRepositoryRef: pulumi.String(\"refs/heads/releases\"),\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Prefix\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Branch Policies can be imported using the project ID and policy configuration ID\n\n```sh\n $ pulumi import azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers p 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
             "properties": {
                 "blocking": {
                     "type": "boolean",
@@ -5254,7 +5428,7 @@
             }
         },
         "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers": {
-            "description": "Manages a minimum reviewer branch policy within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst git = new azuredevops.Git(\"git\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst branchPolicyMinReviewers = new azuredevops.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\", {\n    projectId: project.id,\n    enabled: true,\n    blocking: true,\n    settings: {\n        reviewerCount: 2,\n        submitterCanVote: false,\n        scopes: [\n            {\n                repositoryId: git.id,\n                repositoryRef: git.defaultBranch,\n                matchType: \"Exact\",\n            },\n            {\n                repositoryId: git.id,\n                repositoryRef: \"refs/heads/releases\",\n                matchType: \"Prefix\",\n            },\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\ngit = azuredevops.Git(\"git\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nbranch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\",\n    project_id=project.id,\n    enabled=True,\n    blocking=True,\n    settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(\n        reviewer_count=2,\n        submitter_can_vote=False,\n        scopes=[\n            azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(\n                repository_id=git.id,\n                repository_ref=git.default_branch,\n                match_type=\"Exact\",\n            ),\n            azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(\n                repository_id=git.id,\n                repository_ref=\"refs/heads/releases\",\n                match_type=\"Prefix\",\n            ),\n        ],\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var git = new AzureDevOps.Git(\"git\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var branchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\", new AzureDevOps.BranchPolicyMinReviewersArgs\n        {\n            ProjectId = project.Id,\n            Enabled = true,\n            Blocking = true,\n            Settings = new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsArgs\n            {\n                ReviewerCount = 2,\n                SubmitterCanVote = false,\n                Scopes = \n                {\n                    new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                        RepositoryRef = git.DefaultBranch,\n                        MatchType = \"Exact\",\n                    },\n                    new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                        RepositoryRef = \"refs/heads/releases\",\n                        MatchType = \"Prefix\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops\"\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgit, err := azuredevops.NewGit(ctx, \"git\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBranchPolicyMinReviewers(ctx, \"branchPolicyMinReviewers\", \u0026azuredevops.BranchPolicyMinReviewersArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tBlocking:  pulumi.Bool(true),\n\t\t\tSettings: \u0026azuredevops.BranchPolicyMinReviewersSettingsArgs{\n\t\t\t\tReviewerCount:    pulumi.Int(2),\n\t\t\t\tSubmitterCanVote: pulumi.Bool(false),\n\t\t\t\tScopes: azuredevops.BranchPolicyMinReviewersSettingsScopeArray{\n\t\t\t\t\t\u0026azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  git.ID(),\n\t\t\t\t\t\tRepositoryRef: git.DefaultBranch,\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Exact\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  git.ID(),\n\t\t\t\t\t\tRepositoryRef: pulumi.String(\"refs/heads/releases\"),\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Prefix\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Branch Policies can be imported using the project ID and policy configuration ID\n\n```sh\n $ pulumi import azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers p 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
+            "description": "Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst git = new azuredevops.Git(\"git\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst branchPolicyMinReviewers = new azuredevops.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\", {\n    projectId: project.id,\n    enabled: true,\n    blocking: true,\n    settings: {\n        reviewerCount: 7,\n        submitterCanVote: false,\n        lastPusherCannotApprove: true,\n        allowCompletionWithRejectsOrWaits: false,\n        onPushResetApprovedVotes: true,\n        onLastIterationRequireVote: false,\n        scopes: [\n            {\n                repositoryId: git.id,\n                repositoryRef: git.defaultBranch,\n                matchType: \"Exact\",\n            },\n            {\n                repositoryId: undefined,\n                repositoryRef: \"refs/heads/releases\",\n                matchType: \"Prefix\",\n            },\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\ngit = azuredevops.Git(\"git\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nbranch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\",\n    project_id=project.id,\n    enabled=True,\n    blocking=True,\n    settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(\n        reviewer_count=7,\n        submitter_can_vote=False,\n        last_pusher_cannot_approve=True,\n        allow_completion_with_rejects_or_waits=False,\n        on_push_reset_approved_votes=True,\n        on_last_iteration_require_vote=False,\n        scopes=[\n            azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(\n                repository_id=git.id,\n                repository_ref=git.default_branch,\n                match_type=\"Exact\",\n            ),\n            azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(\n                repository_id=None,\n                repository_ref=\"refs/heads/releases\",\n                match_type=\"Prefix\",\n            ),\n        ],\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var git = new AzureDevOps.Git(\"git\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var branchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers(\"branchPolicyMinReviewers\", new AzureDevOps.BranchPolicyMinReviewersArgs\n        {\n            ProjectId = project.Id,\n            Enabled = true,\n            Blocking = true,\n            Settings = new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsArgs\n            {\n                ReviewerCount = 7,\n                SubmitterCanVote = false,\n                LastPusherCannotApprove = true,\n                AllowCompletionWithRejectsOrWaits = false,\n                OnPushResetApprovedVotes = true,\n                OnLastIterationRequireVote = false,\n                Scopes = \n                {\n                    new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                        RepositoryRef = git.DefaultBranch,\n                        MatchType = \"Exact\",\n                    },\n                    new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs\n                    {\n                        RepositoryId = null,\n                        RepositoryRef = \"refs/heads/releases\",\n                        MatchType = \"Prefix\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops\"\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgit, err := azuredevops.NewGit(ctx, \"git\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBranchPolicyMinReviewers(ctx, \"branchPolicyMinReviewers\", \u0026azuredevops.BranchPolicyMinReviewersArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tBlocking:  pulumi.Bool(true),\n\t\t\tSettings: \u0026azuredevops.BranchPolicyMinReviewersSettingsArgs{\n\t\t\t\tReviewerCount:                     pulumi.Int(7),\n\t\t\t\tSubmitterCanVote:                  pulumi.Bool(false),\n\t\t\t\tLastPusherCannotApprove:           pulumi.Bool(true),\n\t\t\t\tAllowCompletionWithRejectsOrWaits: pulumi.Bool(false),\n\t\t\t\tOnPushResetApprovedVotes:          pulumi.Bool(true),\n\t\t\t\tOnLastIterationRequireVote:        pulumi.Bool(false),\n\t\t\t\tScopes: azuredevops.BranchPolicyMinReviewersSettingsScopeArray{\n\t\t\t\t\t\u0026azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  git.ID(),\n\t\t\t\t\t\tRepositoryRef: git.DefaultBranch,\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Exact\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  nil,\n\t\t\t\t\t\tRepositoryRef: pulumi.String(\"refs/heads/releases\"),\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Prefix\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Branch Policies can be imported using the project ID and policy configuration ID\n\n```sh\n $ pulumi import azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers p 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
             "properties": {
                 "blocking": {
                     "type": "boolean",
@@ -6662,6 +6836,114 @@
                 }
             ]
         },
+        "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory": {
+            "description": "Manages an Artifactory server endpoint within an Azure DevOps organization. \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst serviceendpoint = new azuredevops.ServiceEndpointArtifactory(\"serviceendpoint\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample Artifactory\",\n    description: \"Managed by Terraform\",\n    url: \"https://artifactory.my.com\",\n    authenticationToken: {\n        token: \"0000000000000000000000000000000000000000\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nserviceendpoint = azuredevops.ServiceEndpointArtifactory(\"serviceendpoint\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample Artifactory\",\n    description=\"Managed by Terraform\",\n    url=\"https://artifactory.my.com\",\n    authentication_token=azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs(\n        token=\"0000000000000000000000000000000000000000\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var serviceendpoint = new AzureDevOps.ServiceEndpointArtifactory(\"serviceendpoint\", new AzureDevOps.ServiceEndpointArtifactoryArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample Artifactory\",\n            Description = \"Managed by Terraform\",\n            Url = \"https://artifactory.my.com\",\n            AuthenticationToken = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationTokenArgs\n            {\n                Token = \"0000000000000000000000000000000000000000\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops\"\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointArtifactory(ctx, \"serviceendpoint\", \u0026azuredevops.ServiceEndpointArtifactoryArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample Artifactory\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t\tUrl:                 pulumi.String(\"https://artifactory.my.com\"),\n\t\t\tAuthenticationToken: \u0026azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs{\n\t\t\t\tToken: pulumi.String(\"0000000000000000000000000000000000000000\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\nAlternatively a username and password may be used.\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst serviceendpoint = new azuredevops.ServiceEndpointArtifactory(\"serviceendpoint\", {\n    projectId: azuredevops_project.project.id,\n    serviceEndpointName: \"Sample Artifactory\",\n    description: \"Managed by Terraform\",\n    url: \"https://artifactory.my.com\",\n    authenticationBasic: {\n        username: \"sampleuser\",\n        password: \"0000000000000000000000000000000000000000\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nserviceendpoint = azuredevops.ServiceEndpointArtifactory(\"serviceendpoint\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    service_endpoint_name=\"Sample Artifactory\",\n    description=\"Managed by Terraform\",\n    url=\"https://artifactory.my.com\",\n    authentication_basic=azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs(\n        username=\"sampleuser\",\n        password=\"0000000000000000000000000000000000000000\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var serviceendpoint = new AzureDevOps.ServiceEndpointArtifactory(\"serviceendpoint\", new AzureDevOps.ServiceEndpointArtifactoryArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            ServiceEndpointName = \"Sample Artifactory\",\n            Description = \"Managed by Terraform\",\n            Url = \"https://artifactory.my.com\",\n            AuthenticationBasic = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs\n            {\n                Username = \"sampleuser\",\n                Password = \"0000000000000000000000000000000000000000\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops\"\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewServiceEndpointArtifactory(ctx, \"serviceendpoint\", \u0026azuredevops.ServiceEndpointArtifactoryArgs{\n\t\t\tProjectId:           pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample Artifactory\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t\tUrl:                 pulumi.String(\"https://artifactory.my.com\"),\n\t\t\tAuthenticationBasic: \u0026azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs{\n\t\t\t\tUsername: pulumi.String(\"sampleuser\"),\n\t\t\t\tPassword: pulumi.String(\"0000000000000000000000000000000000000000\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n* [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops\u0026tabs=yaml)\n* [Artifactory User Token](https://docs.artifactory.org/latest/user-guide/user-token/)\n\n\n## Import\n\nAzure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n ",
+            "properties": {
+                "authenticationBasic": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointArtifactoryAuthenticationBasic:ServiceEndpointArtifactoryAuthenticationBasic"
+                },
+                "authenticationToken": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointArtifactoryAuthenticationToken:ServiceEndpointArtifactoryAuthenticationToken"
+                },
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The Service Endpoint description.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the Artifactory server to connect with.\n"
+                }
+            },
+            "required": [
+                "authorization",
+                "projectId",
+                "serviceEndpointName",
+                "url"
+            ],
+            "inputProperties": {
+                "authenticationBasic": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointArtifactoryAuthenticationBasic:ServiceEndpointArtifactoryAuthenticationBasic"
+                },
+                "authenticationToken": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointArtifactoryAuthenticationToken:ServiceEndpointArtifactoryAuthenticationToken"
+                },
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The Service Endpoint description.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the Artifactory server to connect with.\n"
+                }
+            },
+            "requiredInputs": [
+                "projectId",
+                "serviceEndpointName",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceEndpointArtifactory resources.\n",
+                "properties": {
+                    "authenticationBasic": {
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointArtifactoryAuthenticationBasic:ServiceEndpointArtifactoryAuthenticationBasic"
+                    },
+                    "authenticationToken": {
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointArtifactoryAuthenticationToken:ServiceEndpointArtifactoryAuthenticationToken"
+                    },
+                    "authorization": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The Service Endpoint description.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The project ID or project name.\n"
+                    },
+                    "serviceEndpointName": {
+                        "type": "string",
+                        "description": "The Service Endpoint name.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the Artifactory server to connect with.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "azuredevops:index/serviceEndpointAws:ServiceEndpointAws": {
             "description": "Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst serviceendpoint = new azuredevops.ServiceEndpointAws(\"serviceendpoint\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample AWS\",\n    description: \"Managed by AzureDevOps\",\n    accessKeyId: \"00000000-0000-0000-0000-000000000000\",\n    secretAccessKey: \"accesskey\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nserviceendpoint = azuredevops.ServiceEndpointAws(\"serviceendpoint\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample AWS\",\n    description=\"Managed by AzureDevOps\",\n    access_key_id=\"00000000-0000-0000-0000-000000000000\",\n    secret_access_key=\"accesskey\")\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var serviceendpoint = new AzureDevOps.ServiceEndpointAws(\"serviceendpoint\", new AzureDevOps.ServiceEndpointAwsArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample AWS\",\n            Description = \"Managed by AzureDevOps\",\n            AccessKeyId = \"00000000-0000-0000-0000-000000000000\",\n            SecretAccessKey = \"accesskey\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointAws(ctx, \"serviceendpoint\", \u0026azuredevops.ServiceEndpointAwsArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample AWS\"),\n\t\t\tDescription:         pulumi.String(\"Managed by AzureDevOps\"),\n\t\t\tAccessKeyId:         pulumi.String(\"00000000-0000-0000-0000-000000000000\"),\n\t\t\tSecretAccessKey:     pulumi.String(\"accesskey\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n* [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)\n* [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n ",
             "properties": {
@@ -7773,6 +8055,119 @@
                     "serviceEndpointName": {
                         "type": "string",
                         "description": "The Service Endpoint name.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube": {
+            "description": "Manages a SonarQube service endpoint within Azure DevOps. \n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst serviceendpoint = new azuredevops.ServiceEndpointSonarQube(\"serviceendpoint\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample SonarQube\",\n    url: \"https://sonarqube.my.com\",\n    token: \"0000000000000000000000000000000000000000\",\n    description: \"Managed by Terraform\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nserviceendpoint = azuredevops.ServiceEndpointSonarQube(\"serviceendpoint\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample SonarQube\",\n    url=\"https://sonarqube.my.com\",\n    token=\"0000000000000000000000000000000000000000\",\n    description=\"Managed by Terraform\")\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var serviceendpoint = new AzureDevOps.ServiceEndpointSonarQube(\"serviceendpoint\", new AzureDevOps.ServiceEndpointSonarQubeArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample SonarQube\",\n            Url = \"https://sonarqube.my.com\",\n            Token = \"0000000000000000000000000000000000000000\",\n            Description = \"Managed by Terraform\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/\"\n\t\"github.com/pulumi/pulumi/sdk/v2/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointSonarQube(ctx, \"serviceendpoint\", \u0026azuredevops.ServiceEndpointSonarQubeArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample SonarQube\"),\n\t\t\tUrl:                 pulumi.String(\"https://sonarqube.my.com\"),\n\t\t\tToken:               pulumi.String(\"0000000000000000000000000000000000000000\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n* [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops\u0026tabs=yaml)\n* [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)\n\n\n## Import\n\nAzure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n ",
+            "properties": {
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The Service Endpoint description.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "Authentication Token generated through SonarQube (go to My Account \u003e Security \u003e Generate Tokens).\n"
+                },
+                "tokenHash": {
+                    "type": "string",
+                    "description": "A bcrypted hash of the attribute 'token'\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the SonarQube server to connect with.\n"
+                }
+            },
+            "required": [
+                "authorization",
+                "projectId",
+                "serviceEndpointName",
+                "token",
+                "tokenHash",
+                "url"
+            ],
+            "inputProperties": {
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The Service Endpoint description.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "token": {
+                    "type": "string",
+                    "description": "Authentication Token generated through SonarQube (go to My Account \u003e Security \u003e Generate Tokens).\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the SonarQube server to connect with.\n"
+                }
+            },
+            "requiredInputs": [
+                "projectId",
+                "serviceEndpointName",
+                "token",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceEndpointSonarQube resources.\n",
+                "properties": {
+                    "authorization": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The Service Endpoint description.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The project ID or project name.\n"
+                    },
+                    "serviceEndpointName": {
+                        "type": "string",
+                        "description": "The Service Endpoint name.\n"
+                    },
+                    "token": {
+                        "type": "string",
+                        "description": "Authentication Token generated through SonarQube (go to My Account \u003e Security \u003e Generate Tokens).\n"
+                    },
+                    "tokenHash": {
+                        "type": "string",
+                        "description": "A bcrypted hash of the attribute 'token'\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the SonarQube server to connect with.\n"
                     }
                 },
                 "type": "object"

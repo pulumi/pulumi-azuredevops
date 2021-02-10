@@ -156,26 +156,39 @@ class BranchPolicyBuildValidationSettingsScope(dict):
 @pulumi.output_type
 class BranchPolicyMinReviewersSettings(dict):
     def __init__(__self__, *,
-                 reviewer_count: int,
                  scopes: Sequence['outputs.BranchPolicyMinReviewersSettingsScope'],
+                 allow_completion_with_rejects_or_waits: Optional[bool] = None,
+                 last_pusher_cannot_approve: Optional[bool] = None,
+                 on_last_iteration_require_vote: Optional[bool] = None,
+                 on_push_reset_all_votes: Optional[bool] = None,
+                 on_push_reset_approved_votes: Optional[bool] = None,
+                 reviewer_count: Optional[int] = None,
                  submitter_can_vote: Optional[bool] = None):
         """
-        :param int reviewer_count: The number of reviewrs needed to approve.
         :param Sequence['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        :param bool submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
+        :param bool allow_completion_with_rejects_or_waits: Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+        :param bool last_pusher_cannot_approve: Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        :param bool on_last_iteration_require_vote: On last iteration require vote. Defaults to `false`.
+        :param bool on_push_reset_all_votes: When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        :param bool on_push_reset_approved_votes: When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        :param int reviewer_count: The number of reviewers needed to approve.
+        :param bool submitter_can_vote: Allow requesters to approve their own changes. Defaults to `false`.
         """
-        pulumi.set(__self__, "reviewer_count", reviewer_count)
         pulumi.set(__self__, "scopes", scopes)
+        if allow_completion_with_rejects_or_waits is not None:
+            pulumi.set(__self__, "allow_completion_with_rejects_or_waits", allow_completion_with_rejects_or_waits)
+        if last_pusher_cannot_approve is not None:
+            pulumi.set(__self__, "last_pusher_cannot_approve", last_pusher_cannot_approve)
+        if on_last_iteration_require_vote is not None:
+            pulumi.set(__self__, "on_last_iteration_require_vote", on_last_iteration_require_vote)
+        if on_push_reset_all_votes is not None:
+            pulumi.set(__self__, "on_push_reset_all_votes", on_push_reset_all_votes)
+        if on_push_reset_approved_votes is not None:
+            pulumi.set(__self__, "on_push_reset_approved_votes", on_push_reset_approved_votes)
+        if reviewer_count is not None:
+            pulumi.set(__self__, "reviewer_count", reviewer_count)
         if submitter_can_vote is not None:
             pulumi.set(__self__, "submitter_can_vote", submitter_can_vote)
-
-    @property
-    @pulumi.getter(name="reviewerCount")
-    def reviewer_count(self) -> int:
-        """
-        The number of reviewrs needed to approve.
-        """
-        return pulumi.get(self, "reviewer_count")
 
     @property
     @pulumi.getter
@@ -186,10 +199,58 @@ class BranchPolicyMinReviewersSettings(dict):
         return pulumi.get(self, "scopes")
 
     @property
+    @pulumi.getter(name="allowCompletionWithRejectsOrWaits")
+    def allow_completion_with_rejects_or_waits(self) -> Optional[bool]:
+        """
+        Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_completion_with_rejects_or_waits")
+
+    @property
+    @pulumi.getter(name="lastPusherCannotApprove")
+    def last_pusher_cannot_approve(self) -> Optional[bool]:
+        """
+        Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        """
+        return pulumi.get(self, "last_pusher_cannot_approve")
+
+    @property
+    @pulumi.getter(name="onLastIterationRequireVote")
+    def on_last_iteration_require_vote(self) -> Optional[bool]:
+        """
+        On last iteration require vote. Defaults to `false`.
+        """
+        return pulumi.get(self, "on_last_iteration_require_vote")
+
+    @property
+    @pulumi.getter(name="onPushResetAllVotes")
+    def on_push_reset_all_votes(self) -> Optional[bool]:
+        """
+        When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        """
+        return pulumi.get(self, "on_push_reset_all_votes")
+
+    @property
+    @pulumi.getter(name="onPushResetApprovedVotes")
+    def on_push_reset_approved_votes(self) -> Optional[bool]:
+        """
+        When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        """
+        return pulumi.get(self, "on_push_reset_approved_votes")
+
+    @property
+    @pulumi.getter(name="reviewerCount")
+    def reviewer_count(self) -> Optional[int]:
+        """
+        The number of reviewers needed to approve.
+        """
+        return pulumi.get(self, "reviewer_count")
+
+    @property
     @pulumi.getter(name="submitterCanVote")
     def submitter_can_vote(self) -> Optional[bool]:
         """
-        Controls whether or not the submitter's vote counts. Defaults to `false`.
+        Allow requesters to approve their own changes. Defaults to `false`.
         """
         return pulumi.get(self, "submitter_can_vote")
 

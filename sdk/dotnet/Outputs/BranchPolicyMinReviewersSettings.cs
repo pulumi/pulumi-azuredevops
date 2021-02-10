@@ -14,26 +14,61 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BranchPolicyMinReviewersSettings
     {
         /// <summary>
-        /// The number of reviewrs needed to approve.
+        /// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
         /// </summary>
-        public readonly int ReviewerCount;
+        public readonly bool? AllowCompletionWithRejectsOrWaits;
+        /// <summary>
+        /// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        /// </summary>
+        public readonly bool? LastPusherCannotApprove;
+        /// <summary>
+        /// On last iteration require vote. Defaults to `false`.
+        /// </summary>
+        public readonly bool? OnLastIterationRequireVote;
+        /// <summary>
+        /// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        /// </summary>
+        public readonly bool? OnPushResetAllVotes;
+        /// <summary>
+        /// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        /// </summary>
+        public readonly bool? OnPushResetApprovedVotes;
+        /// <summary>
+        /// The number of reviewers needed to approve.
+        /// </summary>
+        public readonly int? ReviewerCount;
         /// <summary>
         /// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public readonly ImmutableArray<Outputs.BranchPolicyMinReviewersSettingsScope> Scopes;
         /// <summary>
-        /// Controls whether or not the submitter's vote counts. Defaults to `false`.
+        /// Allow requesters to approve their own changes. Defaults to `false`.
         /// </summary>
         public readonly bool? SubmitterCanVote;
 
         [OutputConstructor]
         private BranchPolicyMinReviewersSettings(
-            int reviewerCount,
+            bool? allowCompletionWithRejectsOrWaits,
+
+            bool? lastPusherCannotApprove,
+
+            bool? onLastIterationRequireVote,
+
+            bool? onPushResetAllVotes,
+
+            bool? onPushResetApprovedVotes,
+
+            int? reviewerCount,
 
             ImmutableArray<Outputs.BranchPolicyMinReviewersSettingsScope> scopes,
 
             bool? submitterCanVote)
         {
+            AllowCompletionWithRejectsOrWaits = allowCompletionWithRejectsOrWaits;
+            LastPusherCannotApprove = lastPusherCannotApprove;
+            OnLastIterationRequireVote = onLastIterationRequireVote;
+            OnPushResetAllVotes = onPushResetAllVotes;
+            OnPushResetApprovedVotes = onPushResetApprovedVotes;
             ReviewerCount = reviewerCount;
             Scopes = scopes;
             SubmitterCanVote = submitterCanVote;

@@ -32,6 +32,8 @@ __all__ = [
     'BuildDefinitionRepository',
     'BuildDefinitionVariable',
     'GitInitialization',
+    'ServiceEndpointArtifactoryAuthenticationBasic',
+    'ServiceEndpointArtifactoryAuthenticationToken',
     'ServiceEndpointAzureRMCredentials',
     'ServiceEndpointGitHubAuthOauth',
     'ServiceEndpointGitHubAuthPersonal',
@@ -370,26 +372,39 @@ class BranchPolicyCommentResolutionSettingsScope(dict):
 @pulumi.output_type
 class BranchPolicyMinReviewersSettings(dict):
     def __init__(__self__, *,
-                 reviewer_count: int,
                  scopes: Sequence['outputs.BranchPolicyMinReviewersSettingsScope'],
+                 allow_completion_with_rejects_or_waits: Optional[bool] = None,
+                 last_pusher_cannot_approve: Optional[bool] = None,
+                 on_last_iteration_require_vote: Optional[bool] = None,
+                 on_push_reset_all_votes: Optional[bool] = None,
+                 on_push_reset_approved_votes: Optional[bool] = None,
+                 reviewer_count: Optional[int] = None,
                  submitter_can_vote: Optional[bool] = None):
         """
-        :param int reviewer_count: The number of reviewrs needed to approve.
         :param Sequence['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        :param bool submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
+        :param bool allow_completion_with_rejects_or_waits: Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+        :param bool last_pusher_cannot_approve: Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        :param bool on_last_iteration_require_vote: On last iteration require vote. Defaults to `false`.
+        :param bool on_push_reset_all_votes: When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        :param bool on_push_reset_approved_votes: When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        :param int reviewer_count: The number of reviewers needed to approve.
+        :param bool submitter_can_vote: Allow requesters to approve their own changes. Defaults to `false`.
         """
-        pulumi.set(__self__, "reviewer_count", reviewer_count)
         pulumi.set(__self__, "scopes", scopes)
+        if allow_completion_with_rejects_or_waits is not None:
+            pulumi.set(__self__, "allow_completion_with_rejects_or_waits", allow_completion_with_rejects_or_waits)
+        if last_pusher_cannot_approve is not None:
+            pulumi.set(__self__, "last_pusher_cannot_approve", last_pusher_cannot_approve)
+        if on_last_iteration_require_vote is not None:
+            pulumi.set(__self__, "on_last_iteration_require_vote", on_last_iteration_require_vote)
+        if on_push_reset_all_votes is not None:
+            pulumi.set(__self__, "on_push_reset_all_votes", on_push_reset_all_votes)
+        if on_push_reset_approved_votes is not None:
+            pulumi.set(__self__, "on_push_reset_approved_votes", on_push_reset_approved_votes)
+        if reviewer_count is not None:
+            pulumi.set(__self__, "reviewer_count", reviewer_count)
         if submitter_can_vote is not None:
             pulumi.set(__self__, "submitter_can_vote", submitter_can_vote)
-
-    @property
-    @pulumi.getter(name="reviewerCount")
-    def reviewer_count(self) -> int:
-        """
-        The number of reviewrs needed to approve.
-        """
-        return pulumi.get(self, "reviewer_count")
 
     @property
     @pulumi.getter
@@ -400,10 +415,58 @@ class BranchPolicyMinReviewersSettings(dict):
         return pulumi.get(self, "scopes")
 
     @property
+    @pulumi.getter(name="allowCompletionWithRejectsOrWaits")
+    def allow_completion_with_rejects_or_waits(self) -> Optional[bool]:
+        """
+        Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_completion_with_rejects_or_waits")
+
+    @property
+    @pulumi.getter(name="lastPusherCannotApprove")
+    def last_pusher_cannot_approve(self) -> Optional[bool]:
+        """
+        Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        """
+        return pulumi.get(self, "last_pusher_cannot_approve")
+
+    @property
+    @pulumi.getter(name="onLastIterationRequireVote")
+    def on_last_iteration_require_vote(self) -> Optional[bool]:
+        """
+        On last iteration require vote. Defaults to `false`.
+        """
+        return pulumi.get(self, "on_last_iteration_require_vote")
+
+    @property
+    @pulumi.getter(name="onPushResetAllVotes")
+    def on_push_reset_all_votes(self) -> Optional[bool]:
+        """
+        When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        """
+        return pulumi.get(self, "on_push_reset_all_votes")
+
+    @property
+    @pulumi.getter(name="onPushResetApprovedVotes")
+    def on_push_reset_approved_votes(self) -> Optional[bool]:
+        """
+        When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        """
+        return pulumi.get(self, "on_push_reset_approved_votes")
+
+    @property
+    @pulumi.getter(name="reviewerCount")
+    def reviewer_count(self) -> Optional[int]:
+        """
+        The number of reviewers needed to approve.
+        """
+        return pulumi.get(self, "reviewer_count")
+
+    @property
     @pulumi.getter(name="submitterCanVote")
     def submitter_can_vote(self) -> Optional[bool]:
         """
-        Controls whether or not the submitter's vote counts. Defaults to `false`.
+        Allow requesters to approve their own changes. Defaults to `false`.
         """
         return pulumi.get(self, "submitter_can_vote")
 
@@ -927,7 +990,7 @@ class BuildDefinitionRepository(dict):
                  service_connection_id: Optional[str] = None):
         """
         :param str repo_id: The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-        :param str repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        :param str repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         :param str yml_path: The path of the Yaml file describing the build definition.
         :param str branch_name: The branch name for which builds are triggered. Defaults to `master`.
         :param str github_enterprise_url: The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
@@ -958,7 +1021,7 @@ class BuildDefinitionRepository(dict):
     @pulumi.getter(name="repoType")
     def repo_type(self) -> str:
         """
-        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         """
         return pulumi.get(self, "repo_type")
 
@@ -1115,6 +1178,85 @@ class GitInitialization(dict):
         The URL of the source repository. Used if the `init_type` is `Import`.
         """
         return pulumi.get(self, "source_url")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEndpointArtifactoryAuthenticationBasic(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str,
+                 password_hash: Optional[str] = None,
+                 username_hash: Optional[str] = None):
+        """
+        :param str password: Artifactory Password.
+        :param str username: Artifactory Username.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+        if password_hash is not None:
+            pulumi.set(__self__, "password_hash", password_hash)
+        if username_hash is not None:
+            pulumi.set(__self__, "username_hash", username_hash)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Artifactory Password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Artifactory Username.
+        """
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> Optional[str]:
+        return pulumi.get(self, "password_hash")
+
+    @property
+    @pulumi.getter(name="usernameHash")
+    def username_hash(self) -> Optional[str]:
+        return pulumi.get(self, "username_hash")
+
+    def _translate_property(self, prop):
+        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
+
+
+@pulumi.output_type
+class ServiceEndpointArtifactoryAuthenticationToken(dict):
+    def __init__(__self__, *,
+                 token: str,
+                 token_hash: Optional[str] = None):
+        """
+        :param str token: Authentication Token generated through Artifactory.
+               * `authentication_basic`
+        """
+        pulumi.set(__self__, "token", token)
+        if token_hash is not None:
+            pulumi.set(__self__, "token_hash", token_hash)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        Authentication Token generated through Artifactory.
+        * `authentication_basic`
+        """
+        return pulumi.get(self, "token")
+
+    @property
+    @pulumi.getter(name="tokenHash")
+    def token_hash(self) -> Optional[str]:
+        return pulumi.get(self, "token_hash")
 
     def _translate_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

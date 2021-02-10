@@ -37,6 +37,7 @@ export * from "./projectPermissions";
 export * from "./provider";
 export * from "./queue";
 export * from "./resourceAuthorization";
+export * from "./serviceEndpointArtifactory";
 export * from "./serviceEndpointAws";
 export * from "./serviceEndpointAzureEcr";
 export * from "./serviceEndpointAzureRM";
@@ -45,6 +46,7 @@ export * from "./serviceEndpointDockerRegistry";
 export * from "./serviceEndpointGitHub";
 export * from "./serviceEndpointKubernetes";
 export * from "./serviceEndpointPipeline";
+export * from "./serviceEndpointSonarQube";
 export * from "./user";
 export * from "./variableGroup";
 export * from "./workItemQueryPermissions";
@@ -98,6 +100,7 @@ import { ProjectFeatures } from "./projectFeatures";
 import { ProjectPermissions } from "./projectPermissions";
 import { Queue } from "./queue";
 import { ResourceAuthorization } from "./resourceAuthorization";
+import { ServiceEndpointArtifactory } from "./serviceEndpointArtifactory";
 import { ServiceEndpointAws } from "./serviceEndpointAws";
 import { ServiceEndpointAzureEcr } from "./serviceEndpointAzureEcr";
 import { ServiceEndpointAzureRM } from "./serviceEndpointAzureRM";
@@ -106,6 +109,7 @@ import { ServiceEndpointDockerRegistry } from "./serviceEndpointDockerRegistry";
 import { ServiceEndpointGitHub } from "./serviceEndpointGitHub";
 import { ServiceEndpointKubernetes } from "./serviceEndpointKubernetes";
 import { ServiceEndpointPipeline } from "./serviceEndpointPipeline";
+import { ServiceEndpointSonarQube } from "./serviceEndpointSonarQube";
 import { User } from "./user";
 import { VariableGroup } from "./variableGroup";
 import { WorkItemQueryPermissions } from "./workItemQueryPermissions";
@@ -152,6 +156,8 @@ const _module = {
                 return new Queue(name, <any>undefined, { urn })
             case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
                 return new ResourceAuthorization(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
+                return new ServiceEndpointArtifactory(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
                 return new ServiceEndpointAws(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr":
@@ -168,6 +174,8 @@ const _module = {
                 return new ServiceEndpointKubernetes(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
                 return new ServiceEndpointPipeline(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
+                return new ServiceEndpointSonarQube(name, <any>undefined, { urn })
             case "azuredevops:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "azuredevops:index/variableGroup:VariableGroup":
@@ -198,6 +206,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/projectFeatures", _m
 pulumi.runtime.registerResourceModule("azuredevops", "index/projectPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/queue", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/resourceAuthorization", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointArtifactory", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAws", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAzureEcr", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAzureRM", _module)
@@ -206,6 +215,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointDocke
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitHub", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointKubernetes", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointPipeline", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroup", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)
