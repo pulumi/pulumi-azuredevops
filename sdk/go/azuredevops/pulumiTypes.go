@@ -943,11 +943,21 @@ func (o BranchPolicyCommentResolutionSettingsScopeArrayOutput) Index(i pulumi.In
 }
 
 type BranchPolicyMinReviewersSettings struct {
-	// The number of reviewrs needed to approve.
-	ReviewerCount int `pulumi:"reviewerCount"`
+	// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+	AllowCompletionWithRejectsOrWaits *bool `pulumi:"allowCompletionWithRejectsOrWaits"`
+	// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+	LastPusherCannotApprove *bool `pulumi:"lastPusherCannotApprove"`
+	// On last iteration require vote. Defaults to `false`.
+	OnLastIterationRequireVote *bool `pulumi:"onLastIterationRequireVote"`
+	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+	OnPushResetAllVotes *bool `pulumi:"onPushResetAllVotes"`
+	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+	OnPushResetApprovedVotes *bool `pulumi:"onPushResetApprovedVotes"`
+	// The number of reviewers needed to approve.
+	ReviewerCount *int `pulumi:"reviewerCount"`
 	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyMinReviewersSettingsScope `pulumi:"scopes"`
-	// Controls whether or not the submitter's vote counts. Defaults to `false`.
+	// Allow requesters to approve their own changes. Defaults to `false`.
 	SubmitterCanVote *bool `pulumi:"submitterCanVote"`
 }
 
@@ -963,11 +973,21 @@ type BranchPolicyMinReviewersSettingsInput interface {
 }
 
 type BranchPolicyMinReviewersSettingsArgs struct {
-	// The number of reviewrs needed to approve.
-	ReviewerCount pulumi.IntInput `pulumi:"reviewerCount"`
+	// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+	AllowCompletionWithRejectsOrWaits pulumi.BoolPtrInput `pulumi:"allowCompletionWithRejectsOrWaits"`
+	// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+	LastPusherCannotApprove pulumi.BoolPtrInput `pulumi:"lastPusherCannotApprove"`
+	// On last iteration require vote. Defaults to `false`.
+	OnLastIterationRequireVote pulumi.BoolPtrInput `pulumi:"onLastIterationRequireVote"`
+	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+	OnPushResetAllVotes pulumi.BoolPtrInput `pulumi:"onPushResetAllVotes"`
+	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+	OnPushResetApprovedVotes pulumi.BoolPtrInput `pulumi:"onPushResetApprovedVotes"`
+	// The number of reviewers needed to approve.
+	ReviewerCount pulumi.IntPtrInput `pulumi:"reviewerCount"`
 	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyMinReviewersSettingsScopeArrayInput `pulumi:"scopes"`
-	// Controls whether or not the submitter's vote counts. Defaults to `false`.
+	// Allow requesters to approve their own changes. Defaults to `false`.
 	SubmitterCanVote pulumi.BoolPtrInput `pulumi:"submitterCanVote"`
 }
 
@@ -1048,9 +1068,34 @@ func (o BranchPolicyMinReviewersSettingsOutput) ToBranchPolicyMinReviewersSettin
 	}).(BranchPolicyMinReviewersSettingsPtrOutput)
 }
 
-// The number of reviewrs needed to approve.
-func (o BranchPolicyMinReviewersSettingsOutput) ReviewerCount() pulumi.IntOutput {
-	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) int { return v.ReviewerCount }).(pulumi.IntOutput)
+// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) AllowCompletionWithRejectsOrWaits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.AllowCompletionWithRejectsOrWaits }).(pulumi.BoolPtrOutput)
+}
+
+// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) LastPusherCannotApprove() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.LastPusherCannotApprove }).(pulumi.BoolPtrOutput)
+}
+
+// On last iteration require vote. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) OnLastIterationRequireVote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnLastIterationRequireVote }).(pulumi.BoolPtrOutput)
+}
+
+// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnPushResetAllVotes }).(pulumi.BoolPtrOutput)
+}
+
+// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) OnPushResetApprovedVotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnPushResetApprovedVotes }).(pulumi.BoolPtrOutput)
+}
+
+// The number of reviewers needed to approve.
+func (o BranchPolicyMinReviewersSettingsOutput) ReviewerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *int { return v.ReviewerCount }).(pulumi.IntPtrOutput)
 }
 
 // Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
@@ -1058,7 +1103,7 @@ func (o BranchPolicyMinReviewersSettingsOutput) Scopes() BranchPolicyMinReviewer
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) []BranchPolicyMinReviewersSettingsScope { return v.Scopes }).(BranchPolicyMinReviewersSettingsScopeArrayOutput)
 }
 
-// Controls whether or not the submitter's vote counts. Defaults to `false`.
+// Allow requesters to approve their own changes. Defaults to `false`.
 func (o BranchPolicyMinReviewersSettingsOutput) SubmitterCanVote() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.SubmitterCanVote }).(pulumi.BoolPtrOutput)
 }
@@ -1081,13 +1126,63 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) Elem() BranchPolicyMinReviewe
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) BranchPolicyMinReviewersSettings { return *v }).(BranchPolicyMinReviewersSettingsOutput)
 }
 
-// The number of reviewrs needed to approve.
+// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) AllowCompletionWithRejectsOrWaits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCompletionWithRejectsOrWaits
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) LastPusherCannotApprove() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LastPusherCannotApprove
+	}).(pulumi.BoolPtrOutput)
+}
+
+// On last iteration require vote. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) OnLastIterationRequireVote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnLastIterationRequireVote
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnPushResetAllVotes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) OnPushResetApprovedVotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnPushResetApprovedVotes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of reviewers needed to approve.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) ReviewerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.ReviewerCount
+		return v.ReviewerCount
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -1101,7 +1196,7 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) Scopes() BranchPolicyMinRevie
 	}).(BranchPolicyMinReviewersSettingsScopeArrayOutput)
 }
 
-// Controls whether or not the submitter's vote counts. Defaults to `false`.
+// Allow requesters to approve their own changes. Defaults to `false`.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) SubmitterCanVote() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
 		if v == nil {
@@ -2810,7 +2905,7 @@ type BuildDefinitionRepository struct {
 	GithubEnterpriseUrl *string `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId string `pulumi:"repoId"`
-	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType string `pulumi:"repoType"`
 	// Report build status. Default is true.
 	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
@@ -2838,7 +2933,7 @@ type BuildDefinitionRepositoryArgs struct {
 	GithubEnterpriseUrl pulumi.StringPtrInput `pulumi:"githubEnterpriseUrl"`
 	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 	RepoId pulumi.StringInput `pulumi:"repoId"`
-	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 	RepoType pulumi.StringInput `pulumi:"repoType"`
 	// Report build status. Default is true.
 	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
@@ -2940,7 +3035,7 @@ func (o BuildDefinitionRepositoryOutput) RepoId() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoId }).(pulumi.StringOutput)
 }
 
-// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryOutput) RepoType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoType }).(pulumi.StringOutput)
 }
@@ -3008,7 +3103,7 @@ func (o BuildDefinitionRepositoryPtrOutput) RepoId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryPtrOutput) RepoType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -3347,6 +3442,340 @@ func (o GitInitializationPtrOutput) SourceUrl() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.SourceUrl
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointArtifactoryAuthenticationBasic struct {
+	// Artifactory Password.
+	Password     string  `pulumi:"password"`
+	PasswordHash *string `pulumi:"passwordHash"`
+	// Artifactory Username.
+	Username     string  `pulumi:"username"`
+	UsernameHash *string `pulumi:"usernameHash"`
+}
+
+// ServiceEndpointArtifactoryAuthenticationBasicInput is an input type that accepts ServiceEndpointArtifactoryAuthenticationBasicArgs and ServiceEndpointArtifactoryAuthenticationBasicOutput values.
+// You can construct a concrete instance of `ServiceEndpointArtifactoryAuthenticationBasicInput` via:
+//
+//          ServiceEndpointArtifactoryAuthenticationBasicArgs{...}
+type ServiceEndpointArtifactoryAuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToServiceEndpointArtifactoryAuthenticationBasicOutput() ServiceEndpointArtifactoryAuthenticationBasicOutput
+	ToServiceEndpointArtifactoryAuthenticationBasicOutputWithContext(context.Context) ServiceEndpointArtifactoryAuthenticationBasicOutput
+}
+
+type ServiceEndpointArtifactoryAuthenticationBasicArgs struct {
+	// Artifactory Password.
+	Password     pulumi.StringInput    `pulumi:"password"`
+	PasswordHash pulumi.StringPtrInput `pulumi:"passwordHash"`
+	// Artifactory Username.
+	Username     pulumi.StringInput    `pulumi:"username"`
+	UsernameHash pulumi.StringPtrInput `pulumi:"usernameHash"`
+}
+
+func (ServiceEndpointArtifactoryAuthenticationBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationBasic)(nil)).Elem()
+}
+
+func (i ServiceEndpointArtifactoryAuthenticationBasicArgs) ToServiceEndpointArtifactoryAuthenticationBasicOutput() ServiceEndpointArtifactoryAuthenticationBasicOutput {
+	return i.ToServiceEndpointArtifactoryAuthenticationBasicOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointArtifactoryAuthenticationBasicArgs) ToServiceEndpointArtifactoryAuthenticationBasicOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArtifactoryAuthenticationBasicOutput)
+}
+
+func (i ServiceEndpointArtifactoryAuthenticationBasicArgs) ToServiceEndpointArtifactoryAuthenticationBasicPtrOutput() ServiceEndpointArtifactoryAuthenticationBasicPtrOutput {
+	return i.ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointArtifactoryAuthenticationBasicArgs) ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArtifactoryAuthenticationBasicOutput).ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointArtifactoryAuthenticationBasicPtrInput is an input type that accepts ServiceEndpointArtifactoryAuthenticationBasicArgs, ServiceEndpointArtifactoryAuthenticationBasicPtr and ServiceEndpointArtifactoryAuthenticationBasicPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointArtifactoryAuthenticationBasicPtrInput` via:
+//
+//          ServiceEndpointArtifactoryAuthenticationBasicArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointArtifactoryAuthenticationBasicPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointArtifactoryAuthenticationBasicPtrOutput() ServiceEndpointArtifactoryAuthenticationBasicPtrOutput
+	ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(context.Context) ServiceEndpointArtifactoryAuthenticationBasicPtrOutput
+}
+
+type serviceEndpointArtifactoryAuthenticationBasicPtrType ServiceEndpointArtifactoryAuthenticationBasicArgs
+
+func ServiceEndpointArtifactoryAuthenticationBasicPtr(v *ServiceEndpointArtifactoryAuthenticationBasicArgs) ServiceEndpointArtifactoryAuthenticationBasicPtrInput {
+	return (*serviceEndpointArtifactoryAuthenticationBasicPtrType)(v)
+}
+
+func (*serviceEndpointArtifactoryAuthenticationBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointArtifactoryAuthenticationBasic)(nil)).Elem()
+}
+
+func (i *serviceEndpointArtifactoryAuthenticationBasicPtrType) ToServiceEndpointArtifactoryAuthenticationBasicPtrOutput() ServiceEndpointArtifactoryAuthenticationBasicPtrOutput {
+	return i.ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointArtifactoryAuthenticationBasicPtrType) ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput)
+}
+
+type ServiceEndpointArtifactoryAuthenticationBasicOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointArtifactoryAuthenticationBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) ToServiceEndpointArtifactoryAuthenticationBasicOutput() ServiceEndpointArtifactoryAuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) ToServiceEndpointArtifactoryAuthenticationBasicOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) ToServiceEndpointArtifactoryAuthenticationBasicPtrOutput() ServiceEndpointArtifactoryAuthenticationBasicPtrOutput {
+	return o.ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationBasicPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) *ServiceEndpointArtifactoryAuthenticationBasic {
+		return &v
+	}).(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput)
+}
+
+// Artifactory Password.
+func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) PasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) *string { return v.PasswordHash }).(pulumi.StringPtrOutput)
+}
+
+// Artifactory Username.
+func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) UsernameHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) *string { return v.UsernameHash }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointArtifactoryAuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointArtifactoryAuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) ToServiceEndpointArtifactoryAuthenticationBasicPtrOutput() ServiceEndpointArtifactoryAuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Elem() ServiceEndpointArtifactoryAuthenticationBasicOutput {
+	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) ServiceEndpointArtifactoryAuthenticationBasic {
+		return *v
+	}).(ServiceEndpointArtifactoryAuthenticationBasicOutput)
+}
+
+// Artifactory Password.
+func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) PasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// Artifactory Username.
+func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) UsernameHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameHash
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointArtifactoryAuthenticationToken struct {
+	// Authentication Token generated through Artifactory.
+	// * `authenticationBasic`
+	Token     string  `pulumi:"token"`
+	TokenHash *string `pulumi:"tokenHash"`
+}
+
+// ServiceEndpointArtifactoryAuthenticationTokenInput is an input type that accepts ServiceEndpointArtifactoryAuthenticationTokenArgs and ServiceEndpointArtifactoryAuthenticationTokenOutput values.
+// You can construct a concrete instance of `ServiceEndpointArtifactoryAuthenticationTokenInput` via:
+//
+//          ServiceEndpointArtifactoryAuthenticationTokenArgs{...}
+type ServiceEndpointArtifactoryAuthenticationTokenInput interface {
+	pulumi.Input
+
+	ToServiceEndpointArtifactoryAuthenticationTokenOutput() ServiceEndpointArtifactoryAuthenticationTokenOutput
+	ToServiceEndpointArtifactoryAuthenticationTokenOutputWithContext(context.Context) ServiceEndpointArtifactoryAuthenticationTokenOutput
+}
+
+type ServiceEndpointArtifactoryAuthenticationTokenArgs struct {
+	// Authentication Token generated through Artifactory.
+	// * `authenticationBasic`
+	Token     pulumi.StringInput    `pulumi:"token"`
+	TokenHash pulumi.StringPtrInput `pulumi:"tokenHash"`
+}
+
+func (ServiceEndpointArtifactoryAuthenticationTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationToken)(nil)).Elem()
+}
+
+func (i ServiceEndpointArtifactoryAuthenticationTokenArgs) ToServiceEndpointArtifactoryAuthenticationTokenOutput() ServiceEndpointArtifactoryAuthenticationTokenOutput {
+	return i.ToServiceEndpointArtifactoryAuthenticationTokenOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointArtifactoryAuthenticationTokenArgs) ToServiceEndpointArtifactoryAuthenticationTokenOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArtifactoryAuthenticationTokenOutput)
+}
+
+func (i ServiceEndpointArtifactoryAuthenticationTokenArgs) ToServiceEndpointArtifactoryAuthenticationTokenPtrOutput() ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
+	return i.ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointArtifactoryAuthenticationTokenArgs) ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArtifactoryAuthenticationTokenOutput).ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointArtifactoryAuthenticationTokenPtrInput is an input type that accepts ServiceEndpointArtifactoryAuthenticationTokenArgs, ServiceEndpointArtifactoryAuthenticationTokenPtr and ServiceEndpointArtifactoryAuthenticationTokenPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointArtifactoryAuthenticationTokenPtrInput` via:
+//
+//          ServiceEndpointArtifactoryAuthenticationTokenArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointArtifactoryAuthenticationTokenPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointArtifactoryAuthenticationTokenPtrOutput() ServiceEndpointArtifactoryAuthenticationTokenPtrOutput
+	ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(context.Context) ServiceEndpointArtifactoryAuthenticationTokenPtrOutput
+}
+
+type serviceEndpointArtifactoryAuthenticationTokenPtrType ServiceEndpointArtifactoryAuthenticationTokenArgs
+
+func ServiceEndpointArtifactoryAuthenticationTokenPtr(v *ServiceEndpointArtifactoryAuthenticationTokenArgs) ServiceEndpointArtifactoryAuthenticationTokenPtrInput {
+	return (*serviceEndpointArtifactoryAuthenticationTokenPtrType)(v)
+}
+
+func (*serviceEndpointArtifactoryAuthenticationTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointArtifactoryAuthenticationToken)(nil)).Elem()
+}
+
+func (i *serviceEndpointArtifactoryAuthenticationTokenPtrType) ToServiceEndpointArtifactoryAuthenticationTokenPtrOutput() ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
+	return i.ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointArtifactoryAuthenticationTokenPtrType) ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArtifactoryAuthenticationTokenPtrOutput)
+}
+
+type ServiceEndpointArtifactoryAuthenticationTokenOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointArtifactoryAuthenticationTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointArtifactoryAuthenticationTokenOutput() ServiceEndpointArtifactoryAuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointArtifactoryAuthenticationTokenOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointArtifactoryAuthenticationTokenPtrOutput() ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
+	return o.ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) *ServiceEndpointArtifactoryAuthenticationToken {
+		return &v
+	}).(ServiceEndpointArtifactoryAuthenticationTokenPtrOutput)
+}
+
+// Authentication Token generated through Artifactory.
+// * `authenticationBasic`
+func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) TokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) *string { return v.TokenHash }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointArtifactoryAuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointArtifactoryAuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) ToServiceEndpointArtifactoryAuthenticationTokenPtrOutput() ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Elem() ServiceEndpointArtifactoryAuthenticationTokenOutput {
+	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationToken) ServiceEndpointArtifactoryAuthenticationToken {
+		return *v
+	}).(ServiceEndpointArtifactoryAuthenticationTokenOutput)
+}
+
+// Authentication Token generated through Artifactory.
+// * `authenticationBasic`
+func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) TokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenHash
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5487,6 +5916,10 @@ func init() {
 	pulumi.RegisterOutputType(BuildDefinitionVariableArrayOutput{})
 	pulumi.RegisterOutputType(GitInitializationOutput{})
 	pulumi.RegisterOutputType(GitInitializationPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationBasicOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationTokenOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationTokenPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureRMCredentialsOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureRMCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthOauthOutput{})

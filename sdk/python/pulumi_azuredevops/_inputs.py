@@ -31,6 +31,8 @@ __all__ = [
     'BuildDefinitionRepositoryArgs',
     'BuildDefinitionVariableArgs',
     'GitInitializationArgs',
+    'ServiceEndpointArtifactoryAuthenticationBasicArgs',
+    'ServiceEndpointArtifactoryAuthenticationTokenArgs',
     'ServiceEndpointAzureRMCredentialsArgs',
     'ServiceEndpointGitHubAuthOauthArgs',
     'ServiceEndpointGitHubAuthPersonalArgs',
@@ -433,30 +435,39 @@ class BranchPolicyCommentResolutionSettingsScopeArgs:
 @pulumi.input_type
 class BranchPolicyMinReviewersSettingsArgs:
     def __init__(__self__, *,
-                 reviewer_count: pulumi.Input[int],
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]],
+                 allow_completion_with_rejects_or_waits: Optional[pulumi.Input[bool]] = None,
+                 last_pusher_cannot_approve: Optional[pulumi.Input[bool]] = None,
+                 on_last_iteration_require_vote: Optional[pulumi.Input[bool]] = None,
+                 on_push_reset_all_votes: Optional[pulumi.Input[bool]] = None,
+                 on_push_reset_approved_votes: Optional[pulumi.Input[bool]] = None,
+                 reviewer_count: Optional[pulumi.Input[int]] = None,
                  submitter_can_vote: Optional[pulumi.Input[bool]] = None):
         """
-        :param pulumi.Input[int] reviewer_count: The number of reviewrs needed to approve.
         :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyMinReviewersSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        :param pulumi.Input[bool] submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
+        :param pulumi.Input[bool] allow_completion_with_rejects_or_waits: Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+        :param pulumi.Input[bool] last_pusher_cannot_approve: Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        :param pulumi.Input[bool] on_last_iteration_require_vote: On last iteration require vote. Defaults to `false`.
+        :param pulumi.Input[bool] on_push_reset_all_votes: When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        :param pulumi.Input[bool] on_push_reset_approved_votes: When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        :param pulumi.Input[int] reviewer_count: The number of reviewers needed to approve.
+        :param pulumi.Input[bool] submitter_can_vote: Allow requesters to approve their own changes. Defaults to `false`.
         """
-        pulumi.set(__self__, "reviewer_count", reviewer_count)
         pulumi.set(__self__, "scopes", scopes)
+        if allow_completion_with_rejects_or_waits is not None:
+            pulumi.set(__self__, "allow_completion_with_rejects_or_waits", allow_completion_with_rejects_or_waits)
+        if last_pusher_cannot_approve is not None:
+            pulumi.set(__self__, "last_pusher_cannot_approve", last_pusher_cannot_approve)
+        if on_last_iteration_require_vote is not None:
+            pulumi.set(__self__, "on_last_iteration_require_vote", on_last_iteration_require_vote)
+        if on_push_reset_all_votes is not None:
+            pulumi.set(__self__, "on_push_reset_all_votes", on_push_reset_all_votes)
+        if on_push_reset_approved_votes is not None:
+            pulumi.set(__self__, "on_push_reset_approved_votes", on_push_reset_approved_votes)
+        if reviewer_count is not None:
+            pulumi.set(__self__, "reviewer_count", reviewer_count)
         if submitter_can_vote is not None:
             pulumi.set(__self__, "submitter_can_vote", submitter_can_vote)
-
-    @property
-    @pulumi.getter(name="reviewerCount")
-    def reviewer_count(self) -> pulumi.Input[int]:
-        """
-        The number of reviewrs needed to approve.
-        """
-        return pulumi.get(self, "reviewer_count")
-
-    @reviewer_count.setter
-    def reviewer_count(self, value: pulumi.Input[int]):
-        pulumi.set(self, "reviewer_count", value)
 
     @property
     @pulumi.getter
@@ -471,10 +482,82 @@ class BranchPolicyMinReviewersSettingsArgs:
         pulumi.set(self, "scopes", value)
 
     @property
+    @pulumi.getter(name="allowCompletionWithRejectsOrWaits")
+    def allow_completion_with_rejects_or_waits(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_completion_with_rejects_or_waits")
+
+    @allow_completion_with_rejects_or_waits.setter
+    def allow_completion_with_rejects_or_waits(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_completion_with_rejects_or_waits", value)
+
+    @property
+    @pulumi.getter(name="lastPusherCannotApprove")
+    def last_pusher_cannot_approve(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        """
+        return pulumi.get(self, "last_pusher_cannot_approve")
+
+    @last_pusher_cannot_approve.setter
+    def last_pusher_cannot_approve(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "last_pusher_cannot_approve", value)
+
+    @property
+    @pulumi.getter(name="onLastIterationRequireVote")
+    def on_last_iteration_require_vote(self) -> Optional[pulumi.Input[bool]]:
+        """
+        On last iteration require vote. Defaults to `false`.
+        """
+        return pulumi.get(self, "on_last_iteration_require_vote")
+
+    @on_last_iteration_require_vote.setter
+    def on_last_iteration_require_vote(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_last_iteration_require_vote", value)
+
+    @property
+    @pulumi.getter(name="onPushResetAllVotes")
+    def on_push_reset_all_votes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        """
+        return pulumi.get(self, "on_push_reset_all_votes")
+
+    @on_push_reset_all_votes.setter
+    def on_push_reset_all_votes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_push_reset_all_votes", value)
+
+    @property
+    @pulumi.getter(name="onPushResetApprovedVotes")
+    def on_push_reset_approved_votes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        """
+        return pulumi.get(self, "on_push_reset_approved_votes")
+
+    @on_push_reset_approved_votes.setter
+    def on_push_reset_approved_votes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "on_push_reset_approved_votes", value)
+
+    @property
+    @pulumi.getter(name="reviewerCount")
+    def reviewer_count(self) -> Optional[pulumi.Input[int]]:
+        """
+        The number of reviewers needed to approve.
+        """
+        return pulumi.get(self, "reviewer_count")
+
+    @reviewer_count.setter
+    def reviewer_count(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "reviewer_count", value)
+
+    @property
     @pulumi.getter(name="submitterCanVote")
     def submitter_can_vote(self) -> Optional[pulumi.Input[bool]]:
         """
-        Controls whether or not the submitter's vote counts. Defaults to `false`.
+        Allow requesters to approve their own changes. Defaults to `false`.
         """
         return pulumi.get(self, "submitter_can_vote")
 
@@ -1095,7 +1178,7 @@ class BuildDefinitionRepositoryArgs:
                  service_connection_id: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] repo_id: The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-        :param pulumi.Input[str] repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        :param pulumi.Input[str] repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         :param pulumi.Input[str] yml_path: The path of the Yaml file describing the build definition.
         :param pulumi.Input[str] branch_name: The branch name for which builds are triggered. Defaults to `master`.
         :param pulumi.Input[str] github_enterprise_url: The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
@@ -1130,7 +1213,7 @@ class BuildDefinitionRepositoryArgs:
     @pulumi.getter(name="repoType")
     def repo_type(self) -> pulumi.Input[str]:
         """
-        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         """
         return pulumi.get(self, "repo_type")
 
@@ -1337,6 +1420,103 @@ class GitInitializationArgs:
     @source_url.setter
     def source_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_url", value)
+
+
+@pulumi.input_type
+class ServiceEndpointArtifactoryAuthenticationBasicArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str],
+                 password_hash: Optional[pulumi.Input[str]] = None,
+                 username_hash: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] password: Artifactory Password.
+        :param pulumi.Input[str] username: Artifactory Username.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+        if password_hash is not None:
+            pulumi.set(__self__, "password_hash", password_hash)
+        if username_hash is not None:
+            pulumi.set(__self__, "username_hash", username_hash)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        Artifactory Password.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        Artifactory Username.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password_hash")
+
+    @password_hash.setter
+    def password_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_hash", value)
+
+    @property
+    @pulumi.getter(name="usernameHash")
+    def username_hash(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username_hash")
+
+    @username_hash.setter
+    def username_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_hash", value)
+
+
+@pulumi.input_type
+class ServiceEndpointArtifactoryAuthenticationTokenArgs:
+    def __init__(__self__, *,
+                 token: pulumi.Input[str],
+                 token_hash: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] token: Authentication Token generated through Artifactory.
+               * `authentication_basic`
+        """
+        pulumi.set(__self__, "token", token)
+        if token_hash is not None:
+            pulumi.set(__self__, "token_hash", token_hash)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[str]:
+        """
+        Authentication Token generated through Artifactory.
+        * `authentication_basic`
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="tokenHash")
+    def token_hash(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "token_hash")
+
+    @token_hash.setter
+    def token_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_hash", value)
 
 
 @pulumi.input_type

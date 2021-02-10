@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade to v0.1.2 of the AzureDevOps Terraform provider
 
 ---
 

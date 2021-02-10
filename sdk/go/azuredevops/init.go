@@ -58,6 +58,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewQueue(ctx, name, nil, pulumi.URN_(urn))
 	case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
 		r, err = NewResourceAuthorization(ctx, name, nil, pulumi.URN_(urn))
+	case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
+		r, err = NewServiceEndpointArtifactory(ctx, name, nil, pulumi.URN_(urn))
 	case "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
 		r, err = NewServiceEndpointAws(ctx, name, nil, pulumi.URN_(urn))
 	case "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr":
@@ -74,6 +76,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewServiceEndpointKubernetes(ctx, name, nil, pulumi.URN_(urn))
 	case "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
 		r, err = NewServiceEndpointPipeline(ctx, name, nil, pulumi.URN_(urn))
+	case "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
+		r, err = NewServiceEndpointSonarQube(ctx, name, nil, pulumi.URN_(urn))
 	case "azuredevops:index/user:User":
 		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
 	case "azuredevops:index/variableGroup:VariableGroup":
@@ -205,6 +209,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/serviceEndpointArtifactory",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/serviceEndpointAws",
 		&module{version},
 	)
@@ -241,6 +250,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceEndpointPipeline",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceEndpointSonarQube",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -31,7 +31,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string> RepoId { get; set; } = null!;
 
         /// <summary>
-        /// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        /// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
         /// </summary>
         [Input("repoType", required: true)]
         public Input<string> RepoType { get; set; } = null!;

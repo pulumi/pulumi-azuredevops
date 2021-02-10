@@ -13,10 +13,40 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BranchPolicyMinReviewersSettingsArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of reviewrs needed to approve.
+        /// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
         /// </summary>
-        [Input("reviewerCount", required: true)]
-        public Input<int> ReviewerCount { get; set; } = null!;
+        [Input("allowCompletionWithRejectsOrWaits")]
+        public Input<bool>? AllowCompletionWithRejectsOrWaits { get; set; }
+
+        /// <summary>
+        /// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+        /// </summary>
+        [Input("lastPusherCannotApprove")]
+        public Input<bool>? LastPusherCannotApprove { get; set; }
+
+        /// <summary>
+        /// On last iteration require vote. Defaults to `false`.
+        /// </summary>
+        [Input("onLastIterationRequireVote")]
+        public Input<bool>? OnLastIterationRequireVote { get; set; }
+
+        /// <summary>
+        /// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        /// </summary>
+        [Input("onPushResetAllVotes")]
+        public Input<bool>? OnPushResetAllVotes { get; set; }
+
+        /// <summary>
+        /// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+        /// </summary>
+        [Input("onPushResetApprovedVotes")]
+        public Input<bool>? OnPushResetApprovedVotes { get; set; }
+
+        /// <summary>
+        /// The number of reviewers needed to approve.
+        /// </summary>
+        [Input("reviewerCount")]
+        public Input<int>? ReviewerCount { get; set; }
 
         [Input("scopes", required: true)]
         private InputList<Inputs.BranchPolicyMinReviewersSettingsScopeArgs>? _scopes;
@@ -31,7 +61,7 @@ namespace Pulumi.AzureDevOps.Inputs
         }
 
         /// <summary>
-        /// Controls whether or not the submitter's vote counts. Defaults to `false`.
+        /// Allow requesters to approve their own changes. Defaults to `false`.
         /// </summary>
         [Input("submitterCanVote")]
         public Input<bool>? SubmitterCanVote { get; set; }

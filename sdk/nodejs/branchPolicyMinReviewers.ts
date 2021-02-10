@@ -6,7 +6,7 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Manages a minimum reviewer branch policy within Azure DevOps.
+ * Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
  *
  * ## Example Usage
  *
@@ -26,8 +26,12 @@ import * as utilities from "./utilities";
  *     enabled: true,
  *     blocking: true,
  *     settings: {
- *         reviewerCount: 2,
+ *         reviewerCount: 7,
  *         submitterCanVote: false,
+ *         lastPusherCannotApprove: true,
+ *         allowCompletionWithRejectsOrWaits: false,
+ *         onPushResetApprovedVotes: true,
+ *         onLastIterationRequireVote: false,
  *         scopes: [
  *             {
  *                 repositoryId: git.id,
@@ -35,7 +39,7 @@ import * as utilities from "./utilities";
  *                 matchType: "Exact",
  *             },
  *             {
- *                 repositoryId: git.id,
+ *                 repositoryId: undefined,
  *                 repositoryRef: "refs/heads/releases",
  *                 matchType: "Prefix",
  *             },

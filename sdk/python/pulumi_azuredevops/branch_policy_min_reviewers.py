@@ -25,7 +25,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
                  __name__=None,
                  __opts__=None):
         """
-        Manages a minimum reviewer branch policy within Azure DevOps.
+        Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
 
         ## Example Usage
 
@@ -44,8 +44,12 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(
-                reviewer_count=2,
+                reviewer_count=7,
                 submitter_can_vote=False,
+                last_pusher_cannot_approve=True,
+                allow_completion_with_rejects_or_waits=False,
+                on_push_reset_approved_votes=True,
+                on_last_iteration_require_vote=False,
                 scopes=[
                     azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
                         repository_id=git.id,
@@ -53,7 +57,7 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
                         match_type="Exact",
                     ),
                     azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
-                        repository_id=git.id,
+                        repository_id=None,
                         repository_ref="refs/heads/releases",
                         match_type="Prefix",
                     ),

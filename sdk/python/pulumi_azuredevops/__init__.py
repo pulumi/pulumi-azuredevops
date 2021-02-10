@@ -35,6 +35,7 @@ from .project_permissions import *
 from .provider import *
 from .queue import *
 from .resource_authorization import *
+from .service_endpoint_artifactory import *
 from .service_endpoint_aws import *
 from .service_endpoint_azure_ecr import *
 from .service_endpoint_azure_rm import *
@@ -43,6 +44,7 @@ from .service_endpoint_docker_registry import *
 from .service_endpoint_git_hub import *
 from .service_endpoint_kubernetes import *
 from .service_endpoint_pipeline import *
+from .service_endpoint_sonar_qube import *
 from .user import *
 from .variable_group import *
 from .work_item_query_permissions import *
@@ -114,6 +116,8 @@ def _register_module():
                 return Queue(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/resourceAuthorization:ResourceAuthorization":
                 return ResourceAuthorization(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
+                return ServiceEndpointArtifactory(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
                 return ServiceEndpointAws(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr":
@@ -130,6 +134,8 @@ def _register_module():
                 return ServiceEndpointKubernetes(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
                 return ServiceEndpointPipeline(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
+                return ServiceEndpointSonarQube(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/user:User":
                 return User(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/variableGroup:VariableGroup":
@@ -160,6 +166,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azuredevops", "index/projectPermissions", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/queue", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/resourceAuthorization", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointArtifactory", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAws", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAzureEcr", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAzureRM", _module_instance)
@@ -168,6 +175,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointGitHub", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointKubernetes", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointPipeline", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointSonarQube", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/user", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/variableGroup", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/workItemQueryPermissions", _module_instance)

@@ -373,11 +373,21 @@ func (o BranchPolicyBuildValidationSettingsScopeArrayOutput) Index(i pulumi.IntI
 }
 
 type BranchPolicyMinReviewersSettings struct {
-	// The number of reviewrs needed to approve.
-	ReviewerCount int `pulumi:"reviewerCount"`
+	// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+	AllowCompletionWithRejectsOrWaits *bool `pulumi:"allowCompletionWithRejectsOrWaits"`
+	// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+	LastPusherCannotApprove *bool `pulumi:"lastPusherCannotApprove"`
+	// On last iteration require vote. Defaults to `false`.
+	OnLastIterationRequireVote *bool `pulumi:"onLastIterationRequireVote"`
+	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+	OnPushResetAllVotes *bool `pulumi:"onPushResetAllVotes"`
+	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+	OnPushResetApprovedVotes *bool `pulumi:"onPushResetApprovedVotes"`
+	// The number of reviewers needed to approve.
+	ReviewerCount *int `pulumi:"reviewerCount"`
 	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyMinReviewersSettingsScope `pulumi:"scopes"`
-	// Controls whether or not the submitter's vote counts. Defaults to `false`.
+	// Allow requesters to approve their own changes. Defaults to `false`.
 	SubmitterCanVote *bool `pulumi:"submitterCanVote"`
 }
 
@@ -393,11 +403,21 @@ type BranchPolicyMinReviewersSettingsInput interface {
 }
 
 type BranchPolicyMinReviewersSettingsArgs struct {
-	// The number of reviewrs needed to approve.
-	ReviewerCount pulumi.IntInput `pulumi:"reviewerCount"`
+	// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+	AllowCompletionWithRejectsOrWaits pulumi.BoolPtrInput `pulumi:"allowCompletionWithRejectsOrWaits"`
+	// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+	LastPusherCannotApprove pulumi.BoolPtrInput `pulumi:"lastPusherCannotApprove"`
+	// On last iteration require vote. Defaults to `false`.
+	OnLastIterationRequireVote pulumi.BoolPtrInput `pulumi:"onLastIterationRequireVote"`
+	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+	OnPushResetAllVotes pulumi.BoolPtrInput `pulumi:"onPushResetAllVotes"`
+	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+	OnPushResetApprovedVotes pulumi.BoolPtrInput `pulumi:"onPushResetApprovedVotes"`
+	// The number of reviewers needed to approve.
+	ReviewerCount pulumi.IntPtrInput `pulumi:"reviewerCount"`
 	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyMinReviewersSettingsScopeArrayInput `pulumi:"scopes"`
-	// Controls whether or not the submitter's vote counts. Defaults to `false`.
+	// Allow requesters to approve their own changes. Defaults to `false`.
 	SubmitterCanVote pulumi.BoolPtrInput `pulumi:"submitterCanVote"`
 }
 
@@ -478,9 +498,34 @@ func (o BranchPolicyMinReviewersSettingsOutput) ToBranchPolicyMinReviewersSettin
 	}).(BranchPolicyMinReviewersSettingsPtrOutput)
 }
 
-// The number of reviewrs needed to approve.
-func (o BranchPolicyMinReviewersSettingsOutput) ReviewerCount() pulumi.IntOutput {
-	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) int { return v.ReviewerCount }).(pulumi.IntOutput)
+// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) AllowCompletionWithRejectsOrWaits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.AllowCompletionWithRejectsOrWaits }).(pulumi.BoolPtrOutput)
+}
+
+// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) LastPusherCannotApprove() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.LastPusherCannotApprove }).(pulumi.BoolPtrOutput)
+}
+
+// On last iteration require vote. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) OnLastIterationRequireVote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnLastIterationRequireVote }).(pulumi.BoolPtrOutput)
+}
+
+// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnPushResetAllVotes }).(pulumi.BoolPtrOutput)
+}
+
+// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsOutput) OnPushResetApprovedVotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnPushResetApprovedVotes }).(pulumi.BoolPtrOutput)
+}
+
+// The number of reviewers needed to approve.
+func (o BranchPolicyMinReviewersSettingsOutput) ReviewerCount() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *int { return v.ReviewerCount }).(pulumi.IntPtrOutput)
 }
 
 // Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
@@ -488,7 +533,7 @@ func (o BranchPolicyMinReviewersSettingsOutput) Scopes() BranchPolicyMinReviewer
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) []BranchPolicyMinReviewersSettingsScope { return v.Scopes }).(BranchPolicyMinReviewersSettingsScopeArrayOutput)
 }
 
-// Controls whether or not the submitter's vote counts. Defaults to `false`.
+// Allow requesters to approve their own changes. Defaults to `false`.
 func (o BranchPolicyMinReviewersSettingsOutput) SubmitterCanVote() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.SubmitterCanVote }).(pulumi.BoolPtrOutput)
 }
@@ -511,13 +556,63 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) Elem() BranchPolicyMinReviewe
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) BranchPolicyMinReviewersSettings { return *v }).(BranchPolicyMinReviewersSettingsOutput)
 }
 
-// The number of reviewrs needed to approve.
+// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) AllowCompletionWithRejectsOrWaits() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCompletionWithRejectsOrWaits
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) LastPusherCannotApprove() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.LastPusherCannotApprove
+	}).(pulumi.BoolPtrOutput)
+}
+
+// On last iteration require vote. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) OnLastIterationRequireVote() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnLastIterationRequireVote
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnPushResetAllVotes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+func (o BranchPolicyMinReviewersSettingsPtrOutput) OnPushResetApprovedVotes() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.OnPushResetApprovedVotes
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The number of reviewers needed to approve.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) ReviewerCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *int {
 		if v == nil {
 			return nil
 		}
-		return &v.ReviewerCount
+		return v.ReviewerCount
 	}).(pulumi.IntPtrOutput)
 }
 
@@ -531,7 +626,7 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) Scopes() BranchPolicyMinRevie
 	}).(BranchPolicyMinReviewersSettingsScopeArrayOutput)
 }
 
-// Controls whether or not the submitter's vote counts. Defaults to `false`.
+// Allow requesters to approve their own changes. Defaults to `false`.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) SubmitterCanVote() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
 		if v == nil {

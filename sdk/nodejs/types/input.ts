@@ -112,15 +112,35 @@ export interface BranchPolicyCommentResolutionSettingsScope {
 
 export interface BranchPolicyMinReviewersSettings {
     /**
-     * The number of reviewrs needed to approve.
+     * Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
      */
-    reviewerCount: pulumi.Input<number>;
+    allowCompletionWithRejectsOrWaits?: pulumi.Input<boolean>;
+    /**
+     * Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+     */
+    lastPusherCannotApprove?: pulumi.Input<boolean>;
+    /**
+     * On last iteration require vote. Defaults to `false`.
+     */
+    onLastIterationRequireVote?: pulumi.Input<boolean>;
+    /**
+     * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+     */
+    onPushResetAllVotes?: pulumi.Input<boolean>;
+    /**
+     * When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+     */
+    onPushResetApprovedVotes?: pulumi.Input<boolean>;
+    /**
+     * The number of reviewers needed to approve.
+     */
+    reviewerCount?: pulumi.Input<number>;
     /**
      * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyMinReviewersSettingsScope>[]>;
     /**
-     * Controls whether or not the submitter's vote counts. Defaults to `false`.
+     * Allow requesters to approve their own changes. Defaults to `false`.
      */
     submitterCanVote?: pulumi.Input<boolean>;
 }
@@ -301,7 +321,7 @@ export interface BuildDefinitionRepository {
      */
     repoId: pulumi.Input<string>;
     /**
-     * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
      */
     repoType: pulumi.Input<string>;
     /**
@@ -354,6 +374,28 @@ export interface GitInitialization {
      * The URL of the source repository. Used if the `initType` is `Import`.
      */
     sourceUrl?: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointArtifactoryAuthenticationBasic {
+    /**
+     * Artifactory Password.
+     */
+    password: pulumi.Input<string>;
+    passwordHash?: pulumi.Input<string>;
+    /**
+     * Artifactory Username.
+     */
+    username: pulumi.Input<string>;
+    usernameHash?: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointArtifactoryAuthenticationToken {
+    /**
+     * Authentication Token generated through Artifactory.
+     * * `authenticationBasic`
+     */
+    token: pulumi.Input<string>;
+    tokenHash?: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointAzureRMCredentials {
@@ -624,7 +666,7 @@ export namespace Build {
          */
         repoId: pulumi.Input<string>;
         /**
-         * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `Github`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+         * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
          */
         repoType: pulumi.Input<string>;
         /**
@@ -752,15 +794,35 @@ export namespace Policy {
 
     export interface BranchPolicyMinReviewersSettings {
         /**
-         * The number of reviewrs needed to approve.
+         * Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
          */
-        reviewerCount: pulumi.Input<number>;
+        allowCompletionWithRejectsOrWaits?: pulumi.Input<boolean>;
+        /**
+         * Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
+         */
+        lastPusherCannotApprove?: pulumi.Input<boolean>;
+        /**
+         * On last iteration require vote. Defaults to `false`.
+         */
+        onLastIterationRequireVote?: pulumi.Input<boolean>;
+        /**
+         * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+         */
+        onPushResetAllVotes?: pulumi.Input<boolean>;
+        /**
+         * When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
+         */
+        onPushResetApprovedVotes?: pulumi.Input<boolean>;
+        /**
+         * The number of reviewers needed to approve.
+         */
+        reviewerCount?: pulumi.Input<number>;
         /**
          * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
          */
         scopes: pulumi.Input<pulumi.Input<inputs.Policy.BranchPolicyMinReviewersSettingsScope>[]>;
         /**
-         * Controls whether or not the submitter's vote counts. Defaults to `false`.
+         * Allow requesters to approve their own changes. Defaults to `false`.
          */
         submitterCanVote?: pulumi.Input<boolean>;
     }

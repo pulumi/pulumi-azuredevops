@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 )
 
-// Manages a minimum reviewer branch policy within Azure DevOps.
+// Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
 //
 // ## Example Usage
 //
@@ -44,8 +44,12 @@ import (
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
 // 			Settings: &azuredevops.BranchPolicyMinReviewersSettingsArgs{
-// 				ReviewerCount:    pulumi.Int(2),
-// 				SubmitterCanVote: pulumi.Bool(false),
+// 				ReviewerCount:                     pulumi.Int(7),
+// 				SubmitterCanVote:                  pulumi.Bool(false),
+// 				LastPusherCannotApprove:           pulumi.Bool(true),
+// 				AllowCompletionWithRejectsOrWaits: pulumi.Bool(false),
+// 				OnPushResetApprovedVotes:          pulumi.Bool(true),
+// 				OnLastIterationRequireVote:        pulumi.Bool(false),
 // 				Scopes: azuredevops.BranchPolicyMinReviewersSettingsScopeArray{
 // 					&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
 // 						RepositoryId:  git.ID(),
@@ -53,7 +57,7 @@ import (
 // 						MatchType:     pulumi.String("Exact"),
 // 					},
 // 					&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
-// 						RepositoryId:  git.ID(),
+// 						RepositoryId:  nil,
 // 						RepositoryRef: pulumi.String("refs/heads/releases"),
 // 						MatchType:     pulumi.String("Prefix"),
 // 					},
