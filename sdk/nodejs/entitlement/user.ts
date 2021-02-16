@@ -98,7 +98,8 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("User is deprecated: azuredevops.entitlement.User has been deprecated in favor of azuredevops.User")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserState | undefined;
             inputs["accountLicenseType"] = state ? state.accountLicenseType : undefined;
             inputs["descriptor"] = state ? state.descriptor : undefined;
@@ -115,12 +116,8 @@ export class User extends pulumi.CustomResource {
             inputs["principalName"] = args ? args.principalName : undefined;
             inputs["descriptor"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(User.__pulumiType, name, inputs, opts);
     }

@@ -98,7 +98,8 @@ export class ServiceEndpointPipeline extends pulumi.CustomResource {
     constructor(name: string, args: ServiceEndpointPipelineArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointPipelineArgs | ServiceEndpointPipelineState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceEndpointPipelineState | undefined;
             inputs["authPersonal"] = state ? state.authPersonal : undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
@@ -108,16 +109,16 @@ export class ServiceEndpointPipeline extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointPipelineArgs | undefined;
-            if ((!args || args.authPersonal === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authPersonal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authPersonal'");
             }
-            if ((!args || args.organizationName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.organizationName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'organizationName'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["authPersonal"] = args ? args.authPersonal : undefined;
@@ -127,12 +128,8 @@ export class ServiceEndpointPipeline extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServiceEndpointPipeline.__pulumiType, name, inputs, opts);
     }

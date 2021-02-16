@@ -141,7 +141,8 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Group is deprecated: azuredevops.identities.Group has been deprecated in favor of azuredevops.Group")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["descriptor"] = state ? state.descriptor : undefined;
@@ -170,12 +171,8 @@ export class Group extends pulumi.CustomResource {
             inputs["subjectKind"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Group.__pulumiType, name, inputs, opts);
     }

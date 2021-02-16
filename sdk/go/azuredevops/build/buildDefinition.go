@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -242,6 +241,85 @@ func (i *BuildDefinition) ToBuildDefinitionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionOutput)
 }
 
+func (i *BuildDefinition) ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput {
+	return i.ToBuildDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *BuildDefinition) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPtrOutput)
+}
+
+type BuildDefinitionPtrInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput
+	ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput
+}
+
+type buildDefinitionPtrType BuildDefinitionArgs
+
+func (*buildDefinitionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildDefinition)(nil))
+}
+
+func (i *buildDefinitionPtrType) ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput {
+	return i.ToBuildDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (i *buildDefinitionPtrType) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPtrOutput)
+}
+
+// BuildDefinitionArrayInput is an input type that accepts BuildDefinitionArray and BuildDefinitionArrayOutput values.
+// You can construct a concrete instance of `BuildDefinitionArrayInput` via:
+//
+//          BuildDefinitionArray{ BuildDefinitionArgs{...} }
+type BuildDefinitionArrayInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionArrayOutput() BuildDefinitionArrayOutput
+	ToBuildDefinitionArrayOutputWithContext(context.Context) BuildDefinitionArrayOutput
+}
+
+type BuildDefinitionArray []BuildDefinitionInput
+
+func (BuildDefinitionArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BuildDefinition)(nil))
+}
+
+func (i BuildDefinitionArray) ToBuildDefinitionArrayOutput() BuildDefinitionArrayOutput {
+	return i.ToBuildDefinitionArrayOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionArray) ToBuildDefinitionArrayOutputWithContext(ctx context.Context) BuildDefinitionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionArrayOutput)
+}
+
+// BuildDefinitionMapInput is an input type that accepts BuildDefinitionMap and BuildDefinitionMapOutput values.
+// You can construct a concrete instance of `BuildDefinitionMapInput` via:
+//
+//          BuildDefinitionMap{ "key": BuildDefinitionArgs{...} }
+type BuildDefinitionMapInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionMapOutput() BuildDefinitionMapOutput
+	ToBuildDefinitionMapOutputWithContext(context.Context) BuildDefinitionMapOutput
+}
+
+type BuildDefinitionMap map[string]BuildDefinitionInput
+
+func (BuildDefinitionMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BuildDefinition)(nil))
+}
+
+func (i BuildDefinitionMap) ToBuildDefinitionMapOutput() BuildDefinitionMapOutput {
+	return i.ToBuildDefinitionMapOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionMap) ToBuildDefinitionMapOutputWithContext(ctx context.Context) BuildDefinitionMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionMapOutput)
+}
+
 type BuildDefinitionOutput struct {
 	*pulumi.OutputState
 }
@@ -258,6 +336,75 @@ func (o BuildDefinitionOutput) ToBuildDefinitionOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o BuildDefinitionOutput) ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput {
+	return o.ToBuildDefinitionPtrOutputWithContext(context.Background())
+}
+
+func (o BuildDefinitionOutput) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
+	return o.ApplyT(func(v BuildDefinition) *BuildDefinition {
+		return &v
+	}).(BuildDefinitionPtrOutput)
+}
+
+type BuildDefinitionPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BuildDefinitionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildDefinition)(nil))
+}
+
+func (o BuildDefinitionPtrOutput) ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput {
+	return o
+}
+
+func (o BuildDefinitionPtrOutput) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
+	return o
+}
+
+type BuildDefinitionArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinition)(nil))
+}
+
+func (o BuildDefinitionArrayOutput) ToBuildDefinitionArrayOutput() BuildDefinitionArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionArrayOutput) ToBuildDefinitionArrayOutputWithContext(ctx context.Context) BuildDefinitionArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionArrayOutput) Index(i pulumi.IntInput) BuildDefinitionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinition {
+		return vs[0].([]BuildDefinition)[vs[1].(int)]
+	}).(BuildDefinitionOutput)
+}
+
+type BuildDefinitionMapOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BuildDefinition)(nil))
+}
+
+func (o BuildDefinitionMapOutput) ToBuildDefinitionMapOutput() BuildDefinitionMapOutput {
+	return o
+}
+
+func (o BuildDefinitionMapOutput) ToBuildDefinitionMapOutputWithContext(ctx context.Context) BuildDefinitionMapOutput {
+	return o
+}
+
+func (o BuildDefinitionMapOutput) MapIndex(k pulumi.StringInput) BuildDefinitionOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BuildDefinition {
+		return vs[0].(map[string]BuildDefinition)[vs[1].(string)]
+	}).(BuildDefinitionOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BuildDefinitionOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionPtrOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionArrayOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionMapOutput{})
 }

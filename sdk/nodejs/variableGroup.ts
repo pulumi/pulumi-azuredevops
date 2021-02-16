@@ -117,7 +117,8 @@ export class VariableGroup extends pulumi.CustomResource {
     constructor(name: string, args: VariableGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VariableGroupArgs | VariableGroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as VariableGroupState | undefined;
             inputs["allowAccess"] = state ? state.allowAccess : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -127,10 +128,10 @@ export class VariableGroup extends pulumi.CustomResource {
             inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as VariableGroupArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.variables === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.variables === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'variables'");
             }
             inputs["allowAccess"] = args ? args.allowAccess : undefined;
@@ -140,15 +141,11 @@ export class VariableGroup extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["variables"] = args ? args.variables : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azuredevops:Pipeline/variableGroup:VariableGroup" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VariableGroup.__pulumiType, name, inputs, opts);
     }
 }

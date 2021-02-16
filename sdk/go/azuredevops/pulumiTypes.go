@@ -3237,7 +3237,7 @@ func (o BuildDefinitionVariableOutput) AllowOverride() pulumi.BoolPtrOutput {
 }
 
 // True if the variable is a secret. Defaults to `false`.
-func (o BuildDefinitionVariableOutput) IsSecret() pulumi.BoolPtrOutput {
+func (o BuildDefinitionVariableOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionVariable) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 
@@ -5010,7 +5010,7 @@ func (o VariableGroupVariableOutput) Expires() pulumi.StringPtrOutput {
 }
 
 // A boolean flag describing if the variable value is sensitive. Defaults to `false`.
-func (o VariableGroupVariableOutput) IsSecret() pulumi.BoolPtrOutput {
+func (o VariableGroupVariableOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VariableGroupVariable) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 

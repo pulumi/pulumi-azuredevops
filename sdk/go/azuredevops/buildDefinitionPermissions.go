@@ -161,6 +161,85 @@ func (i *BuildDefinitionPermissions) ToBuildDefinitionPermissionsOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsOutput)
 }
 
+func (i *BuildDefinitionPermissions) ToBuildDefinitionPermissionsPtrOutput() BuildDefinitionPermissionsPtrOutput {
+	return i.ToBuildDefinitionPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *BuildDefinitionPermissions) ToBuildDefinitionPermissionsPtrOutputWithContext(ctx context.Context) BuildDefinitionPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsPtrOutput)
+}
+
+type BuildDefinitionPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionPermissionsPtrOutput() BuildDefinitionPermissionsPtrOutput
+	ToBuildDefinitionPermissionsPtrOutputWithContext(ctx context.Context) BuildDefinitionPermissionsPtrOutput
+}
+
+type buildDefinitionPermissionsPtrType BuildDefinitionPermissionsArgs
+
+func (*buildDefinitionPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildDefinitionPermissions)(nil))
+}
+
+func (i *buildDefinitionPermissionsPtrType) ToBuildDefinitionPermissionsPtrOutput() BuildDefinitionPermissionsPtrOutput {
+	return i.ToBuildDefinitionPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *buildDefinitionPermissionsPtrType) ToBuildDefinitionPermissionsPtrOutputWithContext(ctx context.Context) BuildDefinitionPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsPtrOutput)
+}
+
+// BuildDefinitionPermissionsArrayInput is an input type that accepts BuildDefinitionPermissionsArray and BuildDefinitionPermissionsArrayOutput values.
+// You can construct a concrete instance of `BuildDefinitionPermissionsArrayInput` via:
+//
+//          BuildDefinitionPermissionsArray{ BuildDefinitionPermissionsArgs{...} }
+type BuildDefinitionPermissionsArrayInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionPermissionsArrayOutput() BuildDefinitionPermissionsArrayOutput
+	ToBuildDefinitionPermissionsArrayOutputWithContext(context.Context) BuildDefinitionPermissionsArrayOutput
+}
+
+type BuildDefinitionPermissionsArray []BuildDefinitionPermissionsInput
+
+func (BuildDefinitionPermissionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BuildDefinitionPermissions)(nil))
+}
+
+func (i BuildDefinitionPermissionsArray) ToBuildDefinitionPermissionsArrayOutput() BuildDefinitionPermissionsArrayOutput {
+	return i.ToBuildDefinitionPermissionsArrayOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionPermissionsArray) ToBuildDefinitionPermissionsArrayOutputWithContext(ctx context.Context) BuildDefinitionPermissionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsArrayOutput)
+}
+
+// BuildDefinitionPermissionsMapInput is an input type that accepts BuildDefinitionPermissionsMap and BuildDefinitionPermissionsMapOutput values.
+// You can construct a concrete instance of `BuildDefinitionPermissionsMapInput` via:
+//
+//          BuildDefinitionPermissionsMap{ "key": BuildDefinitionPermissionsArgs{...} }
+type BuildDefinitionPermissionsMapInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionPermissionsMapOutput() BuildDefinitionPermissionsMapOutput
+	ToBuildDefinitionPermissionsMapOutputWithContext(context.Context) BuildDefinitionPermissionsMapOutput
+}
+
+type BuildDefinitionPermissionsMap map[string]BuildDefinitionPermissionsInput
+
+func (BuildDefinitionPermissionsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BuildDefinitionPermissions)(nil))
+}
+
+func (i BuildDefinitionPermissionsMap) ToBuildDefinitionPermissionsMapOutput() BuildDefinitionPermissionsMapOutput {
+	return i.ToBuildDefinitionPermissionsMapOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionPermissionsMap) ToBuildDefinitionPermissionsMapOutputWithContext(ctx context.Context) BuildDefinitionPermissionsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsMapOutput)
+}
+
 type BuildDefinitionPermissionsOutput struct {
 	*pulumi.OutputState
 }
@@ -177,6 +256,75 @@ func (o BuildDefinitionPermissionsOutput) ToBuildDefinitionPermissionsOutputWith
 	return o
 }
 
+func (o BuildDefinitionPermissionsOutput) ToBuildDefinitionPermissionsPtrOutput() BuildDefinitionPermissionsPtrOutput {
+	return o.ToBuildDefinitionPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o BuildDefinitionPermissionsOutput) ToBuildDefinitionPermissionsPtrOutputWithContext(ctx context.Context) BuildDefinitionPermissionsPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionPermissions) *BuildDefinitionPermissions {
+		return &v
+	}).(BuildDefinitionPermissionsPtrOutput)
+}
+
+type BuildDefinitionPermissionsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BuildDefinitionPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BuildDefinitionPermissions)(nil))
+}
+
+func (o BuildDefinitionPermissionsPtrOutput) ToBuildDefinitionPermissionsPtrOutput() BuildDefinitionPermissionsPtrOutput {
+	return o
+}
+
+func (o BuildDefinitionPermissionsPtrOutput) ToBuildDefinitionPermissionsPtrOutputWithContext(ctx context.Context) BuildDefinitionPermissionsPtrOutput {
+	return o
+}
+
+type BuildDefinitionPermissionsArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionPermissionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionPermissions)(nil))
+}
+
+func (o BuildDefinitionPermissionsArrayOutput) ToBuildDefinitionPermissionsArrayOutput() BuildDefinitionPermissionsArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionPermissionsArrayOutput) ToBuildDefinitionPermissionsArrayOutputWithContext(ctx context.Context) BuildDefinitionPermissionsArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionPermissionsArrayOutput) Index(i pulumi.IntInput) BuildDefinitionPermissionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinitionPermissions {
+		return vs[0].([]BuildDefinitionPermissions)[vs[1].(int)]
+	}).(BuildDefinitionPermissionsOutput)
+}
+
+type BuildDefinitionPermissionsMapOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionPermissionsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BuildDefinitionPermissions)(nil))
+}
+
+func (o BuildDefinitionPermissionsMapOutput) ToBuildDefinitionPermissionsMapOutput() BuildDefinitionPermissionsMapOutput {
+	return o
+}
+
+func (o BuildDefinitionPermissionsMapOutput) ToBuildDefinitionPermissionsMapOutputWithContext(ctx context.Context) BuildDefinitionPermissionsMapOutput {
+	return o
+}
+
+func (o BuildDefinitionPermissionsMapOutput) MapIndex(k pulumi.StringInput) BuildDefinitionPermissionsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BuildDefinitionPermissions {
+		return vs[0].(map[string]BuildDefinitionPermissions)[vs[1].(string)]
+	}).(BuildDefinitionPermissionsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BuildDefinitionPermissionsOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionPermissionsPtrOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionPermissionsArrayOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionPermissionsMapOutput{})
 }

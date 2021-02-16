@@ -1678,7 +1678,7 @@ func (o BuildDefinitionVariableOutput) AllowOverride() pulumi.BoolPtrOutput {
 }
 
 // True if the variable is a secret. Defaults to `false`.
-func (o BuildDefinitionVariableOutput) IsSecret() pulumi.BoolPtrOutput {
+func (o BuildDefinitionVariableOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionVariable) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 

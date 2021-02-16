@@ -149,7 +149,8 @@ export class AzureRM extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: AzureRMArgs | AzureRMState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as AzureRMState | undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
             inputs["azurermSpnTenantid"] = state ? state.azurermSpnTenantid : undefined;
@@ -162,19 +163,19 @@ export class AzureRM extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as AzureRMArgs | undefined;
-            if ((!args || args.azurermSpnTenantid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azurermSpnTenantid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azurermSpnTenantid'");
             }
-            if ((!args || args.azurermSubscriptionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azurermSubscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azurermSubscriptionId'");
             }
-            if ((!args || args.azurermSubscriptionName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azurermSubscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azurermSubscriptionName'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["authorization"] = args ? args.authorization : undefined;
@@ -187,12 +188,8 @@ export class AzureRM extends pulumi.CustomResource {
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(AzureRM.__pulumiType, name, inputs, opts);
     }

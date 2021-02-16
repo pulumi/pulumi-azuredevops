@@ -130,7 +130,8 @@ export class BranchPolicyBuildValidation extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BranchPolicyBuildValidationArgs | BranchPolicyBuildValidationState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("BranchPolicyBuildValidation is deprecated: azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BranchPolicyBuildValidationState | undefined;
             inputs["blocking"] = state ? state.blocking : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -138,10 +139,10 @@ export class BranchPolicyBuildValidation extends pulumi.CustomResource {
             inputs["settings"] = state ? state.settings : undefined;
         } else {
             const args = argsOrState as BranchPolicyBuildValidationArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.settings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.settings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
             inputs["blocking"] = args ? args.blocking : undefined;
@@ -149,12 +150,8 @@ export class BranchPolicyBuildValidation extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["settings"] = args ? args.settings : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BranchPolicyBuildValidation.__pulumiType, name, inputs, opts);
     }

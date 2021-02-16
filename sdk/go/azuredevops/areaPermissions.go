@@ -163,6 +163,85 @@ func (i *AreaPermissions) ToAreaPermissionsOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(AreaPermissionsOutput)
 }
 
+func (i *AreaPermissions) ToAreaPermissionsPtrOutput() AreaPermissionsPtrOutput {
+	return i.ToAreaPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *AreaPermissions) ToAreaPermissionsPtrOutputWithContext(ctx context.Context) AreaPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AreaPermissionsPtrOutput)
+}
+
+type AreaPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToAreaPermissionsPtrOutput() AreaPermissionsPtrOutput
+	ToAreaPermissionsPtrOutputWithContext(ctx context.Context) AreaPermissionsPtrOutput
+}
+
+type areaPermissionsPtrType AreaPermissionsArgs
+
+func (*areaPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AreaPermissions)(nil))
+}
+
+func (i *areaPermissionsPtrType) ToAreaPermissionsPtrOutput() AreaPermissionsPtrOutput {
+	return i.ToAreaPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *areaPermissionsPtrType) ToAreaPermissionsPtrOutputWithContext(ctx context.Context) AreaPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AreaPermissionsPtrOutput)
+}
+
+// AreaPermissionsArrayInput is an input type that accepts AreaPermissionsArray and AreaPermissionsArrayOutput values.
+// You can construct a concrete instance of `AreaPermissionsArrayInput` via:
+//
+//          AreaPermissionsArray{ AreaPermissionsArgs{...} }
+type AreaPermissionsArrayInput interface {
+	pulumi.Input
+
+	ToAreaPermissionsArrayOutput() AreaPermissionsArrayOutput
+	ToAreaPermissionsArrayOutputWithContext(context.Context) AreaPermissionsArrayOutput
+}
+
+type AreaPermissionsArray []AreaPermissionsInput
+
+func (AreaPermissionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AreaPermissions)(nil))
+}
+
+func (i AreaPermissionsArray) ToAreaPermissionsArrayOutput() AreaPermissionsArrayOutput {
+	return i.ToAreaPermissionsArrayOutputWithContext(context.Background())
+}
+
+func (i AreaPermissionsArray) ToAreaPermissionsArrayOutputWithContext(ctx context.Context) AreaPermissionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AreaPermissionsArrayOutput)
+}
+
+// AreaPermissionsMapInput is an input type that accepts AreaPermissionsMap and AreaPermissionsMapOutput values.
+// You can construct a concrete instance of `AreaPermissionsMapInput` via:
+//
+//          AreaPermissionsMap{ "key": AreaPermissionsArgs{...} }
+type AreaPermissionsMapInput interface {
+	pulumi.Input
+
+	ToAreaPermissionsMapOutput() AreaPermissionsMapOutput
+	ToAreaPermissionsMapOutputWithContext(context.Context) AreaPermissionsMapOutput
+}
+
+type AreaPermissionsMap map[string]AreaPermissionsInput
+
+func (AreaPermissionsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AreaPermissions)(nil))
+}
+
+func (i AreaPermissionsMap) ToAreaPermissionsMapOutput() AreaPermissionsMapOutput {
+	return i.ToAreaPermissionsMapOutputWithContext(context.Background())
+}
+
+func (i AreaPermissionsMap) ToAreaPermissionsMapOutputWithContext(ctx context.Context) AreaPermissionsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AreaPermissionsMapOutput)
+}
+
 type AreaPermissionsOutput struct {
 	*pulumi.OutputState
 }
@@ -179,6 +258,75 @@ func (o AreaPermissionsOutput) ToAreaPermissionsOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o AreaPermissionsOutput) ToAreaPermissionsPtrOutput() AreaPermissionsPtrOutput {
+	return o.ToAreaPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o AreaPermissionsOutput) ToAreaPermissionsPtrOutputWithContext(ctx context.Context) AreaPermissionsPtrOutput {
+	return o.ApplyT(func(v AreaPermissions) *AreaPermissions {
+		return &v
+	}).(AreaPermissionsPtrOutput)
+}
+
+type AreaPermissionsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AreaPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AreaPermissions)(nil))
+}
+
+func (o AreaPermissionsPtrOutput) ToAreaPermissionsPtrOutput() AreaPermissionsPtrOutput {
+	return o
+}
+
+func (o AreaPermissionsPtrOutput) ToAreaPermissionsPtrOutputWithContext(ctx context.Context) AreaPermissionsPtrOutput {
+	return o
+}
+
+type AreaPermissionsArrayOutput struct{ *pulumi.OutputState }
+
+func (AreaPermissionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AreaPermissions)(nil))
+}
+
+func (o AreaPermissionsArrayOutput) ToAreaPermissionsArrayOutput() AreaPermissionsArrayOutput {
+	return o
+}
+
+func (o AreaPermissionsArrayOutput) ToAreaPermissionsArrayOutputWithContext(ctx context.Context) AreaPermissionsArrayOutput {
+	return o
+}
+
+func (o AreaPermissionsArrayOutput) Index(i pulumi.IntInput) AreaPermissionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AreaPermissions {
+		return vs[0].([]AreaPermissions)[vs[1].(int)]
+	}).(AreaPermissionsOutput)
+}
+
+type AreaPermissionsMapOutput struct{ *pulumi.OutputState }
+
+func (AreaPermissionsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AreaPermissions)(nil))
+}
+
+func (o AreaPermissionsMapOutput) ToAreaPermissionsMapOutput() AreaPermissionsMapOutput {
+	return o
+}
+
+func (o AreaPermissionsMapOutput) ToAreaPermissionsMapOutputWithContext(ctx context.Context) AreaPermissionsMapOutput {
+	return o
+}
+
+func (o AreaPermissionsMapOutput) MapIndex(k pulumi.StringInput) AreaPermissionsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AreaPermissions {
+		return vs[0].(map[string]AreaPermissions)[vs[1].(string)]
+	}).(AreaPermissionsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AreaPermissionsOutput{})
+	pulumi.RegisterOutputType(AreaPermissionsPtrOutput{})
+	pulumi.RegisterOutputType(AreaPermissionsArrayOutput{})
+	pulumi.RegisterOutputType(AreaPermissionsMapOutput{})
 }

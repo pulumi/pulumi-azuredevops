@@ -120,7 +120,8 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
     constructor(name: string, args: ServiceEndpointGitHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointGitHubArgs | ServiceEndpointGitHubState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceEndpointGitHubState | undefined;
             inputs["authOauth"] = state ? state.authOauth : undefined;
             inputs["authPersonal"] = state ? state.authPersonal : undefined;
@@ -130,10 +131,10 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointGitHubArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["authOauth"] = args ? args.authOauth : undefined;
@@ -143,15 +144,11 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/gitHub:GitHub" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpointGitHub.__pulumiType, name, inputs, opts);
     }
 }

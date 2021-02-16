@@ -195,6 +195,85 @@ func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesOutput)
 }
 
+func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput {
+	return i.ToServiceEndpointKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesPtrOutput)
+}
+
+type ServiceEndpointKubernetesPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput
+	ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput
+}
+
+type serviceEndpointKubernetesPtrType ServiceEndpointKubernetesArgs
+
+func (*serviceEndpointKubernetesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointKubernetes)(nil))
+}
+
+func (i *serviceEndpointKubernetesPtrType) ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput {
+	return i.ToServiceEndpointKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointKubernetesPtrType) ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesPtrOutput)
+}
+
+// ServiceEndpointKubernetesArrayInput is an input type that accepts ServiceEndpointKubernetesArray and ServiceEndpointKubernetesArrayOutput values.
+// You can construct a concrete instance of `ServiceEndpointKubernetesArrayInput` via:
+//
+//          ServiceEndpointKubernetesArray{ ServiceEndpointKubernetesArgs{...} }
+type ServiceEndpointKubernetesArrayInput interface {
+	pulumi.Input
+
+	ToServiceEndpointKubernetesArrayOutput() ServiceEndpointKubernetesArrayOutput
+	ToServiceEndpointKubernetesArrayOutputWithContext(context.Context) ServiceEndpointKubernetesArrayOutput
+}
+
+type ServiceEndpointKubernetesArray []ServiceEndpointKubernetesInput
+
+func (ServiceEndpointKubernetesArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServiceEndpointKubernetes)(nil))
+}
+
+func (i ServiceEndpointKubernetesArray) ToServiceEndpointKubernetesArrayOutput() ServiceEndpointKubernetesArrayOutput {
+	return i.ToServiceEndpointKubernetesArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointKubernetesArray) ToServiceEndpointKubernetesArrayOutputWithContext(ctx context.Context) ServiceEndpointKubernetesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesArrayOutput)
+}
+
+// ServiceEndpointKubernetesMapInput is an input type that accepts ServiceEndpointKubernetesMap and ServiceEndpointKubernetesMapOutput values.
+// You can construct a concrete instance of `ServiceEndpointKubernetesMapInput` via:
+//
+//          ServiceEndpointKubernetesMap{ "key": ServiceEndpointKubernetesArgs{...} }
+type ServiceEndpointKubernetesMapInput interface {
+	pulumi.Input
+
+	ToServiceEndpointKubernetesMapOutput() ServiceEndpointKubernetesMapOutput
+	ToServiceEndpointKubernetesMapOutputWithContext(context.Context) ServiceEndpointKubernetesMapOutput
+}
+
+type ServiceEndpointKubernetesMap map[string]ServiceEndpointKubernetesInput
+
+func (ServiceEndpointKubernetesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServiceEndpointKubernetes)(nil))
+}
+
+func (i ServiceEndpointKubernetesMap) ToServiceEndpointKubernetesMapOutput() ServiceEndpointKubernetesMapOutput {
+	return i.ToServiceEndpointKubernetesMapOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointKubernetesMap) ToServiceEndpointKubernetesMapOutputWithContext(ctx context.Context) ServiceEndpointKubernetesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesMapOutput)
+}
+
 type ServiceEndpointKubernetesOutput struct {
 	*pulumi.OutputState
 }
@@ -211,6 +290,75 @@ func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesOutputWithCo
 	return o
 }
 
+func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput {
+	return o.ToServiceEndpointKubernetesPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointKubernetes) *ServiceEndpointKubernetes {
+		return &v
+	}).(ServiceEndpointKubernetesPtrOutput)
+}
+
+type ServiceEndpointKubernetesPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointKubernetesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointKubernetes)(nil))
+}
+
+func (o ServiceEndpointKubernetesPtrOutput) ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointKubernetesPtrOutput) ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput {
+	return o
+}
+
+type ServiceEndpointKubernetesArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointKubernetesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointKubernetes)(nil))
+}
+
+func (o ServiceEndpointKubernetesArrayOutput) ToServiceEndpointKubernetesArrayOutput() ServiceEndpointKubernetesArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointKubernetesArrayOutput) ToServiceEndpointKubernetesArrayOutputWithContext(ctx context.Context) ServiceEndpointKubernetesArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointKubernetesArrayOutput) Index(i pulumi.IntInput) ServiceEndpointKubernetesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointKubernetes {
+		return vs[0].([]ServiceEndpointKubernetes)[vs[1].(int)]
+	}).(ServiceEndpointKubernetesOutput)
+}
+
+type ServiceEndpointKubernetesMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointKubernetesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceEndpointKubernetes)(nil))
+}
+
+func (o ServiceEndpointKubernetesMapOutput) ToServiceEndpointKubernetesMapOutput() ServiceEndpointKubernetesMapOutput {
+	return o
+}
+
+func (o ServiceEndpointKubernetesMapOutput) ToServiceEndpointKubernetesMapOutputWithContext(ctx context.Context) ServiceEndpointKubernetesMapOutput {
+	return o
+}
+
+func (o ServiceEndpointKubernetesMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointKubernetesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointKubernetes {
+		return vs[0].(map[string]ServiceEndpointKubernetes)[vs[1].(string)]
+	}).(ServiceEndpointKubernetesOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointKubernetesMapOutput{})
 }

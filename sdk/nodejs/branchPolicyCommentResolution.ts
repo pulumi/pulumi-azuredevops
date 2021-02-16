@@ -108,7 +108,8 @@ export class BranchPolicyCommentResolution extends pulumi.CustomResource {
     constructor(name: string, args: BranchPolicyCommentResolutionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchPolicyCommentResolutionArgs | BranchPolicyCommentResolutionState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BranchPolicyCommentResolutionState | undefined;
             inputs["blocking"] = state ? state.blocking : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -116,10 +117,10 @@ export class BranchPolicyCommentResolution extends pulumi.CustomResource {
             inputs["settings"] = state ? state.settings : undefined;
         } else {
             const args = argsOrState as BranchPolicyCommentResolutionArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.settings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.settings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
             inputs["blocking"] = args ? args.blocking : undefined;
@@ -127,12 +128,8 @@ export class BranchPolicyCommentResolution extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["settings"] = args ? args.settings : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BranchPolicyCommentResolution.__pulumiType, name, inputs, opts);
     }

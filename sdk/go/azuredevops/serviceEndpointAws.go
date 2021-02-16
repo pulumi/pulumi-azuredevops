@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -246,6 +246,85 @@ func (i *ServiceEndpointAws) ToServiceEndpointAwsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsOutput)
 }
 
+func (i *ServiceEndpointAws) ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput {
+	return i.ToServiceEndpointAwsPtrOutputWithContext(context.Background())
+}
+
+func (i *ServiceEndpointAws) ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsPtrOutput)
+}
+
+type ServiceEndpointAwsPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput
+	ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput
+}
+
+type serviceEndpointAwsPtrType ServiceEndpointAwsArgs
+
+func (*serviceEndpointAwsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAws)(nil))
+}
+
+func (i *serviceEndpointAwsPtrType) ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput {
+	return i.ToServiceEndpointAwsPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointAwsPtrType) ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsPtrOutput)
+}
+
+// ServiceEndpointAwsArrayInput is an input type that accepts ServiceEndpointAwsArray and ServiceEndpointAwsArrayOutput values.
+// You can construct a concrete instance of `ServiceEndpointAwsArrayInput` via:
+//
+//          ServiceEndpointAwsArray{ ServiceEndpointAwsArgs{...} }
+type ServiceEndpointAwsArrayInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAwsArrayOutput() ServiceEndpointAwsArrayOutput
+	ToServiceEndpointAwsArrayOutputWithContext(context.Context) ServiceEndpointAwsArrayOutput
+}
+
+type ServiceEndpointAwsArray []ServiceEndpointAwsInput
+
+func (ServiceEndpointAwsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServiceEndpointAws)(nil))
+}
+
+func (i ServiceEndpointAwsArray) ToServiceEndpointAwsArrayOutput() ServiceEndpointAwsArrayOutput {
+	return i.ToServiceEndpointAwsArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAwsArray) ToServiceEndpointAwsArrayOutputWithContext(ctx context.Context) ServiceEndpointAwsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsArrayOutput)
+}
+
+// ServiceEndpointAwsMapInput is an input type that accepts ServiceEndpointAwsMap and ServiceEndpointAwsMapOutput values.
+// You can construct a concrete instance of `ServiceEndpointAwsMapInput` via:
+//
+//          ServiceEndpointAwsMap{ "key": ServiceEndpointAwsArgs{...} }
+type ServiceEndpointAwsMapInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAwsMapOutput() ServiceEndpointAwsMapOutput
+	ToServiceEndpointAwsMapOutputWithContext(context.Context) ServiceEndpointAwsMapOutput
+}
+
+type ServiceEndpointAwsMap map[string]ServiceEndpointAwsInput
+
+func (ServiceEndpointAwsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServiceEndpointAws)(nil))
+}
+
+func (i ServiceEndpointAwsMap) ToServiceEndpointAwsMapOutput() ServiceEndpointAwsMapOutput {
+	return i.ToServiceEndpointAwsMapOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAwsMap) ToServiceEndpointAwsMapOutputWithContext(ctx context.Context) ServiceEndpointAwsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsMapOutput)
+}
+
 type ServiceEndpointAwsOutput struct {
 	*pulumi.OutputState
 }
@@ -262,6 +341,75 @@ func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsOutputWithContext(ctx cont
 	return o
 }
 
+func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput {
+	return o.ToServiceEndpointAwsPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointAws) *ServiceEndpointAws {
+		return &v
+	}).(ServiceEndpointAwsPtrOutput)
+}
+
+type ServiceEndpointAwsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointAwsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAws)(nil))
+}
+
+func (o ServiceEndpointAwsPtrOutput) ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointAwsPtrOutput) ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput {
+	return o
+}
+
+type ServiceEndpointAwsArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAwsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointAws)(nil))
+}
+
+func (o ServiceEndpointAwsArrayOutput) ToServiceEndpointAwsArrayOutput() ServiceEndpointAwsArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointAwsArrayOutput) ToServiceEndpointAwsArrayOutputWithContext(ctx context.Context) ServiceEndpointAwsArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointAwsArrayOutput) Index(i pulumi.IntInput) ServiceEndpointAwsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointAws {
+		return vs[0].([]ServiceEndpointAws)[vs[1].(int)]
+	}).(ServiceEndpointAwsOutput)
+}
+
+type ServiceEndpointAwsMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAwsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceEndpointAws)(nil))
+}
+
+func (o ServiceEndpointAwsMapOutput) ToServiceEndpointAwsMapOutput() ServiceEndpointAwsMapOutput {
+	return o
+}
+
+func (o ServiceEndpointAwsMapOutput) ToServiceEndpointAwsMapOutputWithContext(ctx context.Context) ServiceEndpointAwsMapOutput {
+	return o
+}
+
+func (o ServiceEndpointAwsMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointAwsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointAws {
+		return vs[0].(map[string]ServiceEndpointAws)[vs[1].(string)]
+	}).(ServiceEndpointAwsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceEndpointAwsOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAwsPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAwsArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAwsMapOutput{})
 }

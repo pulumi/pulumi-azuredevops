@@ -120,7 +120,8 @@ export class BranchPolicyMinReviewers extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BranchPolicyMinReviewersArgs | BranchPolicyMinReviewersState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("BranchPolicyMinReviewers is deprecated: azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BranchPolicyMinReviewersState | undefined;
             inputs["blocking"] = state ? state.blocking : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -128,10 +129,10 @@ export class BranchPolicyMinReviewers extends pulumi.CustomResource {
             inputs["settings"] = state ? state.settings : undefined;
         } else {
             const args = argsOrState as BranchPolicyMinReviewersArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.settings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.settings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
             inputs["blocking"] = args ? args.blocking : undefined;
@@ -139,12 +140,8 @@ export class BranchPolicyMinReviewers extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["settings"] = args ? args.settings : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BranchPolicyMinReviewers.__pulumiType, name, inputs, opts);
     }

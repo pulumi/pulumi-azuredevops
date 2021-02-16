@@ -85,30 +85,27 @@ export class ProjectFeatures extends pulumi.CustomResource {
     constructor(name: string, args: ProjectFeaturesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectFeaturesArgs | ProjectFeaturesState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProjectFeaturesState | undefined;
             inputs["features"] = state ? state.features : undefined;
             inputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as ProjectFeaturesArgs | undefined;
-            if ((!args || args.features === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.features === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'features'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["features"] = args ? args.features : undefined;
             inputs["projectId"] = args ? args.projectId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azuredevops:Core/projectFeatures:ProjectFeatures" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ProjectFeatures.__pulumiType, name, inputs, opts);
     }
 }

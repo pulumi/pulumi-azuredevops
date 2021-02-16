@@ -170,7 +170,8 @@ export class WorkItemQueryPermissions extends pulumi.CustomResource {
     constructor(name: string, args: WorkItemQueryPermissionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkItemQueryPermissionsArgs | WorkItemQueryPermissionsState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as WorkItemQueryPermissionsState | undefined;
             inputs["path"] = state ? state.path : undefined;
             inputs["permissions"] = state ? state.permissions : undefined;
@@ -179,13 +180,13 @@ export class WorkItemQueryPermissions extends pulumi.CustomResource {
             inputs["replace"] = state ? state.replace : undefined;
         } else {
             const args = argsOrState as WorkItemQueryPermissionsArgs | undefined;
-            if ((!args || args.permissions === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.permissions === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'permissions'");
             }
-            if ((!args || args.principal === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.principal === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'principal'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["path"] = args ? args.path : undefined;
@@ -194,12 +195,8 @@ export class WorkItemQueryPermissions extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["replace"] = args ? args.replace : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(WorkItemQueryPermissions.__pulumiType, name, inputs, opts);
     }

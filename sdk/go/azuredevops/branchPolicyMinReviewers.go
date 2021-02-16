@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -207,6 +206,85 @@ func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersOutput)
 }
 
+func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput {
+	return i.ToBranchPolicyMinReviewersPtrOutputWithContext(context.Background())
+}
+
+func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersPtrOutput)
+}
+
+type BranchPolicyMinReviewersPtrInput interface {
+	pulumi.Input
+
+	ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput
+	ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput
+}
+
+type branchPolicyMinReviewersPtrType BranchPolicyMinReviewersArgs
+
+func (*branchPolicyMinReviewersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyMinReviewers)(nil))
+}
+
+func (i *branchPolicyMinReviewersPtrType) ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput {
+	return i.ToBranchPolicyMinReviewersPtrOutputWithContext(context.Background())
+}
+
+func (i *branchPolicyMinReviewersPtrType) ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersPtrOutput)
+}
+
+// BranchPolicyMinReviewersArrayInput is an input type that accepts BranchPolicyMinReviewersArray and BranchPolicyMinReviewersArrayOutput values.
+// You can construct a concrete instance of `BranchPolicyMinReviewersArrayInput` via:
+//
+//          BranchPolicyMinReviewersArray{ BranchPolicyMinReviewersArgs{...} }
+type BranchPolicyMinReviewersArrayInput interface {
+	pulumi.Input
+
+	ToBranchPolicyMinReviewersArrayOutput() BranchPolicyMinReviewersArrayOutput
+	ToBranchPolicyMinReviewersArrayOutputWithContext(context.Context) BranchPolicyMinReviewersArrayOutput
+}
+
+type BranchPolicyMinReviewersArray []BranchPolicyMinReviewersInput
+
+func (BranchPolicyMinReviewersArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BranchPolicyMinReviewers)(nil))
+}
+
+func (i BranchPolicyMinReviewersArray) ToBranchPolicyMinReviewersArrayOutput() BranchPolicyMinReviewersArrayOutput {
+	return i.ToBranchPolicyMinReviewersArrayOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyMinReviewersArray) ToBranchPolicyMinReviewersArrayOutputWithContext(ctx context.Context) BranchPolicyMinReviewersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersArrayOutput)
+}
+
+// BranchPolicyMinReviewersMapInput is an input type that accepts BranchPolicyMinReviewersMap and BranchPolicyMinReviewersMapOutput values.
+// You can construct a concrete instance of `BranchPolicyMinReviewersMapInput` via:
+//
+//          BranchPolicyMinReviewersMap{ "key": BranchPolicyMinReviewersArgs{...} }
+type BranchPolicyMinReviewersMapInput interface {
+	pulumi.Input
+
+	ToBranchPolicyMinReviewersMapOutput() BranchPolicyMinReviewersMapOutput
+	ToBranchPolicyMinReviewersMapOutputWithContext(context.Context) BranchPolicyMinReviewersMapOutput
+}
+
+type BranchPolicyMinReviewersMap map[string]BranchPolicyMinReviewersInput
+
+func (BranchPolicyMinReviewersMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BranchPolicyMinReviewers)(nil))
+}
+
+func (i BranchPolicyMinReviewersMap) ToBranchPolicyMinReviewersMapOutput() BranchPolicyMinReviewersMapOutput {
+	return i.ToBranchPolicyMinReviewersMapOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyMinReviewersMap) ToBranchPolicyMinReviewersMapOutputWithContext(ctx context.Context) BranchPolicyMinReviewersMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersMapOutput)
+}
+
 type BranchPolicyMinReviewersOutput struct {
 	*pulumi.OutputState
 }
@@ -223,6 +301,75 @@ func (o BranchPolicyMinReviewersOutput) ToBranchPolicyMinReviewersOutputWithCont
 	return o
 }
 
+func (o BranchPolicyMinReviewersOutput) ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput {
+	return o.ToBranchPolicyMinReviewersPtrOutputWithContext(context.Background())
+}
+
+func (o BranchPolicyMinReviewersOutput) ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMinReviewers) *BranchPolicyMinReviewers {
+		return &v
+	}).(BranchPolicyMinReviewersPtrOutput)
+}
+
+type BranchPolicyMinReviewersPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchPolicyMinReviewersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyMinReviewers)(nil))
+}
+
+func (o BranchPolicyMinReviewersPtrOutput) ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput {
+	return o
+}
+
+func (o BranchPolicyMinReviewersPtrOutput) ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput {
+	return o
+}
+
+type BranchPolicyMinReviewersArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyMinReviewersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyMinReviewers)(nil))
+}
+
+func (o BranchPolicyMinReviewersArrayOutput) ToBranchPolicyMinReviewersArrayOutput() BranchPolicyMinReviewersArrayOutput {
+	return o
+}
+
+func (o BranchPolicyMinReviewersArrayOutput) ToBranchPolicyMinReviewersArrayOutputWithContext(ctx context.Context) BranchPolicyMinReviewersArrayOutput {
+	return o
+}
+
+func (o BranchPolicyMinReviewersArrayOutput) Index(i pulumi.IntInput) BranchPolicyMinReviewersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyMinReviewers {
+		return vs[0].([]BranchPolicyMinReviewers)[vs[1].(int)]
+	}).(BranchPolicyMinReviewersOutput)
+}
+
+type BranchPolicyMinReviewersMapOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyMinReviewersMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BranchPolicyMinReviewers)(nil))
+}
+
+func (o BranchPolicyMinReviewersMapOutput) ToBranchPolicyMinReviewersMapOutput() BranchPolicyMinReviewersMapOutput {
+	return o
+}
+
+func (o BranchPolicyMinReviewersMapOutput) ToBranchPolicyMinReviewersMapOutputWithContext(ctx context.Context) BranchPolicyMinReviewersMapOutput {
+	return o
+}
+
+func (o BranchPolicyMinReviewersMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyMinReviewersOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchPolicyMinReviewers {
+		return vs[0].(map[string]BranchPolicyMinReviewers)[vs[1].(string)]
+	}).(BranchPolicyMinReviewersOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersOutput{})
+	pulumi.RegisterOutputType(BranchPolicyMinReviewersPtrOutput{})
+	pulumi.RegisterOutputType(BranchPolicyMinReviewersArrayOutput{})
+	pulumi.RegisterOutputType(BranchPolicyMinReviewersMapOutput{})
 }

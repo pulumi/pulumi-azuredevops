@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// The personal access token which should be used.
         /// </summary>
-        public static string? PersonalAccessToken { get; set; } = __config.Get("personalAccessToken") ?? Utilities.GetEnv("AZDO_PERSONAL_ACCESS_TOKEN");
+        public static string? PersonalAccessToken { get; set; } = __config.Get("personalAccessToken");
 
     }
 }
