@@ -108,7 +108,8 @@ export class BranchPolicyWorkItemLinking extends pulumi.CustomResource {
     constructor(name: string, args: BranchPolicyWorkItemLinkingArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchPolicyWorkItemLinkingArgs | BranchPolicyWorkItemLinkingState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BranchPolicyWorkItemLinkingState | undefined;
             inputs["blocking"] = state ? state.blocking : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
@@ -116,10 +117,10 @@ export class BranchPolicyWorkItemLinking extends pulumi.CustomResource {
             inputs["settings"] = state ? state.settings : undefined;
         } else {
             const args = argsOrState as BranchPolicyWorkItemLinkingArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.settings === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.settings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
             inputs["blocking"] = args ? args.blocking : undefined;
@@ -127,12 +128,8 @@ export class BranchPolicyWorkItemLinking extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["settings"] = args ? args.settings : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BranchPolicyWorkItemLinking.__pulumiType, name, inputs, opts);
     }

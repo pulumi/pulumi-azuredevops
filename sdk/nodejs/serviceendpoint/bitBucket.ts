@@ -105,7 +105,8 @@ export class BitBucket extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BitBucketArgs | BitBucketState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("BitBucket is deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BitBucketState | undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -116,16 +117,16 @@ export class BitBucket extends pulumi.CustomResource {
             inputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as BitBucketArgs | undefined;
-            if ((!args || args.password === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.password === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'password'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if ((!args || args.username === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
             inputs["authorization"] = args ? args.authorization : undefined;
@@ -136,12 +137,8 @@ export class BitBucket extends pulumi.CustomResource {
             inputs["username"] = args ? args.username : undefined;
             inputs["passwordHash"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BitBucket.__pulumiType, name, inputs, opts);
     }

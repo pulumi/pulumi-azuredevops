@@ -184,7 +184,8 @@ export class BuildDefinition extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: BuildDefinitionArgs | BuildDefinitionState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("BuildDefinition is deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as BuildDefinitionState | undefined;
             inputs["agentPoolName"] = state ? state.agentPoolName : undefined;
             inputs["ciTrigger"] = state ? state.ciTrigger : undefined;
@@ -198,10 +199,10 @@ export class BuildDefinition extends pulumi.CustomResource {
             inputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as BuildDefinitionArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.repository === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
             inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
@@ -215,12 +216,8 @@ export class BuildDefinition extends pulumi.CustomResource {
             inputs["variables"] = args ? args.variables : undefined;
             inputs["revision"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(BuildDefinition.__pulumiType, name, inputs, opts);
     }

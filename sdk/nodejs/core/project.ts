@@ -120,7 +120,8 @@ export class Project extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Project is deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["features"] = state ? state.features : undefined;
@@ -139,12 +140,8 @@ export class Project extends pulumi.CustomResource {
             inputs["workItemTemplate"] = args ? args.workItemTemplate : undefined;
             inputs["processTemplateId"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Project.__pulumiType, name, inputs, opts);
     }

@@ -91,27 +91,24 @@ export class ProjectFeatures extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ProjectFeaturesArgs | ProjectFeaturesState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ProjectFeatures is deprecated: azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ProjectFeaturesState | undefined;
             inputs["features"] = state ? state.features : undefined;
             inputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as ProjectFeaturesArgs | undefined;
-            if ((!args || args.features === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.features === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'features'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["features"] = args ? args.features : undefined;
             inputs["projectId"] = args ? args.projectId : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ProjectFeatures.__pulumiType, name, inputs, opts);
     }

@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -167,6 +166,85 @@ func (i *ProjectFeatures) ToProjectFeaturesOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesOutput)
 }
 
+func (i *ProjectFeatures) ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput {
+	return i.ToProjectFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *ProjectFeatures) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesPtrOutput)
+}
+
+type ProjectFeaturesPtrInput interface {
+	pulumi.Input
+
+	ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput
+	ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput
+}
+
+type projectFeaturesPtrType ProjectFeaturesArgs
+
+func (*projectFeaturesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectFeatures)(nil))
+}
+
+func (i *projectFeaturesPtrType) ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput {
+	return i.ToProjectFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (i *projectFeaturesPtrType) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesPtrOutput)
+}
+
+// ProjectFeaturesArrayInput is an input type that accepts ProjectFeaturesArray and ProjectFeaturesArrayOutput values.
+// You can construct a concrete instance of `ProjectFeaturesArrayInput` via:
+//
+//          ProjectFeaturesArray{ ProjectFeaturesArgs{...} }
+type ProjectFeaturesArrayInput interface {
+	pulumi.Input
+
+	ToProjectFeaturesArrayOutput() ProjectFeaturesArrayOutput
+	ToProjectFeaturesArrayOutputWithContext(context.Context) ProjectFeaturesArrayOutput
+}
+
+type ProjectFeaturesArray []ProjectFeaturesInput
+
+func (ProjectFeaturesArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ProjectFeatures)(nil))
+}
+
+func (i ProjectFeaturesArray) ToProjectFeaturesArrayOutput() ProjectFeaturesArrayOutput {
+	return i.ToProjectFeaturesArrayOutputWithContext(context.Background())
+}
+
+func (i ProjectFeaturesArray) ToProjectFeaturesArrayOutputWithContext(ctx context.Context) ProjectFeaturesArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesArrayOutput)
+}
+
+// ProjectFeaturesMapInput is an input type that accepts ProjectFeaturesMap and ProjectFeaturesMapOutput values.
+// You can construct a concrete instance of `ProjectFeaturesMapInput` via:
+//
+//          ProjectFeaturesMap{ "key": ProjectFeaturesArgs{...} }
+type ProjectFeaturesMapInput interface {
+	pulumi.Input
+
+	ToProjectFeaturesMapOutput() ProjectFeaturesMapOutput
+	ToProjectFeaturesMapOutputWithContext(context.Context) ProjectFeaturesMapOutput
+}
+
+type ProjectFeaturesMap map[string]ProjectFeaturesInput
+
+func (ProjectFeaturesMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ProjectFeatures)(nil))
+}
+
+func (i ProjectFeaturesMap) ToProjectFeaturesMapOutput() ProjectFeaturesMapOutput {
+	return i.ToProjectFeaturesMapOutputWithContext(context.Background())
+}
+
+func (i ProjectFeaturesMap) ToProjectFeaturesMapOutputWithContext(ctx context.Context) ProjectFeaturesMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesMapOutput)
+}
+
 type ProjectFeaturesOutput struct {
 	*pulumi.OutputState
 }
@@ -183,6 +261,75 @@ func (o ProjectFeaturesOutput) ToProjectFeaturesOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o ProjectFeaturesOutput) ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput {
+	return o.ToProjectFeaturesPtrOutputWithContext(context.Background())
+}
+
+func (o ProjectFeaturesOutput) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
+	return o.ApplyT(func(v ProjectFeatures) *ProjectFeatures {
+		return &v
+	}).(ProjectFeaturesPtrOutput)
+}
+
+type ProjectFeaturesPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ProjectFeaturesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ProjectFeatures)(nil))
+}
+
+func (o ProjectFeaturesPtrOutput) ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput {
+	return o
+}
+
+func (o ProjectFeaturesPtrOutput) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
+	return o
+}
+
+type ProjectFeaturesArrayOutput struct{ *pulumi.OutputState }
+
+func (ProjectFeaturesArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ProjectFeatures)(nil))
+}
+
+func (o ProjectFeaturesArrayOutput) ToProjectFeaturesArrayOutput() ProjectFeaturesArrayOutput {
+	return o
+}
+
+func (o ProjectFeaturesArrayOutput) ToProjectFeaturesArrayOutputWithContext(ctx context.Context) ProjectFeaturesArrayOutput {
+	return o
+}
+
+func (o ProjectFeaturesArrayOutput) Index(i pulumi.IntInput) ProjectFeaturesOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectFeatures {
+		return vs[0].([]ProjectFeatures)[vs[1].(int)]
+	}).(ProjectFeaturesOutput)
+}
+
+type ProjectFeaturesMapOutput struct{ *pulumi.OutputState }
+
+func (ProjectFeaturesMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ProjectFeatures)(nil))
+}
+
+func (o ProjectFeaturesMapOutput) ToProjectFeaturesMapOutput() ProjectFeaturesMapOutput {
+	return o
+}
+
+func (o ProjectFeaturesMapOutput) ToProjectFeaturesMapOutputWithContext(ctx context.Context) ProjectFeaturesMapOutput {
+	return o
+}
+
+func (o ProjectFeaturesMapOutput) MapIndex(k pulumi.StringInput) ProjectFeaturesOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProjectFeatures {
+		return vs[0].(map[string]ProjectFeatures)[vs[1].(string)]
+	}).(ProjectFeaturesOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ProjectFeaturesOutput{})
+	pulumi.RegisterOutputType(ProjectFeaturesPtrOutput{})
+	pulumi.RegisterOutputType(ProjectFeaturesArrayOutput{})
+	pulumi.RegisterOutputType(ProjectFeaturesMapOutput{})
 }

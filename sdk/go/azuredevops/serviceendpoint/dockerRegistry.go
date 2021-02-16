@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -249,6 +249,85 @@ func (i *DockerRegistry) ToDockerRegistryOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryOutput)
 }
 
+func (i *DockerRegistry) ToDockerRegistryPtrOutput() DockerRegistryPtrOutput {
+	return i.ToDockerRegistryPtrOutputWithContext(context.Background())
+}
+
+func (i *DockerRegistry) ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryPtrOutput)
+}
+
+type DockerRegistryPtrInput interface {
+	pulumi.Input
+
+	ToDockerRegistryPtrOutput() DockerRegistryPtrOutput
+	ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput
+}
+
+type dockerRegistryPtrType DockerRegistryArgs
+
+func (*dockerRegistryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DockerRegistry)(nil))
+}
+
+func (i *dockerRegistryPtrType) ToDockerRegistryPtrOutput() DockerRegistryPtrOutput {
+	return i.ToDockerRegistryPtrOutputWithContext(context.Background())
+}
+
+func (i *dockerRegistryPtrType) ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryPtrOutput)
+}
+
+// DockerRegistryArrayInput is an input type that accepts DockerRegistryArray and DockerRegistryArrayOutput values.
+// You can construct a concrete instance of `DockerRegistryArrayInput` via:
+//
+//          DockerRegistryArray{ DockerRegistryArgs{...} }
+type DockerRegistryArrayInput interface {
+	pulumi.Input
+
+	ToDockerRegistryArrayOutput() DockerRegistryArrayOutput
+	ToDockerRegistryArrayOutputWithContext(context.Context) DockerRegistryArrayOutput
+}
+
+type DockerRegistryArray []DockerRegistryInput
+
+func (DockerRegistryArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*DockerRegistry)(nil))
+}
+
+func (i DockerRegistryArray) ToDockerRegistryArrayOutput() DockerRegistryArrayOutput {
+	return i.ToDockerRegistryArrayOutputWithContext(context.Background())
+}
+
+func (i DockerRegistryArray) ToDockerRegistryArrayOutputWithContext(ctx context.Context) DockerRegistryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryArrayOutput)
+}
+
+// DockerRegistryMapInput is an input type that accepts DockerRegistryMap and DockerRegistryMapOutput values.
+// You can construct a concrete instance of `DockerRegistryMapInput` via:
+//
+//          DockerRegistryMap{ "key": DockerRegistryArgs{...} }
+type DockerRegistryMapInput interface {
+	pulumi.Input
+
+	ToDockerRegistryMapOutput() DockerRegistryMapOutput
+	ToDockerRegistryMapOutputWithContext(context.Context) DockerRegistryMapOutput
+}
+
+type DockerRegistryMap map[string]DockerRegistryInput
+
+func (DockerRegistryMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*DockerRegistry)(nil))
+}
+
+func (i DockerRegistryMap) ToDockerRegistryMapOutput() DockerRegistryMapOutput {
+	return i.ToDockerRegistryMapOutputWithContext(context.Background())
+}
+
+func (i DockerRegistryMap) ToDockerRegistryMapOutputWithContext(ctx context.Context) DockerRegistryMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryMapOutput)
+}
+
 type DockerRegistryOutput struct {
 	*pulumi.OutputState
 }
@@ -265,6 +344,75 @@ func (o DockerRegistryOutput) ToDockerRegistryOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o DockerRegistryOutput) ToDockerRegistryPtrOutput() DockerRegistryPtrOutput {
+	return o.ToDockerRegistryPtrOutputWithContext(context.Background())
+}
+
+func (o DockerRegistryOutput) ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput {
+	return o.ApplyT(func(v DockerRegistry) *DockerRegistry {
+		return &v
+	}).(DockerRegistryPtrOutput)
+}
+
+type DockerRegistryPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (DockerRegistryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DockerRegistry)(nil))
+}
+
+func (o DockerRegistryPtrOutput) ToDockerRegistryPtrOutput() DockerRegistryPtrOutput {
+	return o
+}
+
+func (o DockerRegistryPtrOutput) ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput {
+	return o
+}
+
+type DockerRegistryArrayOutput struct{ *pulumi.OutputState }
+
+func (DockerRegistryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DockerRegistry)(nil))
+}
+
+func (o DockerRegistryArrayOutput) ToDockerRegistryArrayOutput() DockerRegistryArrayOutput {
+	return o
+}
+
+func (o DockerRegistryArrayOutput) ToDockerRegistryArrayOutputWithContext(ctx context.Context) DockerRegistryArrayOutput {
+	return o
+}
+
+func (o DockerRegistryArrayOutput) Index(i pulumi.IntInput) DockerRegistryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DockerRegistry {
+		return vs[0].([]DockerRegistry)[vs[1].(int)]
+	}).(DockerRegistryOutput)
+}
+
+type DockerRegistryMapOutput struct{ *pulumi.OutputState }
+
+func (DockerRegistryMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]DockerRegistry)(nil))
+}
+
+func (o DockerRegistryMapOutput) ToDockerRegistryMapOutput() DockerRegistryMapOutput {
+	return o
+}
+
+func (o DockerRegistryMapOutput) ToDockerRegistryMapOutputWithContext(ctx context.Context) DockerRegistryMapOutput {
+	return o
+}
+
+func (o DockerRegistryMapOutput) MapIndex(k pulumi.StringInput) DockerRegistryOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DockerRegistry {
+		return vs[0].(map[string]DockerRegistry)[vs[1].(string)]
+	}).(DockerRegistryOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(DockerRegistryOutput{})
+	pulumi.RegisterOutputType(DockerRegistryPtrOutput{})
+	pulumi.RegisterOutputType(DockerRegistryArrayOutput{})
+	pulumi.RegisterOutputType(DockerRegistryMapOutput{})
 }

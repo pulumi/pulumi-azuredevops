@@ -19,7 +19,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -205,6 +205,85 @@ func (i *ServiceEndpointBitBucket) ToServiceEndpointBitBucketOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketOutput)
 }
 
+func (i *ServiceEndpointBitBucket) ToServiceEndpointBitBucketPtrOutput() ServiceEndpointBitBucketPtrOutput {
+	return i.ToServiceEndpointBitBucketPtrOutputWithContext(context.Background())
+}
+
+func (i *ServiceEndpointBitBucket) ToServiceEndpointBitBucketPtrOutputWithContext(ctx context.Context) ServiceEndpointBitBucketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketPtrOutput)
+}
+
+type ServiceEndpointBitBucketPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointBitBucketPtrOutput() ServiceEndpointBitBucketPtrOutput
+	ToServiceEndpointBitBucketPtrOutputWithContext(ctx context.Context) ServiceEndpointBitBucketPtrOutput
+}
+
+type serviceEndpointBitBucketPtrType ServiceEndpointBitBucketArgs
+
+func (*serviceEndpointBitBucketPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointBitBucket)(nil))
+}
+
+func (i *serviceEndpointBitBucketPtrType) ToServiceEndpointBitBucketPtrOutput() ServiceEndpointBitBucketPtrOutput {
+	return i.ToServiceEndpointBitBucketPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointBitBucketPtrType) ToServiceEndpointBitBucketPtrOutputWithContext(ctx context.Context) ServiceEndpointBitBucketPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketPtrOutput)
+}
+
+// ServiceEndpointBitBucketArrayInput is an input type that accepts ServiceEndpointBitBucketArray and ServiceEndpointBitBucketArrayOutput values.
+// You can construct a concrete instance of `ServiceEndpointBitBucketArrayInput` via:
+//
+//          ServiceEndpointBitBucketArray{ ServiceEndpointBitBucketArgs{...} }
+type ServiceEndpointBitBucketArrayInput interface {
+	pulumi.Input
+
+	ToServiceEndpointBitBucketArrayOutput() ServiceEndpointBitBucketArrayOutput
+	ToServiceEndpointBitBucketArrayOutputWithContext(context.Context) ServiceEndpointBitBucketArrayOutput
+}
+
+type ServiceEndpointBitBucketArray []ServiceEndpointBitBucketInput
+
+func (ServiceEndpointBitBucketArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServiceEndpointBitBucket)(nil))
+}
+
+func (i ServiceEndpointBitBucketArray) ToServiceEndpointBitBucketArrayOutput() ServiceEndpointBitBucketArrayOutput {
+	return i.ToServiceEndpointBitBucketArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointBitBucketArray) ToServiceEndpointBitBucketArrayOutputWithContext(ctx context.Context) ServiceEndpointBitBucketArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketArrayOutput)
+}
+
+// ServiceEndpointBitBucketMapInput is an input type that accepts ServiceEndpointBitBucketMap and ServiceEndpointBitBucketMapOutput values.
+// You can construct a concrete instance of `ServiceEndpointBitBucketMapInput` via:
+//
+//          ServiceEndpointBitBucketMap{ "key": ServiceEndpointBitBucketArgs{...} }
+type ServiceEndpointBitBucketMapInput interface {
+	pulumi.Input
+
+	ToServiceEndpointBitBucketMapOutput() ServiceEndpointBitBucketMapOutput
+	ToServiceEndpointBitBucketMapOutputWithContext(context.Context) ServiceEndpointBitBucketMapOutput
+}
+
+type ServiceEndpointBitBucketMap map[string]ServiceEndpointBitBucketInput
+
+func (ServiceEndpointBitBucketMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServiceEndpointBitBucket)(nil))
+}
+
+func (i ServiceEndpointBitBucketMap) ToServiceEndpointBitBucketMapOutput() ServiceEndpointBitBucketMapOutput {
+	return i.ToServiceEndpointBitBucketMapOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointBitBucketMap) ToServiceEndpointBitBucketMapOutputWithContext(ctx context.Context) ServiceEndpointBitBucketMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketMapOutput)
+}
+
 type ServiceEndpointBitBucketOutput struct {
 	*pulumi.OutputState
 }
@@ -221,6 +300,75 @@ func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketOutputWithCont
 	return o
 }
 
+func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketPtrOutput() ServiceEndpointBitBucketPtrOutput {
+	return o.ToServiceEndpointBitBucketPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketPtrOutputWithContext(ctx context.Context) ServiceEndpointBitBucketPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointBitBucket) *ServiceEndpointBitBucket {
+		return &v
+	}).(ServiceEndpointBitBucketPtrOutput)
+}
+
+type ServiceEndpointBitBucketPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointBitBucketPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointBitBucket)(nil))
+}
+
+func (o ServiceEndpointBitBucketPtrOutput) ToServiceEndpointBitBucketPtrOutput() ServiceEndpointBitBucketPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointBitBucketPtrOutput) ToServiceEndpointBitBucketPtrOutputWithContext(ctx context.Context) ServiceEndpointBitBucketPtrOutput {
+	return o
+}
+
+type ServiceEndpointBitBucketArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointBitBucketArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointBitBucket)(nil))
+}
+
+func (o ServiceEndpointBitBucketArrayOutput) ToServiceEndpointBitBucketArrayOutput() ServiceEndpointBitBucketArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointBitBucketArrayOutput) ToServiceEndpointBitBucketArrayOutputWithContext(ctx context.Context) ServiceEndpointBitBucketArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointBitBucketArrayOutput) Index(i pulumi.IntInput) ServiceEndpointBitBucketOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointBitBucket {
+		return vs[0].([]ServiceEndpointBitBucket)[vs[1].(int)]
+	}).(ServiceEndpointBitBucketOutput)
+}
+
+type ServiceEndpointBitBucketMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointBitBucketMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceEndpointBitBucket)(nil))
+}
+
+func (o ServiceEndpointBitBucketMapOutput) ToServiceEndpointBitBucketMapOutput() ServiceEndpointBitBucketMapOutput {
+	return o
+}
+
+func (o ServiceEndpointBitBucketMapOutput) ToServiceEndpointBitBucketMapOutputWithContext(ctx context.Context) ServiceEndpointBitBucketMapOutput {
+	return o
+}
+
+func (o ServiceEndpointBitBucketMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointBitBucketOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointBitBucket {
+		return vs[0].(map[string]ServiceEndpointBitBucket)[vs[1].(string)]
+	}).(ServiceEndpointBitBucketOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceEndpointBitBucketOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointBitBucketPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointBitBucketArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointBitBucketMapOutput{})
 }

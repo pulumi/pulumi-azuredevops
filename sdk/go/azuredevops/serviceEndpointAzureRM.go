@@ -27,7 +27,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -66,7 +65,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -285,6 +284,85 @@ func (i *ServiceEndpointAzureRM) ToServiceEndpointAzureRMOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMOutput)
 }
 
+func (i *ServiceEndpointAzureRM) ToServiceEndpointAzureRMPtrOutput() ServiceEndpointAzureRMPtrOutput {
+	return i.ToServiceEndpointAzureRMPtrOutputWithContext(context.Background())
+}
+
+func (i *ServiceEndpointAzureRM) ToServiceEndpointAzureRMPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMPtrOutput)
+}
+
+type ServiceEndpointAzureRMPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureRMPtrOutput() ServiceEndpointAzureRMPtrOutput
+	ToServiceEndpointAzureRMPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMPtrOutput
+}
+
+type serviceEndpointAzureRMPtrType ServiceEndpointAzureRMArgs
+
+func (*serviceEndpointAzureRMPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAzureRM)(nil))
+}
+
+func (i *serviceEndpointAzureRMPtrType) ToServiceEndpointAzureRMPtrOutput() ServiceEndpointAzureRMPtrOutput {
+	return i.ToServiceEndpointAzureRMPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointAzureRMPtrType) ToServiceEndpointAzureRMPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMPtrOutput)
+}
+
+// ServiceEndpointAzureRMArrayInput is an input type that accepts ServiceEndpointAzureRMArray and ServiceEndpointAzureRMArrayOutput values.
+// You can construct a concrete instance of `ServiceEndpointAzureRMArrayInput` via:
+//
+//          ServiceEndpointAzureRMArray{ ServiceEndpointAzureRMArgs{...} }
+type ServiceEndpointAzureRMArrayInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureRMArrayOutput() ServiceEndpointAzureRMArrayOutput
+	ToServiceEndpointAzureRMArrayOutputWithContext(context.Context) ServiceEndpointAzureRMArrayOutput
+}
+
+type ServiceEndpointAzureRMArray []ServiceEndpointAzureRMInput
+
+func (ServiceEndpointAzureRMArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ServiceEndpointAzureRM)(nil))
+}
+
+func (i ServiceEndpointAzureRMArray) ToServiceEndpointAzureRMArrayOutput() ServiceEndpointAzureRMArrayOutput {
+	return i.ToServiceEndpointAzureRMArrayOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureRMArray) ToServiceEndpointAzureRMArrayOutputWithContext(ctx context.Context) ServiceEndpointAzureRMArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMArrayOutput)
+}
+
+// ServiceEndpointAzureRMMapInput is an input type that accepts ServiceEndpointAzureRMMap and ServiceEndpointAzureRMMapOutput values.
+// You can construct a concrete instance of `ServiceEndpointAzureRMMapInput` via:
+//
+//          ServiceEndpointAzureRMMap{ "key": ServiceEndpointAzureRMArgs{...} }
+type ServiceEndpointAzureRMMapInput interface {
+	pulumi.Input
+
+	ToServiceEndpointAzureRMMapOutput() ServiceEndpointAzureRMMapOutput
+	ToServiceEndpointAzureRMMapOutputWithContext(context.Context) ServiceEndpointAzureRMMapOutput
+}
+
+type ServiceEndpointAzureRMMap map[string]ServiceEndpointAzureRMInput
+
+func (ServiceEndpointAzureRMMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ServiceEndpointAzureRM)(nil))
+}
+
+func (i ServiceEndpointAzureRMMap) ToServiceEndpointAzureRMMapOutput() ServiceEndpointAzureRMMapOutput {
+	return i.ToServiceEndpointAzureRMMapOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointAzureRMMap) ToServiceEndpointAzureRMMapOutputWithContext(ctx context.Context) ServiceEndpointAzureRMMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMMapOutput)
+}
+
 type ServiceEndpointAzureRMOutput struct {
 	*pulumi.OutputState
 }
@@ -301,6 +379,75 @@ func (o ServiceEndpointAzureRMOutput) ToServiceEndpointAzureRMOutputWithContext(
 	return o
 }
 
+func (o ServiceEndpointAzureRMOutput) ToServiceEndpointAzureRMPtrOutput() ServiceEndpointAzureRMPtrOutput {
+	return o.ToServiceEndpointAzureRMPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointAzureRMOutput) ToServiceEndpointAzureRMPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointAzureRM) *ServiceEndpointAzureRM {
+		return &v
+	}).(ServiceEndpointAzureRMPtrOutput)
+}
+
+type ServiceEndpointAzureRMPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ServiceEndpointAzureRMPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointAzureRM)(nil))
+}
+
+func (o ServiceEndpointAzureRMPtrOutput) ToServiceEndpointAzureRMPtrOutput() ServiceEndpointAzureRMPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMPtrOutput) ToServiceEndpointAzureRMPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMPtrOutput {
+	return o
+}
+
+type ServiceEndpointAzureRMArrayOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAzureRMArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ServiceEndpointAzureRM)(nil))
+}
+
+func (o ServiceEndpointAzureRMArrayOutput) ToServiceEndpointAzureRMArrayOutput() ServiceEndpointAzureRMArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMArrayOutput) ToServiceEndpointAzureRMArrayOutputWithContext(ctx context.Context) ServiceEndpointAzureRMArrayOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMArrayOutput) Index(i pulumi.IntInput) ServiceEndpointAzureRMOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointAzureRM {
+		return vs[0].([]ServiceEndpointAzureRM)[vs[1].(int)]
+	}).(ServiceEndpointAzureRMOutput)
+}
+
+type ServiceEndpointAzureRMMapOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointAzureRMMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ServiceEndpointAzureRM)(nil))
+}
+
+func (o ServiceEndpointAzureRMMapOutput) ToServiceEndpointAzureRMMapOutput() ServiceEndpointAzureRMMapOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMMapOutput) ToServiceEndpointAzureRMMapOutputWithContext(ctx context.Context) ServiceEndpointAzureRMMapOutput {
+	return o
+}
+
+func (o ServiceEndpointAzureRMMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointAzureRMOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointAzureRM {
+		return vs[0].(map[string]ServiceEndpointAzureRM)[vs[1].(string)]
+	}).(ServiceEndpointAzureRMOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ServiceEndpointAzureRMOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAzureRMPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAzureRMArrayOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointAzureRMMapOutput{})
 }

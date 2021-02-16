@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -205,6 +204,85 @@ func (i *BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersOutput)
 }
 
+func (i *BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersPtrOutput() BranchPolicyAutoReviewersPtrOutput {
+	return i.ToBranchPolicyAutoReviewersPtrOutputWithContext(context.Background())
+}
+
+func (i *BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersPtrOutput)
+}
+
+type BranchPolicyAutoReviewersPtrInput interface {
+	pulumi.Input
+
+	ToBranchPolicyAutoReviewersPtrOutput() BranchPolicyAutoReviewersPtrOutput
+	ToBranchPolicyAutoReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersPtrOutput
+}
+
+type branchPolicyAutoReviewersPtrType BranchPolicyAutoReviewersArgs
+
+func (*branchPolicyAutoReviewersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyAutoReviewers)(nil))
+}
+
+func (i *branchPolicyAutoReviewersPtrType) ToBranchPolicyAutoReviewersPtrOutput() BranchPolicyAutoReviewersPtrOutput {
+	return i.ToBranchPolicyAutoReviewersPtrOutputWithContext(context.Background())
+}
+
+func (i *branchPolicyAutoReviewersPtrType) ToBranchPolicyAutoReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersPtrOutput)
+}
+
+// BranchPolicyAutoReviewersArrayInput is an input type that accepts BranchPolicyAutoReviewersArray and BranchPolicyAutoReviewersArrayOutput values.
+// You can construct a concrete instance of `BranchPolicyAutoReviewersArrayInput` via:
+//
+//          BranchPolicyAutoReviewersArray{ BranchPolicyAutoReviewersArgs{...} }
+type BranchPolicyAutoReviewersArrayInput interface {
+	pulumi.Input
+
+	ToBranchPolicyAutoReviewersArrayOutput() BranchPolicyAutoReviewersArrayOutput
+	ToBranchPolicyAutoReviewersArrayOutputWithContext(context.Context) BranchPolicyAutoReviewersArrayOutput
+}
+
+type BranchPolicyAutoReviewersArray []BranchPolicyAutoReviewersInput
+
+func (BranchPolicyAutoReviewersArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*BranchPolicyAutoReviewers)(nil))
+}
+
+func (i BranchPolicyAutoReviewersArray) ToBranchPolicyAutoReviewersArrayOutput() BranchPolicyAutoReviewersArrayOutput {
+	return i.ToBranchPolicyAutoReviewersArrayOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyAutoReviewersArray) ToBranchPolicyAutoReviewersArrayOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersArrayOutput)
+}
+
+// BranchPolicyAutoReviewersMapInput is an input type that accepts BranchPolicyAutoReviewersMap and BranchPolicyAutoReviewersMapOutput values.
+// You can construct a concrete instance of `BranchPolicyAutoReviewersMapInput` via:
+//
+//          BranchPolicyAutoReviewersMap{ "key": BranchPolicyAutoReviewersArgs{...} }
+type BranchPolicyAutoReviewersMapInput interface {
+	pulumi.Input
+
+	ToBranchPolicyAutoReviewersMapOutput() BranchPolicyAutoReviewersMapOutput
+	ToBranchPolicyAutoReviewersMapOutputWithContext(context.Context) BranchPolicyAutoReviewersMapOutput
+}
+
+type BranchPolicyAutoReviewersMap map[string]BranchPolicyAutoReviewersInput
+
+func (BranchPolicyAutoReviewersMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*BranchPolicyAutoReviewers)(nil))
+}
+
+func (i BranchPolicyAutoReviewersMap) ToBranchPolicyAutoReviewersMapOutput() BranchPolicyAutoReviewersMapOutput {
+	return i.ToBranchPolicyAutoReviewersMapOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyAutoReviewersMap) ToBranchPolicyAutoReviewersMapOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersMapOutput)
+}
+
 type BranchPolicyAutoReviewersOutput struct {
 	*pulumi.OutputState
 }
@@ -221,6 +299,75 @@ func (o BranchPolicyAutoReviewersOutput) ToBranchPolicyAutoReviewersOutputWithCo
 	return o
 }
 
+func (o BranchPolicyAutoReviewersOutput) ToBranchPolicyAutoReviewersPtrOutput() BranchPolicyAutoReviewersPtrOutput {
+	return o.ToBranchPolicyAutoReviewersPtrOutputWithContext(context.Background())
+}
+
+func (o BranchPolicyAutoReviewersOutput) ToBranchPolicyAutoReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersPtrOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewers) *BranchPolicyAutoReviewers {
+		return &v
+	}).(BranchPolicyAutoReviewersPtrOutput)
+}
+
+type BranchPolicyAutoReviewersPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (BranchPolicyAutoReviewersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyAutoReviewers)(nil))
+}
+
+func (o BranchPolicyAutoReviewersPtrOutput) ToBranchPolicyAutoReviewersPtrOutput() BranchPolicyAutoReviewersPtrOutput {
+	return o
+}
+
+func (o BranchPolicyAutoReviewersPtrOutput) ToBranchPolicyAutoReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersPtrOutput {
+	return o
+}
+
+type BranchPolicyAutoReviewersArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyAutoReviewersArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyAutoReviewers)(nil))
+}
+
+func (o BranchPolicyAutoReviewersArrayOutput) ToBranchPolicyAutoReviewersArrayOutput() BranchPolicyAutoReviewersArrayOutput {
+	return o
+}
+
+func (o BranchPolicyAutoReviewersArrayOutput) ToBranchPolicyAutoReviewersArrayOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersArrayOutput {
+	return o
+}
+
+func (o BranchPolicyAutoReviewersArrayOutput) Index(i pulumi.IntInput) BranchPolicyAutoReviewersOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyAutoReviewers {
+		return vs[0].([]BranchPolicyAutoReviewers)[vs[1].(int)]
+	}).(BranchPolicyAutoReviewersOutput)
+}
+
+type BranchPolicyAutoReviewersMapOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyAutoReviewersMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]BranchPolicyAutoReviewers)(nil))
+}
+
+func (o BranchPolicyAutoReviewersMapOutput) ToBranchPolicyAutoReviewersMapOutput() BranchPolicyAutoReviewersMapOutput {
+	return o
+}
+
+func (o BranchPolicyAutoReviewersMapOutput) ToBranchPolicyAutoReviewersMapOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersMapOutput {
+	return o
+}
+
+func (o BranchPolicyAutoReviewersMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyAutoReviewersOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchPolicyAutoReviewers {
+		return vs[0].(map[string]BranchPolicyAutoReviewers)[vs[1].(string)]
+	}).(BranchPolicyAutoReviewersOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersOutput{})
+	pulumi.RegisterOutputType(BranchPolicyAutoReviewersPtrOutput{})
+	pulumi.RegisterOutputType(BranchPolicyAutoReviewersArrayOutput{})
+	pulumi.RegisterOutputType(BranchPolicyAutoReviewersMapOutput{})
 }

@@ -89,7 +89,8 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
     constructor(name: string, args: ServiceEndpointKubernetesArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointKubernetesArgs | ServiceEndpointKubernetesState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceEndpointKubernetesState | undefined;
             inputs["apiserverUrl"] = state ? state.apiserverUrl : undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
@@ -102,16 +103,16 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointKubernetesArgs | undefined;
-            if ((!args || args.apiserverUrl === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiserverUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiserverUrl'");
             }
-            if ((!args || args.authorizationType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorizationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizationType'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["apiserverUrl"] = args ? args.apiserverUrl : undefined;
@@ -124,15 +125,11 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
             inputs["serviceAccounts"] = args ? args.serviceAccounts : undefined;
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/kubernetes:Kubernetes" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpointKubernetes.__pulumiType, name, inputs, opts);
     }
 }

@@ -126,7 +126,8 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
     constructor(name: string, args: ServiceEndpointDockerRegistryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointDockerRegistryArgs | ServiceEndpointDockerRegistryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceEndpointDockerRegistryState | undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
             inputs["description"] = state ? state.description : undefined;
@@ -140,16 +141,16 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointDockerRegistryArgs | undefined;
-            if ((!args || args.dockerRegistry === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.dockerRegistry === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'dockerRegistry'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.registryType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.registryType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'registryType'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["authorization"] = args ? args.authorization : undefined;
@@ -163,15 +164,11 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             inputs["dockerPasswordHash"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpointDockerRegistry.__pulumiType, name, inputs, opts);
     }
 }

@@ -143,7 +143,8 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
     constructor(name: string, args: ServiceEndpointAzureRMArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointAzureRMArgs | ServiceEndpointAzureRMState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceEndpointAzureRMState | undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
             inputs["azurermSpnTenantid"] = state ? state.azurermSpnTenantid : undefined;
@@ -156,19 +157,19 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureRMArgs | undefined;
-            if ((!args || args.azurermSpnTenantid === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azurermSpnTenantid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azurermSpnTenantid'");
             }
-            if ((!args || args.azurermSubscriptionId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azurermSubscriptionId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azurermSubscriptionId'");
             }
-            if ((!args || args.azurermSubscriptionName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.azurermSubscriptionName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azurermSubscriptionName'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["authorization"] = args ? args.authorization : undefined;
@@ -181,15 +182,11 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/azureRM:AzureRM" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ServiceEndpointAzureRM.__pulumiType, name, inputs, opts);
     }
 }

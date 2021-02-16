@@ -126,7 +126,8 @@ export class GitHub extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GitHubArgs | GitHubState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GitHub is deprecated: azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GitHubState | undefined;
             inputs["authOauth"] = state ? state.authOauth : undefined;
             inputs["authPersonal"] = state ? state.authPersonal : undefined;
@@ -136,10 +137,10 @@ export class GitHub extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as GitHubArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["authOauth"] = args ? args.authOauth : undefined;
@@ -149,12 +150,8 @@ export class GitHub extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(GitHub.__pulumiType, name, inputs, opts);
     }

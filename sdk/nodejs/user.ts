@@ -92,7 +92,8 @@ export class User extends pulumi.CustomResource {
     constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as UserState | undefined;
             inputs["accountLicenseType"] = state ? state.accountLicenseType : undefined;
             inputs["descriptor"] = state ? state.descriptor : undefined;
@@ -109,15 +110,11 @@ export class User extends pulumi.CustomResource {
             inputs["principalName"] = args ? args.principalName : undefined;
             inputs["descriptor"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azuredevops:Entitlement/user:User" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(User.__pulumiType, name, inputs, opts);
     }
 }

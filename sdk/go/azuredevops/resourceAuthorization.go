@@ -21,7 +21,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -194,6 +194,85 @@ func (i *ResourceAuthorization) ToResourceAuthorizationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationOutput)
 }
 
+func (i *ResourceAuthorization) ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput {
+	return i.ToResourceAuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (i *ResourceAuthorization) ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationPtrOutput)
+}
+
+type ResourceAuthorizationPtrInput interface {
+	pulumi.Input
+
+	ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput
+	ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput
+}
+
+type resourceAuthorizationPtrType ResourceAuthorizationArgs
+
+func (*resourceAuthorizationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceAuthorization)(nil))
+}
+
+func (i *resourceAuthorizationPtrType) ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput {
+	return i.ToResourceAuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceAuthorizationPtrType) ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationPtrOutput)
+}
+
+// ResourceAuthorizationArrayInput is an input type that accepts ResourceAuthorizationArray and ResourceAuthorizationArrayOutput values.
+// You can construct a concrete instance of `ResourceAuthorizationArrayInput` via:
+//
+//          ResourceAuthorizationArray{ ResourceAuthorizationArgs{...} }
+type ResourceAuthorizationArrayInput interface {
+	pulumi.Input
+
+	ToResourceAuthorizationArrayOutput() ResourceAuthorizationArrayOutput
+	ToResourceAuthorizationArrayOutputWithContext(context.Context) ResourceAuthorizationArrayOutput
+}
+
+type ResourceAuthorizationArray []ResourceAuthorizationInput
+
+func (ResourceAuthorizationArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*ResourceAuthorization)(nil))
+}
+
+func (i ResourceAuthorizationArray) ToResourceAuthorizationArrayOutput() ResourceAuthorizationArrayOutput {
+	return i.ToResourceAuthorizationArrayOutputWithContext(context.Background())
+}
+
+func (i ResourceAuthorizationArray) ToResourceAuthorizationArrayOutputWithContext(ctx context.Context) ResourceAuthorizationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationArrayOutput)
+}
+
+// ResourceAuthorizationMapInput is an input type that accepts ResourceAuthorizationMap and ResourceAuthorizationMapOutput values.
+// You can construct a concrete instance of `ResourceAuthorizationMapInput` via:
+//
+//          ResourceAuthorizationMap{ "key": ResourceAuthorizationArgs{...} }
+type ResourceAuthorizationMapInput interface {
+	pulumi.Input
+
+	ToResourceAuthorizationMapOutput() ResourceAuthorizationMapOutput
+	ToResourceAuthorizationMapOutputWithContext(context.Context) ResourceAuthorizationMapOutput
+}
+
+type ResourceAuthorizationMap map[string]ResourceAuthorizationInput
+
+func (ResourceAuthorizationMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*ResourceAuthorization)(nil))
+}
+
+func (i ResourceAuthorizationMap) ToResourceAuthorizationMapOutput() ResourceAuthorizationMapOutput {
+	return i.ToResourceAuthorizationMapOutputWithContext(context.Background())
+}
+
+func (i ResourceAuthorizationMap) ToResourceAuthorizationMapOutputWithContext(ctx context.Context) ResourceAuthorizationMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationMapOutput)
+}
+
 type ResourceAuthorizationOutput struct {
 	*pulumi.OutputState
 }
@@ -210,6 +289,75 @@ func (o ResourceAuthorizationOutput) ToResourceAuthorizationOutputWithContext(ct
 	return o
 }
 
+func (o ResourceAuthorizationOutput) ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput {
+	return o.ToResourceAuthorizationPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceAuthorizationOutput) ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput {
+	return o.ApplyT(func(v ResourceAuthorization) *ResourceAuthorization {
+		return &v
+	}).(ResourceAuthorizationPtrOutput)
+}
+
+type ResourceAuthorizationPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (ResourceAuthorizationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceAuthorization)(nil))
+}
+
+func (o ResourceAuthorizationPtrOutput) ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput {
+	return o
+}
+
+func (o ResourceAuthorizationPtrOutput) ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput {
+	return o
+}
+
+type ResourceAuthorizationArrayOutput struct{ *pulumi.OutputState }
+
+func (ResourceAuthorizationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ResourceAuthorization)(nil))
+}
+
+func (o ResourceAuthorizationArrayOutput) ToResourceAuthorizationArrayOutput() ResourceAuthorizationArrayOutput {
+	return o
+}
+
+func (o ResourceAuthorizationArrayOutput) ToResourceAuthorizationArrayOutputWithContext(ctx context.Context) ResourceAuthorizationArrayOutput {
+	return o
+}
+
+func (o ResourceAuthorizationArrayOutput) Index(i pulumi.IntInput) ResourceAuthorizationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAuthorization {
+		return vs[0].([]ResourceAuthorization)[vs[1].(int)]
+	}).(ResourceAuthorizationOutput)
+}
+
+type ResourceAuthorizationMapOutput struct{ *pulumi.OutputState }
+
+func (ResourceAuthorizationMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]ResourceAuthorization)(nil))
+}
+
+func (o ResourceAuthorizationMapOutput) ToResourceAuthorizationMapOutput() ResourceAuthorizationMapOutput {
+	return o
+}
+
+func (o ResourceAuthorizationMapOutput) ToResourceAuthorizationMapOutputWithContext(ctx context.Context) ResourceAuthorizationMapOutput {
+	return o
+}
+
+func (o ResourceAuthorizationMapOutput) MapIndex(k pulumi.StringInput) ResourceAuthorizationOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceAuthorization {
+		return vs[0].(map[string]ResourceAuthorization)[vs[1].(string)]
+	}).(ResourceAuthorizationOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(ResourceAuthorizationOutput{})
+	pulumi.RegisterOutputType(ResourceAuthorizationPtrOutput{})
+	pulumi.RegisterOutputType(ResourceAuthorizationArrayOutput{})
+	pulumi.RegisterOutputType(ResourceAuthorizationMapOutput{})
 }

@@ -30,7 +30,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -63,7 +63,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -98,7 +98,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -275,6 +275,85 @@ func (i *GitPermissions) ToGitPermissionsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsOutput)
 }
 
+func (i *GitPermissions) ToGitPermissionsPtrOutput() GitPermissionsPtrOutput {
+	return i.ToGitPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *GitPermissions) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsPtrOutput)
+}
+
+type GitPermissionsPtrInput interface {
+	pulumi.Input
+
+	ToGitPermissionsPtrOutput() GitPermissionsPtrOutput
+	ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput
+}
+
+type gitPermissionsPtrType GitPermissionsArgs
+
+func (*gitPermissionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitPermissions)(nil))
+}
+
+func (i *gitPermissionsPtrType) ToGitPermissionsPtrOutput() GitPermissionsPtrOutput {
+	return i.ToGitPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (i *gitPermissionsPtrType) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsPtrOutput)
+}
+
+// GitPermissionsArrayInput is an input type that accepts GitPermissionsArray and GitPermissionsArrayOutput values.
+// You can construct a concrete instance of `GitPermissionsArrayInput` via:
+//
+//          GitPermissionsArray{ GitPermissionsArgs{...} }
+type GitPermissionsArrayInput interface {
+	pulumi.Input
+
+	ToGitPermissionsArrayOutput() GitPermissionsArrayOutput
+	ToGitPermissionsArrayOutputWithContext(context.Context) GitPermissionsArrayOutput
+}
+
+type GitPermissionsArray []GitPermissionsInput
+
+func (GitPermissionsArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*GitPermissions)(nil))
+}
+
+func (i GitPermissionsArray) ToGitPermissionsArrayOutput() GitPermissionsArrayOutput {
+	return i.ToGitPermissionsArrayOutputWithContext(context.Background())
+}
+
+func (i GitPermissionsArray) ToGitPermissionsArrayOutputWithContext(ctx context.Context) GitPermissionsArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsArrayOutput)
+}
+
+// GitPermissionsMapInput is an input type that accepts GitPermissionsMap and GitPermissionsMapOutput values.
+// You can construct a concrete instance of `GitPermissionsMapInput` via:
+//
+//          GitPermissionsMap{ "key": GitPermissionsArgs{...} }
+type GitPermissionsMapInput interface {
+	pulumi.Input
+
+	ToGitPermissionsMapOutput() GitPermissionsMapOutput
+	ToGitPermissionsMapOutputWithContext(context.Context) GitPermissionsMapOutput
+}
+
+type GitPermissionsMap map[string]GitPermissionsInput
+
+func (GitPermissionsMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*GitPermissions)(nil))
+}
+
+func (i GitPermissionsMap) ToGitPermissionsMapOutput() GitPermissionsMapOutput {
+	return i.ToGitPermissionsMapOutputWithContext(context.Background())
+}
+
+func (i GitPermissionsMap) ToGitPermissionsMapOutputWithContext(ctx context.Context) GitPermissionsMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsMapOutput)
+}
+
 type GitPermissionsOutput struct {
 	*pulumi.OutputState
 }
@@ -291,6 +370,75 @@ func (o GitPermissionsOutput) ToGitPermissionsOutputWithContext(ctx context.Cont
 	return o
 }
 
+func (o GitPermissionsOutput) ToGitPermissionsPtrOutput() GitPermissionsPtrOutput {
+	return o.ToGitPermissionsPtrOutputWithContext(context.Background())
+}
+
+func (o GitPermissionsOutput) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
+	return o.ApplyT(func(v GitPermissions) *GitPermissions {
+		return &v
+	}).(GitPermissionsPtrOutput)
+}
+
+type GitPermissionsPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (GitPermissionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitPermissions)(nil))
+}
+
+func (o GitPermissionsPtrOutput) ToGitPermissionsPtrOutput() GitPermissionsPtrOutput {
+	return o
+}
+
+func (o GitPermissionsPtrOutput) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
+	return o
+}
+
+type GitPermissionsArrayOutput struct{ *pulumi.OutputState }
+
+func (GitPermissionsArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GitPermissions)(nil))
+}
+
+func (o GitPermissionsArrayOutput) ToGitPermissionsArrayOutput() GitPermissionsArrayOutput {
+	return o
+}
+
+func (o GitPermissionsArrayOutput) ToGitPermissionsArrayOutputWithContext(ctx context.Context) GitPermissionsArrayOutput {
+	return o
+}
+
+func (o GitPermissionsArrayOutput) Index(i pulumi.IntInput) GitPermissionsOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GitPermissions {
+		return vs[0].([]GitPermissions)[vs[1].(int)]
+	}).(GitPermissionsOutput)
+}
+
+type GitPermissionsMapOutput struct{ *pulumi.OutputState }
+
+func (GitPermissionsMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GitPermissions)(nil))
+}
+
+func (o GitPermissionsMapOutput) ToGitPermissionsMapOutput() GitPermissionsMapOutput {
+	return o
+}
+
+func (o GitPermissionsMapOutput) ToGitPermissionsMapOutputWithContext(ctx context.Context) GitPermissionsMapOutput {
+	return o
+}
+
+func (o GitPermissionsMapOutput) MapIndex(k pulumi.StringInput) GitPermissionsOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GitPermissions {
+		return vs[0].(map[string]GitPermissions)[vs[1].(string)]
+	}).(GitPermissionsOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GitPermissionsOutput{})
+	pulumi.RegisterOutputType(GitPermissionsPtrOutput{})
+	pulumi.RegisterOutputType(GitPermissionsArrayOutput{})
+	pulumi.RegisterOutputType(GitPermissionsMapOutput{})
 }

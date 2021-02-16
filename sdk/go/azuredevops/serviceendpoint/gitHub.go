@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -54,7 +53,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -79,7 +77,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -239,6 +237,85 @@ func (i *GitHub) ToGitHubOutputWithContext(ctx context.Context) GitHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubOutput)
 }
 
+func (i *GitHub) ToGitHubPtrOutput() GitHubPtrOutput {
+	return i.ToGitHubPtrOutputWithContext(context.Background())
+}
+
+func (i *GitHub) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubPtrOutput)
+}
+
+type GitHubPtrInput interface {
+	pulumi.Input
+
+	ToGitHubPtrOutput() GitHubPtrOutput
+	ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput
+}
+
+type gitHubPtrType GitHubArgs
+
+func (*gitHubPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHub)(nil))
+}
+
+func (i *gitHubPtrType) ToGitHubPtrOutput() GitHubPtrOutput {
+	return i.ToGitHubPtrOutputWithContext(context.Background())
+}
+
+func (i *gitHubPtrType) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubPtrOutput)
+}
+
+// GitHubArrayInput is an input type that accepts GitHubArray and GitHubArrayOutput values.
+// You can construct a concrete instance of `GitHubArrayInput` via:
+//
+//          GitHubArray{ GitHubArgs{...} }
+type GitHubArrayInput interface {
+	pulumi.Input
+
+	ToGitHubArrayOutput() GitHubArrayOutput
+	ToGitHubArrayOutputWithContext(context.Context) GitHubArrayOutput
+}
+
+type GitHubArray []GitHubInput
+
+func (GitHubArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*GitHub)(nil))
+}
+
+func (i GitHubArray) ToGitHubArrayOutput() GitHubArrayOutput {
+	return i.ToGitHubArrayOutputWithContext(context.Background())
+}
+
+func (i GitHubArray) ToGitHubArrayOutputWithContext(ctx context.Context) GitHubArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubArrayOutput)
+}
+
+// GitHubMapInput is an input type that accepts GitHubMap and GitHubMapOutput values.
+// You can construct a concrete instance of `GitHubMapInput` via:
+//
+//          GitHubMap{ "key": GitHubArgs{...} }
+type GitHubMapInput interface {
+	pulumi.Input
+
+	ToGitHubMapOutput() GitHubMapOutput
+	ToGitHubMapOutputWithContext(context.Context) GitHubMapOutput
+}
+
+type GitHubMap map[string]GitHubInput
+
+func (GitHubMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*GitHub)(nil))
+}
+
+func (i GitHubMap) ToGitHubMapOutput() GitHubMapOutput {
+	return i.ToGitHubMapOutputWithContext(context.Background())
+}
+
+func (i GitHubMap) ToGitHubMapOutputWithContext(ctx context.Context) GitHubMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GitHubMapOutput)
+}
+
 type GitHubOutput struct {
 	*pulumi.OutputState
 }
@@ -255,6 +332,75 @@ func (o GitHubOutput) ToGitHubOutputWithContext(ctx context.Context) GitHubOutpu
 	return o
 }
 
+func (o GitHubOutput) ToGitHubPtrOutput() GitHubPtrOutput {
+	return o.ToGitHubPtrOutputWithContext(context.Background())
+}
+
+func (o GitHubOutput) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
+	return o.ApplyT(func(v GitHub) *GitHub {
+		return &v
+	}).(GitHubPtrOutput)
+}
+
+type GitHubPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (GitHubPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GitHub)(nil))
+}
+
+func (o GitHubPtrOutput) ToGitHubPtrOutput() GitHubPtrOutput {
+	return o
+}
+
+func (o GitHubPtrOutput) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
+	return o
+}
+
+type GitHubArrayOutput struct{ *pulumi.OutputState }
+
+func (GitHubArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GitHub)(nil))
+}
+
+func (o GitHubArrayOutput) ToGitHubArrayOutput() GitHubArrayOutput {
+	return o
+}
+
+func (o GitHubArrayOutput) ToGitHubArrayOutputWithContext(ctx context.Context) GitHubArrayOutput {
+	return o
+}
+
+func (o GitHubArrayOutput) Index(i pulumi.IntInput) GitHubOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GitHub {
+		return vs[0].([]GitHub)[vs[1].(int)]
+	}).(GitHubOutput)
+}
+
+type GitHubMapOutput struct{ *pulumi.OutputState }
+
+func (GitHubMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]GitHub)(nil))
+}
+
+func (o GitHubMapOutput) ToGitHubMapOutput() GitHubMapOutput {
+	return o
+}
+
+func (o GitHubMapOutput) ToGitHubMapOutputWithContext(ctx context.Context) GitHubMapOutput {
+	return o
+}
+
+func (o GitHubMapOutput) MapIndex(k pulumi.StringInput) GitHubOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GitHub {
+		return vs[0].(map[string]GitHub)[vs[1].(string)]
+	}).(GitHubOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(GitHubOutput{})
+	pulumi.RegisterOutputType(GitHubPtrOutput{})
+	pulumi.RegisterOutputType(GitHubArrayOutput{})
+	pulumi.RegisterOutputType(GitHubMapOutput{})
 }

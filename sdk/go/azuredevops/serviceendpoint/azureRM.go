@@ -27,7 +27,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -66,7 +65,7 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -281,6 +280,85 @@ func (i *AzureRM) ToAzureRMOutputWithContext(ctx context.Context) AzureRMOutput 
 	return pulumi.ToOutputWithContext(ctx, i).(AzureRMOutput)
 }
 
+func (i *AzureRM) ToAzureRMPtrOutput() AzureRMPtrOutput {
+	return i.ToAzureRMPtrOutputWithContext(context.Background())
+}
+
+func (i *AzureRM) ToAzureRMPtrOutputWithContext(ctx context.Context) AzureRMPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRMPtrOutput)
+}
+
+type AzureRMPtrInput interface {
+	pulumi.Input
+
+	ToAzureRMPtrOutput() AzureRMPtrOutput
+	ToAzureRMPtrOutputWithContext(ctx context.Context) AzureRMPtrOutput
+}
+
+type azureRMPtrType AzureRMArgs
+
+func (*azureRMPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureRM)(nil))
+}
+
+func (i *azureRMPtrType) ToAzureRMPtrOutput() AzureRMPtrOutput {
+	return i.ToAzureRMPtrOutputWithContext(context.Background())
+}
+
+func (i *azureRMPtrType) ToAzureRMPtrOutputWithContext(ctx context.Context) AzureRMPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRMPtrOutput)
+}
+
+// AzureRMArrayInput is an input type that accepts AzureRMArray and AzureRMArrayOutput values.
+// You can construct a concrete instance of `AzureRMArrayInput` via:
+//
+//          AzureRMArray{ AzureRMArgs{...} }
+type AzureRMArrayInput interface {
+	pulumi.Input
+
+	ToAzureRMArrayOutput() AzureRMArrayOutput
+	ToAzureRMArrayOutputWithContext(context.Context) AzureRMArrayOutput
+}
+
+type AzureRMArray []AzureRMInput
+
+func (AzureRMArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*AzureRM)(nil))
+}
+
+func (i AzureRMArray) ToAzureRMArrayOutput() AzureRMArrayOutput {
+	return i.ToAzureRMArrayOutputWithContext(context.Background())
+}
+
+func (i AzureRMArray) ToAzureRMArrayOutputWithContext(ctx context.Context) AzureRMArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRMArrayOutput)
+}
+
+// AzureRMMapInput is an input type that accepts AzureRMMap and AzureRMMapOutput values.
+// You can construct a concrete instance of `AzureRMMapInput` via:
+//
+//          AzureRMMap{ "key": AzureRMArgs{...} }
+type AzureRMMapInput interface {
+	pulumi.Input
+
+	ToAzureRMMapOutput() AzureRMMapOutput
+	ToAzureRMMapOutputWithContext(context.Context) AzureRMMapOutput
+}
+
+type AzureRMMap map[string]AzureRMInput
+
+func (AzureRMMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*AzureRM)(nil))
+}
+
+func (i AzureRMMap) ToAzureRMMapOutput() AzureRMMapOutput {
+	return i.ToAzureRMMapOutputWithContext(context.Background())
+}
+
+func (i AzureRMMap) ToAzureRMMapOutputWithContext(ctx context.Context) AzureRMMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AzureRMMapOutput)
+}
+
 type AzureRMOutput struct {
 	*pulumi.OutputState
 }
@@ -297,6 +375,75 @@ func (o AzureRMOutput) ToAzureRMOutputWithContext(ctx context.Context) AzureRMOu
 	return o
 }
 
+func (o AzureRMOutput) ToAzureRMPtrOutput() AzureRMPtrOutput {
+	return o.ToAzureRMPtrOutputWithContext(context.Background())
+}
+
+func (o AzureRMOutput) ToAzureRMPtrOutputWithContext(ctx context.Context) AzureRMPtrOutput {
+	return o.ApplyT(func(v AzureRM) *AzureRM {
+		return &v
+	}).(AzureRMPtrOutput)
+}
+
+type AzureRMPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (AzureRMPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureRM)(nil))
+}
+
+func (o AzureRMPtrOutput) ToAzureRMPtrOutput() AzureRMPtrOutput {
+	return o
+}
+
+func (o AzureRMPtrOutput) ToAzureRMPtrOutputWithContext(ctx context.Context) AzureRMPtrOutput {
+	return o
+}
+
+type AzureRMArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureRMArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureRM)(nil))
+}
+
+func (o AzureRMArrayOutput) ToAzureRMArrayOutput() AzureRMArrayOutput {
+	return o
+}
+
+func (o AzureRMArrayOutput) ToAzureRMArrayOutputWithContext(ctx context.Context) AzureRMArrayOutput {
+	return o
+}
+
+func (o AzureRMArrayOutput) Index(i pulumi.IntInput) AzureRMOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureRM {
+		return vs[0].([]AzureRM)[vs[1].(int)]
+	}).(AzureRMOutput)
+}
+
+type AzureRMMapOutput struct{ *pulumi.OutputState }
+
+func (AzureRMMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]AzureRM)(nil))
+}
+
+func (o AzureRMMapOutput) ToAzureRMMapOutput() AzureRMMapOutput {
+	return o
+}
+
+func (o AzureRMMapOutput) ToAzureRMMapOutputWithContext(ctx context.Context) AzureRMMapOutput {
+	return o
+}
+
+func (o AzureRMMapOutput) MapIndex(k pulumi.StringInput) AzureRMOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) AzureRM {
+		return vs[0].(map[string]AzureRM)[vs[1].(string)]
+	}).(AzureRMOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AzureRMOutput{})
+	pulumi.RegisterOutputType(AzureRMPtrOutput{})
+	pulumi.RegisterOutputType(AzureRMArrayOutput{})
+	pulumi.RegisterOutputType(AzureRMMapOutput{})
 }

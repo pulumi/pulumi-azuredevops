@@ -95,7 +95,8 @@ export class Kubernetes extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: KubernetesArgs | KubernetesState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Kubernetes is deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as KubernetesState | undefined;
             inputs["apiserverUrl"] = state ? state.apiserverUrl : undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
@@ -108,16 +109,16 @@ export class Kubernetes extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as KubernetesArgs | undefined;
-            if ((!args || args.apiserverUrl === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.apiserverUrl === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'apiserverUrl'");
             }
-            if ((!args || args.authorizationType === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorizationType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorizationType'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             inputs["apiserverUrl"] = args ? args.apiserverUrl : undefined;
@@ -130,12 +131,8 @@ export class Kubernetes extends pulumi.CustomResource {
             inputs["serviceAccounts"] = args ? args.serviceAccounts : undefined;
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Kubernetes.__pulumiType, name, inputs, opts);
     }

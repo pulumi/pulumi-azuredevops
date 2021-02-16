@@ -13,4 +13,4 @@ export let orgServiceUrl: string | undefined = __config.get("orgServiceUrl") || 
 /**
  * The personal access token which should be used.
  */
-export let personalAccessToken: string | undefined = __config.get("personalAccessToken") || utilities.getEnv("AZDO_PERSONAL_ACCESS_TOKEN");
+export let personalAccessToken: string | undefined = __config.get("personalAccessToken");

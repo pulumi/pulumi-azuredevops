@@ -117,7 +117,8 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
     constructor(name: string, args: ServiceEndpointArtifactoryArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointArtifactoryArgs | ServiceEndpointArtifactoryState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ServiceEndpointArtifactoryState | undefined;
             inputs["authenticationBasic"] = state ? state.authenticationBasic : undefined;
             inputs["authenticationToken"] = state ? state.authenticationToken : undefined;
@@ -128,13 +129,13 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
             inputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServiceEndpointArtifactoryArgs | undefined;
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.serviceEndpointName === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            if ((!args || args.url === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
             inputs["authenticationBasic"] = args ? args.authenticationBasic : undefined;
@@ -145,12 +146,8 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             inputs["url"] = args ? args.url : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ServiceEndpointArtifactory.__pulumiType, name, inputs, opts);
     }

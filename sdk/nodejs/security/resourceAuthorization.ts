@@ -98,7 +98,8 @@ export class ResourceAuthorization extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: ResourceAuthorizationArgs | ResourceAuthorizationState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("ResourceAuthorization is deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as ResourceAuthorizationState | undefined;
             inputs["authorized"] = state ? state.authorized : undefined;
             inputs["definitionId"] = state ? state.definitionId : undefined;
@@ -107,13 +108,13 @@ export class ResourceAuthorization extends pulumi.CustomResource {
             inputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ResourceAuthorizationArgs | undefined;
-            if ((!args || args.authorized === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.authorized === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'authorized'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.resourceId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
             inputs["authorized"] = args ? args.authorized : undefined;
@@ -122,12 +123,8 @@ export class ResourceAuthorization extends pulumi.CustomResource {
             inputs["resourceId"] = args ? args.resourceId : undefined;
             inputs["type"] = args ? args.type : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(ResourceAuthorization.__pulumiType, name, inputs, opts);
     }

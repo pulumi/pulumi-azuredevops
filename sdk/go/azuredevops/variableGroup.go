@@ -20,7 +20,6 @@ import (
 //
 // import (
 // 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops"
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/go/azuredevops/"
 // 	"github.com/pulumi/pulumi/sdk/v2/go/pulumi"
 // )
 //
@@ -217,6 +216,85 @@ func (i *VariableGroup) ToVariableGroupOutputWithContext(ctx context.Context) Va
 	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupOutput)
 }
 
+func (i *VariableGroup) ToVariableGroupPtrOutput() VariableGroupPtrOutput {
+	return i.ToVariableGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *VariableGroup) ToVariableGroupPtrOutputWithContext(ctx context.Context) VariableGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupPtrOutput)
+}
+
+type VariableGroupPtrInput interface {
+	pulumi.Input
+
+	ToVariableGroupPtrOutput() VariableGroupPtrOutput
+	ToVariableGroupPtrOutputWithContext(ctx context.Context) VariableGroupPtrOutput
+}
+
+type variableGroupPtrType VariableGroupArgs
+
+func (*variableGroupPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**VariableGroup)(nil))
+}
+
+func (i *variableGroupPtrType) ToVariableGroupPtrOutput() VariableGroupPtrOutput {
+	return i.ToVariableGroupPtrOutputWithContext(context.Background())
+}
+
+func (i *variableGroupPtrType) ToVariableGroupPtrOutputWithContext(ctx context.Context) VariableGroupPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupPtrOutput)
+}
+
+// VariableGroupArrayInput is an input type that accepts VariableGroupArray and VariableGroupArrayOutput values.
+// You can construct a concrete instance of `VariableGroupArrayInput` via:
+//
+//          VariableGroupArray{ VariableGroupArgs{...} }
+type VariableGroupArrayInput interface {
+	pulumi.Input
+
+	ToVariableGroupArrayOutput() VariableGroupArrayOutput
+	ToVariableGroupArrayOutputWithContext(context.Context) VariableGroupArrayOutput
+}
+
+type VariableGroupArray []VariableGroupInput
+
+func (VariableGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf(([]*VariableGroup)(nil))
+}
+
+func (i VariableGroupArray) ToVariableGroupArrayOutput() VariableGroupArrayOutput {
+	return i.ToVariableGroupArrayOutputWithContext(context.Background())
+}
+
+func (i VariableGroupArray) ToVariableGroupArrayOutputWithContext(ctx context.Context) VariableGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupArrayOutput)
+}
+
+// VariableGroupMapInput is an input type that accepts VariableGroupMap and VariableGroupMapOutput values.
+// You can construct a concrete instance of `VariableGroupMapInput` via:
+//
+//          VariableGroupMap{ "key": VariableGroupArgs{...} }
+type VariableGroupMapInput interface {
+	pulumi.Input
+
+	ToVariableGroupMapOutput() VariableGroupMapOutput
+	ToVariableGroupMapOutputWithContext(context.Context) VariableGroupMapOutput
+}
+
+type VariableGroupMap map[string]VariableGroupInput
+
+func (VariableGroupMap) ElementType() reflect.Type {
+	return reflect.TypeOf((map[string]*VariableGroup)(nil))
+}
+
+func (i VariableGroupMap) ToVariableGroupMapOutput() VariableGroupMapOutput {
+	return i.ToVariableGroupMapOutputWithContext(context.Background())
+}
+
+func (i VariableGroupMap) ToVariableGroupMapOutputWithContext(ctx context.Context) VariableGroupMapOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupMapOutput)
+}
+
 type VariableGroupOutput struct {
 	*pulumi.OutputState
 }
@@ -233,6 +311,75 @@ func (o VariableGroupOutput) ToVariableGroupOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o VariableGroupOutput) ToVariableGroupPtrOutput() VariableGroupPtrOutput {
+	return o.ToVariableGroupPtrOutputWithContext(context.Background())
+}
+
+func (o VariableGroupOutput) ToVariableGroupPtrOutputWithContext(ctx context.Context) VariableGroupPtrOutput {
+	return o.ApplyT(func(v VariableGroup) *VariableGroup {
+		return &v
+	}).(VariableGroupPtrOutput)
+}
+
+type VariableGroupPtrOutput struct {
+	*pulumi.OutputState
+}
+
+func (VariableGroupPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**VariableGroup)(nil))
+}
+
+func (o VariableGroupPtrOutput) ToVariableGroupPtrOutput() VariableGroupPtrOutput {
+	return o
+}
+
+func (o VariableGroupPtrOutput) ToVariableGroupPtrOutputWithContext(ctx context.Context) VariableGroupPtrOutput {
+	return o
+}
+
+type VariableGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (VariableGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]VariableGroup)(nil))
+}
+
+func (o VariableGroupArrayOutput) ToVariableGroupArrayOutput() VariableGroupArrayOutput {
+	return o
+}
+
+func (o VariableGroupArrayOutput) ToVariableGroupArrayOutputWithContext(ctx context.Context) VariableGroupArrayOutput {
+	return o
+}
+
+func (o VariableGroupArrayOutput) Index(i pulumi.IntInput) VariableGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) VariableGroup {
+		return vs[0].([]VariableGroup)[vs[1].(int)]
+	}).(VariableGroupOutput)
+}
+
+type VariableGroupMapOutput struct{ *pulumi.OutputState }
+
+func (VariableGroupMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]VariableGroup)(nil))
+}
+
+func (o VariableGroupMapOutput) ToVariableGroupMapOutput() VariableGroupMapOutput {
+	return o
+}
+
+func (o VariableGroupMapOutput) ToVariableGroupMapOutputWithContext(ctx context.Context) VariableGroupMapOutput {
+	return o
+}
+
+func (o VariableGroupMapOutput) MapIndex(k pulumi.StringInput) VariableGroupOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) VariableGroup {
+		return vs[0].(map[string]VariableGroup)[vs[1].(string)]
+	}).(VariableGroupOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(VariableGroupOutput{})
+	pulumi.RegisterOutputType(VariableGroupPtrOutput{})
+	pulumi.RegisterOutputType(VariableGroupArrayOutput{})
+	pulumi.RegisterOutputType(VariableGroupMapOutput{})
 }

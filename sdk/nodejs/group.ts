@@ -135,7 +135,8 @@ export class Group extends pulumi.CustomResource {
     constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GroupState | undefined;
             inputs["description"] = state ? state.description : undefined;
             inputs["descriptor"] = state ? state.descriptor : undefined;
@@ -164,15 +165,11 @@ export class Group extends pulumi.CustomResource {
             inputs["subjectKind"] = undefined /*out*/;
             inputs["url"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azuredevops:Identities/group:Group" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Group.__pulumiType, name, inputs, opts);
     }
 }

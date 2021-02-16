@@ -80,11 +80,6 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"AZDO_ORG_SERVICE_URL"},
 				},
 			},
-			"personal_access_token": {
-				Default: &tfbridge.DefaultInfo{
-					EnvVars: []string{"AZDO_PERSONAL_ACCESS_TOKEN"},
-				},
-			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
 			"azuredevops_area_permissions": {

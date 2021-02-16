@@ -20,7 +20,7 @@ org_service_url = __config__.get('orgServiceUrl') or _utilities.get_env('AZDO_OR
 The url of the Azure DevOps instance which should be used.
 """
 
-personal_access_token = __config__.get('personalAccessToken') or _utilities.get_env('AZDO_PERSONAL_ACCESS_TOKEN')
+personal_access_token = __config__.get('personalAccessToken')
 """
 The personal access token which should be used.
 """

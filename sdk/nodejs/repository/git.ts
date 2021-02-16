@@ -149,7 +149,8 @@ export class Git extends pulumi.CustomResource {
     constructor(name: string, argsOrState?: GitArgs | GitState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Git is deprecated: azuredevops.repository.Git has been deprecated in favor of azuredevops.Git")
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as GitState | undefined;
             inputs["defaultBranch"] = state ? state.defaultBranch : undefined;
             inputs["initialization"] = state ? state.initialization : undefined;
@@ -164,10 +165,10 @@ export class Git extends pulumi.CustomResource {
             inputs["webUrl"] = state ? state.webUrl : undefined;
         } else {
             const args = argsOrState as GitArgs | undefined;
-            if ((!args || args.initialization === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.initialization === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'initialization'");
             }
-            if ((!args || args.projectId === undefined) && !(opts && opts.urn)) {
+            if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
             inputs["defaultBranch"] = args ? args.defaultBranch : undefined;
@@ -182,12 +183,8 @@ export class Git extends pulumi.CustomResource {
             inputs["url"] = undefined /*out*/;
             inputs["webUrl"] = undefined /*out*/;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         super(Git.__pulumiType, name, inputs, opts);
     }

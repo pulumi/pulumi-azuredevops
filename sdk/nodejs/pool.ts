@@ -80,7 +80,8 @@ export class Pool extends pulumi.CustomResource {
     constructor(name: string, args?: PoolArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
         let inputs: pulumi.Inputs = {};
-        if (opts && opts.id) {
+        opts = opts || {};
+        if (opts.id) {
             const state = argsOrState as PoolState | undefined;
             inputs["autoProvision"] = state ? state.autoProvision : undefined;
             inputs["name"] = state ? state.name : undefined;
@@ -91,15 +92,11 @@ export class Pool extends pulumi.CustomResource {
             inputs["name"] = args ? args.name : undefined;
             inputs["poolType"] = args ? args.poolType : undefined;
         }
-        if (!opts) {
-            opts = {}
-        }
-
         if (!opts.version) {
-            opts.version = utilities.getVersion();
+            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
         }
         const aliasOpts = { aliases: [{ type: "azuredevops:Agent/pool:Pool" }] };
-        opts = opts ? pulumi.mergeOptions(opts, aliasOpts) : aliasOpts;
+        opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Pool.__pulumiType, name, inputs, opts);
     }
 }
