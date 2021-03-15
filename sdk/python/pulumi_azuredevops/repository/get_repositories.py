@@ -118,7 +118,7 @@ def get_repositories(include_hidden: Optional[bool] = None,
     :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
     :param str project_id: ID of project to list Git repositories
     """
-    pulumi.log.warn("get_repositories is deprecated: azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories")
+    pulumi.log.warn("""get_repositories is deprecated: azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories""")
     __args__ = dict()
     __args__['includeHidden'] = include_hidden
     __args__['name'] = name

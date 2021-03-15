@@ -66,7 +66,7 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
-        pulumi.log.warn("Queue is deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")
+        pulumi.log.warn("""Queue is deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

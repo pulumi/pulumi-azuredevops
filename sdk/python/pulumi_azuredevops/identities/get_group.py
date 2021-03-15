@@ -127,7 +127,7 @@ def get_group(name: Optional[str] = None,
     :param str name: The Group Name.
     :param str project_id: The Project ID. If no project ID is specified the project collection groups will be searched.
     """
-    pulumi.log.warn("get_group is deprecated: azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup")
+    pulumi.log.warn("""get_group is deprecated: azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup""")
     __args__ = dict()
     __args__['name'] = name
     __args__['projectId'] = project_id

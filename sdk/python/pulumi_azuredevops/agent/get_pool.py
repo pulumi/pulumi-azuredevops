@@ -94,7 +94,7 @@ def get_pool(name: Optional[str] = None,
 
     :param str name: Name of the Agent Pool.
     """
-    pulumi.log.warn("get_pool is deprecated: azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool")
+    pulumi.log.warn("""get_pool is deprecated: azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool""")
     __args__ = dict()
     __args__['name'] = name
     if opts is None:
