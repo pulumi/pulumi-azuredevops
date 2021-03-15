@@ -79,7 +79,7 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
         :param pulumi.Input[str] work_item_template: Specifies the work item template. Defaults to `Agile`.
         """
-        pulumi.log.warn("Project is deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project")
+        pulumi.log.warn("""Project is deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

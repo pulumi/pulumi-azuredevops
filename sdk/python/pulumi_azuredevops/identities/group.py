@@ -76,7 +76,7 @@ class Group(pulumi.CustomResource):
         :param pulumi.Input[str] origin_id: The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
         :param pulumi.Input[str] scope: The scope of the group. A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization.x
         """
-        pulumi.log.warn("Group is deprecated: azuredevops.identities.Group has been deprecated in favor of azuredevops.Group")
+        pulumi.log.warn("""Group is deprecated: azuredevops.identities.Group has been deprecated in favor of azuredevops.Group""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

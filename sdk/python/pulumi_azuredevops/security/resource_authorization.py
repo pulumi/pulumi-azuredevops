@@ -62,7 +62,7 @@ class ResourceAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
         :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
         """
-        pulumi.log.warn("ResourceAuthorization is deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization")
+        pulumi.log.warn("""ResourceAuthorization is deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

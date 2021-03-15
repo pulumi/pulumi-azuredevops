@@ -37,7 +37,7 @@ export class Provider extends pulumi.ProviderResource {
         let inputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["orgServiceUrl"] = (args ? args.orgServiceUrl : undefined) || utilities.getEnv("AZDO_ORG_SERVICE_URL");
+            inputs["orgServiceUrl"] = (args ? args.orgServiceUrl : undefined) ?? utilities.getEnv("AZDO_ORG_SERVICE_URL");
             inputs["personalAccessToken"] = args ? args.personalAccessToken : undefined;
         }
         if (!opts.version) {

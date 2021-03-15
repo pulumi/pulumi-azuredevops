@@ -108,7 +108,7 @@ def get_projects(name: Optional[str] = None,
     :param str name: Name of the Project, if not specified all projects will be returned.
     :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
     """
-    pulumi.log.warn("get_projects is deprecated: azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects")
+    pulumi.log.warn("""get_projects is deprecated: azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects""")
     __args__ = dict()
     __args__['name'] = name
     __args__['state'] = state

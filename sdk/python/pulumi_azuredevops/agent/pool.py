@@ -54,7 +54,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
-        pulumi.log.warn("Pool is deprecated: azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool")
+        pulumi.log.warn("""Pool is deprecated: azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

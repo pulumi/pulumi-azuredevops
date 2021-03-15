@@ -88,7 +88,7 @@ class Git(pulumi.CustomResource):
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
         :param pulumi.Input[str] project_id: The project ID or project name.
         """
-        pulumi.log.warn("Git is deprecated: azuredevops.repository.Git has been deprecated in favor of azuredevops.Git")
+        pulumi.log.warn("""Git is deprecated: azuredevops.repository.Git has been deprecated in favor of azuredevops.Git""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

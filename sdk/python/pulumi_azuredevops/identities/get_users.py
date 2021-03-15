@@ -136,7 +136,7 @@ def get_users(origin: Optional[str] = None,
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """
-    pulumi.log.warn("get_users is deprecated: azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers")
+    pulumi.log.warn("""get_users is deprecated: azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers""")
     __args__ = dict()
     __args__['origin'] = origin
     __args__['originId'] = origin_id

@@ -134,7 +134,7 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
         """
-        pulumi.log.warn("BuildDefinition is deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition")
+        pulumi.log.warn("""BuildDefinition is deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -85,7 +85,7 @@ class DockerRegistry(pulumi.CustomResource):
         :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
-        pulumi.log.warn("DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry")
+        pulumi.log.warn("""DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

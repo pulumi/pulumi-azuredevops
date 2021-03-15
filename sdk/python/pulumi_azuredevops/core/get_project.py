@@ -144,7 +144,7 @@ def get_project(name: Optional[str] = None,
     :param str name: Name of the Project.
     :param str project_id: ID of the Project.
     """
-    pulumi.log.warn("get_project is deprecated: azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject")
+    pulumi.log.warn("""get_project is deprecated: azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject""")
     __args__ = dict()
     __args__['name'] = name
     __args__['projectId'] = project_id
