@@ -104,6 +104,14 @@ import (
 //
 // - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
 //
+// ## Import
+//
+// Azure DevOps Repositories can be imported using the repo Guid e.g.
+//
+// ```sh
+//  $ pulumi import azuredevops:Repository/git:Git repository projectName/00000000-0000-0000-0000-000000000000
+// ```
+//
 // Deprecated: azuredevops.repository.Git has been deprecated in favor of azuredevops.Git
 type Git struct {
 	pulumi.CustomResourceState

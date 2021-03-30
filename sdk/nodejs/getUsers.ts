@@ -102,7 +102,7 @@ export interface GetUsersResult {
     readonly principalName?: string;
     readonly subjectTypes?: string[];
     /**
-     * A list of existing users in your Azure DevOps Organization with details about every single user which includes:
+     * A set of existing users in your Azure DevOps Organization with details about every single user which includes:
      */
     readonly users: outputs.GetUsersUser[];
 }

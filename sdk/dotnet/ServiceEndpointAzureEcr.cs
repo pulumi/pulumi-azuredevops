@@ -59,8 +59,17 @@ namespace Pulumi.AzureDevOps
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr")]
     public partial class ServiceEndpointAzureEcr : Pulumi.CustomResource
     {
+        [Output("appObjectId")]
+        public Output<string> AppObjectId { get; private set; } = null!;
+
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
+
+        [Output("azSpnRoleAssignmentId")]
+        public Output<string> AzSpnRoleAssignmentId { get; private set; } = null!;
+
+        [Output("azSpnRolePermissions")]
+        public Output<string> AzSpnRolePermissions { get; private set; } = null!;
 
         /// <summary>
         /// The Azure container registry name.
@@ -109,6 +118,15 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("serviceEndpointName")]
         public Output<string> ServiceEndpointName { get; private set; } = null!;
+
+        /// <summary>
+        /// The service principal ID.
+        /// </summary>
+        [Output("servicePrincipalId")]
+        public Output<string> ServicePrincipalId { get; private set; } = null!;
+
+        [Output("spnObjectId")]
+        public Output<string> SpnObjectId { get; private set; } = null!;
 
 
         /// <summary>
@@ -219,6 +237,9 @@ namespace Pulumi.AzureDevOps
 
     public sealed class ServiceEndpointAzureEcrState : Pulumi.ResourceArgs
     {
+        [Input("appObjectId")]
+        public Input<string>? AppObjectId { get; set; }
+
         [Input("authorization")]
         private InputMap<string>? _authorization;
         public InputMap<string> Authorization
@@ -226,6 +247,12 @@ namespace Pulumi.AzureDevOps
             get => _authorization ?? (_authorization = new InputMap<string>());
             set => _authorization = value;
         }
+
+        [Input("azSpnRoleAssignmentId")]
+        public Input<string>? AzSpnRoleAssignmentId { get; set; }
+
+        [Input("azSpnRolePermissions")]
+        public Input<string>? AzSpnRolePermissions { get; set; }
 
         /// <summary>
         /// The Azure container registry name.
@@ -274,6 +301,15 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("serviceEndpointName")]
         public Input<string>? ServiceEndpointName { get; set; }
+
+        /// <summary>
+        /// The service principal ID.
+        /// </summary>
+        [Input("servicePrincipalId")]
+        public Input<string>? ServicePrincipalId { get; set; }
+
+        [Input("spnObjectId")]
+        public Input<string>? SpnObjectId { get; set; }
 
         public ServiceEndpointAzureEcrState()
         {

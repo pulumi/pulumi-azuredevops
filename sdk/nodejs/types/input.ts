@@ -110,6 +110,44 @@ export interface BranchPolicyCommentResolutionSettingsScope {
     repositoryRef?: pulumi.Input<string>;
 }
 
+export interface BranchPolicyMergeTypesSettings {
+    /**
+     * Allow basic merge with no fast forward. Defaults to `false`.
+     */
+    allowBasicNoFastForward?: pulumi.Input<boolean>;
+    /**
+     * Allow rebase with fast forward. Defaults to `false`.
+     */
+    allowRebaseAndFastForward?: pulumi.Input<boolean>;
+    /**
+     * Allow rebase with merge commit. Defaults to `false`.
+     */
+    allowRebaseWithMerge?: pulumi.Input<boolean>;
+    /**
+     * Allow squash merge. Defaults to `false`
+     */
+    allowSquash?: pulumi.Input<boolean>;
+    /**
+     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     */
+    scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyMergeTypesSettingsScope>[]>;
+}
+
+export interface BranchPolicyMergeTypesSettingsScope {
+    /**
+     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     */
+    matchType?: pulumi.Input<string>;
+    /**
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     */
+    repositoryId?: pulumi.Input<string>;
+    /**
+     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     */
+    repositoryRef?: pulumi.Input<string>;
+}
+
 export interface BranchPolicyMinReviewersSettings {
     /**
      * Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.

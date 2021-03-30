@@ -76,6 +76,14 @@ class Git(pulumi.CustomResource):
 
         - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
 
+        ## Import
+
+        Azure DevOps Repositories can be imported using the repo Guid e.g.
+
+        ```sh
+         $ pulumi import azuredevops:index/git:Git repository projectName/00000000-0000-0000-0000-000000000000
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.

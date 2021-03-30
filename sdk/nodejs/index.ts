@@ -9,6 +9,7 @@ export * from "./areaPermissions";
 export * from "./branchPolicyAutoReviewers";
 export * from "./branchPolicyBuildValidation";
 export * from "./branchPolicyCommentResolution";
+export * from "./branchPolicyMergeTypes";
 export * from "./branchPolicyMinReviewers";
 export * from "./branchPolicyWorkItemLinking";
 export * from "./buildDefinition";
@@ -85,6 +86,7 @@ import { AreaPermissions } from "./areaPermissions";
 import { BranchPolicyAutoReviewers } from "./branchPolicyAutoReviewers";
 import { BranchPolicyBuildValidation } from "./branchPolicyBuildValidation";
 import { BranchPolicyCommentResolution } from "./branchPolicyCommentResolution";
+import { BranchPolicyMergeTypes } from "./branchPolicyMergeTypes";
 import { BranchPolicyMinReviewers } from "./branchPolicyMinReviewers";
 import { BranchPolicyWorkItemLinking } from "./branchPolicyWorkItemLinking";
 import { BuildDefinition } from "./buildDefinition";
@@ -126,6 +128,8 @@ const _module = {
                 return new BranchPolicyBuildValidation(name, <any>undefined, { urn })
             case "azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution":
                 return new BranchPolicyCommentResolution(name, <any>undefined, { urn })
+            case "azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes":
+                return new BranchPolicyMergeTypes(name, <any>undefined, { urn })
             case "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers":
                 return new BranchPolicyMinReviewers(name, <any>undefined, { urn })
             case "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking":
@@ -191,6 +195,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/areaPermissions", _m
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyAutoReviewers", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyBuildValidation", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyCommentResolution", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyMergeTypes", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyMinReviewers", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyWorkItemLinking", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinition", _module)

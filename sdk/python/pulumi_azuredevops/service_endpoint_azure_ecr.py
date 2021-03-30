@@ -114,6 +114,11 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__['service_endpoint_name'] = service_endpoint_name
+            __props__['app_object_id'] = None
+            __props__['az_spn_role_assignment_id'] = None
+            __props__['az_spn_role_permissions'] = None
+            __props__['service_principal_id'] = None
+            __props__['spn_object_id'] = None
         super(ServiceEndpointAzureEcr, __self__).__init__(
             'azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr',
             resource_name,
@@ -124,7 +129,10 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            app_object_id: Optional[pulumi.Input[str]] = None,
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            az_spn_role_assignment_id: Optional[pulumi.Input[str]] = None,
+            az_spn_role_permissions: Optional[pulumi.Input[str]] = None,
             azurecr_name: Optional[pulumi.Input[str]] = None,
             azurecr_spn_tenantid: Optional[pulumi.Input[str]] = None,
             azurecr_subscription_id: Optional[pulumi.Input[str]] = None,
@@ -132,7 +140,9 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             resource_group: Optional[pulumi.Input[str]] = None,
-            service_endpoint_name: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointAzureEcr':
+            service_endpoint_name: Optional[pulumi.Input[str]] = None,
+            service_principal_id: Optional[pulumi.Input[str]] = None,
+            spn_object_id: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointAzureEcr':
         """
         Get an existing ServiceEndpointAzureEcr resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -148,12 +158,16 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
+        :param pulumi.Input[str] service_principal_id: The service principal ID.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = dict()
 
+        __props__["app_object_id"] = app_object_id
         __props__["authorization"] = authorization
+        __props__["az_spn_role_assignment_id"] = az_spn_role_assignment_id
+        __props__["az_spn_role_permissions"] = az_spn_role_permissions
         __props__["azurecr_name"] = azurecr_name
         __props__["azurecr_spn_tenantid"] = azurecr_spn_tenantid
         __props__["azurecr_subscription_id"] = azurecr_subscription_id
@@ -162,12 +176,29 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         __props__["project_id"] = project_id
         __props__["resource_group"] = resource_group
         __props__["service_endpoint_name"] = service_endpoint_name
+        __props__["service_principal_id"] = service_principal_id
+        __props__["spn_object_id"] = spn_object_id
         return ServiceEndpointAzureEcr(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="appObjectId")
+    def app_object_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "app_object_id")
 
     @property
     @pulumi.getter
     def authorization(self) -> pulumi.Output[Mapping[str, str]]:
         return pulumi.get(self, "authorization")
+
+    @property
+    @pulumi.getter(name="azSpnRoleAssignmentId")
+    def az_spn_role_assignment_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "az_spn_role_assignment_id")
+
+    @property
+    @pulumi.getter(name="azSpnRolePermissions")
+    def az_spn_role_permissions(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "az_spn_role_permissions")
 
     @property
     @pulumi.getter(name="azurecrName")
@@ -232,6 +263,19 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         The name you will use to refer to this service connection in task inputs.
         """
         return pulumi.get(self, "service_endpoint_name")
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> pulumi.Output[str]:
+        """
+        The service principal ID.
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @property
+    @pulumi.getter(name="spnObjectId")
+    def spn_object_id(self) -> pulumi.Output[str]:
+        return pulumi.get(self, "spn_object_id")
 
     def translate_output_property(self, prop):
         return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop

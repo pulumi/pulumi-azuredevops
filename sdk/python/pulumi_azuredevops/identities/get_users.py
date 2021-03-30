@@ -83,7 +83,7 @@ class GetUsersResult:
     @pulumi.getter
     def users(self) -> Sequence['outputs.GetUsersUserResult']:
         """
-        A list of existing users in your Azure DevOps Organization with details about every single user which includes:
+        A set of existing users in your Azure DevOps Organization with details about every single user which includes:
         """
         return pulumi.get(self, "users")
 
