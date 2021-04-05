@@ -70,7 +70,10 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointAzureEcr.__pulumiType;
     }
 
+    public /*out*/ readonly appObjectId!: pulumi.Output<string>;
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly azSpnRoleAssignmentId!: pulumi.Output<string>;
+    public /*out*/ readonly azSpnRolePermissions!: pulumi.Output<string>;
     /**
      * The Azure container registry name.
      */
@@ -103,6 +106,11 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
      * The name you will use to refer to this service connection in task inputs.
      */
     public readonly serviceEndpointName!: pulumi.Output<string>;
+    /**
+     * The service principal ID.
+     */
+    public /*out*/ readonly servicePrincipalId!: pulumi.Output<string>;
+    public /*out*/ readonly spnObjectId!: pulumi.Output<string>;
 
     /**
      * Create a ServiceEndpointAzureEcr resource with the given unique name, arguments, and options.
@@ -117,7 +125,10 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointAzureEcrState | undefined;
+            inputs["appObjectId"] = state ? state.appObjectId : undefined;
             inputs["authorization"] = state ? state.authorization : undefined;
+            inputs["azSpnRoleAssignmentId"] = state ? state.azSpnRoleAssignmentId : undefined;
+            inputs["azSpnRolePermissions"] = state ? state.azSpnRolePermissions : undefined;
             inputs["azurecrName"] = state ? state.azurecrName : undefined;
             inputs["azurecrSpnTenantid"] = state ? state.azurecrSpnTenantid : undefined;
             inputs["azurecrSubscriptionId"] = state ? state.azurecrSubscriptionId : undefined;
@@ -126,6 +137,8 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             inputs["projectId"] = state ? state.projectId : undefined;
             inputs["resourceGroup"] = state ? state.resourceGroup : undefined;
             inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
+            inputs["spnObjectId"] = state ? state.spnObjectId : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureEcrArgs | undefined;
             if ((!args || args.azurecrName === undefined) && !opts.urn) {
@@ -158,6 +171,11 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            inputs["appObjectId"] = undefined /*out*/;
+            inputs["azSpnRoleAssignmentId"] = undefined /*out*/;
+            inputs["azSpnRolePermissions"] = undefined /*out*/;
+            inputs["servicePrincipalId"] = undefined /*out*/;
+            inputs["spnObjectId"] = undefined /*out*/;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -170,7 +188,10 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointAzureEcr resources.
  */
 export interface ServiceEndpointAzureEcrState {
+    readonly appObjectId?: pulumi.Input<string>;
     readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    readonly azSpnRoleAssignmentId?: pulumi.Input<string>;
+    readonly azSpnRolePermissions?: pulumi.Input<string>;
     /**
      * The Azure container registry name.
      */
@@ -203,6 +224,11 @@ export interface ServiceEndpointAzureEcrState {
      * The name you will use to refer to this service connection in task inputs.
      */
     readonly serviceEndpointName?: pulumi.Input<string>;
+    /**
+     * The service principal ID.
+     */
+    readonly servicePrincipalId?: pulumi.Input<string>;
+    readonly spnObjectId?: pulumi.Input<string>;
 }
 
 /**

@@ -28,6 +28,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r, err = NewBranchPolicyBuildValidation(ctx, name, nil, pulumi.URN_(urn))
 	case "azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution":
 		r, err = NewBranchPolicyCommentResolution(ctx, name, nil, pulumi.URN_(urn))
+	case "azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes":
+		r, err = NewBranchPolicyMergeTypes(ctx, name, nil, pulumi.URN_(urn))
 	case "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers":
 		r, err = NewBranchPolicyMinReviewers(ctx, name, nil, pulumi.URN_(urn))
 	case "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking":
@@ -130,6 +132,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/branchPolicyCommentResolution",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/branchPolicyMergeTypes",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

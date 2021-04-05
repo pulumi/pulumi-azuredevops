@@ -86,7 +86,7 @@ import (
 // 		_, err := azuredevops.NewServiceEndpointGitHub(ctx, "serviceendpointGh3", &azuredevops.ServiceEndpointGitHubArgs{
 // 			ProjectId:           pulumi.Any(azuredevops_project.Project.Id),
 // 			ServiceEndpointName: pulumi.String("Sample GithHub Apps: Azure Pipelines"),
-// 			Description:         pulumi.String(""),
+// 			Description:         pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err

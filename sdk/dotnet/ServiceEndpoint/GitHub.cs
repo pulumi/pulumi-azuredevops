@@ -76,7 +76,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///         {
     ///             ProjectId = azuredevops_project.Project.Id,
     ///             ServiceEndpointName = "Sample GithHub Apps: Azure Pipelines",
-    ///             Description = "",
+    ///             Description = "Managed by Terraform",
     ///         });
     ///     }
     /// 

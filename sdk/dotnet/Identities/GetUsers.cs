@@ -123,7 +123,7 @@ namespace Pulumi.AzureDevOps.Identities
         public readonly string? PrincipalName;
         public readonly ImmutableArray<string> SubjectTypes;
         /// <summary>
-        /// A list of existing users in your Azure DevOps Organization with details about every single user which includes:
+        /// A set of existing users in your Azure DevOps Organization with details about every single user which includes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetUsersUserResult> Users;
 

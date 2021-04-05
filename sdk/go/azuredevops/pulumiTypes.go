@@ -942,6 +942,328 @@ func (o BranchPolicyCommentResolutionSettingsScopeArrayOutput) Index(i pulumi.In
 	}).(BranchPolicyCommentResolutionSettingsScopeOutput)
 }
 
+type BranchPolicyMergeTypesSettings struct {
+	// Allow basic merge with no fast forward. Defaults to `false`.
+	AllowBasicNoFastForward *bool `pulumi:"allowBasicNoFastForward"`
+	// Allow rebase with fast forward. Defaults to `false`.
+	AllowRebaseAndFastForward *bool `pulumi:"allowRebaseAndFastForward"`
+	// Allow rebase with merge commit. Defaults to `false`.
+	AllowRebaseWithMerge *bool `pulumi:"allowRebaseWithMerge"`
+	// Allow squash merge. Defaults to `false`
+	AllowSquash *bool `pulumi:"allowSquash"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	Scopes []BranchPolicyMergeTypesSettingsScope `pulumi:"scopes"`
+}
+
+// BranchPolicyMergeTypesSettingsInput is an input type that accepts BranchPolicyMergeTypesSettingsArgs and BranchPolicyMergeTypesSettingsOutput values.
+// You can construct a concrete instance of `BranchPolicyMergeTypesSettingsInput` via:
+//
+//          BranchPolicyMergeTypesSettingsArgs{...}
+type BranchPolicyMergeTypesSettingsInput interface {
+	pulumi.Input
+
+	ToBranchPolicyMergeTypesSettingsOutput() BranchPolicyMergeTypesSettingsOutput
+	ToBranchPolicyMergeTypesSettingsOutputWithContext(context.Context) BranchPolicyMergeTypesSettingsOutput
+}
+
+type BranchPolicyMergeTypesSettingsArgs struct {
+	// Allow basic merge with no fast forward. Defaults to `false`.
+	AllowBasicNoFastForward pulumi.BoolPtrInput `pulumi:"allowBasicNoFastForward"`
+	// Allow rebase with fast forward. Defaults to `false`.
+	AllowRebaseAndFastForward pulumi.BoolPtrInput `pulumi:"allowRebaseAndFastForward"`
+	// Allow rebase with merge commit. Defaults to `false`.
+	AllowRebaseWithMerge pulumi.BoolPtrInput `pulumi:"allowRebaseWithMerge"`
+	// Allow squash merge. Defaults to `false`
+	AllowSquash pulumi.BoolPtrInput `pulumi:"allowSquash"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	Scopes BranchPolicyMergeTypesSettingsScopeArrayInput `pulumi:"scopes"`
+}
+
+func (BranchPolicyMergeTypesSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyMergeTypesSettings)(nil)).Elem()
+}
+
+func (i BranchPolicyMergeTypesSettingsArgs) ToBranchPolicyMergeTypesSettingsOutput() BranchPolicyMergeTypesSettingsOutput {
+	return i.ToBranchPolicyMergeTypesSettingsOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyMergeTypesSettingsArgs) ToBranchPolicyMergeTypesSettingsOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMergeTypesSettingsOutput)
+}
+
+func (i BranchPolicyMergeTypesSettingsArgs) ToBranchPolicyMergeTypesSettingsPtrOutput() BranchPolicyMergeTypesSettingsPtrOutput {
+	return i.ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyMergeTypesSettingsArgs) ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMergeTypesSettingsOutput).ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(ctx)
+}
+
+// BranchPolicyMergeTypesSettingsPtrInput is an input type that accepts BranchPolicyMergeTypesSettingsArgs, BranchPolicyMergeTypesSettingsPtr and BranchPolicyMergeTypesSettingsPtrOutput values.
+// You can construct a concrete instance of `BranchPolicyMergeTypesSettingsPtrInput` via:
+//
+//          BranchPolicyMergeTypesSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type BranchPolicyMergeTypesSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBranchPolicyMergeTypesSettingsPtrOutput() BranchPolicyMergeTypesSettingsPtrOutput
+	ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(context.Context) BranchPolicyMergeTypesSettingsPtrOutput
+}
+
+type branchPolicyMergeTypesSettingsPtrType BranchPolicyMergeTypesSettingsArgs
+
+func BranchPolicyMergeTypesSettingsPtr(v *BranchPolicyMergeTypesSettingsArgs) BranchPolicyMergeTypesSettingsPtrInput {
+	return (*branchPolicyMergeTypesSettingsPtrType)(v)
+}
+
+func (*branchPolicyMergeTypesSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyMergeTypesSettings)(nil)).Elem()
+}
+
+func (i *branchPolicyMergeTypesSettingsPtrType) ToBranchPolicyMergeTypesSettingsPtrOutput() BranchPolicyMergeTypesSettingsPtrOutput {
+	return i.ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *branchPolicyMergeTypesSettingsPtrType) ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMergeTypesSettingsPtrOutput)
+}
+
+type BranchPolicyMergeTypesSettingsOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyMergeTypesSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyMergeTypesSettings)(nil)).Elem()
+}
+
+func (o BranchPolicyMergeTypesSettingsOutput) ToBranchPolicyMergeTypesSettingsOutput() BranchPolicyMergeTypesSettingsOutput {
+	return o
+}
+
+func (o BranchPolicyMergeTypesSettingsOutput) ToBranchPolicyMergeTypesSettingsOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsOutput {
+	return o
+}
+
+func (o BranchPolicyMergeTypesSettingsOutput) ToBranchPolicyMergeTypesSettingsPtrOutput() BranchPolicyMergeTypesSettingsPtrOutput {
+	return o.ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BranchPolicyMergeTypesSettingsOutput) ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMergeTypesSettings) *BranchPolicyMergeTypesSettings {
+		return &v
+	}).(BranchPolicyMergeTypesSettingsPtrOutput)
+}
+
+// Allow basic merge with no fast forward. Defaults to `false`.
+func (o BranchPolicyMergeTypesSettingsOutput) AllowBasicNoFastForward() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMergeTypesSettings) *bool { return v.AllowBasicNoFastForward }).(pulumi.BoolPtrOutput)
+}
+
+// Allow rebase with fast forward. Defaults to `false`.
+func (o BranchPolicyMergeTypesSettingsOutput) AllowRebaseAndFastForward() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMergeTypesSettings) *bool { return v.AllowRebaseAndFastForward }).(pulumi.BoolPtrOutput)
+}
+
+// Allow rebase with merge commit. Defaults to `false`.
+func (o BranchPolicyMergeTypesSettingsOutput) AllowRebaseWithMerge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMergeTypesSettings) *bool { return v.AllowRebaseWithMerge }).(pulumi.BoolPtrOutput)
+}
+
+// Allow squash merge. Defaults to `false`
+func (o BranchPolicyMergeTypesSettingsOutput) AllowSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMergeTypesSettings) *bool { return v.AllowSquash }).(pulumi.BoolPtrOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+func (o BranchPolicyMergeTypesSettingsOutput) Scopes() BranchPolicyMergeTypesSettingsScopeArrayOutput {
+	return o.ApplyT(func(v BranchPolicyMergeTypesSettings) []BranchPolicyMergeTypesSettingsScope { return v.Scopes }).(BranchPolicyMergeTypesSettingsScopeArrayOutput)
+}
+
+type BranchPolicyMergeTypesSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyMergeTypesSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyMergeTypesSettings)(nil)).Elem()
+}
+
+func (o BranchPolicyMergeTypesSettingsPtrOutput) ToBranchPolicyMergeTypesSettingsPtrOutput() BranchPolicyMergeTypesSettingsPtrOutput {
+	return o
+}
+
+func (o BranchPolicyMergeTypesSettingsPtrOutput) ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsPtrOutput {
+	return o
+}
+
+func (o BranchPolicyMergeTypesSettingsPtrOutput) Elem() BranchPolicyMergeTypesSettingsOutput {
+	return o.ApplyT(func(v *BranchPolicyMergeTypesSettings) BranchPolicyMergeTypesSettings { return *v }).(BranchPolicyMergeTypesSettingsOutput)
+}
+
+// Allow basic merge with no fast forward. Defaults to `false`.
+func (o BranchPolicyMergeTypesSettingsPtrOutput) AllowBasicNoFastForward() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMergeTypesSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowBasicNoFastForward
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Allow rebase with fast forward. Defaults to `false`.
+func (o BranchPolicyMergeTypesSettingsPtrOutput) AllowRebaseAndFastForward() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMergeTypesSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowRebaseAndFastForward
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Allow rebase with merge commit. Defaults to `false`.
+func (o BranchPolicyMergeTypesSettingsPtrOutput) AllowRebaseWithMerge() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMergeTypesSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowRebaseWithMerge
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Allow squash merge. Defaults to `false`
+func (o BranchPolicyMergeTypesSettingsPtrOutput) AllowSquash() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyMergeTypesSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowSquash
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+func (o BranchPolicyMergeTypesSettingsPtrOutput) Scopes() BranchPolicyMergeTypesSettingsScopeArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyMergeTypesSettings) []BranchPolicyMergeTypesSettingsScope {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(BranchPolicyMergeTypesSettingsScopeArrayOutput)
+}
+
+type BranchPolicyMergeTypesSettingsScope struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+	MatchType *string `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	RepositoryRef *string `pulumi:"repositoryRef"`
+}
+
+// BranchPolicyMergeTypesSettingsScopeInput is an input type that accepts BranchPolicyMergeTypesSettingsScopeArgs and BranchPolicyMergeTypesSettingsScopeOutput values.
+// You can construct a concrete instance of `BranchPolicyMergeTypesSettingsScopeInput` via:
+//
+//          BranchPolicyMergeTypesSettingsScopeArgs{...}
+type BranchPolicyMergeTypesSettingsScopeInput interface {
+	pulumi.Input
+
+	ToBranchPolicyMergeTypesSettingsScopeOutput() BranchPolicyMergeTypesSettingsScopeOutput
+	ToBranchPolicyMergeTypesSettingsScopeOutputWithContext(context.Context) BranchPolicyMergeTypesSettingsScopeOutput
+}
+
+type BranchPolicyMergeTypesSettingsScopeArgs struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+	RepositoryRef pulumi.StringPtrInput `pulumi:"repositoryRef"`
+}
+
+func (BranchPolicyMergeTypesSettingsScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyMergeTypesSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyMergeTypesSettingsScopeArgs) ToBranchPolicyMergeTypesSettingsScopeOutput() BranchPolicyMergeTypesSettingsScopeOutput {
+	return i.ToBranchPolicyMergeTypesSettingsScopeOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyMergeTypesSettingsScopeArgs) ToBranchPolicyMergeTypesSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMergeTypesSettingsScopeOutput)
+}
+
+// BranchPolicyMergeTypesSettingsScopeArrayInput is an input type that accepts BranchPolicyMergeTypesSettingsScopeArray and BranchPolicyMergeTypesSettingsScopeArrayOutput values.
+// You can construct a concrete instance of `BranchPolicyMergeTypesSettingsScopeArrayInput` via:
+//
+//          BranchPolicyMergeTypesSettingsScopeArray{ BranchPolicyMergeTypesSettingsScopeArgs{...} }
+type BranchPolicyMergeTypesSettingsScopeArrayInput interface {
+	pulumi.Input
+
+	ToBranchPolicyMergeTypesSettingsScopeArrayOutput() BranchPolicyMergeTypesSettingsScopeArrayOutput
+	ToBranchPolicyMergeTypesSettingsScopeArrayOutputWithContext(context.Context) BranchPolicyMergeTypesSettingsScopeArrayOutput
+}
+
+type BranchPolicyMergeTypesSettingsScopeArray []BranchPolicyMergeTypesSettingsScopeInput
+
+func (BranchPolicyMergeTypesSettingsScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyMergeTypesSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyMergeTypesSettingsScopeArray) ToBranchPolicyMergeTypesSettingsScopeArrayOutput() BranchPolicyMergeTypesSettingsScopeArrayOutput {
+	return i.ToBranchPolicyMergeTypesSettingsScopeArrayOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyMergeTypesSettingsScopeArray) ToBranchPolicyMergeTypesSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMergeTypesSettingsScopeArrayOutput)
+}
+
+type BranchPolicyMergeTypesSettingsScopeOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyMergeTypesSettingsScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyMergeTypesSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyMergeTypesSettingsScopeOutput) ToBranchPolicyMergeTypesSettingsScopeOutput() BranchPolicyMergeTypesSettingsScopeOutput {
+	return o
+}
+
+func (o BranchPolicyMergeTypesSettingsScopeOutput) ToBranchPolicyMergeTypesSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsScopeOutput {
+	return o
+}
+
+// The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+func (o BranchPolicyMergeTypesSettingsScopeOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMergeTypesSettingsScope) *string { return v.MatchType }).(pulumi.StringPtrOutput)
+}
+
+// The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+func (o BranchPolicyMergeTypesSettingsScopeOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMergeTypesSettingsScope) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+func (o BranchPolicyMergeTypesSettingsScopeOutput) RepositoryRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyMergeTypesSettingsScope) *string { return v.RepositoryRef }).(pulumi.StringPtrOutput)
+}
+
+type BranchPolicyMergeTypesSettingsScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyMergeTypesSettingsScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyMergeTypesSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyMergeTypesSettingsScopeArrayOutput) ToBranchPolicyMergeTypesSettingsScopeArrayOutput() BranchPolicyMergeTypesSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyMergeTypesSettingsScopeArrayOutput) ToBranchPolicyMergeTypesSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyMergeTypesSettingsScopeArrayOutput) Index(i pulumi.IntInput) BranchPolicyMergeTypesSettingsScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyMergeTypesSettingsScope {
+		return vs[0].([]BranchPolicyMergeTypesSettingsScope)[vs[1].(int)]
+	}).(BranchPolicyMergeTypesSettingsScopeOutput)
+}
+
 type BranchPolicyMinReviewersSettings struct {
 	// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
 	AllowCompletionWithRejectsOrWaits *bool `pulumi:"allowCompletionWithRejectsOrWaits"`
@@ -5884,6 +6206,10 @@ func init() {
 	pulumi.RegisterOutputType(BranchPolicyCommentResolutionSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyCommentResolutionSettingsScopeOutput{})
 	pulumi.RegisterOutputType(BranchPolicyCommentResolutionSettingsScopeArrayOutput{})
+	pulumi.RegisterOutputType(BranchPolicyMergeTypesSettingsOutput{})
+	pulumi.RegisterOutputType(BranchPolicyMergeTypesSettingsPtrOutput{})
+	pulumi.RegisterOutputType(BranchPolicyMergeTypesSettingsScopeOutput{})
+	pulumi.RegisterOutputType(BranchPolicyMergeTypesSettingsScopeArrayOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsScopeOutput{})

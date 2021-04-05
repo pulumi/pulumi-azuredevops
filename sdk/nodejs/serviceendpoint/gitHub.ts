@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * const serviceendpointGh3 = new azuredevops.ServiceEndpointGitHub("serviceendpointGh3", {
  *     projectId: azuredevops_project.project.id,
  *     serviceEndpointName: "Sample GithHub Apps: Azure Pipelines",
- *     description: "",
+ *     description: "Managed by Terraform",
  * });
  * ```
  * ## Relevant Links

@@ -15,6 +15,8 @@ __all__ = [
     'BranchPolicyBuildValidationSettingsScopeArgs',
     'BranchPolicyCommentResolutionSettingsArgs',
     'BranchPolicyCommentResolutionSettingsScopeArgs',
+    'BranchPolicyMergeTypesSettingsArgs',
+    'BranchPolicyMergeTypesSettingsScopeArgs',
     'BranchPolicyMinReviewersSettingsArgs',
     'BranchPolicyMinReviewersSettingsScopeArgs',
     'BranchPolicyWorkItemLinkingSettingsArgs',
@@ -379,6 +381,147 @@ class BranchPolicyCommentResolutionSettingsArgs:
 
 @pulumi.input_type
 class BranchPolicyCommentResolutionSettingsScopeArgs:
+    def __init__(__self__, *,
+                 match_type: Optional[pulumi.Input[str]] = None,
+                 repository_id: Optional[pulumi.Input[str]] = None,
+                 repository_ref: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] match_type: The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+        :param pulumi.Input[str] repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+        :param pulumi.Input[str] repository_ref: The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+        if match_type is not None:
+            pulumi.set(__self__, "match_type", match_type)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+        if repository_ref is not None:
+            pulumi.set(__self__, "repository_ref", repository_ref)
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+        """
+        return pulumi.get(self, "match_type")
+
+    @match_type.setter
+    def match_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "match_type", value)
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_id", value)
+
+    @property
+    @pulumi.getter(name="repositoryRef")
+    def repository_ref(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+        return pulumi.get(self, "repository_ref")
+
+    @repository_ref.setter
+    def repository_ref(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_ref", value)
+
+
+@pulumi.input_type
+class BranchPolicyMergeTypesSettingsArgs:
+    def __init__(__self__, *,
+                 scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgs']]],
+                 allow_basic_no_fast_forward: Optional[pulumi.Input[bool]] = None,
+                 allow_rebase_and_fast_forward: Optional[pulumi.Input[bool]] = None,
+                 allow_rebase_with_merge: Optional[pulumi.Input[bool]] = None,
+                 allow_squash: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param pulumi.Input[bool] allow_basic_no_fast_forward: Allow basic merge with no fast forward. Defaults to `false`.
+        :param pulumi.Input[bool] allow_rebase_and_fast_forward: Allow rebase with fast forward. Defaults to `false`.
+        :param pulumi.Input[bool] allow_rebase_with_merge: Allow rebase with merge commit. Defaults to `false`.
+        :param pulumi.Input[bool] allow_squash: Allow squash merge. Defaults to `false`
+        """
+        pulumi.set(__self__, "scopes", scopes)
+        if allow_basic_no_fast_forward is not None:
+            pulumi.set(__self__, "allow_basic_no_fast_forward", allow_basic_no_fast_forward)
+        if allow_rebase_and_fast_forward is not None:
+            pulumi.set(__self__, "allow_rebase_and_fast_forward", allow_rebase_and_fast_forward)
+        if allow_rebase_with_merge is not None:
+            pulumi.set(__self__, "allow_rebase_with_merge", allow_rebase_with_merge)
+        if allow_squash is not None:
+            pulumi.set(__self__, "allow_squash", allow_squash)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgs']]]:
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        """
+        return pulumi.get(self, "scopes")
+
+    @scopes.setter
+    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['BranchPolicyMergeTypesSettingsScopeArgs']]]):
+        pulumi.set(self, "scopes", value)
+
+    @property
+    @pulumi.getter(name="allowBasicNoFastForward")
+    def allow_basic_no_fast_forward(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow basic merge with no fast forward. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_basic_no_fast_forward")
+
+    @allow_basic_no_fast_forward.setter
+    def allow_basic_no_fast_forward(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_basic_no_fast_forward", value)
+
+    @property
+    @pulumi.getter(name="allowRebaseAndFastForward")
+    def allow_rebase_and_fast_forward(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow rebase with fast forward. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_rebase_and_fast_forward")
+
+    @allow_rebase_and_fast_forward.setter
+    def allow_rebase_and_fast_forward(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_rebase_and_fast_forward", value)
+
+    @property
+    @pulumi.getter(name="allowRebaseWithMerge")
+    def allow_rebase_with_merge(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow rebase with merge commit. Defaults to `false`.
+        """
+        return pulumi.get(self, "allow_rebase_with_merge")
+
+    @allow_rebase_with_merge.setter
+    def allow_rebase_with_merge(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_rebase_with_merge", value)
+
+    @property
+    @pulumi.getter(name="allowSquash")
+    def allow_squash(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Allow squash merge. Defaults to `false`
+        """
+        return pulumi.get(self, "allow_squash")
+
+    @allow_squash.setter
+    def allow_squash(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_squash", value)
+
+
+@pulumi.input_type
+class BranchPolicyMergeTypesSettingsScopeArgs:
     def __init__(__self__, *,
                  match_type: Optional[pulumi.Input[str]] = None,
                  repository_id: Optional[pulumi.Input[str]] = None,

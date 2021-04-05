@@ -66,7 +66,7 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         serviceendpoint_gh3 = azuredevops.ServiceEndpointGitHub("serviceendpointGh3",
             project_id=azuredevops_project["project"]["id"],
             service_endpoint_name="Sample GithHub Apps: Azure Pipelines",
-            description="")
+            description="Managed by Terraform")
         ```
         ## Relevant Links
 

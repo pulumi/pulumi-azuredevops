@@ -98,6 +98,6 @@ type GetUsersResult struct {
 	// This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
 	PrincipalName *string  `pulumi:"principalName"`
 	SubjectTypes  []string `pulumi:"subjectTypes"`
-	// A list of existing users in your Azure DevOps Organization with details about every single user which includes:
+	// A set of existing users in your Azure DevOps Organization with details about every single user which includes:
 	Users []GetUsersUser `pulumi:"users"`
 }

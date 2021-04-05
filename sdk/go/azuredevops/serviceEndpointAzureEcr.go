@@ -64,7 +64,10 @@ import (
 type ServiceEndpointAzureEcr struct {
 	pulumi.CustomResourceState
 
-	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
+	AppObjectId           pulumi.StringOutput    `pulumi:"appObjectId"`
+	Authorization         pulumi.StringMapOutput `pulumi:"authorization"`
+	AzSpnRoleAssignmentId pulumi.StringOutput    `pulumi:"azSpnRoleAssignmentId"`
+	AzSpnRolePermissions  pulumi.StringOutput    `pulumi:"azSpnRolePermissions"`
 	// The Azure container registry name.
 	AzurecrName pulumi.StringOutput `pulumi:"azurecrName"`
 	// The tenant id of the service principal.
@@ -81,6 +84,9 @@ type ServiceEndpointAzureEcr struct {
 	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
+	// The service principal ID.
+	ServicePrincipalId pulumi.StringOutput `pulumi:"servicePrincipalId"`
+	SpnObjectId        pulumi.StringOutput `pulumi:"spnObjectId"`
 }
 
 // NewServiceEndpointAzureEcr registers a new resource with the given unique name, arguments, and options.
@@ -133,7 +139,10 @@ func GetServiceEndpointAzureEcr(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointAzureEcr resources.
 type serviceEndpointAzureEcrState struct {
-	Authorization map[string]string `pulumi:"authorization"`
+	AppObjectId           *string           `pulumi:"appObjectId"`
+	Authorization         map[string]string `pulumi:"authorization"`
+	AzSpnRoleAssignmentId *string           `pulumi:"azSpnRoleAssignmentId"`
+	AzSpnRolePermissions  *string           `pulumi:"azSpnRolePermissions"`
 	// The Azure container registry name.
 	AzurecrName *string `pulumi:"azurecrName"`
 	// The tenant id of the service principal.
@@ -150,10 +159,16 @@ type serviceEndpointAzureEcrState struct {
 	ResourceGroup *string `pulumi:"resourceGroup"`
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
+	// The service principal ID.
+	ServicePrincipalId *string `pulumi:"servicePrincipalId"`
+	SpnObjectId        *string `pulumi:"spnObjectId"`
 }
 
 type ServiceEndpointAzureEcrState struct {
-	Authorization pulumi.StringMapInput
+	AppObjectId           pulumi.StringPtrInput
+	Authorization         pulumi.StringMapInput
+	AzSpnRoleAssignmentId pulumi.StringPtrInput
+	AzSpnRolePermissions  pulumi.StringPtrInput
 	// The Azure container registry name.
 	AzurecrName pulumi.StringPtrInput
 	// The tenant id of the service principal.
@@ -170,6 +185,9 @@ type ServiceEndpointAzureEcrState struct {
 	ResourceGroup pulumi.StringPtrInput
 	// The name you will use to refer to this service connection in task inputs.
 	ServiceEndpointName pulumi.StringPtrInput
+	// The service principal ID.
+	ServicePrincipalId pulumi.StringPtrInput
+	SpnObjectId        pulumi.StringPtrInput
 }
 
 func (ServiceEndpointAzureEcrState) ElementType() reflect.Type {

@@ -7,6 +7,7 @@ from .area_permissions import *
 from .branch_policy_auto_reviewers import *
 from .branch_policy_build_validation import *
 from .branch_policy_comment_resolution import *
+from .branch_policy_merge_types import *
 from .branch_policy_min_reviewers import *
 from .branch_policy_work_item_linking import *
 from .build_definition import *
@@ -86,6 +87,8 @@ def _register_module():
                 return BranchPolicyBuildValidation(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution":
                 return BranchPolicyCommentResolution(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes":
+                return BranchPolicyMergeTypes(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers":
                 return BranchPolicyMinReviewers(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking":
@@ -151,6 +154,7 @@ def _register_module():
     pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyAutoReviewers", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyBuildValidation", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyCommentResolution", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyMergeTypes", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyMinReviewers", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/branchPolicyWorkItemLinking", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/buildDefinition", _module_instance)
