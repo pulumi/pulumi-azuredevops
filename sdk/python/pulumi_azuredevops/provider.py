@@ -5,13 +5,55 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Provider']
+__all__ = ['ProviderArgs', 'Provider']
+
+@pulumi.input_type
+class ProviderArgs:
+    def __init__(__self__, *,
+                 org_service_url: Optional[pulumi.Input[str]] = None,
+                 personal_access_token: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Provider resource.
+        :param pulumi.Input[str] org_service_url: The url of the Azure DevOps instance which should be used.
+        :param pulumi.Input[str] personal_access_token: The personal access token which should be used.
+        """
+        if org_service_url is None:
+            org_service_url = _utilities.get_env('AZDO_ORG_SERVICE_URL')
+        if org_service_url is not None:
+            pulumi.set(__self__, "org_service_url", org_service_url)
+        if personal_access_token is not None:
+            pulumi.set(__self__, "personal_access_token", personal_access_token)
+
+    @property
+    @pulumi.getter(name="orgServiceUrl")
+    def org_service_url(self) -> Optional[pulumi.Input[str]]:
+        """
+        The url of the Azure DevOps instance which should be used.
+        """
+        return pulumi.get(self, "org_service_url")
+
+    @org_service_url.setter
+    def org_service_url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "org_service_url", value)
+
+    @property
+    @pulumi.getter(name="personalAccessToken")
+    def personal_access_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The personal access token which should be used.
+        """
+        return pulumi.get(self, "personal_access_token")
+
+    @personal_access_token.setter
+    def personal_access_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "personal_access_token", value)
 
 
 class Provider(pulumi.ProviderResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -31,6 +73,38 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[str] org_service_url: The url of the Azure DevOps instance which should be used.
         :param pulumi.Input[str] personal_access_token: The personal access token which should be used.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ProviderArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        The provider type for the azuredevops package. By default, resources use package-wide configuration
+        settings, however an explicit `Provider` instance may be created and passed during resource
+        construction to achieve fine-grained programmatic control over provider settings. See the
+        [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
+
+        :param str resource_name: The name of the resource.
+        :param ProviderArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProviderArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 org_service_url: Optional[pulumi.Input[str]] = None,
+                 personal_access_token: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

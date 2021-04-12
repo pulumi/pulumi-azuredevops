@@ -5,13 +5,51 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Queue']
+__all__ = ['QueueArgs', 'Queue']
+
+@pulumi.input_type
+class QueueArgs:
+    def __init__(__self__, *,
+                 agent_pool_id: pulumi.Input[int],
+                 project_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a Queue resource.
+        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
+        :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
+        """
+        pulumi.set(__self__, "agent_pool_id", agent_pool_id)
+        pulumi.set(__self__, "project_id", project_id)
+
+    @property
+    @pulumi.getter(name="agentPoolId")
+    def agent_pool_id(self) -> pulumi.Input[int]:
+        """
+        The ID of the organization agent pool.
+        """
+        return pulumi.get(self, "agent_pool_id")
+
+    @agent_pool_id.setter
+    def agent_pool_id(self, value: pulumi.Input[int]):
+        pulumi.set(self, "agent_pool_id", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the project in which to create the resource.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
 
 
 class Queue(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +100,69 @@ class Queue(pulumi.CustomResource):
         :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: QueueArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an agent queue within Azure DevOps. In the UI, this is equivalent to adding an
+        Organization defined pool to a project.
+
+        The created queue is not authorized for use by all pipelines in the project. However,
+        the `ResourceAuthorization` resource can be used to grant authorization.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project")
+        pool = azuredevops.get_pool(name="contoso-pool")
+        queue = azuredevops.Queue("queue",
+            project_id=project.id,
+            agent_pool_id=pool.id)
+        # Grant acccess to queue to all pipelines in the project
+        auth = azuredevops.ResourceAuthorization("auth",
+            project_id=project.id,
+            resource_id=queue.id,
+            type="queue",
+            authorized=True)
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:index/queue:Queue q 00000000-0000-0000-0000-000000000000/0
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param QueueArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(QueueArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_pool_id: Optional[pulumi.Input[int]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

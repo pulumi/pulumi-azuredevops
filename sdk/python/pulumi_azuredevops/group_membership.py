@@ -5,13 +5,75 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['GroupMembership']
+__all__ = ['GroupMembershipArgs', 'GroupMembership']
+
+@pulumi.input_type
+class GroupMembershipArgs:
+    def __init__(__self__, *,
+                 group: pulumi.Input[str],
+                 members: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 mode: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a GroupMembership resource.
+        :param pulumi.Input[str] group: The descriptor of the group being managed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
+               > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        :param pulumi.Input[str] mode: The mode how the resource manages group members.
+               - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+               > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        """
+        pulumi.set(__self__, "group", group)
+        pulumi.set(__self__, "members", members)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def group(self) -> pulumi.Input[str]:
+        """
+        The descriptor of the group being managed.
+        """
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "group", value)
+
+    @property
+    @pulumi.getter
+    def members(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list of user or group descriptors that will become members of the group.
+        > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        """
+        return pulumi.get(self, "members")
+
+    @members.setter
+    def members(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "members", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode how the resource manages group members.
+        - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+        - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+        > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
 
 
 class GroupMembership(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -60,6 +122,62 @@ class GroupMembership(pulumi.CustomResource):
                - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
                > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GroupMembershipArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages group membership within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project")
+        user = azuredevops.User("user", principal_name="foo@contoso.com")
+        group = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
+            name="Build Administrators"))
+        membership = azuredevops.GroupMembership("membership",
+            group=group.descriptor,
+            members=[user.descriptor])
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
+
+        ## PAT Permissions Required
+
+        - **Deployment Groups**: Read & Manage
+
+        ## Import
+
+        Not supported.
+
+        :param str resource_name: The name of the resource.
+        :param GroupMembershipArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GroupMembershipArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 group: Optional[pulumi.Input[str]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mode: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,13 +5,169 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['ServiceEndpointAws']
+__all__ = ['ServiceEndpointAwsArgs', 'ServiceEndpointAws']
+
+@pulumi.input_type
+class ServiceEndpointAwsArgs:
+    def __init__(__self__, *,
+                 access_key_id: pulumi.Input[str],
+                 project_id: pulumi.Input[str],
+                 secret_access_key: pulumi.Input[str],
+                 service_endpoint_name: pulumi.Input[str],
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 role_session_name: Optional[pulumi.Input[str]] = None,
+                 role_to_assume: Optional[pulumi.Input[str]] = None,
+                 session_token: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServiceEndpointAws resource.
+        :param pulumi.Input[str] access_key_id: The AWS access key ID for signing programmatic requests.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
+        :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
+        :param pulumi.Input[str] role_session_name: Optional identifier for the assumed role session.
+        :param pulumi.Input[str] role_to_assume: The Amazon Resource Name (ARN) of the role to assume.
+        :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
+        """
+        pulumi.set(__self__, "access_key_id", access_key_id)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "secret_access_key", secret_access_key)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if external_id is not None:
+            pulumi.set(__self__, "external_id", external_id)
+        if role_session_name is not None:
+            pulumi.set(__self__, "role_session_name", role_session_name)
+        if role_to_assume is not None:
+            pulumi.set(__self__, "role_to_assume", role_to_assume)
+        if session_token is not None:
+            pulumi.set(__self__, "session_token", session_token)
+
+    @property
+    @pulumi.getter(name="accessKeyId")
+    def access_key_id(self) -> pulumi.Input[str]:
+        """
+        The AWS access key ID for signing programmatic requests.
+        """
+        return pulumi.get(self, "access_key_id")
+
+    @access_key_id.setter
+    def access_key_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "access_key_id", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="secretAccessKey")
+    def secret_access_key(self) -> pulumi.Input[str]:
+        """
+        The AWS secret access key for signing programmatic requests.
+        """
+        return pulumi.get(self, "secret_access_key")
+
+    @secret_access_key.setter
+    def secret_access_key(self, value: pulumi.Input[str]):
+        pulumi.set(self, "secret_access_key", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> pulumi.Input[str]:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter(name="roleSessionName")
+    def role_session_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Optional identifier for the assumed role session.
+        """
+        return pulumi.get(self, "role_session_name")
+
+    @role_session_name.setter
+    def role_session_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_session_name", value)
+
+    @property
+    @pulumi.getter(name="roleToAssume")
+    def role_to_assume(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Amazon Resource Name (ARN) of the role to assume.
+        """
+        return pulumi.get(self, "role_to_assume")
+
+    @role_to_assume.setter
+    def role_to_assume(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "role_to_assume", value)
+
+    @property
+    @pulumi.getter(name="sessionToken")
+    def session_token(self) -> Optional[pulumi.Input[str]]:
+        """
+        The AWS session token for signing programmatic requests.
+        """
+        return pulumi.get(self, "session_token")
+
+    @session_token.setter
+    def session_token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "session_token", value)
 
 
 class ServiceEndpointAws(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -72,6 +228,73 @@ class ServiceEndpointAws(pulumi.CustomResource):
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceEndpointAwsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        serviceendpoint = azuredevops.ServiceEndpointAws("serviceendpoint",
+            project_id=project.id,
+            service_endpoint_name="Sample AWS",
+            description="Managed by AzureDevOps",
+            access_key_id="00000000-0000-0000-0000-000000000000",
+            secret_access_key="accesskey")
+        ```
+        ## Relevant Links
+
+        * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
+        * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceEndpointAwsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceEndpointAwsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 access_key_id: Optional[pulumi.Input[str]] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 external_id: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 role_session_name: Optional[pulumi.Input[str]] = None,
+                 role_to_assume: Optional[pulumi.Input[str]] = None,
+                 secret_access_key: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 session_token: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

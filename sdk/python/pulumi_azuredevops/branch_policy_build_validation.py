@@ -5,15 +5,85 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BranchPolicyBuildValidation']
+__all__ = ['BranchPolicyBuildValidationArgs', 'BranchPolicyBuildValidation']
+
+@pulumi.input_type
+class BranchPolicyBuildValidationArgs:
+    def __init__(__self__, *,
+                 project_id: pulumi.Input[str],
+                 settings: pulumi.Input['BranchPolicyBuildValidationSettingsArgs'],
+                 blocking: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a BranchPolicyBuildValidation resource.
+        :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
+        :param pulumi.Input['BranchPolicyBuildValidationSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
+        :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
+        """
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "settings", settings)
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the project in which the policy will be created.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> pulumi.Input['BranchPolicyBuildValidationSettingsArgs']:
+        """
+        Configuration for the policy. This block must be defined exactly once.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: pulumi.Input['BranchPolicyBuildValidationSettingsArgs']):
+        pulumi.set(self, "settings", value)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag indicating if the policy should be blocking. Defaults to `true`.
+        """
+        return pulumi.get(self, "blocking")
+
+    @blocking.setter
+    def blocking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blocking", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag indicating if the policy should be enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 class BranchPolicyBuildValidation(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -92,6 +162,95 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[pulumi.InputType['BranchPolicyBuildValidationSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BranchPolicyBuildValidationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a build validation branch policy within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project")
+        git = azuredevops.Git("git",
+            project_id=project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        build_definition = azuredevops.BuildDefinition("buildDefinition",
+            project_id=project.id,
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=git.id,
+                yml_path="azure-pipelines.yml",
+            ))
+        branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("branchPolicyBuildValidation",
+            project_id=project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyBuildValidationSettingsArgs(
+                display_name="Don't break the build!",
+                build_definition_id=build_definition.id,
+                valid_duration=720,
+                filename_patterns=[
+                    "/WebApp/*",
+                    "!/WebApp/Tests/*",
+                    "*.cs",
+                ],
+                scopes=[
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
+                        repository_id=git.id,
+                        repository_ref=git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
+                        repository_id=git.id,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                ],
+            ))
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+
+        ```sh
+         $ pulumi import azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation p 00000000-0000-0000-0000-000000000000/0
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BranchPolicyBuildValidationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BranchPolicyBuildValidationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 blocking: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyBuildValidationSettingsArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

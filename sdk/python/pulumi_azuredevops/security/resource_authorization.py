@@ -5,10 +5,95 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ResourceAuthorization']
+__all__ = ['ResourceAuthorizationArgs', 'ResourceAuthorization']
+
+@pulumi.input_type
+class ResourceAuthorizationArgs:
+    def __init__(__self__, *,
+                 authorized: pulumi.Input[bool],
+                 project_id: pulumi.Input[str],
+                 resource_id: pulumi.Input[str],
+                 definition_id: Optional[pulumi.Input[int]] = None,
+                 type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ResourceAuthorization resource.
+        :param pulumi.Input[bool] authorized: Set to true to allow public access in the project. Type: boolean.
+        :param pulumi.Input[str] project_id: The project ID or project name. Type: string.
+        :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
+        :param pulumi.Input[int] definition_id: The ID of the build definition to authorize. Type: string.
+        :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        """
+        pulumi.set(__self__, "authorized", authorized)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "resource_id", resource_id)
+        if definition_id is not None:
+            pulumi.set(__self__, "definition_id", definition_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def authorized(self) -> pulumi.Input[bool]:
+        """
+        Set to true to allow public access in the project. Type: boolean.
+        """
+        return pulumi.get(self, "authorized")
+
+    @authorized.setter
+    def authorized(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "authorized", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The project ID or project name. Type: string.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the resource to authorize. Type: string.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_id", value)
+
+    @property
+    @pulumi.getter(name="definitionId")
+    def definition_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the build definition to authorize. Type: string.
+        """
+        return pulumi.get(self, "definition_id")
+
+    @definition_id.setter
+    def definition_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "definition_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "type", value)
+
 
 warnings.warn("""azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization""", DeprecationWarning)
 
@@ -16,6 +101,7 @@ warnings.warn("""azuredevops.security.ResourceAuthorization has been deprecated 
 class ResourceAuthorization(pulumi.CustomResource):
     warnings.warn("""azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +148,62 @@ class ResourceAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
         :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ResourceAuthorizationArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages authorization of resources, e.g. for access in build pipelines.
+
+        Currently supported resources: service endpoint (aka service connection, endpoint).
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project")
+        bitbucket_account = azuredevops.ServiceEndpointBitBucket("bitbucketAccount",
+            project_id=project.id,
+            username="xxxx",
+            password="xxxx",
+            service_endpoint_name="test-bitbucket",
+            description="test")
+        auth = azuredevops.ResourceAuthorization("auth",
+            project_id=project.id,
+            resource_id=bitbucket_account.id,
+            authorized=True)
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
+
+        :param str resource_name: The name of the resource.
+        :param ResourceAuthorizationArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ResourceAuthorizationArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorized: Optional[pulumi.Input[bool]] = None,
+                 definition_id: Optional[pulumi.Input[int]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 resource_id: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""ResourceAuthorization is deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

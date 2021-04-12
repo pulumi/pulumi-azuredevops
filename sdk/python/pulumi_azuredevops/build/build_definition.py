@@ -5,12 +5,162 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BuildDefinition']
+__all__ = ['BuildDefinitionArgs', 'BuildDefinition']
+
+@pulumi.input_type
+class BuildDefinitionArgs:
+    def __init__(__self__, *,
+                 project_id: pulumi.Input[str],
+                 repository: pulumi.Input['BuildDefinitionRepositoryArgs'],
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 ci_trigger: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
+                 variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
+        """
+        The set of arguments for constructing a BuildDefinition resource.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input['BuildDefinitionRepositoryArgs'] repository: A `repository` block as documented below.
+        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build.
+        :param pulumi.Input['BuildDefinitionCiTriggerArgs'] ci_trigger: Continuous Integration trigger.
+        :param pulumi.Input[str] name: The name of the build definition.
+        :param pulumi.Input[str] path: The folder path of the build definition.
+        :param pulumi.Input['BuildDefinitionPullRequestTriggerArgs'] pull_request_trigger: Pull Request Integration Integration trigger.
+        :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]] variables: A list of `variable` blocks, as documented below.
+        """
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "repository", repository)
+        if agent_pool_name is not None:
+            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+        if ci_trigger is not None:
+            pulumi.set(__self__, "ci_trigger", ci_trigger)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if pull_request_trigger is not None:
+            pulumi.set(__self__, "pull_request_trigger", pull_request_trigger)
+        if variable_groups is not None:
+            pulumi.set(__self__, "variable_groups", variable_groups)
+        if variables is not None:
+            pulumi.set(__self__, "variables", variables)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def repository(self) -> pulumi.Input['BuildDefinitionRepositoryArgs']:
+        """
+        A `repository` block as documented below.
+        """
+        return pulumi.get(self, "repository")
+
+    @repository.setter
+    def repository(self, value: pulumi.Input['BuildDefinitionRepositoryArgs']):
+        pulumi.set(self, "repository", value)
+
+    @property
+    @pulumi.getter(name="agentPoolName")
+    def agent_pool_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The agent pool that should execute the build.
+        """
+        return pulumi.get(self, "agent_pool_name")
+
+    @agent_pool_name.setter
+    def agent_pool_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "agent_pool_name", value)
+
+    @property
+    @pulumi.getter(name="ciTrigger")
+    def ci_trigger(self) -> Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']]:
+        """
+        Continuous Integration trigger.
+        """
+        return pulumi.get(self, "ci_trigger")
+
+    @ci_trigger.setter
+    def ci_trigger(self, value: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']]):
+        pulumi.set(self, "ci_trigger", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the build definition.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The folder path of the build definition.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter(name="pullRequestTrigger")
+    def pull_request_trigger(self) -> Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']]:
+        """
+        Pull Request Integration Integration trigger.
+        """
+        return pulumi.get(self, "pull_request_trigger")
+
+    @pull_request_trigger.setter
+    def pull_request_trigger(self, value: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']]):
+        pulumi.set(self, "pull_request_trigger", value)
+
+    @property
+    @pulumi.getter(name="variableGroups")
+    def variable_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
+        """
+        A list of variable group IDs (integers) to link to the build definition.
+        """
+        return pulumi.get(self, "variable_groups")
+
+    @variable_groups.setter
+    def variable_groups(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]):
+        pulumi.set(self, "variable_groups", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]:
+        """
+        A list of `variable` blocks, as documented below.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]]):
+        pulumi.set(self, "variables", value)
+
 
 warnings.warn("""azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition""", DeprecationWarning)
 
@@ -18,6 +168,7 @@ warnings.warn("""azuredevops.build.BuildDefinition has been deprecated in favor 
 class BuildDefinition(pulumi.CustomResource):
     warnings.warn("""azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -134,6 +285,128 @@ class BuildDefinition(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]] variables: A list of `variable` blocks, as documented below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BuildDefinitionArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Build Definition within Azure DevOps.
+
+        ## Example Usage
+        ### Tfs
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        repository = azuredevops.Git("repository",
+            project_id=project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        vars = azuredevops.VariableGroup("vars",
+            project_id=project.id,
+            description="Managed by Terraform",
+            allow_access=True,
+            variables=[azuredevops.VariableGroupVariableArgs(
+                name="FOO",
+                value="BAR",
+            )])
+        build = azuredevops.BuildDefinition("build",
+            project_id=project.id,
+            path="\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=True,
+            ),
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=repository.id,
+                branch_name=repository.default_branch,
+                yml_path="azure-pipelines.yml",
+            ),
+            variable_groups=[vars.id],
+            variables=[
+                azuredevops.BuildDefinitionVariableArgs(
+                    name="PipelineVariable",
+                    value="Go Microsoft!",
+                ),
+                azuredevops.BuildDefinitionVariableArgs(
+                    name="PipelineSecret",
+                    secret_value="ZGV2cw",
+                    is_secret=True,
+                ),
+            ])
+        ```
+        ### GitHub Enterprise
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        sample_dotnetcore_app_release = azuredevops.BuildDefinition("sampleDotnetcoreAppRelease",
+            project_id=azuredevops_project["project"]["id"],
+            path="\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=True,
+            ),
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="GitHubEnterprise",
+                repo_id="<GitHub Org>/<Repo Name>",
+                github_enterprise_url="https://github.company.com",
+                branch_name="master",
+                yml_path="azure-pipelines.yml",
+                service_connection_id="...",
+            ))
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition build "Test Project"/10
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition build 00000000-0000-0000-0000-000000000000/0
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BuildDefinitionArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BuildDefinitionArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 agent_pool_name: Optional[pulumi.Input[str]] = None,
+                 ci_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
+                 repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
+                 variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""BuildDefinition is deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

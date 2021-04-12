@@ -5,10 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['User']
+__all__ = ['UserArgs', 'User']
+
+@pulumi.input_type
+class UserArgs:
+    def __init__(__self__, *,
+                 account_license_type: Optional[pulumi.Input[str]] = None,
+                 licensing_source: Optional[pulumi.Input[str]] = None,
+                 origin: Optional[pulumi.Input[str]] = None,
+                 origin_id: Optional[pulumi.Input[str]] = None,
+                 principal_name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a User resource.
+        :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+        :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
+        :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
+        :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
+        """
+        if account_license_type is not None:
+            pulumi.set(__self__, "account_license_type", account_license_type)
+        if licensing_source is not None:
+            pulumi.set(__self__, "licensing_source", licensing_source)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if origin_id is not None:
+            pulumi.set(__self__, "origin_id", origin_id)
+        if principal_name is not None:
+            pulumi.set(__self__, "principal_name", principal_name)
+
+    @property
+    @pulumi.getter(name="accountLicenseType")
+    def account_license_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        """
+        return pulumi.get(self, "account_license_type")
+
+    @account_license_type.setter
+    def account_license_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_license_type", value)
+
+    @property
+    @pulumi.getter(name="licensingSource")
+    def licensing_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+        """
+        return pulumi.get(self, "licensing_source")
+
+    @licensing_source.setter
+    def licensing_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "licensing_source", value)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of source provider for the origin identifier.
+        """
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter(name="originId")
+    def origin_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
+        """
+        return pulumi.get(self, "origin_id")
+
+    @origin_id.setter
+    def origin_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_id", value)
+
+    @property
+    @pulumi.getter(name="principalName")
+    def principal_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
+        """
+        return pulumi.get(self, "principal_name")
+
+    @principal_name.setter
+    def principal_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_name", value)
+
 
 warnings.warn("""azuredevops.entitlement.User has been deprecated in favor of azuredevops.User""", DeprecationWarning)
 
@@ -16,6 +104,7 @@ warnings.warn("""azuredevops.entitlement.User has been deprecated in favor of az
 class User(pulumi.CustomResource):
     warnings.warn("""azuredevops.entitlement.User has been deprecated in favor of azuredevops.User""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -58,6 +147,58 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[UserArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a user entitlement within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        user = azuredevops.User("user", principal_name="foo@contoso.com")
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/add?view=azure-devops-rest-5.1)
+
+        ## PAT Permissions Required
+
+        - **Member Entitlement Management**: Read & Write
+
+        ## Import
+
+        The resources allows the import via the UUID of a user entitlement or by using the principal name of a user owning an entitlement.
+
+        :param str resource_name: The name of the resource.
+        :param UserArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(UserArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 account_license_type: Optional[pulumi.Input[str]] = None,
+                 licensing_source: Optional[pulumi.Input[str]] = None,
+                 origin: Optional[pulumi.Input[str]] = None,
+                 origin_id: Optional[pulumi.Input[str]] = None,
+                 principal_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""User is deprecated: azuredevops.entitlement.User has been deprecated in favor of azuredevops.User""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

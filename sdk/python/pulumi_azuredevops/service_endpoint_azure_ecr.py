@@ -5,13 +5,154 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['ServiceEndpointAzureEcr']
+__all__ = ['ServiceEndpointAzureEcrArgs', 'ServiceEndpointAzureEcr']
+
+@pulumi.input_type
+class ServiceEndpointAzureEcrArgs:
+    def __init__(__self__, *,
+                 azurecr_name: pulumi.Input[str],
+                 azurecr_spn_tenantid: pulumi.Input[str],
+                 azurecr_subscription_id: pulumi.Input[str],
+                 azurecr_subscription_name: pulumi.Input[str],
+                 project_id: pulumi.Input[str],
+                 resource_group: pulumi.Input[str],
+                 service_endpoint_name: pulumi.Input[str],
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServiceEndpointAzureEcr resource.
+        :param pulumi.Input[str] azurecr_name: The Azure container registry name.
+        :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
+        :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
+        :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
+        :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
+        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
+        """
+        pulumi.set(__self__, "azurecr_name", azurecr_name)
+        pulumi.set(__self__, "azurecr_spn_tenantid", azurecr_spn_tenantid)
+        pulumi.set(__self__, "azurecr_subscription_id", azurecr_subscription_id)
+        pulumi.set(__self__, "azurecr_subscription_name", azurecr_subscription_name)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="azurecrName")
+    def azurecr_name(self) -> pulumi.Input[str]:
+        """
+        The Azure container registry name.
+        """
+        return pulumi.get(self, "azurecr_name")
+
+    @azurecr_name.setter
+    def azurecr_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azurecr_name", value)
+
+    @property
+    @pulumi.getter(name="azurecrSpnTenantid")
+    def azurecr_spn_tenantid(self) -> pulumi.Input[str]:
+        """
+        The tenant id of the service principal.
+        """
+        return pulumi.get(self, "azurecr_spn_tenantid")
+
+    @azurecr_spn_tenantid.setter
+    def azurecr_spn_tenantid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azurecr_spn_tenantid", value)
+
+    @property
+    @pulumi.getter(name="azurecrSubscriptionId")
+    def azurecr_subscription_id(self) -> pulumi.Input[str]:
+        """
+        The subscription id of the Azure targets.
+        """
+        return pulumi.get(self, "azurecr_subscription_id")
+
+    @azurecr_subscription_id.setter
+    def azurecr_subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azurecr_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="azurecrSubscriptionName")
+    def azurecr_subscription_name(self) -> pulumi.Input[str]:
+        """
+        The subscription name of the Azure targets.
+        """
+        return pulumi.get(self, "azurecr_subscription_name")
+
+    @azurecr_subscription_name.setter
+    def azurecr_subscription_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azurecr_subscription_name", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> pulumi.Input[str]:
+        """
+        The resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: pulumi.Input[str]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> pulumi.Input[str]:
+        """
+        The name you will use to refer to this service connection in task inputs.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name you will use to refer to this service connection in task inputs.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 class ServiceEndpointAzureEcr(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -74,6 +215,75 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceEndpointAzureEcrArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Azure Container Registry service endpoint within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        # azure container registry service connection
+        azurecr = azuredevops.ServiceEndpointAzureEcr("azurecr",
+            project_id=project.id,
+            service_endpoint_name="Sample AzureCR",
+            resource_group="sample-rg",
+            azurecr_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurecr_name="sampleAcr",
+            azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurecr_subscription_name="sampleSub")
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
+
+        ## Import
+
+        Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceEndpointAzureEcrArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceEndpointAzureEcrArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 azurecr_name: Optional[pulumi.Input[str]] = None,
+                 azurecr_spn_tenantid: Optional[pulumi.Input[str]] = None,
+                 azurecr_subscription_id: Optional[pulumi.Input[str]] = None,
+                 azurecr_subscription_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

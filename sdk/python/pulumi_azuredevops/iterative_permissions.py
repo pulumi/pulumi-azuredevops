@@ -5,13 +5,98 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['IterativePermissions']
+__all__ = ['IterativePermissionsArgs', 'IterativePermissions']
+
+@pulumi.input_type
+class IterativePermissionsArgs:
+    def __init__(__self__, *,
+                 permissions: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 principal: pulumi.Input[str],
+                 project_id: pulumi.Input[str],
+                 path: Optional[pulumi.Input[str]] = None,
+                 replace: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a IterativePermissions resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
+        :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
+        :param pulumi.Input[str] path: The name of the branch to assign the permissions.
+        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        """
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "project_id", project_id)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if replace is not None:
+            pulumi.set(__self__, "replace", replace)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        the permissions to assign. The following permissions are available.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        The **group** principal to assign the permissions.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the project to assign the permissions.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the branch to assign the permissions.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def replace(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        """
+        return pulumi.get(self, "replace")
+
+    @replace.setter
+    def replace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace", value)
 
 
 class IterativePermissions(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -84,6 +169,88 @@ class IterativePermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: IterativePermissionsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages permissions for an Iteration (Sprint)
+
+        > **Note** Permissions can be assigned to group principals and not to single user principals.
+
+        ## Permission levels
+
+        Permission for Iterations within Azure DevOps can be applied on two different levels.
+        Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
+            name="Readers"))
+        root_permissions = azuredevops.IterativePermissions("root-permissions",
+            project_id=project.id,
+            principal=azuredevops_group["project-readers"]["id"],
+            permissions={
+                "CREATE_CHILDREN": "Deny",
+                "GENERIC_READ": "NotSet",
+                "DELETE": "Deny",
+            })
+        iteration_permissions = azuredevops.IterativePermissions("iteration-permissions",
+            project_id=project.id,
+            principal=azuredevops_group["project-readers"]["id"],
+            path="Iteration 1",
+            permissions={
+                "CREATE_CHILDREN": "Allow",
+                "GENERIC_READ": "NotSet",
+                "DELETE": "Allow",
+            })
+        ```
+        ## Relevant Links
+
+        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+
+        ## PAT Permissions Required
+
+        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
+
+        ## Import
+
+        The resource does not support import.
+
+        :param str resource_name: The name of the resource.
+        :param IterativePermissionsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(IterativePermissionsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 path: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 principal: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 replace: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,10 +5,154 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['DockerRegistry']
+__all__ = ['DockerRegistryArgs', 'DockerRegistry']
+
+@pulumi.input_type
+class DockerRegistryArgs:
+    def __init__(__self__, *,
+                 docker_registry: pulumi.Input[str],
+                 project_id: pulumi.Input[str],
+                 registry_type: pulumi.Input[str],
+                 service_endpoint_name: pulumi.Input[str],
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 docker_email: Optional[pulumi.Input[str]] = None,
+                 docker_password: Optional[pulumi.Input[str]] = None,
+                 docker_username: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a DockerRegistry resource.
+        :param pulumi.Input[str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
+        :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
+        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
+        :param pulumi.Input[str] docker_email: The email for Docker account user.
+        :param pulumi.Input[str] docker_password: The password for the account user identified above.
+        :param pulumi.Input[str] docker_username: The identifier of the Docker account user.
+        """
+        pulumi.set(__self__, "docker_registry", docker_registry)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "registry_type", registry_type)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if docker_email is not None:
+            pulumi.set(__self__, "docker_email", docker_email)
+        if docker_password is not None:
+            pulumi.set(__self__, "docker_password", docker_password)
+        if docker_username is not None:
+            pulumi.set(__self__, "docker_username", docker_username)
+
+    @property
+    @pulumi.getter(name="dockerRegistry")
+    def docker_registry(self) -> pulumi.Input[str]:
+        """
+        The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
+        """
+        return pulumi.get(self, "docker_registry")
+
+    @docker_registry.setter
+    def docker_registry(self, value: pulumi.Input[str]):
+        pulumi.set(self, "docker_registry", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="registryType")
+    def registry_type(self) -> pulumi.Input[str]:
+        """
+        Can be "DockerHub" or "Others" (Default "DockerHub")
+        """
+        return pulumi.get(self, "registry_type")
+
+    @registry_type.setter
+    def registry_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "registry_type", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> pulumi.Input[str]:
+        """
+        The name you will use to refer to this service connection in task inputs.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name you will use to refer to this service connection in task inputs.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="dockerEmail")
+    def docker_email(self) -> Optional[pulumi.Input[str]]:
+        """
+        The email for Docker account user.
+        """
+        return pulumi.get(self, "docker_email")
+
+    @docker_email.setter
+    def docker_email(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_email", value)
+
+    @property
+    @pulumi.getter(name="dockerPassword")
+    def docker_password(self) -> Optional[pulumi.Input[str]]:
+        """
+        The password for the account user identified above.
+        """
+        return pulumi.get(self, "docker_password")
+
+    @docker_password.setter
+    def docker_password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_password", value)
+
+    @property
+    @pulumi.getter(name="dockerUsername")
+    def docker_username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The identifier of the Docker account user.
+        """
+        return pulumi.get(self, "docker_username")
+
+    @docker_username.setter
+    def docker_username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "docker_username", value)
+
 
 warnings.warn("""azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry""", DeprecationWarning)
 
@@ -16,6 +160,7 @@ warnings.warn("""azuredevops.serviceendpoint.DockerRegistry has been deprecated 
 class DockerRegistry(pulumi.CustomResource):
     warnings.warn("""azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -85,6 +230,82 @@ class DockerRegistry(pulumi.CustomResource):
         :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: DockerRegistryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a Docker Registry service endpoint within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        # dockerhub registry service connection
+        dockerhubregistry = azuredevops.ServiceEndpointDockerRegistry("dockerhubregistry",
+            project_id=project.id,
+            service_endpoint_name="Sample Docker Hub",
+            docker_username="sample",
+            docker_email="email@example.com",
+            docker_password="12345",
+            registry_type="DockerHub")
+        # other docker registry service connection
+        otherregistry = azuredevops.ServiceEndpointDockerRegistry("otherregistry",
+            project_id=project.id,
+            service_endpoint_name="Sample Docker Registry",
+            docker_registry="https://sample.azurecr.io/v1",
+            docker_username="sample",
+            docker_password="12345",
+            registry_type="Others")
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
+
+        ## Import
+
+        Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param DockerRegistryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(DockerRegistryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 docker_email: Optional[pulumi.Input[str]] = None,
+                 docker_password: Optional[pulumi.Input[str]] = None,
+                 docker_registry: Optional[pulumi.Input[str]] = None,
+                 docker_username: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 registry_type: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
