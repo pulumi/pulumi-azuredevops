@@ -5,15 +5,120 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceEndpointArtifactory']
+__all__ = ['ServiceEndpointArtifactoryArgs', 'ServiceEndpointArtifactory']
+
+@pulumi.input_type
+class ServiceEndpointArtifactoryArgs:
+    def __init__(__self__, *,
+                 project_id: pulumi.Input[str],
+                 service_endpoint_name: pulumi.Input[str],
+                 url: pulumi.Input[str],
+                 authentication_basic: Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationBasicArgs']] = None,
+                 authentication_token: Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs']] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServiceEndpointArtifactory resource.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
+        :param pulumi.Input[str] description: The Service Endpoint description.
+        """
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        pulumi.set(__self__, "url", url)
+        if authentication_basic is not None:
+            pulumi.set(__self__, "authentication_basic", authentication_basic)
+        if authentication_token is not None:
+            pulumi.set(__self__, "authentication_token", authentication_token)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> pulumi.Input[str]:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[str]:
+        """
+        URL of the Artifactory server to connect with.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[str]):
+        pulumi.set(self, "url", value)
+
+    @property
+    @pulumi.getter(name="authenticationBasic")
+    def authentication_basic(self) -> Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationBasicArgs']]:
+        return pulumi.get(self, "authentication_basic")
+
+    @authentication_basic.setter
+    def authentication_basic(self, value: Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationBasicArgs']]):
+        pulumi.set(self, "authentication_basic", value)
+
+    @property
+    @pulumi.getter(name="authenticationToken")
+    def authentication_token(self) -> Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs']]:
+        return pulumi.get(self, "authentication_token")
+
+    @authentication_token.setter
+    def authentication_token(self, value: Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs']]):
+        pulumi.set(self, "authentication_token", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Endpoint description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
 
 
 class ServiceEndpointArtifactory(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -85,6 +190,88 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceEndpointArtifactoryArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an Artifactory server endpoint within an Azure DevOps organization.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        serviceendpoint = azuredevops.ServiceEndpointArtifactory("serviceendpoint",
+            project_id=project.id,
+            service_endpoint_name="Sample Artifactory",
+            description="Managed by Terraform",
+            url="https://artifactory.my.com",
+            authentication_token=azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs(
+                token="0000000000000000000000000000000000000000",
+            ))
+        ```
+        Alternatively a username and password may be used.
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        serviceendpoint = azuredevops.ServiceEndpointArtifactory("serviceendpoint",
+            project_id=azuredevops_project["project"]["id"],
+            service_endpoint_name="Sample Artifactory",
+            description="Managed by Terraform",
+            url="https://artifactory.my.com",
+            authentication_basic=azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs(
+                username="sampleuser",
+                password="0000000000000000000000000000000000000000",
+            ))
+        ```
+        ## Relevant Links
+
+        * [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+        * [Artifactory User Token](https://docs.artifactory.org/latest/user-guide/user-token/)
+
+        ## Import
+
+        Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceEndpointArtifactoryArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceEndpointArtifactoryArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication_basic: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointArtifactoryAuthenticationBasicArgs']]] = None,
+                 authentication_token: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointArtifactoryAuthenticationTokenArgs']]] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

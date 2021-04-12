@@ -5,10 +5,46 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['ProjectFeatures']
+__all__ = ['ProjectFeaturesArgs', 'ProjectFeatures']
+
+@pulumi.input_type
+class ProjectFeaturesArgs:
+    def __init__(__self__, *,
+                 features: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 project_id: pulumi.Input[str]):
+        """
+        The set of arguments for constructing a ProjectFeatures resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
+               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        """
+        pulumi.set(__self__, "features", features)
+        pulumi.set(__self__, "project_id", project_id)
+
+    @property
+    @pulumi.getter
+    def features(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        Defines the status (`enabled`, `disabled`) of the project features.  
+        Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "features", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
 
 warnings.warn("""azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures""", DeprecationWarning)
 
@@ -16,6 +52,7 @@ warnings.warn("""azuredevops.core.ProjectFeatures has been deprecated in favor o
 class ProjectFeatures(pulumi.CustomResource):
     warnings.warn("""azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -62,6 +99,65 @@ class ProjectFeatures(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
                Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ProjectFeaturesArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages features for Azure DevOps projects
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        tf_project_test_001 = azuredevops.get_project(name="Test Project")
+        my_project_features = azuredevops.ProjectFeatures("my-project-features",
+            project_id=tf_project_test_001.id,
+            features={
+                "testplans": "disabled",
+                "artifacts": "enabled",
+            })
+        ```
+        ## Relevant Links
+
+        No official documentation available
+
+        ## PAT Permissions Required
+
+        - **Project & Team**: Read, Write, & Manage
+
+        ## Import
+
+        Azure DevOps feature settings can be imported using the project id, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:Core/projectFeatures:ProjectFeatures project_id 00000000-0000-0000-0000-000000000000
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ProjectFeaturesArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProjectFeaturesArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""ProjectFeatures is deprecated: azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

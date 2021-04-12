@@ -5,15 +5,101 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['Git']
+__all__ = ['GitArgs', 'Git']
+
+@pulumi.input_type
+class GitArgs:
+    def __init__(__self__, *,
+                 initialization: pulumi.Input['GitInitializationArgs'],
+                 project_id: pulumi.Input[str],
+                 default_branch: Optional[pulumi.Input[str]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_repository_id: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Git resource.
+        :param pulumi.Input['GitInitializationArgs'] initialization: An `initialization` block as documented below.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] default_branch: The ref of the default branch. Will be used as the branch name for initialized repositories.
+        :param pulumi.Input[str] name: The name of the git repository.
+        :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
+        """
+        pulumi.set(__self__, "initialization", initialization)
+        pulumi.set(__self__, "project_id", project_id)
+        if default_branch is not None:
+            pulumi.set(__self__, "default_branch", default_branch)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if parent_repository_id is not None:
+            pulumi.set(__self__, "parent_repository_id", parent_repository_id)
+
+    @property
+    @pulumi.getter
+    def initialization(self) -> pulumi.Input['GitInitializationArgs']:
+        """
+        An `initialization` block as documented below.
+        """
+        return pulumi.get(self, "initialization")
+
+    @initialization.setter
+    def initialization(self, value: pulumi.Input['GitInitializationArgs']):
+        pulumi.set(self, "initialization", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="defaultBranch")
+    def default_branch(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ref of the default branch. Will be used as the branch name for initialized repositories.
+        """
+        return pulumi.get(self, "default_branch")
+
+    @default_branch.setter
+    def default_branch(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "default_branch", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the git repository.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="parentRepositoryId")
+    def parent_repository_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of a Git project from which a fork is to be created.
+        """
+        return pulumi.get(self, "parent_repository_id")
+
+    @parent_repository_id.setter
+    def parent_repository_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "parent_repository_id", value)
 
 
 class Git(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -92,6 +178,94 @@ class Git(pulumi.CustomResource):
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
         :param pulumi.Input[str] project_id: The project ID or project name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: GitArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a git repository within Azure DevOps.
+
+        ## Example Usage
+        ### Create Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        repo = azuredevops.Git("repo",
+            project_id=project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        ```
+        ### Create Fork of another Azure DevOps Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        repo = azuredevops.Git("repo",
+            project_id=azuredevops_project["project"]["id"],
+            parent_repository_id=azuredevops_git_repository["parent"]["id"],
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        ```
+        ### Create Import from another Git repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        repo = azuredevops.Git("repo",
+            project_id=azuredevops_project["project"]["id"],
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Import",
+                source_type="Git",
+                source_url="https://github.com/microsoft/terraform-provider-azuredevops.git",
+            ))
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Repositories can be imported using the repo Guid e.g.
+
+        ```sh
+         $ pulumi import azuredevops:index/git:Git repository projectName/00000000-0000-0000-0000-000000000000
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param GitArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(GitArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 default_branch: Optional[pulumi.Input[str]] = None,
+                 initialization: Optional[pulumi.Input[pulumi.InputType['GitInitializationArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 parent_repository_id: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -5,10 +5,116 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 
-__all__ = ['Project']
+__all__ = ['ProjectArgs', 'Project']
+
+@pulumi.input_type
+class ProjectArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 version_control: Optional[pulumi.Input[str]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
+                 work_item_template: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Project resource.
+        :param pulumi.Input[str] description: The Description of the Project.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
+               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        :param pulumi.Input[str] name: The Project Name.
+        :param pulumi.Input[str] version_control: Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+        :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+        :param pulumi.Input[str] work_item_template: Specifies the work item template. Defaults to `Agile`.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if features is not None:
+            pulumi.set(__self__, "features", features)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if version_control is not None:
+            pulumi.set(__self__, "version_control", version_control)
+        if visibility is not None:
+            pulumi.set(__self__, "visibility", visibility)
+        if work_item_template is not None:
+            pulumi.set(__self__, "work_item_template", work_item_template)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Description of the Project.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def features(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Defines the status (`enabled`, `disabled`) of the project features.  
+        Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        """
+        return pulumi.get(self, "features")
+
+    @features.setter
+    def features(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "features", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Project Name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="versionControl")
+    def version_control(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
+        """
+        return pulumi.get(self, "version_control")
+
+    @version_control.setter
+    def version_control(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_control", value)
+
+    @property
+    @pulumi.getter
+    def visibility(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
+        """
+        return pulumi.get(self, "visibility")
+
+    @visibility.setter
+    def visibility(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "visibility", value)
+
+    @property
+    @pulumi.getter(name="workItemTemplate")
+    def work_item_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the work item template. Defaults to `Agile`.
+        """
+        return pulumi.get(self, "work_item_template")
+
+    @work_item_template.setter
+    def work_item_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "work_item_template", value)
+
 
 warnings.warn("""azuredevops.core.Project has been deprecated in favor of azuredevops.Project""", DeprecationWarning)
 
@@ -16,6 +122,7 @@ warnings.warn("""azuredevops.core.Project has been deprecated in favor of azured
 class Project(pulumi.CustomResource):
     warnings.warn("""azuredevops.core.Project has been deprecated in favor of azuredevops.Project""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -79,6 +186,77 @@ class Project(pulumi.CustomResource):
         :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
         :param pulumi.Input[str] work_item_template: Specifies the work item template. Defaults to `Agile`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[ProjectArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages a project within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            description="Test Project Description",
+            features={
+                "artifacts": "disabled",
+                "testplans": "disabled",
+            },
+            version_control="Git",
+            visibility="private",
+            work_item_template="Agile")
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
+
+        ## PAT Permissions Required
+
+        - **Project & Team**: Read, Write, & Manage
+
+        ## Import
+
+        Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:Core/project:Project project "Test Project"
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import azuredevops:Core/project:Project project 00000000-0000-0000-0000-000000000000
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ProjectArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ProjectArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 version_control: Optional[pulumi.Input[str]] = None,
+                 visibility: Optional[pulumi.Input[str]] = None,
+                 work_item_template: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""Project is deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

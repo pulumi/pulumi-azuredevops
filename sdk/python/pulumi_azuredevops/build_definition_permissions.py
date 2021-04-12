@@ -5,13 +5,97 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['BuildDefinitionPermissions']
+__all__ = ['BuildDefinitionPermissionsArgs', 'BuildDefinitionPermissions']
+
+@pulumi.input_type
+class BuildDefinitionPermissionsArgs:
+    def __init__(__self__, *,
+                 build_definition_id: pulumi.Input[str],
+                 permissions: pulumi.Input[Mapping[str, pulumi.Input[str]]],
+                 principal: pulumi.Input[str],
+                 project_id: pulumi.Input[str],
+                 replace: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a BuildDefinitionPermissions resource.
+        :param pulumi.Input[str] build_definition_id: The id of the build definition to assign the permissions.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
+        :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
+        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+        """
+        pulumi.set(__self__, "build_definition_id", build_definition_id)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "project_id", project_id)
+        if replace is not None:
+            pulumi.set(__self__, "replace", replace)
+
+    @property
+    @pulumi.getter(name="buildDefinitionId")
+    def build_definition_id(self) -> pulumi.Input[str]:
+        """
+        The id of the build definition to assign the permissions.
+        """
+        return pulumi.get(self, "build_definition_id")
+
+    @build_definition_id.setter
+    def build_definition_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "build_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
+        """
+        the permissions to assign. The following permissions are available.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: pulumi.Input[Mapping[str, pulumi.Input[str]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        The **group** principal to assign the permissions.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the project to assign the permissions.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def replace(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+        """
+        return pulumi.get(self, "replace")
+
+    @replace.setter
+    def replace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace", value)
 
 
 class BuildDefinitionPermissions(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -89,6 +173,93 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BuildDefinitionPermissionsArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages permissions for a Build Definition
+
+        > **Note** Permissions can be assigned to group principals and not to single user principals.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
+            name="Readers"))
+        repository = azuredevops.Git("repository",
+            project_id=project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        build = azuredevops.BuildDefinition("build",
+            project_id=project.id,
+            path="\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=True,
+            ),
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=repository.id,
+                branch_name=repository.default_branch,
+                yml_path="azure-pipelines.yml",
+            ))
+        permissions = azuredevops.BuildDefinitionPermissions("permissions",
+            project_id=project.id,
+            principal=project_readers.id,
+            build_definition_id=build.id,
+            permissions={
+                "ViewBuilds": "Allow",
+                "EditBuildQuality": "Deny",
+                "DeleteBuilds": "Deny",
+                "StopBuilds": "Allow",
+            })
+        ```
+        ## Relevant Links
+
+        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+
+        ## PAT Permissions Required
+
+        - **Project & Team**: vso.security_manage - Grants the ability to read, write, and manage security permissions.
+
+        ## Import
+
+        The resource does not support import.
+
+        :param str resource_name: The name of the resource.
+        :param BuildDefinitionPermissionsArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BuildDefinitionPermissionsArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 build_definition_id: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 principal: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 replace: Optional[pulumi.Input[bool]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

@@ -21,75 +21,76 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azuredevops:index/areaPermissions:AreaPermissions":
-		r, err = NewAreaPermissions(ctx, name, nil, pulumi.URN_(urn))
+		r = &AreaPermissions{}
 	case "azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers":
-		r, err = NewBranchPolicyAutoReviewers(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchPolicyAutoReviewers{}
 	case "azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation":
-		r, err = NewBranchPolicyBuildValidation(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchPolicyBuildValidation{}
 	case "azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution":
-		r, err = NewBranchPolicyCommentResolution(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchPolicyCommentResolution{}
 	case "azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes":
-		r, err = NewBranchPolicyMergeTypes(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchPolicyMergeTypes{}
 	case "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers":
-		r, err = NewBranchPolicyMinReviewers(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchPolicyMinReviewers{}
 	case "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking":
-		r, err = NewBranchPolicyWorkItemLinking(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchPolicyWorkItemLinking{}
 	case "azuredevops:index/buildDefinition:BuildDefinition":
-		r, err = NewBuildDefinition(ctx, name, nil, pulumi.URN_(urn))
+		r = &BuildDefinition{}
 	case "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions":
-		r, err = NewBuildDefinitionPermissions(ctx, name, nil, pulumi.URN_(urn))
+		r = &BuildDefinitionPermissions{}
 	case "azuredevops:index/git:Git":
-		r, err = NewGit(ctx, name, nil, pulumi.URN_(urn))
+		r = &Git{}
 	case "azuredevops:index/gitPermissions:GitPermissions":
-		r, err = NewGitPermissions(ctx, name, nil, pulumi.URN_(urn))
+		r = &GitPermissions{}
 	case "azuredevops:index/group:Group":
-		r, err = NewGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &Group{}
 	case "azuredevops:index/groupMembership:GroupMembership":
-		r, err = NewGroupMembership(ctx, name, nil, pulumi.URN_(urn))
+		r = &GroupMembership{}
 	case "azuredevops:index/iterativePermissions:IterativePermissions":
-		r, err = NewIterativePermissions(ctx, name, nil, pulumi.URN_(urn))
+		r = &IterativePermissions{}
 	case "azuredevops:index/pool:Pool":
-		r, err = NewPool(ctx, name, nil, pulumi.URN_(urn))
+		r = &Pool{}
 	case "azuredevops:index/project:Project":
-		r, err = NewProject(ctx, name, nil, pulumi.URN_(urn))
+		r = &Project{}
 	case "azuredevops:index/projectFeatures:ProjectFeatures":
-		r, err = NewProjectFeatures(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProjectFeatures{}
 	case "azuredevops:index/projectPermissions:ProjectPermissions":
-		r, err = NewProjectPermissions(ctx, name, nil, pulumi.URN_(urn))
+		r = &ProjectPermissions{}
 	case "azuredevops:index/queue:Queue":
-		r, err = NewQueue(ctx, name, nil, pulumi.URN_(urn))
+		r = &Queue{}
 	case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
-		r, err = NewResourceAuthorization(ctx, name, nil, pulumi.URN_(urn))
+		r = &ResourceAuthorization{}
 	case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
-		r, err = NewServiceEndpointArtifactory(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointArtifactory{}
 	case "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
-		r, err = NewServiceEndpointAws(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointAws{}
 	case "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr":
-		r, err = NewServiceEndpointAzureEcr(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointAzureEcr{}
 	case "azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM":
-		r, err = NewServiceEndpointAzureRM(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointAzureRM{}
 	case "azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket":
-		r, err = NewServiceEndpointBitBucket(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointBitBucket{}
 	case "azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry":
-		r, err = NewServiceEndpointDockerRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointDockerRegistry{}
 	case "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub":
-		r, err = NewServiceEndpointGitHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointGitHub{}
 	case "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes":
-		r, err = NewServiceEndpointKubernetes(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointKubernetes{}
 	case "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
-		r, err = NewServiceEndpointPipeline(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointPipeline{}
 	case "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
-		r, err = NewServiceEndpointSonarQube(ctx, name, nil, pulumi.URN_(urn))
+		r = &ServiceEndpointSonarQube{}
 	case "azuredevops:index/user:User":
-		r, err = NewUser(ctx, name, nil, pulumi.URN_(urn))
+		r = &User{}
 	case "azuredevops:index/variableGroup:VariableGroup":
-		r, err = NewVariableGroup(ctx, name, nil, pulumi.URN_(urn))
+		r = &VariableGroup{}
 	case "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions":
-		r, err = NewWorkItemQueryPermissions(ctx, name, nil, pulumi.URN_(urn))
+		r = &WorkItemQueryPermissions{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 
@@ -106,7 +107,9 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 		return nil, fmt.Errorf("unknown provider type: %s", typ)
 	}
 
-	return NewProvider(ctx, name, nil, pulumi.URN_(urn))
+	r := &Provider{}
+	err := ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
+	return r, err
 }
 
 func init() {

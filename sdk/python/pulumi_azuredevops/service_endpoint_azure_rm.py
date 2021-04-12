@@ -5,15 +5,158 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['ServiceEndpointAzureRM']
+__all__ = ['ServiceEndpointAzureRMArgs', 'ServiceEndpointAzureRM']
+
+@pulumi.input_type
+class ServiceEndpointAzureRMArgs:
+    def __init__(__self__, *,
+                 azurerm_spn_tenantid: pulumi.Input[str],
+                 azurerm_subscription_id: pulumi.Input[str],
+                 azurerm_subscription_name: pulumi.Input[str],
+                 project_id: pulumi.Input[str],
+                 service_endpoint_name: pulumi.Input[str],
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 credentials: Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a ServiceEndpointAzureRM resource.
+        :param pulumi.Input[str] azurerm_spn_tenantid: The tenant id if the service principal.
+        :param pulumi.Input[str] azurerm_subscription_id: The subscription Id of the Azure targets.
+        :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
+        :param pulumi.Input[str] description: Service connection description.
+        :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        """
+        pulumi.set(__self__, "azurerm_spn_tenantid", azurerm_spn_tenantid)
+        pulumi.set(__self__, "azurerm_subscription_id", azurerm_subscription_id)
+        pulumi.set(__self__, "azurerm_subscription_name", azurerm_subscription_name)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+
+    @property
+    @pulumi.getter(name="azurermSpnTenantid")
+    def azurerm_spn_tenantid(self) -> pulumi.Input[str]:
+        """
+        The tenant id if the service principal.
+        """
+        return pulumi.get(self, "azurerm_spn_tenantid")
+
+    @azurerm_spn_tenantid.setter
+    def azurerm_spn_tenantid(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azurerm_spn_tenantid", value)
+
+    @property
+    @pulumi.getter(name="azurermSubscriptionId")
+    def azurerm_subscription_id(self) -> pulumi.Input[str]:
+        """
+        The subscription Id of the Azure targets.
+        """
+        return pulumi.get(self, "azurerm_subscription_id")
+
+    @azurerm_subscription_id.setter
+    def azurerm_subscription_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azurerm_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="azurermSubscriptionName")
+    def azurerm_subscription_name(self) -> pulumi.Input[str]:
+        """
+        The subscription Name of the targets.
+        """
+        return pulumi.get(self, "azurerm_subscription_name")
+
+    @azurerm_subscription_name.setter
+    def azurerm_subscription_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "azurerm_subscription_name", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> pulumi.Input[str]:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']]:
+        """
+        A `credentials` block.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource group used for scope of automatic service endpoint.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group", value)
 
 
 class ServiceEndpointAzureRM(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -102,6 +245,101 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: ServiceEndpointAzureRMArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages Manual or Automatic AzureRM service endpoint within Azure DevOps.
+
+        ## Requirements (Manual AzureRM Service Endpoint)
+
+        Before to create a service end point in Azure DevOps, you need to create a Service Principal in your Azure subscription.
+
+        For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
+
+        ## Example Usage
+        ### Manual AzureRM Service Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
+            project_id=project.id,
+            service_endpoint_name="Sample AzureRM",
+            description="Managed by Terraform",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid="00000000-0000-0000-0000-000000000000",
+                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Sample Subscription")
+        ```
+        ### Automatic AzureRM Service Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
+            project_id=project.id,
+            service_endpoint_name="Sample AzureRM",
+            description="Managed by Terraform",
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Microsoft Azure DEMO")
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
+
+        ```sh
+         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param ServiceEndpointAzureRMArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(ServiceEndpointAzureRMArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
+                 azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
+                 azurerm_subscription_name: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

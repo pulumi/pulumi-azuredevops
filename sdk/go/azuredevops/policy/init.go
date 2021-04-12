@@ -22,13 +22,14 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation":
-		r, err = NewBranchPolicyBuildValidation(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchPolicyBuildValidation{}
 	case "azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers":
-		r, err = NewBranchPolicyMinReviewers(ctx, name, nil, pulumi.URN_(urn))
+		r = &BranchPolicyMinReviewers{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

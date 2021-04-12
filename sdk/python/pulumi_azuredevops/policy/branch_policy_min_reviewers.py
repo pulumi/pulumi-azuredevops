@@ -5,12 +5,82 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['BranchPolicyMinReviewers']
+__all__ = ['BranchPolicyMinReviewersArgs', 'BranchPolicyMinReviewers']
+
+@pulumi.input_type
+class BranchPolicyMinReviewersArgs:
+    def __init__(__self__, *,
+                 project_id: pulumi.Input[str],
+                 settings: pulumi.Input['BranchPolicyMinReviewersSettingsArgs'],
+                 blocking: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        The set of arguments for constructing a BranchPolicyMinReviewers resource.
+        :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
+        :param pulumi.Input['BranchPolicyMinReviewersSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
+        :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
+        """
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "settings", settings)
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the project in which the policy will be created.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> pulumi.Input['BranchPolicyMinReviewersSettingsArgs']:
+        """
+        Configuration for the policy. This block must be defined exactly once.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: pulumi.Input['BranchPolicyMinReviewersSettingsArgs']):
+        pulumi.set(self, "settings", value)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag indicating if the policy should be blocking. Defaults to `true`.
+        """
+        return pulumi.get(self, "blocking")
+
+    @blocking.setter
+    def blocking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blocking", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag indicating if the policy should be enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
 
 warnings.warn("""azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers""", DeprecationWarning)
 
@@ -18,6 +88,7 @@ warnings.warn("""azuredevops.policy.BranchPolicyMinReviewers has been deprecated
 class BranchPolicyMinReviewers(pulumi.CustomResource):
     warnings.warn("""azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -87,6 +158,86 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[pulumi.InputType['BranchPolicyMinReviewersSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: BranchPolicyMinReviewersArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project")
+        git = azuredevops.Git("git",
+            project_id=project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        branch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers("branchPolicyMinReviewers",
+            project_id=project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(
+                reviewer_count=7,
+                submitter_can_vote=False,
+                last_pusher_cannot_approve=True,
+                allow_completion_with_rejects_or_waits=False,
+                on_push_reset_approved_votes=True,
+                on_last_iteration_require_vote=False,
+                scopes=[
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
+                        repository_id=git.id,
+                        repository_ref=git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
+                        repository_id=None,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                ],
+            ))
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+
+        ```sh
+         $ pulumi import azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers p 00000000-0000-0000-0000-000000000000/0
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param BranchPolicyMinReviewersArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(BranchPolicyMinReviewersArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 blocking: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyMinReviewersSettingsArgs']]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""BranchPolicyMinReviewers is deprecated: azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)

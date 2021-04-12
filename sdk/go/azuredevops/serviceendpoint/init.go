@@ -22,19 +22,20 @@ func (m *module) Version() semver.Version {
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
 	case "azuredevops:ServiceEndpoint/azureRM:AzureRM":
-		r, err = NewAzureRM(ctx, name, nil, pulumi.URN_(urn))
+		r = &AzureRM{}
 	case "azuredevops:ServiceEndpoint/bitBucket:BitBucket":
-		r, err = NewBitBucket(ctx, name, nil, pulumi.URN_(urn))
+		r = &BitBucket{}
 	case "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry":
-		r, err = NewDockerRegistry(ctx, name, nil, pulumi.URN_(urn))
+		r = &DockerRegistry{}
 	case "azuredevops:ServiceEndpoint/gitHub:GitHub":
-		r, err = NewGitHub(ctx, name, nil, pulumi.URN_(urn))
+		r = &GitHub{}
 	case "azuredevops:ServiceEndpoint/kubernetes:Kubernetes":
-		r, err = NewKubernetes(ctx, name, nil, pulumi.URN_(urn))
+		r = &Kubernetes{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
 
+	err = ctx.RegisterResource(typ, name, nil, r, pulumi.URN_(urn))
 	return
 }
 

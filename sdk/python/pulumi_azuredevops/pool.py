@@ -5,13 +5,69 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities, _tables
 
-__all__ = ['Pool']
+__all__ = ['PoolArgs', 'Pool']
+
+@pulumi.input_type
+class PoolArgs:
+    def __init__(__self__, *,
+                 auto_provision: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pool_type: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a Pool resource.
+        :param pulumi.Input[bool] auto_provision: Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        :param pulumi.Input[str] name: The name of the agent pool.
+        :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
+        """
+        if auto_provision is not None:
+            pulumi.set(__self__, "auto_provision", auto_provision)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if pool_type is not None:
+            pulumi.set(__self__, "pool_type", pool_type)
+
+    @property
+    @pulumi.getter(name="autoProvision")
+    def auto_provision(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        """
+        return pulumi.get(self, "auto_provision")
+
+    @auto_provision.setter
+    def auto_provision(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_provision", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the agent pool.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="poolType")
+    def pool_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
+        """
+        return pulumi.get(self, "pool_type")
+
+    @pool_type.setter
+    def pool_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "pool_type", value)
 
 
 class Pool(pulumi.CustomResource):
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -50,6 +106,56 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: Optional[PoolArgs] = None,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages an agent pool within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        pool = azuredevops.Pool("pool", auto_provision=False)
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+
+        ## Import
+
+        Azure DevOps Agent Pools can be imported using the agent pool ID, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:index/pool:Pool pool 42
+        ```
+
+        :param str resource_name: The name of the resource.
+        :param PoolArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(PoolArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_provision: Optional[pulumi.Input[bool]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 pool_type: Optional[pulumi.Input[str]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
             resource_name = __name__

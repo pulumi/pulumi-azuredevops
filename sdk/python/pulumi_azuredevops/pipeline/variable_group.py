@@ -5,12 +5,110 @@
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities, _tables
 from . import outputs
 from ._inputs import *
 
-__all__ = ['VariableGroup']
+__all__ = ['VariableGroupArgs', 'VariableGroup']
+
+@pulumi.input_type
+class VariableGroupArgs:
+    def __init__(__self__, *,
+                 project_id: pulumi.Input[str],
+                 variables: pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]],
+                 allow_access: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key_vault: Optional[pulumi.Input['VariableGroupKeyVaultArgs']] = None,
+                 name: Optional[pulumi.Input[str]] = None):
+        """
+        The set of arguments for constructing a VariableGroup resource.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]] variables: One or more `variable` blocks as documented below.
+        :param pulumi.Input[bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
+        :param pulumi.Input[str] description: The description of the Variable Group.
+        :param pulumi.Input[str] name: The name of the Variable Group.
+        """
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "variables", variables)
+        if allow_access is not None:
+            pulumi.set(__self__, "allow_access", allow_access)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if key_vault is not None:
+            pulumi.set(__self__, "key_vault", key_vault)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[str]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def variables(self) -> pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]]:
+        """
+        One or more `variable` blocks as documented below.
+        """
+        return pulumi.get(self, "variables")
+
+    @variables.setter
+    def variables(self, value: pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]]):
+        pulumi.set(self, "variables", value)
+
+    @property
+    @pulumi.getter(name="allowAccess")
+    def allow_access(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Boolean that indicate if this variable group is shared by all pipelines of this project.
+        """
+        return pulumi.get(self, "allow_access")
+
+    @allow_access.setter
+    def allow_access(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_access", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The description of the Variable Group.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="keyVault")
+    def key_vault(self) -> Optional[pulumi.Input['VariableGroupKeyVaultArgs']]:
+        return pulumi.get(self, "key_vault")
+
+    @key_vault.setter
+    def key_vault(self, value: Optional[pulumi.Input['VariableGroupKeyVaultArgs']]):
+        pulumi.set(self, "key_vault", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the Variable Group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "name", value)
+
 
 warnings.warn("""azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup""", DeprecationWarning)
 
@@ -18,6 +116,7 @@ warnings.warn("""azuredevops.pipeline.VariableGroup has been deprecated in favor
 class VariableGroup(pulumi.CustomResource):
     warnings.warn("""azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup""", DeprecationWarning)
 
+    @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
@@ -89,6 +188,87 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
         """
+        ...
+    @overload
+    def __init__(__self__,
+                 resource_name: str,
+                 args: VariableGroupArgs,
+                 opts: Optional[pulumi.ResourceOptions] = None):
+        """
+        Manages variable groups within Azure DevOps.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project")
+        variablegroup = azuredevops.VariableGroup("variablegroup",
+            project_id=project.id,
+            description="Test Variable Group Description",
+            allow_access=True,
+            variables=[
+                azuredevops.VariableGroupVariableArgs(
+                    name="key",
+                    value="value",
+                ),
+                azuredevops.VariableGroupVariableArgs(
+                    name="Account Password",
+                    secret_value="p@ssword123",
+                    is_secret=True,
+                ),
+            ])
+        ```
+        ## Relevant Links
+
+        - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+
+        ## PAT Permissions Required
+
+        - **Variable Groups**: Read, Create, & Manage
+
+        ## Import
+
+        **Variable groups containing secret values cannot be imported.** Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
+
+        ```sh
+         $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup "Test Project/10"
+        ```
+
+         or
+
+        ```sh
+         $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup 00000000-0000-0000-0000-000000000000/0
+        ```
+
+         _Note that for secret variables, the import command retrieve blank value in the tfstate._
+
+        :param str resource_name: The name of the resource.
+        :param VariableGroupArgs args: The arguments to use to populate this resource's properties.
+        :param pulumi.ResourceOptions opts: Options for the resource.
+        """
+        ...
+    def __init__(__self__, resource_name: str, *args, **kwargs):
+        resource_args, opts = _utilities.get_resource_args_opts(VariableGroupArgs, pulumi.ResourceOptions, *args, **kwargs)
+        if resource_args is not None:
+            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
+        else:
+            __self__._internal_init(resource_name, *args, **kwargs)
+
+    def _internal_init(__self__,
+                 resource_name: str,
+                 opts: Optional[pulumi.ResourceOptions] = None,
+                 allow_access: Optional[pulumi.Input[bool]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 key_vault: Optional[pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']]] = None,
+                 name: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None,
+                 __props__=None,
+                 __name__=None,
+                 __opts__=None):
         pulumi.log.warn("""VariableGroup is deprecated: azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup""")
         if __name__ is not None:
             warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
