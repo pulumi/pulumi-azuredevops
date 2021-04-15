@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['GroupMembershipArgs', 'GroupMembership']
 
@@ -54,6 +54,70 @@ class GroupMembershipArgs:
 
     @members.setter
     def members(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "members", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[str]]:
+        """
+        The mode how the resource manages group members.
+        - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+        - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+        > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "mode", value)
+
+
+@pulumi.input_type
+class _GroupMembershipState:
+    def __init__(__self__, *,
+                 group: Optional[pulumi.Input[str]] = None,
+                 members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 mode: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering GroupMembership resources.
+        :param pulumi.Input[str] group: The descriptor of the group being managed.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: A list of user or group descriptors that will become members of the group.
+               > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        :param pulumi.Input[str] mode: The mode how the resource manages group members.
+               - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
+               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
+               > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
+        """
+        if group is not None:
+            pulumi.set(__self__, "group", group)
+        if members is not None:
+            pulumi.set(__self__, "members", members)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @property
+    @pulumi.getter
+    def group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The descriptor of the group being managed.
+        """
+        return pulumi.get(self, "group")
+
+    @group.setter
+    def group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "group", value)
+
+    @property
+    @pulumi.getter
+    def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of user or group descriptors that will become members of the group.
+        > NOTE: It's possible to define group members both within the `GroupMembership resource` via the members block and by using the `Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+        """
+        return pulumi.get(self, "members")
+
+    @members.setter
+    def members(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "members", value)
 
     @property
@@ -193,15 +257,15 @@ class GroupMembership(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GroupMembershipArgs.__new__(GroupMembershipArgs)
 
             if group is None and not opts.urn:
                 raise TypeError("Missing required property 'group'")
-            __props__['group'] = group
+            __props__.__dict__["group"] = group
             if members is None and not opts.urn:
                 raise TypeError("Missing required property 'members'")
-            __props__['members'] = members
-            __props__['mode'] = mode
+            __props__.__dict__["members"] = members
+            __props__.__dict__["mode"] = mode
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Identities/groupMembership:GroupMembership")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GroupMembership, __self__).__init__(
@@ -234,11 +298,11 @@ class GroupMembership(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GroupMembershipState.__new__(_GroupMembershipState)
 
-        __props__["group"] = group
-        __props__["members"] = members
-        __props__["mode"] = mode
+        __props__.__dict__["group"] = group
+        __props__.__dict__["members"] = members
+        __props__.__dict__["mode"] = mode
         return GroupMembership(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -268,10 +332,4 @@ class GroupMembership(pulumi.CustomResource):
         > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
         return pulumi.get(self, "mode")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

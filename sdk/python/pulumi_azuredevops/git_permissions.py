@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['GitPermissionsArgs', 'GitPermissions']
 
@@ -85,6 +85,110 @@ class GitPermissionsArgs:
     @branch_name.setter
     def branch_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "branch_name", value)
+
+    @property
+    @pulumi.getter
+    def replace(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        """
+        return pulumi.get(self, "replace")
+
+    @replace.setter
+    def replace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace", value)
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the GIT repository to assign the permissions
+        """
+        return pulumi.get(self, "repository_id")
+
+    @repository_id.setter
+    def repository_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_id", value)
+
+
+@pulumi.input_type
+class _GitPermissionsState:
+    def __init__(__self__, *,
+                 branch_name: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 principal: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 replace: Optional[pulumi.Input[bool]] = None,
+                 repository_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering GitPermissions resources.
+        :param pulumi.Input[str] branch_name: The name of the branch to assign the permissions.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The follwing permissions are available
+        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
+        :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
+        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        :param pulumi.Input[str] repository_id: The ID of the GIT repository to assign the permissions
+        """
+        if branch_name is not None:
+            pulumi.set(__self__, "branch_name", branch_name)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if replace is not None:
+            pulumi.set(__self__, "replace", replace)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+
+    @property
+    @pulumi.getter(name="branchName")
+    def branch_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of the branch to assign the permissions.
+        """
+        return pulumi.get(self, "branch_name")
+
+    @branch_name.setter
+    def branch_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "branch_name", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        the permissions to assign. The follwing permissions are available
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> Optional[pulumi.Input[str]]:
+        """
+        The **group** principal to assign the permissions.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the project to assign the permissions.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
 
     @property
     @pulumi.getter
@@ -451,20 +555,20 @@ class GitPermissions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GitPermissionsArgs.__new__(GitPermissionsArgs)
 
-            __props__['branch_name'] = branch_name
+            __props__.__dict__["branch_name"] = branch_name
             if permissions is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions'")
-            __props__['permissions'] = permissions
+            __props__.__dict__["permissions"] = permissions
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
-            __props__['principal'] = principal
+            __props__.__dict__["principal"] = principal
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
-            __props__['replace'] = replace
-            __props__['repository_id'] = repository_id
+            __props__.__dict__["project_id"] = project_id
+            __props__.__dict__["replace"] = replace
+            __props__.__dict__["repository_id"] = repository_id
         super(GitPermissions, __self__).__init__(
             'azuredevops:index/gitPermissions:GitPermissions',
             resource_name,
@@ -497,14 +601,14 @@ class GitPermissions(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GitPermissionsState.__new__(_GitPermissionsState)
 
-        __props__["branch_name"] = branch_name
-        __props__["permissions"] = permissions
-        __props__["principal"] = principal
-        __props__["project_id"] = project_id
-        __props__["replace"] = replace
-        __props__["repository_id"] = repository_id
+        __props__.__dict__["branch_name"] = branch_name
+        __props__.__dict__["permissions"] = permissions
+        __props__.__dict__["principal"] = principal
+        __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["replace"] = replace
+        __props__.__dict__["repository_id"] = repository_id
         return GitPermissions(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -554,10 +658,4 @@ class GitPermissions(pulumi.CustomResource):
         The ID of the GIT repository to assign the permissions
         """
         return pulumi.get(self, "repository_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

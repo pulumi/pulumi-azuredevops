@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -18,6 +18,33 @@ __all__ = [
 
 @pulumi.output_type
 class BranchPolicyBuildValidationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "buildDefinitionId":
+            suggest = "build_definition_id"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "filenamePatterns":
+            suggest = "filename_patterns"
+        elif key == "manualQueueOnly":
+            suggest = "manual_queue_only"
+        elif key == "queueOnSourceUpdateOnly":
+            suggest = "queue_on_source_update_only"
+        elif key == "validDuration":
+            suggest = "valid_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyBuildValidationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyBuildValidationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyBuildValidationSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  build_definition_id: int,
                  display_name: str,
@@ -103,12 +130,30 @@ class BranchPolicyBuildValidationSettings(dict):
         """
         return pulumi.get(self, "valid_duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyBuildValidationSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryRef":
+            suggest = "repository_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyBuildValidationSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyBuildValidationSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyBuildValidationSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  repository_id: Optional[str] = None,
@@ -149,12 +194,38 @@ class BranchPolicyBuildValidationSettingsScope(dict):
         """
         return pulumi.get(self, "repository_ref")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyMinReviewersSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowCompletionWithRejectsOrWaits":
+            suggest = "allow_completion_with_rejects_or_waits"
+        elif key == "lastPusherCannotApprove":
+            suggest = "last_pusher_cannot_approve"
+        elif key == "onLastIterationRequireVote":
+            suggest = "on_last_iteration_require_vote"
+        elif key == "onPushResetAllVotes":
+            suggest = "on_push_reset_all_votes"
+        elif key == "onPushResetApprovedVotes":
+            suggest = "on_push_reset_approved_votes"
+        elif key == "reviewerCount":
+            suggest = "reviewer_count"
+        elif key == "submitterCanVote":
+            suggest = "submitter_can_vote"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyMinReviewersSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyMinReviewersSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyMinReviewersSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scopes: Sequence['outputs.BranchPolicyMinReviewersSettingsScope'],
                  allow_completion_with_rejects_or_waits: Optional[bool] = None,
@@ -254,12 +325,30 @@ class BranchPolicyMinReviewersSettings(dict):
         """
         return pulumi.get(self, "submitter_can_vote")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyMinReviewersSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryRef":
+            suggest = "repository_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyMinReviewersSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyMinReviewersSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyMinReviewersSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  repository_id: Optional[str] = None,
@@ -299,8 +388,5 @@ class BranchPolicyMinReviewersSettingsScope(dict):
         The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

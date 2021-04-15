@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -153,6 +153,154 @@ class ServiceEndpointAzureRMArgs:
     @resource_group.setter
     def resource_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group", value)
+
+
+@pulumi.input_type
+class _ServiceEndpointAzureRMState:
+    def __init__(__self__, *,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
+                 azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
+                 azurerm_subscription_name: Optional[pulumi.Input[str]] = None,
+                 credentials: Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServiceEndpointAzureRM resources.
+        :param pulumi.Input[str] azurerm_spn_tenantid: The tenant id if the service principal.
+        :param pulumi.Input[str] azurerm_subscription_id: The subscription Id of the Azure targets.
+        :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
+        :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
+        :param pulumi.Input[str] description: Service connection description.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        """
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if azurerm_spn_tenantid is not None:
+            pulumi.set(__self__, "azurerm_spn_tenantid", azurerm_spn_tenantid)
+        if azurerm_subscription_id is not None:
+            pulumi.set(__self__, "azurerm_subscription_id", azurerm_subscription_id)
+        if azurerm_subscription_name is not None:
+            pulumi.set(__self__, "azurerm_subscription_name", azurerm_subscription_name)
+        if credentials is not None:
+            pulumi.set(__self__, "credentials", credentials)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if service_endpoint_name is not None:
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter(name="azurermSpnTenantid")
+    def azurerm_spn_tenantid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id if the service principal.
+        """
+        return pulumi.get(self, "azurerm_spn_tenantid")
+
+    @azurerm_spn_tenantid.setter
+    def azurerm_spn_tenantid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azurerm_spn_tenantid", value)
+
+    @property
+    @pulumi.getter(name="azurermSubscriptionId")
+    def azurerm_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscription Id of the Azure targets.
+        """
+        return pulumi.get(self, "azurerm_subscription_id")
+
+    @azurerm_subscription_id.setter
+    def azurerm_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azurerm_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="azurermSubscriptionName")
+    def azurerm_subscription_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscription Name of the targets.
+        """
+        return pulumi.get(self, "azurerm_subscription_name")
+
+    @azurerm_subscription_name.setter
+    def azurerm_subscription_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azurerm_subscription_name", value)
+
+    @property
+    @pulumi.getter
+    def credentials(self) -> Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']]:
+        """
+        A `credentials` block.
+        """
+        return pulumi.get(self, "credentials")
+
+    @credentials.setter
+    def credentials(self, value: Optional[pulumi.Input['ServiceEndpointAzureRMCredentialsArgs']]):
+        pulumi.set(self, "credentials", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Service connection description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource group used for scope of automatic service endpoint.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint_name", value)
 
 
 class ServiceEndpointAzureRM(pulumi.CustomResource):
@@ -355,27 +503,27 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceEndpointAzureRMArgs.__new__(ServiceEndpointAzureRMArgs)
 
-            __props__['authorization'] = authorization
+            __props__.__dict__["authorization"] = authorization
             if azurerm_spn_tenantid is None and not opts.urn:
                 raise TypeError("Missing required property 'azurerm_spn_tenantid'")
-            __props__['azurerm_spn_tenantid'] = azurerm_spn_tenantid
+            __props__.__dict__["azurerm_spn_tenantid"] = azurerm_spn_tenantid
             if azurerm_subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'azurerm_subscription_id'")
-            __props__['azurerm_subscription_id'] = azurerm_subscription_id
+            __props__.__dict__["azurerm_subscription_id"] = azurerm_subscription_id
             if azurerm_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azurerm_subscription_name'")
-            __props__['azurerm_subscription_name'] = azurerm_subscription_name
-            __props__['credentials'] = credentials
-            __props__['description'] = description
+            __props__.__dict__["azurerm_subscription_name"] = azurerm_subscription_name
+            __props__.__dict__["credentials"] = credentials
+            __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
-            __props__['resource_group'] = resource_group
+            __props__.__dict__["project_id"] = project_id
+            __props__.__dict__["resource_group"] = resource_group
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
-            __props__['service_endpoint_name'] = service_endpoint_name
+            __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/azureRM:AzureRM")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceEndpointAzureRM, __self__).__init__(
@@ -415,17 +563,17 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceEndpointAzureRMState.__new__(_ServiceEndpointAzureRMState)
 
-        __props__["authorization"] = authorization
-        __props__["azurerm_spn_tenantid"] = azurerm_spn_tenantid
-        __props__["azurerm_subscription_id"] = azurerm_subscription_id
-        __props__["azurerm_subscription_name"] = azurerm_subscription_name
-        __props__["credentials"] = credentials
-        __props__["description"] = description
-        __props__["project_id"] = project_id
-        __props__["resource_group"] = resource_group
-        __props__["service_endpoint_name"] = service_endpoint_name
+        __props__.__dict__["authorization"] = authorization
+        __props__.__dict__["azurerm_spn_tenantid"] = azurerm_spn_tenantid
+        __props__.__dict__["azurerm_subscription_id"] = azurerm_subscription_id
+        __props__.__dict__["azurerm_subscription_name"] = azurerm_subscription_name
+        __props__.__dict__["credentials"] = credentials
+        __props__.__dict__["description"] = description
+        __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["resource_group"] = resource_group
+        __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return ServiceEndpointAzureRM(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -496,10 +644,4 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

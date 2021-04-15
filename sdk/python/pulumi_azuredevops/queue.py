@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['QueueArgs', 'Queue']
 
@@ -45,6 +45,46 @@ class QueueArgs:
 
     @project_id.setter
     def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+
+@pulumi.input_type
+class _QueueState:
+    def __init__(__self__, *,
+                 agent_pool_id: Optional[pulumi.Input[int]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering Queue resources.
+        :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
+        :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
+        """
+        if agent_pool_id is not None:
+            pulumi.set(__self__, "agent_pool_id", agent_pool_id)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+
+    @property
+    @pulumi.getter(name="agentPoolId")
+    def agent_pool_id(self) -> Optional[pulumi.Input[int]]:
+        """
+        The ID of the organization agent pool.
+        """
+        return pulumi.get(self, "agent_pool_id")
+
+    @agent_pool_id.setter
+    def agent_pool_id(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "agent_pool_id", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the project in which to create the resource.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "project_id", value)
 
 
@@ -178,14 +218,14 @@ class Queue(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = QueueArgs.__new__(QueueArgs)
 
             if agent_pool_id is None and not opts.urn:
                 raise TypeError("Missing required property 'agent_pool_id'")
-            __props__['agent_pool_id'] = agent_pool_id
+            __props__.__dict__["agent_pool_id"] = agent_pool_id
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
+            __props__.__dict__["project_id"] = project_id
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:Agent/queue:Queue")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Queue, __self__).__init__(
@@ -212,10 +252,10 @@ class Queue(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _QueueState.__new__(_QueueState)
 
-        __props__["agent_pool_id"] = agent_pool_id
-        __props__["project_id"] = project_id
+        __props__.__dict__["agent_pool_id"] = agent_pool_id
+        __props__.__dict__["project_id"] = project_id
         return Queue(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -233,10 +273,4 @@ class Queue(pulumi.CustomResource):
         The ID of the project in which to create the resource.
         """
         return pulumi.get(self, "project_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

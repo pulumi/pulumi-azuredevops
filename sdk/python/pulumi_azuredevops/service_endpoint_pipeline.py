@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -102,6 +102,102 @@ class ServiceEndpointPipelineArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class _ServiceEndpointPipelineState:
+    def __init__(__self__, *,
+                 auth_personal: Optional[pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs']] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 organization_name: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServiceEndpointPipeline resources.
+        :param pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        """
+        if auth_personal is not None:
+            pulumi.set(__self__, "auth_personal", auth_personal)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if organization_name is not None:
+            pulumi.set(__self__, "organization_name", organization_name)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if service_endpoint_name is not None:
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+
+    @property
+    @pulumi.getter(name="authPersonal")
+    def auth_personal(self) -> Optional[pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs']]:
+        """
+        An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        """
+        return pulumi.get(self, "auth_personal")
+
+    @auth_personal.setter
+    def auth_personal(self, value: Optional[pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs']]):
+        pulumi.set(self, "auth_personal", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="organizationName")
+    def organization_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The organization name used for `Organization Url` and `Release API Url` fields.
+        """
+        return pulumi.get(self, "organization_name")
+
+    @organization_name.setter
+    def organization_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "organization_name", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint_name", value)
 
 
 class ServiceEndpointPipeline(pulumi.CustomResource):
@@ -238,22 +334,22 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceEndpointPipelineArgs.__new__(ServiceEndpointPipelineArgs)
 
             if auth_personal is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_personal'")
-            __props__['auth_personal'] = auth_personal
-            __props__['authorization'] = authorization
-            __props__['description'] = description
+            __props__.__dict__["auth_personal"] = auth_personal
+            __props__.__dict__["authorization"] = authorization
+            __props__.__dict__["description"] = description
             if organization_name is None and not opts.urn:
                 raise TypeError("Missing required property 'organization_name'")
-            __props__['organization_name'] = organization_name
+            __props__.__dict__["organization_name"] = organization_name
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
+            __props__.__dict__["project_id"] = project_id
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
-            __props__['service_endpoint_name'] = service_endpoint_name
+            __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         super(ServiceEndpointPipeline, __self__).__init__(
             'azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline',
             resource_name,
@@ -284,14 +380,14 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceEndpointPipelineState.__new__(_ServiceEndpointPipelineState)
 
-        __props__["auth_personal"] = auth_personal
-        __props__["authorization"] = authorization
-        __props__["description"] = description
-        __props__["organization_name"] = organization_name
-        __props__["project_id"] = project_id
-        __props__["service_endpoint_name"] = service_endpoint_name
+        __props__.__dict__["auth_personal"] = auth_personal
+        __props__.__dict__["authorization"] = authorization
+        __props__.__dict__["description"] = description
+        __props__.__dict__["organization_name"] = organization_name
+        __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return ServiceEndpointPipeline(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -335,10 +431,4 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

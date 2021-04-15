@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['BuildDefinitionPermissionsArgs', 'BuildDefinitionPermissions']
 
@@ -79,6 +79,94 @@ class BuildDefinitionPermissionsArgs:
 
     @project_id.setter
     def project_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def replace(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+        """
+        return pulumi.get(self, "replace")
+
+    @replace.setter
+    def replace(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "replace", value)
+
+
+@pulumi.input_type
+class _BuildDefinitionPermissionsState:
+    def __init__(__self__, *,
+                 build_definition_id: Optional[pulumi.Input[str]] = None,
+                 permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 principal: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 replace: Optional[pulumi.Input[bool]] = None):
+        """
+        Input properties used for looking up and filtering BuildDefinitionPermissions resources.
+        :param pulumi.Input[str] build_definition_id: The id of the build definition to assign the permissions.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+        :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
+        :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
+        :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+        """
+        if build_definition_id is not None:
+            pulumi.set(__self__, "build_definition_id", build_definition_id)
+        if permissions is not None:
+            pulumi.set(__self__, "permissions", permissions)
+        if principal is not None:
+            pulumi.set(__self__, "principal", principal)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if replace is not None:
+            pulumi.set(__self__, "replace", replace)
+
+    @property
+    @pulumi.getter(name="buildDefinitionId")
+    def build_definition_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of the build definition to assign the permissions.
+        """
+        return pulumi.get(self, "build_definition_id")
+
+    @build_definition_id.setter
+    def build_definition_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "build_definition_id", value)
+
+    @property
+    @pulumi.getter
+    def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        the permissions to assign. The following permissions are available.
+        """
+        return pulumi.get(self, "permissions")
+
+    @permissions.setter
+    def permissions(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "permissions", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> Optional[pulumi.Input[str]]:
+        """
+        The **group** principal to assign the permissions.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the project to assign the permissions.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "project_id", value)
 
     @property
@@ -275,21 +363,21 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BuildDefinitionPermissionsArgs.__new__(BuildDefinitionPermissionsArgs)
 
             if build_definition_id is None and not opts.urn:
                 raise TypeError("Missing required property 'build_definition_id'")
-            __props__['build_definition_id'] = build_definition_id
+            __props__.__dict__["build_definition_id"] = build_definition_id
             if permissions is None and not opts.urn:
                 raise TypeError("Missing required property 'permissions'")
-            __props__['permissions'] = permissions
+            __props__.__dict__["permissions"] = permissions
             if principal is None and not opts.urn:
                 raise TypeError("Missing required property 'principal'")
-            __props__['principal'] = principal
+            __props__.__dict__["principal"] = principal
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
-            __props__['replace'] = replace
+            __props__.__dict__["project_id"] = project_id
+            __props__.__dict__["replace"] = replace
         super(BuildDefinitionPermissions, __self__).__init__(
             'azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions',
             resource_name,
@@ -320,13 +408,13 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BuildDefinitionPermissionsState.__new__(_BuildDefinitionPermissionsState)
 
-        __props__["build_definition_id"] = build_definition_id
-        __props__["permissions"] = permissions
-        __props__["principal"] = principal
-        __props__["project_id"] = project_id
-        __props__["replace"] = replace
+        __props__.__dict__["build_definition_id"] = build_definition_id
+        __props__.__dict__["permissions"] = permissions
+        __props__.__dict__["principal"] = principal
+        __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["replace"] = replace
         return BuildDefinitionPermissions(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -368,10 +456,4 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         Replace (`true`) or merge (`false`) the permissions. Default: `true`.
         """
         return pulumi.get(self, "replace")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

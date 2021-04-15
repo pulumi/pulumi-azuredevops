@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = ['UserArgs', 'User']
 
@@ -48,6 +48,110 @@ class UserArgs:
     @account_license_type.setter
     def account_license_type(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "account_license_type", value)
+
+    @property
+    @pulumi.getter(name="licensingSource")
+    def licensing_source(self) -> Optional[pulumi.Input[str]]:
+        """
+        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+        """
+        return pulumi.get(self, "licensing_source")
+
+    @licensing_source.setter
+    def licensing_source(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "licensing_source", value)
+
+    @property
+    @pulumi.getter
+    def origin(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of source provider for the origin identifier.
+        """
+        return pulumi.get(self, "origin")
+
+    @origin.setter
+    def origin(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin", value)
+
+    @property
+    @pulumi.getter(name="originId")
+    def origin_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
+        """
+        return pulumi.get(self, "origin_id")
+
+    @origin_id.setter
+    def origin_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "origin_id", value)
+
+    @property
+    @pulumi.getter(name="principalName")
+    def principal_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
+        """
+        return pulumi.get(self, "principal_name")
+
+    @principal_name.setter
+    def principal_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "principal_name", value)
+
+
+@pulumi.input_type
+class _UserState:
+    def __init__(__self__, *,
+                 account_license_type: Optional[pulumi.Input[str]] = None,
+                 descriptor: Optional[pulumi.Input[str]] = None,
+                 licensing_source: Optional[pulumi.Input[str]] = None,
+                 origin: Optional[pulumi.Input[str]] = None,
+                 origin_id: Optional[pulumi.Input[str]] = None,
+                 principal_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering User resources.
+        :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        :param pulumi.Input[str] descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+        :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
+        :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
+        :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
+        """
+        if account_license_type is not None:
+            pulumi.set(__self__, "account_license_type", account_license_type)
+        if descriptor is not None:
+            pulumi.set(__self__, "descriptor", descriptor)
+        if licensing_source is not None:
+            pulumi.set(__self__, "licensing_source", licensing_source)
+        if origin is not None:
+            pulumi.set(__self__, "origin", origin)
+        if origin_id is not None:
+            pulumi.set(__self__, "origin_id", origin_id)
+        if principal_name is not None:
+            pulumi.set(__self__, "principal_name", principal_name)
+
+    @property
+    @pulumi.getter(name="accountLicenseType")
+    def account_license_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
+        """
+        return pulumi.get(self, "account_license_type")
+
+    @account_license_type.setter
+    def account_license_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "account_license_type", value)
+
+    @property
+    @pulumi.getter
+    def descriptor(self) -> Optional[pulumi.Input[str]]:
+        """
+        The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
+        """
+        return pulumi.get(self, "descriptor")
+
+    @descriptor.setter
+    def descriptor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "descriptor", value)
 
     @property
     @pulumi.getter(name="licensingSource")
@@ -215,14 +319,14 @@ class User(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = UserArgs.__new__(UserArgs)
 
-            __props__['account_license_type'] = account_license_type
-            __props__['licensing_source'] = licensing_source
-            __props__['origin'] = origin
-            __props__['origin_id'] = origin_id
-            __props__['principal_name'] = principal_name
-            __props__['descriptor'] = None
+            __props__.__dict__["account_license_type"] = account_license_type
+            __props__.__dict__["licensing_source"] = licensing_source
+            __props__.__dict__["origin"] = origin
+            __props__.__dict__["origin_id"] = origin_id
+            __props__.__dict__["principal_name"] = principal_name
+            __props__.__dict__["descriptor"] = None
         super(User, __self__).__init__(
             'azuredevops:Entitlement/user:User',
             resource_name,
@@ -255,14 +359,14 @@ class User(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _UserState.__new__(_UserState)
 
-        __props__["account_license_type"] = account_license_type
-        __props__["descriptor"] = descriptor
-        __props__["licensing_source"] = licensing_source
-        __props__["origin"] = origin
-        __props__["origin_id"] = origin_id
-        __props__["principal_name"] = principal_name
+        __props__.__dict__["account_license_type"] = account_license_type
+        __props__.__dict__["descriptor"] = descriptor
+        __props__.__dict__["licensing_source"] = licensing_source
+        __props__.__dict__["origin"] = origin
+        __props__.__dict__["origin_id"] = origin_id
+        __props__.__dict__["principal_name"] = principal_name
         return User(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -312,10 +416,4 @@ class User(pulumi.CustomResource):
         The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
         """
         return pulumi.get(self, "principal_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

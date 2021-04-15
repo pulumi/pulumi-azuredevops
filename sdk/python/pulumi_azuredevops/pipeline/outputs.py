@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
     'VariableGroupKeyVault',
@@ -15,6 +15,23 @@ __all__ = [
 
 @pulumi.output_type
 class VariableGroupKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceEndpointId":
+            suggest = "service_endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VariableGroupKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VariableGroupKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VariableGroupKeyVault.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  service_endpoint_id: str):
@@ -37,12 +54,30 @@ class VariableGroupKeyVault(dict):
     def service_endpoint_id(self) -> str:
         return pulumi.get(self, "service_endpoint_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VariableGroupVariable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "isSecret":
+            suggest = "is_secret"
+        elif key == "secretValue":
+            suggest = "secret_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VariableGroupVariable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VariableGroupVariable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VariableGroupVariable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  content_type: Optional[str] = None,
@@ -117,8 +152,5 @@ class VariableGroupVariable(dict):
         The value of the variable. If omitted, it will default to empty string.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

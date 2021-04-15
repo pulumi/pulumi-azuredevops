@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 
 __all__ = [
@@ -25,6 +25,23 @@ __all__ = [
 
 @pulumi.output_type
 class BuildDefinitionCiTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useYaml":
+            suggest = "use_yaml"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionCiTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionCiTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionCiTrigger.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  override: Optional['outputs.BuildDefinitionCiTriggerOverride'] = None,
                  use_yaml: Optional[bool] = None):
@@ -53,12 +70,34 @@ class BuildDefinitionCiTrigger(dict):
         """
         return pulumi.get(self, "use_yaml")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionCiTriggerOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "branchFilters":
+            suggest = "branch_filters"
+        elif key == "maxConcurrentBuildsPerBranch":
+            suggest = "max_concurrent_builds_per_branch"
+        elif key == "pathFilters":
+            suggest = "path_filters"
+        elif key == "pollingInterval":
+            suggest = "polling_interval"
+        elif key == "pollingJobId":
+            suggest = "polling_job_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionCiTriggerOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionCiTriggerOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionCiTriggerOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  batch: Optional[bool] = None,
                  branch_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']] = None,
@@ -135,9 +174,6 @@ class BuildDefinitionCiTriggerOverride(dict):
         """
         return pulumi.get(self, "polling_job_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
@@ -168,9 +204,6 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -203,12 +236,30 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
         """
         return pulumi.get(self, "includes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionPullRequestTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commentRequired":
+            suggest = "comment_required"
+        elif key == "initialBranch":
+            suggest = "initial_branch"
+        elif key == "useYaml":
+            suggest = "use_yaml"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionPullRequestTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionPullRequestTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionPullRequestTrigger.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  forks: 'outputs.BuildDefinitionPullRequestTriggerForks',
                  comment_required: Optional[str] = None,
@@ -264,12 +315,26 @@ class BuildDefinitionPullRequestTrigger(dict):
         """
         return pulumi.get(self, "use_yaml")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerForks(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareSecrets":
+            suggest = "share_secrets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionPullRequestTriggerForks. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionPullRequestTriggerForks.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionPullRequestTriggerForks.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  share_secrets: bool):
@@ -296,12 +361,30 @@ class BuildDefinitionPullRequestTriggerForks(dict):
         """
         return pulumi.get(self, "share_secrets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoCancel":
+            suggest = "auto_cancel"
+        elif key == "branchFilters":
+            suggest = "branch_filters"
+        elif key == "pathFilters":
+            suggest = "path_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionPullRequestTriggerOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionPullRequestTriggerOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionPullRequestTriggerOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_cancel: Optional[bool] = None,
                  branch_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
@@ -342,9 +425,6 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
         """
         return pulumi.get(self, "path_filters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
@@ -375,9 +455,6 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -410,12 +487,38 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
         """
         return pulumi.get(self, "includes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repoId":
+            suggest = "repo_id"
+        elif key == "repoType":
+            suggest = "repo_type"
+        elif key == "ymlPath":
+            suggest = "yml_path"
+        elif key == "branchName":
+            suggest = "branch_name"
+        elif key == "githubEnterpriseUrl":
+            suggest = "github_enterprise_url"
+        elif key == "reportBuildStatus":
+            suggest = "report_build_status"
+        elif key == "serviceConnectionId":
+            suggest = "service_connection_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionRepository.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  repo_id: str,
                  repo_type: str,
@@ -501,12 +604,30 @@ class BuildDefinitionRepository(dict):
         """
         return pulumi.get(self, "service_connection_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionVariable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowOverride":
+            suggest = "allow_override"
+        elif key == "isSecret":
+            suggest = "is_secret"
+        elif key == "secretValue":
+            suggest = "secret_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionVariable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionVariable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionVariable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  allow_override: Optional[bool] = None,
@@ -569,8 +690,5 @@ class BuildDefinitionVariable(dict):
         The value of the variable.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
