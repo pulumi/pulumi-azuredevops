@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
     'GitInitialization',
@@ -15,6 +15,27 @@ __all__ = [
 
 @pulumi.output_type
 class GitInitialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initType":
+            suggest = "init_type"
+        elif key == "sourceType":
+            suggest = "source_type"
+        elif key == "sourceUrl":
+            suggest = "source_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitInitialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitInitialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitInitialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  init_type: str,
                  source_type: Optional[str] = None,
@@ -53,9 +74,6 @@ class GitInitialization(dict):
         The URL of the source repository. Used if the `init_type` is `Import`.
         """
         return pulumi.get(self, "source_url")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

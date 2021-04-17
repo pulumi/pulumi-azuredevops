@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -80,6 +80,78 @@ class BranchPolicyBuildValidationArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+
+@pulumi.input_type
+class _BranchPolicyBuildValidationState:
+    def __init__(__self__, *,
+                 blocking: Optional[pulumi.Input[bool]] = None,
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 settings: Optional[pulumi.Input['BranchPolicyBuildValidationSettingsArgs']] = None):
+        """
+        Input properties used for looking up and filtering BranchPolicyBuildValidation resources.
+        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
+        :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
+        :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
+        :param pulumi.Input['BranchPolicyBuildValidationSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
+        """
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if settings is not None:
+            pulumi.set(__self__, "settings", settings)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag indicating if the policy should be blocking. Defaults to `true`.
+        """
+        return pulumi.get(self, "blocking")
+
+    @blocking.setter
+    def blocking(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "blocking", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        A flag indicating if the policy should be enabled. Defaults to `true`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the project in which the policy will be created.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter
+    def settings(self) -> Optional[pulumi.Input['BranchPolicyBuildValidationSettingsArgs']]:
+        """
+        Configuration for the policy. This block must be defined exactly once.
+        """
+        return pulumi.get(self, "settings")
+
+    @settings.setter
+    def settings(self, value: Optional[pulumi.Input['BranchPolicyBuildValidationSettingsArgs']]):
+        pulumi.set(self, "settings", value)
 
 
 warnings.warn("""azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation""", DeprecationWarning)
@@ -272,16 +344,16 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = BranchPolicyBuildValidationArgs.__new__(BranchPolicyBuildValidationArgs)
 
-            __props__['blocking'] = blocking
-            __props__['enabled'] = enabled
+            __props__.__dict__["blocking"] = blocking
+            __props__.__dict__["enabled"] = enabled
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
+            __props__.__dict__["project_id"] = project_id
             if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
-            __props__['settings'] = settings
+            __props__.__dict__["settings"] = settings
         super(BranchPolicyBuildValidation, __self__).__init__(
             'azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation',
             resource_name,
@@ -310,12 +382,12 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _BranchPolicyBuildValidationState.__new__(_BranchPolicyBuildValidationState)
 
-        __props__["blocking"] = blocking
-        __props__["enabled"] = enabled
-        __props__["project_id"] = project_id
-        __props__["settings"] = settings
+        __props__.__dict__["blocking"] = blocking
+        __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["settings"] = settings
         return BranchPolicyBuildValidation(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -349,10 +421,4 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         Configuration for the policy. This block must be defined exactly once.
         """
         return pulumi.get(self, "settings")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ServiceEndpointSonarQubeArgs', 'ServiceEndpointSonarQube']
 
@@ -104,6 +104,122 @@ class ServiceEndpointSonarQubeArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class _ServiceEndpointSonarQubeState:
+    def __init__(__self__, *,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 token: Optional[pulumi.Input[str]] = None,
+                 token_hash: Optional[pulumi.Input[str]] = None,
+                 url: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServiceEndpointSonarQube resources.
+        :param pulumi.Input[str] description: The Service Endpoint description.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+        :param pulumi.Input[str] token_hash: A bcrypted hash of the attribute 'token'
+        :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
+        """
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if service_endpoint_name is not None:
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if token is not None:
+            pulumi.set(__self__, "token", token)
+        if token_hash is not None:
+            pulumi.set(__self__, "token_hash", token_hash)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Endpoint description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter
+    def token(self) -> Optional[pulumi.Input[str]]:
+        """
+        Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="tokenHash")
+    def token_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        A bcrypted hash of the attribute 'token'
+        """
+        return pulumi.get(self, "token_hash")
+
+    @token_hash.setter
+    def token_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_hash", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[str]]:
+        """
+        URL of the SonarQube server to connect with.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "url", value)
 
 
 class ServiceEndpointSonarQube(pulumi.CustomResource):
@@ -239,23 +355,23 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceEndpointSonarQubeArgs.__new__(ServiceEndpointSonarQubeArgs)
 
-            __props__['authorization'] = authorization
-            __props__['description'] = description
+            __props__.__dict__["authorization"] = authorization
+            __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
+            __props__.__dict__["project_id"] = project_id
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
-            __props__['service_endpoint_name'] = service_endpoint_name
+            __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             if token is None and not opts.urn:
                 raise TypeError("Missing required property 'token'")
-            __props__['token'] = token
+            __props__.__dict__["token"] = token
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
-            __props__['url'] = url
-            __props__['token_hash'] = None
+            __props__.__dict__["url"] = url
+            __props__.__dict__["token_hash"] = None
         super(ServiceEndpointSonarQube, __self__).__init__(
             'azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube',
             resource_name,
@@ -289,15 +405,15 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceEndpointSonarQubeState.__new__(_ServiceEndpointSonarQubeState)
 
-        __props__["authorization"] = authorization
-        __props__["description"] = description
-        __props__["project_id"] = project_id
-        __props__["service_endpoint_name"] = service_endpoint_name
-        __props__["token"] = token
-        __props__["token_hash"] = token_hash
-        __props__["url"] = url
+        __props__.__dict__["authorization"] = authorization
+        __props__.__dict__["description"] = description
+        __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+        __props__.__dict__["token"] = token
+        __props__.__dict__["token_hash"] = token_hash
+        __props__.__dict__["url"] = url
         return ServiceEndpointSonarQube(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -352,10 +468,4 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         URL of the SonarQube server to connect with.
         """
         return pulumi.get(self, "url")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

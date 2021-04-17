@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 from . import outputs
 from ._inputs import *
 
@@ -104,6 +104,102 @@ class GitHubArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class _GitHubState:
+    def __init__(__self__, *,
+                 auth_oauth: Optional[pulumi.Input['GitHubAuthOauthArgs']] = None,
+                 auth_personal: Optional[pulumi.Input['GitHubAuthPersonalArgs']] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering GitHub resources.
+        :param pulumi.Input['GitHubAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        :param pulumi.Input['GitHubAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        """
+        if auth_oauth is not None:
+            pulumi.set(__self__, "auth_oauth", auth_oauth)
+        if auth_personal is not None:
+            pulumi.set(__self__, "auth_personal", auth_personal)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if service_endpoint_name is not None:
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+
+    @property
+    @pulumi.getter(name="authOauth")
+    def auth_oauth(self) -> Optional[pulumi.Input['GitHubAuthOauthArgs']]:
+        """
+        An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
+        """
+        return pulumi.get(self, "auth_oauth")
+
+    @auth_oauth.setter
+    def auth_oauth(self, value: Optional[pulumi.Input['GitHubAuthOauthArgs']]):
+        pulumi.set(self, "auth_oauth", value)
+
+    @property
+    @pulumi.getter(name="authPersonal")
+    def auth_personal(self) -> Optional[pulumi.Input['GitHubAuthPersonalArgs']]:
+        """
+        An `auth_personal` block as documented below. Allows connecting using a personal access token.
+        """
+        return pulumi.get(self, "auth_personal")
+
+    @auth_personal.setter
+    def auth_personal(self, value: Optional[pulumi.Input['GitHubAuthPersonalArgs']]):
+        pulumi.set(self, "auth_personal", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint_name", value)
 
 
 warnings.warn("""azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub""", DeprecationWarning)
@@ -286,18 +382,18 @@ class GitHub(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = GitHubArgs.__new__(GitHubArgs)
 
-            __props__['auth_oauth'] = auth_oauth
-            __props__['auth_personal'] = auth_personal
-            __props__['authorization'] = authorization
-            __props__['description'] = description
+            __props__.__dict__["auth_oauth"] = auth_oauth
+            __props__.__dict__["auth_personal"] = auth_personal
+            __props__.__dict__["authorization"] = authorization
+            __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
+            __props__.__dict__["project_id"] = project_id
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
-            __props__['service_endpoint_name'] = service_endpoint_name
+            __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         super(GitHub, __self__).__init__(
             'azuredevops:ServiceEndpoint/gitHub:GitHub',
             resource_name,
@@ -328,14 +424,14 @@ class GitHub(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _GitHubState.__new__(_GitHubState)
 
-        __props__["auth_oauth"] = auth_oauth
-        __props__["auth_personal"] = auth_personal
-        __props__["authorization"] = authorization
-        __props__["description"] = description
-        __props__["project_id"] = project_id
-        __props__["service_endpoint_name"] = service_endpoint_name
+        __props__.__dict__["auth_oauth"] = auth_oauth
+        __props__.__dict__["auth_personal"] = auth_personal
+        __props__.__dict__["authorization"] = authorization
+        __props__.__dict__["description"] = description
+        __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return GitHub(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -379,10 +475,4 @@ class GitHub(pulumi.CustomResource):
         The Service Endpoint name.
         """
         return pulumi.get(self, "service_endpoint_name")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

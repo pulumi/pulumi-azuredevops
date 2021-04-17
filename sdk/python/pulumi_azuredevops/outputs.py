@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 from . import outputs
 
 __all__ = [
@@ -55,6 +55,27 @@ __all__ = [
 
 @pulumi.output_type
 class BranchPolicyAutoReviewersSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoReviewerIds":
+            suggest = "auto_reviewer_ids"
+        elif key == "pathFilters":
+            suggest = "path_filters"
+        elif key == "submitterCanVote":
+            suggest = "submitter_can_vote"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyAutoReviewersSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyAutoReviewersSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyAutoReviewersSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_reviewer_ids: Sequence[str],
                  scopes: Sequence['outputs.BranchPolicyAutoReviewersSettingsScope'],
@@ -117,12 +138,30 @@ class BranchPolicyAutoReviewersSettings(dict):
         """
         return pulumi.get(self, "submitter_can_vote")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyAutoReviewersSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryRef":
+            suggest = "repository_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyAutoReviewersSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyAutoReviewersSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyAutoReviewersSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  repository_id: Optional[str] = None,
@@ -163,12 +202,36 @@ class BranchPolicyAutoReviewersSettingsScope(dict):
         """
         return pulumi.get(self, "repository_ref")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyBuildValidationSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "buildDefinitionId":
+            suggest = "build_definition_id"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "filenamePatterns":
+            suggest = "filename_patterns"
+        elif key == "manualQueueOnly":
+            suggest = "manual_queue_only"
+        elif key == "queueOnSourceUpdateOnly":
+            suggest = "queue_on_source_update_only"
+        elif key == "validDuration":
+            suggest = "valid_duration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyBuildValidationSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyBuildValidationSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyBuildValidationSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  build_definition_id: int,
                  display_name: str,
@@ -254,12 +317,30 @@ class BranchPolicyBuildValidationSettings(dict):
         """
         return pulumi.get(self, "valid_duration")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyBuildValidationSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryRef":
+            suggest = "repository_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyBuildValidationSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyBuildValidationSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyBuildValidationSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  repository_id: Optional[str] = None,
@@ -299,9 +380,6 @@ class BranchPolicyBuildValidationSettingsScope(dict):
         The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -321,12 +399,30 @@ class BranchPolicyCommentResolutionSettings(dict):
         """
         return pulumi.get(self, "scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyCommentResolutionSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryRef":
+            suggest = "repository_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyCommentResolutionSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyCommentResolutionSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyCommentResolutionSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  repository_id: Optional[str] = None,
@@ -367,12 +463,32 @@ class BranchPolicyCommentResolutionSettingsScope(dict):
         """
         return pulumi.get(self, "repository_ref")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyMergeTypesSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowBasicNoFastForward":
+            suggest = "allow_basic_no_fast_forward"
+        elif key == "allowRebaseAndFastForward":
+            suggest = "allow_rebase_and_fast_forward"
+        elif key == "allowRebaseWithMerge":
+            suggest = "allow_rebase_with_merge"
+        elif key == "allowSquash":
+            suggest = "allow_squash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyMergeTypesSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyMergeTypesSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyMergeTypesSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scopes: Sequence['outputs.BranchPolicyMergeTypesSettingsScope'],
                  allow_basic_no_fast_forward: Optional[bool] = None,
@@ -436,12 +552,30 @@ class BranchPolicyMergeTypesSettings(dict):
         """
         return pulumi.get(self, "allow_squash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyMergeTypesSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryRef":
+            suggest = "repository_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyMergeTypesSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyMergeTypesSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyMergeTypesSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  repository_id: Optional[str] = None,
@@ -482,12 +616,38 @@ class BranchPolicyMergeTypesSettingsScope(dict):
         """
         return pulumi.get(self, "repository_ref")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyMinReviewersSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowCompletionWithRejectsOrWaits":
+            suggest = "allow_completion_with_rejects_or_waits"
+        elif key == "lastPusherCannotApprove":
+            suggest = "last_pusher_cannot_approve"
+        elif key == "onLastIterationRequireVote":
+            suggest = "on_last_iteration_require_vote"
+        elif key == "onPushResetAllVotes":
+            suggest = "on_push_reset_all_votes"
+        elif key == "onPushResetApprovedVotes":
+            suggest = "on_push_reset_approved_votes"
+        elif key == "reviewerCount":
+            suggest = "reviewer_count"
+        elif key == "submitterCanVote":
+            suggest = "submitter_can_vote"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyMinReviewersSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyMinReviewersSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyMinReviewersSettings.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  scopes: Sequence['outputs.BranchPolicyMinReviewersSettingsScope'],
                  allow_completion_with_rejects_or_waits: Optional[bool] = None,
@@ -587,12 +747,30 @@ class BranchPolicyMinReviewersSettings(dict):
         """
         return pulumi.get(self, "submitter_can_vote")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyMinReviewersSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryRef":
+            suggest = "repository_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyMinReviewersSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyMinReviewersSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyMinReviewersSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  repository_id: Optional[str] = None,
@@ -632,9 +810,6 @@ class BranchPolicyMinReviewersSettingsScope(dict):
         The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -654,12 +829,30 @@ class BranchPolicyWorkItemLinkingSettings(dict):
         """
         return pulumi.get(self, "scopes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BranchPolicyWorkItemLinkingSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryRef":
+            suggest = "repository_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyWorkItemLinkingSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyWorkItemLinkingSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyWorkItemLinkingSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  match_type: Optional[str] = None,
                  repository_id: Optional[str] = None,
@@ -700,12 +893,26 @@ class BranchPolicyWorkItemLinkingSettingsScope(dict):
         """
         return pulumi.get(self, "repository_ref")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionCiTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "useYaml":
+            suggest = "use_yaml"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionCiTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionCiTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionCiTrigger.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  override: Optional['outputs.BuildDefinitionCiTriggerOverride'] = None,
                  use_yaml: Optional[bool] = None):
@@ -734,12 +941,34 @@ class BuildDefinitionCiTrigger(dict):
         """
         return pulumi.get(self, "use_yaml")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionCiTriggerOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "branchFilters":
+            suggest = "branch_filters"
+        elif key == "maxConcurrentBuildsPerBranch":
+            suggest = "max_concurrent_builds_per_branch"
+        elif key == "pathFilters":
+            suggest = "path_filters"
+        elif key == "pollingInterval":
+            suggest = "polling_interval"
+        elif key == "pollingJobId":
+            suggest = "polling_job_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionCiTriggerOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionCiTriggerOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionCiTriggerOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  batch: Optional[bool] = None,
                  branch_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']] = None,
@@ -816,9 +1045,6 @@ class BuildDefinitionCiTriggerOverride(dict):
         """
         return pulumi.get(self, "polling_job_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
@@ -849,9 +1075,6 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -884,12 +1107,30 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
         """
         return pulumi.get(self, "includes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionPullRequestTrigger(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "commentRequired":
+            suggest = "comment_required"
+        elif key == "initialBranch":
+            suggest = "initial_branch"
+        elif key == "useYaml":
+            suggest = "use_yaml"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionPullRequestTrigger. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionPullRequestTrigger.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionPullRequestTrigger.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  forks: 'outputs.BuildDefinitionPullRequestTriggerForks',
                  comment_required: Optional[str] = None,
@@ -945,12 +1186,26 @@ class BuildDefinitionPullRequestTrigger(dict):
         """
         return pulumi.get(self, "use_yaml")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerForks(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareSecrets":
+            suggest = "share_secrets"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionPullRequestTriggerForks. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionPullRequestTriggerForks.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionPullRequestTriggerForks.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  enabled: bool,
                  share_secrets: bool):
@@ -977,12 +1232,30 @@ class BuildDefinitionPullRequestTriggerForks(dict):
         """
         return pulumi.get(self, "share_secrets")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerOverride(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoCancel":
+            suggest = "auto_cancel"
+        elif key == "branchFilters":
+            suggest = "branch_filters"
+        elif key == "pathFilters":
+            suggest = "path_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionPullRequestTriggerOverride. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionPullRequestTriggerOverride.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionPullRequestTriggerOverride.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  auto_cancel: Optional[bool] = None,
                  branch_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
@@ -1023,9 +1296,6 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
         """
         return pulumi.get(self, "path_filters")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
@@ -1056,9 +1326,6 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
         List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type
@@ -1091,12 +1358,38 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
         """
         return pulumi.get(self, "includes")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionRepository(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repoId":
+            suggest = "repo_id"
+        elif key == "repoType":
+            suggest = "repo_type"
+        elif key == "ymlPath":
+            suggest = "yml_path"
+        elif key == "branchName":
+            suggest = "branch_name"
+        elif key == "githubEnterpriseUrl":
+            suggest = "github_enterprise_url"
+        elif key == "reportBuildStatus":
+            suggest = "report_build_status"
+        elif key == "serviceConnectionId":
+            suggest = "service_connection_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionRepository. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionRepository.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionRepository.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  repo_id: str,
                  repo_type: str,
@@ -1182,12 +1475,30 @@ class BuildDefinitionRepository(dict):
         """
         return pulumi.get(self, "service_connection_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class BuildDefinitionVariable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowOverride":
+            suggest = "allow_override"
+        elif key == "isSecret":
+            suggest = "is_secret"
+        elif key == "secretValue":
+            suggest = "secret_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionVariable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionVariable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionVariable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  allow_override: Optional[bool] = None,
@@ -1251,12 +1562,30 @@ class BuildDefinitionVariable(dict):
         """
         return pulumi.get(self, "value")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GitInitialization(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initType":
+            suggest = "init_type"
+        elif key == "sourceType":
+            suggest = "source_type"
+        elif key == "sourceUrl":
+            suggest = "source_url"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitInitialization. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitInitialization.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitInitialization.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  init_type: str,
                  source_type: Optional[str] = None,
@@ -1296,12 +1625,28 @@ class GitInitialization(dict):
         """
         return pulumi.get(self, "source_url")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointArtifactoryAuthenticationBasic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordHash":
+            suggest = "password_hash"
+        elif key == "usernameHash":
+            suggest = "username_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointArtifactoryAuthenticationBasic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointArtifactoryAuthenticationBasic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointArtifactoryAuthenticationBasic.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  password: str,
                  username: str,
@@ -1344,12 +1689,26 @@ class ServiceEndpointArtifactoryAuthenticationBasic(dict):
     def username_hash(self) -> Optional[str]:
         return pulumi.get(self, "username_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointArtifactoryAuthenticationToken(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenHash":
+            suggest = "token_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointArtifactoryAuthenticationToken. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointArtifactoryAuthenticationToken.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointArtifactoryAuthenticationToken.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  token: str,
                  token_hash: Optional[str] = None):
@@ -1375,12 +1734,26 @@ class ServiceEndpointArtifactoryAuthenticationToken(dict):
     def token_hash(self) -> Optional[str]:
         return pulumi.get(self, "token_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointAzureRMCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceprincipalkeyHash":
+            suggest = "serviceprincipalkey_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointAzureRMCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointAzureRMCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointAzureRMCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  serviceprincipalid: str,
                  serviceprincipalkey: str,
@@ -1415,12 +1788,26 @@ class ServiceEndpointAzureRMCredentials(dict):
     def serviceprincipalkey_hash(self) -> Optional[str]:
         return pulumi.get(self, "serviceprincipalkey_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointGitHubAuthOauth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oauthConfigurationId":
+            suggest = "oauth_configuration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointGitHubAuthOauth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointGitHubAuthOauth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointGitHubAuthOauth.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  oauth_configuration_id: str):
         pulumi.set(__self__, "oauth_configuration_id", oauth_configuration_id)
@@ -1430,12 +1817,28 @@ class ServiceEndpointGitHubAuthOauth(dict):
     def oauth_configuration_id(self) -> str:
         return pulumi.get(self, "oauth_configuration_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointGitHubAuthPersonal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "personalAccessToken":
+            suggest = "personal_access_token"
+        elif key == "personalAccessTokenHash":
+            suggest = "personal_access_token_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointGitHubAuthPersonal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointGitHubAuthPersonal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointGitHubAuthPersonal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  personal_access_token: str,
                  personal_access_token_hash: Optional[str] = None):
@@ -1459,12 +1862,38 @@ class ServiceEndpointGitHubAuthPersonal(dict):
     def personal_access_token_hash(self) -> Optional[str]:
         return pulumi.get(self, "personal_access_token_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointKubernetesAzureSubscription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterName":
+            suggest = "cluster_name"
+        elif key == "resourcegroupId":
+            suggest = "resourcegroup_id"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "subscriptionName":
+            suggest = "subscription_name"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "azureEnvironment":
+            suggest = "azure_environment"
+        elif key == "clusterAdmin":
+            suggest = "cluster_admin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointKubernetesAzureSubscription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointKubernetesAzureSubscription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointKubernetesAzureSubscription.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_name: str,
                  resourcegroup_id: str,
@@ -1560,12 +1989,32 @@ class ServiceEndpointKubernetesAzureSubscription(dict):
         """
         return pulumi.get(self, "namespace")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointKubernetesKubeconfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kubeConfig":
+            suggest = "kube_config"
+        elif key == "acceptUntrustedCerts":
+            suggest = "accept_untrusted_certs"
+        elif key == "clusterContext":
+            suggest = "cluster_context"
+        elif key == "kubeConfigHash":
+            suggest = "kube_config_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointKubernetesKubeconfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointKubernetesKubeconfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointKubernetesKubeconfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kube_config: str,
                  accept_untrusted_certs: Optional[bool] = None,
@@ -1613,12 +2062,30 @@ class ServiceEndpointKubernetesKubeconfig(dict):
     def kube_config_hash(self) -> Optional[str]:
         return pulumi.get(self, "kube_config_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointKubernetesServiceAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caCert":
+            suggest = "ca_cert"
+        elif key == "caCertHash":
+            suggest = "ca_cert_hash"
+        elif key == "tokenHash":
+            suggest = "token_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointKubernetesServiceAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointKubernetesServiceAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointKubernetesServiceAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ca_cert: str,
                  token: str,
@@ -1661,12 +2128,28 @@ class ServiceEndpointKubernetesServiceAccount(dict):
     def token_hash(self) -> Optional[str]:
         return pulumi.get(self, "token_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class ServiceEndpointPipelineAuthPersonal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "personalAccessToken":
+            suggest = "personal_access_token"
+        elif key == "personalAccessTokenHash":
+            suggest = "personal_access_token_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointPipelineAuthPersonal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointPipelineAuthPersonal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointPipelineAuthPersonal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  personal_access_token: str,
                  personal_access_token_hash: Optional[str] = None):
@@ -1690,12 +2173,26 @@ class ServiceEndpointPipelineAuthPersonal(dict):
     def personal_access_token_hash(self) -> Optional[str]:
         return pulumi.get(self, "personal_access_token_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VariableGroupKeyVault(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceEndpointId":
+            suggest = "service_endpoint_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VariableGroupKeyVault. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VariableGroupKeyVault.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VariableGroupKeyVault.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  service_endpoint_id: str):
@@ -1718,12 +2215,30 @@ class VariableGroupKeyVault(dict):
     def service_endpoint_id(self) -> str:
         return pulumi.get(self, "service_endpoint_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class VariableGroupVariable(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "contentType":
+            suggest = "content_type"
+        elif key == "isSecret":
+            suggest = "is_secret"
+        elif key == "secretValue":
+            suggest = "secret_value"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VariableGroupVariable. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VariableGroupVariable.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VariableGroupVariable.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  name: str,
                  content_type: Optional[str] = None,
@@ -1798,9 +2313,6 @@ class VariableGroupVariable(dict):
         The value of the variable. If omitted, it will default to empty string.
         """
         return pulumi.get(self, "value")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 
 @pulumi.output_type

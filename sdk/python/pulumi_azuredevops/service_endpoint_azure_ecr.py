@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ServiceEndpointAzureEcrArgs', 'ServiceEndpointAzureEcr']
 
@@ -149,6 +149,218 @@ class ServiceEndpointAzureEcrArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class _ServiceEndpointAzureEcrState:
+    def __init__(__self__, *,
+                 app_object_id: Optional[pulumi.Input[str]] = None,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 az_spn_role_assignment_id: Optional[pulumi.Input[str]] = None,
+                 az_spn_role_permissions: Optional[pulumi.Input[str]] = None,
+                 azurecr_name: Optional[pulumi.Input[str]] = None,
+                 azurecr_spn_tenantid: Optional[pulumi.Input[str]] = None,
+                 azurecr_subscription_id: Optional[pulumi.Input[str]] = None,
+                 azurecr_subscription_name: Optional[pulumi.Input[str]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_id: Optional[pulumi.Input[str]] = None,
+                 spn_object_id: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServiceEndpointAzureEcr resources.
+        :param pulumi.Input[str] azurecr_name: The Azure container registry name.
+        :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
+        :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
+        :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
+        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
+        :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
+        :param pulumi.Input[str] service_principal_id: The service principal ID.
+        """
+        if app_object_id is not None:
+            pulumi.set(__self__, "app_object_id", app_object_id)
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if az_spn_role_assignment_id is not None:
+            pulumi.set(__self__, "az_spn_role_assignment_id", az_spn_role_assignment_id)
+        if az_spn_role_permissions is not None:
+            pulumi.set(__self__, "az_spn_role_permissions", az_spn_role_permissions)
+        if azurecr_name is not None:
+            pulumi.set(__self__, "azurecr_name", azurecr_name)
+        if azurecr_spn_tenantid is not None:
+            pulumi.set(__self__, "azurecr_spn_tenantid", azurecr_spn_tenantid)
+        if azurecr_subscription_id is not None:
+            pulumi.set(__self__, "azurecr_subscription_id", azurecr_subscription_id)
+        if azurecr_subscription_name is not None:
+            pulumi.set(__self__, "azurecr_subscription_name", azurecr_subscription_name)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if resource_group is not None:
+            pulumi.set(__self__, "resource_group", resource_group)
+        if service_endpoint_name is not None:
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
+        if spn_object_id is not None:
+            pulumi.set(__self__, "spn_object_id", spn_object_id)
+
+    @property
+    @pulumi.getter(name="appObjectId")
+    def app_object_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "app_object_id")
+
+    @app_object_id.setter
+    def app_object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "app_object_id", value)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter(name="azSpnRoleAssignmentId")
+    def az_spn_role_assignment_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "az_spn_role_assignment_id")
+
+    @az_spn_role_assignment_id.setter
+    def az_spn_role_assignment_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "az_spn_role_assignment_id", value)
+
+    @property
+    @pulumi.getter(name="azSpnRolePermissions")
+    def az_spn_role_permissions(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "az_spn_role_permissions")
+
+    @az_spn_role_permissions.setter
+    def az_spn_role_permissions(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "az_spn_role_permissions", value)
+
+    @property
+    @pulumi.getter(name="azurecrName")
+    def azurecr_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Azure container registry name.
+        """
+        return pulumi.get(self, "azurecr_name")
+
+    @azurecr_name.setter
+    def azurecr_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azurecr_name", value)
+
+    @property
+    @pulumi.getter(name="azurecrSpnTenantid")
+    def azurecr_spn_tenantid(self) -> Optional[pulumi.Input[str]]:
+        """
+        The tenant id of the service principal.
+        """
+        return pulumi.get(self, "azurecr_spn_tenantid")
+
+    @azurecr_spn_tenantid.setter
+    def azurecr_spn_tenantid(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azurecr_spn_tenantid", value)
+
+    @property
+    @pulumi.getter(name="azurecrSubscriptionId")
+    def azurecr_subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscription id of the Azure targets.
+        """
+        return pulumi.get(self, "azurecr_subscription_id")
+
+    @azurecr_subscription_id.setter
+    def azurecr_subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azurecr_subscription_id", value)
+
+    @property
+    @pulumi.getter(name="azurecrSubscriptionName")
+    def azurecr_subscription_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The subscription name of the Azure targets.
+        """
+        return pulumi.get(self, "azurecr_subscription_name")
+
+    @azurecr_subscription_name.setter
+    def azurecr_subscription_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "azurecr_subscription_name", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name you will use to refer to this service connection in task inputs.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="resourceGroup")
+    def resource_group(self) -> Optional[pulumi.Input[str]]:
+        """
+        The resource group to which the container registry belongs.
+        """
+        return pulumi.get(self, "resource_group")
+
+    @resource_group.setter
+    def resource_group(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "resource_group", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name you will use to refer to this service connection in task inputs.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The service principal ID.
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @service_principal_id.setter
+    def service_principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_principal_id", value)
+
+    @property
+    @pulumi.getter(name="spnObjectId")
+    def spn_object_id(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "spn_object_id")
+
+    @spn_object_id.setter
+    def spn_object_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "spn_object_id", value)
 
 
 class ServiceEndpointAzureEcr(pulumi.CustomResource):
@@ -299,36 +511,36 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceEndpointAzureEcrArgs.__new__(ServiceEndpointAzureEcrArgs)
 
-            __props__['authorization'] = authorization
+            __props__.__dict__["authorization"] = authorization
             if azurecr_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azurecr_name'")
-            __props__['azurecr_name'] = azurecr_name
+            __props__.__dict__["azurecr_name"] = azurecr_name
             if azurecr_spn_tenantid is None and not opts.urn:
                 raise TypeError("Missing required property 'azurecr_spn_tenantid'")
-            __props__['azurecr_spn_tenantid'] = azurecr_spn_tenantid
+            __props__.__dict__["azurecr_spn_tenantid"] = azurecr_spn_tenantid
             if azurecr_subscription_id is None and not opts.urn:
                 raise TypeError("Missing required property 'azurecr_subscription_id'")
-            __props__['azurecr_subscription_id'] = azurecr_subscription_id
+            __props__.__dict__["azurecr_subscription_id"] = azurecr_subscription_id
             if azurecr_subscription_name is None and not opts.urn:
                 raise TypeError("Missing required property 'azurecr_subscription_name'")
-            __props__['azurecr_subscription_name'] = azurecr_subscription_name
-            __props__['description'] = description
+            __props__.__dict__["azurecr_subscription_name"] = azurecr_subscription_name
+            __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
+            __props__.__dict__["project_id"] = project_id
             if resource_group is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group'")
-            __props__['resource_group'] = resource_group
+            __props__.__dict__["resource_group"] = resource_group
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
-            __props__['service_endpoint_name'] = service_endpoint_name
-            __props__['app_object_id'] = None
-            __props__['az_spn_role_assignment_id'] = None
-            __props__['az_spn_role_permissions'] = None
-            __props__['service_principal_id'] = None
-            __props__['spn_object_id'] = None
+            __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+            __props__.__dict__["app_object_id"] = None
+            __props__.__dict__["az_spn_role_assignment_id"] = None
+            __props__.__dict__["az_spn_role_permissions"] = None
+            __props__.__dict__["service_principal_id"] = None
+            __props__.__dict__["spn_object_id"] = None
         super(ServiceEndpointAzureEcr, __self__).__init__(
             'azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr',
             resource_name,
@@ -372,22 +584,22 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceEndpointAzureEcrState.__new__(_ServiceEndpointAzureEcrState)
 
-        __props__["app_object_id"] = app_object_id
-        __props__["authorization"] = authorization
-        __props__["az_spn_role_assignment_id"] = az_spn_role_assignment_id
-        __props__["az_spn_role_permissions"] = az_spn_role_permissions
-        __props__["azurecr_name"] = azurecr_name
-        __props__["azurecr_spn_tenantid"] = azurecr_spn_tenantid
-        __props__["azurecr_subscription_id"] = azurecr_subscription_id
-        __props__["azurecr_subscription_name"] = azurecr_subscription_name
-        __props__["description"] = description
-        __props__["project_id"] = project_id
-        __props__["resource_group"] = resource_group
-        __props__["service_endpoint_name"] = service_endpoint_name
-        __props__["service_principal_id"] = service_principal_id
-        __props__["spn_object_id"] = spn_object_id
+        __props__.__dict__["app_object_id"] = app_object_id
+        __props__.__dict__["authorization"] = authorization
+        __props__.__dict__["az_spn_role_assignment_id"] = az_spn_role_assignment_id
+        __props__.__dict__["az_spn_role_permissions"] = az_spn_role_permissions
+        __props__.__dict__["azurecr_name"] = azurecr_name
+        __props__.__dict__["azurecr_spn_tenantid"] = azurecr_spn_tenantid
+        __props__.__dict__["azurecr_subscription_id"] = azurecr_subscription_id
+        __props__.__dict__["azurecr_subscription_name"] = azurecr_subscription_name
+        __props__.__dict__["description"] = description
+        __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["resource_group"] = resource_group
+        __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+        __props__.__dict__["service_principal_id"] = service_principal_id
+        __props__.__dict__["spn_object_id"] = spn_object_id
         return ServiceEndpointAzureEcr(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -486,10 +698,4 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     @pulumi.getter(name="spnObjectId")
     def spn_object_id(self) -> pulumi.Output[str]:
         return pulumi.get(self, "spn_object_id")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 

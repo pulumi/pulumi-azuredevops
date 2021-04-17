@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from .. import _utilities, _tables
+from .. import _utilities
 
 __all__ = [
     'AzureRMCredentials',
@@ -19,6 +19,23 @@ __all__ = [
 
 @pulumi.output_type
 class AzureRMCredentials(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serviceprincipalkeyHash":
+            suggest = "serviceprincipalkey_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureRMCredentials. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureRMCredentials.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureRMCredentials.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  serviceprincipalid: str,
                  serviceprincipalkey: str,
@@ -53,12 +70,26 @@ class AzureRMCredentials(dict):
     def serviceprincipalkey_hash(self) -> Optional[str]:
         return pulumi.get(self, "serviceprincipalkey_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GitHubAuthOauth(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "oauthConfigurationId":
+            suggest = "oauth_configuration_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitHubAuthOauth. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitHubAuthOauth.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitHubAuthOauth.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  oauth_configuration_id: str):
         pulumi.set(__self__, "oauth_configuration_id", oauth_configuration_id)
@@ -68,12 +99,28 @@ class GitHubAuthOauth(dict):
     def oauth_configuration_id(self) -> str:
         return pulumi.get(self, "oauth_configuration_id")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class GitHubAuthPersonal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "personalAccessToken":
+            suggest = "personal_access_token"
+        elif key == "personalAccessTokenHash":
+            suggest = "personal_access_token_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GitHubAuthPersonal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GitHubAuthPersonal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GitHubAuthPersonal.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  personal_access_token: str,
                  personal_access_token_hash: Optional[str] = None):
@@ -97,12 +144,38 @@ class GitHubAuthPersonal(dict):
     def personal_access_token_hash(self) -> Optional[str]:
         return pulumi.get(self, "personal_access_token_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesAzureSubscription(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterName":
+            suggest = "cluster_name"
+        elif key == "resourcegroupId":
+            suggest = "resourcegroup_id"
+        elif key == "subscriptionId":
+            suggest = "subscription_id"
+        elif key == "subscriptionName":
+            suggest = "subscription_name"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "azureEnvironment":
+            suggest = "azure_environment"
+        elif key == "clusterAdmin":
+            suggest = "cluster_admin"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesAzureSubscription. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesAzureSubscription.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesAzureSubscription.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  cluster_name: str,
                  resourcegroup_id: str,
@@ -198,12 +271,32 @@ class KubernetesAzureSubscription(dict):
         """
         return pulumi.get(self, "namespace")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesKubeconfig(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "kubeConfig":
+            suggest = "kube_config"
+        elif key == "acceptUntrustedCerts":
+            suggest = "accept_untrusted_certs"
+        elif key == "clusterContext":
+            suggest = "cluster_context"
+        elif key == "kubeConfigHash":
+            suggest = "kube_config_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesKubeconfig. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesKubeconfig.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesKubeconfig.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  kube_config: str,
                  accept_untrusted_certs: Optional[bool] = None,
@@ -251,12 +344,30 @@ class KubernetesKubeconfig(dict):
     def kube_config_hash(self) -> Optional[str]:
         return pulumi.get(self, "kube_config_hash")
 
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
 
 @pulumi.output_type
 class KubernetesServiceAccount(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caCert":
+            suggest = "ca_cert"
+        elif key == "caCertHash":
+            suggest = "ca_cert_hash"
+        elif key == "tokenHash":
+            suggest = "token_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesServiceAccount. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesServiceAccount.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesServiceAccount.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  ca_cert: str,
                  token: str,
@@ -298,8 +409,5 @@ class KubernetesServiceAccount(dict):
     @pulumi.getter(name="tokenHash")
     def token_hash(self) -> Optional[str]:
         return pulumi.get(self, "token_hash")
-
-    def _translate_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
 
 

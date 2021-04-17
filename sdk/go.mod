@@ -1,5 +1,5 @@
-module github.com/pulumi/pulumi-azuredevops/sdk
+module github.com/pulumi/pulumi-azuredevops/sdk/v2
 
 go 1.15
 
-require github.com/pulumi/pulumi/sdk/v2 v2.20.0
+require github.com/pulumi/pulumi/sdk/v3 v3.0.0-beta.2

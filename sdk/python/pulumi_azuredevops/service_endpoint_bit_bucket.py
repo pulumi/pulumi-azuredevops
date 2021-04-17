@@ -6,7 +6,7 @@ import warnings
 import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
-from . import _utilities, _tables
+from . import _utilities
 
 __all__ = ['ServiceEndpointBitBucketArgs', 'ServiceEndpointBitBucket']
 
@@ -100,6 +100,118 @@ class ServiceEndpointBitBucketArgs:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+
+@pulumi.input_type
+class _ServiceEndpointBitBucketState:
+    def __init__(__self__, *,
+                 authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 password: Optional[pulumi.Input[str]] = None,
+                 password_hash: Optional[pulumi.Input[str]] = None,
+                 project_id: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
+        """
+        Input properties used for looking up and filtering ServiceEndpointBitBucket resources.
+        :param pulumi.Input[str] password: Bitbucket account password.
+        :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
+        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
+        :param pulumi.Input[str] username: Bitbucket account username.
+        """
+        if authorization is not None:
+            pulumi.set(__self__, "authorization", authorization)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if password_hash is not None:
+            pulumi.set(__self__, "password_hash", password_hash)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if service_endpoint_name is not None:
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def authorization(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        return pulumi.get(self, "authorization")
+
+    @authorization.setter
+    def authorization(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "authorization", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bitbucket account password.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> Optional[pulumi.Input[str]]:
+        """
+        A bcrypted hash of the attribute 'password'
+        """
+        return pulumi.get(self, "password_hash")
+
+    @password_hash.setter
+    def password_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_hash", value)
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The project ID or project name.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "project_id", value)
+
+    @property
+    @pulumi.getter(name="serviceEndpointName")
+    def service_endpoint_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Service Endpoint name.
+        """
+        return pulumi.get(self, "service_endpoint_name")
+
+    @service_endpoint_name.setter
+    def service_endpoint_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        Bitbucket account username.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 class ServiceEndpointBitBucket(pulumi.CustomResource):
@@ -232,23 +344,23 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = dict()
+            __props__ = ServiceEndpointBitBucketArgs.__new__(ServiceEndpointBitBucketArgs)
 
-            __props__['authorization'] = authorization
-            __props__['description'] = description
+            __props__.__dict__["authorization"] = authorization
+            __props__.__dict__["description"] = description
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__['password'] = password
+            __props__.__dict__["password"] = password
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
-            __props__['project_id'] = project_id
+            __props__.__dict__["project_id"] = project_id
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
-            __props__['service_endpoint_name'] = service_endpoint_name
+            __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
-            __props__['username'] = username
-            __props__['password_hash'] = None
+            __props__.__dict__["username"] = username
+            __props__.__dict__["password_hash"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/bitBucket:BitBucket")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ServiceEndpointBitBucket, __self__).__init__(
@@ -283,15 +395,15 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = dict()
+        __props__ = _ServiceEndpointBitBucketState.__new__(_ServiceEndpointBitBucketState)
 
-        __props__["authorization"] = authorization
-        __props__["description"] = description
-        __props__["password"] = password
-        __props__["password_hash"] = password_hash
-        __props__["project_id"] = project_id
-        __props__["service_endpoint_name"] = service_endpoint_name
-        __props__["username"] = username
+        __props__.__dict__["authorization"] = authorization
+        __props__.__dict__["description"] = description
+        __props__.__dict__["password"] = password
+        __props__.__dict__["password_hash"] = password_hash
+        __props__.__dict__["project_id"] = project_id
+        __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+        __props__.__dict__["username"] = username
         return ServiceEndpointBitBucket(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -343,10 +455,4 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
         Bitbucket account username.
         """
         return pulumi.get(self, "username")
-
-    def translate_output_property(self, prop):
-        return _tables.CAMEL_TO_SNAKE_CASE_TABLE.get(prop) or prop
-
-    def translate_input_property(self, prop):
-        return _tables.SNAKE_TO_CAMEL_CASE_TABLE.get(prop) or prop
 
