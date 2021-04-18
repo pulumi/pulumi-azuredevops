@@ -40,14 +40,18 @@ export * from "./queue";
 export * from "./resourceAuthorization";
 export * from "./serviceEndpointArtifactory";
 export * from "./serviceEndpointAws";
+export * from "./serviceEndpointAzureDevOps";
 export * from "./serviceEndpointAzureEcr";
 export * from "./serviceEndpointAzureRM";
 export * from "./serviceEndpointBitBucket";
 export * from "./serviceEndpointDockerRegistry";
 export * from "./serviceEndpointGitHub";
+export * from "./serviceEndpointGitHubEnterprise";
 export * from "./serviceEndpointKubernetes";
+export * from "./serviceEndpointNpm";
 export * from "./serviceEndpointPipeline";
 export * from "./serviceEndpointSonarQube";
+export * from "./serviceEndpointSsh";
 export * from "./user";
 export * from "./variableGroup";
 export * from "./workItemQueryPermissions";
@@ -104,14 +108,18 @@ import { Queue } from "./queue";
 import { ResourceAuthorization } from "./resourceAuthorization";
 import { ServiceEndpointArtifactory } from "./serviceEndpointArtifactory";
 import { ServiceEndpointAws } from "./serviceEndpointAws";
+import { ServiceEndpointAzureDevOps } from "./serviceEndpointAzureDevOps";
 import { ServiceEndpointAzureEcr } from "./serviceEndpointAzureEcr";
 import { ServiceEndpointAzureRM } from "./serviceEndpointAzureRM";
 import { ServiceEndpointBitBucket } from "./serviceEndpointBitBucket";
 import { ServiceEndpointDockerRegistry } from "./serviceEndpointDockerRegistry";
 import { ServiceEndpointGitHub } from "./serviceEndpointGitHub";
+import { ServiceEndpointGitHubEnterprise } from "./serviceEndpointGitHubEnterprise";
 import { ServiceEndpointKubernetes } from "./serviceEndpointKubernetes";
+import { ServiceEndpointNpm } from "./serviceEndpointNpm";
 import { ServiceEndpointPipeline } from "./serviceEndpointPipeline";
 import { ServiceEndpointSonarQube } from "./serviceEndpointSonarQube";
+import { ServiceEndpointSsh } from "./serviceEndpointSsh";
 import { User } from "./user";
 import { VariableGroup } from "./variableGroup";
 import { WorkItemQueryPermissions } from "./workItemQueryPermissions";
@@ -164,6 +172,8 @@ const _module = {
                 return new ServiceEndpointArtifactory(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
                 return new ServiceEndpointAws(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps":
+                return new ServiceEndpointAzureDevOps(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr":
                 return new ServiceEndpointAzureEcr(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM":
@@ -174,12 +184,18 @@ const _module = {
                 return new ServiceEndpointDockerRegistry(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub":
                 return new ServiceEndpointGitHub(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise":
+                return new ServiceEndpointGitHubEnterprise(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes":
                 return new ServiceEndpointKubernetes(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm":
+                return new ServiceEndpointNpm(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
                 return new ServiceEndpointPipeline(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
                 return new ServiceEndpointSonarQube(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
+                return new ServiceEndpointSsh(name, <any>undefined, { urn })
             case "azuredevops:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "azuredevops:index/variableGroup:VariableGroup":
@@ -213,14 +229,18 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/queue", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/resourceAuthorization", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointArtifactory", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAws", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAzureDevOps", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAzureEcr", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAzureRM", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointBitBucket", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointDockerRegistry", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitHub", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitHubEnterprise", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointKubernetes", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointNpm", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointPipeline", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroup", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)

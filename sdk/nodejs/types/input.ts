@@ -460,6 +460,14 @@ export interface ServiceEndpointGitHubAuthPersonal {
     personalAccessTokenHash?: pulumi.Input<string>;
 }
 
+export interface ServiceEndpointGitHubEnterpriseAuthPersonal {
+    /**
+     * The Personal Access Token for Github.
+     */
+    personalAccessToken: pulumi.Input<string>;
+    personalAccessTokenHash?: pulumi.Input<string>;
+}
+
 export interface ServiceEndpointKubernetesAzureSubscription {
     /**
      * Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.

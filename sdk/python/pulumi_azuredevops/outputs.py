@@ -39,6 +39,7 @@ __all__ = [
     'ServiceEndpointAzureRMCredentials',
     'ServiceEndpointGitHubAuthOauth',
     'ServiceEndpointGitHubAuthPersonal',
+    'ServiceEndpointGitHubEnterpriseAuthPersonal',
     'ServiceEndpointKubernetesAzureSubscription',
     'ServiceEndpointKubernetesKubeconfig',
     'ServiceEndpointKubernetesServiceAccount',
@@ -1837,6 +1838,51 @@ class ServiceEndpointGitHubAuthPersonal(dict):
 
     def get(self, key: str, default = None) -> Any:
         ServiceEndpointGitHubAuthPersonal.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 personal_access_token: str,
+                 personal_access_token_hash: Optional[str] = None):
+        """
+        :param str personal_access_token: The Personal Access Token for Github.
+        """
+        pulumi.set(__self__, "personal_access_token", personal_access_token)
+        if personal_access_token_hash is not None:
+            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
+
+    @property
+    @pulumi.getter(name="personalAccessToken")
+    def personal_access_token(self) -> str:
+        """
+        The Personal Access Token for Github.
+        """
+        return pulumi.get(self, "personal_access_token")
+
+    @property
+    @pulumi.getter(name="personalAccessTokenHash")
+    def personal_access_token_hash(self) -> Optional[str]:
+        return pulumi.get(self, "personal_access_token_hash")
+
+
+@pulumi.output_type
+class ServiceEndpointGitHubEnterpriseAuthPersonal(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "personalAccessToken":
+            suggest = "personal_access_token"
+        elif key == "personalAccessTokenHash":
+            suggest = "personal_access_token_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointGitHubEnterpriseAuthPersonal. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointGitHubEnterpriseAuthPersonal.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointGitHubEnterpriseAuthPersonal.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,

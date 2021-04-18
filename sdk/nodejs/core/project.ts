@@ -83,7 +83,7 @@ export class Project extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features.  
-     * Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      */
     public readonly features!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -103,7 +103,7 @@ export class Project extends pulumi.CustomResource {
      */
     public readonly visibility!: pulumi.Output<string | undefined>;
     /**
-     * Specifies the work item template. Defaults to `Agile`.
+     * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
      */
     public readonly workItemTemplate!: pulumi.Output<string | undefined>;
 
@@ -157,7 +157,7 @@ export interface ProjectState {
     readonly description?: pulumi.Input<string>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features.  
-     * Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      */
     readonly features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -177,7 +177,7 @@ export interface ProjectState {
      */
     readonly visibility?: pulumi.Input<string>;
     /**
-     * Specifies the work item template. Defaults to `Agile`.
+     * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
      */
     readonly workItemTemplate?: pulumi.Input<string>;
 }
@@ -192,7 +192,7 @@ export interface ProjectArgs {
     readonly description?: pulumi.Input<string>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features.  
-     * Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      */
     readonly features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -208,7 +208,7 @@ export interface ProjectArgs {
      */
     readonly visibility?: pulumi.Input<string>;
     /**
-     * Specifies the work item template. Defaults to `Agile`.
+     * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
      */
     readonly workItemTemplate?: pulumi.Input<string>;
 }

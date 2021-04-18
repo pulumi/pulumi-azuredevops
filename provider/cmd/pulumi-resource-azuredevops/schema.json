@@ -2585,6 +2585,39 @@
                 }
             }
         },
+        "azuredevops:index/ServiceEndpointGitHubEnterpriseAuthPersonal:ServiceEndpointGitHubEnterpriseAuthPersonal": {
+            "properties": {
+                "personalAccessToken": {
+                    "type": "string",
+                    "description": "The Personal Access Token for Github.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "personalAccessTokenHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "personalAccessToken"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "personalAccessToken",
+                        "personalAccessTokenHash"
+                    ]
+                }
+            }
+        },
         "azuredevops:index/ServiceEndpointKubernetesAzureSubscription:ServiceEndpointKubernetesAzureSubscription": {
             "properties": {
                 "azureEnvironment": {
@@ -3599,7 +3632,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
                 },
                 "name": {
                     "type": "string",
@@ -3619,7 +3652,7 @@
                 },
                 "workItemTemplate": {
                     "type": "string",
-                    "description": "Specifies the work item template. Defaults to `Agile`.\n"
+                    "description": "Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.\n"
                 }
             },
             "required": [
@@ -3636,7 +3669,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
                 },
                 "name": {
                     "type": "string",
@@ -3652,7 +3685,7 @@
                 },
                 "workItemTemplate": {
                     "type": "string",
-                    "description": "Specifies the work item template. Defaults to `Agile`.\n"
+                    "description": "Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.\n"
                 }
             },
             "stateInputs": {
@@ -3667,7 +3700,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
+                        "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
                     },
                     "name": {
                         "type": "string",
@@ -3687,7 +3720,7 @@
                     },
                     "workItemTemplate": {
                         "type": "string",
-                        "description": "Specifies the work item template. Defaults to `Agile`.\n"
+                        "description": "Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.\n"
                     }
                 },
                 "type": "object"
@@ -3835,7 +3868,7 @@
             "deprecationMessage": "azuredevops.entitlement.User has been deprecated in favor of azuredevops.User"
         },
         "azuredevops:Identities/group:Group": {
-            "description": "Manages a group within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst tf-project-readers = project.id.apply(id =\u003e azuredevops.getGroup({\n    projectId: id,\n    name: \"Readers\",\n}));\nconst tf-project-contributors = project.id.apply(id =\u003e azuredevops.getGroup({\n    projectId: id,\n    name: \"Contributors\",\n}));\nconst group = new azuredevops.Group(\"group\", {\n    scope: project.id,\n    displayName: \"Test group\",\n    description: \"Test description\",\n    members: [\n        tf_project_readers.descriptor,\n        tf_project_contributors.descriptor,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\ntf_project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,\n    name=\"Readers\"))\ntf_project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,\n    name=\"Contributors\"))\ngroup = azuredevops.Group(\"group\",\n    scope=project.id,\n    display_name=\"Test group\",\n    description=\"Test description\",\n    members=[\n        tf_project_readers.descriptor,\n        tf_project_contributors.descriptor,\n    ])\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var tf_project_readers = project.Id.Apply(id =\u003e AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs\n        {\n            ProjectId = id,\n            Name = \"Readers\",\n        }));\n        var tf_project_contributors = project.Id.Apply(id =\u003e AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs\n        {\n            ProjectId = id,\n            Name = \"Contributors\",\n        }));\n        var @group = new AzureDevOps.Group(\"group\", new AzureDevOps.GroupArgs\n        {\n            Scope = project.Id,\n            DisplayName = \"Test group\",\n            Description = \"Test description\",\n            Members = \n            {\n                tf_project_readers.Apply(tf_project_readers =\u003e tf_project_readers.Descriptor),\n                tf_project_contributors.Apply(tf_project_contributors =\u003e tf_project_contributors.Descriptor),\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)\n\n## PAT Permissions Required\n\n- **Project \u0026 Team**: Read, Write, \u0026 Manage\n\n\n## Import\n\nAzure DevOps Projects can be imported using the group identity descriptor, e.g.\n\n```sh\n $ pulumi import azuredevops:Identities/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU\n```\n\n ",
+            "description": "Manages a group within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst tf-project-readers = project.id.apply(id =\u003e azuredevops.getGroup({\n    projectId: id,\n    name: \"Readers\",\n}));\nconst tf-project-contributors = project.id.apply(id =\u003e azuredevops.getGroup({\n    projectId: id,\n    name: \"Contributors\",\n}));\nconst group = new azuredevops.Group(\"group\", {\n    scope: project.id,\n    displayName: \"Test group\",\n    description: \"Test description\",\n    members: [\n        tf_project_readers.descriptor,\n        tf_project_contributors.descriptor,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\ntf_project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,\n    name=\"Readers\"))\ntf_project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,\n    name=\"Contributors\"))\ngroup = azuredevops.Group(\"group\",\n    scope=project.id,\n    display_name=\"Test group\",\n    description=\"Test description\",\n    members=[\n        tf_project_readers.descriptor,\n        tf_project_contributors.descriptor,\n    ])\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var tf_project_readers = project.Id.Apply(id =\u003e AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs\n        {\n            ProjectId = id,\n            Name = \"Readers\",\n        }));\n        var tf_project_contributors = project.Id.Apply(id =\u003e AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs\n        {\n            ProjectId = id,\n            Name = \"Contributors\",\n        }));\n        var @group = new AzureDevOps.Group(\"group\", new AzureDevOps.GroupArgs\n        {\n            Scope = project.Id,\n            DisplayName = \"Test group\",\n            Description = \"Test description\",\n            Members = \n            {\n                tf_project_readers.Apply(tf_project_readers =\u003e tf_project_readers.Descriptor),\n                tf_project_contributors.Apply(tf_project_contributors =\u003e tf_project_contributors.Descriptor),\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)\n\n## PAT Permissions Required\n\n- **Project \u0026 Team**: Read, Write, \u0026 Manage\n\n\n## Import\n\nAzure DevOps groups can be imported using the group identity descriptor, e.g.\n\n```sh\n $ pulumi import azuredevops:Identities/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -4298,7 +4331,7 @@
             "deprecationMessage": "azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers"
         },
         "azuredevops:Repository/git:Git": {
-            "description": "Manages a git repository within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Create Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nrepo = azuredevops.Git(\"repo\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Create Fork of another Azure DevOps Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: azuredevops_project.project.id,\n    parentRepositoryId: azuredevops_git_repository.parent.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nrepo = azuredevops.Git(\"repo\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    parent_repository_id=azuredevops_git_repository[\"parent\"][\"id\"],\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            ParentRepositoryId = azuredevops_git_repository.Parent.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId:          pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tParentRepositoryId: pulumi.Any(azuredevops_git_repository.Parent.Id),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Create Import from another Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: azuredevops_project.project.id,\n    initialization: {\n        initType: \"Import\",\n        sourceType: \"Git\",\n        sourceUrl: \"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nrepo = azuredevops.Git(\"repo\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Import\",\n        source_type=\"Git\",\n        source_url=\"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Import\",\n                SourceType = \"Git\",\n                SourceUrl = \"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType:   pulumi.String(\"Import\"),\n\t\t\t\tSourceType: pulumi.String(\"Git\"),\n\t\t\t\tSourceUrl:  pulumi.String(\"https://github.com/microsoft/terraform-provider-azuredevops.git\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Repositories can be imported using the repo Guid e.g.\n\n```sh\n $ pulumi import azuredevops:Repository/git:Git repository projectName/00000000-0000-0000-0000-000000000000\n```\n\n ",
+            "description": "Manages a git repository within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Create Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nrepo = azuredevops.Git(\"repo\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Create Fork of another Azure DevOps Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: azuredevops_project.project.id,\n    parentRepositoryId: azuredevops_git_repository.parent.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nrepo = azuredevops.Git(\"repo\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    parent_repository_id=azuredevops_git_repository[\"parent\"][\"id\"],\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            ParentRepositoryId = azuredevops_git_repository.Parent.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId:          pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tParentRepositoryId: pulumi.Any(azuredevops_git_repository.Parent.Id),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Create Import from another Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: azuredevops_project.project.id,\n    initialization: {\n        initType: \"Import\",\n        sourceType: \"Git\",\n        sourceUrl: \"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nrepo = azuredevops.Git(\"repo\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Import\",\n        source_type=\"Git\",\n        source_url=\"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Import\",\n                SourceType = \"Git\",\n                SourceUrl = \"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType:   pulumi.String(\"Import\"),\n\t\t\t\tSourceType: pulumi.String(\"Git\"),\n\t\t\t\tSourceUrl:  pulumi.String(\"https://github.com/microsoft/terraform-provider-azuredevops.git\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.\n\n```sh\n $ pulumi import azuredevops:Repository/git:Git repository projectName/repoName\n```\n\n or\n\n```sh\n $ pulumi import azuredevops:Repository/git:Git repository projectName/00000000-0000-0000-0000-000000000000\n```\n\n ",
             "properties": {
                 "defaultBranch": {
                     "type": "string",
@@ -5974,7 +6007,7 @@
             }
         },
         "azuredevops:index/git:Git": {
-            "description": "Manages a git repository within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Create Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nrepo = azuredevops.Git(\"repo\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Create Fork of another Azure DevOps Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: azuredevops_project.project.id,\n    parentRepositoryId: azuredevops_git_repository.parent.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nrepo = azuredevops.Git(\"repo\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    parent_repository_id=azuredevops_git_repository[\"parent\"][\"id\"],\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            ParentRepositoryId = azuredevops_git_repository.Parent.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId:          pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tParentRepositoryId: pulumi.Any(azuredevops_git_repository.Parent.Id),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Create Import from another Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: azuredevops_project.project.id,\n    initialization: {\n        initType: \"Import\",\n        sourceType: \"Git\",\n        sourceUrl: \"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nrepo = azuredevops.Git(\"repo\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Import\",\n        source_type=\"Git\",\n        source_url=\"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Import\",\n                SourceType = \"Git\",\n                SourceUrl = \"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType:   pulumi.String(\"Import\"),\n\t\t\t\tSourceType: pulumi.String(\"Git\"),\n\t\t\t\tSourceUrl:  pulumi.String(\"https://github.com/microsoft/terraform-provider-azuredevops.git\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Repositories can be imported using the repo Guid e.g.\n\n```sh\n $ pulumi import azuredevops:index/git:Git repository projectName/00000000-0000-0000-0000-000000000000\n```\n\n ",
+            "description": "Manages a git repository within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Create Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nrepo = azuredevops.Git(\"repo\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Create Fork of another Azure DevOps Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: azuredevops_project.project.id,\n    parentRepositoryId: azuredevops_git_repository.parent.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nrepo = azuredevops.Git(\"repo\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    parent_repository_id=azuredevops_git_repository[\"parent\"][\"id\"],\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            ParentRepositoryId = azuredevops_git_repository.Parent.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId:          pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tParentRepositoryId: pulumi.Any(azuredevops_git_repository.Parent.Id),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Create Import from another Git repository\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst repo = new azuredevops.Git(\"repo\", {\n    projectId: azuredevops_project.project.id,\n    initialization: {\n        initType: \"Import\",\n        sourceType: \"Git\",\n        sourceUrl: \"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nrepo = azuredevops.Git(\"repo\",\n    project_id=azuredevops_project[\"project\"][\"id\"],\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Import\",\n        source_type=\"Git\",\n        source_url=\"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var repo = new AzureDevOps.Git(\"repo\", new AzureDevOps.GitArgs\n        {\n            ProjectId = azuredevops_project.Project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Import\",\n                SourceType = \"Git\",\n                SourceUrl = \"https://github.com/microsoft/terraform-provider-azuredevops.git\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\t_, err := azuredevops.NewGit(ctx, \"repo\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: pulumi.Any(azuredevops_project.Project.Id),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType:   pulumi.String(\"Import\"),\n\t\t\t\tSourceType: pulumi.String(\"Git\"),\n\t\t\t\tSourceUrl:  pulumi.String(\"https://github.com/microsoft/terraform-provider-azuredevops.git\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.\n\n```sh\n $ pulumi import azuredevops:index/git:Git repository projectName/repoName\n```\n\n or\n\n```sh\n $ pulumi import azuredevops:index/git:Git repository projectName/00000000-0000-0000-0000-000000000000\n```\n\n ",
             "properties": {
                 "defaultBranch": {
                     "type": "string",
@@ -6220,7 +6253,7 @@
             }
         },
         "azuredevops:index/group:Group": {
-            "description": "Manages a group within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst tf-project-readers = project.id.apply(id =\u003e azuredevops.getGroup({\n    projectId: id,\n    name: \"Readers\",\n}));\nconst tf-project-contributors = project.id.apply(id =\u003e azuredevops.getGroup({\n    projectId: id,\n    name: \"Contributors\",\n}));\nconst group = new azuredevops.Group(\"group\", {\n    scope: project.id,\n    displayName: \"Test group\",\n    description: \"Test description\",\n    members: [\n        tf_project_readers.descriptor,\n        tf_project_contributors.descriptor,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\ntf_project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,\n    name=\"Readers\"))\ntf_project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,\n    name=\"Contributors\"))\ngroup = azuredevops.Group(\"group\",\n    scope=project.id,\n    display_name=\"Test group\",\n    description=\"Test description\",\n    members=[\n        tf_project_readers.descriptor,\n        tf_project_contributors.descriptor,\n    ])\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var tf_project_readers = project.Id.Apply(id =\u003e AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs\n        {\n            ProjectId = id,\n            Name = \"Readers\",\n        }));\n        var tf_project_contributors = project.Id.Apply(id =\u003e AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs\n        {\n            ProjectId = id,\n            Name = \"Contributors\",\n        }));\n        var @group = new AzureDevOps.Group(\"group\", new AzureDevOps.GroupArgs\n        {\n            Scope = project.Id,\n            DisplayName = \"Test group\",\n            Description = \"Test description\",\n            Members = \n            {\n                tf_project_readers.Apply(tf_project_readers =\u003e tf_project_readers.Descriptor),\n                tf_project_contributors.Apply(tf_project_contributors =\u003e tf_project_contributors.Descriptor),\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)\n\n## PAT Permissions Required\n\n- **Project \u0026 Team**: Read, Write, \u0026 Manage\n\n\n## Import\n\nAzure DevOps Projects can be imported using the group identity descriptor, e.g.\n\n```sh\n $ pulumi import azuredevops:index/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU\n```\n\n ",
+            "description": "Manages a group within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst tf-project-readers = project.id.apply(id =\u003e azuredevops.getGroup({\n    projectId: id,\n    name: \"Readers\",\n}));\nconst tf-project-contributors = project.id.apply(id =\u003e azuredevops.getGroup({\n    projectId: id,\n    name: \"Contributors\",\n}));\nconst group = new azuredevops.Group(\"group\", {\n    scope: project.id,\n    displayName: \"Test group\",\n    description: \"Test description\",\n    members: [\n        tf_project_readers.descriptor,\n        tf_project_contributors.descriptor,\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\ntf_project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,\n    name=\"Readers\"))\ntf_project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,\n    name=\"Contributors\"))\ngroup = azuredevops.Group(\"group\",\n    scope=project.id,\n    display_name=\"Test group\",\n    description=\"Test description\",\n    members=[\n        tf_project_readers.descriptor,\n        tf_project_contributors.descriptor,\n    ])\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var tf_project_readers = project.Id.Apply(id =\u003e AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs\n        {\n            ProjectId = id,\n            Name = \"Readers\",\n        }));\n        var tf_project_contributors = project.Id.Apply(id =\u003e AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs\n        {\n            ProjectId = id,\n            Name = \"Contributors\",\n        }));\n        var @group = new AzureDevOps.Group(\"group\", new AzureDevOps.GroupArgs\n        {\n            Scope = project.Id,\n            DisplayName = \"Test group\",\n            Description = \"Test description\",\n            Members = \n            {\n                tf_project_readers.Apply(tf_project_readers =\u003e tf_project_readers.Descriptor),\n                tf_project_contributors.Apply(tf_project_contributors =\u003e tf_project_contributors.Descriptor),\n            },\n        });\n    }\n\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)\n\n## PAT Permissions Required\n\n- **Project \u0026 Team**: Read, Write, \u0026 Manage\n\n\n## Import\n\nAzure DevOps groups can be imported using the group identity descriptor, e.g.\n\n```sh\n $ pulumi import azuredevops:index/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU\n```\n\n ",
             "properties": {
                 "description": {
                     "type": "string",
@@ -6610,7 +6643,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
                 },
                 "name": {
                     "type": "string",
@@ -6630,7 +6663,7 @@
                 },
                 "workItemTemplate": {
                     "type": "string",
-                    "description": "Specifies the work item template. Defaults to `Agile`.\n"
+                    "description": "Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.\n"
                 }
             },
             "required": [
@@ -6647,7 +6680,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
                 },
                 "name": {
                     "type": "string",
@@ -6663,7 +6696,7 @@
                 },
                 "workItemTemplate": {
                     "type": "string",
-                    "description": "Specifies the work item template. Defaults to `Agile`.\n"
+                    "description": "Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.\n"
                 }
             },
             "stateInputs": {
@@ -6678,7 +6711,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
+                        "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n"
                     },
                     "name": {
                         "type": "string",
@@ -6698,7 +6731,7 @@
                     },
                     "workItemTemplate": {
                         "type": "string",
-                        "description": "Specifies the work item template. Defaults to `Agile`.\n"
+                        "description": "Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.\n"
                     }
                 },
                 "type": "object"
@@ -7253,6 +7286,130 @@
                     "sessionTokenHash": {
                         "type": "string",
                         "description": "A bcrypted hash of the attribute 'session_token'\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps": {
+            "description": "Manages an Azure DevOps service endpoint within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst test = new azuredevops.ServiceEndpointAzureDevOps(\"test\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample Azure DevOps\",\n    orgUrl: \"https://dev.azure.com/testorganization\",\n    releaseApiUrl: \"https://vsrm.dev.azure.com/testorganization\",\n    personalAccessToken: \"0000000000000000000000000000000000000000000000000000\",\n    description: \"Managed by Terraform\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\ntest = azuredevops.ServiceEndpointAzureDevOps(\"test\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample Azure DevOps\",\n    org_url=\"https://dev.azure.com/testorganization\",\n    release_api_url=\"https://vsrm.dev.azure.com/testorganization\",\n    personal_access_token=\"0000000000000000000000000000000000000000000000000000\",\n    description=\"Managed by Terraform\")\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var test = new AzureDevOps.ServiceEndpointAzureDevOps(\"test\", new AzureDevOps.ServiceEndpointAzureDevOpsArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample Azure DevOps\",\n            OrgUrl = \"https://dev.azure.com/testorganization\",\n            ReleaseApiUrl = \"https://vsrm.dev.azure.com/testorganization\",\n            PersonalAccessToken = \"0000000000000000000000000000000000000000000000000000\",\n            Description = \"Managed by Terraform\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointAzureDevOps(ctx, \"test\", \u0026azuredevops.ServiceEndpointAzureDevOpsArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample Azure DevOps\"),\n\t\t\tOrgUrl:              pulumi.String(\"https://dev.azure.com/testorganization\"),\n\t\t\tReleaseApiUrl:       pulumi.String(\"https://vsrm.dev.azure.com/testorganization\"),\n\t\t\tPersonalAccessToken: pulumi.String(\"0000000000000000000000000000000000000000000000000000\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Service Endpoint Azure DevOps can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n ",
+            "properties": {
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "orgUrl": {
+                    "type": "string",
+                    "description": "The organization URL.\n"
+                },
+                "personalAccessToken": {
+                    "type": "string",
+                    "description": "The Azure DevOps personal access token.\n"
+                },
+                "personalAccessTokenHash": {
+                    "type": "string",
+                    "description": "A bcrypted hash of the attribute 'personal_access_token'\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "releaseApiUrl": {
+                    "type": "string",
+                    "description": "The URL of the release API.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                }
+            },
+            "required": [
+                "authorization",
+                "orgUrl",
+                "personalAccessToken",
+                "personalAccessTokenHash",
+                "projectId",
+                "releaseApiUrl",
+                "serviceEndpointName"
+            ],
+            "inputProperties": {
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "orgUrl": {
+                    "type": "string",
+                    "description": "The organization URL.\n"
+                },
+                "personalAccessToken": {
+                    "type": "string",
+                    "description": "The Azure DevOps personal access token.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "releaseApiUrl": {
+                    "type": "string",
+                    "description": "The URL of the release API.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                }
+            },
+            "requiredInputs": [
+                "orgUrl",
+                "personalAccessToken",
+                "projectId",
+                "releaseApiUrl",
+                "serviceEndpointName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceEndpointAzureDevOps resources.\n",
+                "properties": {
+                    "authorization": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "orgUrl": {
+                        "type": "string",
+                        "description": "The organization URL.\n"
+                    },
+                    "personalAccessToken": {
+                        "type": "string",
+                        "description": "The Azure DevOps personal access token.\n"
+                    },
+                    "personalAccessTokenHash": {
+                        "type": "string",
+                        "description": "A bcrypted hash of the attribute 'personal_access_token'\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The project ID or project name.\n"
+                    },
+                    "releaseApiUrl": {
+                        "type": "string",
+                        "description": "The URL of the release API.\n"
+                    },
+                    "serviceEndpointName": {
+                        "type": "string",
+                        "description": "The Service Endpoint name.\n"
                     }
                 },
                 "type": "object"
@@ -7974,6 +8131,107 @@
                 }
             ]
         },
+        "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise": {
+            "description": "Manages a GitHub Enterprise Server service endpoint within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst serviceendpointGhes1 = new azuredevops.ServiceEndpointGitHubEnterprise(\"serviceendpointGhes1\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample GitHub Enterprise\",\n    url: \"https://github.contoso.com\",\n    description: \"Managed by Terraform\",\n    authPersonal: {\n        personalAccessToken: \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nserviceendpoint_ghes1 = azuredevops.ServiceEndpointGitHubEnterprise(\"serviceendpointGhes1\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample GitHub Enterprise\",\n    url=\"https://github.contoso.com\",\n    description=\"Managed by Terraform\",\n    auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(\n        personal_access_token=\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var serviceendpointGhes1 = new AzureDevOps.ServiceEndpointGitHubEnterprise(\"serviceendpointGhes1\", new AzureDevOps.ServiceEndpointGitHubEnterpriseArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample GitHub Enterprise\",\n            Url = \"https://github.contoso.com\",\n            Description = \"Managed by Terraform\",\n            AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs\n            {\n                PersonalAccessToken = \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointGitHubEnterprise(ctx, \"serviceendpointGhes1\", \u0026azuredevops.ServiceEndpointGitHubEnterpriseArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample GitHub Enterprise\"),\n\t\t\tUrl:                 pulumi.String(\"https://github.contoso.com\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t\tAuthPersonal: \u0026azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs{\n\t\t\t\tPersonalAccessToken: pulumi.String(\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n ",
+            "properties": {
+                "authPersonal": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubEnterpriseAuthPersonal:ServiceEndpointGitHubEnterpriseAuthPersonal",
+                    "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
+                },
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Github Enterprise Server Url.\n"
+                }
+            },
+            "required": [
+                "authPersonal",
+                "authorization",
+                "projectId",
+                "serviceEndpointName",
+                "url"
+            ],
+            "inputProperties": {
+                "authPersonal": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubEnterpriseAuthPersonal:ServiceEndpointGitHubEnterpriseAuthPersonal",
+                    "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
+                },
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "Github Enterprise Server Url.\n"
+                }
+            },
+            "requiredInputs": [
+                "authPersonal",
+                "projectId",
+                "serviceEndpointName",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceEndpointGitHubEnterprise resources.\n",
+                "properties": {
+                    "authPersonal": {
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointGitHubEnterpriseAuthPersonal:ServiceEndpointGitHubEnterpriseAuthPersonal",
+                        "description": "An `auth_personal` block as documented below. Allows connecting using a personal access token.\n"
+                    },
+                    "authorization": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The project ID or project name.\n"
+                    },
+                    "serviceEndpointName": {
+                        "type": "string",
+                        "description": "The Service Endpoint name.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "Github Enterprise Server Url.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes": {
             "description": "Manages a Kubernetes service endpoint within Azure DevOps.\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n ",
             "properties": {
@@ -8142,6 +8400,119 @@
                     "type": "azuredevops:ServiceEndpoint/kubernetes:Kubernetes"
                 }
             ]
+        },
+        "azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm": {
+            "description": "Manages a npm service endpoint within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst serviceendpoint = new azuredevops.ServiceEndpointNpm(\"serviceendpoint\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample npm\",\n    url: \"https://registry.npmjs.org\",\n    accessToken: \"00000000-0000-0000-0000-000000000000\",\n    description: \"Managed by Terraform\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nserviceendpoint = azuredevops.ServiceEndpointNpm(\"serviceendpoint\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample npm\",\n    url=\"https://registry.npmjs.org\",\n    access_token=\"00000000-0000-0000-0000-000000000000\",\n    description=\"Managed by Terraform\")\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var serviceendpoint = new AzureDevOps.ServiceEndpointNpm(\"serviceendpoint\", new AzureDevOps.ServiceEndpointNpmArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample npm\",\n            Url = \"https://registry.npmjs.org\",\n            AccessToken = \"00000000-0000-0000-0000-000000000000\",\n            Description = \"Managed by Terraform\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointNpm(ctx, \"serviceendpoint\", \u0026azuredevops.ServiceEndpointNpmArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample npm\"),\n\t\t\tUrl:                 pulumi.String(\"https://registry.npmjs.org\"),\n\t\t\tAccessToken:         pulumi.String(\"00000000-0000-0000-0000-000000000000\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops\u0026tabs=yaml)\n- [npm User Token](https://docs.npmjs.com/about-access-tokens)\n\n\n## Import\n\nAzure DevOps Service Endpoint npm can be imported using the **projectID/serviceEndpointID**, e.g.\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n ",
+            "properties": {
+                "accessToken": {
+                    "type": "string",
+                    "description": "The access token for npm registry.\n"
+                },
+                "accessTokenHash": {
+                    "type": "string",
+                    "description": "A bcrypted hash of the attribute 'access_token'\n"
+                },
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The Service Endpoint description.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the npm registry to connect with.\n"
+                }
+            },
+            "required": [
+                "accessToken",
+                "accessTokenHash",
+                "authorization",
+                "projectId",
+                "serviceEndpointName",
+                "url"
+            ],
+            "inputProperties": {
+                "accessToken": {
+                    "type": "string",
+                    "description": "The access token for npm registry.\n"
+                },
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string",
+                    "description": "The Service Endpoint description.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "url": {
+                    "type": "string",
+                    "description": "URL of the npm registry to connect with.\n"
+                }
+            },
+            "requiredInputs": [
+                "accessToken",
+                "projectId",
+                "serviceEndpointName",
+                "url"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceEndpointNpm resources.\n",
+                "properties": {
+                    "accessToken": {
+                        "type": "string",
+                        "description": "The access token for npm registry.\n"
+                    },
+                    "accessTokenHash": {
+                        "type": "string",
+                        "description": "A bcrypted hash of the attribute 'access_token'\n"
+                    },
+                    "authorization": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string",
+                        "description": "The Service Endpoint description.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The project ID or project name.\n"
+                    },
+                    "serviceEndpointName": {
+                        "type": "string",
+                        "description": "The Service Endpoint name.\n"
+                    },
+                    "url": {
+                        "type": "string",
+                        "description": "URL of the npm registry to connect with.\n"
+                    }
+                },
+                "type": "object"
+            }
         },
         "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline": {
             "description": "Manages a Azure DevOps Service Connection service endpoint within Azure DevOps. Allows to run downstream pipelines, monitoring their execution, collecting and consolidating artefacts produced in the delegate pipelines (yaml block `task: RunPipelines@1`). More details on Marketplace page: [RunPipelines](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines)\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst serviceendpoint = new azuredevops.ServiceEndpointPipeline(\"serviceendpoint\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample Pipeline Runner\",\n    organizationName: \"MyOrganization\",\n    authPersonal: {\n        personalAccessToken: \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    },\n    description: \"Managed by Terraform\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nserviceendpoint = azuredevops.ServiceEndpointPipeline(\"serviceendpoint\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample Pipeline Runner\",\n    organization_name=\"MyOrganization\",\n    auth_personal=azuredevops.ServiceEndpointPipelineAuthPersonalArgs(\n        personal_access_token=\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    ),\n    description=\"Managed by Terraform\")\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var serviceendpoint = new AzureDevOps.ServiceEndpointPipeline(\"serviceendpoint\", new AzureDevOps.ServiceEndpointPipelineArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample Pipeline Runner\",\n            OrganizationName = \"MyOrganization\",\n            AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointPipelineAuthPersonalArgs\n            {\n                PersonalAccessToken = \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n            },\n            Description = \"Managed by Terraform\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointPipeline(ctx, \"serviceendpoint\", \u0026azuredevops.ServiceEndpointPipelineArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample Pipeline Runner\"),\n\t\t\tOrganizationName:    pulumi.String(\"MyOrganization\"),\n\t\t\tAuthPersonal: \u0026azuredevops.ServiceEndpointPipelineAuthPersonalArgs{\n\t\t\t\tPersonalAccessToken: pulumi.String(\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"),\n\t\t\t},\n\t\t\tDescription: pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Service Endpoint can be imported using the `project id`, `service connection id`, e.g.\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline serviceendpoint projectID/00000000-0000-0000-0000-000000000000\n```\n\n ",
@@ -8352,6 +8723,161 @@
                     "url": {
                         "type": "string",
                         "description": "URL of the SonarQube server to connect with.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh": {
+            "description": "Manages a SSH service endpoint within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst test = new azuredevops.ServiceEndpointSsh(\"test\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample SSH\",\n    host: \"1.2.3.4\",\n    username: \"username\",\n    description: \"Managed by Terraform\",\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\ntest = azuredevops.ServiceEndpointSsh(\"test\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample SSH\",\n    host=\"1.2.3.4\",\n    username=\"username\",\n    description=\"Managed by Terraform\")\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var test = new AzureDevOps.ServiceEndpointSsh(\"test\", new AzureDevOps.ServiceEndpointSshArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample SSH\",\n            Host = \"1.2.3.4\",\n            Username = \"username\",\n            Description = \"Managed by Terraform\",\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointSsh(ctx, \"test\", \u0026azuredevops.ServiceEndpointSshArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample SSH\"),\n\t\t\tHost:                pulumi.String(\"1.2.3.4\"),\n\t\t\tUsername:            pulumi.String(\"username\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Service Endpoint SSH can be imported using **projectID/serviceEndpointID** or ** projectName/serviceEndpointID**\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n ",
+            "properties": {
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "The Host name or IP address of the remote machine.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password for connecting to the endpoint.\n"
+                },
+                "passwordHash": {
+                    "type": "string",
+                    "description": "A bcrypted hash of the attribute 'password'\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port number on the remote machine to use for connecting. Defaults to `22`.\n"
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "Private Key for connecting to the endpoint.\n"
+                },
+                "privateKeyHash": {
+                    "type": "string",
+                    "description": "A bcrypted hash of the attribute 'private_key'\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Username for connecting to the endpoint.\n"
+                }
+            },
+            "required": [
+                "authorization",
+                "host",
+                "passwordHash",
+                "privateKeyHash",
+                "projectId",
+                "serviceEndpointName",
+                "username"
+            ],
+            "inputProperties": {
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "host": {
+                    "type": "string",
+                    "description": "The Host name or IP address of the remote machine.\n"
+                },
+                "password": {
+                    "type": "string",
+                    "description": "Password for connecting to the endpoint.\n"
+                },
+                "port": {
+                    "type": "integer",
+                    "description": "Port number on the remote machine to use for connecting. Defaults to `22`.\n"
+                },
+                "privateKey": {
+                    "type": "string",
+                    "description": "Private Key for connecting to the endpoint.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                },
+                "username": {
+                    "type": "string",
+                    "description": "Username for connecting to the endpoint.\n"
+                }
+            },
+            "requiredInputs": [
+                "host",
+                "projectId",
+                "serviceEndpointName",
+                "username"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceEndpointSsh resources.\n",
+                "properties": {
+                    "authorization": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "host": {
+                        "type": "string",
+                        "description": "The Host name or IP address of the remote machine.\n"
+                    },
+                    "password": {
+                        "type": "string",
+                        "description": "Password for connecting to the endpoint.\n"
+                    },
+                    "passwordHash": {
+                        "type": "string",
+                        "description": "A bcrypted hash of the attribute 'password'\n"
+                    },
+                    "port": {
+                        "type": "integer",
+                        "description": "Port number on the remote machine to use for connecting. Defaults to `22`.\n"
+                    },
+                    "privateKey": {
+                        "type": "string",
+                        "description": "Private Key for connecting to the endpoint.\n"
+                    },
+                    "privateKeyHash": {
+                        "type": "string",
+                        "description": "A bcrypted hash of the attribute 'private_key'\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The project ID or project name.\n"
+                    },
+                    "serviceEndpointName": {
+                        "type": "string",
+                        "description": "The Service Endpoint name.\n"
+                    },
+                    "username": {
+                        "type": "string",
+                        "description": "Username for connecting to the endpoint.\n"
                     }
                 },
                 "type": "object"

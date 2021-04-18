@@ -4538,6 +4538,154 @@ func (o ServiceEndpointGitHubAuthPersonalPtrOutput) PersonalAccessTokenHash() pu
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceEndpointGitHubEnterpriseAuthPersonal struct {
+	// The Personal Access Token for Github.
+	PersonalAccessToken     string  `pulumi:"personalAccessToken"`
+	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
+}
+
+// ServiceEndpointGitHubEnterpriseAuthPersonalInput is an input type that accepts ServiceEndpointGitHubEnterpriseAuthPersonalArgs and ServiceEndpointGitHubEnterpriseAuthPersonalOutput values.
+// You can construct a concrete instance of `ServiceEndpointGitHubEnterpriseAuthPersonalInput` via:
+//
+//          ServiceEndpointGitHubEnterpriseAuthPersonalArgs{...}
+type ServiceEndpointGitHubEnterpriseAuthPersonalInput interface {
+	pulumi.Input
+
+	ToServiceEndpointGitHubEnterpriseAuthPersonalOutput() ServiceEndpointGitHubEnterpriseAuthPersonalOutput
+	ToServiceEndpointGitHubEnterpriseAuthPersonalOutputWithContext(context.Context) ServiceEndpointGitHubEnterpriseAuthPersonalOutput
+}
+
+type ServiceEndpointGitHubEnterpriseAuthPersonalArgs struct {
+	// The Personal Access Token for Github.
+	PersonalAccessToken     pulumi.StringInput    `pulumi:"personalAccessToken"`
+	PersonalAccessTokenHash pulumi.StringPtrInput `pulumi:"personalAccessTokenHash"`
+}
+
+func (ServiceEndpointGitHubEnterpriseAuthPersonalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthPersonal)(nil)).Elem()
+}
+
+func (i ServiceEndpointGitHubEnterpriseAuthPersonalArgs) ToServiceEndpointGitHubEnterpriseAuthPersonalOutput() ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
+	return i.ToServiceEndpointGitHubEnterpriseAuthPersonalOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointGitHubEnterpriseAuthPersonalArgs) ToServiceEndpointGitHubEnterpriseAuthPersonalOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseAuthPersonalOutput)
+}
+
+func (i ServiceEndpointGitHubEnterpriseAuthPersonalArgs) ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput() ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
+	return i.ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointGitHubEnterpriseAuthPersonalArgs) ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseAuthPersonalOutput).ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput is an input type that accepts ServiceEndpointGitHubEnterpriseAuthPersonalArgs, ServiceEndpointGitHubEnterpriseAuthPersonalPtr and ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput` via:
+//
+//          ServiceEndpointGitHubEnterpriseAuthPersonalArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput() ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput
+	ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(context.Context) ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput
+}
+
+type serviceEndpointGitHubEnterpriseAuthPersonalPtrType ServiceEndpointGitHubEnterpriseAuthPersonalArgs
+
+func ServiceEndpointGitHubEnterpriseAuthPersonalPtr(v *ServiceEndpointGitHubEnterpriseAuthPersonalArgs) ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput {
+	return (*serviceEndpointGitHubEnterpriseAuthPersonalPtrType)(v)
+}
+
+func (*serviceEndpointGitHubEnterpriseAuthPersonalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointGitHubEnterpriseAuthPersonal)(nil)).Elem()
+}
+
+func (i *serviceEndpointGitHubEnterpriseAuthPersonalPtrType) ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput() ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
+	return i.ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointGitHubEnterpriseAuthPersonalPtrType) ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput)
+}
+
+type ServiceEndpointGitHubEnterpriseAuthPersonalOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointGitHubEnterpriseAuthPersonalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthPersonal)(nil)).Elem()
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) ToServiceEndpointGitHubEnterpriseAuthPersonalOutput() ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) ToServiceEndpointGitHubEnterpriseAuthPersonalOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput() ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
+	return o.ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointGitHubEnterpriseAuthPersonal) *ServiceEndpointGitHubEnterpriseAuthPersonal {
+		return &v
+	}).(ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput)
+}
+
+// The Personal Access Token for Github.
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) PersonalAccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointGitHubEnterpriseAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointGitHubEnterpriseAuthPersonal) *string { return v.PersonalAccessTokenHash }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointGitHubEnterpriseAuthPersonal)(nil)).Elem()
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput() ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) Elem() ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubEnterpriseAuthPersonal) ServiceEndpointGitHubEnterpriseAuthPersonal {
+		return *v
+	}).(ServiceEndpointGitHubEnterpriseAuthPersonalOutput)
+}
+
+// The Personal Access Token for Github.
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) PersonalAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubEnterpriseAuthPersonal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PersonalAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubEnterpriseAuthPersonal) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PersonalAccessTokenHash
+	}).(pulumi.StringPtrOutput)
+}
+
 type ServiceEndpointKubernetesAzureSubscription struct {
 	// Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
 	AzureEnvironment *string `pulumi:"azureEnvironment"`
@@ -6252,6 +6400,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthOauthPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthPersonalOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubAuthPersonalPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointGitHubEnterpriseAuthPersonalOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesAzureSubscriptionOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesAzureSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesKubeconfigOutput{})

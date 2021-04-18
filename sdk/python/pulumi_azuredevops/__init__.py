@@ -38,14 +38,18 @@ from .queue import *
 from .resource_authorization import *
 from .service_endpoint_artifactory import *
 from .service_endpoint_aws import *
+from .service_endpoint_azure_dev_ops import *
 from .service_endpoint_azure_ecr import *
 from .service_endpoint_azure_rm import *
 from .service_endpoint_bit_bucket import *
 from .service_endpoint_docker_registry import *
 from .service_endpoint_git_hub import *
+from .service_endpoint_git_hub_enterprise import *
 from .service_endpoint_kubernetes import *
+from .service_endpoint_npm import *
 from .service_endpoint_pipeline import *
 from .service_endpoint_sonar_qube import *
+from .service_endpoint_ssh import *
 from .user import *
 from .variable_group import *
 from .work_item_query_permissions import *
@@ -123,6 +127,8 @@ def _register_module():
                 return ServiceEndpointArtifactory(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
                 return ServiceEndpointAws(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps":
+                return ServiceEndpointAzureDevOps(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr":
                 return ServiceEndpointAzureEcr(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM":
@@ -133,12 +139,18 @@ def _register_module():
                 return ServiceEndpointDockerRegistry(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub":
                 return ServiceEndpointGitHub(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise":
+                return ServiceEndpointGitHubEnterprise(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes":
                 return ServiceEndpointKubernetes(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm":
+                return ServiceEndpointNpm(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
                 return ServiceEndpointPipeline(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
                 return ServiceEndpointSonarQube(name, pulumi.ResourceOptions(urn=urn))
+            elif typ == "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
+                return ServiceEndpointSsh(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/user:User":
                 return User(name, pulumi.ResourceOptions(urn=urn))
             elif typ == "azuredevops:index/variableGroup:VariableGroup":
@@ -172,14 +184,18 @@ def _register_module():
     pulumi.runtime.register_resource_module("azuredevops", "index/resourceAuthorization", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointArtifactory", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAws", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAzureDevOps", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAzureEcr", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointAzureRM", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointBitBucket", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointDockerRegistry", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointGitHub", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointGitHubEnterprise", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointKubernetes", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointNpm", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointPipeline", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointSonarQube", _module_instance)
+    pulumi.runtime.register_resource_module("azuredevops", "index/serviceEndpointSsh", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/user", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/variableGroup", _module_instance)
     pulumi.runtime.register_resource_module("azuredevops", "index/workItemQueryPermissions", _module_instance)
