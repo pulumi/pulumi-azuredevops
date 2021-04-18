@@ -64,6 +64,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointArtifactory{}
 	case "azuredevops:index/serviceEndpointAws:ServiceEndpointAws":
 		r = &ServiceEndpointAws{}
+	case "azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps":
+		r = &ServiceEndpointAzureDevOps{}
 	case "azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr":
 		r = &ServiceEndpointAzureEcr{}
 	case "azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM":
@@ -74,12 +76,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointDockerRegistry{}
 	case "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub":
 		r = &ServiceEndpointGitHub{}
+	case "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise":
+		r = &ServiceEndpointGitHubEnterprise{}
 	case "azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes":
 		r = &ServiceEndpointKubernetes{}
+	case "azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm":
+		r = &ServiceEndpointNpm{}
 	case "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
 		r = &ServiceEndpointPipeline{}
 	case "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
 		r = &ServiceEndpointSonarQube{}
+	case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
+		r = &ServiceEndpointSsh{}
 	case "azuredevops:index/user:User":
 		r = &User{}
 	case "azuredevops:index/variableGroup:VariableGroup":
@@ -229,6 +237,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/serviceEndpointAzureDevOps",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/serviceEndpointAzureEcr",
 		&module{version},
 	)
@@ -254,7 +267,17 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/serviceEndpointGitHubEnterprise",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/serviceEndpointKubernetes",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceEndpointNpm",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -265,6 +288,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceEndpointSonarQube",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceEndpointSsh",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

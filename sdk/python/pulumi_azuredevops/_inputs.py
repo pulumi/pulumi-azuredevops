@@ -38,6 +38,7 @@ __all__ = [
     'ServiceEndpointAzureRMCredentialsArgs',
     'ServiceEndpointGitHubAuthOauthArgs',
     'ServiceEndpointGitHubAuthPersonalArgs',
+    'ServiceEndpointGitHubEnterpriseAuthPersonalArgs',
     'ServiceEndpointKubernetesAzureSubscriptionArgs',
     'ServiceEndpointKubernetesKubeconfigArgs',
     'ServiceEndpointKubernetesServiceAccountArgs',
@@ -1729,6 +1730,40 @@ class ServiceEndpointGitHubAuthOauthArgs:
 
 @pulumi.input_type
 class ServiceEndpointGitHubAuthPersonalArgs:
+    def __init__(__self__, *,
+                 personal_access_token: pulumi.Input[str],
+                 personal_access_token_hash: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] personal_access_token: The Personal Access Token for Github.
+        """
+        pulumi.set(__self__, "personal_access_token", personal_access_token)
+        if personal_access_token_hash is not None:
+            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
+
+    @property
+    @pulumi.getter(name="personalAccessToken")
+    def personal_access_token(self) -> pulumi.Input[str]:
+        """
+        The Personal Access Token for Github.
+        """
+        return pulumi.get(self, "personal_access_token")
+
+    @personal_access_token.setter
+    def personal_access_token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "personal_access_token", value)
+
+    @property
+    @pulumi.getter(name="personalAccessTokenHash")
+    def personal_access_token_hash(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "personal_access_token_hash")
+
+    @personal_access_token_hash.setter
+    def personal_access_token_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "personal_access_token_hash", value)
+
+
+@pulumi.input_type
+class ServiceEndpointGitHubEnterpriseAuthPersonalArgs:
     def __init__(__self__, *,
                  personal_access_token: pulumi.Input[str],
                  personal_access_token_hash: Optional[pulumi.Input[str]] = None):

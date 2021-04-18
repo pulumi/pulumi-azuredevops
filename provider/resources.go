@@ -116,7 +116,13 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_serviceendpoint_runpipeline":  {Tok: makeResource(mainMod, "ServiceEndpointPipeline")},
 			"azuredevops_serviceendpoint_artifactory":  {Tok: makeResource(mainMod, "ServiceEndpointArtifactory")},
 			"azuredevops_serviceendpoint_sonarqube":    {Tok: makeResource(mainMod, "ServiceEndpointSonarQube")},
-			"azuredevops_branch_policy_merge_types":    {Tok: makeResource(mainMod, "BranchPolicyMergeTypes")},
+			"azuredevops_serviceendpoint_ssh":          {Tok: makeResource(mainMod, "ServiceEndpointSsh")},
+			"azuredevops_serviceendpoint_npm":          {Tok: makeResource(mainMod, "ServiceEndpointNpm")},
+			"azuredevops_serviceendpoint_azuredevops":  {Tok: makeResource(mainMod, "ServiceEndpointAzureDevOps")},
+			"azuredevops_serviceendpoint_github_enterprise": {
+				Tok: makeResource(mainMod, "ServiceEndpointGitHubEnterprise"),
+			},
+			"azuredevops_branch_policy_merge_types": {Tok: makeResource(mainMod, "BranchPolicyMergeTypes")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azuredevops_area": {

@@ -106,7 +106,13 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Repositories can be imported using the repo Guid e.g.
+// Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
+//
+// ```sh
+//  $ pulumi import azuredevops:Repository/git:Git repository projectName/repoName
+// ```
+//
+//  or
 //
 // ```sh
 //  $ pulumi import azuredevops:Repository/git:Git repository projectName/00000000-0000-0000-0000-000000000000

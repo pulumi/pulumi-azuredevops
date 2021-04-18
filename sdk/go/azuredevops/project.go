@@ -68,7 +68,7 @@ type Project struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapOutput `pulumi:"features"`
 	// The Project Name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -78,7 +78,7 @@ type Project struct {
 	VersionControl pulumi.StringPtrOutput `pulumi:"versionControl"`
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
-	// Specifies the work item template. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
 	WorkItemTemplate pulumi.StringPtrOutput `pulumi:"workItemTemplate"`
 }
 
@@ -120,7 +120,7 @@ type projectState struct {
 	// The Description of the Project.
 	Description *string `pulumi:"description"`
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features map[string]string `pulumi:"features"`
 	// The Project Name.
 	Name *string `pulumi:"name"`
@@ -130,7 +130,7 @@ type projectState struct {
 	VersionControl *string `pulumi:"versionControl"`
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility *string `pulumi:"visibility"`
-	// Specifies the work item template. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
 	WorkItemTemplate *string `pulumi:"workItemTemplate"`
 }
 
@@ -138,7 +138,7 @@ type ProjectState struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrInput
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapInput
 	// The Project Name.
 	Name pulumi.StringPtrInput
@@ -148,7 +148,7 @@ type ProjectState struct {
 	VersionControl pulumi.StringPtrInput
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility pulumi.StringPtrInput
-	// Specifies the work item template. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
 	WorkItemTemplate pulumi.StringPtrInput
 }
 
@@ -160,7 +160,7 @@ type projectArgs struct {
 	// The Description of the Project.
 	Description *string `pulumi:"description"`
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features map[string]string `pulumi:"features"`
 	// The Project Name.
 	Name *string `pulumi:"name"`
@@ -168,7 +168,7 @@ type projectArgs struct {
 	VersionControl *string `pulumi:"versionControl"`
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility *string `pulumi:"visibility"`
-	// Specifies the work item template. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
 	WorkItemTemplate *string `pulumi:"workItemTemplate"`
 }
 
@@ -177,7 +177,7 @@ type ProjectArgs struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrInput
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapInput
 	// The Project Name.
 	Name pulumi.StringPtrInput
@@ -185,7 +185,7 @@ type ProjectArgs struct {
 	VersionControl pulumi.StringPtrInput
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility pulumi.StringPtrInput
-	// Specifies the work item template. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
 	WorkItemTemplate pulumi.StringPtrInput
 }
 

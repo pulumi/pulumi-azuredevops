@@ -71,7 +71,7 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Defines the status (`enabled`, `disabled`) of the project features.  
-        /// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        /// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         /// </summary>
         [Output("features")]
         public Output<ImmutableDictionary<string, string>?> Features { get; private set; } = null!;
@@ -101,7 +101,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Visibility { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the work item template. Defaults to `Agile`.
+        /// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
         /// </summary>
         [Output("workItemTemplate")]
         public Output<string?> WorkItemTemplate { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Defines the status (`enabled`, `disabled`) of the project features.  
-        /// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        /// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         /// </summary>
         public InputMap<string> Features
         {
@@ -194,7 +194,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Visibility { get; set; }
 
         /// <summary>
-        /// Specifies the work item template. Defaults to `Agile`.
+        /// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
         /// </summary>
         [Input("workItemTemplate")]
         public Input<string>? WorkItemTemplate { get; set; }
@@ -217,7 +217,7 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Defines the status (`enabled`, `disabled`) of the project features.  
-        /// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+        /// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         /// </summary>
         public InputMap<string> Features
         {
@@ -250,7 +250,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Visibility { get; set; }
 
         /// <summary>
-        /// Specifies the work item template. Defaults to `Agile`.
+        /// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
         /// </summary>
         [Input("workItemTemplate")]
         public Input<string>? WorkItemTemplate { get; set; }
