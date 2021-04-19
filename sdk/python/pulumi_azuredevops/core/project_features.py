@@ -96,9 +96,7 @@ class ProjectFeatures(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages features for Azure DevOps projects
 
@@ -193,16 +191,8 @@ class ProjectFeatures(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""ProjectFeatures is deprecated: azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -330,9 +330,7 @@ class Group(pulumi.CustomResource):
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  origin_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         """
         Manages a group within Azure DevOps.
 
@@ -447,16 +445,8 @@ class Group(pulumi.CustomResource):
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  origin_id: Optional[pulumi.Input[str]] = None,
                  scope: Optional[pulumi.Input[str]] = None,
-                 __props__=None,
-                 __name__=None,
-                 __opts__=None):
+                 __props__=None):
         pulumi.log.warn("""Group is deprecated: azuredevops.identities.Group has been deprecated in favor of azuredevops.Group""")
-        if __name__ is not None:
-            warnings.warn("explicit use of __name__ is deprecated", DeprecationWarning)
-            resource_name = __name__
-        if __opts__ is not None:
-            warnings.warn("explicit use of __opts__ is deprecated, use 'opts' instead", DeprecationWarning)
-            opts = __opts__
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
