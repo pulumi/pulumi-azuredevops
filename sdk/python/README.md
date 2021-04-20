@@ -3,7 +3,7 @@
 [![NPM version](https://badge.fury.io/js/%40pulumi%2Fazuredevops.svg)](https://www.npmjs.com/package/@pulumi/azuredevops)
 [![Python version](https://badge.fury.io/py/pulumi-azuredevops.svg)](https://pypi.org/project/pulumi-azuredevops)
 [![NuGet version](https://badge.fury.io/nu/pulumi.azuredevops.svg)](https://badge.fury.io/nu/pulumi.azuredevops)
-[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-azuredevops/sdk/go)](https://pkg.go.dev/github.com/pulumi/pulumi-azuredevops/sdk/go)
+[![PkgGoDev](https://pkg.go.dev/badge/github.com/pulumi/pulumi-azuredevops/sdk/v2/go)](https://pkg.go.dev/github.com/pulumi/pulumi-azuredevops/sdk/v2/go)
 [![License](https://img.shields.io/npm/l/%40pulumi%2Fpulumi.svg)](https://github.com/pulumi/pulumi-azuredevops/blob/master/LICENSE)
 
 # Azure DevOps Resource Provider
@@ -36,7 +36,7 @@ To use from Python, install using `pip`:
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-azuredevops/sdk/go/...
+    $ go get github.com/pulumi/pulumi-azuredevops/sdk/v2/go/...
 
 ## Configuration
 
