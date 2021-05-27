@@ -149,28 +149,28 @@ export interface ServiceEndpointNpmState {
     /**
      * The access token for npm registry.
      */
-    readonly accessToken?: pulumi.Input<string>;
+    accessToken?: pulumi.Input<string>;
     /**
      * A bcrypted hash of the attribute 'access_token'
      */
-    readonly accessTokenHash?: pulumi.Input<string>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    accessTokenHash?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
     /**
      * URL of the npm registry to connect with.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -180,22 +180,22 @@ export interface ServiceEndpointNpmArgs {
     /**
      * The access token for npm registry.
      */
-    readonly accessToken: pulumi.Input<string>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    accessToken: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
     /**
      * URL of the npm registry to connect with.
      */
-    readonly url: pulumi.Input<string>;
+    url: pulumi.Input<string>;
 }

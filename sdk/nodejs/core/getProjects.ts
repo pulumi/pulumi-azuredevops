@@ -51,11 +51,11 @@ export interface GetProjectsArgs {
     /**
      * Name of the Project, if not specified all projects will be returned.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
      */
-    readonly state?: string;
+    state?: string;
 }
 
 /**

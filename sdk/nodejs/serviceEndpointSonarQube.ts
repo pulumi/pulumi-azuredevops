@@ -146,56 +146,56 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointSonarQube resources.
  */
 export interface ServiceEndpointSonarQubeState {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
     /**
      * Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
      */
-    readonly token?: pulumi.Input<string>;
+    token?: pulumi.Input<string>;
     /**
      * A bcrypted hash of the attribute 'token'
      */
-    readonly tokenHash?: pulumi.Input<string>;
+    tokenHash?: pulumi.Input<string>;
     /**
      * URL of the SonarQube server to connect with.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ServiceEndpointSonarQube resource.
  */
 export interface ServiceEndpointSonarQubeArgs {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
     /**
      * Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
      */
-    readonly token: pulumi.Input<string>;
+    token: pulumi.Input<string>;
     /**
      * URL of the SonarQube server to connect with.
      */
-    readonly url: pulumi.Input<string>;
+    url: pulumi.Input<string>;
 }

@@ -209,23 +209,23 @@ export interface WorkItemQueryPermissionsState {
     /**
      * Path to a query or folder beneath `Shared Queries`
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available
      */
-    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The **group** principal to assign the permissions.
      */
-    readonly principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string>;
     /**
      * The ID of the project to assign the permissions.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    readonly replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean>;
 }
 
 /**
@@ -235,21 +235,21 @@ export interface WorkItemQueryPermissionsArgs {
     /**
      * Path to a query or folder beneath `Shared Queries`
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available
      */
-    readonly permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The **group** principal to assign the permissions.
      */
-    readonly principal: pulumi.Input<string>;
+    principal: pulumi.Input<string>;
     /**
      * The ID of the project to assign the permissions.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    readonly replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean>;
 }

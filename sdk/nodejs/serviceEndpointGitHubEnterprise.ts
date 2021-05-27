@@ -142,21 +142,21 @@ export interface ServiceEndpointGitHubEnterpriseState {
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    readonly authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
     /**
      * Github Enterprise Server Url.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
@@ -166,19 +166,19 @@ export interface ServiceEndpointGitHubEnterpriseArgs {
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    readonly authPersonal: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authPersonal: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
     /**
      * Github Enterprise Server Url.
      */
-    readonly url: pulumi.Input<string>;
+    url: pulumi.Input<string>;
 }

@@ -122,8 +122,8 @@ export interface ProjectFeaturesState {
      * Defines the status (`enabled`, `disabled`) of the project features.  
      * Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      */
-    readonly features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly projectId?: pulumi.Input<string>;
+    features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    projectId?: pulumi.Input<string>;
 }
 
 /**
@@ -134,6 +134,6 @@ export interface ProjectFeaturesArgs {
      * Defines the status (`enabled`, `disabled`) of the project features.  
      * Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      */
-    readonly features: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly projectId: pulumi.Input<string>;
+    features: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    projectId: pulumi.Input<string>;
 }

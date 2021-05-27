@@ -53,11 +53,11 @@ export interface GetAgentQueueArgs {
     /**
      * Name of the Agent Queue.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Project Id.
      */
-    readonly projectId: string;
+    projectId: string;
 }
 
 /**

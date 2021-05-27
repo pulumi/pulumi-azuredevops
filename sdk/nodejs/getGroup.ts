@@ -54,11 +54,11 @@ export interface GetGroupArgs {
     /**
      * The Group Name.
      */
-    readonly name: string;
+    name: string;
     /**
      * The Project ID. If no project ID is specified the project collection groups will be searched.
      */
-    readonly projectId?: string;
+    projectId?: string;
 }
 
 /**

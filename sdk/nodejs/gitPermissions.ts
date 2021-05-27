@@ -258,27 +258,27 @@ export interface GitPermissionsState {
     /**
      * The name of the branch to assign the permissions.
      */
-    readonly branchName?: pulumi.Input<string>;
+    branchName?: pulumi.Input<string>;
     /**
      * the permissions to assign. The follwing permissions are available
      */
-    readonly permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The **group** principal to assign the permissions.
      */
-    readonly principal?: pulumi.Input<string>;
+    principal?: pulumi.Input<string>;
     /**
      * The ID of the project to assign the permissions.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    readonly replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean>;
     /**
      * The ID of the GIT repository to assign the permissions
      */
-    readonly repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string>;
 }
 
 /**
@@ -288,25 +288,25 @@ export interface GitPermissionsArgs {
     /**
      * The name of the branch to assign the permissions.
      */
-    readonly branchName?: pulumi.Input<string>;
+    branchName?: pulumi.Input<string>;
     /**
      * the permissions to assign. The follwing permissions are available
      */
-    readonly permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The **group** principal to assign the permissions.
      */
-    readonly principal: pulumi.Input<string>;
+    principal: pulumi.Input<string>;
     /**
      * The ID of the project to assign the permissions.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      */
-    readonly replace?: pulumi.Input<boolean>;
+    replace?: pulumi.Input<boolean>;
     /**
      * The ID of the GIT repository to assign the permissions
      */
-    readonly repositoryId?: pulumi.Input<string>;
+    repositoryId?: pulumi.Input<string>;
 }

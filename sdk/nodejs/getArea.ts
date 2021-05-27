@@ -58,15 +58,15 @@ export interface GetAreaArgs {
     /**
      * Read children nodes, _Depth_: 1, _Default_: `true`
      */
-    readonly fetchChildren?: boolean;
+    fetchChildren?: boolean;
     /**
      * The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
      */
-    readonly path?: string;
+    path?: string;
     /**
      * The project ID.
      */
-    readonly projectId: string;
+    projectId: string;
 }
 
 /**

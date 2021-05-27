@@ -45,7 +45,7 @@ export interface GetPoolArgs {
     /**
      * Name of the Agent Pool.
      */
-    readonly name: string;
+    name: string;
 }
 
 /**

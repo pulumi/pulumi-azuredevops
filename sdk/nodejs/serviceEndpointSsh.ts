@@ -166,78 +166,78 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointSsh resources.
  */
 export interface ServiceEndpointSshState {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The Host name or IP address of the remote machine.
      */
-    readonly host?: pulumi.Input<string>;
+    host?: pulumi.Input<string>;
     /**
      * Password for connecting to the endpoint.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * A bcrypted hash of the attribute 'password'
      */
-    readonly passwordHash?: pulumi.Input<string>;
+    passwordHash?: pulumi.Input<string>;
     /**
      * Port number on the remote machine to use for connecting. Defaults to `22`.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * Private Key for connecting to the endpoint.
      */
-    readonly privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string>;
     /**
      * A bcrypted hash of the attribute 'private_key'
      */
-    readonly privateKeyHash?: pulumi.Input<string>;
+    privateKeyHash?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
     /**
      * Username for connecting to the endpoint.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ServiceEndpointSsh resource.
  */
 export interface ServiceEndpointSshArgs {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The Host name or IP address of the remote machine.
      */
-    readonly host: pulumi.Input<string>;
+    host: pulumi.Input<string>;
     /**
      * Password for connecting to the endpoint.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * Port number on the remote machine to use for connecting. Defaults to `22`.
      */
-    readonly port?: pulumi.Input<number>;
+    port?: pulumi.Input<number>;
     /**
      * Private Key for connecting to the endpoint.
      */
-    readonly privateKey?: pulumi.Input<string>;
+    privateKey?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
     /**
      * Username for connecting to the endpoint.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

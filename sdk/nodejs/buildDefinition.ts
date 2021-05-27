@@ -226,43 +226,43 @@ export interface BuildDefinitionState {
     /**
      * The agent pool that should execute the build.
      */
-    readonly agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string>;
     /**
      * Continuous Integration trigger.
      */
-    readonly ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
+    ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
     /**
      * The name of the build definition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The folder path of the build definition.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * Pull Request Integration Integration trigger.
      */
-    readonly pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
+    pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
     /**
      * A `repository` block as documented below.
      */
-    readonly repository?: pulumi.Input<inputs.BuildDefinitionRepository>;
+    repository?: pulumi.Input<inputs.BuildDefinitionRepository>;
     /**
      * The revision of the build definition
      */
-    readonly revision?: pulumi.Input<number>;
+    revision?: pulumi.Input<number>;
     /**
      * A list of variable group IDs (integers) to link to the build definition.
      */
-    readonly variableGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    variableGroups?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * A list of `variable` blocks, as documented below.
      */
-    readonly variables?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionVariable>[]>;
 }
 
 /**
@@ -272,37 +272,37 @@ export interface BuildDefinitionArgs {
     /**
      * The agent pool that should execute the build.
      */
-    readonly agentPoolName?: pulumi.Input<string>;
+    agentPoolName?: pulumi.Input<string>;
     /**
      * Continuous Integration trigger.
      */
-    readonly ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
+    ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
     /**
      * The name of the build definition.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The folder path of the build definition.
      */
-    readonly path?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * Pull Request Integration Integration trigger.
      */
-    readonly pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
+    pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
     /**
      * A `repository` block as documented below.
      */
-    readonly repository: pulumi.Input<inputs.BuildDefinitionRepository>;
+    repository: pulumi.Input<inputs.BuildDefinitionRepository>;
     /**
      * A list of variable group IDs (integers) to link to the build definition.
      */
-    readonly variableGroups?: pulumi.Input<pulumi.Input<number>[]>;
+    variableGroups?: pulumi.Input<pulumi.Input<number>[]>;
     /**
      * A list of `variable` blocks, as documented below.
      */
-    readonly variables?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionVariable>[]>;
 }

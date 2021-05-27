@@ -142,19 +142,19 @@ export interface BranchPolicyWorkItemLinkingState {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    readonly blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * Configuration for the policy. This block must be defined exactly once.
      */
-    readonly settings?: pulumi.Input<inputs.BranchPolicyWorkItemLinkingSettings>;
+    settings?: pulumi.Input<inputs.BranchPolicyWorkItemLinkingSettings>;
 }
 
 /**
@@ -164,17 +164,17 @@ export interface BranchPolicyWorkItemLinkingArgs {
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
-    readonly blocking?: pulumi.Input<boolean>;
+    blocking?: pulumi.Input<boolean>;
     /**
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      */
-    readonly enabled?: pulumi.Input<boolean>;
+    enabled?: pulumi.Input<boolean>;
     /**
      * The ID of the project in which the policy will be created.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * Configuration for the policy. This block must be defined exactly once.
      */
-    readonly settings: pulumi.Input<inputs.BranchPolicyWorkItemLinkingSettings>;
+    settings: pulumi.Input<inputs.BranchPolicyWorkItemLinkingSettings>;
 }

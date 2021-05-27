@@ -148,50 +148,50 @@ export class BitBucket extends pulumi.CustomResource {
  * Input properties used for looking up and filtering BitBucket resources.
  */
 export interface BitBucketState {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * Bitbucket account password.
      */
-    readonly password?: pulumi.Input<string>;
+    password?: pulumi.Input<string>;
     /**
      * A bcrypted hash of the attribute 'password'
      */
-    readonly passwordHash?: pulumi.Input<string>;
+    passwordHash?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
     /**
      * Bitbucket account username.
      */
-    readonly username?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a BitBucket resource.
  */
 export interface BitBucketArgs {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * Bitbucket account password.
      */
-    readonly password: pulumi.Input<string>;
+    password: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
     /**
      * Bitbucket account username.
      */
-    readonly username: pulumi.Input<string>;
+    username: pulumi.Input<string>;
 }

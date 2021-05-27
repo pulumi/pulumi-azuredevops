@@ -181,80 +181,80 @@ export class DockerRegistry extends pulumi.CustomResource {
  * Input properties used for looking up and filtering DockerRegistry resources.
  */
 export interface DockerRegistryState {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The email for Docker account user.
      */
-    readonly dockerEmail?: pulumi.Input<string>;
+    dockerEmail?: pulumi.Input<string>;
     /**
      * The password for the account user identified above.
      */
-    readonly dockerPassword?: pulumi.Input<string>;
+    dockerPassword?: pulumi.Input<string>;
     /**
      * A bcrypted hash of the attribute 'docker_password'
      */
-    readonly dockerPasswordHash?: pulumi.Input<string>;
+    dockerPasswordHash?: pulumi.Input<string>;
     /**
      * The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
      */
-    readonly dockerRegistry?: pulumi.Input<string>;
+    dockerRegistry?: pulumi.Input<string>;
     /**
      * The identifier of the Docker account user.
      */
-    readonly dockerUsername?: pulumi.Input<string>;
+    dockerUsername?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * Can be "DockerHub" or "Others" (Default "DockerHub")
      */
-    readonly registryType?: pulumi.Input<string>;
+    registryType?: pulumi.Input<string>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a DockerRegistry resource.
  */
 export interface DockerRegistryArgs {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The email for Docker account user.
      */
-    readonly dockerEmail?: pulumi.Input<string>;
+    dockerEmail?: pulumi.Input<string>;
     /**
      * The password for the account user identified above.
      */
-    readonly dockerPassword?: pulumi.Input<string>;
+    dockerPassword?: pulumi.Input<string>;
     /**
      * The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
      */
-    readonly dockerRegistry: pulumi.Input<string>;
+    dockerRegistry: pulumi.Input<string>;
     /**
      * The identifier of the Docker account user.
      */
-    readonly dockerUsername?: pulumi.Input<string>;
+    dockerUsername?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * Can be "DockerHub" or "Others" (Default "DockerHub")
      */
-    readonly registryType: pulumi.Input<string>;
+    registryType: pulumi.Input<string>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
 }

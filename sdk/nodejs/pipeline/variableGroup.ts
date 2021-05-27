@@ -161,24 +161,24 @@ export interface VariableGroupState {
     /**
      * Boolean that indicate if this variable group is shared by all pipelines of this project.
      */
-    readonly allowAccess?: pulumi.Input<boolean>;
+    allowAccess?: pulumi.Input<boolean>;
     /**
      * The description of the Variable Group.
      */
-    readonly description?: pulumi.Input<string>;
-    readonly keyVault?: pulumi.Input<inputs.Pipeline.VariableGroupKeyVault>;
+    description?: pulumi.Input<string>;
+    keyVault?: pulumi.Input<inputs.Pipeline.VariableGroupKeyVault>;
     /**
      * The name of the Variable Group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * One or more `variable` blocks as documented below.
      */
-    readonly variables?: pulumi.Input<pulumi.Input<inputs.Pipeline.VariableGroupVariable>[]>;
+    variables?: pulumi.Input<pulumi.Input<inputs.Pipeline.VariableGroupVariable>[]>;
 }
 
 /**
@@ -188,22 +188,22 @@ export interface VariableGroupArgs {
     /**
      * Boolean that indicate if this variable group is shared by all pipelines of this project.
      */
-    readonly allowAccess?: pulumi.Input<boolean>;
+    allowAccess?: pulumi.Input<boolean>;
     /**
      * The description of the Variable Group.
      */
-    readonly description?: pulumi.Input<string>;
-    readonly keyVault?: pulumi.Input<inputs.Pipeline.VariableGroupKeyVault>;
+    description?: pulumi.Input<string>;
+    keyVault?: pulumi.Input<inputs.Pipeline.VariableGroupKeyVault>;
     /**
      * The name of the Variable Group.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * One or more `variable` blocks as documented below.
      */
-    readonly variables: pulumi.Input<pulumi.Input<inputs.Pipeline.VariableGroupVariable>[]>;
+    variables: pulumi.Input<pulumi.Input<inputs.Pipeline.VariableGroupVariable>[]>;
 }

@@ -207,47 +207,47 @@ export interface GitState {
     /**
      * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
-    readonly defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string>;
     /**
      * An `initialization` block as documented below.
      */
-    readonly initialization?: pulumi.Input<inputs.GitInitialization>;
+    initialization?: pulumi.Input<inputs.GitInitialization>;
     /**
      * True if the repository was created as a fork.
      */
-    readonly isFork?: pulumi.Input<boolean>;
+    isFork?: pulumi.Input<boolean>;
     /**
      * The name of the git repository.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of a Git project from which a fork is to be created.
      */
-    readonly parentRepositoryId?: pulumi.Input<string>;
+    parentRepositoryId?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * Git HTTPS URL of the repository
      */
-    readonly remoteUrl?: pulumi.Input<string>;
+    remoteUrl?: pulumi.Input<string>;
     /**
      * Size in bytes.
      */
-    readonly size?: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
     /**
      * Git SSH URL of the repository.
      */
-    readonly sshUrl?: pulumi.Input<string>;
+    sshUrl?: pulumi.Input<string>;
     /**
      * REST API URL of the repository.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
     /**
      * Web link to the repository.
      */
-    readonly webUrl?: pulumi.Input<string>;
+    webUrl?: pulumi.Input<string>;
 }
 
 /**
@@ -257,21 +257,21 @@ export interface GitArgs {
     /**
      * The ref of the default branch. Will be used as the branch name for initialized repositories.
      */
-    readonly defaultBranch?: pulumi.Input<string>;
+    defaultBranch?: pulumi.Input<string>;
     /**
      * An `initialization` block as documented below.
      */
-    readonly initialization: pulumi.Input<inputs.GitInitialization>;
+    initialization: pulumi.Input<inputs.GitInitialization>;
     /**
      * The name of the git repository.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The ID of a Git project from which a fork is to be created.
      */
-    readonly parentRepositoryId?: pulumi.Input<string>;
+    parentRepositoryId?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
 }

@@ -164,21 +164,21 @@ export interface GitHubState {
     /**
      * An `authOauth` block as documented below. Allows connecting using an Oauth token.
      */
-    readonly authOauth?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthOauth>;
+    authOauth?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthOauth>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    readonly authPersonal?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthPersonal>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authPersonal?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthPersonal>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
 }
 
 /**
@@ -188,19 +188,19 @@ export interface GitHubArgs {
     /**
      * An `authOauth` block as documented below. Allows connecting using an Oauth token.
      */
-    readonly authOauth?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthOauth>;
+    authOauth?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthOauth>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    readonly authPersonal?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthPersonal>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authPersonal?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthPersonal>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
 }

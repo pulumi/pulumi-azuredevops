@@ -128,11 +128,11 @@ export interface QueueState {
     /**
      * The ID of the organization agent pool.
      */
-    readonly agentPoolId?: pulumi.Input<number>;
+    agentPoolId?: pulumi.Input<number>;
     /**
      * The ID of the project in which to create the resource.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
 }
 
 /**
@@ -142,9 +142,9 @@ export interface QueueArgs {
     /**
      * The ID of the organization agent pool.
      */
-    readonly agentPoolId: pulumi.Input<number>;
+    agentPoolId: pulumi.Input<number>;
     /**
      * The ID of the project in which to create the resource.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
 }

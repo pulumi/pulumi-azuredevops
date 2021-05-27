@@ -25,6 +25,14 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === Provider.__pulumiType;
     }
 
+    /**
+     * The url of the Azure DevOps instance which should be used.
+     */
+    public readonly orgServiceUrl!: pulumi.Output<string | undefined>;
+    /**
+     * The personal access token which should be used.
+     */
+    public readonly personalAccessToken!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -54,9 +62,9 @@ export interface ProviderArgs {
     /**
      * The url of the Azure DevOps instance which should be used.
      */
-    readonly orgServiceUrl?: pulumi.Input<string>;
+    orgServiceUrl?: pulumi.Input<string>;
     /**
      * The personal access token which should be used.
      */
-    readonly personalAccessToken?: pulumi.Input<string>;
+    personalAccessToken?: pulumi.Input<string>;
 }
