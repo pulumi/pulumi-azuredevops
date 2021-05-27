@@ -19,6 +19,19 @@ namespace Pulumi.AzureDevOps
     public partial class Provider : Pulumi.ProviderResource
     {
         /// <summary>
+        /// The url of the Azure DevOps instance which should be used.
+        /// </summary>
+        [Output("orgServiceUrl")]
+        public Output<string?> OrgServiceUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// The personal access token which should be used.
+        /// </summary>
+        [Output("personalAccessToken")]
+        public Output<string?> PersonalAccessToken { get; private set; } = null!;
+
+
+        /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
         ///

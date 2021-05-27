@@ -152,58 +152,58 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointAzureDevOps resources.
  */
 export interface ServiceEndpointAzureDevOpsState {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The organization URL.
      */
-    readonly orgUrl?: pulumi.Input<string>;
+    orgUrl?: pulumi.Input<string>;
     /**
      * The Azure DevOps personal access token.
      */
-    readonly personalAccessToken?: pulumi.Input<string>;
+    personalAccessToken?: pulumi.Input<string>;
     /**
      * A bcrypted hash of the attribute 'personal_access_token'
      */
-    readonly personalAccessTokenHash?: pulumi.Input<string>;
+    personalAccessTokenHash?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The URL of the release API.
      */
-    readonly releaseApiUrl?: pulumi.Input<string>;
+    releaseApiUrl?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ServiceEndpointAzureDevOps resource.
  */
 export interface ServiceEndpointAzureDevOpsArgs {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The organization URL.
      */
-    readonly orgUrl: pulumi.Input<string>;
+    orgUrl: pulumi.Input<string>;
     /**
      * The Azure DevOps personal access token.
      */
-    readonly personalAccessToken: pulumi.Input<string>;
+    personalAccessToken: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The URL of the release API.
      */
-    readonly releaseApiUrl: pulumi.Input<string>;
+    releaseApiUrl: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
 }

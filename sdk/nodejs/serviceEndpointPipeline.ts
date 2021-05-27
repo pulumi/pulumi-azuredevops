@@ -142,21 +142,21 @@ export interface ServiceEndpointPipelineState {
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    readonly authPersonal?: pulumi.Input<inputs.ServiceEndpointPipelineAuthPersonal>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authPersonal?: pulumi.Input<inputs.ServiceEndpointPipelineAuthPersonal>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The organization name used for `Organization Url` and `Release API Url` fields.
      */
-    readonly organizationName?: pulumi.Input<string>;
+    organizationName?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
 }
 
 /**
@@ -166,19 +166,19 @@ export interface ServiceEndpointPipelineArgs {
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
      */
-    readonly authPersonal: pulumi.Input<inputs.ServiceEndpointPipelineAuthPersonal>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    authPersonal: pulumi.Input<inputs.ServiceEndpointPipelineAuthPersonal>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * The organization name used for `Organization Url` and `Release API Url` fields.
      */
-    readonly organizationName: pulumi.Input<string>;
+    organizationName: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
 }

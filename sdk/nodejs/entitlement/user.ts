@@ -130,27 +130,27 @@ export interface UserState {
     /**
      * Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
-    readonly accountLicenseType?: pulumi.Input<string>;
+    accountLicenseType?: pulumi.Input<string>;
     /**
      * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
      */
-    readonly descriptor?: pulumi.Input<string>;
+    descriptor?: pulumi.Input<string>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
      */
-    readonly licensingSource?: pulumi.Input<string>;
+    licensingSource?: pulumi.Input<string>;
     /**
      * The type of source provider for the origin identifier.
      */
-    readonly origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string>;
     /**
      * The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
      */
-    readonly originId?: pulumi.Input<string>;
+    originId?: pulumi.Input<string>;
     /**
      * The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
      */
-    readonly principalName?: pulumi.Input<string>;
+    principalName?: pulumi.Input<string>;
 }
 
 /**
@@ -160,21 +160,21 @@ export interface UserArgs {
     /**
      * Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      */
-    readonly accountLicenseType?: pulumi.Input<string>;
+    accountLicenseType?: pulumi.Input<string>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
      */
-    readonly licensingSource?: pulumi.Input<string>;
+    licensingSource?: pulumi.Input<string>;
     /**
      * The type of source provider for the origin identifier.
      */
-    readonly origin?: pulumi.Input<string>;
+    origin?: pulumi.Input<string>;
     /**
      * The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
      */
-    readonly originId?: pulumi.Input<string>;
+    originId?: pulumi.Input<string>;
     /**
      * The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
      */
-    readonly principalName?: pulumi.Input<string>;
+    principalName?: pulumi.Input<string>;
 }

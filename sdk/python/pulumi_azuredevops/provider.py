@@ -122,3 +122,19 @@ class Provider(pulumi.ProviderResource):
             __props__,
             opts)
 
+    @property
+    @pulumi.getter(name="orgServiceUrl")
+    def org_service_url(self) -> pulumi.Output[Optional[str]]:
+        """
+        The url of the Azure DevOps instance which should be used.
+        """
+        return pulumi.get(self, "org_service_url")
+
+    @property
+    @pulumi.getter(name="personalAccessToken")
+    def personal_access_token(self) -> pulumi.Output[Optional[str]]:
+        """
+        The personal access token which should be used.
+        """
+        return pulumi.get(self, "personal_access_token")
+

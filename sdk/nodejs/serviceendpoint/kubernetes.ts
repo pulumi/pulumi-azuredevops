@@ -145,33 +145,33 @@ export interface KubernetesState {
     /**
      * The Service Endpoint description.
      */
-    readonly apiserverUrl?: pulumi.Input<string>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    apiserverUrl?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
      */
-    readonly authorizationType?: pulumi.Input<string>;
+    authorizationType?: pulumi.Input<string>;
     /**
      * The configuration for authorization_type="AzureSubscription".
      */
-    readonly azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesAzureSubscription>[]>;
-    readonly description?: pulumi.Input<string>;
+    azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesAzureSubscription>[]>;
+    description?: pulumi.Input<string>;
     /**
      * The configuration for authorization_type="Kubeconfig".
      */
-    readonly kubeconfigs?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesKubeconfig>[]>;
+    kubeconfigs?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesKubeconfig>[]>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
      */
-    readonly serviceAccounts?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesServiceAccount>[]>;
+    serviceAccounts?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesServiceAccount>[]>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
 }
 
 /**
@@ -181,31 +181,31 @@ export interface KubernetesArgs {
     /**
      * The Service Endpoint description.
      */
-    readonly apiserverUrl: pulumi.Input<string>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    apiserverUrl: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
      */
-    readonly authorizationType: pulumi.Input<string>;
+    authorizationType: pulumi.Input<string>;
     /**
      * The configuration for authorization_type="AzureSubscription".
      */
-    readonly azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesAzureSubscription>[]>;
-    readonly description?: pulumi.Input<string>;
+    azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesAzureSubscription>[]>;
+    description?: pulumi.Input<string>;
     /**
      * The configuration for authorization_type="Kubeconfig".
      */
-    readonly kubeconfigs?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesKubeconfig>[]>;
+    kubeconfigs?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesKubeconfig>[]>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
      */
-    readonly serviceAccounts?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesServiceAccount>[]>;
+    serviceAccounts?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesServiceAccount>[]>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
 }

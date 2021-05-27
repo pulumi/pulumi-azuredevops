@@ -176,45 +176,45 @@ export interface ServiceEndpointAwsState {
     /**
      * The AWS access key ID for signing programmatic requests.
      */
-    readonly accessKeyId?: pulumi.Input<string>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    accessKeyId?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
      */
-    readonly externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * Optional identifier for the assumed role session.
      */
-    readonly roleSessionName?: pulumi.Input<string>;
+    roleSessionName?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the role to assume.
      */
-    readonly roleToAssume?: pulumi.Input<string>;
+    roleToAssume?: pulumi.Input<string>;
     /**
      * The AWS secret access key for signing programmatic requests.
      */
-    readonly secretAccessKey?: pulumi.Input<string>;
+    secretAccessKey?: pulumi.Input<string>;
     /**
      * A bcrypted hash of the attribute 'secret_access_key'
      */
-    readonly secretAccessKeyHash?: pulumi.Input<string>;
+    secretAccessKeyHash?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
     /**
      * The AWS session token for signing programmatic requests.
      */
-    readonly sessionToken?: pulumi.Input<string>;
+    sessionToken?: pulumi.Input<string>;
     /**
      * A bcrypted hash of the attribute 'session_token'
      */
-    readonly sessionTokenHash?: pulumi.Input<string>;
+    sessionTokenHash?: pulumi.Input<string>;
 }
 
 /**
@@ -224,35 +224,35 @@ export interface ServiceEndpointAwsArgs {
     /**
      * The AWS access key ID for signing programmatic requests.
      */
-    readonly accessKeyId: pulumi.Input<string>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly description?: pulumi.Input<string>;
+    accessKeyId: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    description?: pulumi.Input<string>;
     /**
      * A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
      */
-    readonly externalId?: pulumi.Input<string>;
+    externalId?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * Optional identifier for the assumed role session.
      */
-    readonly roleSessionName?: pulumi.Input<string>;
+    roleSessionName?: pulumi.Input<string>;
     /**
      * The Amazon Resource Name (ARN) of the role to assume.
      */
-    readonly roleToAssume?: pulumi.Input<string>;
+    roleToAssume?: pulumi.Input<string>;
     /**
      * The AWS secret access key for signing programmatic requests.
      */
-    readonly secretAccessKey: pulumi.Input<string>;
+    secretAccessKey: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
     /**
      * The AWS session token for signing programmatic requests.
      */
-    readonly sessionToken?: pulumi.Input<string>;
+    sessionToken?: pulumi.Input<string>;
 }

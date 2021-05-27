@@ -195,76 +195,76 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointAzureRM resources.
  */
 export interface ServiceEndpointAzureRMState {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The tenant id if the service principal.
      */
-    readonly azurermSpnTenantid?: pulumi.Input<string>;
+    azurermSpnTenantid?: pulumi.Input<string>;
     /**
      * The subscription Id of the Azure targets.
      */
-    readonly azurermSubscriptionId?: pulumi.Input<string>;
+    azurermSubscriptionId?: pulumi.Input<string>;
     /**
      * The subscription Name of the targets.
      */
-    readonly azurermSubscriptionName?: pulumi.Input<string>;
+    azurermSubscriptionName?: pulumi.Input<string>;
     /**
      * A `credentials` block.
      */
-    readonly credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials>;
+    credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials>;
     /**
      * Service connection description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The resource group used for scope of automatic service endpoint.
      */
-    readonly resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ServiceEndpointAzureRM resource.
  */
 export interface ServiceEndpointAzureRMArgs {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The tenant id if the service principal.
      */
-    readonly azurermSpnTenantid: pulumi.Input<string>;
+    azurermSpnTenantid: pulumi.Input<string>;
     /**
      * The subscription Id of the Azure targets.
      */
-    readonly azurermSubscriptionId: pulumi.Input<string>;
+    azurermSubscriptionId: pulumi.Input<string>;
     /**
      * The subscription Name of the targets.
      */
-    readonly azurermSubscriptionName: pulumi.Input<string>;
+    azurermSubscriptionName: pulumi.Input<string>;
     /**
      * A `credentials` block.
      */
-    readonly credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials>;
+    credentials?: pulumi.Input<inputs.ServiceEndpointAzureRMCredentials>;
     /**
      * Service connection description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The resource group used for scope of automatic service endpoint.
      */
-    readonly resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
 }

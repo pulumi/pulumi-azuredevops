@@ -157,48 +157,48 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointArtifactory resources.
  */
 export interface ServiceEndpointArtifactoryState {
-    readonly authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic>;
-    readonly authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic>;
+    authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
     /**
      * URL of the Artifactory server to connect with.
      */
-    readonly url?: pulumi.Input<string>;
+    url?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ServiceEndpointArtifactory resource.
  */
 export interface ServiceEndpointArtifactoryArgs {
-    readonly authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic>;
-    readonly authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authenticationBasic?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationBasic>;
+    authenticationToken?: pulumi.Input<inputs.ServiceEndpointArtifactoryAuthenticationToken>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The Service Endpoint name.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
     /**
      * URL of the Artifactory server to connect with.
      */
-    readonly url: pulumi.Input<string>;
+    url: pulumi.Input<string>;
 }

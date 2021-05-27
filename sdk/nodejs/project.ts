@@ -150,32 +150,32 @@ export interface ProjectState {
     /**
      * The Description of the Project.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features.  
      * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      */
-    readonly features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Project Name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * The Process Template ID used by the Project.
      */
-    readonly processTemplateId?: pulumi.Input<string>;
+    processTemplateId?: pulumi.Input<string>;
     /**
      * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
      */
-    readonly versionControl?: pulumi.Input<string>;
+    versionControl?: pulumi.Input<string>;
     /**
      * Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
      */
-    readonly visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string>;
     /**
      * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
      */
-    readonly workItemTemplate?: pulumi.Input<string>;
+    workItemTemplate?: pulumi.Input<string>;
 }
 
 /**
@@ -185,26 +185,26 @@ export interface ProjectArgs {
     /**
      * The Description of the Project.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features.  
      * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
      */
-    readonly features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Project Name.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
      */
-    readonly versionControl?: pulumi.Input<string>;
+    versionControl?: pulumi.Input<string>;
     /**
      * Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
      */
-    readonly visibility?: pulumi.Input<string>;
+    visibility?: pulumi.Input<string>;
     /**
      * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
      */
-    readonly workItemTemplate?: pulumi.Input<string>;
+    workItemTemplate?: pulumi.Input<string>;
 }

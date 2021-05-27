@@ -48,11 +48,11 @@ export interface GetGitRepositoryArgs {
     /**
      * Name of the Git repository to retrieve
      */
-    readonly name: string;
+    name: string;
     /**
      * ID of project to list Git repositories
      */
-    readonly projectId: string;
+    projectId: string;
 }
 
 /**

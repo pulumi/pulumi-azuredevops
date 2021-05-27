@@ -51,15 +51,15 @@ export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesArgs {
-    readonly includeHidden?: boolean;
+    includeHidden?: boolean;
     /**
      * Name of the Git repository to retrieve; requires `projectId` to be specified as well
      */
-    readonly name?: string;
+    name?: string;
     /**
      * ID of project to list Git repositories
      */
-    readonly projectId?: string;
+    projectId?: string;
 }
 
 /**

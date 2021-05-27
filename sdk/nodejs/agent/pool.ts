@@ -112,15 +112,15 @@ export interface PoolState {
     /**
      * Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
-    readonly autoProvision?: pulumi.Input<boolean>;
+    autoProvision?: pulumi.Input<boolean>;
     /**
      * The name of the agent pool.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
      */
-    readonly poolType?: pulumi.Input<string>;
+    poolType?: pulumi.Input<string>;
 }
 
 /**
@@ -130,13 +130,13 @@ export interface PoolArgs {
     /**
      * Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
-    readonly autoProvision?: pulumi.Input<boolean>;
+    autoProvision?: pulumi.Input<boolean>;
     /**
      * The name of the agent pool.
      */
-    readonly name?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
      */
-    readonly poolType?: pulumi.Input<string>;
+    poolType?: pulumi.Input<string>;
 }

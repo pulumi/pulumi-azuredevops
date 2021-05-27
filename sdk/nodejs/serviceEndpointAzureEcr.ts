@@ -188,84 +188,84 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointAzureEcr resources.
  */
 export interface ServiceEndpointAzureEcrState {
-    readonly appObjectId?: pulumi.Input<string>;
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    readonly azSpnRoleAssignmentId?: pulumi.Input<string>;
-    readonly azSpnRolePermissions?: pulumi.Input<string>;
+    appObjectId?: pulumi.Input<string>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    azSpnRoleAssignmentId?: pulumi.Input<string>;
+    azSpnRolePermissions?: pulumi.Input<string>;
     /**
      * The Azure container registry name.
      */
-    readonly azurecrName?: pulumi.Input<string>;
+    azurecrName?: pulumi.Input<string>;
     /**
      * The tenant id of the service principal.
      */
-    readonly azurecrSpnTenantid?: pulumi.Input<string>;
+    azurecrSpnTenantid?: pulumi.Input<string>;
     /**
      * The subscription id of the Azure targets.
      */
-    readonly azurecrSubscriptionId?: pulumi.Input<string>;
+    azurecrSubscriptionId?: pulumi.Input<string>;
     /**
      * The subscription name of the Azure targets.
      */
-    readonly azurecrSubscriptionName?: pulumi.Input<string>;
+    azurecrSubscriptionName?: pulumi.Input<string>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId?: pulumi.Input<string>;
+    projectId?: pulumi.Input<string>;
     /**
      * The resource group to which the container registry belongs.
      */
-    readonly resourceGroup?: pulumi.Input<string>;
+    resourceGroup?: pulumi.Input<string>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    readonly serviceEndpointName?: pulumi.Input<string>;
+    serviceEndpointName?: pulumi.Input<string>;
     /**
      * The service principal ID.
      */
-    readonly servicePrincipalId?: pulumi.Input<string>;
-    readonly spnObjectId?: pulumi.Input<string>;
+    servicePrincipalId?: pulumi.Input<string>;
+    spnObjectId?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a ServiceEndpointAzureEcr resource.
  */
 export interface ServiceEndpointAzureEcrArgs {
-    readonly authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Azure container registry name.
      */
-    readonly azurecrName: pulumi.Input<string>;
+    azurecrName: pulumi.Input<string>;
     /**
      * The tenant id of the service principal.
      */
-    readonly azurecrSpnTenantid: pulumi.Input<string>;
+    azurecrSpnTenantid: pulumi.Input<string>;
     /**
      * The subscription id of the Azure targets.
      */
-    readonly azurecrSubscriptionId: pulumi.Input<string>;
+    azurecrSubscriptionId: pulumi.Input<string>;
     /**
      * The subscription name of the Azure targets.
      */
-    readonly azurecrSubscriptionName: pulumi.Input<string>;
+    azurecrSubscriptionName: pulumi.Input<string>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    readonly description?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
      */
-    readonly projectId: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
     /**
      * The resource group to which the container registry belongs.
      */
-    readonly resourceGroup: pulumi.Input<string>;
+    resourceGroup: pulumi.Input<string>;
     /**
      * The name you will use to refer to this service connection in task inputs.
      */
-    readonly serviceEndpointName: pulumi.Input<string>;
+    serviceEndpointName: pulumi.Input<string>;
 }

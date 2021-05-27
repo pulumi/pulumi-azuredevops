@@ -52,11 +52,11 @@ export interface GetProjectArgs {
     /**
      * Name of the Project.
      */
-    readonly name?: string;
+    name?: string;
     /**
      * ID of the Project.
      */
-    readonly projectId?: string;
+    projectId?: string;
 }
 
 /**

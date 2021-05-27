@@ -16,6 +16,11 @@ import (
 // [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
 type Provider struct {
 	pulumi.ProviderResourceState
+
+	// The url of the Azure DevOps instance which should be used.
+	OrgServiceUrl pulumi.StringPtrOutput `pulumi:"orgServiceUrl"`
+	// The personal access token which should be used.
+	PersonalAccessToken pulumi.StringPtrOutput `pulumi:"personalAccessToken"`
 }
 
 // NewProvider registers a new resource with the given unique name, arguments, and options.
