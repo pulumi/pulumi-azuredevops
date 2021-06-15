@@ -337,7 +337,7 @@ type BranchPolicyBuildValidationSettings struct {
 	BuildDefinitionId int `pulumi:"buildDefinitionId"`
 	// The display name for the policy.
 	DisplayName string `pulumi:"displayName"`
-	// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
 	FilenamePatterns []string `pulumi:"filenamePatterns"`
 	// If set to true, the build will need to be manually queued. Defaults to `false`
 	ManualQueueOnly *bool `pulumi:"manualQueueOnly"`
@@ -365,7 +365,7 @@ type BranchPolicyBuildValidationSettingsArgs struct {
 	BuildDefinitionId pulumi.IntInput `pulumi:"buildDefinitionId"`
 	// The display name for the policy.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
-	// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
 	FilenamePatterns pulumi.StringArrayInput `pulumi:"filenamePatterns"`
 	// If set to true, the build will need to be manually queued. Defaults to `false`
 	ManualQueueOnly pulumi.BoolPtrInput `pulumi:"manualQueueOnly"`
@@ -464,7 +464,7 @@ func (o BranchPolicyBuildValidationSettingsOutput) DisplayName() pulumi.StringOu
 	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
 func (o BranchPolicyBuildValidationSettingsOutput) FilenamePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) []string { return v.FilenamePatterns }).(pulumi.StringArrayOutput)
 }
@@ -529,7 +529,7 @@ func (o BranchPolicyBuildValidationSettingsPtrOutput) DisplayName() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
 func (o BranchPolicyBuildValidationSettingsPtrOutput) FilenamePatterns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyBuildValidationSettings) []string {
 		if v == nil {
@@ -1641,6 +1641,386 @@ func (o BranchPolicyMinReviewersSettingsScopeArrayOutput) Index(i pulumi.IntInpu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyMinReviewersSettingsScope {
 		return vs[0].([]BranchPolicyMinReviewersSettingsScope)[vs[1].(int)]
 	}).(BranchPolicyMinReviewersSettingsScopeOutput)
+}
+
+type BranchPolicyStatusCheckSettings struct {
+	// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
+	// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
+	// is posted to the pull request.
+	Applicability *string `pulumi:"applicability"`
+	// The authorized user can post the status.
+	AuthorId *string `pulumi:"authorId"`
+	// The display name.
+	DisplayName *string `pulumi:"displayName"`
+	// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	FilenamePatterns []string `pulumi:"filenamePatterns"`
+	// Reset status whenever there are new changes.
+	InvalidateOnUpdate *bool  `pulumi:"invalidateOnUpdate"`
+	Name               string `pulumi:"name"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined
+	// at least once.
+	Scopes []BranchPolicyStatusCheckSettingsScope `pulumi:"scopes"`
+}
+
+// BranchPolicyStatusCheckSettingsInput is an input type that accepts BranchPolicyStatusCheckSettingsArgs and BranchPolicyStatusCheckSettingsOutput values.
+// You can construct a concrete instance of `BranchPolicyStatusCheckSettingsInput` via:
+//
+//          BranchPolicyStatusCheckSettingsArgs{...}
+type BranchPolicyStatusCheckSettingsInput interface {
+	pulumi.Input
+
+	ToBranchPolicyStatusCheckSettingsOutput() BranchPolicyStatusCheckSettingsOutput
+	ToBranchPolicyStatusCheckSettingsOutputWithContext(context.Context) BranchPolicyStatusCheckSettingsOutput
+}
+
+type BranchPolicyStatusCheckSettingsArgs struct {
+	// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
+	// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
+	// is posted to the pull request.
+	Applicability pulumi.StringPtrInput `pulumi:"applicability"`
+	// The authorized user can post the status.
+	AuthorId pulumi.StringPtrInput `pulumi:"authorId"`
+	// The display name.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+	FilenamePatterns pulumi.StringArrayInput `pulumi:"filenamePatterns"`
+	// Reset status whenever there are new changes.
+	InvalidateOnUpdate pulumi.BoolPtrInput `pulumi:"invalidateOnUpdate"`
+	Name               pulumi.StringInput  `pulumi:"name"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined
+	// at least once.
+	Scopes BranchPolicyStatusCheckSettingsScopeArrayInput `pulumi:"scopes"`
+}
+
+func (BranchPolicyStatusCheckSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyStatusCheckSettings)(nil)).Elem()
+}
+
+func (i BranchPolicyStatusCheckSettingsArgs) ToBranchPolicyStatusCheckSettingsOutput() BranchPolicyStatusCheckSettingsOutput {
+	return i.ToBranchPolicyStatusCheckSettingsOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyStatusCheckSettingsArgs) ToBranchPolicyStatusCheckSettingsOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckSettingsOutput)
+}
+
+func (i BranchPolicyStatusCheckSettingsArgs) ToBranchPolicyStatusCheckSettingsPtrOutput() BranchPolicyStatusCheckSettingsPtrOutput {
+	return i.ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyStatusCheckSettingsArgs) ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckSettingsOutput).ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(ctx)
+}
+
+// BranchPolicyStatusCheckSettingsPtrInput is an input type that accepts BranchPolicyStatusCheckSettingsArgs, BranchPolicyStatusCheckSettingsPtr and BranchPolicyStatusCheckSettingsPtrOutput values.
+// You can construct a concrete instance of `BranchPolicyStatusCheckSettingsPtrInput` via:
+//
+//          BranchPolicyStatusCheckSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type BranchPolicyStatusCheckSettingsPtrInput interface {
+	pulumi.Input
+
+	ToBranchPolicyStatusCheckSettingsPtrOutput() BranchPolicyStatusCheckSettingsPtrOutput
+	ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(context.Context) BranchPolicyStatusCheckSettingsPtrOutput
+}
+
+type branchPolicyStatusCheckSettingsPtrType BranchPolicyStatusCheckSettingsArgs
+
+func BranchPolicyStatusCheckSettingsPtr(v *BranchPolicyStatusCheckSettingsArgs) BranchPolicyStatusCheckSettingsPtrInput {
+	return (*branchPolicyStatusCheckSettingsPtrType)(v)
+}
+
+func (*branchPolicyStatusCheckSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyStatusCheckSettings)(nil)).Elem()
+}
+
+func (i *branchPolicyStatusCheckSettingsPtrType) ToBranchPolicyStatusCheckSettingsPtrOutput() BranchPolicyStatusCheckSettingsPtrOutput {
+	return i.ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *branchPolicyStatusCheckSettingsPtrType) ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckSettingsPtrOutput)
+}
+
+type BranchPolicyStatusCheckSettingsOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyStatusCheckSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyStatusCheckSettings)(nil)).Elem()
+}
+
+func (o BranchPolicyStatusCheckSettingsOutput) ToBranchPolicyStatusCheckSettingsOutput() BranchPolicyStatusCheckSettingsOutput {
+	return o
+}
+
+func (o BranchPolicyStatusCheckSettingsOutput) ToBranchPolicyStatusCheckSettingsOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsOutput {
+	return o
+}
+
+func (o BranchPolicyStatusCheckSettingsOutput) ToBranchPolicyStatusCheckSettingsPtrOutput() BranchPolicyStatusCheckSettingsPtrOutput {
+	return o.ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o BranchPolicyStatusCheckSettingsOutput) ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsPtrOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) *BranchPolicyStatusCheckSettings {
+		return &v
+	}).(BranchPolicyStatusCheckSettingsPtrOutput)
+}
+
+// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
+// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
+// is posted to the pull request.
+func (o BranchPolicyStatusCheckSettingsOutput) Applicability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) *string { return v.Applicability }).(pulumi.StringPtrOutput)
+}
+
+// The authorized user can post the status.
+func (o BranchPolicyStatusCheckSettingsOutput) AuthorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) *string { return v.AuthorId }).(pulumi.StringPtrOutput)
+}
+
+// The display name.
+func (o BranchPolicyStatusCheckSettingsOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+func (o BranchPolicyStatusCheckSettingsOutput) FilenamePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) []string { return v.FilenamePatterns }).(pulumi.StringArrayOutput)
+}
+
+// Reset status whenever there are new changes.
+func (o BranchPolicyStatusCheckSettingsOutput) InvalidateOnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) *bool { return v.InvalidateOnUpdate }).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchPolicyStatusCheckSettingsOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined
+// at least once.
+func (o BranchPolicyStatusCheckSettingsOutput) Scopes() BranchPolicyStatusCheckSettingsScopeArrayOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) []BranchPolicyStatusCheckSettingsScope { return v.Scopes }).(BranchPolicyStatusCheckSettingsScopeArrayOutput)
+}
+
+type BranchPolicyStatusCheckSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyStatusCheckSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BranchPolicyStatusCheckSettings)(nil)).Elem()
+}
+
+func (o BranchPolicyStatusCheckSettingsPtrOutput) ToBranchPolicyStatusCheckSettingsPtrOutput() BranchPolicyStatusCheckSettingsPtrOutput {
+	return o
+}
+
+func (o BranchPolicyStatusCheckSettingsPtrOutput) ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsPtrOutput {
+	return o
+}
+
+func (o BranchPolicyStatusCheckSettingsPtrOutput) Elem() BranchPolicyStatusCheckSettingsOutput {
+	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) BranchPolicyStatusCheckSettings { return *v }).(BranchPolicyStatusCheckSettingsOutput)
+}
+
+// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
+// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
+// is posted to the pull request.
+func (o BranchPolicyStatusCheckSettingsPtrOutput) Applicability() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Applicability
+	}).(pulumi.StringPtrOutput)
+}
+
+// The authorized user can post the status.
+func (o BranchPolicyStatusCheckSettingsPtrOutput) AuthorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The display name.
+func (o BranchPolicyStatusCheckSettingsPtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+func (o BranchPolicyStatusCheckSettingsPtrOutput) FilenamePatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FilenamePatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Reset status whenever there are new changes.
+func (o BranchPolicyStatusCheckSettingsPtrOutput) InvalidateOnUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.InvalidateOnUpdate
+	}).(pulumi.BoolPtrOutput)
+}
+
+func (o BranchPolicyStatusCheckSettingsPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined
+// at least once.
+func (o BranchPolicyStatusCheckSettingsPtrOutput) Scopes() BranchPolicyStatusCheckSettingsScopeArrayOutput {
+	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) []BranchPolicyStatusCheckSettingsScope {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(BranchPolicyStatusCheckSettingsScopeArrayOutput)
+}
+
+type BranchPolicyStatusCheckSettingsScope struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default)
+	// or `Prefix`.
+	MatchType *string `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single
+	// repository.
+	RepositoryId *string `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a
+	// qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such
+	// as `refs/heads/releases`.
+	RepositoryRef *string `pulumi:"repositoryRef"`
+}
+
+// BranchPolicyStatusCheckSettingsScopeInput is an input type that accepts BranchPolicyStatusCheckSettingsScopeArgs and BranchPolicyStatusCheckSettingsScopeOutput values.
+// You can construct a concrete instance of `BranchPolicyStatusCheckSettingsScopeInput` via:
+//
+//          BranchPolicyStatusCheckSettingsScopeArgs{...}
+type BranchPolicyStatusCheckSettingsScopeInput interface {
+	pulumi.Input
+
+	ToBranchPolicyStatusCheckSettingsScopeOutput() BranchPolicyStatusCheckSettingsScopeOutput
+	ToBranchPolicyStatusCheckSettingsScopeOutputWithContext(context.Context) BranchPolicyStatusCheckSettingsScopeOutput
+}
+
+type BranchPolicyStatusCheckSettingsScopeArgs struct {
+	// The match type to use when applying the policy. Supported values are `Exact` (default)
+	// or `Prefix`.
+	MatchType pulumi.StringPtrInput `pulumi:"matchType"`
+	// The repository ID. Needed only if the scope of the policy will be limited to a single
+	// repository.
+	RepositoryId pulumi.StringPtrInput `pulumi:"repositoryId"`
+	// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a
+	// qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such
+	// as `refs/heads/releases`.
+	RepositoryRef pulumi.StringPtrInput `pulumi:"repositoryRef"`
+}
+
+func (BranchPolicyStatusCheckSettingsScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyStatusCheckSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyStatusCheckSettingsScopeArgs) ToBranchPolicyStatusCheckSettingsScopeOutput() BranchPolicyStatusCheckSettingsScopeOutput {
+	return i.ToBranchPolicyStatusCheckSettingsScopeOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyStatusCheckSettingsScopeArgs) ToBranchPolicyStatusCheckSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckSettingsScopeOutput)
+}
+
+// BranchPolicyStatusCheckSettingsScopeArrayInput is an input type that accepts BranchPolicyStatusCheckSettingsScopeArray and BranchPolicyStatusCheckSettingsScopeArrayOutput values.
+// You can construct a concrete instance of `BranchPolicyStatusCheckSettingsScopeArrayInput` via:
+//
+//          BranchPolicyStatusCheckSettingsScopeArray{ BranchPolicyStatusCheckSettingsScopeArgs{...} }
+type BranchPolicyStatusCheckSettingsScopeArrayInput interface {
+	pulumi.Input
+
+	ToBranchPolicyStatusCheckSettingsScopeArrayOutput() BranchPolicyStatusCheckSettingsScopeArrayOutput
+	ToBranchPolicyStatusCheckSettingsScopeArrayOutputWithContext(context.Context) BranchPolicyStatusCheckSettingsScopeArrayOutput
+}
+
+type BranchPolicyStatusCheckSettingsScopeArray []BranchPolicyStatusCheckSettingsScopeInput
+
+func (BranchPolicyStatusCheckSettingsScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyStatusCheckSettingsScope)(nil)).Elem()
+}
+
+func (i BranchPolicyStatusCheckSettingsScopeArray) ToBranchPolicyStatusCheckSettingsScopeArrayOutput() BranchPolicyStatusCheckSettingsScopeArrayOutput {
+	return i.ToBranchPolicyStatusCheckSettingsScopeArrayOutputWithContext(context.Background())
+}
+
+func (i BranchPolicyStatusCheckSettingsScopeArray) ToBranchPolicyStatusCheckSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckSettingsScopeArrayOutput)
+}
+
+type BranchPolicyStatusCheckSettingsScopeOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyStatusCheckSettingsScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BranchPolicyStatusCheckSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyStatusCheckSettingsScopeOutput) ToBranchPolicyStatusCheckSettingsScopeOutput() BranchPolicyStatusCheckSettingsScopeOutput {
+	return o
+}
+
+func (o BranchPolicyStatusCheckSettingsScopeOutput) ToBranchPolicyStatusCheckSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsScopeOutput {
+	return o
+}
+
+// The match type to use when applying the policy. Supported values are `Exact` (default)
+// or `Prefix`.
+func (o BranchPolicyStatusCheckSettingsScopeOutput) MatchType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettingsScope) *string { return v.MatchType }).(pulumi.StringPtrOutput)
+}
+
+// The repository ID. Needed only if the scope of the policy will be limited to a single
+// repository.
+func (o BranchPolicyStatusCheckSettingsScopeOutput) RepositoryId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettingsScope) *string { return v.RepositoryId }).(pulumi.StringPtrOutput)
+}
+
+// The ref pattern to use for the match. If `matchType` is `Exact`, this should be a
+// qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such
+// as `refs/heads/releases`.
+func (o BranchPolicyStatusCheckSettingsScopeOutput) RepositoryRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BranchPolicyStatusCheckSettingsScope) *string { return v.RepositoryRef }).(pulumi.StringPtrOutput)
+}
+
+type BranchPolicyStatusCheckSettingsScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (BranchPolicyStatusCheckSettingsScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BranchPolicyStatusCheckSettingsScope)(nil)).Elem()
+}
+
+func (o BranchPolicyStatusCheckSettingsScopeArrayOutput) ToBranchPolicyStatusCheckSettingsScopeArrayOutput() BranchPolicyStatusCheckSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyStatusCheckSettingsScopeArrayOutput) ToBranchPolicyStatusCheckSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsScopeArrayOutput {
+	return o
+}
+
+func (o BranchPolicyStatusCheckSettingsScopeArrayOutput) Index(i pulumi.IntInput) BranchPolicyStatusCheckSettingsScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyStatusCheckSettingsScope {
+		return vs[0].([]BranchPolicyStatusCheckSettingsScope)[vs[1].(int)]
+	}).(BranchPolicyStatusCheckSettingsScopeOutput)
 }
 
 type BranchPolicyWorkItemLinkingSettings struct {
@@ -3767,6 +4147,518 @@ func (o GitInitializationPtrOutput) SourceUrl() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type RepositoryPolicyAuthorEmailPatternSettings struct {
+	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+	// Email patterns prefixed with "!" are excluded. Order is important.
+	AuthorEmailPatterns []string `pulumi:"authorEmailPatterns"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined
+	// at least once.
+	Scopes []RepositoryPolicyAuthorEmailPatternSettingsScope `pulumi:"scopes"`
+}
+
+// RepositoryPolicyAuthorEmailPatternSettingsInput is an input type that accepts RepositoryPolicyAuthorEmailPatternSettingsArgs and RepositoryPolicyAuthorEmailPatternSettingsOutput values.
+// You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternSettingsInput` via:
+//
+//          RepositoryPolicyAuthorEmailPatternSettingsArgs{...}
+type RepositoryPolicyAuthorEmailPatternSettingsInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyAuthorEmailPatternSettingsOutput() RepositoryPolicyAuthorEmailPatternSettingsOutput
+	ToRepositoryPolicyAuthorEmailPatternSettingsOutputWithContext(context.Context) RepositoryPolicyAuthorEmailPatternSettingsOutput
+}
+
+type RepositoryPolicyAuthorEmailPatternSettingsArgs struct {
+	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+	// Email patterns prefixed with "!" are excluded. Order is important.
+	AuthorEmailPatterns pulumi.StringArrayInput `pulumi:"authorEmailPatterns"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined
+	// at least once.
+	Scopes RepositoryPolicyAuthorEmailPatternSettingsScopeArrayInput `pulumi:"scopes"`
+}
+
+func (RepositoryPolicyAuthorEmailPatternSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternSettings)(nil)).Elem()
+}
+
+func (i RepositoryPolicyAuthorEmailPatternSettingsArgs) ToRepositoryPolicyAuthorEmailPatternSettingsOutput() RepositoryPolicyAuthorEmailPatternSettingsOutput {
+	return i.ToRepositoryPolicyAuthorEmailPatternSettingsOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyAuthorEmailPatternSettingsArgs) ToRepositoryPolicyAuthorEmailPatternSettingsOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsOutput)
+}
+
+func (i RepositoryPolicyAuthorEmailPatternSettingsArgs) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
+	return i.ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyAuthorEmailPatternSettingsArgs) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsOutput).ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx)
+}
+
+// RepositoryPolicyAuthorEmailPatternSettingsPtrInput is an input type that accepts RepositoryPolicyAuthorEmailPatternSettingsArgs, RepositoryPolicyAuthorEmailPatternSettingsPtr and RepositoryPolicyAuthorEmailPatternSettingsPtrOutput values.
+// You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternSettingsPtrInput` via:
+//
+//          RepositoryPolicyAuthorEmailPatternSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryPolicyAuthorEmailPatternSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput
+	ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput
+}
+
+type repositoryPolicyAuthorEmailPatternSettingsPtrType RepositoryPolicyAuthorEmailPatternSettingsArgs
+
+func RepositoryPolicyAuthorEmailPatternSettingsPtr(v *RepositoryPolicyAuthorEmailPatternSettingsArgs) RepositoryPolicyAuthorEmailPatternSettingsPtrInput {
+	return (*repositoryPolicyAuthorEmailPatternSettingsPtrType)(v)
+}
+
+func (*repositoryPolicyAuthorEmailPatternSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPolicyAuthorEmailPatternSettings)(nil)).Elem()
+}
+
+func (i *repositoryPolicyAuthorEmailPatternSettingsPtrType) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
+	return i.ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryPolicyAuthorEmailPatternSettingsPtrType) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsPtrOutput)
+}
+
+type RepositoryPolicyAuthorEmailPatternSettingsOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyAuthorEmailPatternSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternSettings)(nil)).Elem()
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) ToRepositoryPolicyAuthorEmailPatternSettingsOutput() RepositoryPolicyAuthorEmailPatternSettingsOutput {
+	return o
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) ToRepositoryPolicyAuthorEmailPatternSettingsOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsOutput {
+	return o
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
+	return o.ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
+	return o.ApplyT(func(v RepositoryPolicyAuthorEmailPatternSettings) *RepositoryPolicyAuthorEmailPatternSettings {
+		return &v
+	}).(RepositoryPolicyAuthorEmailPatternSettingsPtrOutput)
+}
+
+// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+// Email patterns prefixed with "!" are excluded. Order is important.
+func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) AuthorEmailPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryPolicyAuthorEmailPatternSettings) []string { return v.AuthorEmailPatterns }).(pulumi.StringArrayOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined
+// at least once.
+func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) Scopes() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
+	return o.ApplyT(func(v RepositoryPolicyAuthorEmailPatternSettings) []RepositoryPolicyAuthorEmailPatternSettingsScope {
+		return v.Scopes
+	}).(RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput)
+}
+
+type RepositoryPolicyAuthorEmailPatternSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPolicyAuthorEmailPatternSettings)(nil)).Elem()
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
+	return o
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
+	return o
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) Elem() RepositoryPolicyAuthorEmailPatternSettingsOutput {
+	return o.ApplyT(func(v *RepositoryPolicyAuthorEmailPatternSettings) RepositoryPolicyAuthorEmailPatternSettings {
+		return *v
+	}).(RepositoryPolicyAuthorEmailPatternSettingsOutput)
+}
+
+// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+// Email patterns prefixed with "!" are excluded. Order is important.
+func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) AuthorEmailPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryPolicyAuthorEmailPatternSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.AuthorEmailPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined
+// at least once.
+func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) Scopes() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
+	return o.ApplyT(func(v *RepositoryPolicyAuthorEmailPatternSettings) []RepositoryPolicyAuthorEmailPatternSettingsScope {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput)
+}
+
+type RepositoryPolicyAuthorEmailPatternSettingsScope struct {
+	// The repository ID.
+	RepositoryId string `pulumi:"repositoryId"`
+}
+
+// RepositoryPolicyAuthorEmailPatternSettingsScopeInput is an input type that accepts RepositoryPolicyAuthorEmailPatternSettingsScopeArgs and RepositoryPolicyAuthorEmailPatternSettingsScopeOutput values.
+// You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternSettingsScopeInput` via:
+//
+//          RepositoryPolicyAuthorEmailPatternSettingsScopeArgs{...}
+type RepositoryPolicyAuthorEmailPatternSettingsScopeInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeOutput
+	ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutputWithContext(context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeOutput
+}
+
+type RepositoryPolicyAuthorEmailPatternSettingsScopeArgs struct {
+	// The repository ID.
+	RepositoryId pulumi.StringInput `pulumi:"repositoryId"`
+}
+
+func (RepositoryPolicyAuthorEmailPatternSettingsScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternSettingsScope)(nil)).Elem()
+}
+
+func (i RepositoryPolicyAuthorEmailPatternSettingsScopeArgs) ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
+	return i.ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyAuthorEmailPatternSettingsScopeArgs) ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsScopeOutput)
+}
+
+// RepositoryPolicyAuthorEmailPatternSettingsScopeArrayInput is an input type that accepts RepositoryPolicyAuthorEmailPatternSettingsScopeArray and RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput values.
+// You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternSettingsScopeArrayInput` via:
+//
+//          RepositoryPolicyAuthorEmailPatternSettingsScopeArray{ RepositoryPolicyAuthorEmailPatternSettingsScopeArgs{...} }
+type RepositoryPolicyAuthorEmailPatternSettingsScopeArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput
+	ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutputWithContext(context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput
+}
+
+type RepositoryPolicyAuthorEmailPatternSettingsScopeArray []RepositoryPolicyAuthorEmailPatternSettingsScopeInput
+
+func (RepositoryPolicyAuthorEmailPatternSettingsScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryPolicyAuthorEmailPatternSettingsScope)(nil)).Elem()
+}
+
+func (i RepositoryPolicyAuthorEmailPatternSettingsScopeArray) ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
+	return i.ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyAuthorEmailPatternSettingsScopeArray) ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput)
+}
+
+type RepositoryPolicyAuthorEmailPatternSettingsScopeOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyAuthorEmailPatternSettingsScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternSettingsScope)(nil)).Elem()
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsScopeOutput) ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
+	return o
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsScopeOutput) ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
+	return o
+}
+
+// The repository ID.
+func (o RepositoryPolicyAuthorEmailPatternSettingsScopeOutput) RepositoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryPolicyAuthorEmailPatternSettingsScope) string { return v.RepositoryId }).(pulumi.StringOutput)
+}
+
+type RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryPolicyAuthorEmailPatternSettingsScope)(nil)).Elem()
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput) ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
+	return o
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput) ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
+	return o
+}
+
+func (o RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryPolicyAuthorEmailPatternSettingsScope {
+		return vs[0].([]RepositoryPolicyAuthorEmailPatternSettingsScope)[vs[1].(int)]
+	}).(RepositoryPolicyAuthorEmailPatternSettingsScopeOutput)
+}
+
+type RepositoryPolicyFilePathPatternSettings struct {
+	// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+	FilepathPatterns []string `pulumi:"filepathPatterns"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined
+	// at least once.
+	Scopes []RepositoryPolicyFilePathPatternSettingsScope `pulumi:"scopes"`
+}
+
+// RepositoryPolicyFilePathPatternSettingsInput is an input type that accepts RepositoryPolicyFilePathPatternSettingsArgs and RepositoryPolicyFilePathPatternSettingsOutput values.
+// You can construct a concrete instance of `RepositoryPolicyFilePathPatternSettingsInput` via:
+//
+//          RepositoryPolicyFilePathPatternSettingsArgs{...}
+type RepositoryPolicyFilePathPatternSettingsInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyFilePathPatternSettingsOutput() RepositoryPolicyFilePathPatternSettingsOutput
+	ToRepositoryPolicyFilePathPatternSettingsOutputWithContext(context.Context) RepositoryPolicyFilePathPatternSettingsOutput
+}
+
+type RepositoryPolicyFilePathPatternSettingsArgs struct {
+	// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+	FilepathPatterns pulumi.StringArrayInput `pulumi:"filepathPatterns"`
+	// Controls which repositories and branches the policy will be enabled for. This block must be defined
+	// at least once.
+	Scopes RepositoryPolicyFilePathPatternSettingsScopeArrayInput `pulumi:"scopes"`
+}
+
+func (RepositoryPolicyFilePathPatternSettingsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicyFilePathPatternSettings)(nil)).Elem()
+}
+
+func (i RepositoryPolicyFilePathPatternSettingsArgs) ToRepositoryPolicyFilePathPatternSettingsOutput() RepositoryPolicyFilePathPatternSettingsOutput {
+	return i.ToRepositoryPolicyFilePathPatternSettingsOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyFilePathPatternSettingsArgs) ToRepositoryPolicyFilePathPatternSettingsOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsOutput)
+}
+
+func (i RepositoryPolicyFilePathPatternSettingsArgs) ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput {
+	return i.ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyFilePathPatternSettingsArgs) ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsOutput).ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx)
+}
+
+// RepositoryPolicyFilePathPatternSettingsPtrInput is an input type that accepts RepositoryPolicyFilePathPatternSettingsArgs, RepositoryPolicyFilePathPatternSettingsPtr and RepositoryPolicyFilePathPatternSettingsPtrOutput values.
+// You can construct a concrete instance of `RepositoryPolicyFilePathPatternSettingsPtrInput` via:
+//
+//          RepositoryPolicyFilePathPatternSettingsArgs{...}
+//
+//  or:
+//
+//          nil
+type RepositoryPolicyFilePathPatternSettingsPtrInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput
+	ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput
+}
+
+type repositoryPolicyFilePathPatternSettingsPtrType RepositoryPolicyFilePathPatternSettingsArgs
+
+func RepositoryPolicyFilePathPatternSettingsPtr(v *RepositoryPolicyFilePathPatternSettingsArgs) RepositoryPolicyFilePathPatternSettingsPtrInput {
+	return (*repositoryPolicyFilePathPatternSettingsPtrType)(v)
+}
+
+func (*repositoryPolicyFilePathPatternSettingsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPolicyFilePathPatternSettings)(nil)).Elem()
+}
+
+func (i *repositoryPolicyFilePathPatternSettingsPtrType) ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput {
+	return i.ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(context.Background())
+}
+
+func (i *repositoryPolicyFilePathPatternSettingsPtrType) ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsPtrOutput)
+}
+
+type RepositoryPolicyFilePathPatternSettingsOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyFilePathPatternSettingsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicyFilePathPatternSettings)(nil)).Elem()
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsOutput) ToRepositoryPolicyFilePathPatternSettingsOutput() RepositoryPolicyFilePathPatternSettingsOutput {
+	return o
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsOutput) ToRepositoryPolicyFilePathPatternSettingsOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsOutput {
+	return o
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsOutput) ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput {
+	return o.ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(context.Background())
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsOutput) ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput {
+	return o.ApplyT(func(v RepositoryPolicyFilePathPatternSettings) *RepositoryPolicyFilePathPatternSettings {
+		return &v
+	}).(RepositoryPolicyFilePathPatternSettingsPtrOutput)
+}
+
+// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+func (o RepositoryPolicyFilePathPatternSettingsOutput) FilepathPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v RepositoryPolicyFilePathPatternSettings) []string { return v.FilepathPatterns }).(pulumi.StringArrayOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined
+// at least once.
+func (o RepositoryPolicyFilePathPatternSettingsOutput) Scopes() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
+	return o.ApplyT(func(v RepositoryPolicyFilePathPatternSettings) []RepositoryPolicyFilePathPatternSettingsScope {
+		return v.Scopes
+	}).(RepositoryPolicyFilePathPatternSettingsScopeArrayOutput)
+}
+
+type RepositoryPolicyFilePathPatternSettingsPtrOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyFilePathPatternSettingsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**RepositoryPolicyFilePathPatternSettings)(nil)).Elem()
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput {
+	return o
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput {
+	return o
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) Elem() RepositoryPolicyFilePathPatternSettingsOutput {
+	return o.ApplyT(func(v *RepositoryPolicyFilePathPatternSettings) RepositoryPolicyFilePathPatternSettings { return *v }).(RepositoryPolicyFilePathPatternSettingsOutput)
+}
+
+// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) FilepathPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *RepositoryPolicyFilePathPatternSettings) []string {
+		if v == nil {
+			return nil
+		}
+		return v.FilepathPatterns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Controls which repositories and branches the policy will be enabled for. This block must be defined
+// at least once.
+func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) Scopes() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
+	return o.ApplyT(func(v *RepositoryPolicyFilePathPatternSettings) []RepositoryPolicyFilePathPatternSettingsScope {
+		if v == nil {
+			return nil
+		}
+		return v.Scopes
+	}).(RepositoryPolicyFilePathPatternSettingsScopeArrayOutput)
+}
+
+type RepositoryPolicyFilePathPatternSettingsScope struct {
+	// The repository ID.
+	RepositoryId string `pulumi:"repositoryId"`
+}
+
+// RepositoryPolicyFilePathPatternSettingsScopeInput is an input type that accepts RepositoryPolicyFilePathPatternSettingsScopeArgs and RepositoryPolicyFilePathPatternSettingsScopeOutput values.
+// You can construct a concrete instance of `RepositoryPolicyFilePathPatternSettingsScopeInput` via:
+//
+//          RepositoryPolicyFilePathPatternSettingsScopeArgs{...}
+type RepositoryPolicyFilePathPatternSettingsScopeInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyFilePathPatternSettingsScopeOutput() RepositoryPolicyFilePathPatternSettingsScopeOutput
+	ToRepositoryPolicyFilePathPatternSettingsScopeOutputWithContext(context.Context) RepositoryPolicyFilePathPatternSettingsScopeOutput
+}
+
+type RepositoryPolicyFilePathPatternSettingsScopeArgs struct {
+	// The repository ID.
+	RepositoryId pulumi.StringInput `pulumi:"repositoryId"`
+}
+
+func (RepositoryPolicyFilePathPatternSettingsScopeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicyFilePathPatternSettingsScope)(nil)).Elem()
+}
+
+func (i RepositoryPolicyFilePathPatternSettingsScopeArgs) ToRepositoryPolicyFilePathPatternSettingsScopeOutput() RepositoryPolicyFilePathPatternSettingsScopeOutput {
+	return i.ToRepositoryPolicyFilePathPatternSettingsScopeOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyFilePathPatternSettingsScopeArgs) ToRepositoryPolicyFilePathPatternSettingsScopeOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsScopeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsScopeOutput)
+}
+
+// RepositoryPolicyFilePathPatternSettingsScopeArrayInput is an input type that accepts RepositoryPolicyFilePathPatternSettingsScopeArray and RepositoryPolicyFilePathPatternSettingsScopeArrayOutput values.
+// You can construct a concrete instance of `RepositoryPolicyFilePathPatternSettingsScopeArrayInput` via:
+//
+//          RepositoryPolicyFilePathPatternSettingsScopeArray{ RepositoryPolicyFilePathPatternSettingsScopeArgs{...} }
+type RepositoryPolicyFilePathPatternSettingsScopeArrayInput interface {
+	pulumi.Input
+
+	ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutput() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput
+	ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutputWithContext(context.Context) RepositoryPolicyFilePathPatternSettingsScopeArrayOutput
+}
+
+type RepositoryPolicyFilePathPatternSettingsScopeArray []RepositoryPolicyFilePathPatternSettingsScopeInput
+
+func (RepositoryPolicyFilePathPatternSettingsScopeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryPolicyFilePathPatternSettingsScope)(nil)).Elem()
+}
+
+func (i RepositoryPolicyFilePathPatternSettingsScopeArray) ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutput() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
+	return i.ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutputWithContext(context.Background())
+}
+
+func (i RepositoryPolicyFilePathPatternSettingsScopeArray) ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsScopeArrayOutput)
+}
+
+type RepositoryPolicyFilePathPatternSettingsScopeOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyFilePathPatternSettingsScopeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*RepositoryPolicyFilePathPatternSettingsScope)(nil)).Elem()
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsScopeOutput) ToRepositoryPolicyFilePathPatternSettingsScopeOutput() RepositoryPolicyFilePathPatternSettingsScopeOutput {
+	return o
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsScopeOutput) ToRepositoryPolicyFilePathPatternSettingsScopeOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsScopeOutput {
+	return o
+}
+
+// The repository ID.
+func (o RepositoryPolicyFilePathPatternSettingsScopeOutput) RepositoryId() pulumi.StringOutput {
+	return o.ApplyT(func(v RepositoryPolicyFilePathPatternSettingsScope) string { return v.RepositoryId }).(pulumi.StringOutput)
+}
+
+type RepositoryPolicyFilePathPatternSettingsScopeArrayOutput struct{ *pulumi.OutputState }
+
+func (RepositoryPolicyFilePathPatternSettingsScopeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]RepositoryPolicyFilePathPatternSettingsScope)(nil)).Elem()
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsScopeArrayOutput) ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutput() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
+	return o
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsScopeArrayOutput) ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
+	return o
+}
+
+func (o RepositoryPolicyFilePathPatternSettingsScopeArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyFilePathPatternSettingsScopeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryPolicyFilePathPatternSettingsScope {
+		return vs[0].([]RepositoryPolicyFilePathPatternSettingsScope)[vs[1].(int)]
+	}).(RepositoryPolicyFilePathPatternSettingsScopeOutput)
+}
+
 type ServiceEndpointArtifactoryAuthenticationBasic struct {
 	// Artifactory Password.
 	Password     string  `pulumi:"password"`
@@ -5231,6 +6123,617 @@ func (o ServiceEndpointPipelineAuthPersonalPtrOutput) PersonalAccessTokenHash() 
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceEndpointServiceFabricAzureActiveDirectory struct {
+	// - Password for the Azure Active Directory account.
+	Password     string  `pulumi:"password"`
+	PasswordHash *string `pulumi:"passwordHash"`
+	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+	ServerCertificateCommonName *string `pulumi:"serverCertificateCommonName"`
+	// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+	ServerCertificateLookup string `pulumi:"serverCertificateLookup"`
+	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+	ServerCertificateThumbprint *string `pulumi:"serverCertificateThumbprint"`
+	// - Specify an Azure Active Directory account.
+	Username string `pulumi:"username"`
+}
+
+// ServiceEndpointServiceFabricAzureActiveDirectoryInput is an input type that accepts ServiceEndpointServiceFabricAzureActiveDirectoryArgs and ServiceEndpointServiceFabricAzureActiveDirectoryOutput values.
+// You can construct a concrete instance of `ServiceEndpointServiceFabricAzureActiveDirectoryInput` via:
+//
+//          ServiceEndpointServiceFabricAzureActiveDirectoryArgs{...}
+type ServiceEndpointServiceFabricAzureActiveDirectoryInput interface {
+	pulumi.Input
+
+	ToServiceEndpointServiceFabricAzureActiveDirectoryOutput() ServiceEndpointServiceFabricAzureActiveDirectoryOutput
+	ToServiceEndpointServiceFabricAzureActiveDirectoryOutputWithContext(context.Context) ServiceEndpointServiceFabricAzureActiveDirectoryOutput
+}
+
+type ServiceEndpointServiceFabricAzureActiveDirectoryArgs struct {
+	// - Password for the Azure Active Directory account.
+	Password     pulumi.StringInput    `pulumi:"password"`
+	PasswordHash pulumi.StringPtrInput `pulumi:"passwordHash"`
+	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+	ServerCertificateCommonName pulumi.StringPtrInput `pulumi:"serverCertificateCommonName"`
+	// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+	ServerCertificateLookup pulumi.StringInput `pulumi:"serverCertificateLookup"`
+	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+	ServerCertificateThumbprint pulumi.StringPtrInput `pulumi:"serverCertificateThumbprint"`
+	// - Specify an Azure Active Directory account.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ServiceEndpointServiceFabricAzureActiveDirectoryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointServiceFabricAzureActiveDirectory)(nil)).Elem()
+}
+
+func (i ServiceEndpointServiceFabricAzureActiveDirectoryArgs) ToServiceEndpointServiceFabricAzureActiveDirectoryOutput() ServiceEndpointServiceFabricAzureActiveDirectoryOutput {
+	return i.ToServiceEndpointServiceFabricAzureActiveDirectoryOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointServiceFabricAzureActiveDirectoryArgs) ToServiceEndpointServiceFabricAzureActiveDirectoryOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricAzureActiveDirectoryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricAzureActiveDirectoryOutput)
+}
+
+func (i ServiceEndpointServiceFabricAzureActiveDirectoryArgs) ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput() ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
+	return i.ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointServiceFabricAzureActiveDirectoryArgs) ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricAzureActiveDirectoryOutput).ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointServiceFabricAzureActiveDirectoryPtrInput is an input type that accepts ServiceEndpointServiceFabricAzureActiveDirectoryArgs, ServiceEndpointServiceFabricAzureActiveDirectoryPtr and ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointServiceFabricAzureActiveDirectoryPtrInput` via:
+//
+//          ServiceEndpointServiceFabricAzureActiveDirectoryArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointServiceFabricAzureActiveDirectoryPtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput() ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput
+	ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(context.Context) ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput
+}
+
+type serviceEndpointServiceFabricAzureActiveDirectoryPtrType ServiceEndpointServiceFabricAzureActiveDirectoryArgs
+
+func ServiceEndpointServiceFabricAzureActiveDirectoryPtr(v *ServiceEndpointServiceFabricAzureActiveDirectoryArgs) ServiceEndpointServiceFabricAzureActiveDirectoryPtrInput {
+	return (*serviceEndpointServiceFabricAzureActiveDirectoryPtrType)(v)
+}
+
+func (*serviceEndpointServiceFabricAzureActiveDirectoryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointServiceFabricAzureActiveDirectory)(nil)).Elem()
+}
+
+func (i *serviceEndpointServiceFabricAzureActiveDirectoryPtrType) ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput() ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
+	return i.ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointServiceFabricAzureActiveDirectoryPtrType) ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput)
+}
+
+type ServiceEndpointServiceFabricAzureActiveDirectoryOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointServiceFabricAzureActiveDirectory)(nil)).Elem()
+}
+
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ToServiceEndpointServiceFabricAzureActiveDirectoryOutput() ServiceEndpointServiceFabricAzureActiveDirectoryOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ToServiceEndpointServiceFabricAzureActiveDirectoryOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricAzureActiveDirectoryOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput() ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
+	return o.ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) *ServiceEndpointServiceFabricAzureActiveDirectory {
+		return &v
+	}).(ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput)
+}
+
+// - Password for the Azure Active Directory account.
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) PasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) *string { return v.PasswordHash }).(pulumi.StringPtrOutput)
+}
+
+// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ServerCertificateCommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) *string { return v.ServerCertificateCommonName }).(pulumi.StringPtrOutput)
+}
+
+// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ServerCertificateLookup() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) string { return v.ServerCertificateLookup }).(pulumi.StringOutput)
+}
+
+// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ServerCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) *string { return v.ServerCertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+// - Specify an Azure Active Directory account.
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointServiceFabricAzureActiveDirectory)(nil)).Elem()
+}
+
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput() ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) Elem() ServiceEndpointServiceFabricAzureActiveDirectoryOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) ServiceEndpointServiceFabricAzureActiveDirectory {
+		return *v
+	}).(ServiceEndpointServiceFabricAzureActiveDirectoryOutput)
+}
+
+// - Password for the Azure Active Directory account.
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) PasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ServerCertificateCommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerCertificateCommonName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ServerCertificateLookup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerCertificateLookup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ServerCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerCertificateThumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+// - Specify an Azure Active Directory account.
+func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointServiceFabricCertificate struct {
+	// Base64 encoding of the cluster's client certificate file.
+	ClientCertificate     string  `pulumi:"clientCertificate"`
+	ClientCertificateHash *string `pulumi:"clientCertificateHash"`
+	// Password for the certificate.
+	ClientCertificatePassword     *string `pulumi:"clientCertificatePassword"`
+	ClientCertificatePasswordHash *string `pulumi:"clientCertificatePasswordHash"`
+	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+	ServerCertificateCommonName *string `pulumi:"serverCertificateCommonName"`
+	// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+	ServerCertificateLookup string `pulumi:"serverCertificateLookup"`
+	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+	ServerCertificateThumbprint *string `pulumi:"serverCertificateThumbprint"`
+}
+
+// ServiceEndpointServiceFabricCertificateInput is an input type that accepts ServiceEndpointServiceFabricCertificateArgs and ServiceEndpointServiceFabricCertificateOutput values.
+// You can construct a concrete instance of `ServiceEndpointServiceFabricCertificateInput` via:
+//
+//          ServiceEndpointServiceFabricCertificateArgs{...}
+type ServiceEndpointServiceFabricCertificateInput interface {
+	pulumi.Input
+
+	ToServiceEndpointServiceFabricCertificateOutput() ServiceEndpointServiceFabricCertificateOutput
+	ToServiceEndpointServiceFabricCertificateOutputWithContext(context.Context) ServiceEndpointServiceFabricCertificateOutput
+}
+
+type ServiceEndpointServiceFabricCertificateArgs struct {
+	// Base64 encoding of the cluster's client certificate file.
+	ClientCertificate     pulumi.StringInput    `pulumi:"clientCertificate"`
+	ClientCertificateHash pulumi.StringPtrInput `pulumi:"clientCertificateHash"`
+	// Password for the certificate.
+	ClientCertificatePassword     pulumi.StringPtrInput `pulumi:"clientCertificatePassword"`
+	ClientCertificatePasswordHash pulumi.StringPtrInput `pulumi:"clientCertificatePasswordHash"`
+	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+	ServerCertificateCommonName pulumi.StringPtrInput `pulumi:"serverCertificateCommonName"`
+	// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+	ServerCertificateLookup pulumi.StringInput `pulumi:"serverCertificateLookup"`
+	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+	ServerCertificateThumbprint pulumi.StringPtrInput `pulumi:"serverCertificateThumbprint"`
+}
+
+func (ServiceEndpointServiceFabricCertificateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointServiceFabricCertificate)(nil)).Elem()
+}
+
+func (i ServiceEndpointServiceFabricCertificateArgs) ToServiceEndpointServiceFabricCertificateOutput() ServiceEndpointServiceFabricCertificateOutput {
+	return i.ToServiceEndpointServiceFabricCertificateOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointServiceFabricCertificateArgs) ToServiceEndpointServiceFabricCertificateOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricCertificateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricCertificateOutput)
+}
+
+func (i ServiceEndpointServiceFabricCertificateArgs) ToServiceEndpointServiceFabricCertificatePtrOutput() ServiceEndpointServiceFabricCertificatePtrOutput {
+	return i.ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointServiceFabricCertificateArgs) ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricCertificateOutput).ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointServiceFabricCertificatePtrInput is an input type that accepts ServiceEndpointServiceFabricCertificateArgs, ServiceEndpointServiceFabricCertificatePtr and ServiceEndpointServiceFabricCertificatePtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointServiceFabricCertificatePtrInput` via:
+//
+//          ServiceEndpointServiceFabricCertificateArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointServiceFabricCertificatePtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointServiceFabricCertificatePtrOutput() ServiceEndpointServiceFabricCertificatePtrOutput
+	ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(context.Context) ServiceEndpointServiceFabricCertificatePtrOutput
+}
+
+type serviceEndpointServiceFabricCertificatePtrType ServiceEndpointServiceFabricCertificateArgs
+
+func ServiceEndpointServiceFabricCertificatePtr(v *ServiceEndpointServiceFabricCertificateArgs) ServiceEndpointServiceFabricCertificatePtrInput {
+	return (*serviceEndpointServiceFabricCertificatePtrType)(v)
+}
+
+func (*serviceEndpointServiceFabricCertificatePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointServiceFabricCertificate)(nil)).Elem()
+}
+
+func (i *serviceEndpointServiceFabricCertificatePtrType) ToServiceEndpointServiceFabricCertificatePtrOutput() ServiceEndpointServiceFabricCertificatePtrOutput {
+	return i.ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointServiceFabricCertificatePtrType) ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricCertificatePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricCertificatePtrOutput)
+}
+
+type ServiceEndpointServiceFabricCertificateOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointServiceFabricCertificateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointServiceFabricCertificate)(nil)).Elem()
+}
+
+func (o ServiceEndpointServiceFabricCertificateOutput) ToServiceEndpointServiceFabricCertificateOutput() ServiceEndpointServiceFabricCertificateOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricCertificateOutput) ToServiceEndpointServiceFabricCertificateOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricCertificateOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricCertificateOutput) ToServiceEndpointServiceFabricCertificatePtrOutput() ServiceEndpointServiceFabricCertificatePtrOutput {
+	return o.ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointServiceFabricCertificateOutput) ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricCertificatePtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) *ServiceEndpointServiceFabricCertificate {
+		return &v
+	}).(ServiceEndpointServiceFabricCertificatePtrOutput)
+}
+
+// Base64 encoding of the cluster's client certificate file.
+func (o ServiceEndpointServiceFabricCertificateOutput) ClientCertificate() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) string { return v.ClientCertificate }).(pulumi.StringOutput)
+}
+
+func (o ServiceEndpointServiceFabricCertificateOutput) ClientCertificateHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) *string { return v.ClientCertificateHash }).(pulumi.StringPtrOutput)
+}
+
+// Password for the certificate.
+func (o ServiceEndpointServiceFabricCertificateOutput) ClientCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) *string { return v.ClientCertificatePassword }).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointServiceFabricCertificateOutput) ClientCertificatePasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) *string { return v.ClientCertificatePasswordHash }).(pulumi.StringPtrOutput)
+}
+
+// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+func (o ServiceEndpointServiceFabricCertificateOutput) ServerCertificateCommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) *string { return v.ServerCertificateCommonName }).(pulumi.StringPtrOutput)
+}
+
+// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+func (o ServiceEndpointServiceFabricCertificateOutput) ServerCertificateLookup() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) string { return v.ServerCertificateLookup }).(pulumi.StringOutput)
+}
+
+// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+func (o ServiceEndpointServiceFabricCertificateOutput) ServerCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) *string { return v.ServerCertificateThumbprint }).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointServiceFabricCertificatePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointServiceFabricCertificatePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointServiceFabricCertificate)(nil)).Elem()
+}
+
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) ToServiceEndpointServiceFabricCertificatePtrOutput() ServiceEndpointServiceFabricCertificatePtrOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricCertificatePtrOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) Elem() ServiceEndpointServiceFabricCertificateOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) ServiceEndpointServiceFabricCertificate { return *v }).(ServiceEndpointServiceFabricCertificateOutput)
+}
+
+// Base64 encoding of the cluster's client certificate file.
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) ClientCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ClientCertificate
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) ClientCertificateHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificateHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// Password for the certificate.
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) ClientCertificatePassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificatePassword
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) ClientCertificatePasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClientCertificatePasswordHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) ServerCertificateCommonName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerCertificateCommonName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) ServerCertificateLookup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ServerCertificateLookup
+	}).(pulumi.StringPtrOutput)
+}
+
+// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+func (o ServiceEndpointServiceFabricCertificatePtrOutput) ServerCertificateThumbprint() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServerCertificateThumbprint
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceEndpointServiceFabricNone struct {
+	// Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+	ClusterSpn *string `pulumi:"clusterSpn"`
+	// Skip using windows security for authentication.
+	Unsecured *bool `pulumi:"unsecured"`
+}
+
+// ServiceEndpointServiceFabricNoneInput is an input type that accepts ServiceEndpointServiceFabricNoneArgs and ServiceEndpointServiceFabricNoneOutput values.
+// You can construct a concrete instance of `ServiceEndpointServiceFabricNoneInput` via:
+//
+//          ServiceEndpointServiceFabricNoneArgs{...}
+type ServiceEndpointServiceFabricNoneInput interface {
+	pulumi.Input
+
+	ToServiceEndpointServiceFabricNoneOutput() ServiceEndpointServiceFabricNoneOutput
+	ToServiceEndpointServiceFabricNoneOutputWithContext(context.Context) ServiceEndpointServiceFabricNoneOutput
+}
+
+type ServiceEndpointServiceFabricNoneArgs struct {
+	// Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+	ClusterSpn pulumi.StringPtrInput `pulumi:"clusterSpn"`
+	// Skip using windows security for authentication.
+	Unsecured pulumi.BoolPtrInput `pulumi:"unsecured"`
+}
+
+func (ServiceEndpointServiceFabricNoneArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointServiceFabricNone)(nil)).Elem()
+}
+
+func (i ServiceEndpointServiceFabricNoneArgs) ToServiceEndpointServiceFabricNoneOutput() ServiceEndpointServiceFabricNoneOutput {
+	return i.ToServiceEndpointServiceFabricNoneOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointServiceFabricNoneArgs) ToServiceEndpointServiceFabricNoneOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricNoneOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricNoneOutput)
+}
+
+func (i ServiceEndpointServiceFabricNoneArgs) ToServiceEndpointServiceFabricNonePtrOutput() ServiceEndpointServiceFabricNonePtrOutput {
+	return i.ToServiceEndpointServiceFabricNonePtrOutputWithContext(context.Background())
+}
+
+func (i ServiceEndpointServiceFabricNoneArgs) ToServiceEndpointServiceFabricNonePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricNonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricNoneOutput).ToServiceEndpointServiceFabricNonePtrOutputWithContext(ctx)
+}
+
+// ServiceEndpointServiceFabricNonePtrInput is an input type that accepts ServiceEndpointServiceFabricNoneArgs, ServiceEndpointServiceFabricNonePtr and ServiceEndpointServiceFabricNonePtrOutput values.
+// You can construct a concrete instance of `ServiceEndpointServiceFabricNonePtrInput` via:
+//
+//          ServiceEndpointServiceFabricNoneArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceEndpointServiceFabricNonePtrInput interface {
+	pulumi.Input
+
+	ToServiceEndpointServiceFabricNonePtrOutput() ServiceEndpointServiceFabricNonePtrOutput
+	ToServiceEndpointServiceFabricNonePtrOutputWithContext(context.Context) ServiceEndpointServiceFabricNonePtrOutput
+}
+
+type serviceEndpointServiceFabricNonePtrType ServiceEndpointServiceFabricNoneArgs
+
+func ServiceEndpointServiceFabricNonePtr(v *ServiceEndpointServiceFabricNoneArgs) ServiceEndpointServiceFabricNonePtrInput {
+	return (*serviceEndpointServiceFabricNonePtrType)(v)
+}
+
+func (*serviceEndpointServiceFabricNonePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointServiceFabricNone)(nil)).Elem()
+}
+
+func (i *serviceEndpointServiceFabricNonePtrType) ToServiceEndpointServiceFabricNonePtrOutput() ServiceEndpointServiceFabricNonePtrOutput {
+	return i.ToServiceEndpointServiceFabricNonePtrOutputWithContext(context.Background())
+}
+
+func (i *serviceEndpointServiceFabricNonePtrType) ToServiceEndpointServiceFabricNonePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricNonePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricNonePtrOutput)
+}
+
+type ServiceEndpointServiceFabricNoneOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointServiceFabricNoneOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceEndpointServiceFabricNone)(nil)).Elem()
+}
+
+func (o ServiceEndpointServiceFabricNoneOutput) ToServiceEndpointServiceFabricNoneOutput() ServiceEndpointServiceFabricNoneOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricNoneOutput) ToServiceEndpointServiceFabricNoneOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricNoneOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricNoneOutput) ToServiceEndpointServiceFabricNonePtrOutput() ServiceEndpointServiceFabricNonePtrOutput {
+	return o.ToServiceEndpointServiceFabricNonePtrOutputWithContext(context.Background())
+}
+
+func (o ServiceEndpointServiceFabricNoneOutput) ToServiceEndpointServiceFabricNonePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricNonePtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricNone) *ServiceEndpointServiceFabricNone {
+		return &v
+	}).(ServiceEndpointServiceFabricNonePtrOutput)
+}
+
+// Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+func (o ServiceEndpointServiceFabricNoneOutput) ClusterSpn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricNone) *string { return v.ClusterSpn }).(pulumi.StringPtrOutput)
+}
+
+// Skip using windows security for authentication.
+func (o ServiceEndpointServiceFabricNoneOutput) Unsecured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointServiceFabricNone) *bool { return v.Unsecured }).(pulumi.BoolPtrOutput)
+}
+
+type ServiceEndpointServiceFabricNonePtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceEndpointServiceFabricNonePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceEndpointServiceFabricNone)(nil)).Elem()
+}
+
+func (o ServiceEndpointServiceFabricNonePtrOutput) ToServiceEndpointServiceFabricNonePtrOutput() ServiceEndpointServiceFabricNonePtrOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricNonePtrOutput) ToServiceEndpointServiceFabricNonePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricNonePtrOutput {
+	return o
+}
+
+func (o ServiceEndpointServiceFabricNonePtrOutput) Elem() ServiceEndpointServiceFabricNoneOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricNone) ServiceEndpointServiceFabricNone { return *v }).(ServiceEndpointServiceFabricNoneOutput)
+}
+
+// Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+func (o ServiceEndpointServiceFabricNonePtrOutput) ClusterSpn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricNone) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterSpn
+	}).(pulumi.StringPtrOutput)
+}
+
+// Skip using windows security for authentication.
+func (o ServiceEndpointServiceFabricNonePtrOutput) Unsecured() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricNone) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Unsecured
+	}).(pulumi.BoolPtrOutput)
+}
+
 type VariableGroupKeyVault struct {
 	// The name of the Variable Group.
 	Name              string `pulumi:"name"`
@@ -6362,6 +7865,10 @@ func init() {
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsScopeOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersSettingsScopeArrayOutput{})
+	pulumi.RegisterOutputType(BranchPolicyStatusCheckSettingsOutput{})
+	pulumi.RegisterOutputType(BranchPolicyStatusCheckSettingsPtrOutput{})
+	pulumi.RegisterOutputType(BranchPolicyStatusCheckSettingsScopeOutput{})
+	pulumi.RegisterOutputType(BranchPolicyStatusCheckSettingsScopeArrayOutput{})
 	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsOutput{})
 	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingSettingsScopeOutput{})
@@ -6390,6 +7897,14 @@ func init() {
 	pulumi.RegisterOutputType(BuildDefinitionVariableArrayOutput{})
 	pulumi.RegisterOutputType(GitInitializationOutput{})
 	pulumi.RegisterOutputType(GitInitializationPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternSettingsOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternSettingsScopeOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternSettingsOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternSettingsPtrOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternSettingsScopeOutput{})
+	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternSettingsScopeArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationBasicOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationTokenOutput{})
@@ -6410,6 +7925,12 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesServiceAccountArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPipelineAuthPersonalOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPipelineAuthPersonalPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointServiceFabricAzureActiveDirectoryOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointServiceFabricCertificateOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointServiceFabricCertificatePtrOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointServiceFabricNoneOutput{})
+	pulumi.RegisterOutputType(ServiceEndpointServiceFabricNonePtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})

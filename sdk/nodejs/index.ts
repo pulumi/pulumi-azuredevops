@@ -11,6 +11,7 @@ export * from "./branchPolicyBuildValidation";
 export * from "./branchPolicyCommentResolution";
 export * from "./branchPolicyMergeTypes";
 export * from "./branchPolicyMinReviewers";
+export * from "./branchPolicyStatusCheck";
 export * from "./branchPolicyWorkItemLinking";
 export * from "./buildDefinition";
 export * from "./buildDefinitionPermissions";
@@ -37,6 +38,8 @@ export * from "./projectFeatures";
 export * from "./projectPermissions";
 export * from "./provider";
 export * from "./queue";
+export * from "./repositoryPolicyAuthorEmailPattern";
+export * from "./repositoryPolicyFilePathPattern";
 export * from "./resourceAuthorization";
 export * from "./serviceEndpointArtifactory";
 export * from "./serviceEndpointAws";
@@ -50,6 +53,7 @@ export * from "./serviceEndpointGitHubEnterprise";
 export * from "./serviceEndpointKubernetes";
 export * from "./serviceEndpointNpm";
 export * from "./serviceEndpointPipeline";
+export * from "./serviceEndpointServiceFabric";
 export * from "./serviceEndpointSonarQube";
 export * from "./serviceEndpointSsh";
 export * from "./user";
@@ -92,6 +96,7 @@ import { BranchPolicyBuildValidation } from "./branchPolicyBuildValidation";
 import { BranchPolicyCommentResolution } from "./branchPolicyCommentResolution";
 import { BranchPolicyMergeTypes } from "./branchPolicyMergeTypes";
 import { BranchPolicyMinReviewers } from "./branchPolicyMinReviewers";
+import { BranchPolicyStatusCheck } from "./branchPolicyStatusCheck";
 import { BranchPolicyWorkItemLinking } from "./branchPolicyWorkItemLinking";
 import { BuildDefinition } from "./buildDefinition";
 import { BuildDefinitionPermissions } from "./buildDefinitionPermissions";
@@ -105,6 +110,8 @@ import { Project } from "./project";
 import { ProjectFeatures } from "./projectFeatures";
 import { ProjectPermissions } from "./projectPermissions";
 import { Queue } from "./queue";
+import { RepositoryPolicyAuthorEmailPattern } from "./repositoryPolicyAuthorEmailPattern";
+import { RepositoryPolicyFilePathPattern } from "./repositoryPolicyFilePathPattern";
 import { ResourceAuthorization } from "./resourceAuthorization";
 import { ServiceEndpointArtifactory } from "./serviceEndpointArtifactory";
 import { ServiceEndpointAws } from "./serviceEndpointAws";
@@ -118,6 +125,7 @@ import { ServiceEndpointGitHubEnterprise } from "./serviceEndpointGitHubEnterpri
 import { ServiceEndpointKubernetes } from "./serviceEndpointKubernetes";
 import { ServiceEndpointNpm } from "./serviceEndpointNpm";
 import { ServiceEndpointPipeline } from "./serviceEndpointPipeline";
+import { ServiceEndpointServiceFabric } from "./serviceEndpointServiceFabric";
 import { ServiceEndpointSonarQube } from "./serviceEndpointSonarQube";
 import { ServiceEndpointSsh } from "./serviceEndpointSsh";
 import { User } from "./user";
@@ -140,6 +148,8 @@ const _module = {
                 return new BranchPolicyMergeTypes(name, <any>undefined, { urn })
             case "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers":
                 return new BranchPolicyMinReviewers(name, <any>undefined, { urn })
+            case "azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck":
+                return new BranchPolicyStatusCheck(name, <any>undefined, { urn })
             case "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking":
                 return new BranchPolicyWorkItemLinking(name, <any>undefined, { urn })
             case "azuredevops:index/buildDefinition:BuildDefinition":
@@ -166,6 +176,10 @@ const _module = {
                 return new ProjectPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/queue:Queue":
                 return new Queue(name, <any>undefined, { urn })
+            case "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern":
+                return new RepositoryPolicyAuthorEmailPattern(name, <any>undefined, { urn })
+            case "azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern":
+                return new RepositoryPolicyFilePathPattern(name, <any>undefined, { urn })
             case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
                 return new ResourceAuthorization(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
@@ -192,6 +206,8 @@ const _module = {
                 return new ServiceEndpointNpm(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
                 return new ServiceEndpointPipeline(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric":
+                return new ServiceEndpointServiceFabric(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
                 return new ServiceEndpointSonarQube(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
@@ -213,6 +229,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyBuildVal
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyCommentResolution", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyMergeTypes", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyMinReviewers", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyStatusCheck", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyWorkItemLinking", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinition", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinitionPermissions", _module)
@@ -226,6 +243,8 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/project", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/projectFeatures", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/projectPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/queue", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyAuthorEmailPattern", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyFilePathPattern", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/resourceAuthorization", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointArtifactory", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAws", _module)
@@ -239,6 +258,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitHu
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointKubernetes", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointNpm", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointPipeline", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointServiceFabric", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
