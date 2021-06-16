@@ -32,6 +32,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BranchPolicyMergeTypes{}
 	case "azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers":
 		r = &BranchPolicyMinReviewers{}
+	case "azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck":
+		r = &BranchPolicyStatusCheck{}
 	case "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking":
 		r = &BranchPolicyWorkItemLinking{}
 	case "azuredevops:index/buildDefinition:BuildDefinition":
@@ -58,6 +60,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProjectPermissions{}
 	case "azuredevops:index/queue:Queue":
 		r = &Queue{}
+	case "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern":
+		r = &RepositoryPolicyAuthorEmailPattern{}
+	case "azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern":
+		r = &RepositoryPolicyFilePathPattern{}
 	case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
 		r = &ResourceAuthorization{}
 	case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
@@ -84,6 +90,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointNpm{}
 	case "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline":
 		r = &ServiceEndpointPipeline{}
+	case "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric":
+		r = &ServiceEndpointServiceFabric{}
 	case "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
 		r = &ServiceEndpointSonarQube{}
 	case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
@@ -157,6 +165,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/branchPolicyStatusCheck",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/branchPolicyWorkItemLinking",
 		&module{version},
 	)
@@ -222,6 +235,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/repositoryPolicyAuthorEmailPattern",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/repositoryPolicyFilePathPattern",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/resourceAuthorization",
 		&module{version},
 	)
@@ -283,6 +306,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceEndpointPipeline",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceEndpointServiceFabric",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

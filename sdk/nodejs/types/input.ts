@@ -52,7 +52,7 @@ export interface BranchPolicyBuildValidationSettings {
      */
     displayName: pulumi.Input<string>;
     /**
-     * If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+     * If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
      */
     filenamePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -194,6 +194,56 @@ export interface BranchPolicyMinReviewersSettingsScope {
     repositoryId?: pulumi.Input<string>;
     /**
      * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     */
+    repositoryRef?: pulumi.Input<string>;
+}
+
+export interface BranchPolicyStatusCheckSettings {
+    /**
+     * Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
+     * status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
+     * is posted to the pull request.
+     */
+    applicability?: pulumi.Input<string>;
+    /**
+     * The authorized user can post the status.
+     */
+    authorId?: pulumi.Input<string>;
+    /**
+     * The display name.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+     */
+    filenamePatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Reset status whenever there are new changes.
+     */
+    invalidateOnUpdate?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    /**
+     * Controls which repositories and branches the policy will be enabled for. This block must be defined
+     * at least once.
+     */
+    scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyStatusCheckSettingsScope>[]>;
+}
+
+export interface BranchPolicyStatusCheckSettingsScope {
+    /**
+     * The match type to use when applying the policy. Supported values are `Exact` (default)
+     * or `Prefix`.
+     */
+    matchType?: pulumi.Input<string>;
+    /**
+     * The repository ID. Needed only if the scope of the policy will be limited to a single
+     * repository.
+     */
+    repositoryId?: pulumi.Input<string>;
+    /**
+     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a
+     * qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such
+     * as `refs/heads/releases`.
      */
     repositoryRef?: pulumi.Input<string>;
 }
@@ -414,6 +464,45 @@ export interface GitInitialization {
     sourceUrl?: pulumi.Input<string>;
 }
 
+export interface RepositoryPolicyAuthorEmailPatternSettings {
+    /**
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+     * Email patterns prefixed with "!" are excluded. Order is important.
+     */
+    authorEmailPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Controls which repositories and branches the policy will be enabled for. This block must be defined
+     * at least once.
+     */
+    scopes: pulumi.Input<pulumi.Input<inputs.RepositoryPolicyAuthorEmailPatternSettingsScope>[]>;
+}
+
+export interface RepositoryPolicyAuthorEmailPatternSettingsScope {
+    /**
+     * The repository ID.
+     */
+    repositoryId: pulumi.Input<string>;
+}
+
+export interface RepositoryPolicyFilePathPatternSettings {
+    /**
+     * Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+     */
+    filepathPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Controls which repositories and branches the policy will be enabled for. This block must be defined
+     * at least once.
+     */
+    scopes: pulumi.Input<pulumi.Input<inputs.RepositoryPolicyFilePathPatternSettingsScope>[]>;
+}
+
+export interface RepositoryPolicyFilePathPatternSettingsScope {
+    /**
+     * The repository ID.
+     */
+    repositoryId: pulumi.Input<string>;
+}
+
 export interface ServiceEndpointArtifactoryAuthenticationBasic {
     /**
      * Artifactory Password.
@@ -538,6 +627,66 @@ export interface ServiceEndpointPipelineAuthPersonal {
      */
     personalAccessToken: pulumi.Input<string>;
     personalAccessTokenHash?: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointServiceFabricAzureActiveDirectory {
+    /**
+     * - Password for the Azure Active Directory account.
+     */
+    password: pulumi.Input<string>;
+    passwordHash?: pulumi.Input<string>;
+    /**
+     * The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+     */
+    serverCertificateCommonName?: pulumi.Input<string>;
+    /**
+     * Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     */
+    serverCertificateLookup: pulumi.Input<string>;
+    /**
+     * The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+     */
+    serverCertificateThumbprint?: pulumi.Input<string>;
+    /**
+     * - Specify an Azure Active Directory account.
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointServiceFabricCertificate {
+    /**
+     * Base64 encoding of the cluster's client certificate file.
+     */
+    clientCertificate: pulumi.Input<string>;
+    clientCertificateHash?: pulumi.Input<string>;
+    /**
+     * Password for the certificate.
+     */
+    clientCertificatePassword?: pulumi.Input<string>;
+    clientCertificatePasswordHash?: pulumi.Input<string>;
+    /**
+     * The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+     */
+    serverCertificateCommonName?: pulumi.Input<string>;
+    /**
+     * Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+     */
+    serverCertificateLookup: pulumi.Input<string>;
+    /**
+     * The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+     */
+    serverCertificateThumbprint?: pulumi.Input<string>;
+}
+
+export interface ServiceEndpointServiceFabricNone {
+    /**
+     * Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+     */
+    clusterSpn?: pulumi.Input<string>;
+    /**
+     * Skip using windows security for authentication.
+     */
+    unsecured?: pulumi.Input<boolean>;
 }
 
 export interface VariableGroupKeyVault {
@@ -802,7 +951,7 @@ export namespace Policy {
          */
         displayName: pulumi.Input<string>;
         /**
-         * If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+         * If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
          */
         filenamePatterns?: pulumi.Input<pulumi.Input<string>[]>;
         /**

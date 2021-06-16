@@ -786,7 +786,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[\"/WebApp/Models/Data.cs\", \"/WebApp/*\", \"*.cs\"]`. Paths prefixed with \"!\" are excluded. Example: `[\"/WebApp/*\", \"!/WebApp/Tests/*\"]`. Order is significant.\n",
+                    "description": "If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[\"/WebApp/Models/Data.cs\", \"/WebApp/*\", \"*.cs\"]`. Paths prefixed with \"!\" are excluded. Example: `[\"/WebApp/*\", \"!/WebApp/Tests/*\"]`. Order is significant.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1525,7 +1525,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[\"/WebApp/Models/Data.cs\", \"/WebApp/*\", \"*.cs\"]`. Paths prefixed with \"!\" are excluded. Example: `[\"/WebApp/*\", \"!/WebApp/Tests/*\"]`. Order is significant.\n",
+                    "description": "If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[\"/WebApp/Models/Data.cs\", \"/WebApp/*\", \"*.cs\"]`. Paths prefixed with \"!\" are excluded. Example: `[\"/WebApp/*\", \"!/WebApp/Tests/*\"]`. Order is significant.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -1857,6 +1857,115 @@
                 "repositoryRef": {
                     "type": "string",
                     "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "azuredevops:index/BranchPolicyStatusCheckSettings:BranchPolicyStatusCheckSettings": {
+            "properties": {
+                "applicability": {
+                    "type": "string",
+                    "description": "Policy applicability. If policy `applicability` is `default`, apply unless \"Not Applicable\" \nstatus is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status\nis posted to the pull request.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "authorId": {
+                    "type": "string",
+                    "description": "The authorized user can post the status.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "displayName": {
+                    "type": "string",
+                    "description": "The display name.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "filenamePatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `[\"/WebApp/Models/Data.cs\", \"/WebApp/*\", \"*.cs\"]`. Paths prefixed with \"!\" are excluded. Example: `[\"/WebApp/*\", \"!/WebApp/Tests/*\"]`. Order is significant.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "invalidateOnUpdate": {
+                    "type": "boolean",
+                    "description": "Reset status whenever there are new changes.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/BranchPolicyStatusCheckSettingsScope:BranchPolicyStatusCheckSettingsScope"
+                    },
+                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined\nat least once.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "scopes"
+            ]
+        },
+        "azuredevops:index/BranchPolicyStatusCheckSettingsScope:BranchPolicyStatusCheckSettingsScope": {
+            "properties": {
+                "matchType": {
+                    "type": "string",
+                    "description": "The match type to use when applying the policy. Supported values are `Exact` (default)\nor `Prefix`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository ID. Needed only if the scope of the policy will be limited to a single\nrepository.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "repositoryRef": {
+                    "type": "string",
+                    "description": "The ref pattern to use for the match. If `match_type` is `Exact`, this should be a\nqualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such\nas `refs/heads/releases`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2406,6 +2515,104 @@
                 "initType"
             ]
         },
+        "azuredevops:index/RepositoryPolicyAuthorEmailPatternSettings:RepositoryPolicyAuthorEmailPatternSettings": {
+            "properties": {
+                "authorEmailPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. \nEmail patterns prefixed with \"!\" are excluded. Order is important.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/RepositoryPolicyAuthorEmailPatternSettingsScope:RepositoryPolicyAuthorEmailPatternSettingsScope"
+                    },
+                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined\nat least once.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "scopes"
+            ]
+        },
+        "azuredevops:index/RepositoryPolicyAuthorEmailPatternSettingsScope:RepositoryPolicyAuthorEmailPatternSettingsScope": {
+            "properties": {
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository ID.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "repositoryId"
+            ]
+        },
+        "azuredevops:index/RepositoryPolicyFilePathPatternSettings:RepositoryPolicyFilePathPatternSettings": {
+            "properties": {
+                "filepathPatterns": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "description": "Block pushes from introducing file paths that match the following patterns. Exact paths begin with \"/\". You can specify exact paths and wildcards. You can also specify multiple paths using \";\" as a separator. Paths prefixed with \"!\" are excluded. Order is important.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scopes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/azuredevops:index/RepositoryPolicyFilePathPatternSettingsScope:RepositoryPolicyFilePathPatternSettingsScope"
+                    },
+                    "description": "Controls which repositories and branches the policy will be enabled for. This block must be defined\nat least once.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "scopes"
+            ]
+        },
+        "azuredevops:index/RepositoryPolicyFilePathPatternSettingsScope:RepositoryPolicyFilePathPatternSettingsScope": {
+            "properties": {
+                "repositoryId": {
+                    "type": "string",
+                    "description": "The repository ID.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "repositoryId"
+            ]
+        },
         "azuredevops:index/ServiceEndpointArtifactoryAuthenticationBasic:ServiceEndpointArtifactoryAuthenticationBasic": {
             "properties": {
                 "password": {
@@ -2838,6 +3045,182 @@
                     ]
                 }
             }
+        },
+        "azuredevops:index/ServiceEndpointServiceFabricAzureActiveDirectory:ServiceEndpointServiceFabricAzureActiveDirectory": {
+            "properties": {
+                "password": {
+                    "type": "string",
+                    "description": "- Password for the Azure Active Directory account.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "passwordHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverCertificateCommonName": {
+                    "type": "string",
+                    "description": "The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverCertificateLookup": {
+                    "type": "string",
+                    "description": "Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverCertificateThumbprint": {
+                    "type": "string",
+                    "description": "The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "username": {
+                    "type": "string",
+                    "description": "- Specify an Azure Active Directory account.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "password",
+                "serverCertificateLookup",
+                "username"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "password",
+                        "passwordHash",
+                        "serverCertificateLookup",
+                        "username"
+                    ]
+                }
+            }
+        },
+        "azuredevops:index/ServiceEndpointServiceFabricCertificate:ServiceEndpointServiceFabricCertificate": {
+            "properties": {
+                "clientCertificate": {
+                    "type": "string",
+                    "description": "Base64 encoding of the cluster's client certificate file.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clientCertificateHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clientCertificatePassword": {
+                    "type": "string",
+                    "description": "Password for the certificate.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clientCertificatePasswordHash": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverCertificateCommonName": {
+                    "type": "string",
+                    "description": "The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverCertificateLookup": {
+                    "type": "string",
+                    "description": "Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "serverCertificateThumbprint": {
+                    "type": "string",
+                    "description": "The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "clientCertificate",
+                "serverCertificateLookup"
+            ],
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "clientCertificate",
+                        "clientCertificateHash",
+                        "clientCertificatePasswordHash",
+                        "serverCertificateLookup"
+                    ]
+                }
+            }
+        },
+        "azuredevops:index/ServiceEndpointServiceFabricNone:ServiceEndpointServiceFabricNone": {
+            "properties": {
+                "clusterSpn": {
+                    "type": "string",
+                    "description": "Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "unsecured": {
+                    "type": "boolean",
+                    "description": "Skip using windows security for authentication.\n",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
         },
         "azuredevops:index/VariableGroupKeyVault:VariableGroupKeyVault": {
             "properties": {
@@ -5691,6 +6074,75 @@
                 }
             ]
         },
+        "azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck": {
+            "description": "Manages a status check branch policy within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    description: \"Managed by Terraform\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n    features: {\n        testplans: \"disabled\",\n        artifacts: \"disabled\",\n    },\n});\nconst git = new azuredevops.Git(\"git\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst user = new azuredevops.User(\"user\", {\n    principalName: \"mail@email.com\",\n    accountLicenseType: \"basic\",\n});\nconst branchPolicyStatusCheck = new azuredevops.BranchPolicyStatusCheck(\"branchPolicyStatusCheck\", {\n    projectId: project.id,\n    enabled: true,\n    blocking: true,\n    settings: {\n        name: \"Release\",\n        authorId: user.id,\n        invalidateOnUpdate: true,\n        applicability: \"conditional\",\n        displayName: \"PreCheck\",\n        scopes: [{\n            repositoryId: git.id,\n            repositoryRef: git.defaultBranch,\n            matchType: \"Exact\",\n        }],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    description=\"Managed by Terraform\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\",\n    features={\n        \"testplans\": \"disabled\",\n        \"artifacts\": \"disabled\",\n    })\ngit = azuredevops.Git(\"git\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nuser = azuredevops.User(\"user\",\n    principal_name=\"mail@email.com\",\n    account_license_type=\"basic\")\nbranch_policy_status_check = azuredevops.BranchPolicyStatusCheck(\"branchPolicyStatusCheck\",\n    project_id=project.id,\n    enabled=True,\n    blocking=True,\n    settings=azuredevops.BranchPolicyStatusCheckSettingsArgs(\n        name=\"Release\",\n        author_id=user.id,\n        invalidate_on_update=True,\n        applicability=\"conditional\",\n        display_name=\"PreCheck\",\n        scopes=[azuredevops.BranchPolicyStatusCheckSettingsScopeArgs(\n            repository_id=git.id,\n            repository_ref=git.default_branch,\n            match_type=\"Exact\",\n        )],\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Description = \"Managed by Terraform\",\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n            Features = \n            {\n                { \"testplans\", \"disabled\" },\n                { \"artifacts\", \"disabled\" },\n            },\n        });\n        var git = new AzureDevOps.Git(\"git\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var user = new AzureDevOps.User(\"user\", new AzureDevOps.UserArgs\n        {\n            PrincipalName = \"mail@email.com\",\n            AccountLicenseType = \"basic\",\n        });\n        var branchPolicyStatusCheck = new AzureDevOps.BranchPolicyStatusCheck(\"branchPolicyStatusCheck\", new AzureDevOps.BranchPolicyStatusCheckArgs\n        {\n            ProjectId = project.Id,\n            Enabled = true,\n            Blocking = true,\n            Settings = new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsArgs\n            {\n                Name = \"Release\",\n                AuthorId = user.Id,\n                InvalidateOnUpdate = true,\n                Applicability = \"conditional\",\n                DisplayName = \"PreCheck\",\n                Scopes = \n                {\n                    new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                        RepositoryRef = git.DefaultBranch,\n                        MatchType = \"Exact\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tDescription:      pulumi.String(\"Managed by Terraform\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t\tFeatures: pulumi.StringMap{\n\t\t\t\t\"testplans\": pulumi.String(\"disabled\"),\n\t\t\t\t\"artifacts\": pulumi.String(\"disabled\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgit, err := azuredevops.NewGit(ctx, \"git\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tuser, err := azuredevops.NewUser(ctx, \"user\", \u0026azuredevops.UserArgs{\n\t\t\tPrincipalName:      pulumi.String(\"mail@email.com\"),\n\t\t\tAccountLicenseType: pulumi.String(\"basic\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBranchPolicyStatusCheck(ctx, \"branchPolicyStatusCheck\", \u0026azuredevops.BranchPolicyStatusCheckArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tBlocking:  pulumi.Bool(true),\n\t\t\tSettings: \u0026azuredevops.BranchPolicyStatusCheckSettingsArgs{\n\t\t\t\tName:               pulumi.String(\"Release\"),\n\t\t\t\tAuthorId:           user.ID(),\n\t\t\t\tInvalidateOnUpdate: pulumi.Bool(true),\n\t\t\t\tApplicability:      pulumi.String(\"conditional\"),\n\t\t\t\tDisplayName:        pulumi.String(\"PreCheck\"),\n\t\t\t\tScopes: azuredevops.BranchPolicyStatusCheckSettingsScopeArray{\n\t\t\t\t\t\u0026azuredevops.BranchPolicyStatusCheckSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  git.ID(),\n\t\t\t\t\t\tRepositoryRef: git.DefaultBranch,\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Exact\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Branch Policies can be imported using the project ID and policy configuration ID\n\n```sh\n $ pulumi import azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck p 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
+            "properties": {
+                "blocking": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be blocking. Defaults to `true`.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be enabled. Defaults to `true`.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project in which the policy will be created.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/azuredevops:index/BranchPolicyStatusCheckSettings:BranchPolicyStatusCheckSettings",
+                    "description": "Configuration for the policy. This block must be defined exactly once.\n"
+                }
+            },
+            "required": [
+                "projectId",
+                "settings"
+            ],
+            "inputProperties": {
+                "blocking": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be blocking. Defaults to `true`.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be enabled. Defaults to `true`.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project in which the policy will be created.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/azuredevops:index/BranchPolicyStatusCheckSettings:BranchPolicyStatusCheckSettings",
+                    "description": "Configuration for the policy. This block must be defined exactly once.\n"
+                }
+            },
+            "requiredInputs": [
+                "projectId",
+                "settings"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering BranchPolicyStatusCheck resources.\n",
+                "properties": {
+                    "blocking": {
+                        "type": "boolean",
+                        "description": "A flag indicating if the policy should be blocking. Defaults to `true`.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "A flag indicating if the policy should be enabled. Defaults to `true`.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the project in which the policy will be created.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/azuredevops:index/BranchPolicyStatusCheckSettings:BranchPolicyStatusCheckSettings",
+                        "description": "Configuration for the policy. This block must be defined exactly once.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
         "azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking": {
             "description": "Require associations between branches and a work item within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst git = new azuredevops.Git(\"git\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst branchPolicyWorkItemLinking = new azuredevops.BranchPolicyWorkItemLinking(\"branchPolicyWorkItemLinking\", {\n    projectId: project.id,\n    enabled: true,\n    blocking: true,\n    settings: {\n        scopes: [\n            {\n                repositoryId: git.id,\n                repositoryRef: git.defaultBranch,\n                matchType: \"Exact\",\n            },\n            {\n                repositoryId: git.id,\n                repositoryRef: \"refs/heads/releases\",\n                matchType: \"Prefix\",\n            },\n        ],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\ngit = azuredevops.Git(\"git\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nbranch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking(\"branchPolicyWorkItemLinking\",\n    project_id=project.id,\n    enabled=True,\n    blocking=True,\n    settings=azuredevops.BranchPolicyWorkItemLinkingSettingsArgs(\n        scopes=[\n            azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(\n                repository_id=git.id,\n                repository_ref=git.default_branch,\n                match_type=\"Exact\",\n            ),\n            azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(\n                repository_id=git.id,\n                repository_ref=\"refs/heads/releases\",\n                match_type=\"Prefix\",\n            ),\n        ],\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var git = new AzureDevOps.Git(\"git\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var branchPolicyWorkItemLinking = new AzureDevOps.BranchPolicyWorkItemLinking(\"branchPolicyWorkItemLinking\", new AzureDevOps.BranchPolicyWorkItemLinkingArgs\n        {\n            ProjectId = project.Id,\n            Enabled = true,\n            Blocking = true,\n            Settings = new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsArgs\n            {\n                Scopes = \n                {\n                    new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                        RepositoryRef = git.DefaultBranch,\n                        MatchType = \"Exact\",\n                    },\n                    new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                        RepositoryRef = \"refs/heads/releases\",\n                        MatchType = \"Prefix\",\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgit, err := azuredevops.NewGit(ctx, \"git\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBranchPolicyWorkItemLinking(ctx, \"branchPolicyWorkItemLinking\", \u0026azuredevops.BranchPolicyWorkItemLinkingArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tBlocking:  pulumi.Bool(true),\n\t\t\tSettings: \u0026azuredevops.BranchPolicyWorkItemLinkingSettingsArgs{\n\t\t\t\tScopes: azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArray{\n\t\t\t\t\t\u0026azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  git.ID(),\n\t\t\t\t\t\tRepositoryRef: git.DefaultBranch,\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Exact\"),\n\t\t\t\t\t},\n\t\t\t\t\t\u0026azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId:  git.ID(),\n\t\t\t\t\t\tRepositoryRef: pulumi.String(\"refs/heads/releases\"),\n\t\t\t\t\t\tMatchType:     pulumi.String(\"Prefix\"),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Branch Policies can be imported using the project ID and policy configuration ID\n\n```sh\n $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking p 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
             "properties": {
@@ -6937,6 +7389,144 @@
                     "type": "azuredevops:Agent/queue:Queue"
                 }
             ]
+        },
+        "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern": {
+            "description": "Manage author email pattern repository policy within Azure DevOps project.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    description: \"Managed by Terraform\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst git = new azuredevops.Git(\"git\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst repositoryPolicyAuthorEmailPattern = new azuredevops.RepositoryPolicyAuthorEmailPattern(\"repositoryPolicyAuthorEmailPattern\", {\n    projectId: project.id,\n    enabled: true,\n    blocking: true,\n    settings: {\n        authorEmailPatterns: [\n            \"user1@test.com\",\n            \"user2@test.com\",\n        ],\n        scopes: [{\n            repositoryId: git.id,\n        }],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    description=\"Managed by Terraform\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\ngit = azuredevops.Git(\"git\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nrepository_policy_author_email_pattern = azuredevops.RepositoryPolicyAuthorEmailPattern(\"repositoryPolicyAuthorEmailPattern\",\n    project_id=project.id,\n    enabled=True,\n    blocking=True,\n    settings=azuredevops.RepositoryPolicyAuthorEmailPatternSettingsArgs(\n        author_email_patterns=[\n            \"user1@test.com\",\n            \"user2@test.com\",\n        ],\n        scopes=[azuredevops.RepositoryPolicyAuthorEmailPatternSettingsScopeArgs(\n            repository_id=git.id,\n        )],\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Description = \"Managed by Terraform\",\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var git = new AzureDevOps.Git(\"git\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var repositoryPolicyAuthorEmailPattern = new AzureDevOps.RepositoryPolicyAuthorEmailPattern(\"repositoryPolicyAuthorEmailPattern\", new AzureDevOps.RepositoryPolicyAuthorEmailPatternArgs\n        {\n            ProjectId = project.Id,\n            Enabled = true,\n            Blocking = true,\n            Settings = new AzureDevOps.Inputs.RepositoryPolicyAuthorEmailPatternSettingsArgs\n            {\n                AuthorEmailPatterns = \n                {\n                    \"user1@test.com\",\n                    \"user2@test.com\",\n                },\n                Scopes = \n                {\n                    new AzureDevOps.Inputs.RepositoryPolicyAuthorEmailPatternSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tDescription:      pulumi.String(\"Managed by Terraform\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgit, err := azuredevops.NewGit(ctx, \"git\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewRepositoryPolicyAuthorEmailPattern(ctx, \"repositoryPolicyAuthorEmailPattern\", \u0026azuredevops.RepositoryPolicyAuthorEmailPatternArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tBlocking:  pulumi.Bool(true),\n\t\t\tSettings: \u0026azuredevops.RepositoryPolicyAuthorEmailPatternSettingsArgs{\n\t\t\t\tAuthorEmailPatterns: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"user1@test.com\"),\n\t\t\t\t\tpulumi.String(\"user2@test.com\"),\n\t\t\t\t},\n\t\t\t\tScopes: azuredevops.RepositoryPolicyAuthorEmailPatternSettingsScopeArray{\n\t\t\t\t\t\u0026azuredevops.RepositoryPolicyAuthorEmailPatternSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId: git.ID(),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Branch Policies can be imported using the project ID and policy configuration ID\n\n```sh\n $ pulumi import azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern p 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
+            "properties": {
+                "blocking": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be blocking. Defaults to `true`.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be enabled. Defaults to `true`.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project in which the policy will be created.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/azuredevops:index/RepositoryPolicyAuthorEmailPatternSettings:RepositoryPolicyAuthorEmailPatternSettings",
+                    "description": "Configuration for the policy. This block must be defined exactly once.\n"
+                }
+            },
+            "required": [
+                "projectId",
+                "settings"
+            ],
+            "inputProperties": {
+                "blocking": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be blocking. Defaults to `true`.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be enabled. Defaults to `true`.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project in which the policy will be created.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/azuredevops:index/RepositoryPolicyAuthorEmailPatternSettings:RepositoryPolicyAuthorEmailPatternSettings",
+                    "description": "Configuration for the policy. This block must be defined exactly once.\n"
+                }
+            },
+            "requiredInputs": [
+                "projectId",
+                "settings"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryPolicyAuthorEmailPattern resources.\n",
+                "properties": {
+                    "blocking": {
+                        "type": "boolean",
+                        "description": "A flag indicating if the policy should be blocking. Defaults to `true`.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "A flag indicating if the policy should be enabled. Defaults to `true`.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the project in which the policy will be created.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/azuredevops:index/RepositoryPolicyAuthorEmailPatternSettings:RepositoryPolicyAuthorEmailPatternSettings",
+                        "description": "Configuration for the policy. This block must be defined exactly once.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern": {
+            "description": "Manage a file path pattern repository policy within Azure DevOps project.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    description: \"Managed by Terraform\",\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst git = new azuredevops.Git(\"git\", {\n    projectId: project.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst repositoryPolicyFilePathPattern = new azuredevops.RepositoryPolicyFilePathPattern(\"repositoryPolicyFilePathPattern\", {\n    projectId: project.id,\n    enabled: true,\n    blocking: true,\n    settings: {\n        filepathPatterns: [\n            \"*.go\",\n            \"/home/test/*.ts\",\n        ],\n        scopes: [{\n            repositoryId: git.id,\n        }],\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    description=\"Managed by Terraform\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\ngit = azuredevops.Git(\"git\",\n    project_id=project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nrepository_policy_file_path_pattern = azuredevops.RepositoryPolicyFilePathPattern(\"repositoryPolicyFilePathPattern\",\n    project_id=project.id,\n    enabled=True,\n    blocking=True,\n    settings=azuredevops.RepositoryPolicyFilePathPatternSettingsArgs(\n        filepath_patterns=[\n            \"*.go\",\n            \"/home/test/*.ts\",\n        ],\n        scopes=[azuredevops.RepositoryPolicyFilePathPatternSettingsScopeArgs(\n            repository_id=git.id,\n        )],\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Description = \"Managed by Terraform\",\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var git = new AzureDevOps.Git(\"git\", new AzureDevOps.GitArgs\n        {\n            ProjectId = project.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var repositoryPolicyFilePathPattern = new AzureDevOps.RepositoryPolicyFilePathPattern(\"repositoryPolicyFilePathPattern\", new AzureDevOps.RepositoryPolicyFilePathPatternArgs\n        {\n            ProjectId = project.Id,\n            Enabled = true,\n            Blocking = true,\n            Settings = new AzureDevOps.Inputs.RepositoryPolicyFilePathPatternSettingsArgs\n            {\n                FilepathPatterns = \n                {\n                    \"*.go\",\n                    \"/home/test/*.ts\",\n                },\n                Scopes = \n                {\n                    new AzureDevOps.Inputs.RepositoryPolicyFilePathPatternSettingsScopeArgs\n                    {\n                        RepositoryId = git.Id,\n                    },\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tDescription:      pulumi.String(\"Managed by Terraform\"),\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tgit, err := azuredevops.NewGit(ctx, \"git\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tInitialization: \u0026azuredevops.GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, \"repositoryPolicyFilePathPattern\", \u0026azuredevops.RepositoryPolicyFilePathPatternArgs{\n\t\t\tProjectId: project.ID(),\n\t\t\tEnabled:   pulumi.Bool(true),\n\t\t\tBlocking:  pulumi.Bool(true),\n\t\t\tSettings: \u0026azuredevops.RepositoryPolicyFilePathPatternSettingsArgs{\n\t\t\t\tFilepathPatterns: pulumi.StringArray{\n\t\t\t\t\tpulumi.String(\"*.go\"),\n\t\t\t\t\tpulumi.String(\"/home/test/*.ts\"),\n\t\t\t\t},\n\t\t\t\tScopes: azuredevops.RepositoryPolicyFilePathPatternSettingsScopeArray{\n\t\t\t\t\t\u0026azuredevops.RepositoryPolicyFilePathPatternSettingsScopeArgs{\n\t\t\t\t\t\tRepositoryId: git.ID(),\n\t\t\t\t\t},\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID\n\n```sh\n $ pulumi import azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern p 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
+            "properties": {
+                "blocking": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be blocking. Defaults to `true`.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be enabled. Defaults to `true`.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project in which the policy will be created.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/azuredevops:index/RepositoryPolicyFilePathPatternSettings:RepositoryPolicyFilePathPatternSettings",
+                    "description": "Configuration for the policy. This block must be defined exactly once.\n"
+                }
+            },
+            "required": [
+                "projectId",
+                "settings"
+            ],
+            "inputProperties": {
+                "blocking": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be blocking. Defaults to `true`.\n"
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "description": "A flag indicating if the policy should be enabled. Defaults to `true`.\n"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The ID of the project in which the policy will be created.\n"
+                },
+                "settings": {
+                    "$ref": "#/types/azuredevops:index/RepositoryPolicyFilePathPatternSettings:RepositoryPolicyFilePathPatternSettings",
+                    "description": "Configuration for the policy. This block must be defined exactly once.\n"
+                }
+            },
+            "requiredInputs": [
+                "projectId",
+                "settings"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering RepositoryPolicyFilePathPattern resources.\n",
+                "properties": {
+                    "blocking": {
+                        "type": "boolean",
+                        "description": "A flag indicating if the policy should be blocking. Defaults to `true`.\n"
+                    },
+                    "enabled": {
+                        "type": "boolean",
+                        "description": "A flag indicating if the policy should be enabled. Defaults to `true`.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The ID of the project in which the policy will be created.\n"
+                    },
+                    "settings": {
+                        "$ref": "#/types/azuredevops:index/RepositoryPolicyFilePathPatternSettings:RepositoryPolicyFilePathPatternSettings",
+                        "description": "Configuration for the policy. This block must be defined exactly once.\n"
+                    }
+                },
+                "type": "object"
+            }
         },
         "azuredevops:index/resourceAuthorization:ResourceAuthorization": {
             "description": "Manages authorization of resources, e.g. for access in build pipelines.\n\nCurrently supported resources: service endpoint (aka service connection, endpoint).\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {});\nconst bitbucketAccount = new azuredevops.ServiceEndpointBitBucket(\"bitbucketAccount\", {\n    projectId: project.id,\n    username: \"xxxx\",\n    password: \"xxxx\",\n    serviceEndpointName: \"test-bitbucket\",\n    description: \"test\",\n});\nconst auth = new azuredevops.ResourceAuthorization(\"auth\", {\n    projectId: project.id,\n    resourceId: bitbucketAccount.id,\n    authorized: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\")\nbitbucket_account = azuredevops.ServiceEndpointBitBucket(\"bitbucketAccount\",\n    project_id=project.id,\n    username=\"xxxx\",\n    password=\"xxxx\",\n    service_endpoint_name=\"test-bitbucket\",\n    description=\"test\")\nauth = azuredevops.ResourceAuthorization(\"auth\",\n    project_id=project.id,\n    resource_id=bitbucket_account.id,\n    authorized=True)\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n        });\n        var bitbucketAccount = new AzureDevOps.ServiceEndpointBitBucket(\"bitbucketAccount\", new AzureDevOps.ServiceEndpointBitBucketArgs\n        {\n            ProjectId = project.Id,\n            Username = \"xxxx\",\n            Password = \"xxxx\",\n            ServiceEndpointName = \"test-bitbucket\",\n            Description = \"test\",\n        });\n        var auth = new AzureDevOps.ResourceAuthorization(\"auth\", new AzureDevOps.ResourceAuthorizationArgs\n        {\n            ProjectId = project.Id,\n            ResourceId = bitbucketAccount.Id,\n            Authorized = true,\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\tbitbucketAccount, err := azuredevops.NewServiceEndpointBitBucket(ctx, \"bitbucketAccount\", \u0026azuredevops.ServiceEndpointBitBucketArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tUsername:            pulumi.String(\"xxxx\"),\n\t\t\tPassword:            pulumi.String(\"xxxx\"),\n\t\t\tServiceEndpointName: pulumi.String(\"test-bitbucket\"),\n\t\t\tDescription:         pulumi.String(\"test\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewResourceAuthorization(ctx, \"auth\", \u0026azuredevops.ResourceAuthorizationArgs{\n\t\t\tProjectId:  project.ID(),\n\t\t\tResourceId: bitbucketAccount.ID(),\n\t\t\tAuthorized: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)\n",
@@ -8612,6 +9202,120 @@
                     "organizationName": {
                         "type": "string",
                         "description": "The organization name used for `Organization Url` and `Release API Url` fields.\n"
+                    },
+                    "projectId": {
+                        "type": "string",
+                        "description": "The project ID or project name.\n"
+                    },
+                    "serviceEndpointName": {
+                        "type": "string",
+                        "description": "The Service Endpoint name.\n"
+                    }
+                },
+                "type": "object"
+            }
+        },
+        "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric": {
+            "description": "Manages a Service Fabric service endpoint within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Azure Active Directory Authentication\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst test = new azuredevops.ServiceEndpointServiceFabric(\"test\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample Service Fabric\",\n    description: \"Managed by Terraform\",\n    clusterEndpoint: \"tcp://test\",\n    azureActiveDirectory: {\n        serverCertificateLookup: \"Thumbprint\",\n        serverCertificateThumbprint: \"0000000000000000000000000000000000000000\",\n        username: \"username\",\n        password: \"password\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\ntest = azuredevops.ServiceEndpointServiceFabric(\"test\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample Service Fabric\",\n    description=\"Managed by Terraform\",\n    cluster_endpoint=\"tcp://test\",\n    azure_active_directory=azuredevops.ServiceEndpointServiceFabricAzureActiveDirectoryArgs(\n        server_certificate_lookup=\"Thumbprint\",\n        server_certificate_thumbprint=\"0000000000000000000000000000000000000000\",\n        username=\"username\",\n        password=\"password\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var test = new AzureDevOps.ServiceEndpointServiceFabric(\"test\", new AzureDevOps.ServiceEndpointServiceFabricArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample Service Fabric\",\n            Description = \"Managed by Terraform\",\n            ClusterEndpoint = \"tcp://test\",\n            AzureActiveDirectory = new AzureDevOps.Inputs.ServiceEndpointServiceFabricAzureActiveDirectoryArgs\n            {\n                ServerCertificateLookup = \"Thumbprint\",\n                ServerCertificateThumbprint = \"0000000000000000000000000000000000000000\",\n                Username = \"username\",\n                Password = \"password\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, \"test\", \u0026azuredevops.ServiceEndpointServiceFabricArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample Service Fabric\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t\tClusterEndpoint:     pulumi.String(\"tcp://test\"),\n\t\t\tAzureActiveDirectory: \u0026azuredevops.ServiceEndpointServiceFabricAzureActiveDirectoryArgs{\n\t\t\t\tServerCertificateLookup:     pulumi.String(\"Thumbprint\"),\n\t\t\t\tServerCertificateThumbprint: pulumi.String(\"0000000000000000000000000000000000000000\"),\n\t\t\t\tUsername:                    pulumi.String(\"username\"),\n\t\t\t\tPassword:                    pulumi.String(\"password\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% example %}}\n### Windows Authentication\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst project = new azuredevops.Project(\"project\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst test = new azuredevops.ServiceEndpointServiceFabric(\"test\", {\n    projectId: project.id,\n    serviceEndpointName: \"Sample Service Fabric\",\n    description: \"Managed by Terraform\",\n    clusterEndpoint: \"tcp://test\",\n    none: {\n        unsecured: false,\n        clusterSpn: \"HTTP/www.contoso.com\",\n    },\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nproject = azuredevops.Project(\"project\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\ntest = azuredevops.ServiceEndpointServiceFabric(\"test\",\n    project_id=project.id,\n    service_endpoint_name=\"Sample Service Fabric\",\n    description=\"Managed by Terraform\",\n    cluster_endpoint=\"tcp://test\",\n    none=azuredevops.ServiceEndpointServiceFabricNoneArgs(\n        unsecured=False,\n        cluster_spn=\"HTTP/www.contoso.com\",\n    ))\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var project = new AzureDevOps.Project(\"project\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var test = new AzureDevOps.ServiceEndpointServiceFabric(\"test\", new AzureDevOps.ServiceEndpointServiceFabricArgs\n        {\n            ProjectId = project.Id,\n            ServiceEndpointName = \"Sample Service Fabric\",\n            Description = \"Managed by Terraform\",\n            ClusterEndpoint = \"tcp://test\",\n            None = new AzureDevOps.Inputs.ServiceEndpointServiceFabricNoneArgs\n            {\n                Unsecured = false,\n                ClusterSpn = \"HTTP/www.contoso.com\",\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\tproject, err := azuredevops.NewProject(ctx, \"project\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, \"test\", \u0026azuredevops.ServiceEndpointServiceFabricArgs{\n\t\t\tProjectId:           project.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Sample Service Fabric\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t\tClusterEndpoint:     pulumi.String(\"tcp://test\"),\n\t\t\tNone: \u0026azuredevops.ServiceEndpointServiceFabricNoneArgs{\n\t\t\t\tUnsecured:  pulumi.Bool(false),\n\t\t\t\tClusterSpn: pulumi.String(\"HTTP/www.contoso.com\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)\n\n\n## Import\n\nAzure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**\n\n```sh\n $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000\n```\n\n ",
+            "properties": {
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "azureActiveDirectory": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricAzureActiveDirectory:ServiceEndpointServiceFabricAzureActiveDirectory"
+                },
+                "certificate": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricCertificate:ServiceEndpointServiceFabricCertificate"
+                },
+                "clusterEndpoint": {
+                    "type": "string",
+                    "description": "Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "none": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricNone:ServiceEndpointServiceFabricNone"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                }
+            },
+            "required": [
+                "authorization",
+                "clusterEndpoint",
+                "projectId",
+                "serviceEndpointName"
+            ],
+            "inputProperties": {
+                "authorization": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    }
+                },
+                "azureActiveDirectory": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricAzureActiveDirectory:ServiceEndpointServiceFabricAzureActiveDirectory"
+                },
+                "certificate": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricCertificate:ServiceEndpointServiceFabricCertificate"
+                },
+                "clusterEndpoint": {
+                    "type": "string",
+                    "description": "Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.\n"
+                },
+                "description": {
+                    "type": "string"
+                },
+                "none": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricNone:ServiceEndpointServiceFabricNone"
+                },
+                "projectId": {
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
+                },
+                "serviceEndpointName": {
+                    "type": "string",
+                    "description": "The Service Endpoint name.\n"
+                }
+            },
+            "requiredInputs": [
+                "clusterEndpoint",
+                "projectId",
+                "serviceEndpointName"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering ServiceEndpointServiceFabric resources.\n",
+                "properties": {
+                    "authorization": {
+                        "type": "object",
+                        "additionalProperties": {
+                            "type": "string"
+                        }
+                    },
+                    "azureActiveDirectory": {
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricAzureActiveDirectory:ServiceEndpointServiceFabricAzureActiveDirectory"
+                    },
+                    "certificate": {
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricCertificate:ServiceEndpointServiceFabricCertificate"
+                    },
+                    "clusterEndpoint": {
+                        "type": "string",
+                        "description": "Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.\n"
+                    },
+                    "description": {
+                        "type": "string"
+                    },
+                    "none": {
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointServiceFabricNone:ServiceEndpointServiceFabricNone"
                     },
                     "projectId": {
                         "type": "string",

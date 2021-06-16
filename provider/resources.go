@@ -112,17 +112,25 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_workitemquery_permissions": {
 				Tok: makeResource(mainMod, "WorkItemQueryPermissions"),
 			},
-			"azuredevops_build_definition_permissions": {Tok: makeResource(mainMod, "BuildDefinitionPermissions")},
-			"azuredevops_serviceendpoint_runpipeline":  {Tok: makeResource(mainMod, "ServiceEndpointPipeline")},
-			"azuredevops_serviceendpoint_artifactory":  {Tok: makeResource(mainMod, "ServiceEndpointArtifactory")},
-			"azuredevops_serviceendpoint_sonarqube":    {Tok: makeResource(mainMod, "ServiceEndpointSonarQube")},
-			"azuredevops_serviceendpoint_ssh":          {Tok: makeResource(mainMod, "ServiceEndpointSsh")},
-			"azuredevops_serviceendpoint_npm":          {Tok: makeResource(mainMod, "ServiceEndpointNpm")},
-			"azuredevops_serviceendpoint_azuredevops":  {Tok: makeResource(mainMod, "ServiceEndpointAzureDevOps")},
+			"azuredevops_build_definition_permissions":  {Tok: makeResource(mainMod, "BuildDefinitionPermissions")},
+			"azuredevops_serviceendpoint_runpipeline":   {Tok: makeResource(mainMod, "ServiceEndpointPipeline")},
+			"azuredevops_serviceendpoint_artifactory":   {Tok: makeResource(mainMod, "ServiceEndpointArtifactory")},
+			"azuredevops_serviceendpoint_sonarqube":     {Tok: makeResource(mainMod, "ServiceEndpointSonarQube")},
+			"azuredevops_serviceendpoint_ssh":           {Tok: makeResource(mainMod, "ServiceEndpointSsh")},
+			"azuredevops_serviceendpoint_npm":           {Tok: makeResource(mainMod, "ServiceEndpointNpm")},
+			"azuredevops_serviceendpoint_azuredevops":   {Tok: makeResource(mainMod, "ServiceEndpointAzureDevOps")},
+			"azuredevops_serviceendpoint_servicefabric": {Tok: makeResource(mainMod, "ServiceEndpointServiceFabric")},
 			"azuredevops_serviceendpoint_github_enterprise": {
 				Tok: makeResource(mainMod, "ServiceEndpointGitHubEnterprise"),
 			},
-			"azuredevops_branch_policy_merge_types": {Tok: makeResource(mainMod, "BranchPolicyMergeTypes")},
+			"azuredevops_branch_policy_merge_types":  {Tok: makeResource(mainMod, "BranchPolicyMergeTypes")},
+			"azuredevops_branch_policy_status_check": {Tok: makeResource(mainMod, "BranchPolicyStatusCheck")},
+			"azuredevops_repository_policy_author_email_pattern": {
+				Tok: makeResource(mainMod, "RepositoryPolicyAuthorEmailPattern"),
+			},
+			"azuredevops_repository_policy_file_path_pattern": {
+				Tok: makeResource(mainMod, "RepositoryPolicyFilePathPattern"),
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azuredevops_area": {

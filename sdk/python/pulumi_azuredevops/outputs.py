@@ -20,6 +20,8 @@ __all__ = [
     'BranchPolicyMergeTypesSettingsScope',
     'BranchPolicyMinReviewersSettings',
     'BranchPolicyMinReviewersSettingsScope',
+    'BranchPolicyStatusCheckSettings',
+    'BranchPolicyStatusCheckSettingsScope',
     'BranchPolicyWorkItemLinkingSettings',
     'BranchPolicyWorkItemLinkingSettingsScope',
     'BuildDefinitionCiTrigger',
@@ -34,6 +36,10 @@ __all__ = [
     'BuildDefinitionRepository',
     'BuildDefinitionVariable',
     'GitInitialization',
+    'RepositoryPolicyAuthorEmailPatternSettings',
+    'RepositoryPolicyAuthorEmailPatternSettingsScope',
+    'RepositoryPolicyFilePathPatternSettings',
+    'RepositoryPolicyFilePathPatternSettingsScope',
     'ServiceEndpointArtifactoryAuthenticationBasic',
     'ServiceEndpointArtifactoryAuthenticationToken',
     'ServiceEndpointAzureRMCredentials',
@@ -44,6 +50,9 @@ __all__ = [
     'ServiceEndpointKubernetesKubeconfig',
     'ServiceEndpointKubernetesServiceAccount',
     'ServiceEndpointPipelineAuthPersonal',
+    'ServiceEndpointServiceFabricAzureActiveDirectory',
+    'ServiceEndpointServiceFabricCertificate',
+    'ServiceEndpointServiceFabricNone',
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'GetAreaChildrenResult',
@@ -245,7 +254,7 @@ class BranchPolicyBuildValidationSettings(dict):
         :param int build_definition_id: The ID of the build to monitor for the policy.
         :param str display_name: The display name for the policy.
         :param Sequence['BranchPolicyBuildValidationSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
-        :param Sequence[str] filename_patterns: If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        :param Sequence[str] filename_patterns: If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         :param bool manual_queue_only: If set to true, the build will need to be manually queued. Defaults to `false`
         :param bool queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
         :param int valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
@@ -290,7 +299,7 @@ class BranchPolicyBuildValidationSettings(dict):
     @pulumi.getter(name="filenamePatterns")
     def filename_patterns(self) -> Optional[Sequence[str]]:
         """
-        If a path filter is set, the policy wil only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         """
         return pulumi.get(self, "filename_patterns")
 
@@ -809,6 +818,192 @@ class BranchPolicyMinReviewersSettingsScope(dict):
     def repository_ref(self) -> Optional[str]:
         """
         The ref pattern to use for the match. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+        """
+        return pulumi.get(self, "repository_ref")
+
+
+@pulumi.output_type
+class BranchPolicyStatusCheckSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorId":
+            suggest = "author_id"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "filenamePatterns":
+            suggest = "filename_patterns"
+        elif key == "invalidateOnUpdate":
+            suggest = "invalidate_on_update"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyStatusCheckSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyStatusCheckSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyStatusCheckSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: str,
+                 scopes: Sequence['outputs.BranchPolicyStatusCheckSettingsScope'],
+                 applicability: Optional[str] = None,
+                 author_id: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 filename_patterns: Optional[Sequence[str]] = None,
+                 invalidate_on_update: Optional[bool] = None):
+        """
+        :param Sequence['BranchPolicyStatusCheckSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
+               at least once.
+        :param str applicability: Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
+               status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
+               is posted to the pull request.
+        :param str author_id: The authorized user can post the status.
+        :param str display_name: The display name.
+        :param Sequence[str] filename_patterns: If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        :param bool invalidate_on_update: Reset status whenever there are new changes.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "scopes", scopes)
+        if applicability is not None:
+            pulumi.set(__self__, "applicability", applicability)
+        if author_id is not None:
+            pulumi.set(__self__, "author_id", author_id)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if filename_patterns is not None:
+            pulumi.set(__self__, "filename_patterns", filename_patterns)
+        if invalidate_on_update is not None:
+            pulumi.set(__self__, "invalidate_on_update", invalidate_on_update)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence['outputs.BranchPolicyStatusCheckSettingsScope']:
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined
+        at least once.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter
+    def applicability(self) -> Optional[str]:
+        """
+        Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
+        status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
+        is posted to the pull request.
+        """
+        return pulumi.get(self, "applicability")
+
+    @property
+    @pulumi.getter(name="authorId")
+    def author_id(self) -> Optional[str]:
+        """
+        The authorized user can post the status.
+        """
+        return pulumi.get(self, "author_id")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        The display name.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="filenamePatterns")
+    def filename_patterns(self) -> Optional[Sequence[str]]:
+        """
+        If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        """
+        return pulumi.get(self, "filename_patterns")
+
+    @property
+    @pulumi.getter(name="invalidateOnUpdate")
+    def invalidate_on_update(self) -> Optional[bool]:
+        """
+        Reset status whenever there are new changes.
+        """
+        return pulumi.get(self, "invalidate_on_update")
+
+
+@pulumi.output_type
+class BranchPolicyStatusCheckSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "matchType":
+            suggest = "match_type"
+        elif key == "repositoryId":
+            suggest = "repository_id"
+        elif key == "repositoryRef":
+            suggest = "repository_ref"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BranchPolicyStatusCheckSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BranchPolicyStatusCheckSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BranchPolicyStatusCheckSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 match_type: Optional[str] = None,
+                 repository_id: Optional[str] = None,
+                 repository_ref: Optional[str] = None):
+        """
+        :param str match_type: The match type to use when applying the policy. Supported values are `Exact` (default)
+               or `Prefix`.
+        :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single
+               repository.
+        :param str repository_ref: The ref pattern to use for the match. If `match_type` is `Exact`, this should be a
+               qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such
+               as `refs/heads/releases`.
+        """
+        if match_type is not None:
+            pulumi.set(__self__, "match_type", match_type)
+        if repository_id is not None:
+            pulumi.set(__self__, "repository_id", repository_id)
+        if repository_ref is not None:
+            pulumi.set(__self__, "repository_ref", repository_ref)
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> Optional[str]:
+        """
+        The match type to use when applying the policy. Supported values are `Exact` (default)
+        or `Prefix`.
+        """
+        return pulumi.get(self, "match_type")
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> Optional[str]:
+        """
+        The repository ID. Needed only if the scope of the policy will be limited to a single
+        repository.
+        """
+        return pulumi.get(self, "repository_id")
+
+    @property
+    @pulumi.getter(name="repositoryRef")
+    def repository_ref(self) -> Optional[str]:
+        """
+        The ref pattern to use for the match. If `match_type` is `Exact`, this should be a
+        qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such
+        as `refs/heads/releases`.
         """
         return pulumi.get(self, "repository_ref")
 
@@ -1628,6 +1823,176 @@ class GitInitialization(dict):
 
 
 @pulumi.output_type
+class RepositoryPolicyAuthorEmailPatternSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authorEmailPatterns":
+            suggest = "author_email_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryPolicyAuthorEmailPatternSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryPolicyAuthorEmailPatternSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryPolicyAuthorEmailPatternSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scopes: Sequence['outputs.RepositoryPolicyAuthorEmailPatternSettingsScope'],
+                 author_email_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence['RepositoryPolicyAuthorEmailPatternSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
+               at least once.
+        :param Sequence[str] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+               Email patterns prefixed with "!" are excluded. Order is important.
+        """
+        pulumi.set(__self__, "scopes", scopes)
+        if author_email_patterns is not None:
+            pulumi.set(__self__, "author_email_patterns", author_email_patterns)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence['outputs.RepositoryPolicyAuthorEmailPatternSettingsScope']:
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined
+        at least once.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="authorEmailPatterns")
+    def author_email_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        Email patterns prefixed with "!" are excluded. Order is important.
+        """
+        return pulumi.get(self, "author_email_patterns")
+
+
+@pulumi.output_type
+class RepositoryPolicyAuthorEmailPatternSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryPolicyAuthorEmailPatternSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryPolicyAuthorEmailPatternSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryPolicyAuthorEmailPatternSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_id: str):
+        """
+        :param str repository_id: The repository ID.
+        """
+        pulumi.set(__self__, "repository_id", repository_id)
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> str:
+        """
+        The repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
+class RepositoryPolicyFilePathPatternSettings(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "filepathPatterns":
+            suggest = "filepath_patterns"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryPolicyFilePathPatternSettings. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryPolicyFilePathPatternSettings.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryPolicyFilePathPatternSettings.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scopes: Sequence['outputs.RepositoryPolicyFilePathPatternSettingsScope'],
+                 filepath_patterns: Optional[Sequence[str]] = None):
+        """
+        :param Sequence['RepositoryPolicyFilePathPatternSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
+               at least once.
+        :param Sequence[str] filepath_patterns: Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+        """
+        pulumi.set(__self__, "scopes", scopes)
+        if filepath_patterns is not None:
+            pulumi.set(__self__, "filepath_patterns", filepath_patterns)
+
+    @property
+    @pulumi.getter
+    def scopes(self) -> Sequence['outputs.RepositoryPolicyFilePathPatternSettingsScope']:
+        """
+        Controls which repositories and branches the policy will be enabled for. This block must be defined
+        at least once.
+        """
+        return pulumi.get(self, "scopes")
+
+    @property
+    @pulumi.getter(name="filepathPatterns")
+    def filepath_patterns(self) -> Optional[Sequence[str]]:
+        """
+        Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+        """
+        return pulumi.get(self, "filepath_patterns")
+
+
+@pulumi.output_type
+class RepositoryPolicyFilePathPatternSettingsScope(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "repositoryId":
+            suggest = "repository_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RepositoryPolicyFilePathPatternSettingsScope. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RepositoryPolicyFilePathPatternSettingsScope.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RepositoryPolicyFilePathPatternSettingsScope.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 repository_id: str):
+        """
+        :param str repository_id: The repository ID.
+        """
+        pulumi.set(__self__, "repository_id", repository_id)
+
+    @property
+    @pulumi.getter(name="repositoryId")
+    def repository_id(self) -> str:
+        """
+        The repository ID.
+        """
+        return pulumi.get(self, "repository_id")
+
+
+@pulumi.output_type
 class ServiceEndpointArtifactoryAuthenticationBasic(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -2218,6 +2583,259 @@ class ServiceEndpointPipelineAuthPersonal(dict):
     @pulumi.getter(name="personalAccessTokenHash")
     def personal_access_token_hash(self) -> Optional[str]:
         return pulumi.get(self, "personal_access_token_hash")
+
+
+@pulumi.output_type
+class ServiceEndpointServiceFabricAzureActiveDirectory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "serverCertificateLookup":
+            suggest = "server_certificate_lookup"
+        elif key == "passwordHash":
+            suggest = "password_hash"
+        elif key == "serverCertificateCommonName":
+            suggest = "server_certificate_common_name"
+        elif key == "serverCertificateThumbprint":
+            suggest = "server_certificate_thumbprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointServiceFabricAzureActiveDirectory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointServiceFabricAzureActiveDirectory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointServiceFabricAzureActiveDirectory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password: str,
+                 server_certificate_lookup: str,
+                 username: str,
+                 password_hash: Optional[str] = None,
+                 server_certificate_common_name: Optional[str] = None,
+                 server_certificate_thumbprint: Optional[str] = None):
+        """
+        :param str password: - Password for the Azure Active Directory account.
+        :param str server_certificate_lookup: Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        :param str username: - Specify an Azure Active Directory account.
+        :param str server_certificate_common_name: The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+        :param str server_certificate_thumbprint: The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "server_certificate_lookup", server_certificate_lookup)
+        pulumi.set(__self__, "username", username)
+        if password_hash is not None:
+            pulumi.set(__self__, "password_hash", password_hash)
+        if server_certificate_common_name is not None:
+            pulumi.set(__self__, "server_certificate_common_name", server_certificate_common_name)
+        if server_certificate_thumbprint is not None:
+            pulumi.set(__self__, "server_certificate_thumbprint", server_certificate_thumbprint)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        - Password for the Azure Active Directory account.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="serverCertificateLookup")
+    def server_certificate_lookup(self) -> str:
+        """
+        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        """
+        return pulumi.get(self, "server_certificate_lookup")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        - Specify an Azure Active Directory account.
+        """
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> Optional[str]:
+        return pulumi.get(self, "password_hash")
+
+    @property
+    @pulumi.getter(name="serverCertificateCommonName")
+    def server_certificate_common_name(self) -> Optional[str]:
+        """
+        The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+        """
+        return pulumi.get(self, "server_certificate_common_name")
+
+    @property
+    @pulumi.getter(name="serverCertificateThumbprint")
+    def server_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+        """
+        return pulumi.get(self, "server_certificate_thumbprint")
+
+
+@pulumi.output_type
+class ServiceEndpointServiceFabricCertificate(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientCertificate":
+            suggest = "client_certificate"
+        elif key == "serverCertificateLookup":
+            suggest = "server_certificate_lookup"
+        elif key == "clientCertificateHash":
+            suggest = "client_certificate_hash"
+        elif key == "clientCertificatePassword":
+            suggest = "client_certificate_password"
+        elif key == "clientCertificatePasswordHash":
+            suggest = "client_certificate_password_hash"
+        elif key == "serverCertificateCommonName":
+            suggest = "server_certificate_common_name"
+        elif key == "serverCertificateThumbprint":
+            suggest = "server_certificate_thumbprint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointServiceFabricCertificate. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointServiceFabricCertificate.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointServiceFabricCertificate.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_certificate: str,
+                 server_certificate_lookup: str,
+                 client_certificate_hash: Optional[str] = None,
+                 client_certificate_password: Optional[str] = None,
+                 client_certificate_password_hash: Optional[str] = None,
+                 server_certificate_common_name: Optional[str] = None,
+                 server_certificate_thumbprint: Optional[str] = None):
+        """
+        :param str client_certificate: Base64 encoding of the cluster's client certificate file.
+        :param str server_certificate_lookup: Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        :param str client_certificate_password: Password for the certificate.
+        :param str server_certificate_common_name: The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+        :param str server_certificate_thumbprint: The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+        """
+        pulumi.set(__self__, "client_certificate", client_certificate)
+        pulumi.set(__self__, "server_certificate_lookup", server_certificate_lookup)
+        if client_certificate_hash is not None:
+            pulumi.set(__self__, "client_certificate_hash", client_certificate_hash)
+        if client_certificate_password is not None:
+            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
+        if client_certificate_password_hash is not None:
+            pulumi.set(__self__, "client_certificate_password_hash", client_certificate_password_hash)
+        if server_certificate_common_name is not None:
+            pulumi.set(__self__, "server_certificate_common_name", server_certificate_common_name)
+        if server_certificate_thumbprint is not None:
+            pulumi.set(__self__, "server_certificate_thumbprint", server_certificate_thumbprint)
+
+    @property
+    @pulumi.getter(name="clientCertificate")
+    def client_certificate(self) -> str:
+        """
+        Base64 encoding of the cluster's client certificate file.
+        """
+        return pulumi.get(self, "client_certificate")
+
+    @property
+    @pulumi.getter(name="serverCertificateLookup")
+    def server_certificate_lookup(self) -> str:
+        """
+        Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
+        """
+        return pulumi.get(self, "server_certificate_lookup")
+
+    @property
+    @pulumi.getter(name="clientCertificateHash")
+    def client_certificate_hash(self) -> Optional[str]:
+        return pulumi.get(self, "client_certificate_hash")
+
+    @property
+    @pulumi.getter(name="clientCertificatePassword")
+    def client_certificate_password(self) -> Optional[str]:
+        """
+        Password for the certificate.
+        """
+        return pulumi.get(self, "client_certificate_password")
+
+    @property
+    @pulumi.getter(name="clientCertificatePasswordHash")
+    def client_certificate_password_hash(self) -> Optional[str]:
+        return pulumi.get(self, "client_certificate_password_hash")
+
+    @property
+    @pulumi.getter(name="serverCertificateCommonName")
+    def server_certificate_common_name(self) -> Optional[str]:
+        """
+        The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
+        """
+        return pulumi.get(self, "server_certificate_common_name")
+
+    @property
+    @pulumi.getter(name="serverCertificateThumbprint")
+    def server_certificate_thumbprint(self) -> Optional[str]:
+        """
+        The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
+        """
+        return pulumi.get(self, "server_certificate_thumbprint")
+
+
+@pulumi.output_type
+class ServiceEndpointServiceFabricNone(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterSpn":
+            suggest = "cluster_spn"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointServiceFabricNone. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceEndpointServiceFabricNone.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceEndpointServiceFabricNone.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_spn: Optional[str] = None,
+                 unsecured: Optional[bool] = None):
+        """
+        :param str cluster_spn: Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+        :param bool unsecured: Skip using windows security for authentication.
+        """
+        if cluster_spn is not None:
+            pulumi.set(__self__, "cluster_spn", cluster_spn)
+        if unsecured is not None:
+            pulumi.set(__self__, "unsecured", unsecured)
+
+    @property
+    @pulumi.getter(name="clusterSpn")
+    def cluster_spn(self) -> Optional[str]:
+        """
+        Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
+        """
+        return pulumi.get(self, "cluster_spn")
+
+    @property
+    @pulumi.getter
+    def unsecured(self) -> Optional[bool]:
+        """
+        Skip using windows security for authentication.
+        """
+        return pulumi.get(self, "unsecured")
 
 
 @pulumi.output_type

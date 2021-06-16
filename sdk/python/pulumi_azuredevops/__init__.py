@@ -11,6 +11,7 @@ from .branch_policy_build_validation import *
 from .branch_policy_comment_resolution import *
 from .branch_policy_merge_types import *
 from .branch_policy_min_reviewers import *
+from .branch_policy_status_check import *
 from .branch_policy_work_item_linking import *
 from .build_definition import *
 from .build_definition_permissions import *
@@ -37,6 +38,8 @@ from .project_features import *
 from .project_permissions import *
 from .provider import *
 from .queue import *
+from .repository_policy_author_email_pattern import *
+from .repository_policy_file_path_pattern import *
 from .resource_authorization import *
 from .service_endpoint_artifactory import *
 from .service_endpoint_aws import *
@@ -50,6 +53,7 @@ from .service_endpoint_git_hub_enterprise import *
 from .service_endpoint_kubernetes import *
 from .service_endpoint_npm import *
 from .service_endpoint_pipeline import *
+from .service_endpoint_service_fabric import *
 from .service_endpoint_sonar_qube import *
 from .service_endpoint_ssh import *
 from .user import *
@@ -281,6 +285,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/branchPolicyStatusCheck",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck": "BranchPolicyStatusCheck"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/branchPolicyWorkItemLinking",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -385,6 +397,22 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/repositoryPolicyAuthorEmailPattern",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern": "RepositoryPolicyAuthorEmailPattern"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/repositoryPolicyFilePathPattern",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern": "RepositoryPolicyFilePathPattern"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/resourceAuthorization",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -485,6 +513,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline": "ServiceEndpointPipeline"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceEndpointServiceFabric",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric": "ServiceEndpointServiceFabric"
   }
  },
  {
