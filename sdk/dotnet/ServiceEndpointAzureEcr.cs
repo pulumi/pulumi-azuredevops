@@ -95,9 +95,6 @@ namespace Pulumi.AzureDevOps
         [Output("azurecrSubscriptionName")]
         public Output<string> AzurecrSubscriptionName { get; private set; } = null!;
 
-        /// <summary>
-        /// The name you will use to refer to this service connection in task inputs.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -206,9 +203,6 @@ namespace Pulumi.AzureDevOps
         [Input("azurecrSubscriptionName", required: true)]
         public Input<string> AzurecrSubscriptionName { get; set; } = null!;
 
-        /// <summary>
-        /// The name you will use to refer to this service connection in task inputs.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -278,9 +272,6 @@ namespace Pulumi.AzureDevOps
         [Input("azurecrSubscriptionName")]
         public Input<string>? AzurecrSubscriptionName { get; set; }
 
-        /// <summary>
-        /// The name you will use to refer to this service connection in task inputs.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

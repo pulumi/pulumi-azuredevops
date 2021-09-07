@@ -90,9 +90,6 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
      * The subscription name of the Azure targets.
      */
     public readonly azurecrSubscriptionName!: pulumi.Output<string>;
-    /**
-     * The name you will use to refer to this service connection in task inputs.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The project ID or project name.
@@ -208,9 +205,6 @@ export interface ServiceEndpointAzureEcrState {
      * The subscription name of the Azure targets.
      */
     azurecrSubscriptionName?: pulumi.Input<string>;
-    /**
-     * The name you will use to refer to this service connection in task inputs.
-     */
     description?: pulumi.Input<string>;
     /**
      * The project ID or project name.
@@ -252,9 +246,6 @@ export interface ServiceEndpointAzureEcrArgs {
      * The subscription name of the Azure targets.
      */
     azurecrSubscriptionName: pulumi.Input<string>;
-    /**
-     * The name you will use to refer to this service connection in task inputs.
-     */
     description?: pulumi.Input<string>;
     /**
      * The project ID or project name.

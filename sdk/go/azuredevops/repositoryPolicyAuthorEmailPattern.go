@@ -47,16 +47,12 @@ import (
 // 			ProjectId: project.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
-// 			Settings: &azuredevops.RepositoryPolicyAuthorEmailPatternSettingsArgs{
-// 				AuthorEmailPatterns: pulumi.StringArray{
-// 					pulumi.String("user1@test.com"),
-// 					pulumi.String("user2@test.com"),
-// 				},
-// 				Scopes: azuredevops.RepositoryPolicyAuthorEmailPatternSettingsScopeArray{
-// 					&azuredevops.RepositoryPolicyAuthorEmailPatternSettingsScopeArgs{
-// 						RepositoryId: git.ID(),
-// 					},
-// 				},
+// 			AuthorEmailPatterns: pulumi.StringArray{
+// 				pulumi.String("user1@test.com"),
+// 				pulumi.String("user2@test.com"),
+// 			},
+// 			RepositoryIds: pulumi.StringArray{
+// 				git.ID(),
 // 			},
 // 		})
 // 		if err != nil {
@@ -66,6 +62,35 @@ import (
 // 	})
 // }
 // ```
+// ## Set project level repository policy
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		_, err := azuredevops.NewRepositoryPolicyAuthorEmailPattern(ctx, "repositoryPolicyAuthorEmailPattern", &azuredevops.RepositoryPolicyAuthorEmailPatternArgs{
+// 			ProjectId: pulumi.Any(azuredevops_project.P.Id),
+// 			Enabled:   pulumi.Bool(true),
+// 			Blocking:  pulumi.Bool(true),
+// 			AuthorEmailPatterns: pulumi.StringArray{
+// 				pulumi.String("user1@test.com"),
+// 				pulumi.String("user2@test.com"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+//
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
@@ -80,14 +105,17 @@ import (
 type RepositoryPolicyAuthorEmailPattern struct {
 	pulumi.CustomResourceState
 
+	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+	// Email patterns prefixed with "!" are excluded. Order is important.
+	AuthorEmailPatterns pulumi.StringArrayOutput `pulumi:"authorEmailPatterns"`
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking pulumi.BoolPtrOutput `pulumi:"blocking"`
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
-	Settings RepositoryPolicyAuthorEmailPatternSettingsOutput `pulumi:"settings"`
+	// Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
+	RepositoryIds pulumi.StringArrayOutput `pulumi:"repositoryIds"`
 }
 
 // NewRepositoryPolicyAuthorEmailPattern registers a new resource with the given unique name, arguments, and options.
@@ -97,11 +125,11 @@ func NewRepositoryPolicyAuthorEmailPattern(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
+	if args.AuthorEmailPatterns == nil {
+		return nil, errors.New("invalid value for required argument 'AuthorEmailPatterns'")
+	}
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
-	}
-	if args.Settings == nil {
-		return nil, errors.New("invalid value for required argument 'Settings'")
 	}
 	var resource RepositoryPolicyAuthorEmailPattern
 	err := ctx.RegisterResource("azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern", name, args, &resource, opts...)
@@ -125,25 +153,31 @@ func GetRepositoryPolicyAuthorEmailPattern(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RepositoryPolicyAuthorEmailPattern resources.
 type repositoryPolicyAuthorEmailPatternState struct {
+	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+	// Email patterns prefixed with "!" are excluded. Order is important.
+	AuthorEmailPatterns []string `pulumi:"authorEmailPatterns"`
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId *string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
-	Settings *RepositoryPolicyAuthorEmailPatternSettings `pulumi:"settings"`
+	// Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
+	RepositoryIds []string `pulumi:"repositoryIds"`
 }
 
 type RepositoryPolicyAuthorEmailPatternState struct {
+	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+	// Email patterns prefixed with "!" are excluded. Order is important.
+	AuthorEmailPatterns pulumi.StringArrayInput
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking pulumi.BoolPtrInput
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringPtrInput
-	// Configuration for the policy. This block must be defined exactly once.
-	Settings RepositoryPolicyAuthorEmailPatternSettingsPtrInput
+	// Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
+	RepositoryIds pulumi.StringArrayInput
 }
 
 func (RepositoryPolicyAuthorEmailPatternState) ElementType() reflect.Type {
@@ -151,26 +185,32 @@ func (RepositoryPolicyAuthorEmailPatternState) ElementType() reflect.Type {
 }
 
 type repositoryPolicyAuthorEmailPatternArgs struct {
+	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+	// Email patterns prefixed with "!" are excluded. Order is important.
+	AuthorEmailPatterns []string `pulumi:"authorEmailPatterns"`
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
 	// The ID of the project in which the policy will be created.
 	ProjectId string `pulumi:"projectId"`
-	// Configuration for the policy. This block must be defined exactly once.
-	Settings RepositoryPolicyAuthorEmailPatternSettings `pulumi:"settings"`
+	// Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
+	RepositoryIds []string `pulumi:"repositoryIds"`
 }
 
 // The set of arguments for constructing a RepositoryPolicyAuthorEmailPattern resource.
 type RepositoryPolicyAuthorEmailPatternArgs struct {
+	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
+	// Email patterns prefixed with "!" are excluded. Order is important.
+	AuthorEmailPatterns pulumi.StringArrayInput
 	// A flag indicating if the policy should be blocking. Defaults to `true`.
 	Blocking pulumi.BoolPtrInput
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
 	// The ID of the project in which the policy will be created.
 	ProjectId pulumi.StringInput
-	// Configuration for the policy. This block must be defined exactly once.
-	Settings RepositoryPolicyAuthorEmailPatternSettingsInput
+	// Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
+	RepositoryIds pulumi.StringArrayInput
 }
 
 func (RepositoryPolicyAuthorEmailPatternArgs) ElementType() reflect.Type {

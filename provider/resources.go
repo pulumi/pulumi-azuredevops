@@ -119,6 +119,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_serviceendpoint_ssh":           {Tok: makeResource(mainMod, "ServiceEndpointSsh")},
 			"azuredevops_serviceendpoint_npm":           {Tok: makeResource(mainMod, "ServiceEndpointNpm")},
 			"azuredevops_serviceendpoint_azuredevops":   {Tok: makeResource(mainMod, "ServiceEndpointAzureDevOps")},
+			"azuredevops_serviceendpoint_generic":       {Tok: makeResource(mainMod, "ServiceEndpointGeneric")},
+			"azuredevops_serviceendpoint_generic_git":   {Tok: makeResource(mainMod, "ServiceEndpointGenericGit")},
 			"azuredevops_serviceendpoint_servicefabric": {Tok: makeResource(mainMod, "ServiceEndpointServiceFabric")},
 			"azuredevops_serviceendpoint_github_enterprise": {
 				Tok: makeResource(mainMod, "ServiceEndpointGitHubEnterprise"),
@@ -131,6 +133,24 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_repository_policy_file_path_pattern": {
 				Tok: makeResource(mainMod, "RepositoryPolicyFilePathPattern"),
 			},
+			"azuredevops_repository_policy_case_enforcement": {
+				Tok: makeResource(mainMod, "RepositoryPolicyCaseEnforcement"),
+			},
+			"azuredevops_repository_policy_check_credentials": {
+				Tok: makeResource(mainMod, "RepositoryPolicyCheckCredentials"),
+			},
+			"azuredevops_repository_policy_max_file_size": {
+				Tok: makeResource(mainMod, "RepositoryPolicyMaxFileSize"),
+			},
+			"azuredevops_repository_policy_max_path_length": {
+				Tok: makeResource(mainMod, "RepositoryPolicyMaxPathLength"),
+			},
+			"azuredevops_repository_policy_reserved_names": {
+				Tok: makeResource(mainMod, "RepositoryPolicyReservedNames"),
+			},
+			"azuredevops_team":                {Tok: makeResource(mainMod, "Team")},
+			"azuredevops_team_administrators": {Tok: makeResource(mainMod, "TeamAdministrators")},
+			"azuredevops_team_members":        {Tok: makeResource(mainMod, "TeamMembers")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azuredevops_area": {
@@ -145,6 +165,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_agent_queue": {
 				Tok: makeDataSource(mainMod, "getAgentQueue"),
 			},
+			"azuredevops_team":  {Tok: makeDataSource(mainMod, "getTeam")},
+			"azuredevops_teams": {Tok: makeDataSource(mainMod, "getTeams")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -171,8 +193,7 @@ func Provider() tfbridge.ProviderInfo {
 		},
 		CSharp: &tfbridge.CSharpInfo{
 			PackageReferences: map[string]string{
-				"Pulumi":                       "3.*",
-				"System.Collections.Immutable": "1.6.0",
+				"Pulumi": "3.*",
 			},
 			Namespaces: map[string]string{
 				mainPkg: "AzureDevOps",

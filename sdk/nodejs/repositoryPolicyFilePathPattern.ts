@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -30,15 +29,27 @@ import * as utilities from "./utilities";
  *     projectId: project.id,
  *     enabled: true,
  *     blocking: true,
- *     settings: {
- *         filepathPatterns: [
- *             "*.go",
- *             "/home/test/*.ts",
- *         ],
- *         scopes: [{
- *             repositoryId: git.id,
- *         }],
- *     },
+ *     filepathPatterns: [
+ *         "*.go",
+ *         "/home/test/*.ts",
+ *     ],
+ *     repositoryIds: [git.id],
+ * });
+ * ```
+ *
+ * # Set project level repository policy
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const repositoryPolicyFilePathPattern = new azuredevops.RepositoryPolicyFilePathPattern("repositoryPolicyFilePathPattern", {
+ *     projectId: azuredevops_project.p.id,
+ *     enabled: true,
+ *     blocking: true,
+ *     filepathPatterns: [
+ *         "*.go",
+ *         "/home/test/*.ts",
+ *     ],
  * });
  * ```
  * ## Relevant Links
@@ -90,13 +101,17 @@ export class RepositoryPolicyFilePathPattern extends pulumi.CustomResource {
      */
     public readonly enabled!: pulumi.Output<boolean | undefined>;
     /**
+     * Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+     */
+    public readonly filepathPatterns!: pulumi.Output<string[]>;
+    /**
      * The ID of the project in which the policy will be created.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    public readonly settings!: pulumi.Output<outputs.RepositoryPolicyFilePathPatternSettings>;
+    public readonly repositoryIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RepositoryPolicyFilePathPattern resource with the given unique name, arguments, and options.
@@ -113,20 +128,22 @@ export class RepositoryPolicyFilePathPattern extends pulumi.CustomResource {
             const state = argsOrState as RepositoryPolicyFilePathPatternState | undefined;
             inputs["blocking"] = state ? state.blocking : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
+            inputs["filepathPatterns"] = state ? state.filepathPatterns : undefined;
             inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
+            inputs["repositoryIds"] = state ? state.repositoryIds : undefined;
         } else {
             const args = argsOrState as RepositoryPolicyFilePathPatternArgs | undefined;
+            if ((!args || args.filepathPatterns === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'filepathPatterns'");
+            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.settings === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'settings'");
-            }
             inputs["blocking"] = args ? args.blocking : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
+            inputs["filepathPatterns"] = args ? args.filepathPatterns : undefined;
             inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
+            inputs["repositoryIds"] = args ? args.repositoryIds : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -148,13 +165,17 @@ export interface RepositoryPolicyFilePathPatternState {
      */
     enabled?: pulumi.Input<boolean>;
     /**
+     * Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+     */
+    filepathPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The ID of the project in which the policy will be created.
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    settings?: pulumi.Input<inputs.RepositoryPolicyFilePathPatternSettings>;
+    repositoryIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
@@ -170,11 +191,15 @@ export interface RepositoryPolicyFilePathPatternArgs {
      */
     enabled?: pulumi.Input<boolean>;
     /**
+     * Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+     */
+    filepathPatterns: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * The ID of the project in which the policy will be created.
      */
     projectId: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    settings: pulumi.Input<inputs.RepositoryPolicyFilePathPatternSettings>;
+    repositoryIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -100,6 +100,45 @@ import (
 // 	})
 // }
 // ```
+// ### Import from a Private Repository
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		serviceendpoint, err := azuredevops.NewServiceEndpointGenericGit(ctx, "serviceendpoint", &azuredevops.ServiceEndpointGenericGitArgs{
+// 			ProjectId:           pulumi.Any(azuredevops_project.Project.Id),
+// 			RepositoryUrl:       pulumi.String("https://dev.azure.com/org/project/_git/repository"),
+// 			Username:            pulumi.String("username"),
+// 			Password:            pulumi.String("<password>/<PAT>"),
+// 			ServiceEndpointName: pulumi.String("Sample Generic Git"),
+// 			Description:         pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewGit(ctx, "repo", &azuredevops.GitArgs{
+// 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
+// 			Initialization: &azuredevops.GitInitializationArgs{
+// 				InitType:            pulumi.String("Import"),
+// 				SourceType:          pulumi.String("Git"),
+// 				SourceUrl:           pulumi.String("https://dev.azure.com/example-org/private-repository.git"),
+// 				ServiceConnectionId: serviceendpoint.ID(),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)

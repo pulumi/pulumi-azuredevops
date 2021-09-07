@@ -20,6 +20,8 @@ class GitInitialization(dict):
         suggest = None
         if key == "initType":
             suggest = "init_type"
+        elif key == "serviceConnectionId":
+            suggest = "service_connection_id"
         elif key == "sourceType":
             suggest = "source_type"
         elif key == "sourceUrl":
@@ -38,14 +40,18 @@ class GitInitialization(dict):
 
     def __init__(__self__, *,
                  init_type: str,
+                 service_connection_id: Optional[str] = None,
                  source_type: Optional[str] = None,
                  source_url: Optional[str] = None):
         """
-        :param str init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+        :param str init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
+        :param str service_connection_id: The id of service connection used to authenticate to a private repository for import initialization.
         :param str source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param str source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         """
         pulumi.set(__self__, "init_type", init_type)
+        if service_connection_id is not None:
+            pulumi.set(__self__, "service_connection_id", service_connection_id)
         if source_type is not None:
             pulumi.set(__self__, "source_type", source_type)
         if source_url is not None:
@@ -55,9 +61,17 @@ class GitInitialization(dict):
     @pulumi.getter(name="initType")
     def init_type(self) -> str:
         """
-        The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+        The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         """
         return pulumi.get(self, "init_type")
+
+    @property
+    @pulumi.getter(name="serviceConnectionId")
+    def service_connection_id(self) -> Optional[str]:
+        """
+        The id of service connection used to authenticate to a private repository for import initialization.
+        """
+        return pulumi.get(self, "service_connection_id")
 
     @property
     @pulumi.getter(name="sourceType")

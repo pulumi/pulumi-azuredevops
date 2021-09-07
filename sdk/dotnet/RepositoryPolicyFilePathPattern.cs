@@ -42,20 +42,39 @@ namespace Pulumi.AzureDevOps
     ///             ProjectId = project.Id,
     ///             Enabled = true,
     ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Inputs.RepositoryPolicyFilePathPatternSettingsArgs
+    ///             FilepathPatterns = 
     ///             {
-    ///                 FilepathPatterns = 
-    ///                 {
-    ///                     "*.go",
-    ///                     "/home/test/*.ts",
-    ///                 },
-    ///                 Scopes = 
-    ///                 {
-    ///                     new AzureDevOps.Inputs.RepositoryPolicyFilePathPatternSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = git.Id,
-    ///                     },
-    ///                 },
+    ///                 "*.go",
+    ///                 "/home/test/*.ts",
+    ///             },
+    ///             RepositoryIds = 
+    ///             {
+    ///                 git.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
+    /// # Set project level repository policy
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var repositoryPolicyFilePathPattern = new AzureDevOps.RepositoryPolicyFilePathPattern("repositoryPolicyFilePathPattern", new AzureDevOps.RepositoryPolicyFilePathPatternArgs
+    ///         {
+    ///             ProjectId = azuredevops_project.P.Id,
+    ///             Enabled = true,
+    ///             Blocking = true,
+    ///             FilepathPatterns = 
+    ///             {
+    ///                 "*.go",
+    ///                 "/home/test/*.ts",
     ///             },
     ///         });
     ///     }
@@ -90,16 +109,22 @@ namespace Pulumi.AzureDevOps
         public Output<bool?> Enabled { get; private set; } = null!;
 
         /// <summary>
+        /// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+        /// </summary>
+        [Output("filepathPatterns")]
+        public Output<ImmutableArray<string>> FilepathPatterns { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the project in which the policy will be created.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the policy. This block must be defined exactly once.
+        /// Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         /// </summary>
-        [Output("settings")]
-        public Output<Outputs.RepositoryPolicyFilePathPatternSettings> Settings { get; private set; } = null!;
+        [Output("repositoryIds")]
+        public Output<ImmutableArray<string>> RepositoryIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -159,17 +184,35 @@ namespace Pulumi.AzureDevOps
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("filepathPatterns", required: true)]
+        private InputList<string>? _filepathPatterns;
+
+        /// <summary>
+        /// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+        /// </summary>
+        public InputList<string> FilepathPatterns
+        {
+            get => _filepathPatterns ?? (_filepathPatterns = new InputList<string>());
+            set => _filepathPatterns = value;
+        }
+
         /// <summary>
         /// The ID of the project in which the policy will be created.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
+        [Input("repositoryIds")]
+        private InputList<string>? _repositoryIds;
+
         /// <summary>
-        /// Configuration for the policy. This block must be defined exactly once.
+        /// Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         /// </summary>
-        [Input("settings", required: true)]
-        public Input<Inputs.RepositoryPolicyFilePathPatternSettingsArgs> Settings { get; set; } = null!;
+        public InputList<string> RepositoryIds
+        {
+            get => _repositoryIds ?? (_repositoryIds = new InputList<string>());
+            set => _repositoryIds = value;
+        }
 
         public RepositoryPolicyFilePathPatternArgs()
         {
@@ -190,17 +233,35 @@ namespace Pulumi.AzureDevOps
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        [Input("filepathPatterns")]
+        private InputList<string>? _filepathPatterns;
+
+        /// <summary>
+        /// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+        /// </summary>
+        public InputList<string> FilepathPatterns
+        {
+            get => _filepathPatterns ?? (_filepathPatterns = new InputList<string>());
+            set => _filepathPatterns = value;
+        }
+
         /// <summary>
         /// The ID of the project in which the policy will be created.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
+        [Input("repositoryIds")]
+        private InputList<string>? _repositoryIds;
+
         /// <summary>
-        /// Configuration for the policy. This block must be defined exactly once.
+        /// Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         /// </summary>
-        [Input("settings")]
-        public Input<Inputs.RepositoryPolicyFilePathPatternSettingsGetArgs>? Settings { get; set; }
+        public InputList<string> RepositoryIds
+        {
+            get => _repositoryIds ?? (_repositoryIds = new InputList<string>());
+            set => _repositoryIds = value;
+        }
 
         public RepositoryPolicyFilePathPatternState()
         {

@@ -83,7 +83,7 @@ export class BranchPolicyAutoReviewers extends pulumi.CustomResource {
     }
 
     /**
-     * A flag indicating if the policy should be blocking. Defaults to `true`.
+     * A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
      */
     public readonly blocking!: pulumi.Output<boolean | undefined>;
     /**
@@ -141,7 +141,7 @@ export class BranchPolicyAutoReviewers extends pulumi.CustomResource {
  */
 export interface BranchPolicyAutoReviewersState {
     /**
-     * A flag indicating if the policy should be blocking. Defaults to `true`.
+     * A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
      */
     blocking?: pulumi.Input<boolean>;
     /**
@@ -163,7 +163,7 @@ export interface BranchPolicyAutoReviewersState {
  */
 export interface BranchPolicyAutoReviewersArgs {
     /**
-     * A flag indicating if the policy should be blocking. Defaults to `true`.
+     * A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
      */
     blocking?: pulumi.Input<boolean>;
     /**

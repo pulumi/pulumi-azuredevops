@@ -29,7 +29,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     public partial class Kubernetes : Pulumi.CustomResource
     {
         /// <summary>
-        /// The Service Endpoint description.
+        /// The hostname (in form of URI) of the Kubernetes API.
         /// </summary>
         [Output("apiserverUrl")]
         public Output<string> ApiserverUrl { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     public sealed class KubernetesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Service Endpoint description.
+        /// The hostname (in form of URI) of the Kubernetes API.
         /// </summary>
         [Input("apiserverUrl", required: true)]
         public Input<string> ApiserverUrl { get; set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     public sealed class KubernetesState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Service Endpoint description.
+        /// The hostname (in form of URI) of the Kubernetes API.
         /// </summary>
         [Input("apiserverUrl")]
         public Input<string>? ApiserverUrl { get; set; }

@@ -57,6 +57,11 @@ namespace Pulumi.AzureDevOps
     /// ## PAT Permissions Required
     /// 
     /// - **Variable Groups**: Read, Create, &amp; Manage
+    /// - **Build**: Read &amp; execute
+    /// - **Project and Team**: Read
+    /// - **Token Administration**: Read &amp; manage
+    /// - **Tokens**: Read &amp; manage
+    /// - **Work Items**: Read
     /// 
     /// ## Import
     /// 

@@ -28,7 +28,6 @@ class DockerRegistryArgs:
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
-        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] docker_email: The email for Docker account user.
         :param pulumi.Input[str] docker_password: The password for the account user identified above.
         :param pulumi.Input[str] docker_username: The identifier of the Docker account user.
@@ -108,9 +107,6 @@ class DockerRegistryArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name you will use to refer to this service connection in task inputs.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -169,7 +165,6 @@ class _DockerRegistryState:
                  service_endpoint_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering DockerRegistry resources.
-        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] docker_email: The email for Docker account user.
         :param pulumi.Input[str] docker_password: The password for the account user identified above.
         :param pulumi.Input[str] docker_password_hash: A bcrypted hash of the attribute 'docker_password'
@@ -212,9 +207,6 @@ class _DockerRegistryState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name you will use to refer to this service connection in task inputs.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -383,7 +375,6 @@ class DockerRegistry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] docker_email: The email for Docker account user.
         :param pulumi.Input[str] docker_password: The password for the account user identified above.
         :param pulumi.Input[str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
@@ -523,7 +514,6 @@ class DockerRegistry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] docker_email: The email for Docker account user.
         :param pulumi.Input[str] docker_password: The password for the account user identified above.
         :param pulumi.Input[str] docker_password_hash: A bcrypted hash of the attribute 'docker_password'
@@ -557,9 +547,6 @@ class DockerRegistry(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The name you will use to refer to this service connection in task inputs.
-        """
         return pulumi.get(self, "description")
 
     @property

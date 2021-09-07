@@ -72,9 +72,6 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
-        /// <summary>
-        /// The name you will use to refer to this service connection in task inputs.
-        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -180,9 +177,6 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
             set => _authorization = value;
         }
 
-        /// <summary>
-        /// The name you will use to refer to this service connection in task inputs.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -243,9 +237,6 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
             set => _authorization = value;
         }
 
-        /// <summary>
-        /// The name you will use to refer to this service connection in task inputs.
-        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 

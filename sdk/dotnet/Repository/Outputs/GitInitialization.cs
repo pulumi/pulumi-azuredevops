@@ -14,9 +14,13 @@ namespace Pulumi.AzureDevOps.Repository.Outputs
     public sealed class GitInitialization
     {
         /// <summary>
-        /// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+        /// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         /// </summary>
         public readonly string InitType;
+        /// <summary>
+        /// The id of service connection used to authenticate to a private repository for import initialization.
+        /// </summary>
+        public readonly string? ServiceConnectionId;
         /// <summary>
         /// Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         /// </summary>
@@ -30,11 +34,14 @@ namespace Pulumi.AzureDevOps.Repository.Outputs
         private GitInitialization(
             string initType,
 
+            string? serviceConnectionId,
+
             string? sourceType,
 
             string? sourceUrl)
         {
             InitType = initType;
+            ServiceConnectionId = serviceConnectionId;
             SourceType = sourceType;
             SourceUrl = sourceUrl;
         }

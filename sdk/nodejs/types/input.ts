@@ -451,9 +451,13 @@ export interface BuildDefinitionVariable {
 
 export interface GitInitialization {
     /**
-     * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+     * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
      */
     initType: pulumi.Input<string>;
+    /**
+     * The id of service connection used to authenticate to a private repository for import initialization.
+     */
+    serviceConnectionId?: pulumi.Input<string>;
     /**
      * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
      */
@@ -462,45 +466,6 @@ export interface GitInitialization {
      * The URL of the source repository. Used if the `initType` is `Import`.
      */
     sourceUrl?: pulumi.Input<string>;
-}
-
-export interface RepositoryPolicyAuthorEmailPatternSettings {
-    /**
-     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-     * Email patterns prefixed with "!" are excluded. Order is important.
-     */
-    authorEmailPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
-     */
-    scopes: pulumi.Input<pulumi.Input<inputs.RepositoryPolicyAuthorEmailPatternSettingsScope>[]>;
-}
-
-export interface RepositoryPolicyAuthorEmailPatternSettingsScope {
-    /**
-     * The repository ID.
-     */
-    repositoryId: pulumi.Input<string>;
-}
-
-export interface RepositoryPolicyFilePathPatternSettings {
-    /**
-     * Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-     */
-    filepathPatterns?: pulumi.Input<pulumi.Input<string>[]>;
-    /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
-     */
-    scopes: pulumi.Input<pulumi.Input<inputs.RepositoryPolicyFilePathPatternSettingsScope>[]>;
-}
-
-export interface RepositoryPolicyFilePathPatternSettingsScope {
-    /**
-     * The repository ID.
-     */
-    repositoryId: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointArtifactoryAuthenticationBasic {
@@ -1041,9 +1006,13 @@ export namespace Policy {
 export namespace Repository {
     export interface GitInitialization {
         /**
-         * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+         * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
          */
         initType: pulumi.Input<string>;
+        /**
+         * The id of service connection used to authenticate to a private repository for import initialization.
+         */
+        serviceConnectionId?: pulumi.Input<string>;
         /**
          * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
          */

@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -30,17 +29,30 @@ import * as utilities from "./utilities";
  *     projectId: project.id,
  *     enabled: true,
  *     blocking: true,
- *     settings: {
- *         authorEmailPatterns: [
- *             "user1@test.com",
- *             "user2@test.com",
- *         ],
- *         scopes: [{
- *             repositoryId: git.id,
- *         }],
- *     },
+ *     authorEmailPatterns: [
+ *         "user1@test.com",
+ *         "user2@test.com",
+ *     ],
+ *     repositoryIds: [git.id],
  * });
  * ```
+ * ## Set project level repository policy
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const repositoryPolicyAuthorEmailPattern = new azuredevops.RepositoryPolicyAuthorEmailPattern("repositoryPolicyAuthorEmailPattern", {
+ *     projectId: azuredevops_project.p.id,
+ *     enabled: true,
+ *     blocking: true,
+ *     authorEmailPatterns: [
+ *         "user1@test.com",
+ *         "user2@test.com",
+ *     ],
+ * });
+ * ```
+ *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
@@ -82,6 +94,11 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
     }
 
     /**
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+     * Email patterns prefixed with "!" are excluded. Order is important.
+     */
+    public readonly authorEmailPatterns!: pulumi.Output<string[]>;
+    /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
     public readonly blocking!: pulumi.Output<boolean | undefined>;
@@ -94,9 +111,9 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    public readonly settings!: pulumi.Output<outputs.RepositoryPolicyAuthorEmailPatternSettings>;
+    public readonly repositoryIds!: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a RepositoryPolicyAuthorEmailPattern resource with the given unique name, arguments, and options.
@@ -111,22 +128,24 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyAuthorEmailPatternState | undefined;
+            inputs["authorEmailPatterns"] = state ? state.authorEmailPatterns : undefined;
             inputs["blocking"] = state ? state.blocking : undefined;
             inputs["enabled"] = state ? state.enabled : undefined;
             inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
+            inputs["repositoryIds"] = state ? state.repositoryIds : undefined;
         } else {
             const args = argsOrState as RepositoryPolicyAuthorEmailPatternArgs | undefined;
+            if ((!args || args.authorEmailPatterns === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'authorEmailPatterns'");
+            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            if ((!args || args.settings === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'settings'");
-            }
+            inputs["authorEmailPatterns"] = args ? args.authorEmailPatterns : undefined;
             inputs["blocking"] = args ? args.blocking : undefined;
             inputs["enabled"] = args ? args.enabled : undefined;
             inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
+            inputs["repositoryIds"] = args ? args.repositoryIds : undefined;
         }
         if (!opts.version) {
             opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
@@ -140,6 +159,11 @@ export class RepositoryPolicyAuthorEmailPattern extends pulumi.CustomResource {
  */
 export interface RepositoryPolicyAuthorEmailPatternState {
     /**
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+     * Email patterns prefixed with "!" are excluded. Order is important.
+     */
+    authorEmailPatterns?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
     blocking?: pulumi.Input<boolean>;
@@ -152,15 +176,20 @@ export interface RepositoryPolicyAuthorEmailPatternState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    settings?: pulumi.Input<inputs.RepositoryPolicyAuthorEmailPatternSettings>;
+    repositoryIds?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 /**
  * The set of arguments for constructing a RepositoryPolicyAuthorEmailPattern resource.
  */
 export interface RepositoryPolicyAuthorEmailPatternArgs {
+    /**
+     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+     * Email patterns prefixed with "!" are excluded. Order is important.
+     */
+    authorEmailPatterns: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      */
@@ -174,7 +203,7 @@ export interface RepositoryPolicyAuthorEmailPatternArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * Configuration for the policy. This block must be defined exactly once.
+     * Control whether the policy is enabled for the repository or the project. If `repositoryIds` not configured, the policy will be set to the project.
      */
-    settings: pulumi.Input<inputs.RepositoryPolicyAuthorEmailPatternSettings>;
+    repositoryIds?: pulumi.Input<pulumi.Input<string>[]>;
 }

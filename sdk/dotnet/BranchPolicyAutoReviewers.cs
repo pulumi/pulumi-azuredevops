@@ -86,7 +86,7 @@ namespace Pulumi.AzureDevOps
     public partial class BranchPolicyAutoReviewers : Pulumi.CustomResource
     {
         /// <summary>
-        /// A flag indicating if the policy should be blocking. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         /// </summary>
         [Output("blocking")]
         public Output<bool?> Blocking { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.AzureDevOps
     public sealed class BranchPolicyAutoReviewersArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A flag indicating if the policy should be blocking. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         /// </summary>
         [Input("blocking")]
         public Input<bool>? Blocking { get; set; }
@@ -187,7 +187,7 @@ namespace Pulumi.AzureDevOps
     public sealed class BranchPolicyAutoReviewersState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A flag indicating if the policy should be blocking. Defaults to `true`.
+        /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         /// </summary>
         [Input("blocking")]
         public Input<bool>? Blocking { get; set; }

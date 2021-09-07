@@ -7,31 +7,47 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['RepositoryPolicyAuthorEmailPatternArgs', 'RepositoryPolicyAuthorEmailPattern']
 
 @pulumi.input_type
 class RepositoryPolicyAuthorEmailPatternArgs:
     def __init__(__self__, *,
+                 author_email_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  project_id: pulumi.Input[str],
-                 settings: pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsArgs'],
                  blocking: Optional[pulumi.Input[bool]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RepositoryPolicyAuthorEmailPattern resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+               Email patterns prefixed with "!" are excluded. Order is important.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
+        pulumi.set(__self__, "author_email_patterns", author_email_patterns)
         pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "settings", settings)
         if blocking is not None:
             pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if repository_ids is not None:
+            pulumi.set(__self__, "repository_ids", repository_ids)
+
+    @property
+    @pulumi.getter(name="authorEmailPatterns")
+    def author_email_patterns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        Email patterns prefixed with "!" are excluded. Order is important.
+        """
+        return pulumi.get(self, "author_email_patterns")
+
+    @author_email_patterns.setter
+    def author_email_patterns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "author_email_patterns", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -44,18 +60,6 @@ class RepositoryPolicyAuthorEmailPatternArgs:
     @project_id.setter
     def project_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "project_id", value)
-
-    @property
-    @pulumi.getter
-    def settings(self) -> pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsArgs']:
-        """
-        Configuration for the policy. This block must be defined exactly once.
-        """
-        return pulumi.get(self, "settings")
-
-    @settings.setter
-    def settings(self, value: pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsArgs']):
-        pulumi.set(self, "settings", value)
 
     @property
     @pulumi.getter
@@ -81,29 +85,59 @@ class RepositoryPolicyAuthorEmailPatternArgs:
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
 
+    @property
+    @pulumi.getter(name="repositoryIds")
+    def repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
+        """
+        return pulumi.get(self, "repository_ids")
+
+    @repository_ids.setter
+    def repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "repository_ids", value)
+
 
 @pulumi.input_type
 class _RepositoryPolicyAuthorEmailPatternState:
     def __init__(__self__, *,
+                 author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsArgs']] = None):
+                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicyAuthorEmailPattern resources.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+               Email patterns prefixed with "!" are excluded. Order is important.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
+        if author_email_patterns is not None:
+            pulumi.set(__self__, "author_email_patterns", author_email_patterns)
         if blocking is not None:
             pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
-        if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+        if repository_ids is not None:
+            pulumi.set(__self__, "repository_ids", repository_ids)
+
+    @property
+    @pulumi.getter(name="authorEmailPatterns")
+    def author_email_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        Email patterns prefixed with "!" are excluded. Order is important.
+        """
+        return pulumi.get(self, "author_email_patterns")
+
+    @author_email_patterns.setter
+    def author_email_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "author_email_patterns", value)
 
     @property
     @pulumi.getter
@@ -142,16 +176,16 @@ class _RepositoryPolicyAuthorEmailPatternState:
         pulumi.set(self, "project_id", value)
 
     @property
-    @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsArgs']]:
+    @pulumi.getter(name="repositoryIds")
+    def repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
-        return pulumi.get(self, "settings")
+        return pulumi.get(self, "repository_ids")
 
-    @settings.setter
-    def settings(self, value: Optional[pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsArgs']]):
-        pulumi.set(self, "settings", value)
+    @repository_ids.setter
+    def repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "repository_ids", value)
 
 
 class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
@@ -159,10 +193,11 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['RepositoryPolicyAuthorEmailPatternSettingsArgs']]] = None,
+                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manage author email pattern repository policy within Azure DevOps project.
@@ -187,16 +222,28 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
             project_id=project.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.RepositoryPolicyAuthorEmailPatternSettingsArgs(
-                author_email_patterns=[
-                    "user1@test.com",
-                    "user2@test.com",
-                ],
-                scopes=[azuredevops.RepositoryPolicyAuthorEmailPatternSettingsScopeArgs(
-                    repository_id=git.id,
-                )],
-            ))
+            author_email_patterns=[
+                "user1@test.com",
+                "user2@test.com",
+            ],
+            repository_ids=[git.id])
         ```
+        ## Set project level repository policy
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        repository_policy_author_email_pattern = azuredevops.RepositoryPolicyAuthorEmailPattern("repositoryPolicyAuthorEmailPattern",
+            project_id=azuredevops_project["p"]["id"],
+            enabled=True,
+            blocking=True,
+            author_email_patterns=[
+                "user1@test.com",
+                "user2@test.com",
+            ])
+        ```
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
@@ -211,10 +258,12 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+               Email patterns prefixed with "!" are excluded. Order is important.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['RepositoryPolicyAuthorEmailPatternSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
         ...
     @overload
@@ -245,16 +294,28 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
             project_id=project.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.RepositoryPolicyAuthorEmailPatternSettingsArgs(
-                author_email_patterns=[
-                    "user1@test.com",
-                    "user2@test.com",
-                ],
-                scopes=[azuredevops.RepositoryPolicyAuthorEmailPatternSettingsScopeArgs(
-                    repository_id=git.id,
-                )],
-            ))
+            author_email_patterns=[
+                "user1@test.com",
+                "user2@test.com",
+            ],
+            repository_ids=[git.id])
         ```
+        ## Set project level repository policy
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        repository_policy_author_email_pattern = azuredevops.RepositoryPolicyAuthorEmailPattern("repositoryPolicyAuthorEmailPattern",
+            project_id=azuredevops_project["p"]["id"],
+            enabled=True,
+            blocking=True,
+            author_email_patterns=[
+                "user1@test.com",
+                "user2@test.com",
+            ])
+        ```
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
@@ -282,10 +343,11 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['RepositoryPolicyAuthorEmailPatternSettingsArgs']]] = None,
+                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -298,14 +360,15 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = RepositoryPolicyAuthorEmailPatternArgs.__new__(RepositoryPolicyAuthorEmailPatternArgs)
 
+            if author_email_patterns is None and not opts.urn:
+                raise TypeError("Missing required property 'author_email_patterns'")
+            __props__.__dict__["author_email_patterns"] = author_email_patterns
             __props__.__dict__["blocking"] = blocking
             __props__.__dict__["enabled"] = enabled
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
-            if settings is None and not opts.urn:
-                raise TypeError("Missing required property 'settings'")
-            __props__.__dict__["settings"] = settings
+            __props__.__dict__["repository_ids"] = repository_ids
         super(RepositoryPolicyAuthorEmailPattern, __self__).__init__(
             'azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern',
             resource_name,
@@ -316,10 +379,11 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             blocking: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['RepositoryPolicyAuthorEmailPatternSettingsArgs']]] = None) -> 'RepositoryPolicyAuthorEmailPattern':
+            repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'RepositoryPolicyAuthorEmailPattern':
         """
         Get an existing RepositoryPolicyAuthorEmailPattern resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -327,20 +391,32 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+               Email patterns prefixed with "!" are excluded. Order is important.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['RepositoryPolicyAuthorEmailPatternSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _RepositoryPolicyAuthorEmailPatternState.__new__(_RepositoryPolicyAuthorEmailPatternState)
 
+        __props__.__dict__["author_email_patterns"] = author_email_patterns
         __props__.__dict__["blocking"] = blocking
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["project_id"] = project_id
-        __props__.__dict__["settings"] = settings
+        __props__.__dict__["repository_ids"] = repository_ids
         return RepositoryPolicyAuthorEmailPattern(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="authorEmailPatterns")
+    def author_email_patterns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        Email patterns prefixed with "!" are excluded. Order is important.
+        """
+        return pulumi.get(self, "author_email_patterns")
 
     @property
     @pulumi.getter
@@ -367,10 +443,10 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
         return pulumi.get(self, "project_id")
 
     @property
-    @pulumi.getter
-    def settings(self) -> pulumi.Output['outputs.RepositoryPolicyAuthorEmailPatternSettings']:
+    @pulumi.getter(name="repositoryIds")
+    def repository_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
-        return pulumi.get(self, "settings")
+        return pulumi.get(self, "repository_ids")
 

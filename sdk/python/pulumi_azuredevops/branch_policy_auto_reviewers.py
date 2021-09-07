@@ -23,7 +23,7 @@ class BranchPolicyAutoReviewersArgs:
         The set of arguments for constructing a BranchPolicyAutoReviewers resource.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input['BranchPolicyAutoReviewersSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
-        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
+        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -61,7 +61,7 @@ class BranchPolicyAutoReviewersArgs:
     @pulumi.getter
     def blocking(self) -> Optional[pulumi.Input[bool]]:
         """
-        A flag indicating if the policy should be blocking. Defaults to `true`.
+        A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         """
         return pulumi.get(self, "blocking")
 
@@ -91,7 +91,7 @@ class _BranchPolicyAutoReviewersState:
                  settings: Optional[pulumi.Input['BranchPolicyAutoReviewersSettingsArgs']] = None):
         """
         Input properties used for looking up and filtering BranchPolicyAutoReviewers resources.
-        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
+        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input['BranchPolicyAutoReviewersSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
@@ -109,7 +109,7 @@ class _BranchPolicyAutoReviewersState:
     @pulumi.getter
     def blocking(self) -> Optional[pulumi.Input[bool]]:
         """
-        A flag indicating if the policy should be blocking. Defaults to `true`.
+        A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         """
         return pulumi.get(self, "blocking")
 
@@ -212,7 +212,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
+        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[pulumi.InputType['BranchPolicyAutoReviewersSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
@@ -329,7 +329,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
+        :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[pulumi.InputType['BranchPolicyAutoReviewersSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
@@ -348,7 +348,7 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
     @pulumi.getter
     def blocking(self) -> pulumi.Output[Optional[bool]]:
         """
-        A flag indicating if the policy should be blocking. Defaults to `true`.
+        A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
         """
         return pulumi.get(self, "blocking")
 

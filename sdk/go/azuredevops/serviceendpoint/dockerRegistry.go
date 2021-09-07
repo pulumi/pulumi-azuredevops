@@ -77,8 +77,7 @@ type DockerRegistry struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	// The name you will use to refer to this service connection in task inputs.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	Description   pulumi.StringPtrOutput `pulumi:"description"`
 	// The email for Docker account user.
 	DockerEmail pulumi.StringPtrOutput `pulumi:"dockerEmail"`
 	// The password for the account user identified above.
@@ -139,8 +138,7 @@ func GetDockerRegistry(ctx *pulumi.Context,
 // Input properties used for looking up and filtering DockerRegistry resources.
 type dockerRegistryState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	// The name you will use to refer to this service connection in task inputs.
-	Description *string `pulumi:"description"`
+	Description   *string           `pulumi:"description"`
 	// The email for Docker account user.
 	DockerEmail *string `pulumi:"dockerEmail"`
 	// The password for the account user identified above.
@@ -161,8 +159,7 @@ type dockerRegistryState struct {
 
 type DockerRegistryState struct {
 	Authorization pulumi.StringMapInput
-	// The name you will use to refer to this service connection in task inputs.
-	Description pulumi.StringPtrInput
+	Description   pulumi.StringPtrInput
 	// The email for Docker account user.
 	DockerEmail pulumi.StringPtrInput
 	// The password for the account user identified above.
@@ -187,8 +184,7 @@ func (DockerRegistryState) ElementType() reflect.Type {
 
 type dockerRegistryArgs struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	// The name you will use to refer to this service connection in task inputs.
-	Description *string `pulumi:"description"`
+	Description   *string           `pulumi:"description"`
 	// The email for Docker account user.
 	DockerEmail *string `pulumi:"dockerEmail"`
 	// The password for the account user identified above.
@@ -208,8 +204,7 @@ type dockerRegistryArgs struct {
 // The set of arguments for constructing a DockerRegistry resource.
 type DockerRegistryArgs struct {
 	Authorization pulumi.StringMapInput
-	// The name you will use to refer to this service connection in task inputs.
-	Description pulumi.StringPtrInput
+	Description   pulumi.StringPtrInput
 	// The email for Docker account user.
 	DockerEmail pulumi.StringPtrInput
 	// The password for the account user identified above.

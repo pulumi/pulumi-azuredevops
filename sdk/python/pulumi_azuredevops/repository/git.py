@@ -345,6 +345,28 @@ class Git(pulumi.CustomResource):
                 source_url="https://github.com/microsoft/terraform-provider-azuredevops.git",
             ))
         ```
+        ### Import from a Private Repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        serviceendpoint = azuredevops.ServiceEndpointGenericGit("serviceendpoint",
+            project_id=azuredevops_project["project"]["id"],
+            repository_url="https://dev.azure.com/org/project/_git/repository",
+            username="username",
+            password="<password>/<PAT>",
+            service_endpoint_name="Sample Generic Git",
+            description="Managed by Terraform")
+        repo = azuredevops.Git("repo",
+            project_id=azuredevops_project["project"]["id"],
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Import",
+                source_type="Git",
+                source_url="https://dev.azure.com/example-org/private-repository.git",
+                service_connection_id=serviceendpoint.id,
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
@@ -422,6 +444,28 @@ class Git(pulumi.CustomResource):
                 init_type="Import",
                 source_type="Git",
                 source_url="https://github.com/microsoft/terraform-provider-azuredevops.git",
+            ))
+        ```
+        ### Import from a Private Repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        serviceendpoint = azuredevops.ServiceEndpointGenericGit("serviceendpoint",
+            project_id=azuredevops_project["project"]["id"],
+            repository_url="https://dev.azure.com/org/project/_git/repository",
+            username="username",
+            password="<password>/<PAT>",
+            service_endpoint_name="Sample Generic Git",
+            description="Managed by Terraform")
+        repo = azuredevops.Git("repo",
+            project_id=azuredevops_project["project"]["id"],
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Import",
+                source_type="Git",
+                source_url="https://dev.azure.com/example-org/private-repository.git",
+                service_connection_id=serviceendpoint.id,
             ))
         ```
         ## Relevant Links

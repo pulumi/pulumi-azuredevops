@@ -26,7 +26,7 @@ class ServiceEndpointKubernetesArgs:
                  service_accounts: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointKubernetesServiceAccountArgs']]]] = None):
         """
         The set of arguments for constructing a ServiceEndpointKubernetes resource.
-        :param pulumi.Input[str] apiserver_url: The Service Endpoint description.
+        :param pulumi.Input[str] apiserver_url: The hostname (in form of URI) of the Kubernetes API.
         :param pulumi.Input[str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -53,7 +53,7 @@ class ServiceEndpointKubernetesArgs:
     @pulumi.getter(name="apiserverUrl")
     def apiserver_url(self) -> pulumi.Input[str]:
         """
-        The Service Endpoint description.
+        The hostname (in form of URI) of the Kubernetes API.
         """
         return pulumi.get(self, "apiserver_url")
 
@@ -166,7 +166,7 @@ class _ServiceEndpointKubernetesState:
                  service_endpoint_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointKubernetes resources.
-        :param pulumi.Input[str] apiserver_url: The Service Endpoint description.
+        :param pulumi.Input[str] apiserver_url: The hostname (in form of URI) of the Kubernetes API.
         :param pulumi.Input[str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointKubernetesAzureSubscriptionArgs']]] azure_subscriptions: The configuration for authorization_type="AzureSubscription".
         :param pulumi.Input[Sequence[pulumi.Input['ServiceEndpointKubernetesKubeconfigArgs']]] kubeconfigs: The configuration for authorization_type="Kubeconfig".
@@ -197,7 +197,7 @@ class _ServiceEndpointKubernetesState:
     @pulumi.getter(name="apiserverUrl")
     def apiserver_url(self) -> Optional[pulumi.Input[str]]:
         """
-        The Service Endpoint description.
+        The hostname (in form of URI) of the Kubernetes API.
         """
         return pulumi.get(self, "apiserver_url")
 
@@ -328,7 +328,7 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] apiserver_url: The Service Endpoint description.
+        :param pulumi.Input[str] apiserver_url: The hostname (in form of URI) of the Kubernetes API.
         :param pulumi.Input[str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointKubernetesAzureSubscriptionArgs']]]] azure_subscriptions: The configuration for authorization_type="AzureSubscription".
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointKubernetesKubeconfigArgs']]]] kubeconfigs: The configuration for authorization_type="Kubeconfig".
@@ -438,7 +438,7 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] apiserver_url: The Service Endpoint description.
+        :param pulumi.Input[str] apiserver_url: The hostname (in form of URI) of the Kubernetes API.
         :param pulumi.Input[str] authorization_type: The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointKubernetesAzureSubscriptionArgs']]]] azure_subscriptions: The configuration for authorization_type="AzureSubscription".
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ServiceEndpointKubernetesKubeconfigArgs']]]] kubeconfigs: The configuration for authorization_type="Kubeconfig".
@@ -465,7 +465,7 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
     @pulumi.getter(name="apiserverUrl")
     def apiserver_url(self) -> pulumi.Output[str]:
         """
-        The Service Endpoint description.
+        The hostname (in form of URI) of the Kubernetes API.
         """
         return pulumi.get(self, "apiserver_url")
 

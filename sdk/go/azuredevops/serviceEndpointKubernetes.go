@@ -27,7 +27,7 @@ import (
 type ServiceEndpointKubernetes struct {
 	pulumi.CustomResourceState
 
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  pulumi.StringOutput    `pulumi:"apiserverUrl"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
@@ -92,7 +92,7 @@ func GetServiceEndpointKubernetes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointKubernetes resources.
 type serviceEndpointKubernetesState struct {
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  *string           `pulumi:"apiserverUrl"`
 	Authorization map[string]string `pulumi:"authorization"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
@@ -111,7 +111,7 @@ type serviceEndpointKubernetesState struct {
 }
 
 type ServiceEndpointKubernetesState struct {
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
@@ -134,7 +134,7 @@ func (ServiceEndpointKubernetesState) ElementType() reflect.Type {
 }
 
 type serviceEndpointKubernetesArgs struct {
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  string            `pulumi:"apiserverUrl"`
 	Authorization map[string]string `pulumi:"authorization"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
@@ -154,7 +154,7 @@ type serviceEndpointKubernetesArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointKubernetes resource.
 type ServiceEndpointKubernetesArgs struct {
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  pulumi.StringInput
 	Authorization pulumi.StringMapInput
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.

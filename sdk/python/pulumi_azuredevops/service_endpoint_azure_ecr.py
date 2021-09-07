@@ -31,7 +31,6 @@ class ServiceEndpointAzureEcrArgs:
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
-        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
         """
         pulumi.set(__self__, "azurecr_name", azurecr_name)
         pulumi.set(__self__, "azurecr_spn_tenantid", azurecr_spn_tenantid)
@@ -141,9 +140,6 @@ class ServiceEndpointAzureEcrArgs:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name you will use to refer to this service connection in task inputs.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -174,7 +170,6 @@ class _ServiceEndpointAzureEcrState:
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
@@ -296,9 +291,6 @@ class _ServiceEndpointAzureEcrState:
     @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name you will use to refer to this service connection in task inputs.
-        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -420,7 +412,6 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
@@ -566,7 +557,6 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[str] description: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
@@ -647,9 +637,6 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     @property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[str]]:
-        """
-        The name you will use to refer to this service connection in task inputs.
-        """
         return pulumi.get(self, "description")
 
     @property

@@ -26,6 +26,8 @@ export * from "./getPools";
 export * from "./getProject";
 export * from "./getProjects";
 export * from "./getRepositories";
+export * from "./getTeam";
+export * from "./getTeams";
 export * from "./getUsers";
 export * from "./git";
 export * from "./gitPermissions";
@@ -39,7 +41,12 @@ export * from "./projectPermissions";
 export * from "./provider";
 export * from "./queue";
 export * from "./repositoryPolicyAuthorEmailPattern";
+export * from "./repositoryPolicyCaseEnforcement";
+export * from "./repositoryPolicyCheckCredentials";
 export * from "./repositoryPolicyFilePathPattern";
+export * from "./repositoryPolicyMaxFileSize";
+export * from "./repositoryPolicyMaxPathLength";
+export * from "./repositoryPolicyReservedNames";
 export * from "./resourceAuthorization";
 export * from "./serviceEndpointArtifactory";
 export * from "./serviceEndpointAws";
@@ -48,6 +55,8 @@ export * from "./serviceEndpointAzureEcr";
 export * from "./serviceEndpointAzureRM";
 export * from "./serviceEndpointBitBucket";
 export * from "./serviceEndpointDockerRegistry";
+export * from "./serviceEndpointGeneric";
+export * from "./serviceEndpointGenericGit";
 export * from "./serviceEndpointGitHub";
 export * from "./serviceEndpointGitHubEnterprise";
 export * from "./serviceEndpointKubernetes";
@@ -56,6 +65,9 @@ export * from "./serviceEndpointPipeline";
 export * from "./serviceEndpointServiceFabric";
 export * from "./serviceEndpointSonarQube";
 export * from "./serviceEndpointSsh";
+export * from "./team";
+export * from "./teamAdministrators";
+export * from "./teamMembers";
 export * from "./user";
 export * from "./variableGroup";
 export * from "./workItemQueryPermissions";
@@ -111,7 +123,12 @@ import { ProjectFeatures } from "./projectFeatures";
 import { ProjectPermissions } from "./projectPermissions";
 import { Queue } from "./queue";
 import { RepositoryPolicyAuthorEmailPattern } from "./repositoryPolicyAuthorEmailPattern";
+import { RepositoryPolicyCaseEnforcement } from "./repositoryPolicyCaseEnforcement";
+import { RepositoryPolicyCheckCredentials } from "./repositoryPolicyCheckCredentials";
 import { RepositoryPolicyFilePathPattern } from "./repositoryPolicyFilePathPattern";
+import { RepositoryPolicyMaxFileSize } from "./repositoryPolicyMaxFileSize";
+import { RepositoryPolicyMaxPathLength } from "./repositoryPolicyMaxPathLength";
+import { RepositoryPolicyReservedNames } from "./repositoryPolicyReservedNames";
 import { ResourceAuthorization } from "./resourceAuthorization";
 import { ServiceEndpointArtifactory } from "./serviceEndpointArtifactory";
 import { ServiceEndpointAws } from "./serviceEndpointAws";
@@ -120,6 +137,8 @@ import { ServiceEndpointAzureEcr } from "./serviceEndpointAzureEcr";
 import { ServiceEndpointAzureRM } from "./serviceEndpointAzureRM";
 import { ServiceEndpointBitBucket } from "./serviceEndpointBitBucket";
 import { ServiceEndpointDockerRegistry } from "./serviceEndpointDockerRegistry";
+import { ServiceEndpointGeneric } from "./serviceEndpointGeneric";
+import { ServiceEndpointGenericGit } from "./serviceEndpointGenericGit";
 import { ServiceEndpointGitHub } from "./serviceEndpointGitHub";
 import { ServiceEndpointGitHubEnterprise } from "./serviceEndpointGitHubEnterprise";
 import { ServiceEndpointKubernetes } from "./serviceEndpointKubernetes";
@@ -128,6 +147,9 @@ import { ServiceEndpointPipeline } from "./serviceEndpointPipeline";
 import { ServiceEndpointServiceFabric } from "./serviceEndpointServiceFabric";
 import { ServiceEndpointSonarQube } from "./serviceEndpointSonarQube";
 import { ServiceEndpointSsh } from "./serviceEndpointSsh";
+import { Team } from "./team";
+import { TeamAdministrators } from "./teamAdministrators";
+import { TeamMembers } from "./teamMembers";
 import { User } from "./user";
 import { VariableGroup } from "./variableGroup";
 import { WorkItemQueryPermissions } from "./workItemQueryPermissions";
@@ -178,8 +200,18 @@ const _module = {
                 return new Queue(name, <any>undefined, { urn })
             case "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern":
                 return new RepositoryPolicyAuthorEmailPattern(name, <any>undefined, { urn })
+            case "azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement":
+                return new RepositoryPolicyCaseEnforcement(name, <any>undefined, { urn })
+            case "azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials":
+                return new RepositoryPolicyCheckCredentials(name, <any>undefined, { urn })
             case "azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern":
                 return new RepositoryPolicyFilePathPattern(name, <any>undefined, { urn })
+            case "azuredevops:index/repositoryPolicyMaxFileSize:RepositoryPolicyMaxFileSize":
+                return new RepositoryPolicyMaxFileSize(name, <any>undefined, { urn })
+            case "azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength":
+                return new RepositoryPolicyMaxPathLength(name, <any>undefined, { urn })
+            case "azuredevops:index/repositoryPolicyReservedNames:RepositoryPolicyReservedNames":
+                return new RepositoryPolicyReservedNames(name, <any>undefined, { urn })
             case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
                 return new ResourceAuthorization(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
@@ -196,6 +228,10 @@ const _module = {
                 return new ServiceEndpointBitBucket(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry":
                 return new ServiceEndpointDockerRegistry(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric":
+                return new ServiceEndpointGeneric(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit":
+                return new ServiceEndpointGenericGit(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub":
                 return new ServiceEndpointGitHub(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise":
@@ -212,6 +248,12 @@ const _module = {
                 return new ServiceEndpointSonarQube(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
                 return new ServiceEndpointSsh(name, <any>undefined, { urn })
+            case "azuredevops:index/team:Team":
+                return new Team(name, <any>undefined, { urn })
+            case "azuredevops:index/teamAdministrators:TeamAdministrators":
+                return new TeamAdministrators(name, <any>undefined, { urn })
+            case "azuredevops:index/teamMembers:TeamMembers":
+                return new TeamMembers(name, <any>undefined, { urn })
             case "azuredevops:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "azuredevops:index/variableGroup:VariableGroup":
@@ -244,7 +286,12 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/projectFeatures", _m
 pulumi.runtime.registerResourceModule("azuredevops", "index/projectPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/queue", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyAuthorEmailPattern", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyCaseEnforcement", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyCheckCredentials", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyFilePathPattern", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyMaxFileSize", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyMaxPathLength", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/repositoryPolicyReservedNames", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/resourceAuthorization", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointArtifactory", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAws", _module)
@@ -253,6 +300,8 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAzure
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointAzureRM", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointBitBucket", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointDockerRegistry", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGeneric", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGenericGit", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitHub", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointGitHubEnterprise", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointKubernetes", _module)
@@ -261,6 +310,9 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointPipel
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointServiceFabric", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/team", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/teamAdministrators", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/teamMembers", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroup", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)

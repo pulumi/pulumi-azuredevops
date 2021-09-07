@@ -7,31 +7,45 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['RepositoryPolicyFilePathPatternArgs', 'RepositoryPolicyFilePathPattern']
 
 @pulumi.input_type
 class RepositoryPolicyFilePathPatternArgs:
     def __init__(__self__, *,
+                 filepath_patterns: pulumi.Input[Sequence[pulumi.Input[str]]],
                  project_id: pulumi.Input[str],
-                 settings: pulumi.Input['RepositoryPolicyFilePathPatternSettingsArgs'],
                  blocking: Optional[pulumi.Input[bool]] = None,
-                 enabled: Optional[pulumi.Input[bool]] = None):
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a RepositoryPolicyFilePathPattern resource.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filepath_patterns: Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input['RepositoryPolicyFilePathPatternSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
+        pulumi.set(__self__, "filepath_patterns", filepath_patterns)
         pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "settings", settings)
         if blocking is not None:
             pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if repository_ids is not None:
+            pulumi.set(__self__, "repository_ids", repository_ids)
+
+    @property
+    @pulumi.getter(name="filepathPatterns")
+    def filepath_patterns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+        """
+        return pulumi.get(self, "filepath_patterns")
+
+    @filepath_patterns.setter
+    def filepath_patterns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "filepath_patterns", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -47,18 +61,6 @@ class RepositoryPolicyFilePathPatternArgs:
 
     @property
     @pulumi.getter
-    def settings(self) -> pulumi.Input['RepositoryPolicyFilePathPatternSettingsArgs']:
-        """
-        Configuration for the policy. This block must be defined exactly once.
-        """
-        return pulumi.get(self, "settings")
-
-    @settings.setter
-    def settings(self, value: pulumi.Input['RepositoryPolicyFilePathPatternSettingsArgs']):
-        pulumi.set(self, "settings", value)
-
-    @property
-    @pulumi.getter
     def blocking(self) -> Optional[pulumi.Input[bool]]:
         """
         A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -80,6 +82,18 @@ class RepositoryPolicyFilePathPatternArgs:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="repositoryIds")
+    def repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
+        """
+        return pulumi.get(self, "repository_ids")
+
+    @repository_ids.setter
+    def repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "repository_ids", value)
 
 
 @pulumi.input_type
@@ -87,23 +101,27 @@ class _RepositoryPolicyFilePathPatternState:
     def __init__(__self__, *,
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filepath_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input['RepositoryPolicyFilePathPatternSettingsArgs']] = None):
+                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         Input properties used for looking up and filtering RepositoryPolicyFilePathPattern resources.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filepath_patterns: Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input['RepositoryPolicyFilePathPatternSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
         if blocking is not None:
             pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if filepath_patterns is not None:
+            pulumi.set(__self__, "filepath_patterns", filepath_patterns)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
-        if settings is not None:
-            pulumi.set(__self__, "settings", settings)
+        if repository_ids is not None:
+            pulumi.set(__self__, "repository_ids", repository_ids)
 
     @property
     @pulumi.getter
@@ -128,6 +146,18 @@ class _RepositoryPolicyFilePathPatternState:
     @enabled.setter
     def enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="filepathPatterns")
+    def filepath_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+        """
+        return pulumi.get(self, "filepath_patterns")
+
+    @filepath_patterns.setter
+    def filepath_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "filepath_patterns", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -142,16 +172,16 @@ class _RepositoryPolicyFilePathPatternState:
         pulumi.set(self, "project_id", value)
 
     @property
-    @pulumi.getter
-    def settings(self) -> Optional[pulumi.Input['RepositoryPolicyFilePathPatternSettingsArgs']]:
+    @pulumi.getter(name="repositoryIds")
+    def repository_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
-        return pulumi.get(self, "settings")
+        return pulumi.get(self, "repository_ids")
 
-    @settings.setter
-    def settings(self, value: Optional[pulumi.Input['RepositoryPolicyFilePathPatternSettingsArgs']]):
-        pulumi.set(self, "settings", value)
+    @repository_ids.setter
+    def repository_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "repository_ids", value)
 
 
 class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
@@ -161,8 +191,9 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filepath_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['RepositoryPolicyFilePathPatternSettingsArgs']]] = None,
+                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Manage a file path pattern repository policy within Azure DevOps project.
@@ -187,15 +218,26 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             project_id=project.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.RepositoryPolicyFilePathPatternSettingsArgs(
-                filepath_patterns=[
-                    "*.go",
-                    "/home/test/*.ts",
-                ],
-                scopes=[azuredevops.RepositoryPolicyFilePathPatternSettingsScopeArgs(
-                    repository_id=git.id,
-                )],
-            ))
+            filepath_patterns=[
+                "*.go",
+                "/home/test/*.ts",
+            ],
+            repository_ids=[git.id])
+        ```
+
+        # Set project level repository policy
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        repository_policy_file_path_pattern = azuredevops.RepositoryPolicyFilePathPattern("repositoryPolicyFilePathPattern",
+            project_id=azuredevops_project["p"]["id"],
+            enabled=True,
+            blocking=True,
+            filepath_patterns=[
+                "*.go",
+                "/home/test/*.ts",
+            ])
         ```
         ## Relevant Links
 
@@ -213,8 +255,9 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filepath_patterns: Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['RepositoryPolicyFilePathPatternSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
         ...
     @overload
@@ -245,15 +288,26 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             project_id=project.id,
             enabled=True,
             blocking=True,
-            settings=azuredevops.RepositoryPolicyFilePathPatternSettingsArgs(
-                filepath_patterns=[
-                    "*.go",
-                    "/home/test/*.ts",
-                ],
-                scopes=[azuredevops.RepositoryPolicyFilePathPatternSettingsScopeArgs(
-                    repository_id=git.id,
-                )],
-            ))
+            filepath_patterns=[
+                "*.go",
+                "/home/test/*.ts",
+            ],
+            repository_ids=[git.id])
+        ```
+
+        # Set project level repository policy
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        repository_policy_file_path_pattern = azuredevops.RepositoryPolicyFilePathPattern("repositoryPolicyFilePathPattern",
+            project_id=azuredevops_project["p"]["id"],
+            enabled=True,
+            blocking=True,
+            filepath_patterns=[
+                "*.go",
+                "/home/test/*.ts",
+            ])
         ```
         ## Relevant Links
 
@@ -284,8 +338,9 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  blocking: Optional[pulumi.Input[bool]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
+                 filepath_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
-                 settings: Optional[pulumi.Input[pulumi.InputType['RepositoryPolicyFilePathPatternSettingsArgs']]] = None,
+                 repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -300,12 +355,13 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
 
             __props__.__dict__["blocking"] = blocking
             __props__.__dict__["enabled"] = enabled
+            if filepath_patterns is None and not opts.urn:
+                raise TypeError("Missing required property 'filepath_patterns'")
+            __props__.__dict__["filepath_patterns"] = filepath_patterns
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
-            if settings is None and not opts.urn:
-                raise TypeError("Missing required property 'settings'")
-            __props__.__dict__["settings"] = settings
+            __props__.__dict__["repository_ids"] = repository_ids
         super(RepositoryPolicyFilePathPattern, __self__).__init__(
             'azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern',
             resource_name,
@@ -318,8 +374,9 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             blocking: Optional[pulumi.Input[bool]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
+            filepath_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
-            settings: Optional[pulumi.Input[pulumi.InputType['RepositoryPolicyFilePathPatternSettingsArgs']]] = None) -> 'RepositoryPolicyFilePathPattern':
+            repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None) -> 'RepositoryPolicyFilePathPattern':
         """
         Get an existing RepositoryPolicyFilePathPattern resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -329,8 +386,9 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] filepath_patterns: Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
-        :param pulumi.Input[pulumi.InputType['RepositoryPolicyFilePathPatternSettingsArgs']] settings: Configuration for the policy. This block must be defined exactly once.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -338,8 +396,9 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
 
         __props__.__dict__["blocking"] = blocking
         __props__.__dict__["enabled"] = enabled
+        __props__.__dict__["filepath_patterns"] = filepath_patterns
         __props__.__dict__["project_id"] = project_id
-        __props__.__dict__["settings"] = settings
+        __props__.__dict__["repository_ids"] = repository_ids
         return RepositoryPolicyFilePathPattern(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -359,6 +418,14 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         return pulumi.get(self, "enabled")
 
     @property
+    @pulumi.getter(name="filepathPatterns")
+    def filepath_patterns(self) -> pulumi.Output[Sequence[str]]:
+        """
+        Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
+        """
+        return pulumi.get(self, "filepath_patterns")
+
+    @property
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
@@ -367,10 +434,10 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         return pulumi.get(self, "project_id")
 
     @property
-    @pulumi.getter
-    def settings(self) -> pulumi.Output['outputs.RepositoryPolicyFilePathPatternSettings']:
+    @pulumi.getter(name="repositoryIds")
+    def repository_ids(self) -> pulumi.Output[Optional[Sequence[str]]]:
         """
-        Configuration for the policy. This block must be defined exactly once.
+        Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
-        return pulumi.get(self, "settings")
+        return pulumi.get(self, "repository_ids")
 
