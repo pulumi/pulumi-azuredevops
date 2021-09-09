@@ -2,12 +2,15 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
+_(none)_
+
+---
+
+## 2.2.0 (2021-09-09)
 * Upgrade to v0.1.7 of the AzureDevOps Terraform provider
   **Please Note:** This includes a breaking change that removes:
   * `azuredevops.RepositoryPolicyAuthorEmailPattern` `settings` and `scope` parameters
   * `azuredevops.RepositoryPolicyFilePathPattern` `settings` and `scope` parameters
-
----
 
 ## 2.1.1 (2021-06-16)
 * Upgrade to v0.1.5 of the AzureDevOps Terraform provider
