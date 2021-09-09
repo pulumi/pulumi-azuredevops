@@ -88,7 +88,7 @@ import (
 type BranchPolicyAutoReviewers struct {
 	pulumi.CustomResourceState
 
-	// A flag indicating if the policy should be blocking. Defaults to `true`.
+	// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
 	Blocking pulumi.BoolPtrOutput `pulumi:"blocking"`
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrOutput `pulumi:"enabled"`
@@ -133,7 +133,7 @@ func GetBranchPolicyAutoReviewers(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BranchPolicyAutoReviewers resources.
 type branchPolicyAutoReviewersState struct {
-	// A flag indicating if the policy should be blocking. Defaults to `true`.
+	// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -144,7 +144,7 @@ type branchPolicyAutoReviewersState struct {
 }
 
 type BranchPolicyAutoReviewersState struct {
-	// A flag indicating if the policy should be blocking. Defaults to `true`.
+	// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
 	Blocking pulumi.BoolPtrInput
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput
@@ -159,7 +159,7 @@ func (BranchPolicyAutoReviewersState) ElementType() reflect.Type {
 }
 
 type branchPolicyAutoReviewersArgs struct {
-	// A flag indicating if the policy should be blocking. Defaults to `true`.
+	// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
 	Blocking *bool `pulumi:"blocking"`
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled *bool `pulumi:"enabled"`
@@ -171,7 +171,7 @@ type branchPolicyAutoReviewersArgs struct {
 
 // The set of arguments for constructing a BranchPolicyAutoReviewers resource.
 type BranchPolicyAutoReviewersArgs struct {
-	// A flag indicating if the policy should be blocking. Defaults to `true`.
+	// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
 	Blocking pulumi.BoolPtrInput
 	// A flag indicating if the policy should be enabled. Defaults to `true`.
 	Enabled pulumi.BoolPtrInput

@@ -35,10 +35,6 @@ __all__ = [
     'BuildDefinitionRepositoryArgs',
     'BuildDefinitionVariableArgs',
     'GitInitializationArgs',
-    'RepositoryPolicyAuthorEmailPatternSettingsArgs',
-    'RepositoryPolicyAuthorEmailPatternSettingsScopeArgs',
-    'RepositoryPolicyFilePathPatternSettingsArgs',
-    'RepositoryPolicyFilePathPatternSettingsScopeArgs',
     'ServiceEndpointArtifactoryAuthenticationBasicArgs',
     'ServiceEndpointArtifactoryAuthenticationTokenArgs',
     'ServiceEndpointAzureRMCredentialsArgs',
@@ -1707,14 +1703,18 @@ class BuildDefinitionVariableArgs:
 class GitInitializationArgs:
     def __init__(__self__, *,
                  init_type: pulumi.Input[str],
+                 service_connection_id: Optional[pulumi.Input[str]] = None,
                  source_type: Optional[pulumi.Input[str]] = None,
                  source_url: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+        :param pulumi.Input[str] init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
+        :param pulumi.Input[str] service_connection_id: The id of service connection used to authenticate to a private repository for import initialization.
         :param pulumi.Input[str] source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param pulumi.Input[str] source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         """
         pulumi.set(__self__, "init_type", init_type)
+        if service_connection_id is not None:
+            pulumi.set(__self__, "service_connection_id", service_connection_id)
         if source_type is not None:
             pulumi.set(__self__, "source_type", source_type)
         if source_url is not None:
@@ -1724,13 +1724,25 @@ class GitInitializationArgs:
     @pulumi.getter(name="initType")
     def init_type(self) -> pulumi.Input[str]:
         """
-        The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+        The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         """
         return pulumi.get(self, "init_type")
 
     @init_type.setter
     def init_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "init_type", value)
+
+    @property
+    @pulumi.getter(name="serviceConnectionId")
+    def service_connection_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The id of service connection used to authenticate to a private repository for import initialization.
+        """
+        return pulumi.get(self, "service_connection_id")
+
+    @service_connection_id.setter
+    def service_connection_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_connection_id", value)
 
     @property
     @pulumi.getter(name="sourceType")
@@ -1755,132 +1767,6 @@ class GitInitializationArgs:
     @source_url.setter
     def source_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "source_url", value)
-
-
-@pulumi.input_type
-class RepositoryPolicyAuthorEmailPatternSettingsArgs:
-    def __init__(__self__, *,
-                 scopes: pulumi.Input[Sequence[pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsScopeArgs']]],
-                 author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
-               at least once.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-               Email patterns prefixed with "!" are excluded. Order is important.
-        """
-        pulumi.set(__self__, "scopes", scopes)
-        if author_email_patterns is not None:
-            pulumi.set(__self__, "author_email_patterns", author_email_patterns)
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsScopeArgs']]]:
-        """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined
-        at least once.
-        """
-        return pulumi.get(self, "scopes")
-
-    @scopes.setter
-    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['RepositoryPolicyAuthorEmailPatternSettingsScopeArgs']]]):
-        pulumi.set(self, "scopes", value)
-
-    @property
-    @pulumi.getter(name="authorEmailPatterns")
-    def author_email_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-        Email patterns prefixed with "!" are excluded. Order is important.
-        """
-        return pulumi.get(self, "author_email_patterns")
-
-    @author_email_patterns.setter
-    def author_email_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "author_email_patterns", value)
-
-
-@pulumi.input_type
-class RepositoryPolicyAuthorEmailPatternSettingsScopeArgs:
-    def __init__(__self__, *,
-                 repository_id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] repository_id: The repository ID.
-        """
-        pulumi.set(__self__, "repository_id", repository_id)
-
-    @property
-    @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> pulumi.Input[str]:
-        """
-        The repository ID.
-        """
-        return pulumi.get(self, "repository_id")
-
-    @repository_id.setter
-    def repository_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "repository_id", value)
-
-
-@pulumi.input_type
-class RepositoryPolicyFilePathPatternSettingsArgs:
-    def __init__(__self__, *,
-                 scopes: pulumi.Input[Sequence[pulumi.Input['RepositoryPolicyFilePathPatternSettingsScopeArgs']]],
-                 filepath_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
-        """
-        :param pulumi.Input[Sequence[pulumi.Input['RepositoryPolicyFilePathPatternSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
-               at least once.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] filepath_patterns: Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-        """
-        pulumi.set(__self__, "scopes", scopes)
-        if filepath_patterns is not None:
-            pulumi.set(__self__, "filepath_patterns", filepath_patterns)
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> pulumi.Input[Sequence[pulumi.Input['RepositoryPolicyFilePathPatternSettingsScopeArgs']]]:
-        """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined
-        at least once.
-        """
-        return pulumi.get(self, "scopes")
-
-    @scopes.setter
-    def scopes(self, value: pulumi.Input[Sequence[pulumi.Input['RepositoryPolicyFilePathPatternSettingsScopeArgs']]]):
-        pulumi.set(self, "scopes", value)
-
-    @property
-    @pulumi.getter(name="filepathPatterns")
-    def filepath_patterns(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-        """
-        return pulumi.get(self, "filepath_patterns")
-
-    @filepath_patterns.setter
-    def filepath_patterns(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "filepath_patterns", value)
-
-
-@pulumi.input_type
-class RepositoryPolicyFilePathPatternSettingsScopeArgs:
-    def __init__(__self__, *,
-                 repository_id: pulumi.Input[str]):
-        """
-        :param pulumi.Input[str] repository_id: The repository ID.
-        """
-        pulumi.set(__self__, "repository_id", repository_id)
-
-    @property
-    @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> pulumi.Input[str]:
-        """
-        The repository ID.
-        """
-        return pulumi.get(self, "repository_id")
-
-    @repository_id.setter
-    def repository_id(self, value: pulumi.Input[str]):
-        pulumi.set(self, "repository_id", value)
 
 
 @pulumi.input_type

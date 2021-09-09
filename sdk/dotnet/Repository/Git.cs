@@ -88,6 +88,40 @@ namespace Pulumi.AzureDevOps.Repository
     /// 
     /// }
     /// ```
+    /// ### Import from a Private Repository
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var serviceendpoint = new AzureDevOps.ServiceEndpointGenericGit("serviceendpoint", new AzureDevOps.ServiceEndpointGenericGitArgs
+    ///         {
+    ///             ProjectId = azuredevops_project.Project.Id,
+    ///             RepositoryUrl = "https://dev.azure.com/org/project/_git/repository",
+    ///             Username = "username",
+    ///             Password = "&lt;password&gt;/&lt;PAT&gt;",
+    ///             ServiceEndpointName = "Sample Generic Git",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var repo = new AzureDevOps.Git("repo", new AzureDevOps.GitArgs
+    ///         {
+    ///             ProjectId = azuredevops_project.Project.Id,
+    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             {
+    ///                 InitType = "Import",
+    ///                 SourceType = "Git",
+    ///                 SourceUrl = "https://dev.azure.com/example-org/private-repository.git",
+    ///                 ServiceConnectionId = serviceendpoint.Id,
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)

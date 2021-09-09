@@ -82,9 +82,6 @@ export class DockerRegistry extends pulumi.CustomResource {
     }
 
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
-    /**
-     * The name you will use to refer to this service connection in task inputs.
-     */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The email for Docker account user.
@@ -182,9 +179,6 @@ export class DockerRegistry extends pulumi.CustomResource {
  */
 export interface DockerRegistryState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name you will use to refer to this service connection in task inputs.
-     */
     description?: pulumi.Input<string>;
     /**
      * The email for Docker account user.
@@ -225,9 +219,6 @@ export interface DockerRegistryState {
  */
 export interface DockerRegistryArgs {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
-    /**
-     * The name you will use to refer to this service connection in task inputs.
-     */
     description?: pulumi.Input<string>;
     /**
      * The email for Docker account user.

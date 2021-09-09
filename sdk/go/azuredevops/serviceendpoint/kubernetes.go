@@ -29,7 +29,7 @@ import (
 type Kubernetes struct {
 	pulumi.CustomResourceState
 
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  pulumi.StringOutput    `pulumi:"apiserverUrl"`
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
@@ -88,7 +88,7 @@ func GetKubernetes(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Kubernetes resources.
 type kubernetesState struct {
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  *string           `pulumi:"apiserverUrl"`
 	Authorization map[string]string `pulumi:"authorization"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
@@ -107,7 +107,7 @@ type kubernetesState struct {
 }
 
 type KubernetesState struct {
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  pulumi.StringPtrInput
 	Authorization pulumi.StringMapInput
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
@@ -130,7 +130,7 @@ func (KubernetesState) ElementType() reflect.Type {
 }
 
 type kubernetesArgs struct {
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  string            `pulumi:"apiserverUrl"`
 	Authorization map[string]string `pulumi:"authorization"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
@@ -150,7 +150,7 @@ type kubernetesArgs struct {
 
 // The set of arguments for constructing a Kubernetes resource.
 type KubernetesArgs struct {
-	// The Service Endpoint description.
+	// The hostname (in form of URI) of the Kubernetes API.
 	ApiserverUrl  pulumi.StringInput
 	Authorization pulumi.StringMapInput
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.

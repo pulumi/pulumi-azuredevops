@@ -3979,8 +3979,10 @@ func (o BuildDefinitionVariableArrayOutput) Index(i pulumi.IntInput) BuildDefini
 }
 
 type GitInitialization struct {
-	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType string `pulumi:"initType"`
+	// The id of service connection used to authenticate to a private repository for import initialization.
+	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 	SourceType *string `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
@@ -3999,8 +4001,10 @@ type GitInitializationInput interface {
 }
 
 type GitInitializationArgs struct {
-	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType pulumi.StringInput `pulumi:"initType"`
+	// The id of service connection used to authenticate to a private repository for import initialization.
+	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
@@ -4084,9 +4088,14 @@ func (o GitInitializationOutput) ToGitInitializationPtrOutputWithContext(ctx con
 	}).(GitInitializationPtrOutput)
 }
 
-// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 func (o GitInitializationOutput) InitType() pulumi.StringOutput {
 	return o.ApplyT(func(v GitInitialization) string { return v.InitType }).(pulumi.StringOutput)
+}
+
+// The id of service connection used to authenticate to a private repository for import initialization.
+func (o GitInitializationOutput) ServiceConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitInitialization) *string { return v.ServiceConnectionId }).(pulumi.StringPtrOutput)
 }
 
 // Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
@@ -4117,13 +4126,23 @@ func (o GitInitializationPtrOutput) Elem() GitInitializationOutput {
 	return o.ApplyT(func(v *GitInitialization) GitInitialization { return *v }).(GitInitializationOutput)
 }
 
-// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitInitialization) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.InitType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The id of service connection used to authenticate to a private repository for import initialization.
+func (o GitInitializationPtrOutput) ServiceConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitInitialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceConnectionId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -4145,518 +4164,6 @@ func (o GitInitializationPtrOutput) SourceUrl() pulumi.StringPtrOutput {
 		}
 		return v.SourceUrl
 	}).(pulumi.StringPtrOutput)
-}
-
-type RepositoryPolicyAuthorEmailPatternSettings struct {
-	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-	// Email patterns prefixed with "!" are excluded. Order is important.
-	AuthorEmailPatterns []string `pulumi:"authorEmailPatterns"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined
-	// at least once.
-	Scopes []RepositoryPolicyAuthorEmailPatternSettingsScope `pulumi:"scopes"`
-}
-
-// RepositoryPolicyAuthorEmailPatternSettingsInput is an input type that accepts RepositoryPolicyAuthorEmailPatternSettingsArgs and RepositoryPolicyAuthorEmailPatternSettingsOutput values.
-// You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternSettingsInput` via:
-//
-//          RepositoryPolicyAuthorEmailPatternSettingsArgs{...}
-type RepositoryPolicyAuthorEmailPatternSettingsInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyAuthorEmailPatternSettingsOutput() RepositoryPolicyAuthorEmailPatternSettingsOutput
-	ToRepositoryPolicyAuthorEmailPatternSettingsOutputWithContext(context.Context) RepositoryPolicyAuthorEmailPatternSettingsOutput
-}
-
-type RepositoryPolicyAuthorEmailPatternSettingsArgs struct {
-	// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-	// Email patterns prefixed with "!" are excluded. Order is important.
-	AuthorEmailPatterns pulumi.StringArrayInput `pulumi:"authorEmailPatterns"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined
-	// at least once.
-	Scopes RepositoryPolicyAuthorEmailPatternSettingsScopeArrayInput `pulumi:"scopes"`
-}
-
-func (RepositoryPolicyAuthorEmailPatternSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternSettings)(nil)).Elem()
-}
-
-func (i RepositoryPolicyAuthorEmailPatternSettingsArgs) ToRepositoryPolicyAuthorEmailPatternSettingsOutput() RepositoryPolicyAuthorEmailPatternSettingsOutput {
-	return i.ToRepositoryPolicyAuthorEmailPatternSettingsOutputWithContext(context.Background())
-}
-
-func (i RepositoryPolicyAuthorEmailPatternSettingsArgs) ToRepositoryPolicyAuthorEmailPatternSettingsOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsOutput)
-}
-
-func (i RepositoryPolicyAuthorEmailPatternSettingsArgs) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
-	return i.ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i RepositoryPolicyAuthorEmailPatternSettingsArgs) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsOutput).ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx)
-}
-
-// RepositoryPolicyAuthorEmailPatternSettingsPtrInput is an input type that accepts RepositoryPolicyAuthorEmailPatternSettingsArgs, RepositoryPolicyAuthorEmailPatternSettingsPtr and RepositoryPolicyAuthorEmailPatternSettingsPtrOutput values.
-// You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternSettingsPtrInput` via:
-//
-//          RepositoryPolicyAuthorEmailPatternSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type RepositoryPolicyAuthorEmailPatternSettingsPtrInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput
-	ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput
-}
-
-type repositoryPolicyAuthorEmailPatternSettingsPtrType RepositoryPolicyAuthorEmailPatternSettingsArgs
-
-func RepositoryPolicyAuthorEmailPatternSettingsPtr(v *RepositoryPolicyAuthorEmailPatternSettingsArgs) RepositoryPolicyAuthorEmailPatternSettingsPtrInput {
-	return (*repositoryPolicyAuthorEmailPatternSettingsPtrType)(v)
-}
-
-func (*repositoryPolicyAuthorEmailPatternSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPolicyAuthorEmailPatternSettings)(nil)).Elem()
-}
-
-func (i *repositoryPolicyAuthorEmailPatternSettingsPtrType) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
-	return i.ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryPolicyAuthorEmailPatternSettingsPtrType) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsPtrOutput)
-}
-
-type RepositoryPolicyAuthorEmailPatternSettingsOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyAuthorEmailPatternSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternSettings)(nil)).Elem()
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) ToRepositoryPolicyAuthorEmailPatternSettingsOutput() RepositoryPolicyAuthorEmailPatternSettingsOutput {
-	return o
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) ToRepositoryPolicyAuthorEmailPatternSettingsOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsOutput {
-	return o
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
-	return o.ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
-	return o.ApplyT(func(v RepositoryPolicyAuthorEmailPatternSettings) *RepositoryPolicyAuthorEmailPatternSettings {
-		return &v
-	}).(RepositoryPolicyAuthorEmailPatternSettingsPtrOutput)
-}
-
-// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-// Email patterns prefixed with "!" are excluded. Order is important.
-func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) AuthorEmailPatterns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RepositoryPolicyAuthorEmailPatternSettings) []string { return v.AuthorEmailPatterns }).(pulumi.StringArrayOutput)
-}
-
-// Controls which repositories and branches the policy will be enabled for. This block must be defined
-// at least once.
-func (o RepositoryPolicyAuthorEmailPatternSettingsOutput) Scopes() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
-	return o.ApplyT(func(v RepositoryPolicyAuthorEmailPatternSettings) []RepositoryPolicyAuthorEmailPatternSettingsScope {
-		return v.Scopes
-	}).(RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput)
-}
-
-type RepositoryPolicyAuthorEmailPatternSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPolicyAuthorEmailPatternSettings)(nil)).Elem()
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutput() RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
-	return o
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) ToRepositoryPolicyAuthorEmailPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsPtrOutput {
-	return o
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) Elem() RepositoryPolicyAuthorEmailPatternSettingsOutput {
-	return o.ApplyT(func(v *RepositoryPolicyAuthorEmailPatternSettings) RepositoryPolicyAuthorEmailPatternSettings {
-		return *v
-	}).(RepositoryPolicyAuthorEmailPatternSettingsOutput)
-}
-
-// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
-// Email patterns prefixed with "!" are excluded. Order is important.
-func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) AuthorEmailPatterns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RepositoryPolicyAuthorEmailPatternSettings) []string {
-		if v == nil {
-			return nil
-		}
-		return v.AuthorEmailPatterns
-	}).(pulumi.StringArrayOutput)
-}
-
-// Controls which repositories and branches the policy will be enabled for. This block must be defined
-// at least once.
-func (o RepositoryPolicyAuthorEmailPatternSettingsPtrOutput) Scopes() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
-	return o.ApplyT(func(v *RepositoryPolicyAuthorEmailPatternSettings) []RepositoryPolicyAuthorEmailPatternSettingsScope {
-		if v == nil {
-			return nil
-		}
-		return v.Scopes
-	}).(RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput)
-}
-
-type RepositoryPolicyAuthorEmailPatternSettingsScope struct {
-	// The repository ID.
-	RepositoryId string `pulumi:"repositoryId"`
-}
-
-// RepositoryPolicyAuthorEmailPatternSettingsScopeInput is an input type that accepts RepositoryPolicyAuthorEmailPatternSettingsScopeArgs and RepositoryPolicyAuthorEmailPatternSettingsScopeOutput values.
-// You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternSettingsScopeInput` via:
-//
-//          RepositoryPolicyAuthorEmailPatternSettingsScopeArgs{...}
-type RepositoryPolicyAuthorEmailPatternSettingsScopeInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeOutput
-	ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutputWithContext(context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeOutput
-}
-
-type RepositoryPolicyAuthorEmailPatternSettingsScopeArgs struct {
-	// The repository ID.
-	RepositoryId pulumi.StringInput `pulumi:"repositoryId"`
-}
-
-func (RepositoryPolicyAuthorEmailPatternSettingsScopeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternSettingsScope)(nil)).Elem()
-}
-
-func (i RepositoryPolicyAuthorEmailPatternSettingsScopeArgs) ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
-	return i.ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutputWithContext(context.Background())
-}
-
-func (i RepositoryPolicyAuthorEmailPatternSettingsScopeArgs) ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsScopeOutput)
-}
-
-// RepositoryPolicyAuthorEmailPatternSettingsScopeArrayInput is an input type that accepts RepositoryPolicyAuthorEmailPatternSettingsScopeArray and RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput values.
-// You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternSettingsScopeArrayInput` via:
-//
-//          RepositoryPolicyAuthorEmailPatternSettingsScopeArray{ RepositoryPolicyAuthorEmailPatternSettingsScopeArgs{...} }
-type RepositoryPolicyAuthorEmailPatternSettingsScopeArrayInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput
-	ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutputWithContext(context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput
-}
-
-type RepositoryPolicyAuthorEmailPatternSettingsScopeArray []RepositoryPolicyAuthorEmailPatternSettingsScopeInput
-
-func (RepositoryPolicyAuthorEmailPatternSettingsScopeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryPolicyAuthorEmailPatternSettingsScope)(nil)).Elem()
-}
-
-func (i RepositoryPolicyAuthorEmailPatternSettingsScopeArray) ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
-	return i.ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutputWithContext(context.Background())
-}
-
-func (i RepositoryPolicyAuthorEmailPatternSettingsScopeArray) ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput)
-}
-
-type RepositoryPolicyAuthorEmailPatternSettingsScopeOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyAuthorEmailPatternSettingsScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternSettingsScope)(nil)).Elem()
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsScopeOutput) ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
-	return o
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsScopeOutput) ToRepositoryPolicyAuthorEmailPatternSettingsScopeOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
-	return o
-}
-
-// The repository ID.
-func (o RepositoryPolicyAuthorEmailPatternSettingsScopeOutput) RepositoryId() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryPolicyAuthorEmailPatternSettingsScope) string { return v.RepositoryId }).(pulumi.StringOutput)
-}
-
-type RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryPolicyAuthorEmailPatternSettingsScope)(nil)).Elem()
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput) ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput() RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
-	return o
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput) ToRepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput {
-	return o
-}
-
-func (o RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyAuthorEmailPatternSettingsScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryPolicyAuthorEmailPatternSettingsScope {
-		return vs[0].([]RepositoryPolicyAuthorEmailPatternSettingsScope)[vs[1].(int)]
-	}).(RepositoryPolicyAuthorEmailPatternSettingsScopeOutput)
-}
-
-type RepositoryPolicyFilePathPatternSettings struct {
-	// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-	FilepathPatterns []string `pulumi:"filepathPatterns"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined
-	// at least once.
-	Scopes []RepositoryPolicyFilePathPatternSettingsScope `pulumi:"scopes"`
-}
-
-// RepositoryPolicyFilePathPatternSettingsInput is an input type that accepts RepositoryPolicyFilePathPatternSettingsArgs and RepositoryPolicyFilePathPatternSettingsOutput values.
-// You can construct a concrete instance of `RepositoryPolicyFilePathPatternSettingsInput` via:
-//
-//          RepositoryPolicyFilePathPatternSettingsArgs{...}
-type RepositoryPolicyFilePathPatternSettingsInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyFilePathPatternSettingsOutput() RepositoryPolicyFilePathPatternSettingsOutput
-	ToRepositoryPolicyFilePathPatternSettingsOutputWithContext(context.Context) RepositoryPolicyFilePathPatternSettingsOutput
-}
-
-type RepositoryPolicyFilePathPatternSettingsArgs struct {
-	// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-	FilepathPatterns pulumi.StringArrayInput `pulumi:"filepathPatterns"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined
-	// at least once.
-	Scopes RepositoryPolicyFilePathPatternSettingsScopeArrayInput `pulumi:"scopes"`
-}
-
-func (RepositoryPolicyFilePathPatternSettingsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyFilePathPatternSettings)(nil)).Elem()
-}
-
-func (i RepositoryPolicyFilePathPatternSettingsArgs) ToRepositoryPolicyFilePathPatternSettingsOutput() RepositoryPolicyFilePathPatternSettingsOutput {
-	return i.ToRepositoryPolicyFilePathPatternSettingsOutputWithContext(context.Background())
-}
-
-func (i RepositoryPolicyFilePathPatternSettingsArgs) ToRepositoryPolicyFilePathPatternSettingsOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsOutput)
-}
-
-func (i RepositoryPolicyFilePathPatternSettingsArgs) ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput {
-	return i.ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i RepositoryPolicyFilePathPatternSettingsArgs) ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsOutput).ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx)
-}
-
-// RepositoryPolicyFilePathPatternSettingsPtrInput is an input type that accepts RepositoryPolicyFilePathPatternSettingsArgs, RepositoryPolicyFilePathPatternSettingsPtr and RepositoryPolicyFilePathPatternSettingsPtrOutput values.
-// You can construct a concrete instance of `RepositoryPolicyFilePathPatternSettingsPtrInput` via:
-//
-//          RepositoryPolicyFilePathPatternSettingsArgs{...}
-//
-//  or:
-//
-//          nil
-type RepositoryPolicyFilePathPatternSettingsPtrInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput
-	ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput
-}
-
-type repositoryPolicyFilePathPatternSettingsPtrType RepositoryPolicyFilePathPatternSettingsArgs
-
-func RepositoryPolicyFilePathPatternSettingsPtr(v *RepositoryPolicyFilePathPatternSettingsArgs) RepositoryPolicyFilePathPatternSettingsPtrInput {
-	return (*repositoryPolicyFilePathPatternSettingsPtrType)(v)
-}
-
-func (*repositoryPolicyFilePathPatternSettingsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPolicyFilePathPatternSettings)(nil)).Elem()
-}
-
-func (i *repositoryPolicyFilePathPatternSettingsPtrType) ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput {
-	return i.ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryPolicyFilePathPatternSettingsPtrType) ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsPtrOutput)
-}
-
-type RepositoryPolicyFilePathPatternSettingsOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyFilePathPatternSettingsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyFilePathPatternSettings)(nil)).Elem()
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsOutput) ToRepositoryPolicyFilePathPatternSettingsOutput() RepositoryPolicyFilePathPatternSettingsOutput {
-	return o
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsOutput) ToRepositoryPolicyFilePathPatternSettingsOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsOutput {
-	return o
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsOutput) ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput {
-	return o.ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsOutput) ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput {
-	return o.ApplyT(func(v RepositoryPolicyFilePathPatternSettings) *RepositoryPolicyFilePathPatternSettings {
-		return &v
-	}).(RepositoryPolicyFilePathPatternSettingsPtrOutput)
-}
-
-// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-func (o RepositoryPolicyFilePathPatternSettingsOutput) FilepathPatterns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v RepositoryPolicyFilePathPatternSettings) []string { return v.FilepathPatterns }).(pulumi.StringArrayOutput)
-}
-
-// Controls which repositories and branches the policy will be enabled for. This block must be defined
-// at least once.
-func (o RepositoryPolicyFilePathPatternSettingsOutput) Scopes() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
-	return o.ApplyT(func(v RepositoryPolicyFilePathPatternSettings) []RepositoryPolicyFilePathPatternSettingsScope {
-		return v.Scopes
-	}).(RepositoryPolicyFilePathPatternSettingsScopeArrayOutput)
-}
-
-type RepositoryPolicyFilePathPatternSettingsPtrOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyFilePathPatternSettingsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPolicyFilePathPatternSettings)(nil)).Elem()
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) ToRepositoryPolicyFilePathPatternSettingsPtrOutput() RepositoryPolicyFilePathPatternSettingsPtrOutput {
-	return o
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) ToRepositoryPolicyFilePathPatternSettingsPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsPtrOutput {
-	return o
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) Elem() RepositoryPolicyFilePathPatternSettingsOutput {
-	return o.ApplyT(func(v *RepositoryPolicyFilePathPatternSettings) RepositoryPolicyFilePathPatternSettings { return *v }).(RepositoryPolicyFilePathPatternSettingsOutput)
-}
-
-// Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) FilepathPatterns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *RepositoryPolicyFilePathPatternSettings) []string {
-		if v == nil {
-			return nil
-		}
-		return v.FilepathPatterns
-	}).(pulumi.StringArrayOutput)
-}
-
-// Controls which repositories and branches the policy will be enabled for. This block must be defined
-// at least once.
-func (o RepositoryPolicyFilePathPatternSettingsPtrOutput) Scopes() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
-	return o.ApplyT(func(v *RepositoryPolicyFilePathPatternSettings) []RepositoryPolicyFilePathPatternSettingsScope {
-		if v == nil {
-			return nil
-		}
-		return v.Scopes
-	}).(RepositoryPolicyFilePathPatternSettingsScopeArrayOutput)
-}
-
-type RepositoryPolicyFilePathPatternSettingsScope struct {
-	// The repository ID.
-	RepositoryId string `pulumi:"repositoryId"`
-}
-
-// RepositoryPolicyFilePathPatternSettingsScopeInput is an input type that accepts RepositoryPolicyFilePathPatternSettingsScopeArgs and RepositoryPolicyFilePathPatternSettingsScopeOutput values.
-// You can construct a concrete instance of `RepositoryPolicyFilePathPatternSettingsScopeInput` via:
-//
-//          RepositoryPolicyFilePathPatternSettingsScopeArgs{...}
-type RepositoryPolicyFilePathPatternSettingsScopeInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyFilePathPatternSettingsScopeOutput() RepositoryPolicyFilePathPatternSettingsScopeOutput
-	ToRepositoryPolicyFilePathPatternSettingsScopeOutputWithContext(context.Context) RepositoryPolicyFilePathPatternSettingsScopeOutput
-}
-
-type RepositoryPolicyFilePathPatternSettingsScopeArgs struct {
-	// The repository ID.
-	RepositoryId pulumi.StringInput `pulumi:"repositoryId"`
-}
-
-func (RepositoryPolicyFilePathPatternSettingsScopeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyFilePathPatternSettingsScope)(nil)).Elem()
-}
-
-func (i RepositoryPolicyFilePathPatternSettingsScopeArgs) ToRepositoryPolicyFilePathPatternSettingsScopeOutput() RepositoryPolicyFilePathPatternSettingsScopeOutput {
-	return i.ToRepositoryPolicyFilePathPatternSettingsScopeOutputWithContext(context.Background())
-}
-
-func (i RepositoryPolicyFilePathPatternSettingsScopeArgs) ToRepositoryPolicyFilePathPatternSettingsScopeOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsScopeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsScopeOutput)
-}
-
-// RepositoryPolicyFilePathPatternSettingsScopeArrayInput is an input type that accepts RepositoryPolicyFilePathPatternSettingsScopeArray and RepositoryPolicyFilePathPatternSettingsScopeArrayOutput values.
-// You can construct a concrete instance of `RepositoryPolicyFilePathPatternSettingsScopeArrayInput` via:
-//
-//          RepositoryPolicyFilePathPatternSettingsScopeArray{ RepositoryPolicyFilePathPatternSettingsScopeArgs{...} }
-type RepositoryPolicyFilePathPatternSettingsScopeArrayInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutput() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput
-	ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutputWithContext(context.Context) RepositoryPolicyFilePathPatternSettingsScopeArrayOutput
-}
-
-type RepositoryPolicyFilePathPatternSettingsScopeArray []RepositoryPolicyFilePathPatternSettingsScopeInput
-
-func (RepositoryPolicyFilePathPatternSettingsScopeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryPolicyFilePathPatternSettingsScope)(nil)).Elem()
-}
-
-func (i RepositoryPolicyFilePathPatternSettingsScopeArray) ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutput() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
-	return i.ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutputWithContext(context.Background())
-}
-
-func (i RepositoryPolicyFilePathPatternSettingsScopeArray) ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternSettingsScopeArrayOutput)
-}
-
-type RepositoryPolicyFilePathPatternSettingsScopeOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyFilePathPatternSettingsScopeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyFilePathPatternSettingsScope)(nil)).Elem()
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsScopeOutput) ToRepositoryPolicyFilePathPatternSettingsScopeOutput() RepositoryPolicyFilePathPatternSettingsScopeOutput {
-	return o
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsScopeOutput) ToRepositoryPolicyFilePathPatternSettingsScopeOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsScopeOutput {
-	return o
-}
-
-// The repository ID.
-func (o RepositoryPolicyFilePathPatternSettingsScopeOutput) RepositoryId() pulumi.StringOutput {
-	return o.ApplyT(func(v RepositoryPolicyFilePathPatternSettingsScope) string { return v.RepositoryId }).(pulumi.StringOutput)
-}
-
-type RepositoryPolicyFilePathPatternSettingsScopeArrayOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyFilePathPatternSettingsScopeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryPolicyFilePathPatternSettingsScope)(nil)).Elem()
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsScopeArrayOutput) ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutput() RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
-	return o
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsScopeArrayOutput) ToRepositoryPolicyFilePathPatternSettingsScopeArrayOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternSettingsScopeArrayOutput {
-	return o
-}
-
-func (o RepositoryPolicyFilePathPatternSettingsScopeArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyFilePathPatternSettingsScopeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryPolicyFilePathPatternSettingsScope {
-		return vs[0].([]RepositoryPolicyFilePathPatternSettingsScope)[vs[1].(int)]
-	}).(RepositoryPolicyFilePathPatternSettingsScopeOutput)
 }
 
 type ServiceEndpointArtifactoryAuthenticationBasic struct {
@@ -7702,6 +7209,130 @@ func (o GetRepositoriesRepositoryArrayOutput) Index(i pulumi.IntInput) GetReposi
 	}).(GetRepositoriesRepositoryOutput)
 }
 
+type GetTeamsTeam struct {
+	Administrators []string `pulumi:"administrators"`
+	Description    string   `pulumi:"description"`
+	Id             string   `pulumi:"id"`
+	Members        []string `pulumi:"members"`
+	Name           string   `pulumi:"name"`
+	ProjectId      string   `pulumi:"projectId"`
+}
+
+// GetTeamsTeamInput is an input type that accepts GetTeamsTeamArgs and GetTeamsTeamOutput values.
+// You can construct a concrete instance of `GetTeamsTeamInput` via:
+//
+//          GetTeamsTeamArgs{...}
+type GetTeamsTeamInput interface {
+	pulumi.Input
+
+	ToGetTeamsTeamOutput() GetTeamsTeamOutput
+	ToGetTeamsTeamOutputWithContext(context.Context) GetTeamsTeamOutput
+}
+
+type GetTeamsTeamArgs struct {
+	Administrators pulumi.StringArrayInput `pulumi:"administrators"`
+	Description    pulumi.StringInput      `pulumi:"description"`
+	Id             pulumi.StringInput      `pulumi:"id"`
+	Members        pulumi.StringArrayInput `pulumi:"members"`
+	Name           pulumi.StringInput      `pulumi:"name"`
+	ProjectId      pulumi.StringInput      `pulumi:"projectId"`
+}
+
+func (GetTeamsTeamArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsTeam)(nil)).Elem()
+}
+
+func (i GetTeamsTeamArgs) ToGetTeamsTeamOutput() GetTeamsTeamOutput {
+	return i.ToGetTeamsTeamOutputWithContext(context.Background())
+}
+
+func (i GetTeamsTeamArgs) ToGetTeamsTeamOutputWithContext(ctx context.Context) GetTeamsTeamOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamsTeamOutput)
+}
+
+// GetTeamsTeamArrayInput is an input type that accepts GetTeamsTeamArray and GetTeamsTeamArrayOutput values.
+// You can construct a concrete instance of `GetTeamsTeamArrayInput` via:
+//
+//          GetTeamsTeamArray{ GetTeamsTeamArgs{...} }
+type GetTeamsTeamArrayInput interface {
+	pulumi.Input
+
+	ToGetTeamsTeamArrayOutput() GetTeamsTeamArrayOutput
+	ToGetTeamsTeamArrayOutputWithContext(context.Context) GetTeamsTeamArrayOutput
+}
+
+type GetTeamsTeamArray []GetTeamsTeamInput
+
+func (GetTeamsTeamArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamsTeam)(nil)).Elem()
+}
+
+func (i GetTeamsTeamArray) ToGetTeamsTeamArrayOutput() GetTeamsTeamArrayOutput {
+	return i.ToGetTeamsTeamArrayOutputWithContext(context.Background())
+}
+
+func (i GetTeamsTeamArray) ToGetTeamsTeamArrayOutputWithContext(ctx context.Context) GetTeamsTeamArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTeamsTeamArrayOutput)
+}
+
+type GetTeamsTeamOutput struct{ *pulumi.OutputState }
+
+func (GetTeamsTeamOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsTeam)(nil)).Elem()
+}
+
+func (o GetTeamsTeamOutput) ToGetTeamsTeamOutput() GetTeamsTeamOutput {
+	return o
+}
+
+func (o GetTeamsTeamOutput) ToGetTeamsTeamOutputWithContext(ctx context.Context) GetTeamsTeamOutput {
+	return o
+}
+
+func (o GetTeamsTeamOutput) Administrators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTeamsTeam) []string { return v.Administrators }).(pulumi.StringArrayOutput)
+}
+
+func (o GetTeamsTeamOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o GetTeamsTeamOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTeamsTeamOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetTeamsTeam) []string { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+func (o GetTeamsTeamOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o GetTeamsTeamOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsTeam) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+type GetTeamsTeamArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTeamsTeamArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTeamsTeam)(nil)).Elem()
+}
+
+func (o GetTeamsTeamArrayOutput) ToGetTeamsTeamArrayOutput() GetTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetTeamsTeamArrayOutput) ToGetTeamsTeamArrayOutputWithContext(ctx context.Context) GetTeamsTeamArrayOutput {
+	return o
+}
+
+func (o GetTeamsTeamArrayOutput) Index(i pulumi.IntInput) GetTeamsTeamOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTeamsTeam {
+		return vs[0].([]GetTeamsTeam)[vs[1].(int)]
+	}).(GetTeamsTeamOutput)
+}
+
 type GetUsersUser struct {
 	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
 	Descriptor string `pulumi:"descriptor"`
@@ -7897,14 +7528,6 @@ func init() {
 	pulumi.RegisterOutputType(BuildDefinitionVariableArrayOutput{})
 	pulumi.RegisterOutputType(GitInitializationOutput{})
 	pulumi.RegisterOutputType(GitInitializationPtrOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternSettingsOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternSettingsPtrOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternSettingsScopeOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternSettingsScopeArrayOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternSettingsOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternSettingsPtrOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternSettingsScopeOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternSettingsScopeArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationBasicOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationTokenOutput{})
@@ -7945,6 +7568,8 @@ func init() {
 	pulumi.RegisterOutputType(GetProjectsProjectArrayOutput{})
 	pulumi.RegisterOutputType(GetRepositoriesRepositoryOutput{})
 	pulumi.RegisterOutputType(GetRepositoriesRepositoryArrayOutput{})
+	pulumi.RegisterOutputType(GetTeamsTeamOutput{})
+	pulumi.RegisterOutputType(GetTeamsTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
 }

@@ -42,26 +42,46 @@ namespace Pulumi.AzureDevOps
     ///             ProjectId = project.Id,
     ///             Enabled = true,
     ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Inputs.RepositoryPolicyAuthorEmailPatternSettingsArgs
+    ///             AuthorEmailPatterns = 
     ///             {
-    ///                 AuthorEmailPatterns = 
-    ///                 {
-    ///                     "user1@test.com",
-    ///                     "user2@test.com",
-    ///                 },
-    ///                 Scopes = 
-    ///                 {
-    ///                     new AzureDevOps.Inputs.RepositoryPolicyAuthorEmailPatternSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = git.Id,
-    ///                     },
-    ///                 },
+    ///                 "user1@test.com",
+    ///                 "user2@test.com",
+    ///             },
+    ///             RepositoryIds = 
+    ///             {
+    ///                 git.Id,
     ///             },
     ///         });
     ///     }
     /// 
     /// }
     /// ```
+    /// ## Set project level repository policy
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var repositoryPolicyAuthorEmailPattern = new AzureDevOps.RepositoryPolicyAuthorEmailPattern("repositoryPolicyAuthorEmailPattern", new AzureDevOps.RepositoryPolicyAuthorEmailPatternArgs
+    ///         {
+    ///             ProjectId = azuredevops_project.P.Id,
+    ///             Enabled = true,
+    ///             Blocking = true,
+    ///             AuthorEmailPatterns = 
+    ///             {
+    ///                 "user1@test.com",
+    ///                 "user2@test.com",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// 
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
@@ -77,6 +97,13 @@ namespace Pulumi.AzureDevOps
     [AzureDevOpsResourceType("azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern")]
     public partial class RepositoryPolicyAuthorEmailPattern : Pulumi.CustomResource
     {
+        /// <summary>
+        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        /// Email patterns prefixed with "!" are excluded. Order is important.
+        /// </summary>
+        [Output("authorEmailPatterns")]
+        public Output<ImmutableArray<string>> AuthorEmailPatterns { get; private set; } = null!;
+
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
         /// </summary>
@@ -96,10 +123,10 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the policy. This block must be defined exactly once.
+        /// Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         /// </summary>
-        [Output("settings")]
-        public Output<Outputs.RepositoryPolicyAuthorEmailPatternSettings> Settings { get; private set; } = null!;
+        [Output("repositoryIds")]
+        public Output<ImmutableArray<string>> RepositoryIds { get; private set; } = null!;
 
 
         /// <summary>
@@ -147,6 +174,19 @@ namespace Pulumi.AzureDevOps
 
     public sealed class RepositoryPolicyAuthorEmailPatternArgs : Pulumi.ResourceArgs
     {
+        [Input("authorEmailPatterns", required: true)]
+        private InputList<string>? _authorEmailPatterns;
+
+        /// <summary>
+        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        /// Email patterns prefixed with "!" are excluded. Order is important.
+        /// </summary>
+        public InputList<string> AuthorEmailPatterns
+        {
+            get => _authorEmailPatterns ?? (_authorEmailPatterns = new InputList<string>());
+            set => _authorEmailPatterns = value;
+        }
+
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
         /// </summary>
@@ -165,11 +205,17 @@ namespace Pulumi.AzureDevOps
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
+        [Input("repositoryIds")]
+        private InputList<string>? _repositoryIds;
+
         /// <summary>
-        /// Configuration for the policy. This block must be defined exactly once.
+        /// Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         /// </summary>
-        [Input("settings", required: true)]
-        public Input<Inputs.RepositoryPolicyAuthorEmailPatternSettingsArgs> Settings { get; set; } = null!;
+        public InputList<string> RepositoryIds
+        {
+            get => _repositoryIds ?? (_repositoryIds = new InputList<string>());
+            set => _repositoryIds = value;
+        }
 
         public RepositoryPolicyAuthorEmailPatternArgs()
         {
@@ -178,6 +224,19 @@ namespace Pulumi.AzureDevOps
 
     public sealed class RepositoryPolicyAuthorEmailPatternState : Pulumi.ResourceArgs
     {
+        [Input("authorEmailPatterns")]
+        private InputList<string>? _authorEmailPatterns;
+
+        /// <summary>
+        /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
+        /// Email patterns prefixed with "!" are excluded. Order is important.
+        /// </summary>
+        public InputList<string> AuthorEmailPatterns
+        {
+            get => _authorEmailPatterns ?? (_authorEmailPatterns = new InputList<string>());
+            set => _authorEmailPatterns = value;
+        }
+
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
         /// </summary>
@@ -196,11 +255,17 @@ namespace Pulumi.AzureDevOps
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
+        [Input("repositoryIds")]
+        private InputList<string>? _repositoryIds;
+
         /// <summary>
-        /// Configuration for the policy. This block must be defined exactly once.
+        /// Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         /// </summary>
-        [Input("settings")]
-        public Input<Inputs.RepositoryPolicyAuthorEmailPatternSettingsGetArgs>? Settings { get; set; }
+        public InputList<string> RepositoryIds
+        {
+            get => _repositoryIds ?? (_repositoryIds = new InputList<string>());
+            set => _repositoryIds = value;
+        }
 
         public RepositoryPolicyAuthorEmailPatternState()
         {

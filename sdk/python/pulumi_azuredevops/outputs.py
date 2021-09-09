@@ -36,10 +36,6 @@ __all__ = [
     'BuildDefinitionRepository',
     'BuildDefinitionVariable',
     'GitInitialization',
-    'RepositoryPolicyAuthorEmailPatternSettings',
-    'RepositoryPolicyAuthorEmailPatternSettingsScope',
-    'RepositoryPolicyFilePathPatternSettings',
-    'RepositoryPolicyFilePathPatternSettingsScope',
     'ServiceEndpointArtifactoryAuthenticationBasic',
     'ServiceEndpointArtifactoryAuthenticationToken',
     'ServiceEndpointAzureRMCredentials',
@@ -60,6 +56,7 @@ __all__ = [
     'GetPoolsAgentPoolResult',
     'GetProjectsProjectResult',
     'GetRepositoriesRepositoryResult',
+    'GetTeamsTeamResult',
     'GetUsersUserResult',
 ]
 
@@ -1766,6 +1763,8 @@ class GitInitialization(dict):
         suggest = None
         if key == "initType":
             suggest = "init_type"
+        elif key == "serviceConnectionId":
+            suggest = "service_connection_id"
         elif key == "sourceType":
             suggest = "source_type"
         elif key == "sourceUrl":
@@ -1784,14 +1783,18 @@ class GitInitialization(dict):
 
     def __init__(__self__, *,
                  init_type: str,
+                 service_connection_id: Optional[str] = None,
                  source_type: Optional[str] = None,
                  source_url: Optional[str] = None):
         """
-        :param str init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+        :param str init_type: The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
+        :param str service_connection_id: The id of service connection used to authenticate to a private repository for import initialization.
         :param str source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param str source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         """
         pulumi.set(__self__, "init_type", init_type)
+        if service_connection_id is not None:
+            pulumi.set(__self__, "service_connection_id", service_connection_id)
         if source_type is not None:
             pulumi.set(__self__, "source_type", source_type)
         if source_url is not None:
@@ -1801,9 +1804,17 @@ class GitInitialization(dict):
     @pulumi.getter(name="initType")
     def init_type(self) -> str:
         """
-        The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+        The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
         """
         return pulumi.get(self, "init_type")
+
+    @property
+    @pulumi.getter(name="serviceConnectionId")
+    def service_connection_id(self) -> Optional[str]:
+        """
+        The id of service connection used to authenticate to a private repository for import initialization.
+        """
+        return pulumi.get(self, "service_connection_id")
 
     @property
     @pulumi.getter(name="sourceType")
@@ -1820,176 +1831,6 @@ class GitInitialization(dict):
         The URL of the source repository. Used if the `init_type` is `Import`.
         """
         return pulumi.get(self, "source_url")
-
-
-@pulumi.output_type
-class RepositoryPolicyAuthorEmailPatternSettings(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "authorEmailPatterns":
-            suggest = "author_email_patterns"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RepositoryPolicyAuthorEmailPatternSettings. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RepositoryPolicyAuthorEmailPatternSettings.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RepositoryPolicyAuthorEmailPatternSettings.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 scopes: Sequence['outputs.RepositoryPolicyAuthorEmailPatternSettingsScope'],
-                 author_email_patterns: Optional[Sequence[str]] = None):
-        """
-        :param Sequence['RepositoryPolicyAuthorEmailPatternSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
-               at least once.
-        :param Sequence[str] author_email_patterns: Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-               Email patterns prefixed with "!" are excluded. Order is important.
-        """
-        pulumi.set(__self__, "scopes", scopes)
-        if author_email_patterns is not None:
-            pulumi.set(__self__, "author_email_patterns", author_email_patterns)
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> Sequence['outputs.RepositoryPolicyAuthorEmailPatternSettingsScope']:
-        """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined
-        at least once.
-        """
-        return pulumi.get(self, "scopes")
-
-    @property
-    @pulumi.getter(name="authorEmailPatterns")
-    def author_email_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-        Email patterns prefixed with "!" are excluded. Order is important.
-        """
-        return pulumi.get(self, "author_email_patterns")
-
-
-@pulumi.output_type
-class RepositoryPolicyAuthorEmailPatternSettingsScope(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "repositoryId":
-            suggest = "repository_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RepositoryPolicyAuthorEmailPatternSettingsScope. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RepositoryPolicyAuthorEmailPatternSettingsScope.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RepositoryPolicyAuthorEmailPatternSettingsScope.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 repository_id: str):
-        """
-        :param str repository_id: The repository ID.
-        """
-        pulumi.set(__self__, "repository_id", repository_id)
-
-    @property
-    @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> str:
-        """
-        The repository ID.
-        """
-        return pulumi.get(self, "repository_id")
-
-
-@pulumi.output_type
-class RepositoryPolicyFilePathPatternSettings(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "filepathPatterns":
-            suggest = "filepath_patterns"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RepositoryPolicyFilePathPatternSettings. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RepositoryPolicyFilePathPatternSettings.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RepositoryPolicyFilePathPatternSettings.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 scopes: Sequence['outputs.RepositoryPolicyFilePathPatternSettingsScope'],
-                 filepath_patterns: Optional[Sequence[str]] = None):
-        """
-        :param Sequence['RepositoryPolicyFilePathPatternSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
-               at least once.
-        :param Sequence[str] filepath_patterns: Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-        """
-        pulumi.set(__self__, "scopes", scopes)
-        if filepath_patterns is not None:
-            pulumi.set(__self__, "filepath_patterns", filepath_patterns)
-
-    @property
-    @pulumi.getter
-    def scopes(self) -> Sequence['outputs.RepositoryPolicyFilePathPatternSettingsScope']:
-        """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined
-        at least once.
-        """
-        return pulumi.get(self, "scopes")
-
-    @property
-    @pulumi.getter(name="filepathPatterns")
-    def filepath_patterns(self) -> Optional[Sequence[str]]:
-        """
-        Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-        """
-        return pulumi.get(self, "filepath_patterns")
-
-
-@pulumi.output_type
-class RepositoryPolicyFilePathPatternSettingsScope(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "repositoryId":
-            suggest = "repository_id"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in RepositoryPolicyFilePathPatternSettingsScope. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        RepositoryPolicyFilePathPatternSettingsScope.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        RepositoryPolicyFilePathPatternSettingsScope.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 repository_id: str):
-        """
-        :param str repository_id: The repository ID.
-        """
-        pulumi.set(__self__, "repository_id", repository_id)
-
-    @property
-    @pulumi.getter(name="repositoryId")
-    def repository_id(self) -> str:
-        """
-        The repository ID.
-        """
-        return pulumi.get(self, "repository_id")
 
 
 @pulumi.output_type
@@ -3305,6 +3146,53 @@ class GetRepositoriesRepositoryResult(dict):
         Url of the Git repository web view
         """
         return pulumi.get(self, "web_url")
+
+
+@pulumi.output_type
+class GetTeamsTeamResult(dict):
+    def __init__(__self__, *,
+                 administrators: Sequence[str],
+                 description: str,
+                 id: str,
+                 members: Sequence[str],
+                 name: str,
+                 project_id: str):
+        pulumi.set(__self__, "administrators", administrators)
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "id", id)
+        pulumi.set(__self__, "members", members)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "project_id", project_id)
+
+    @property
+    @pulumi.getter
+    def administrators(self) -> Sequence[str]:
+        return pulumi.get(self, "administrators")
+
+    @property
+    @pulumi.getter
+    def description(self) -> str:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def members(self) -> Sequence[str]:
+        return pulumi.get(self, "members")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> str:
+        return pulumi.get(self, "project_id")
 
 
 @pulumi.output_type

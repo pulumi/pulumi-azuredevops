@@ -26,6 +26,8 @@ from .get_pools import *
 from .get_project import *
 from .get_projects import *
 from .get_repositories import *
+from .get_team import *
+from .get_teams import *
 from .get_users import *
 from .git import *
 from .git_permissions import *
@@ -39,7 +41,12 @@ from .project_permissions import *
 from .provider import *
 from .queue import *
 from .repository_policy_author_email_pattern import *
+from .repository_policy_case_enforcement import *
+from .repository_policy_check_credentials import *
 from .repository_policy_file_path_pattern import *
+from .repository_policy_max_file_size import *
+from .repository_policy_max_path_length import *
+from .repository_policy_reserved_names import *
 from .resource_authorization import *
 from .service_endpoint_artifactory import *
 from .service_endpoint_aws import *
@@ -48,6 +55,8 @@ from .service_endpoint_azure_ecr import *
 from .service_endpoint_azure_rm import *
 from .service_endpoint_bit_bucket import *
 from .service_endpoint_docker_registry import *
+from .service_endpoint_generic import *
+from .service_endpoint_generic_git import *
 from .service_endpoint_git_hub import *
 from .service_endpoint_git_hub_enterprise import *
 from .service_endpoint_kubernetes import *
@@ -56,6 +65,9 @@ from .service_endpoint_pipeline import *
 from .service_endpoint_service_fabric import *
 from .service_endpoint_sonar_qube import *
 from .service_endpoint_ssh import *
+from .team import *
+from .team_administrators import *
+from .team_members import *
 from .user import *
 from .variable_group import *
 from .work_item_query_permissions import *
@@ -405,10 +417,50 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/repositoryPolicyCaseEnforcement",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement": "RepositoryPolicyCaseEnforcement"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/repositoryPolicyCheckCredentials",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials": "RepositoryPolicyCheckCredentials"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/repositoryPolicyFilePathPattern",
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern": "RepositoryPolicyFilePathPattern"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/repositoryPolicyMaxFileSize",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/repositoryPolicyMaxFileSize:RepositoryPolicyMaxFileSize": "RepositoryPolicyMaxFileSize"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/repositoryPolicyMaxPathLength",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength": "RepositoryPolicyMaxPathLength"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/repositoryPolicyReservedNames",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/repositoryPolicyReservedNames:RepositoryPolicyReservedNames": "RepositoryPolicyReservedNames"
   }
  },
  {
@@ -477,6 +529,22 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/serviceEndpointGeneric",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric": "ServiceEndpointGeneric"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceEndpointGenericGit",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit": "ServiceEndpointGenericGit"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/serviceEndpointGitHub",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -537,6 +605,30 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh": "ServiceEndpointSsh"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/team",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/team:Team": "Team"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/teamAdministrators",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/teamAdministrators:TeamAdministrators": "TeamAdministrators"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/teamMembers",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/teamMembers:TeamMembers": "TeamMembers"
   }
  },
  {

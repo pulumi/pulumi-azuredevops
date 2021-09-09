@@ -569,6 +569,15 @@ export interface GetRepositoriesRepository {
     webUrl: string;
 }
 
+export interface GetTeamsTeam {
+    administrators: string[];
+    description: string;
+    id: string;
+    members: string[];
+    name: string;
+    projectId: string;
+}
+
 export interface GetUsersUser {
     /**
      * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
@@ -598,9 +607,13 @@ export interface GetUsersUser {
 
 export interface GitInitialization {
     /**
-     * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+     * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
      */
     initType: string;
+    /**
+     * The id of service connection used to authenticate to a private repository for import initialization.
+     */
+    serviceConnectionId?: string;
     /**
      * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
      */
@@ -609,45 +622,6 @@ export interface GitInitialization {
      * The URL of the source repository. Used if the `initType` is `Import`.
      */
     sourceUrl?: string;
-}
-
-export interface RepositoryPolicyAuthorEmailPatternSettings {
-    /**
-     * Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
-     * Email patterns prefixed with "!" are excluded. Order is important.
-     */
-    authorEmailPatterns?: string[];
-    /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
-     */
-    scopes: outputs.RepositoryPolicyAuthorEmailPatternSettingsScope[];
-}
-
-export interface RepositoryPolicyAuthorEmailPatternSettingsScope {
-    /**
-     * The repository ID.
-     */
-    repositoryId: string;
-}
-
-export interface RepositoryPolicyFilePathPatternSettings {
-    /**
-     * Block pushes from introducing file paths that match the following patterns. Exact paths begin with "/". You can specify exact paths and wildcards. You can also specify multiple paths using ";" as a separator. Paths prefixed with "!" are excluded. Order is important.
-     */
-    filepathPatterns?: string[];
-    /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined
-     * at least once.
-     */
-    scopes: outputs.RepositoryPolicyFilePathPatternSettingsScope[];
-}
-
-export interface RepositoryPolicyFilePathPatternSettingsScope {
-    /**
-     * The repository ID.
-     */
-    repositoryId: string;
 }
 
 export interface ServiceEndpointArtifactoryAuthenticationBasic {
@@ -1286,9 +1260,13 @@ export namespace Repository {
 
     export interface GitInitialization {
         /**
-         * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+         * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
          */
         initType: string;
+        /**
+         * The id of service connection used to authenticate to a private repository for import initialization.
+         */
+        serviceConnectionId?: string;
         /**
          * Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
          */

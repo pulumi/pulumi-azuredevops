@@ -52,7 +52,7 @@ export class Kubernetes extends pulumi.CustomResource {
     }
 
     /**
-     * The Service Endpoint description.
+     * The hostname (in form of URI) of the Kubernetes API.
      */
     public readonly apiserverUrl!: pulumi.Output<string>;
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
@@ -143,7 +143,7 @@ export class Kubernetes extends pulumi.CustomResource {
  */
 export interface KubernetesState {
     /**
-     * The Service Endpoint description.
+     * The hostname (in form of URI) of the Kubernetes API.
      */
     apiserverUrl?: pulumi.Input<string>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -179,7 +179,7 @@ export interface KubernetesState {
  */
 export interface KubernetesArgs {
     /**
-     * The Service Endpoint description.
+     * The hostname (in form of URI) of the Kubernetes API.
      */
     apiserverUrl: pulumi.Input<string>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

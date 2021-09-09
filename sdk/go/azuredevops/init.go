@@ -62,8 +62,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Queue{}
 	case "azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern":
 		r = &RepositoryPolicyAuthorEmailPattern{}
+	case "azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement":
+		r = &RepositoryPolicyCaseEnforcement{}
+	case "azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials":
+		r = &RepositoryPolicyCheckCredentials{}
 	case "azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern":
 		r = &RepositoryPolicyFilePathPattern{}
+	case "azuredevops:index/repositoryPolicyMaxFileSize:RepositoryPolicyMaxFileSize":
+		r = &RepositoryPolicyMaxFileSize{}
+	case "azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength":
+		r = &RepositoryPolicyMaxPathLength{}
+	case "azuredevops:index/repositoryPolicyReservedNames:RepositoryPolicyReservedNames":
+		r = &RepositoryPolicyReservedNames{}
 	case "azuredevops:index/resourceAuthorization:ResourceAuthorization":
 		r = &ResourceAuthorization{}
 	case "azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory":
@@ -80,6 +90,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointBitBucket{}
 	case "azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry":
 		r = &ServiceEndpointDockerRegistry{}
+	case "azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric":
+		r = &ServiceEndpointGeneric{}
+	case "azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit":
+		r = &ServiceEndpointGenericGit{}
 	case "azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub":
 		r = &ServiceEndpointGitHub{}
 	case "azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise":
@@ -96,6 +110,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointSonarQube{}
 	case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
 		r = &ServiceEndpointSsh{}
+	case "azuredevops:index/team:Team":
+		r = &Team{}
+	case "azuredevops:index/teamAdministrators:TeamAdministrators":
+		r = &TeamAdministrators{}
+	case "azuredevops:index/teamMembers:TeamMembers":
+		r = &TeamMembers{}
 	case "azuredevops:index/user:User":
 		r = &User{}
 	case "azuredevops:index/variableGroup:VariableGroup":
@@ -240,7 +260,32 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/repositoryPolicyCaseEnforcement",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/repositoryPolicyCheckCredentials",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/repositoryPolicyFilePathPattern",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/repositoryPolicyMaxFileSize",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/repositoryPolicyMaxPathLength",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/repositoryPolicyReservedNames",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -285,6 +330,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/serviceEndpointGeneric",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceEndpointGenericGit",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/serviceEndpointGitHub",
 		&module{version},
 	)
@@ -321,6 +376,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceEndpointSsh",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/team",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/teamAdministrators",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/teamMembers",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

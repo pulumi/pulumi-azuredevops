@@ -261,6 +261,11 @@ class VariableGroup(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Variable Groups**: Read, Create, & Manage
+        - **Build**: Read & execute
+        - **Project and Team**: Read
+        - **Token Administration**: Read & manage
+        - **Tokens**: Read & manage
+        - **Work Items**: Read
 
         ## Import
 
@@ -326,6 +331,11 @@ class VariableGroup(pulumi.CustomResource):
         ## PAT Permissions Required
 
         - **Variable Groups**: Read, Create, & Manage
+        - **Build**: Read & execute
+        - **Project and Team**: Read
+        - **Token Administration**: Read & manage
+        - **Tokens**: Read & manage
+        - **Work Items**: Read
 
         ## Import
 

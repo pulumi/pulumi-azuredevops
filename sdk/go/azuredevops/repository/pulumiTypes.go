@@ -11,8 +11,10 @@ import (
 )
 
 type GitInitialization struct {
-	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType string `pulumi:"initType"`
+	// The id of service connection used to authenticate to a private repository for import initialization.
+	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 	SourceType *string `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
@@ -31,8 +33,10 @@ type GitInitializationInput interface {
 }
 
 type GitInitializationArgs struct {
-	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType pulumi.StringInput `pulumi:"initType"`
+	// The id of service connection used to authenticate to a private repository for import initialization.
+	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
 	// Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
 	SourceType pulumi.StringPtrInput `pulumi:"sourceType"`
 	// The URL of the source repository. Used if the `initType` is `Import`.
@@ -116,9 +120,14 @@ func (o GitInitializationOutput) ToGitInitializationPtrOutputWithContext(ctx con
 	}).(GitInitializationPtrOutput)
 }
 
-// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 func (o GitInitializationOutput) InitType() pulumi.StringOutput {
 	return o.ApplyT(func(v GitInitialization) string { return v.InitType }).(pulumi.StringOutput)
+}
+
+// The id of service connection used to authenticate to a private repository for import initialization.
+func (o GitInitializationOutput) ServiceConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GitInitialization) *string { return v.ServiceConnectionId }).(pulumi.StringPtrOutput)
 }
 
 // Type of the source repository. Used if the `initType` is `Import`. Valid values: `Git`.
@@ -149,13 +158,23 @@ func (o GitInitializationPtrOutput) Elem() GitInitializationOutput {
 	return o.ApplyT(func(v *GitInitialization) GitInitialization { return *v }).(GitInitializationOutput)
 }
 
-// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`. Defaults to `Uninitialized`.
+// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 func (o GitInitializationPtrOutput) InitType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitInitialization) *string {
 		if v == nil {
 			return nil
 		}
 		return &v.InitType
+	}).(pulumi.StringPtrOutput)
+}
+
+// The id of service connection used to authenticate to a private repository for import initialization.
+func (o GitInitializationPtrOutput) ServiceConnectionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GitInitialization) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ServiceConnectionId
 	}).(pulumi.StringPtrOutput)
 }
 

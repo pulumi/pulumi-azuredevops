@@ -75,9 +75,8 @@ type ServiceEndpointAzureEcr struct {
 	// The subscription id of the Azure targets.
 	AzurecrSubscriptionId pulumi.StringOutput `pulumi:"azurecrSubscriptionId"`
 	// The subscription name of the Azure targets.
-	AzurecrSubscriptionName pulumi.StringOutput `pulumi:"azurecrSubscriptionName"`
-	// The name you will use to refer to this service connection in task inputs.
-	Description pulumi.StringPtrOutput `pulumi:"description"`
+	AzurecrSubscriptionName pulumi.StringOutput    `pulumi:"azurecrSubscriptionName"`
+	Description             pulumi.StringPtrOutput `pulumi:"description"`
 	// The project ID or project name.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
@@ -151,8 +150,7 @@ type serviceEndpointAzureEcrState struct {
 	AzurecrSubscriptionId *string `pulumi:"azurecrSubscriptionId"`
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName *string `pulumi:"azurecrSubscriptionName"`
-	// The name you will use to refer to this service connection in task inputs.
-	Description *string `pulumi:"description"`
+	Description             *string `pulumi:"description"`
 	// The project ID or project name.
 	ProjectId *string `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
@@ -177,8 +175,7 @@ type ServiceEndpointAzureEcrState struct {
 	AzurecrSubscriptionId pulumi.StringPtrInput
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringPtrInput
-	// The name you will use to refer to this service connection in task inputs.
-	Description pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringPtrInput
 	// The resource group to which the container registry belongs.
@@ -203,9 +200,8 @@ type serviceEndpointAzureEcrArgs struct {
 	// The subscription id of the Azure targets.
 	AzurecrSubscriptionId string `pulumi:"azurecrSubscriptionId"`
 	// The subscription name of the Azure targets.
-	AzurecrSubscriptionName string `pulumi:"azurecrSubscriptionName"`
-	// The name you will use to refer to this service connection in task inputs.
-	Description *string `pulumi:"description"`
+	AzurecrSubscriptionName string  `pulumi:"azurecrSubscriptionName"`
+	Description             *string `pulumi:"description"`
 	// The project ID or project name.
 	ProjectId string `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
@@ -225,8 +221,7 @@ type ServiceEndpointAzureEcrArgs struct {
 	AzurecrSubscriptionId pulumi.StringInput
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringInput
-	// The name you will use to refer to this service connection in task inputs.
-	Description pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringInput
 	// The resource group to which the container registry belongs.
