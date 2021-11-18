@@ -107,7 +107,7 @@ func (o BuildDefinitionCiTriggerOutput) ToBuildDefinitionCiTriggerPtrOutput() Bu
 }
 
 func (o BuildDefinitionCiTriggerOutput) ToBuildDefinitionCiTriggerPtrOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerPtrOutput {
-	return o.ApplyT(func(v BuildDefinitionCiTrigger) *BuildDefinitionCiTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionCiTrigger) *BuildDefinitionCiTrigger {
 		return &v
 	}).(BuildDefinitionCiTriggerPtrOutput)
 }
@@ -137,7 +137,13 @@ func (o BuildDefinitionCiTriggerPtrOutput) ToBuildDefinitionCiTriggerPtrOutputWi
 }
 
 func (o BuildDefinitionCiTriggerPtrOutput) Elem() BuildDefinitionCiTriggerOutput {
-	return o.ApplyT(func(v *BuildDefinitionCiTrigger) BuildDefinitionCiTrigger { return *v }).(BuildDefinitionCiTriggerOutput)
+	return o.ApplyT(func(v *BuildDefinitionCiTrigger) BuildDefinitionCiTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionCiTrigger
+		return ret
+	}).(BuildDefinitionCiTriggerOutput)
 }
 
 // Override the azure-pipeline file and use a this configuration for all builds.
@@ -273,7 +279,7 @@ func (o BuildDefinitionCiTriggerOverrideOutput) ToBuildDefinitionCiTriggerOverri
 }
 
 func (o BuildDefinitionCiTriggerOverrideOutput) ToBuildDefinitionCiTriggerOverridePtrOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerOverridePtrOutput {
-	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) *BuildDefinitionCiTriggerOverride {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionCiTriggerOverride) *BuildDefinitionCiTriggerOverride {
 		return &v
 	}).(BuildDefinitionCiTriggerOverridePtrOutput)
 }
@@ -327,7 +333,13 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) ToBuildDefinitionCiTriggerOve
 }
 
 func (o BuildDefinitionCiTriggerOverridePtrOutput) Elem() BuildDefinitionCiTriggerOverrideOutput {
-	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) BuildDefinitionCiTriggerOverride { return *v }).(BuildDefinitionCiTriggerOverrideOutput)
+	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) BuildDefinitionCiTriggerOverride {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionCiTriggerOverride
+		return ret
+	}).(BuildDefinitionCiTriggerOverrideOutput)
 }
 
 // If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
@@ -707,10 +719,11 @@ func (o BuildDefinitionPullRequestTriggerOutput) ToBuildDefinitionPullRequestTri
 }
 
 func (o BuildDefinitionPullRequestTriggerOutput) ToBuildDefinitionPullRequestTriggerPtrOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerPtrOutput {
-	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTrigger {
 		return &v
 	}).(BuildDefinitionPullRequestTriggerPtrOutput)
 }
+
 func (o BuildDefinitionPullRequestTriggerOutput) CommentRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *string { return v.CommentRequired }).(pulumi.StringPtrOutput)
 }
@@ -751,7 +764,13 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) ToBuildDefinitionPullRequest
 }
 
 func (o BuildDefinitionPullRequestTriggerPtrOutput) Elem() BuildDefinitionPullRequestTriggerOutput {
-	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) BuildDefinitionPullRequestTrigger { return *v }).(BuildDefinitionPullRequestTriggerOutput)
+	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) BuildDefinitionPullRequestTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionPullRequestTrigger
+		return ret
+	}).(BuildDefinitionPullRequestTriggerOutput)
 }
 
 func (o BuildDefinitionPullRequestTriggerPtrOutput) CommentRequired() pulumi.StringPtrOutput {
@@ -899,7 +918,7 @@ func (o BuildDefinitionPullRequestTriggerForksOutput) ToBuildDefinitionPullReque
 }
 
 func (o BuildDefinitionPullRequestTriggerForksOutput) ToBuildDefinitionPullRequestTriggerForksPtrOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerForksPtrOutput {
-	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerForks) *BuildDefinitionPullRequestTriggerForks {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionPullRequestTriggerForks) *BuildDefinitionPullRequestTriggerForks {
 		return &v
 	}).(BuildDefinitionPullRequestTriggerForksPtrOutput)
 }
@@ -929,7 +948,13 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) ToBuildDefinitionPullRe
 }
 
 func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Elem() BuildDefinitionPullRequestTriggerForksOutput {
-	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerForks) BuildDefinitionPullRequestTriggerForks { return *v }).(BuildDefinitionPullRequestTriggerForksOutput)
+	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerForks) BuildDefinitionPullRequestTriggerForks {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionPullRequestTriggerForks
+		return ret
+	}).(BuildDefinitionPullRequestTriggerForksOutput)
 }
 
 // Build pull requests form forms of this repository.
@@ -1053,7 +1078,7 @@ func (o BuildDefinitionPullRequestTriggerOverrideOutput) ToBuildDefinitionPullRe
 }
 
 func (o BuildDefinitionPullRequestTriggerOverrideOutput) ToBuildDefinitionPullRequestTriggerOverridePtrOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerOverridePtrOutput {
-	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) *BuildDefinitionPullRequestTriggerOverride {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionPullRequestTriggerOverride) *BuildDefinitionPullRequestTriggerOverride {
 		return &v
 	}).(BuildDefinitionPullRequestTriggerOverridePtrOutput)
 }
@@ -1093,7 +1118,11 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) ToBuildDefinitionPul
 
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) Elem() BuildDefinitionPullRequestTriggerOverrideOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerOverride) BuildDefinitionPullRequestTriggerOverride {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionPullRequestTriggerOverride
+		return ret
 	}).(BuildDefinitionPullRequestTriggerOverrideOutput)
 }
 
@@ -1456,7 +1485,7 @@ func (o BuildDefinitionRepositoryOutput) ToBuildDefinitionRepositoryPtrOutput() 
 }
 
 func (o BuildDefinitionRepositoryOutput) ToBuildDefinitionRepositoryPtrOutputWithContext(ctx context.Context) BuildDefinitionRepositoryPtrOutput {
-	return o.ApplyT(func(v BuildDefinitionRepository) *BuildDefinitionRepository {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionRepository) *BuildDefinitionRepository {
 		return &v
 	}).(BuildDefinitionRepositoryPtrOutput)
 }
@@ -1511,7 +1540,13 @@ func (o BuildDefinitionRepositoryPtrOutput) ToBuildDefinitionRepositoryPtrOutput
 }
 
 func (o BuildDefinitionRepositoryPtrOutput) Elem() BuildDefinitionRepositoryOutput {
-	return o.ApplyT(func(v *BuildDefinitionRepository) BuildDefinitionRepository { return *v }).(BuildDefinitionRepositoryOutput)
+	return o.ApplyT(func(v *BuildDefinitionRepository) BuildDefinitionRepository {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionRepository
+		return ret
+	}).(BuildDefinitionRepositoryOutput)
 }
 
 // The branch name for which builds are triggered. Defaults to `master`.
@@ -1718,6 +1753,28 @@ func (o BuildDefinitionVariableArrayOutput) Index(i pulumi.IntInput) BuildDefini
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerInput)(nil)).Elem(), BuildDefinitionCiTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerPtrInput)(nil)).Elem(), BuildDefinitionCiTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverrideInput)(nil)).Elem(), BuildDefinitionCiTriggerOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverridePtrInput)(nil)).Elem(), BuildDefinitionCiTriggerOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverrideBranchFilterInput)(nil)).Elem(), BuildDefinitionCiTriggerOverrideBranchFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverrideBranchFilterArrayInput)(nil)).Elem(), BuildDefinitionCiTriggerOverrideBranchFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverridePathFilterInput)(nil)).Elem(), BuildDefinitionCiTriggerOverridePathFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverridePathFilterArrayInput)(nil)).Elem(), BuildDefinitionCiTriggerOverridePathFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerPtrInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerForksInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerForksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerForksPtrInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerForksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverrideInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverridePtrInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverrideBranchFilterInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverrideBranchFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverridePathFilterInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverridePathFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverridePathFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionRepositoryInput)(nil)).Elem(), BuildDefinitionRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionRepositoryPtrInput)(nil)).Elem(), BuildDefinitionRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionVariableInput)(nil)).Elem(), BuildDefinitionVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionVariableArrayInput)(nil)).Elem(), BuildDefinitionVariableArray{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerPtrOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerOverrideOutput{})

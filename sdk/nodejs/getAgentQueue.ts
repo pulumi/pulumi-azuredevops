@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -25,8 +24,8 @@ import * as utilities from "./utilities";
  *     projectId: id,
  *     name: "Sample Agent Queue",
  * }));
- * export const name = queue.name;
- * export const poolId = queue.agentPoolId;
+ * export const name = queue.apply(queue => queue.name);
+ * export const poolId = queue.apply(queue => queue.agentPoolId);
  * ```
  * ## Relevant Links
  *
@@ -80,4 +79,22 @@ export interface GetAgentQueueResult {
      * Project identifier to which the agent queue belongs.
      */
     readonly projectId: string;
+}
+
+export function getAgentQueueOutput(args: GetAgentQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentQueueResult> {
+    return pulumi.output(args).apply(a => getAgentQueue(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getAgentQueue.
+ */
+export interface GetAgentQueueOutputArgs {
+    /**
+     * Name of the Agent Queue.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Project Id.
+     */
+    projectId: pulumi.Input<string>;
 }

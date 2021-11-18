@@ -13,6 +13,7 @@ __all__ = [
     'GetUsersResult',
     'AwaitableGetUsersResult',
     'get_users',
+    'get_users_output',
 ]
 
 warnings.warn("""azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers""", DeprecationWarning)
@@ -155,3 +156,42 @@ def get_users(origin: Optional[str] = None,
         principal_name=__ret__.principal_name,
         subject_types=__ret__.subject_types,
         users=__ret__.users)
+
+
+@_utilities.lift_output_func(get_users)
+def get_users_output(origin: Optional[pulumi.Input[Optional[str]]] = None,
+                     origin_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     principal_name: Optional[pulumi.Input[Optional[str]]] = None,
+                     subject_types: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetUsersResult]:
+    """
+    Use this data source to access information about an existing users within Azure DevOps.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    user = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
+    all_users = azuredevops.get_users()
+    all_from_origin = azuredevops.get_users(origin="aad")
+    all_from_subject_types = azuredevops.get_users(subject_types=[
+        "aad",
+        "msa",
+    ])
+    all_from_origin_id = azuredevops.get_users(origin="aad",
+        origin_id="a7ead982-8438-4cd2-b9e3-c3aa51a7b675")
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
+
+
+    :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+    :param str origin_id: The unique identifier from the system of origin.
+    :param str principal_name: The PrincipalName of this graph member from the source provider.
+    :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+    """
+    pulumi.log.warn("""get_users is deprecated: azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers""")
+    ...

@@ -38,7 +38,7 @@ import (
 // 			ServiceEndpointName: pulumi.String("Sample GitHub Enterprise"),
 // 			Url:                 pulumi.String("https://github.contoso.com"),
 // 			Description:         pulumi.String("Managed by Terraform"),
-// 			AuthPersonal: &azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs{
+// 			AuthPersonal: &ServiceEndpointGitHubEnterpriseAuthPersonalArgs{
 // 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
 // 		})
@@ -238,7 +238,7 @@ type ServiceEndpointGitHubEnterpriseArrayInput interface {
 type ServiceEndpointGitHubEnterpriseArray []ServiceEndpointGitHubEnterpriseInput
 
 func (ServiceEndpointGitHubEnterpriseArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEndpointGitHubEnterprise)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointGitHubEnterprise)(nil)).Elem()
 }
 
 func (i ServiceEndpointGitHubEnterpriseArray) ToServiceEndpointGitHubEnterpriseArrayOutput() ServiceEndpointGitHubEnterpriseArrayOutput {
@@ -263,7 +263,7 @@ type ServiceEndpointGitHubEnterpriseMapInput interface {
 type ServiceEndpointGitHubEnterpriseMap map[string]ServiceEndpointGitHubEnterpriseInput
 
 func (ServiceEndpointGitHubEnterpriseMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEndpointGitHubEnterprise)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointGitHubEnterprise)(nil)).Elem()
 }
 
 func (i ServiceEndpointGitHubEnterpriseMap) ToServiceEndpointGitHubEnterpriseMapOutput() ServiceEndpointGitHubEnterpriseMapOutput {
@@ -274,9 +274,7 @@ func (i ServiceEndpointGitHubEnterpriseMap) ToServiceEndpointGitHubEnterpriseMap
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseMapOutput)
 }
 
-type ServiceEndpointGitHubEnterpriseOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointGitHubEnterpriseOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGitHubEnterpriseOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointGitHubEnterprise)(nil))
@@ -295,14 +293,12 @@ func (o ServiceEndpointGitHubEnterpriseOutput) ToServiceEndpointGitHubEnterprise
 }
 
 func (o ServiceEndpointGitHubEnterpriseOutput) ToServiceEndpointGitHubEnterprisePtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterprisePtrOutput {
-	return o.ApplyT(func(v ServiceEndpointGitHubEnterprise) *ServiceEndpointGitHubEnterprise {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointGitHubEnterprise) *ServiceEndpointGitHubEnterprise {
 		return &v
 	}).(ServiceEndpointGitHubEnterprisePtrOutput)
 }
 
-type ServiceEndpointGitHubEnterprisePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointGitHubEnterprisePtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGitHubEnterprisePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEndpointGitHubEnterprise)(nil))
@@ -314,6 +310,16 @@ func (o ServiceEndpointGitHubEnterprisePtrOutput) ToServiceEndpointGitHubEnterpr
 
 func (o ServiceEndpointGitHubEnterprisePtrOutput) ToServiceEndpointGitHubEnterprisePtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterprisePtrOutput {
 	return o
+}
+
+func (o ServiceEndpointGitHubEnterprisePtrOutput) Elem() ServiceEndpointGitHubEnterpriseOutput {
+	return o.ApplyT(func(v *ServiceEndpointGitHubEnterprise) ServiceEndpointGitHubEnterprise {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointGitHubEnterprise
+		return ret
+	}).(ServiceEndpointGitHubEnterpriseOutput)
 }
 
 type ServiceEndpointGitHubEnterpriseArrayOutput struct{ *pulumi.OutputState }
@@ -357,6 +363,10 @@ func (o ServiceEndpointGitHubEnterpriseMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterpriseInput)(nil)).Elem(), &ServiceEndpointGitHubEnterprise{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterprisePtrInput)(nil)).Elem(), &ServiceEndpointGitHubEnterprise{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterpriseArrayInput)(nil)).Elem(), ServiceEndpointGitHubEnterpriseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterpriseMapInput)(nil)).Elem(), ServiceEndpointGitHubEnterpriseMap{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubEnterpriseOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubEnterprisePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubEnterpriseArrayOutput{})

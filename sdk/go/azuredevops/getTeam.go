@@ -4,6 +4,9 @@
 package azuredevops
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,4 +34,67 @@ type LookupTeamResult struct {
 	Members   []string `pulumi:"members"`
 	Name      string   `pulumi:"name"`
 	ProjectId string   `pulumi:"projectId"`
+}
+
+func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pulumi.InvokeOption) LookupTeamResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupTeamResult, error) {
+			args := v.(LookupTeamArgs)
+			r, err := LookupTeam(ctx, &args, opts...)
+			return *r, err
+		}).(LookupTeamResultOutput)
+}
+
+// A collection of arguments for invoking getTeam.
+type LookupTeamOutputArgs struct {
+	Name      pulumi.StringInput `pulumi:"name"`
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+}
+
+func (LookupTeamOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTeamArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTeam.
+type LookupTeamResultOutput struct{ *pulumi.OutputState }
+
+func (LookupTeamResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupTeamResult)(nil)).Elem()
+}
+
+func (o LookupTeamResultOutput) ToLookupTeamResultOutput() LookupTeamResultOutput {
+	return o
+}
+
+func (o LookupTeamResultOutput) ToLookupTeamResultOutputWithContext(ctx context.Context) LookupTeamResultOutput {
+	return o
+}
+
+func (o LookupTeamResultOutput) Administrators() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTeamResult) []string { return v.Administrators }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupTeamResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupTeamResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupTeamResultOutput) Members() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v LookupTeamResult) []string { return v.Members }).(pulumi.StringArrayOutput)
+}
+
+func (o LookupTeamResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupTeamResultOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupTeamResultOutput{})
 }

@@ -4,6 +4,9 @@
 package identities
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "contoso-user@contoso.onmicrosoft.com"
-// 		_, err := azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
+// 		_, err := azuredevops.GetUsers(ctx, &GetUsersArgs{
 // 			PrincipalName: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -33,13 +36,13 @@ import (
 // 			return err
 // 		}
 // 		opt1 := "aad"
-// 		_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
+// 		_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
 // 			Origin: &opt1,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
+// 		_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
 // 			SubjectTypes: []string{
 // 				"aad",
 // 				"msa",
@@ -50,7 +53,7 @@ import (
 // 		}
 // 		opt2 := "aad"
 // 		opt3 := "a7ead982-8438-4cd2-b9e3-c3aa51a7b675"
-// 		_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
+// 		_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
 // 			Origin:   &opt2,
 // 			OriginId: &opt3,
 // 		}, nil)
@@ -100,4 +103,77 @@ type GetUsersResult struct {
 	SubjectTypes  []string `pulumi:"subjectTypes"`
 	// A set of existing users in your Azure DevOps Organization with details about every single user which includes:
 	Users []GetUsersUser `pulumi:"users"`
+}
+
+func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi.InvokeOption) GetUsersResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetUsersResult, error) {
+			args := v.(GetUsersArgs)
+			r, err := GetUsers(ctx, &args, opts...)
+			return *r, err
+		}).(GetUsersResultOutput)
+}
+
+// A collection of arguments for invoking getUsers.
+type GetUsersOutputArgs struct {
+	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+	Origin pulumi.StringPtrInput `pulumi:"origin"`
+	// The unique identifier from the system of origin.
+	OriginId pulumi.StringPtrInput `pulumi:"originId"`
+	// The PrincipalName of this graph member from the source provider.
+	PrincipalName pulumi.StringPtrInput `pulumi:"principalName"`
+	// A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+	SubjectTypes pulumi.StringArrayInput `pulumi:"subjectTypes"`
+}
+
+func (GetUsersOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getUsers.
+type GetUsersResultOutput struct{ *pulumi.OutputState }
+
+func (GetUsersResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetUsersResult)(nil)).Elem()
+}
+
+func (o GetUsersResultOutput) ToGetUsersResultOutput() GetUsersResultOutput {
+	return o
+}
+
+func (o GetUsersResultOutput) ToGetUsersResultOutputWithContext(ctx context.Context) GetUsersResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetUsersResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+func (o GetUsersResultOutput) Origin() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *string { return v.Origin }).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+func (o GetUsersResultOutput) OriginId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *string { return v.OriginId }).(pulumi.StringPtrOutput)
+}
+
+// This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+func (o GetUsersResultOutput) PrincipalName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetUsersResult) *string { return v.PrincipalName }).(pulumi.StringPtrOutput)
+}
+
+func (o GetUsersResultOutput) SubjectTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []string { return v.SubjectTypes }).(pulumi.StringArrayOutput)
+}
+
+// A set of existing users in your Azure DevOps Organization with details about every single user which includes:
+func (o GetUsersResultOutput) Users() GetUsersUserArrayOutput {
+	return o.ApplyT(func(v GetUsersResult) []GetUsersUser { return v.Users }).(GetUsersUserArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetUsersResultOutput{})
 }

@@ -36,7 +36,7 @@ import (
 // 		}
 // 		_, err = azuredevops.NewGit(ctx, "repo", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -62,7 +62,7 @@ import (
 // 		_, err := azuredevops.NewGit(ctx, "repo", &azuredevops.GitArgs{
 // 			ProjectId:          pulumi.Any(azuredevops_project.Project.Id),
 // 			ParentRepositoryId: pulumi.Any(azuredevops_git_repository.Parent.Id),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -87,7 +87,7 @@ import (
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		_, err := azuredevops.NewGit(ctx, "repo", &azuredevops.GitArgs{
 // 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType:   pulumi.String("Import"),
 // 				SourceType: pulumi.String("Git"),
 // 				SourceUrl:  pulumi.String("https://github.com/microsoft/terraform-provider-azuredevops.git"),
@@ -125,7 +125,7 @@ import (
 // 		}
 // 		_, err = azuredevops.NewGit(ctx, "repo", &azuredevops.GitArgs{
 // 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType:            pulumi.String("Import"),
 // 				SourceType:          pulumi.String("Git"),
 // 				SourceUrl:           pulumi.String("https://dev.azure.com/example-org/private-repository.git"),
@@ -366,7 +366,7 @@ type GitArrayInput interface {
 type GitArray []GitInput
 
 func (GitArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*Git)(nil))
+	return reflect.TypeOf((*[]*Git)(nil)).Elem()
 }
 
 func (i GitArray) ToGitArrayOutput() GitArrayOutput {
@@ -391,7 +391,7 @@ type GitMapInput interface {
 type GitMap map[string]GitInput
 
 func (GitMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*Git)(nil))
+	return reflect.TypeOf((*map[string]*Git)(nil)).Elem()
 }
 
 func (i GitMap) ToGitMapOutput() GitMapOutput {
@@ -402,9 +402,7 @@ func (i GitMap) ToGitMapOutputWithContext(ctx context.Context) GitMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitMapOutput)
 }
 
-type GitOutput struct {
-	*pulumi.OutputState
-}
+type GitOutput struct{ *pulumi.OutputState }
 
 func (GitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*Git)(nil))
@@ -423,14 +421,12 @@ func (o GitOutput) ToGitPtrOutput() GitPtrOutput {
 }
 
 func (o GitOutput) ToGitPtrOutputWithContext(ctx context.Context) GitPtrOutput {
-	return o.ApplyT(func(v Git) *Git {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Git) *Git {
 		return &v
 	}).(GitPtrOutput)
 }
 
-type GitPtrOutput struct {
-	*pulumi.OutputState
-}
+type GitPtrOutput struct{ *pulumi.OutputState }
 
 func (GitPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**Git)(nil))
@@ -442,6 +438,16 @@ func (o GitPtrOutput) ToGitPtrOutput() GitPtrOutput {
 
 func (o GitPtrOutput) ToGitPtrOutputWithContext(ctx context.Context) GitPtrOutput {
 	return o
+}
+
+func (o GitPtrOutput) Elem() GitOutput {
+	return o.ApplyT(func(v *Git) Git {
+		if v != nil {
+			return *v
+		}
+		var ret Git
+		return ret
+	}).(GitOutput)
 }
 
 type GitArrayOutput struct{ *pulumi.OutputState }
@@ -485,6 +491,10 @@ func (o GitMapOutput) MapIndex(k pulumi.StringInput) GitOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GitInput)(nil)).Elem(), &Git{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitPtrInput)(nil)).Elem(), &Git{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitArrayInput)(nil)).Elem(), GitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitMapInput)(nil)).Elem(), GitMap{})
 	pulumi.RegisterOutputType(GitOutput{})
 	pulumi.RegisterOutputType(GitPtrOutput{})
 	pulumi.RegisterOutputType(GitArrayOutput{})

@@ -13,6 +13,7 @@ __all__ = [
     'GetProjectsResult',
     'AwaitableGetProjectsResult',
     'get_projects',
+    'get_projects_output',
 ]
 
 @pulumi.output_type
@@ -93,10 +94,10 @@ def get_projects(name: Optional[str] = None,
 
     test = azuredevops.get_projects(name="contoso",
         state="wellFormed")
-    pulumi.export("projectId", [__item.project_id for __item in test.projects])
-    pulumi.export("name", [__item.name for __item in test.projects])
-    pulumi.export("projectUrl", [__item.project_url for __item in test.projects])
-    pulumi.export("state", [__item.state for __item in test.projects])
+    pulumi.export("projectId", [__item.project_id for __item in [test.projects]])
+    pulumi.export("name", [__item.name for __item in [test.projects]])
+    pulumi.export("projectUrl", [__item.project_url for __item in [test.projects]])
+    pulumi.export("state", [__item.state for __item in [test.projects]])
     ```
     ## Relevant Links
 
@@ -120,3 +121,34 @@ def get_projects(name: Optional[str] = None,
         name=__ret__.name,
         projects=__ret__.projects,
         state=__ret__.state)
+
+
+@_utilities.lift_output_func(get_projects)
+def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                        state: Optional[pulumi.Input[Optional[str]]] = None,
+                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectsResult]:
+    """
+    Use this data source to access information about existing Projects within Azure DevOps.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    test = azuredevops.get_projects(name="contoso",
+        state="wellFormed")
+    pulumi.export("projectId", [__item.project_id for __item in [test.projects]])
+    pulumi.export("name", [__item.name for __item in [test.projects]])
+    pulumi.export("projectUrl", [__item.project_url for __item in [test.projects]])
+    pulumi.export("state", [__item.state for __item in [test.projects]])
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+
+
+    :param str name: Name of the Project, if not specified all projects will be returned.
+    :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+    """
+    ...

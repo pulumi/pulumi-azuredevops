@@ -261,7 +261,7 @@ type ServiceEndpointGenericGitArrayInput interface {
 type ServiceEndpointGenericGitArray []ServiceEndpointGenericGitInput
 
 func (ServiceEndpointGenericGitArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEndpointGenericGit)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointGenericGit)(nil)).Elem()
 }
 
 func (i ServiceEndpointGenericGitArray) ToServiceEndpointGenericGitArrayOutput() ServiceEndpointGenericGitArrayOutput {
@@ -286,7 +286,7 @@ type ServiceEndpointGenericGitMapInput interface {
 type ServiceEndpointGenericGitMap map[string]ServiceEndpointGenericGitInput
 
 func (ServiceEndpointGenericGitMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEndpointGenericGit)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointGenericGit)(nil)).Elem()
 }
 
 func (i ServiceEndpointGenericGitMap) ToServiceEndpointGenericGitMapOutput() ServiceEndpointGenericGitMapOutput {
@@ -297,9 +297,7 @@ func (i ServiceEndpointGenericGitMap) ToServiceEndpointGenericGitMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGenericGitMapOutput)
 }
 
-type ServiceEndpointGenericGitOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointGenericGitOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGenericGitOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointGenericGit)(nil))
@@ -318,14 +316,12 @@ func (o ServiceEndpointGenericGitOutput) ToServiceEndpointGenericGitPtrOutput() 
 }
 
 func (o ServiceEndpointGenericGitOutput) ToServiceEndpointGenericGitPtrOutputWithContext(ctx context.Context) ServiceEndpointGenericGitPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointGenericGit) *ServiceEndpointGenericGit {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointGenericGit) *ServiceEndpointGenericGit {
 		return &v
 	}).(ServiceEndpointGenericGitPtrOutput)
 }
 
-type ServiceEndpointGenericGitPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointGenericGitPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGenericGitPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEndpointGenericGit)(nil))
@@ -337,6 +333,16 @@ func (o ServiceEndpointGenericGitPtrOutput) ToServiceEndpointGenericGitPtrOutput
 
 func (o ServiceEndpointGenericGitPtrOutput) ToServiceEndpointGenericGitPtrOutputWithContext(ctx context.Context) ServiceEndpointGenericGitPtrOutput {
 	return o
+}
+
+func (o ServiceEndpointGenericGitPtrOutput) Elem() ServiceEndpointGenericGitOutput {
+	return o.ApplyT(func(v *ServiceEndpointGenericGit) ServiceEndpointGenericGit {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointGenericGit
+		return ret
+	}).(ServiceEndpointGenericGitOutput)
 }
 
 type ServiceEndpointGenericGitArrayOutput struct{ *pulumi.OutputState }
@@ -380,6 +386,10 @@ func (o ServiceEndpointGenericGitMapOutput) MapIndex(k pulumi.StringInput) Servi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGenericGitInput)(nil)).Elem(), &ServiceEndpointGenericGit{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGenericGitPtrInput)(nil)).Elem(), &ServiceEndpointGenericGit{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGenericGitArrayInput)(nil)).Elem(), ServiceEndpointGenericGitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGenericGitMapInput)(nil)).Elem(), ServiceEndpointGenericGitMap{})
 	pulumi.RegisterOutputType(ServiceEndpointGenericGitOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGenericGitPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGenericGitArrayOutput{})

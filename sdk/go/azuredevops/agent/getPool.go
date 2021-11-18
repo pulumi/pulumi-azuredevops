@@ -4,6 +4,9 @@
 package agent
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -21,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		pool, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
+// 		pool, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
 // 			Name: "Sample Agent Pool",
 // 		}, nil)
 // 		if err != nil {
@@ -61,4 +64,59 @@ type LookupPoolResult struct {
 	Id       string `pulumi:"id"`
 	Name     string `pulumi:"name"`
 	PoolType string `pulumi:"poolType"`
+}
+
+func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pulumi.InvokeOption) LookupPoolResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupPoolResult, error) {
+			args := v.(LookupPoolArgs)
+			r, err := LookupPool(ctx, &args, opts...)
+			return *r, err
+		}).(LookupPoolResultOutput)
+}
+
+// A collection of arguments for invoking getPool.
+type LookupPoolOutputArgs struct {
+	// Name of the Agent Pool.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (LookupPoolOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPoolArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getPool.
+type LookupPoolResultOutput struct{ *pulumi.OutputState }
+
+func (LookupPoolResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupPoolResult)(nil)).Elem()
+}
+
+func (o LookupPoolResultOutput) ToLookupPoolResultOutput() LookupPoolResultOutput {
+	return o
+}
+
+func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.Context) LookupPoolResultOutput {
+	return o
+}
+
+func (o LookupPoolResultOutput) AutoProvision() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupPoolResult) bool { return v.AutoProvision }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupPoolResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupPoolResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LookupPoolResultOutput) PoolType() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupPoolResult) string { return v.PoolType }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupPoolResultOutput{})
 }

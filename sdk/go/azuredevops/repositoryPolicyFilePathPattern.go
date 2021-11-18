@@ -36,7 +36,7 @@ import (
 // 		}
 // 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -273,7 +273,7 @@ type RepositoryPolicyFilePathPatternArrayInput interface {
 type RepositoryPolicyFilePathPatternArray []RepositoryPolicyFilePathPatternInput
 
 func (RepositoryPolicyFilePathPatternArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryPolicyFilePathPattern)(nil))
+	return reflect.TypeOf((*[]*RepositoryPolicyFilePathPattern)(nil)).Elem()
 }
 
 func (i RepositoryPolicyFilePathPatternArray) ToRepositoryPolicyFilePathPatternArrayOutput() RepositoryPolicyFilePathPatternArrayOutput {
@@ -298,7 +298,7 @@ type RepositoryPolicyFilePathPatternMapInput interface {
 type RepositoryPolicyFilePathPatternMap map[string]RepositoryPolicyFilePathPatternInput
 
 func (RepositoryPolicyFilePathPatternMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryPolicyFilePathPattern)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPolicyFilePathPattern)(nil)).Elem()
 }
 
 func (i RepositoryPolicyFilePathPatternMap) ToRepositoryPolicyFilePathPatternMapOutput() RepositoryPolicyFilePathPatternMapOutput {
@@ -309,9 +309,7 @@ func (i RepositoryPolicyFilePathPatternMap) ToRepositoryPolicyFilePathPatternMap
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternMapOutput)
 }
 
-type RepositoryPolicyFilePathPatternOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyFilePathPatternOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyFilePathPatternOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RepositoryPolicyFilePathPattern)(nil))
@@ -330,14 +328,12 @@ func (o RepositoryPolicyFilePathPatternOutput) ToRepositoryPolicyFilePathPattern
 }
 
 func (o RepositoryPolicyFilePathPatternOutput) ToRepositoryPolicyFilePathPatternPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternPtrOutput {
-	return o.ApplyT(func(v RepositoryPolicyFilePathPattern) *RepositoryPolicyFilePathPattern {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPolicyFilePathPattern) *RepositoryPolicyFilePathPattern {
 		return &v
 	}).(RepositoryPolicyFilePathPatternPtrOutput)
 }
 
-type RepositoryPolicyFilePathPatternPtrOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyFilePathPatternPtrOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyFilePathPatternPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RepositoryPolicyFilePathPattern)(nil))
@@ -349,6 +345,16 @@ func (o RepositoryPolicyFilePathPatternPtrOutput) ToRepositoryPolicyFilePathPatt
 
 func (o RepositoryPolicyFilePathPatternPtrOutput) ToRepositoryPolicyFilePathPatternPtrOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternPtrOutput {
 	return o
+}
+
+func (o RepositoryPolicyFilePathPatternPtrOutput) Elem() RepositoryPolicyFilePathPatternOutput {
+	return o.ApplyT(func(v *RepositoryPolicyFilePathPattern) RepositoryPolicyFilePathPattern {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryPolicyFilePathPattern
+		return ret
+	}).(RepositoryPolicyFilePathPatternOutput)
 }
 
 type RepositoryPolicyFilePathPatternArrayOutput struct{ *pulumi.OutputState }
@@ -392,6 +398,10 @@ func (o RepositoryPolicyFilePathPatternMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyFilePathPatternInput)(nil)).Elem(), &RepositoryPolicyFilePathPattern{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyFilePathPatternPtrInput)(nil)).Elem(), &RepositoryPolicyFilePathPattern{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyFilePathPatternArrayInput)(nil)).Elem(), RepositoryPolicyFilePathPatternArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyFilePathPatternMapInput)(nil)).Elem(), RepositoryPolicyFilePathPatternMap{})
 	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyFilePathPatternArrayOutput{})

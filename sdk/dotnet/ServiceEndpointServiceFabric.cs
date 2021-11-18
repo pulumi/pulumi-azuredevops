@@ -13,6 +13,46 @@ namespace Pulumi.AzureDevOps
     /// Manages a Service Fabric service endpoint within Azure DevOps.
     /// 
     /// ## Example Usage
+    /// ### Client Certificate Authentication
+    /// 
+    /// ```csharp
+    /// using System;
+    /// using System.IO;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    /// 	private static string ReadFileBase64(string path) {
+    /// 		return Convert.ToBase64String(System.Text.UTF8.GetBytes(File.ReadAllText(path)))
+    /// 	}
+    /// 
+    ///     public MyStack()
+    ///     {
+    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         {
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///         });
+    ///         var test = new AzureDevOps.ServiceEndpointServiceFabric("test", new AzureDevOps.ServiceEndpointServiceFabricArgs
+    ///         {
+    ///             ProjectId = project.Id,
+    ///             ServiceEndpointName = "Sample Service Fabric",
+    ///             Description = "Managed by Terraform",
+    ///             ClusterEndpoint = "tcp://test",
+    ///             Certificate = new AzureDevOps.Inputs.ServiceEndpointServiceFabricCertificateArgs
+    ///             {
+    ///                 ServerCertificateLookup = "Thumbprint",
+    ///                 ServerCertificateThumbprint = "0000000000000000000000000000000000000000",
+    ///                 ClientCertificate = ReadFileBase64("certificate.pfx"),
+    ///                 ClientCertificatePassword = "password",
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ### Azure Active Directory Authentication
     /// 
     /// ```csharp

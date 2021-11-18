@@ -9,6 +9,31 @@ import * as utilities from "./utilities";
  * Manages a Service Fabric service endpoint within Azure DevOps.
  *
  * ## Example Usage
+ * ### Client Certificate Authentication
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ * import * from "fs";
+ *
+ * const project = new azuredevops.Project("project", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const test = new azuredevops.ServiceEndpointServiceFabric("test", {
+ *     projectId: project.id,
+ *     serviceEndpointName: "Sample Service Fabric",
+ *     description: "Managed by Terraform",
+ *     clusterEndpoint: "tcp://test",
+ *     certificate: {
+ *         serverCertificateLookup: "Thumbprint",
+ *         serverCertificateThumbprint: "0000000000000000000000000000000000000000",
+ *         clientCertificate: Buffer.from(fs.readFileSync("certificate.pfx"), 'binary').toString('base64'),
+ *         clientCertificatePassword: "password",
+ *     },
+ * });
+ * ```
  * ### Azure Active Directory Authentication
  *
  * ```typescript

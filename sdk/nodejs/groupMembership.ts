@@ -20,7 +20,7 @@ import * as utilities from "./utilities";
  *     name: "Build Administrators",
  * }));
  * const membership = new azuredevops.GroupMembership("membership", {
- *     group: group.descriptor,
+ *     group: group.apply(group => group.descriptor),
  *     members: [user.descriptor],
  * });
  * ```

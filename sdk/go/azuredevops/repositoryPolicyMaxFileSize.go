@@ -38,7 +38,7 @@ import (
 // 		}
 // 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -269,7 +269,7 @@ type RepositoryPolicyMaxFileSizeArrayInput interface {
 type RepositoryPolicyMaxFileSizeArray []RepositoryPolicyMaxFileSizeInput
 
 func (RepositoryPolicyMaxFileSizeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryPolicyMaxFileSize)(nil))
+	return reflect.TypeOf((*[]*RepositoryPolicyMaxFileSize)(nil)).Elem()
 }
 
 func (i RepositoryPolicyMaxFileSizeArray) ToRepositoryPolicyMaxFileSizeArrayOutput() RepositoryPolicyMaxFileSizeArrayOutput {
@@ -294,7 +294,7 @@ type RepositoryPolicyMaxFileSizeMapInput interface {
 type RepositoryPolicyMaxFileSizeMap map[string]RepositoryPolicyMaxFileSizeInput
 
 func (RepositoryPolicyMaxFileSizeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryPolicyMaxFileSize)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPolicyMaxFileSize)(nil)).Elem()
 }
 
 func (i RepositoryPolicyMaxFileSizeMap) ToRepositoryPolicyMaxFileSizeMapOutput() RepositoryPolicyMaxFileSizeMapOutput {
@@ -305,9 +305,7 @@ func (i RepositoryPolicyMaxFileSizeMap) ToRepositoryPolicyMaxFileSizeMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxFileSizeMapOutput)
 }
 
-type RepositoryPolicyMaxFileSizeOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyMaxFileSizeOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyMaxFileSizeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RepositoryPolicyMaxFileSize)(nil))
@@ -326,14 +324,12 @@ func (o RepositoryPolicyMaxFileSizeOutput) ToRepositoryPolicyMaxFileSizePtrOutpu
 }
 
 func (o RepositoryPolicyMaxFileSizeOutput) ToRepositoryPolicyMaxFileSizePtrOutputWithContext(ctx context.Context) RepositoryPolicyMaxFileSizePtrOutput {
-	return o.ApplyT(func(v RepositoryPolicyMaxFileSize) *RepositoryPolicyMaxFileSize {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPolicyMaxFileSize) *RepositoryPolicyMaxFileSize {
 		return &v
 	}).(RepositoryPolicyMaxFileSizePtrOutput)
 }
 
-type RepositoryPolicyMaxFileSizePtrOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyMaxFileSizePtrOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyMaxFileSizePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RepositoryPolicyMaxFileSize)(nil))
@@ -345,6 +341,16 @@ func (o RepositoryPolicyMaxFileSizePtrOutput) ToRepositoryPolicyMaxFileSizePtrOu
 
 func (o RepositoryPolicyMaxFileSizePtrOutput) ToRepositoryPolicyMaxFileSizePtrOutputWithContext(ctx context.Context) RepositoryPolicyMaxFileSizePtrOutput {
 	return o
+}
+
+func (o RepositoryPolicyMaxFileSizePtrOutput) Elem() RepositoryPolicyMaxFileSizeOutput {
+	return o.ApplyT(func(v *RepositoryPolicyMaxFileSize) RepositoryPolicyMaxFileSize {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryPolicyMaxFileSize
+		return ret
+	}).(RepositoryPolicyMaxFileSizeOutput)
 }
 
 type RepositoryPolicyMaxFileSizeArrayOutput struct{ *pulumi.OutputState }
@@ -388,6 +394,10 @@ func (o RepositoryPolicyMaxFileSizeMapOutput) MapIndex(k pulumi.StringInput) Rep
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyMaxFileSizeInput)(nil)).Elem(), &RepositoryPolicyMaxFileSize{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyMaxFileSizePtrInput)(nil)).Elem(), &RepositoryPolicyMaxFileSize{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyMaxFileSizeArrayInput)(nil)).Elem(), RepositoryPolicyMaxFileSizeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyMaxFileSizeMapInput)(nil)).Elem(), RepositoryPolicyMaxFileSizeMap{})
 	pulumi.RegisterOutputType(RepositoryPolicyMaxFileSizeOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyMaxFileSizePtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyMaxFileSizeArrayOutput{})

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps
 {
@@ -13,6 +14,9 @@ namespace Pulumi.AzureDevOps
     {
         public static Task<GetTeamsResult> InvokeAsync(GetTeamsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsArgs(), options.WithVersion());
+
+        public static Output<GetTeamsResult> Invoke(GetTeamsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -22,6 +26,16 @@ namespace Pulumi.AzureDevOps
         public string? ProjectId { get; set; }
 
         public GetTeamsArgs()
+        {
+        }
+    }
+
+    public sealed class GetTeamsInvokeArgs : Pulumi.InvokeArgs
+    {
+        [Input("projectId")]
+        public Input<string>? ProjectId { get; set; }
+
+        public GetTeamsInvokeArgs()
         {
         }
     }

@@ -13,6 +13,7 @@ __all__ = [
     'GetTeamsResult',
     'AwaitableGetTeamsResult',
     'get_teams',
+    'get_teams_output',
 ]
 
 @pulumi.output_type
@@ -78,3 +79,12 @@ def get_teams(project_id: Optional[str] = None,
         id=__ret__.id,
         project_id=__ret__.project_id,
         teams=__ret__.teams)
+
+
+@_utilities.lift_output_func(get_teams)
+def get_teams_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamsResult]:
+    """
+    Use this data source to access information about an existing resource.
+    """
+    ...

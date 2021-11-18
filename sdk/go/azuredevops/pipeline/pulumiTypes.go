@@ -105,7 +105,7 @@ func (o VariableGroupKeyVaultOutput) ToVariableGroupKeyVaultPtrOutput() Variable
 }
 
 func (o VariableGroupKeyVaultOutput) ToVariableGroupKeyVaultPtrOutputWithContext(ctx context.Context) VariableGroupKeyVaultPtrOutput {
-	return o.ApplyT(func(v VariableGroupKeyVault) *VariableGroupKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VariableGroupKeyVault) *VariableGroupKeyVault {
 		return &v
 	}).(VariableGroupKeyVaultPtrOutput)
 }
@@ -134,7 +134,13 @@ func (o VariableGroupKeyVaultPtrOutput) ToVariableGroupKeyVaultPtrOutputWithCont
 }
 
 func (o VariableGroupKeyVaultPtrOutput) Elem() VariableGroupKeyVaultOutput {
-	return o.ApplyT(func(v *VariableGroupKeyVault) VariableGroupKeyVault { return *v }).(VariableGroupKeyVaultOutput)
+	return o.ApplyT(func(v *VariableGroupKeyVault) VariableGroupKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret VariableGroupKeyVault
+		return ret
+	}).(VariableGroupKeyVaultOutput)
 }
 
 // The name of the Variable Group.
@@ -299,6 +305,10 @@ func (o VariableGroupVariableArrayOutput) Index(i pulumi.IntInput) VariableGroup
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableArrayInput)(nil)).Elem(), VariableGroupVariableArray{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})

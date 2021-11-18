@@ -13,6 +13,7 @@ __all__ = [
     'GetRepositoriesResult',
     'AwaitableGetRepositoriesResult',
     'get_repositories',
+    'get_repositories_output',
 ]
 
 @pulumi.output_type
@@ -132,3 +133,35 @@ def get_repositories(include_hidden: Optional[bool] = None,
         name=__ret__.name,
         project_id=__ret__.project_id,
         repositories=__ret__.repositories)
+
+
+@_utilities.lift_output_func(get_repositories)
+def get_repositories_output(include_hidden: Optional[pulumi.Input[Optional[bool]]] = None,
+                            name: Optional[pulumi.Input[Optional[str]]] = None,
+                            project_id: Optional[pulumi.Input[Optional[str]]] = None,
+                            opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRepositoriesResult]:
+    """
+    Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
+    To read informations about a **single** Git Repository use the data source `Git`
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    project = azuredevops.get_project(name="contoso-project")
+    all_repos = azuredevops.get_repositories(project_id=project.id,
+        include_hidden=True)
+    single_repo = azuredevops.get_repositories(project_id=project.id,
+        name="contoso-repo")
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+
+
+    :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
+    :param str project_id: ID of project to list Git repositories
+    """
+    ...

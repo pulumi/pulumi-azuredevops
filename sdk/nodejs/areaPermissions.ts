@@ -32,7 +32,7 @@ import * as utilities from "./utilities";
  * }));
  * const root_permissions = new azuredevops.AreaPermissions("root-permissions", {
  *     projectId: project.id,
- *     principal: project_readers.id,
+ *     principal: project_readers.apply(project_readers => project_readers.id),
  *     path: "/",
  *     permissions: {
  *         CREATE_CHILDREN: "Deny",

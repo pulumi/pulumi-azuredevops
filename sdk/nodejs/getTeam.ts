@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamResult> {
@@ -40,4 +39,16 @@ export interface GetTeamResult {
     readonly members: string[];
     readonly name: string;
     readonly projectId: string;
+}
+
+export function getTeamOutput(args: GetTeamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamResult> {
+    return pulumi.output(args).apply(a => getTeam(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTeam.
+ */
+export interface GetTeamOutputArgs {
+    name: pulumi.Input<string>;
+    projectId: pulumi.Input<string>;
 }

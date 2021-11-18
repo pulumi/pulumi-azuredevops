@@ -18,10 +18,10 @@ import * as utilities from "./utilities";
  *     name: "contoso",
  *     state: "wellFormed",
  * });
- * export const projectId = test.then(test => test.projects.map(__item => __item.projectId));
- * export const name = test.then(test => test.projects.map(__item => __item.name));
- * export const projectUrl = test.then(test => test.projects.map(__item => __item.projectUrl));
- * export const state = test.then(test => test.projects.map(__item => __item.state));
+ * export const projectId = [test.then(test => test.projects)].map(__item => __item?.projectId);
+ * export const name = [test.then(test => test.projects)].map(__item => __item?.name);
+ * export const projectUrl = [test.then(test => test.projects)].map(__item => __item?.projectUrl);
+ * export const state = [test.then(test => test.projects)].map(__item => __item?.state);
  * ```
  * ## Relevant Links
  *
@@ -76,4 +76,22 @@ export interface GetProjectsResult {
      * Project state.
      */
     readonly state?: string;
+}
+
+export function getProjectsOutput(args?: GetProjectsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectsResult> {
+    return pulumi.output(args).apply(a => getProjects(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getProjects.
+ */
+export interface GetProjectsOutputArgs {
+    /**
+     * Name of the Project, if not specified all projects will be returned.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+     */
+    state?: pulumi.Input<string>;
 }

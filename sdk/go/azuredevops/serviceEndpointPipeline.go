@@ -37,7 +37,7 @@ import (
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("Sample Pipeline Runner"),
 // 			OrganizationName:    pulumi.String("MyOrganization"),
-// 			AuthPersonal: &azuredevops.ServiceEndpointPipelineAuthPersonalArgs{
+// 			AuthPersonal: &ServiceEndpointPipelineAuthPersonalArgs{
 // 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
 // 			Description: pulumi.String("Managed by Terraform"),
@@ -238,7 +238,7 @@ type ServiceEndpointPipelineArrayInput interface {
 type ServiceEndpointPipelineArray []ServiceEndpointPipelineInput
 
 func (ServiceEndpointPipelineArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEndpointPipeline)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointPipeline)(nil)).Elem()
 }
 
 func (i ServiceEndpointPipelineArray) ToServiceEndpointPipelineArrayOutput() ServiceEndpointPipelineArrayOutput {
@@ -263,7 +263,7 @@ type ServiceEndpointPipelineMapInput interface {
 type ServiceEndpointPipelineMap map[string]ServiceEndpointPipelineInput
 
 func (ServiceEndpointPipelineMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEndpointPipeline)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointPipeline)(nil)).Elem()
 }
 
 func (i ServiceEndpointPipelineMap) ToServiceEndpointPipelineMapOutput() ServiceEndpointPipelineMapOutput {
@@ -274,9 +274,7 @@ func (i ServiceEndpointPipelineMap) ToServiceEndpointPipelineMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelineMapOutput)
 }
 
-type ServiceEndpointPipelineOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointPipelineOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPipelineOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointPipeline)(nil))
@@ -295,14 +293,12 @@ func (o ServiceEndpointPipelineOutput) ToServiceEndpointPipelinePtrOutput() Serv
 }
 
 func (o ServiceEndpointPipelineOutput) ToServiceEndpointPipelinePtrOutputWithContext(ctx context.Context) ServiceEndpointPipelinePtrOutput {
-	return o.ApplyT(func(v ServiceEndpointPipeline) *ServiceEndpointPipeline {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointPipeline) *ServiceEndpointPipeline {
 		return &v
 	}).(ServiceEndpointPipelinePtrOutput)
 }
 
-type ServiceEndpointPipelinePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointPipelinePtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPipelinePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEndpointPipeline)(nil))
@@ -314,6 +310,16 @@ func (o ServiceEndpointPipelinePtrOutput) ToServiceEndpointPipelinePtrOutput() S
 
 func (o ServiceEndpointPipelinePtrOutput) ToServiceEndpointPipelinePtrOutputWithContext(ctx context.Context) ServiceEndpointPipelinePtrOutput {
 	return o
+}
+
+func (o ServiceEndpointPipelinePtrOutput) Elem() ServiceEndpointPipelineOutput {
+	return o.ApplyT(func(v *ServiceEndpointPipeline) ServiceEndpointPipeline {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointPipeline
+		return ret
+	}).(ServiceEndpointPipelineOutput)
 }
 
 type ServiceEndpointPipelineArrayOutput struct{ *pulumi.OutputState }
@@ -357,6 +363,10 @@ func (o ServiceEndpointPipelineMapOutput) MapIndex(k pulumi.StringInput) Service
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelineInput)(nil)).Elem(), &ServiceEndpointPipeline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelinePtrInput)(nil)).Elem(), &ServiceEndpointPipeline{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelineArrayInput)(nil)).Elem(), ServiceEndpointPipelineArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelineMapInput)(nil)).Elem(), ServiceEndpointPipelineMap{})
 	pulumi.RegisterOutputType(ServiceEndpointPipelineOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPipelinePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPipelineArrayOutput{})

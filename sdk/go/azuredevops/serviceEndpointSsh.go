@@ -278,7 +278,7 @@ type ServiceEndpointSshArrayInput interface {
 type ServiceEndpointSshArray []ServiceEndpointSshInput
 
 func (ServiceEndpointSshArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEndpointSsh)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointSsh)(nil)).Elem()
 }
 
 func (i ServiceEndpointSshArray) ToServiceEndpointSshArrayOutput() ServiceEndpointSshArrayOutput {
@@ -303,7 +303,7 @@ type ServiceEndpointSshMapInput interface {
 type ServiceEndpointSshMap map[string]ServiceEndpointSshInput
 
 func (ServiceEndpointSshMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEndpointSsh)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointSsh)(nil)).Elem()
 }
 
 func (i ServiceEndpointSshMap) ToServiceEndpointSshMapOutput() ServiceEndpointSshMapOutput {
@@ -314,9 +314,7 @@ func (i ServiceEndpointSshMap) ToServiceEndpointSshMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSshMapOutput)
 }
 
-type ServiceEndpointSshOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointSshOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointSshOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointSsh)(nil))
@@ -335,14 +333,12 @@ func (o ServiceEndpointSshOutput) ToServiceEndpointSshPtrOutput() ServiceEndpoin
 }
 
 func (o ServiceEndpointSshOutput) ToServiceEndpointSshPtrOutputWithContext(ctx context.Context) ServiceEndpointSshPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointSsh) *ServiceEndpointSsh {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointSsh) *ServiceEndpointSsh {
 		return &v
 	}).(ServiceEndpointSshPtrOutput)
 }
 
-type ServiceEndpointSshPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointSshPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointSshPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEndpointSsh)(nil))
@@ -354,6 +350,16 @@ func (o ServiceEndpointSshPtrOutput) ToServiceEndpointSshPtrOutput() ServiceEndp
 
 func (o ServiceEndpointSshPtrOutput) ToServiceEndpointSshPtrOutputWithContext(ctx context.Context) ServiceEndpointSshPtrOutput {
 	return o
+}
+
+func (o ServiceEndpointSshPtrOutput) Elem() ServiceEndpointSshOutput {
+	return o.ApplyT(func(v *ServiceEndpointSsh) ServiceEndpointSsh {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointSsh
+		return ret
+	}).(ServiceEndpointSshOutput)
 }
 
 type ServiceEndpointSshArrayOutput struct{ *pulumi.OutputState }
@@ -397,6 +403,10 @@ func (o ServiceEndpointSshMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointSshInput)(nil)).Elem(), &ServiceEndpointSsh{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointSshPtrInput)(nil)).Elem(), &ServiceEndpointSsh{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointSshArrayInput)(nil)).Elem(), ServiceEndpointSshArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointSshMapInput)(nil)).Elem(), ServiceEndpointSshMap{})
 	pulumi.RegisterOutputType(ServiceEndpointSshOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointSshPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointSshArrayOutput{})

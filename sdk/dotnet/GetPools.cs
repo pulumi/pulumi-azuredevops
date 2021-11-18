@@ -28,9 +28,18 @@ namespace Pulumi.AzureDevOps
         ///     public MyStack()
         ///     {
         ///         var pools = Output.Create(AzureDevOps.GetPools.InvokeAsync());
-        ///         this.AgentPoolName = pools.Apply(pools =&gt; pools.AgentPools.Select(__item =&gt; __item.Name).ToList());
-        ///         this.AutoProvision = pools.Apply(pools =&gt; pools.AgentPools.Select(__item =&gt; __item.AutoProvision).ToList());
-        ///         this.PoolType = pools.Apply(pools =&gt; pools.AgentPools.Select(__item =&gt; __item.PoolType).ToList());
+        ///         this.AgentPoolName = 
+        ///         {
+        ///             pools.Apply(pools =&gt; pools.AgentPools),
+        ///         }.Select(__item =&gt; __item?.Name).ToList();
+        ///         this.AutoProvision = 
+        ///         {
+        ///             pools.Apply(pools =&gt; pools.AgentPools),
+        ///         }.Select(__item =&gt; __item?.AutoProvision).ToList();
+        ///         this.PoolType = 
+        ///         {
+        ///             pools.Apply(pools =&gt; pools.AgentPools),
+        ///         }.Select(__item =&gt; __item?.PoolType).ToList();
         ///     }
         /// 
         ///     [Output("agentPoolName")]

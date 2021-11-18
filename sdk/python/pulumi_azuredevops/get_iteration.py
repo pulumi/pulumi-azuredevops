@@ -13,6 +13,7 @@ __all__ = [
     'GetIterationResult',
     'AwaitableGetIterationResult',
     'get_iteration',
+    'get_iteration_output',
 ]
 
 @pulumi.output_type
@@ -168,3 +169,45 @@ def get_iteration(fetch_children: Optional[bool] = None,
         name=__ret__.name,
         path=__ret__.path,
         project_id=__ret__.project_id)
+
+
+@_utilities.lift_output_func(get_iteration)
+def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = None,
+                         path: Optional[pulumi.Input[Optional[str]]] = None,
+                         project_id: Optional[pulumi.Input[str]] = None,
+                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIterationResult]:
+    """
+    Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    project = azuredevops.Project("project",
+        work_item_template="Agile",
+        version_control="Git",
+        visibility="private",
+        description="Managed by Terraform")
+    root_iteration = project.id.apply(lambda id: azuredevops.get_iteration(project_id=id,
+        path="/",
+        fetch_children=True))
+    child_iteration = project.id.apply(lambda id: azuredevops.get_iteration(project_id=id,
+        path="/Iteration 1",
+        fetch_children=True))
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+
+    ## PAT Permissions Required
+
+    - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
+
+
+    :param bool fetch_children: Read children nodes, _Depth_: 1, _Default_: `true`
+    :param str path: The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+    :param str project_id: The project ID.
+    """
+    ...

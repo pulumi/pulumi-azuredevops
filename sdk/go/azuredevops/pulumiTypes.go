@@ -119,7 +119,7 @@ func (o BranchPolicyAutoReviewersSettingsOutput) ToBranchPolicyAutoReviewersSett
 }
 
 func (o BranchPolicyAutoReviewersSettingsOutput) ToBranchPolicyAutoReviewersSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersSettingsPtrOutput {
-	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) *BranchPolicyAutoReviewersSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyAutoReviewersSettings) *BranchPolicyAutoReviewersSettings {
 		return &v
 	}).(BranchPolicyAutoReviewersSettingsPtrOutput)
 }
@@ -164,7 +164,13 @@ func (o BranchPolicyAutoReviewersSettingsPtrOutput) ToBranchPolicyAutoReviewersS
 }
 
 func (o BranchPolicyAutoReviewersSettingsPtrOutput) Elem() BranchPolicyAutoReviewersSettingsOutput {
-	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) BranchPolicyAutoReviewersSettings { return *v }).(BranchPolicyAutoReviewersSettingsOutput)
+	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) BranchPolicyAutoReviewersSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyAutoReviewersSettings
+		return ret
+	}).(BranchPolicyAutoReviewersSettingsOutput)
 }
 
 // Required reviewers ids. Supports multiples user Ids.
@@ -449,7 +455,7 @@ func (o BranchPolicyBuildValidationSettingsOutput) ToBranchPolicyBuildValidation
 }
 
 func (o BranchPolicyBuildValidationSettingsOutput) ToBranchPolicyBuildValidationSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyBuildValidationSettingsPtrOutput {
-	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) *BranchPolicyBuildValidationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyBuildValidationSettings) *BranchPolicyBuildValidationSettings {
 		return &v
 	}).(BranchPolicyBuildValidationSettingsPtrOutput)
 }
@@ -506,7 +512,13 @@ func (o BranchPolicyBuildValidationSettingsPtrOutput) ToBranchPolicyBuildValidat
 }
 
 func (o BranchPolicyBuildValidationSettingsPtrOutput) Elem() BranchPolicyBuildValidationSettingsOutput {
-	return o.ApplyT(func(v *BranchPolicyBuildValidationSettings) BranchPolicyBuildValidationSettings { return *v }).(BranchPolicyBuildValidationSettingsOutput)
+	return o.ApplyT(func(v *BranchPolicyBuildValidationSettings) BranchPolicyBuildValidationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyBuildValidationSettings
+		return ret
+	}).(BranchPolicyBuildValidationSettingsOutput)
 }
 
 // The ID of the build to monitor for the policy.
@@ -787,7 +799,7 @@ func (o BranchPolicyCommentResolutionSettingsOutput) ToBranchPolicyCommentResolu
 }
 
 func (o BranchPolicyCommentResolutionSettingsOutput) ToBranchPolicyCommentResolutionSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionSettingsPtrOutput {
-	return o.ApplyT(func(v BranchPolicyCommentResolutionSettings) *BranchPolicyCommentResolutionSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyCommentResolutionSettings) *BranchPolicyCommentResolutionSettings {
 		return &v
 	}).(BranchPolicyCommentResolutionSettingsPtrOutput)
 }
@@ -814,7 +826,13 @@ func (o BranchPolicyCommentResolutionSettingsPtrOutput) ToBranchPolicyCommentRes
 }
 
 func (o BranchPolicyCommentResolutionSettingsPtrOutput) Elem() BranchPolicyCommentResolutionSettingsOutput {
-	return o.ApplyT(func(v *BranchPolicyCommentResolutionSettings) BranchPolicyCommentResolutionSettings { return *v }).(BranchPolicyCommentResolutionSettingsOutput)
+	return o.ApplyT(func(v *BranchPolicyCommentResolutionSettings) BranchPolicyCommentResolutionSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyCommentResolutionSettings
+		return ret
+	}).(BranchPolicyCommentResolutionSettingsOutput)
 }
 
 // Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
@@ -1051,7 +1069,7 @@ func (o BranchPolicyMergeTypesSettingsOutput) ToBranchPolicyMergeTypesSettingsPt
 }
 
 func (o BranchPolicyMergeTypesSettingsOutput) ToBranchPolicyMergeTypesSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyMergeTypesSettingsPtrOutput {
-	return o.ApplyT(func(v BranchPolicyMergeTypesSettings) *BranchPolicyMergeTypesSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyMergeTypesSettings) *BranchPolicyMergeTypesSettings {
 		return &v
 	}).(BranchPolicyMergeTypesSettingsPtrOutput)
 }
@@ -1096,7 +1114,13 @@ func (o BranchPolicyMergeTypesSettingsPtrOutput) ToBranchPolicyMergeTypesSetting
 }
 
 func (o BranchPolicyMergeTypesSettingsPtrOutput) Elem() BranchPolicyMergeTypesSettingsOutput {
-	return o.ApplyT(func(v *BranchPolicyMergeTypesSettings) BranchPolicyMergeTypesSettings { return *v }).(BranchPolicyMergeTypesSettingsOutput)
+	return o.ApplyT(func(v *BranchPolicyMergeTypesSettings) BranchPolicyMergeTypesSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyMergeTypesSettings
+		return ret
+	}).(BranchPolicyMergeTypesSettingsOutput)
 }
 
 // Allow basic merge with no fast forward. Defaults to `false`.
@@ -1385,7 +1409,7 @@ func (o BranchPolicyMinReviewersSettingsOutput) ToBranchPolicyMinReviewersSettin
 }
 
 func (o BranchPolicyMinReviewersSettingsOutput) ToBranchPolicyMinReviewersSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersSettingsPtrOutput {
-	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *BranchPolicyMinReviewersSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyMinReviewersSettings) *BranchPolicyMinReviewersSettings {
 		return &v
 	}).(BranchPolicyMinReviewersSettingsPtrOutput)
 }
@@ -1445,7 +1469,13 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) ToBranchPolicyMinReviewersSet
 }
 
 func (o BranchPolicyMinReviewersSettingsPtrOutput) Elem() BranchPolicyMinReviewersSettingsOutput {
-	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) BranchPolicyMinReviewersSettings { return *v }).(BranchPolicyMinReviewersSettingsOutput)
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) BranchPolicyMinReviewersSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyMinReviewersSettings
+		return ret
+	}).(BranchPolicyMinReviewersSettingsOutput)
 }
 
 // Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
@@ -1764,7 +1794,7 @@ func (o BranchPolicyStatusCheckSettingsOutput) ToBranchPolicyStatusCheckSettings
 }
 
 func (o BranchPolicyStatusCheckSettingsOutput) ToBranchPolicyStatusCheckSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckSettingsPtrOutput {
-	return o.ApplyT(func(v BranchPolicyStatusCheckSettings) *BranchPolicyStatusCheckSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyStatusCheckSettings) *BranchPolicyStatusCheckSettings {
 		return &v
 	}).(BranchPolicyStatusCheckSettingsPtrOutput)
 }
@@ -1821,7 +1851,13 @@ func (o BranchPolicyStatusCheckSettingsPtrOutput) ToBranchPolicyStatusCheckSetti
 }
 
 func (o BranchPolicyStatusCheckSettingsPtrOutput) Elem() BranchPolicyStatusCheckSettingsOutput {
-	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) BranchPolicyStatusCheckSettings { return *v }).(BranchPolicyStatusCheckSettingsOutput)
+	return o.ApplyT(func(v *BranchPolicyStatusCheckSettings) BranchPolicyStatusCheckSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyStatusCheckSettings
+		return ret
+	}).(BranchPolicyStatusCheckSettingsOutput)
 }
 
 // Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable"
@@ -2116,7 +2152,7 @@ func (o BranchPolicyWorkItemLinkingSettingsOutput) ToBranchPolicyWorkItemLinking
 }
 
 func (o BranchPolicyWorkItemLinkingSettingsOutput) ToBranchPolicyWorkItemLinkingSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingSettingsPtrOutput {
-	return o.ApplyT(func(v BranchPolicyWorkItemLinkingSettings) *BranchPolicyWorkItemLinkingSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyWorkItemLinkingSettings) *BranchPolicyWorkItemLinkingSettings {
 		return &v
 	}).(BranchPolicyWorkItemLinkingSettingsPtrOutput)
 }
@@ -2143,7 +2179,13 @@ func (o BranchPolicyWorkItemLinkingSettingsPtrOutput) ToBranchPolicyWorkItemLink
 }
 
 func (o BranchPolicyWorkItemLinkingSettingsPtrOutput) Elem() BranchPolicyWorkItemLinkingSettingsOutput {
-	return o.ApplyT(func(v *BranchPolicyWorkItemLinkingSettings) BranchPolicyWorkItemLinkingSettings { return *v }).(BranchPolicyWorkItemLinkingSettingsOutput)
+	return o.ApplyT(func(v *BranchPolicyWorkItemLinkingSettings) BranchPolicyWorkItemLinkingSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyWorkItemLinkingSettings
+		return ret
+	}).(BranchPolicyWorkItemLinkingSettingsOutput)
 }
 
 // Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
@@ -2368,7 +2410,7 @@ func (o BuildDefinitionCiTriggerOutput) ToBuildDefinitionCiTriggerPtrOutput() Bu
 }
 
 func (o BuildDefinitionCiTriggerOutput) ToBuildDefinitionCiTriggerPtrOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerPtrOutput {
-	return o.ApplyT(func(v BuildDefinitionCiTrigger) *BuildDefinitionCiTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionCiTrigger) *BuildDefinitionCiTrigger {
 		return &v
 	}).(BuildDefinitionCiTriggerPtrOutput)
 }
@@ -2398,7 +2440,13 @@ func (o BuildDefinitionCiTriggerPtrOutput) ToBuildDefinitionCiTriggerPtrOutputWi
 }
 
 func (o BuildDefinitionCiTriggerPtrOutput) Elem() BuildDefinitionCiTriggerOutput {
-	return o.ApplyT(func(v *BuildDefinitionCiTrigger) BuildDefinitionCiTrigger { return *v }).(BuildDefinitionCiTriggerOutput)
+	return o.ApplyT(func(v *BuildDefinitionCiTrigger) BuildDefinitionCiTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionCiTrigger
+		return ret
+	}).(BuildDefinitionCiTriggerOutput)
 }
 
 // Override the azure-pipeline file and use a this configuration for all builds.
@@ -2534,7 +2582,7 @@ func (o BuildDefinitionCiTriggerOverrideOutput) ToBuildDefinitionCiTriggerOverri
 }
 
 func (o BuildDefinitionCiTriggerOverrideOutput) ToBuildDefinitionCiTriggerOverridePtrOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerOverridePtrOutput {
-	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) *BuildDefinitionCiTriggerOverride {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionCiTriggerOverride) *BuildDefinitionCiTriggerOverride {
 		return &v
 	}).(BuildDefinitionCiTriggerOverridePtrOutput)
 }
@@ -2588,7 +2636,13 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) ToBuildDefinitionCiTriggerOve
 }
 
 func (o BuildDefinitionCiTriggerOverridePtrOutput) Elem() BuildDefinitionCiTriggerOverrideOutput {
-	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) BuildDefinitionCiTriggerOverride { return *v }).(BuildDefinitionCiTriggerOverrideOutput)
+	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) BuildDefinitionCiTriggerOverride {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionCiTriggerOverride
+		return ret
+	}).(BuildDefinitionCiTriggerOverrideOutput)
 }
 
 // If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
@@ -2968,10 +3022,11 @@ func (o BuildDefinitionPullRequestTriggerOutput) ToBuildDefinitionPullRequestTri
 }
 
 func (o BuildDefinitionPullRequestTriggerOutput) ToBuildDefinitionPullRequestTriggerPtrOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerPtrOutput {
-	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTrigger {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTrigger {
 		return &v
 	}).(BuildDefinitionPullRequestTriggerPtrOutput)
 }
+
 func (o BuildDefinitionPullRequestTriggerOutput) CommentRequired() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *string { return v.CommentRequired }).(pulumi.StringPtrOutput)
 }
@@ -3012,7 +3067,13 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) ToBuildDefinitionPullRequest
 }
 
 func (o BuildDefinitionPullRequestTriggerPtrOutput) Elem() BuildDefinitionPullRequestTriggerOutput {
-	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) BuildDefinitionPullRequestTrigger { return *v }).(BuildDefinitionPullRequestTriggerOutput)
+	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) BuildDefinitionPullRequestTrigger {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionPullRequestTrigger
+		return ret
+	}).(BuildDefinitionPullRequestTriggerOutput)
 }
 
 func (o BuildDefinitionPullRequestTriggerPtrOutput) CommentRequired() pulumi.StringPtrOutput {
@@ -3160,7 +3221,7 @@ func (o BuildDefinitionPullRequestTriggerForksOutput) ToBuildDefinitionPullReque
 }
 
 func (o BuildDefinitionPullRequestTriggerForksOutput) ToBuildDefinitionPullRequestTriggerForksPtrOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerForksPtrOutput {
-	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerForks) *BuildDefinitionPullRequestTriggerForks {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionPullRequestTriggerForks) *BuildDefinitionPullRequestTriggerForks {
 		return &v
 	}).(BuildDefinitionPullRequestTriggerForksPtrOutput)
 }
@@ -3190,7 +3251,13 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) ToBuildDefinitionPullRe
 }
 
 func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Elem() BuildDefinitionPullRequestTriggerForksOutput {
-	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerForks) BuildDefinitionPullRequestTriggerForks { return *v }).(BuildDefinitionPullRequestTriggerForksOutput)
+	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerForks) BuildDefinitionPullRequestTriggerForks {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionPullRequestTriggerForks
+		return ret
+	}).(BuildDefinitionPullRequestTriggerForksOutput)
 }
 
 // Build pull requests form forms of this repository.
@@ -3314,7 +3381,7 @@ func (o BuildDefinitionPullRequestTriggerOverrideOutput) ToBuildDefinitionPullRe
 }
 
 func (o BuildDefinitionPullRequestTriggerOverrideOutput) ToBuildDefinitionPullRequestTriggerOverridePtrOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerOverridePtrOutput {
-	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) *BuildDefinitionPullRequestTriggerOverride {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionPullRequestTriggerOverride) *BuildDefinitionPullRequestTriggerOverride {
 		return &v
 	}).(BuildDefinitionPullRequestTriggerOverridePtrOutput)
 }
@@ -3354,7 +3421,11 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) ToBuildDefinitionPul
 
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) Elem() BuildDefinitionPullRequestTriggerOverrideOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerOverride) BuildDefinitionPullRequestTriggerOverride {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionPullRequestTriggerOverride
+		return ret
 	}).(BuildDefinitionPullRequestTriggerOverrideOutput)
 }
 
@@ -3717,7 +3788,7 @@ func (o BuildDefinitionRepositoryOutput) ToBuildDefinitionRepositoryPtrOutput() 
 }
 
 func (o BuildDefinitionRepositoryOutput) ToBuildDefinitionRepositoryPtrOutputWithContext(ctx context.Context) BuildDefinitionRepositoryPtrOutput {
-	return o.ApplyT(func(v BuildDefinitionRepository) *BuildDefinitionRepository {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionRepository) *BuildDefinitionRepository {
 		return &v
 	}).(BuildDefinitionRepositoryPtrOutput)
 }
@@ -3772,7 +3843,13 @@ func (o BuildDefinitionRepositoryPtrOutput) ToBuildDefinitionRepositoryPtrOutput
 }
 
 func (o BuildDefinitionRepositoryPtrOutput) Elem() BuildDefinitionRepositoryOutput {
-	return o.ApplyT(func(v *BuildDefinitionRepository) BuildDefinitionRepository { return *v }).(BuildDefinitionRepositoryOutput)
+	return o.ApplyT(func(v *BuildDefinitionRepository) BuildDefinitionRepository {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionRepository
+		return ret
+	}).(BuildDefinitionRepositoryOutput)
 }
 
 // The branch name for which builds are triggered. Defaults to `master`.
@@ -4083,7 +4160,7 @@ func (o GitInitializationOutput) ToGitInitializationPtrOutput() GitInitializatio
 }
 
 func (o GitInitializationOutput) ToGitInitializationPtrOutputWithContext(ctx context.Context) GitInitializationPtrOutput {
-	return o.ApplyT(func(v GitInitialization) *GitInitialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitInitialization) *GitInitialization {
 		return &v
 	}).(GitInitializationPtrOutput)
 }
@@ -4123,7 +4200,13 @@ func (o GitInitializationPtrOutput) ToGitInitializationPtrOutputWithContext(ctx 
 }
 
 func (o GitInitializationPtrOutput) Elem() GitInitializationOutput {
-	return o.ApplyT(func(v *GitInitialization) GitInitialization { return *v }).(GitInitializationOutput)
+	return o.ApplyT(func(v *GitInitialization) GitInitialization {
+		if v != nil {
+			return *v
+		}
+		var ret GitInitialization
+		return ret
+	}).(GitInitializationOutput)
 }
 
 // The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
@@ -4267,7 +4350,7 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) ToServiceEndpointAr
 }
 
 func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) ToServiceEndpointArtifactoryAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationBasicPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) *ServiceEndpointArtifactoryAuthenticationBasic {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointArtifactoryAuthenticationBasic) *ServiceEndpointArtifactoryAuthenticationBasic {
 		return &v
 	}).(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput)
 }
@@ -4306,7 +4389,11 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) ToServiceEndpoin
 
 func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Elem() ServiceEndpointArtifactoryAuthenticationBasicOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) ServiceEndpointArtifactoryAuthenticationBasic {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointArtifactoryAuthenticationBasic
+		return ret
 	}).(ServiceEndpointArtifactoryAuthenticationBasicOutput)
 }
 
@@ -4445,7 +4532,7 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointAr
 }
 
 func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointArtifactoryAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryAuthenticationTokenPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) *ServiceEndpointArtifactoryAuthenticationToken {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointArtifactoryAuthenticationToken) *ServiceEndpointArtifactoryAuthenticationToken {
 		return &v
 	}).(ServiceEndpointArtifactoryAuthenticationTokenPtrOutput)
 }
@@ -4476,7 +4563,11 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) ToServiceEndpoin
 
 func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Elem() ServiceEndpointArtifactoryAuthenticationTokenOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationToken) ServiceEndpointArtifactoryAuthenticationToken {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointArtifactoryAuthenticationToken
+		return ret
 	}).(ServiceEndpointArtifactoryAuthenticationTokenOutput)
 }
 
@@ -4599,7 +4690,7 @@ func (o ServiceEndpointAzureRMCredentialsOutput) ToServiceEndpointAzureRMCredent
 }
 
 func (o ServiceEndpointAzureRMCredentialsOutput) ToServiceEndpointAzureRMCredentialsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureRMCredentialsPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) *ServiceEndpointAzureRMCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointAzureRMCredentials) *ServiceEndpointAzureRMCredentials {
 		return &v
 	}).(ServiceEndpointAzureRMCredentialsPtrOutput)
 }
@@ -4633,7 +4724,13 @@ func (o ServiceEndpointAzureRMCredentialsPtrOutput) ToServiceEndpointAzureRMCred
 }
 
 func (o ServiceEndpointAzureRMCredentialsPtrOutput) Elem() ServiceEndpointAzureRMCredentialsOutput {
-	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) ServiceEndpointAzureRMCredentials { return *v }).(ServiceEndpointAzureRMCredentialsOutput)
+	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) ServiceEndpointAzureRMCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointAzureRMCredentials
+		return ret
+	}).(ServiceEndpointAzureRMCredentialsOutput)
 }
 
 // The service principal application Id
@@ -4756,10 +4853,11 @@ func (o ServiceEndpointGitHubAuthOauthOutput) ToServiceEndpointGitHubAuthOauthPt
 }
 
 func (o ServiceEndpointGitHubAuthOauthOutput) ToServiceEndpointGitHubAuthOauthPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthOauthPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointGitHubAuthOauth) *ServiceEndpointGitHubAuthOauth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointGitHubAuthOauth) *ServiceEndpointGitHubAuthOauth {
 		return &v
 	}).(ServiceEndpointGitHubAuthOauthPtrOutput)
 }
+
 func (o ServiceEndpointGitHubAuthOauthOutput) OauthConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointGitHubAuthOauth) string { return v.OauthConfigurationId }).(pulumi.StringOutput)
 }
@@ -4779,7 +4877,13 @@ func (o ServiceEndpointGitHubAuthOauthPtrOutput) ToServiceEndpointGitHubAuthOaut
 }
 
 func (o ServiceEndpointGitHubAuthOauthPtrOutput) Elem() ServiceEndpointGitHubAuthOauthOutput {
-	return o.ApplyT(func(v *ServiceEndpointGitHubAuthOauth) ServiceEndpointGitHubAuthOauth { return *v }).(ServiceEndpointGitHubAuthOauthOutput)
+	return o.ApplyT(func(v *ServiceEndpointGitHubAuthOauth) ServiceEndpointGitHubAuthOauth {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointGitHubAuthOauth
+		return ret
+	}).(ServiceEndpointGitHubAuthOauthOutput)
 }
 
 func (o ServiceEndpointGitHubAuthOauthPtrOutput) OauthConfigurationId() pulumi.StringPtrOutput {
@@ -4886,7 +4990,7 @@ func (o ServiceEndpointGitHubAuthPersonalOutput) ToServiceEndpointGitHubAuthPers
 }
 
 func (o ServiceEndpointGitHubAuthPersonalOutput) ToServiceEndpointGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubAuthPersonalPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointGitHubAuthPersonal) *ServiceEndpointGitHubAuthPersonal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointGitHubAuthPersonal) *ServiceEndpointGitHubAuthPersonal {
 		return &v
 	}).(ServiceEndpointGitHubAuthPersonalPtrOutput)
 }
@@ -4915,7 +5019,13 @@ func (o ServiceEndpointGitHubAuthPersonalPtrOutput) ToServiceEndpointGitHubAuthP
 }
 
 func (o ServiceEndpointGitHubAuthPersonalPtrOutput) Elem() ServiceEndpointGitHubAuthPersonalOutput {
-	return o.ApplyT(func(v *ServiceEndpointGitHubAuthPersonal) ServiceEndpointGitHubAuthPersonal { return *v }).(ServiceEndpointGitHubAuthPersonalOutput)
+	return o.ApplyT(func(v *ServiceEndpointGitHubAuthPersonal) ServiceEndpointGitHubAuthPersonal {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointGitHubAuthPersonal
+		return ret
+	}).(ServiceEndpointGitHubAuthPersonalOutput)
 }
 
 // The Personal Access Token for Github.
@@ -5032,7 +5142,7 @@ func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) ToServiceEndpointGitH
 }
 
 func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) ToServiceEndpointGitHubEnterpriseAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointGitHubEnterpriseAuthPersonal) *ServiceEndpointGitHubEnterpriseAuthPersonal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointGitHubEnterpriseAuthPersonal) *ServiceEndpointGitHubEnterpriseAuthPersonal {
 		return &v
 	}).(ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput)
 }
@@ -5062,7 +5172,11 @@ func (o ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) ToServiceEndpointG
 
 func (o ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) Elem() ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
 	return o.ApplyT(func(v *ServiceEndpointGitHubEnterpriseAuthPersonal) ServiceEndpointGitHubEnterpriseAuthPersonal {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointGitHubEnterpriseAuthPersonal
+		return ret
 	}).(ServiceEndpointGitHubEnterpriseAuthPersonalOutput)
 }
 
@@ -5579,7 +5693,7 @@ func (o ServiceEndpointPipelineAuthPersonalOutput) ToServiceEndpointPipelineAuth
 }
 
 func (o ServiceEndpointPipelineAuthPersonalOutput) ToServiceEndpointPipelineAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceEndpointPipelineAuthPersonalPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointPipelineAuthPersonal) *ServiceEndpointPipelineAuthPersonal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointPipelineAuthPersonal) *ServiceEndpointPipelineAuthPersonal {
 		return &v
 	}).(ServiceEndpointPipelineAuthPersonalPtrOutput)
 }
@@ -5608,7 +5722,13 @@ func (o ServiceEndpointPipelineAuthPersonalPtrOutput) ToServiceEndpointPipelineA
 }
 
 func (o ServiceEndpointPipelineAuthPersonalPtrOutput) Elem() ServiceEndpointPipelineAuthPersonalOutput {
-	return o.ApplyT(func(v *ServiceEndpointPipelineAuthPersonal) ServiceEndpointPipelineAuthPersonal { return *v }).(ServiceEndpointPipelineAuthPersonalOutput)
+	return o.ApplyT(func(v *ServiceEndpointPipelineAuthPersonal) ServiceEndpointPipelineAuthPersonal {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointPipelineAuthPersonal
+		return ret
+	}).(ServiceEndpointPipelineAuthPersonalOutput)
 }
 
 // The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
@@ -5741,7 +5861,7 @@ func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ToServiceEndpoin
 }
 
 func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ToServiceEndpointServiceFabricAzureActiveDirectoryPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) *ServiceEndpointServiceFabricAzureActiveDirectory {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointServiceFabricAzureActiveDirectory) *ServiceEndpointServiceFabricAzureActiveDirectory {
 		return &v
 	}).(ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput)
 }
@@ -5791,7 +5911,11 @@ func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ToServiceEndp
 
 func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) Elem() ServiceEndpointServiceFabricAzureActiveDirectoryOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) ServiceEndpointServiceFabricAzureActiveDirectory {
-		return *v
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointServiceFabricAzureActiveDirectory
+		return ret
 	}).(ServiceEndpointServiceFabricAzureActiveDirectoryOutput)
 }
 
@@ -5967,7 +6091,7 @@ func (o ServiceEndpointServiceFabricCertificateOutput) ToServiceEndpointServiceF
 }
 
 func (o ServiceEndpointServiceFabricCertificateOutput) ToServiceEndpointServiceFabricCertificatePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricCertificatePtrOutput {
-	return o.ApplyT(func(v ServiceEndpointServiceFabricCertificate) *ServiceEndpointServiceFabricCertificate {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointServiceFabricCertificate) *ServiceEndpointServiceFabricCertificate {
 		return &v
 	}).(ServiceEndpointServiceFabricCertificatePtrOutput)
 }
@@ -6020,7 +6144,13 @@ func (o ServiceEndpointServiceFabricCertificatePtrOutput) ToServiceEndpointServi
 }
 
 func (o ServiceEndpointServiceFabricCertificatePtrOutput) Elem() ServiceEndpointServiceFabricCertificateOutput {
-	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) ServiceEndpointServiceFabricCertificate { return *v }).(ServiceEndpointServiceFabricCertificateOutput)
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricCertificate) ServiceEndpointServiceFabricCertificate {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointServiceFabricCertificate
+		return ret
+	}).(ServiceEndpointServiceFabricCertificateOutput)
 }
 
 // Base64 encoding of the cluster's client certificate file.
@@ -6188,7 +6318,7 @@ func (o ServiceEndpointServiceFabricNoneOutput) ToServiceEndpointServiceFabricNo
 }
 
 func (o ServiceEndpointServiceFabricNoneOutput) ToServiceEndpointServiceFabricNonePtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricNonePtrOutput {
-	return o.ApplyT(func(v ServiceEndpointServiceFabricNone) *ServiceEndpointServiceFabricNone {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointServiceFabricNone) *ServiceEndpointServiceFabricNone {
 		return &v
 	}).(ServiceEndpointServiceFabricNonePtrOutput)
 }
@@ -6218,7 +6348,13 @@ func (o ServiceEndpointServiceFabricNonePtrOutput) ToServiceEndpointServiceFabri
 }
 
 func (o ServiceEndpointServiceFabricNonePtrOutput) Elem() ServiceEndpointServiceFabricNoneOutput {
-	return o.ApplyT(func(v *ServiceEndpointServiceFabricNone) ServiceEndpointServiceFabricNone { return *v }).(ServiceEndpointServiceFabricNoneOutput)
+	return o.ApplyT(func(v *ServiceEndpointServiceFabricNone) ServiceEndpointServiceFabricNone {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointServiceFabricNone
+		return ret
+	}).(ServiceEndpointServiceFabricNoneOutput)
 }
 
 // Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
@@ -6336,7 +6472,7 @@ func (o VariableGroupKeyVaultOutput) ToVariableGroupKeyVaultPtrOutput() Variable
 }
 
 func (o VariableGroupKeyVaultOutput) ToVariableGroupKeyVaultPtrOutputWithContext(ctx context.Context) VariableGroupKeyVaultPtrOutput {
-	return o.ApplyT(func(v VariableGroupKeyVault) *VariableGroupKeyVault {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v VariableGroupKeyVault) *VariableGroupKeyVault {
 		return &v
 	}).(VariableGroupKeyVaultPtrOutput)
 }
@@ -6365,7 +6501,13 @@ func (o VariableGroupKeyVaultPtrOutput) ToVariableGroupKeyVaultPtrOutputWithCont
 }
 
 func (o VariableGroupKeyVaultPtrOutput) Elem() VariableGroupKeyVaultOutput {
-	return o.ApplyT(func(v *VariableGroupKeyVault) VariableGroupKeyVault { return *v }).(VariableGroupKeyVaultOutput)
+	return o.ApplyT(func(v *VariableGroupKeyVault) VariableGroupKeyVault {
+		if v != nil {
+			return *v
+		}
+		var ret VariableGroupKeyVault
+		return ret
+	}).(VariableGroupKeyVaultOutput)
 }
 
 // The name of the Variable Group.
@@ -7476,6 +7618,102 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsPtrInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsScopeInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationSettingsInput)(nil)).Elem(), BranchPolicyBuildValidationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationSettingsPtrInput)(nil)).Elem(), BranchPolicyBuildValidationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationSettingsScopeInput)(nil)).Elem(), BranchPolicyBuildValidationSettingsScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyBuildValidationSettingsScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyCommentResolutionSettingsInput)(nil)).Elem(), BranchPolicyCommentResolutionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyCommentResolutionSettingsPtrInput)(nil)).Elem(), BranchPolicyCommentResolutionSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyCommentResolutionSettingsScopeInput)(nil)).Elem(), BranchPolicyCommentResolutionSettingsScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyCommentResolutionSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyCommentResolutionSettingsScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMergeTypesSettingsInput)(nil)).Elem(), BranchPolicyMergeTypesSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMergeTypesSettingsPtrInput)(nil)).Elem(), BranchPolicyMergeTypesSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMergeTypesSettingsScopeInput)(nil)).Elem(), BranchPolicyMergeTypesSettingsScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMergeTypesSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyMergeTypesSettingsScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersSettingsInput)(nil)).Elem(), BranchPolicyMinReviewersSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersSettingsPtrInput)(nil)).Elem(), BranchPolicyMinReviewersSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersSettingsScopeInput)(nil)).Elem(), BranchPolicyMinReviewersSettingsScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyMinReviewersSettingsScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyStatusCheckSettingsInput)(nil)).Elem(), BranchPolicyStatusCheckSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyStatusCheckSettingsPtrInput)(nil)).Elem(), BranchPolicyStatusCheckSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyStatusCheckSettingsScopeInput)(nil)).Elem(), BranchPolicyStatusCheckSettingsScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyStatusCheckSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyStatusCheckSettingsScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingSettingsInput)(nil)).Elem(), BranchPolicyWorkItemLinkingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingSettingsPtrInput)(nil)).Elem(), BranchPolicyWorkItemLinkingSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingSettingsScopeInput)(nil)).Elem(), BranchPolicyWorkItemLinkingSettingsScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyWorkItemLinkingSettingsScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerInput)(nil)).Elem(), BuildDefinitionCiTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerPtrInput)(nil)).Elem(), BuildDefinitionCiTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverrideInput)(nil)).Elem(), BuildDefinitionCiTriggerOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverridePtrInput)(nil)).Elem(), BuildDefinitionCiTriggerOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverrideBranchFilterInput)(nil)).Elem(), BuildDefinitionCiTriggerOverrideBranchFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverrideBranchFilterArrayInput)(nil)).Elem(), BuildDefinitionCiTriggerOverrideBranchFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverridePathFilterInput)(nil)).Elem(), BuildDefinitionCiTriggerOverridePathFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionCiTriggerOverridePathFilterArrayInput)(nil)).Elem(), BuildDefinitionCiTriggerOverridePathFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerPtrInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerForksInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerForksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerForksPtrInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerForksArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverrideInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverridePtrInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverrideArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverrideBranchFilterInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverrideBranchFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverridePathFilterInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverridePathFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverridePathFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionRepositoryInput)(nil)).Elem(), BuildDefinitionRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionRepositoryPtrInput)(nil)).Elem(), BuildDefinitionRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionVariableInput)(nil)).Elem(), BuildDefinitionVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionVariableArrayInput)(nil)).Elem(), BuildDefinitionVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitInitializationInput)(nil)).Elem(), GitInitializationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitInitializationPtrInput)(nil)).Elem(), GitInitializationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationBasicInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationBasicPtrInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationTokenInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationTokenPtrInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureRMCredentialsInput)(nil)).Elem(), ServiceEndpointAzureRMCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureRMCredentialsPtrInput)(nil)).Elem(), ServiceEndpointAzureRMCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthOauthInput)(nil)).Elem(), ServiceEndpointGitHubAuthOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthOauthPtrInput)(nil)).Elem(), ServiceEndpointGitHubAuthOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthPersonalInput)(nil)).Elem(), ServiceEndpointGitHubAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubAuthPersonalPtrInput)(nil)).Elem(), ServiceEndpointGitHubAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthPersonalInput)(nil)).Elem(), ServiceEndpointGitHubEnterpriseAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput)(nil)).Elem(), ServiceEndpointGitHubEnterpriseAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesAzureSubscriptionInput)(nil)).Elem(), ServiceEndpointKubernetesAzureSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesAzureSubscriptionArrayInput)(nil)).Elem(), ServiceEndpointKubernetesAzureSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesKubeconfigInput)(nil)).Elem(), ServiceEndpointKubernetesKubeconfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesKubeconfigArrayInput)(nil)).Elem(), ServiceEndpointKubernetesKubeconfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesServiceAccountInput)(nil)).Elem(), ServiceEndpointKubernetesServiceAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesServiceAccountArrayInput)(nil)).Elem(), ServiceEndpointKubernetesServiceAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelineAuthPersonalInput)(nil)).Elem(), ServiceEndpointPipelineAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelineAuthPersonalPtrInput)(nil)).Elem(), ServiceEndpointPipelineAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricAzureActiveDirectoryInput)(nil)).Elem(), ServiceEndpointServiceFabricAzureActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricAzureActiveDirectoryPtrInput)(nil)).Elem(), ServiceEndpointServiceFabricAzureActiveDirectoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricCertificateInput)(nil)).Elem(), ServiceEndpointServiceFabricCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricCertificatePtrInput)(nil)).Elem(), ServiceEndpointServiceFabricCertificateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricNoneInput)(nil)).Elem(), ServiceEndpointServiceFabricNoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricNonePtrInput)(nil)).Elem(), ServiceEndpointServiceFabricNoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableArrayInput)(nil)).Elem(), VariableGroupVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAreaChildrenInput)(nil)).Elem(), GetAreaChildrenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAreaChildrenArrayInput)(nil)).Elem(), GetAreaChildrenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIterationChildrenInput)(nil)).Elem(), GetIterationChildrenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetIterationChildrenArrayInput)(nil)).Elem(), GetIterationChildrenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolsAgentPoolInput)(nil)).Elem(), GetPoolsAgentPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolsAgentPoolArrayInput)(nil)).Elem(), GetPoolsAgentPoolArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectsProjectInput)(nil)).Elem(), GetProjectsProjectArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetProjectsProjectArrayInput)(nil)).Elem(), GetProjectsProjectArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepositoryInput)(nil)).Elem(), GetRepositoriesRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepositoryArrayInput)(nil)).Elem(), GetRepositoriesRepositoryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamInput)(nil)).Elem(), GetTeamsTeamArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsOutput{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsScopeOutput{})

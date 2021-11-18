@@ -14,6 +14,82 @@ import (
 // Manages a Build Definition within Azure DevOps.
 //
 // ## Example Usage
+// ### Tfs
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 			Visibility:       pulumi.String("private"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		repository, err := azuredevops.NewGit(ctx, "repository", &azuredevops.GitArgs{
+// 			ProjectId: project.ID(),
+// 			Initialization: &GitInitializationArgs{
+// 				InitType: pulumi.String("Clean"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		vars, err := azuredevops.NewVariableGroup(ctx, "vars", &azuredevops.VariableGroupArgs{
+// 			ProjectId:   project.ID(),
+// 			Description: pulumi.String("Managed by Terraform"),
+// 			AllowAccess: pulumi.Bool(true),
+// 			Variables: VariableGroupVariableArray{
+// 				&VariableGroupVariableArgs{
+// 					Name:  pulumi.String("FOO"),
+// 					Value: pulumi.String("BAR"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewBuildDefinition(ctx, "build", &azuredevops.BuildDefinitionArgs{
+// 			ProjectId: project.ID(),
+// 			Path:      pulumi.String("\\ExampleFolder"),
+// 			CiTrigger: &BuildDefinitionCiTriggerArgs{
+// 				UseYaml: pulumi.Bool(true),
+// 			},
+// 			Repository: &BuildDefinitionRepositoryArgs{
+// 				RepoType:   pulumi.String("TfsGit"),
+// 				RepoId:     repository.ID(),
+// 				BranchName: repository.DefaultBranch,
+// 				YmlPath:    pulumi.String("azure-pipelines.yml"),
+// 			},
+// 			VariableGroups: pulumi.IntArray{
+// 				vars.ID(),
+// 			},
+// 			Variables: BuildDefinitionVariableArray{
+// 				&BuildDefinitionVariableArgs{
+// 					Name:  pulumi.String("PipelineVariable"),
+// 					Value: pulumi.String("Go Microsoft!"),
+// 				},
+// 				&BuildDefinitionVariableArgs{
+// 					Name:        pulumi.String("PipelineSecret"),
+// 					SecretValue: pulumi.String("ZGV2cw"),
+// 					IsSecret:    pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### GitHub Enterprise
 // ```go
 // package main
@@ -28,10 +104,10 @@ import (
 // 		_, err := azuredevops.NewBuildDefinition(ctx, "sampleDotnetcoreAppRelease", &azuredevops.BuildDefinitionArgs{
 // 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
 // 			Path:      pulumi.String("\\ExampleFolder"),
-// 			CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
+// 			CiTrigger: &BuildDefinitionCiTriggerArgs{
 // 				UseYaml: pulumi.Bool(true),
 // 			},
-// 			Repository: &azuredevops.BuildDefinitionRepositoryArgs{
+// 			Repository: &BuildDefinitionRepositoryArgs{
 // 				RepoType:            pulumi.String("GitHubEnterprise"),
 // 				RepoId:              pulumi.String("<GitHub Org>/<Repo Name>"),
 // 				GithubEnterpriseUrl: pulumi.String("https://github.company.com"),
@@ -284,7 +360,7 @@ type BuildDefinitionArrayInput interface {
 type BuildDefinitionArray []BuildDefinitionInput
 
 func (BuildDefinitionArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BuildDefinition)(nil))
+	return reflect.TypeOf((*[]*BuildDefinition)(nil)).Elem()
 }
 
 func (i BuildDefinitionArray) ToBuildDefinitionArrayOutput() BuildDefinitionArrayOutput {
@@ -309,7 +385,7 @@ type BuildDefinitionMapInput interface {
 type BuildDefinitionMap map[string]BuildDefinitionInput
 
 func (BuildDefinitionMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BuildDefinition)(nil))
+	return reflect.TypeOf((*map[string]*BuildDefinition)(nil)).Elem()
 }
 
 func (i BuildDefinitionMap) ToBuildDefinitionMapOutput() BuildDefinitionMapOutput {
@@ -320,9 +396,7 @@ func (i BuildDefinitionMap) ToBuildDefinitionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionMapOutput)
 }
 
-type BuildDefinitionOutput struct {
-	*pulumi.OutputState
-}
+type BuildDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BuildDefinition)(nil))
@@ -341,14 +415,12 @@ func (o BuildDefinitionOutput) ToBuildDefinitionPtrOutput() BuildDefinitionPtrOu
 }
 
 func (o BuildDefinitionOutput) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
-	return o.ApplyT(func(v BuildDefinition) *BuildDefinition {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinition) *BuildDefinition {
 		return &v
 	}).(BuildDefinitionPtrOutput)
 }
 
-type BuildDefinitionPtrOutput struct {
-	*pulumi.OutputState
-}
+type BuildDefinitionPtrOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BuildDefinition)(nil))
@@ -360,6 +432,16 @@ func (o BuildDefinitionPtrOutput) ToBuildDefinitionPtrOutput() BuildDefinitionPt
 
 func (o BuildDefinitionPtrOutput) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
 	return o
+}
+
+func (o BuildDefinitionPtrOutput) Elem() BuildDefinitionOutput {
+	return o.ApplyT(func(v *BuildDefinition) BuildDefinition {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinition
+		return ret
+	}).(BuildDefinitionOutput)
 }
 
 type BuildDefinitionArrayOutput struct{ *pulumi.OutputState }
@@ -403,6 +485,10 @@ func (o BuildDefinitionMapOutput) MapIndex(k pulumi.StringInput) BuildDefinition
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionInput)(nil)).Elem(), &BuildDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPtrInput)(nil)).Elem(), &BuildDefinition{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionArrayInput)(nil)).Elem(), BuildDefinitionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionMapInput)(nil)).Elem(), BuildDefinitionMap{})
 	pulumi.RegisterOutputType(BuildDefinitionOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionArrayOutput{})

@@ -109,7 +109,7 @@ func (o AzureRMCredentialsOutput) ToAzureRMCredentialsPtrOutput() AzureRMCredent
 }
 
 func (o AzureRMCredentialsOutput) ToAzureRMCredentialsPtrOutputWithContext(ctx context.Context) AzureRMCredentialsPtrOutput {
-	return o.ApplyT(func(v AzureRMCredentials) *AzureRMCredentials {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureRMCredentials) *AzureRMCredentials {
 		return &v
 	}).(AzureRMCredentialsPtrOutput)
 }
@@ -143,7 +143,13 @@ func (o AzureRMCredentialsPtrOutput) ToAzureRMCredentialsPtrOutputWithContext(ct
 }
 
 func (o AzureRMCredentialsPtrOutput) Elem() AzureRMCredentialsOutput {
-	return o.ApplyT(func(v *AzureRMCredentials) AzureRMCredentials { return *v }).(AzureRMCredentialsOutput)
+	return o.ApplyT(func(v *AzureRMCredentials) AzureRMCredentials {
+		if v != nil {
+			return *v
+		}
+		var ret AzureRMCredentials
+		return ret
+	}).(AzureRMCredentialsOutput)
 }
 
 // The service principal application Id
@@ -266,10 +272,11 @@ func (o GitHubAuthOauthOutput) ToGitHubAuthOauthPtrOutput() GitHubAuthOauthPtrOu
 }
 
 func (o GitHubAuthOauthOutput) ToGitHubAuthOauthPtrOutputWithContext(ctx context.Context) GitHubAuthOauthPtrOutput {
-	return o.ApplyT(func(v GitHubAuthOauth) *GitHubAuthOauth {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubAuthOauth) *GitHubAuthOauth {
 		return &v
 	}).(GitHubAuthOauthPtrOutput)
 }
+
 func (o GitHubAuthOauthOutput) OauthConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GitHubAuthOauth) string { return v.OauthConfigurationId }).(pulumi.StringOutput)
 }
@@ -289,7 +296,13 @@ func (o GitHubAuthOauthPtrOutput) ToGitHubAuthOauthPtrOutputWithContext(ctx cont
 }
 
 func (o GitHubAuthOauthPtrOutput) Elem() GitHubAuthOauthOutput {
-	return o.ApplyT(func(v *GitHubAuthOauth) GitHubAuthOauth { return *v }).(GitHubAuthOauthOutput)
+	return o.ApplyT(func(v *GitHubAuthOauth) GitHubAuthOauth {
+		if v != nil {
+			return *v
+		}
+		var ret GitHubAuthOauth
+		return ret
+	}).(GitHubAuthOauthOutput)
 }
 
 func (o GitHubAuthOauthPtrOutput) OauthConfigurationId() pulumi.StringPtrOutput {
@@ -396,7 +409,7 @@ func (o GitHubAuthPersonalOutput) ToGitHubAuthPersonalPtrOutput() GitHubAuthPers
 }
 
 func (o GitHubAuthPersonalOutput) ToGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) GitHubAuthPersonalPtrOutput {
-	return o.ApplyT(func(v GitHubAuthPersonal) *GitHubAuthPersonal {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHubAuthPersonal) *GitHubAuthPersonal {
 		return &v
 	}).(GitHubAuthPersonalPtrOutput)
 }
@@ -425,7 +438,13 @@ func (o GitHubAuthPersonalPtrOutput) ToGitHubAuthPersonalPtrOutputWithContext(ct
 }
 
 func (o GitHubAuthPersonalPtrOutput) Elem() GitHubAuthPersonalOutput {
-	return o.ApplyT(func(v *GitHubAuthPersonal) GitHubAuthPersonal { return *v }).(GitHubAuthPersonalOutput)
+	return o.ApplyT(func(v *GitHubAuthPersonal) GitHubAuthPersonal {
+		if v != nil {
+			return *v
+		}
+		var ret GitHubAuthPersonal
+		return ret
+	}).(GitHubAuthPersonalOutput)
 }
 
 // The Personal Access Token for Github.
@@ -847,6 +866,18 @@ func (o KubernetesServiceAccountArrayOutput) Index(i pulumi.IntInput) Kubernetes
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMCredentialsInput)(nil)).Elem(), AzureRMCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMCredentialsPtrInput)(nil)).Elem(), AzureRMCredentialsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubAuthOauthInput)(nil)).Elem(), GitHubAuthOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubAuthOauthPtrInput)(nil)).Elem(), GitHubAuthOauthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubAuthPersonalInput)(nil)).Elem(), GitHubAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubAuthPersonalPtrInput)(nil)).Elem(), GitHubAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesAzureSubscriptionInput)(nil)).Elem(), KubernetesAzureSubscriptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesAzureSubscriptionArrayInput)(nil)).Elem(), KubernetesAzureSubscriptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesKubeconfigInput)(nil)).Elem(), KubernetesKubeconfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesKubeconfigArrayInput)(nil)).Elem(), KubernetesKubeconfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesServiceAccountInput)(nil)).Elem(), KubernetesServiceAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesServiceAccountArrayInput)(nil)).Elem(), KubernetesServiceAccountArray{})
 	pulumi.RegisterOutputType(AzureRMCredentialsOutput{})
 	pulumi.RegisterOutputType(AzureRMCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(GitHubAuthOauthOutput{})

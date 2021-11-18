@@ -44,7 +44,7 @@ import (
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("Sample AzureRM"),
 // 			Description:         pulumi.String("Managed by Terraform"),
-// 			Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
+// 			Credentials: &ServiceEndpointAzureRMCredentialsArgs{
 // 				Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
@@ -323,7 +323,7 @@ type AzureRMArrayInput interface {
 type AzureRMArray []AzureRMInput
 
 func (AzureRMArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AzureRM)(nil))
+	return reflect.TypeOf((*[]*AzureRM)(nil)).Elem()
 }
 
 func (i AzureRMArray) ToAzureRMArrayOutput() AzureRMArrayOutput {
@@ -348,7 +348,7 @@ type AzureRMMapInput interface {
 type AzureRMMap map[string]AzureRMInput
 
 func (AzureRMMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AzureRM)(nil))
+	return reflect.TypeOf((*map[string]*AzureRM)(nil)).Elem()
 }
 
 func (i AzureRMMap) ToAzureRMMapOutput() AzureRMMapOutput {
@@ -359,9 +359,7 @@ func (i AzureRMMap) ToAzureRMMapOutputWithContext(ctx context.Context) AzureRMMa
 	return pulumi.ToOutputWithContext(ctx, i).(AzureRMMapOutput)
 }
 
-type AzureRMOutput struct {
-	*pulumi.OutputState
-}
+type AzureRMOutput struct{ *pulumi.OutputState }
 
 func (AzureRMOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AzureRM)(nil))
@@ -380,14 +378,12 @@ func (o AzureRMOutput) ToAzureRMPtrOutput() AzureRMPtrOutput {
 }
 
 func (o AzureRMOutput) ToAzureRMPtrOutputWithContext(ctx context.Context) AzureRMPtrOutput {
-	return o.ApplyT(func(v AzureRM) *AzureRM {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AzureRM) *AzureRM {
 		return &v
 	}).(AzureRMPtrOutput)
 }
 
-type AzureRMPtrOutput struct {
-	*pulumi.OutputState
-}
+type AzureRMPtrOutput struct{ *pulumi.OutputState }
 
 func (AzureRMPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AzureRM)(nil))
@@ -399,6 +395,16 @@ func (o AzureRMPtrOutput) ToAzureRMPtrOutput() AzureRMPtrOutput {
 
 func (o AzureRMPtrOutput) ToAzureRMPtrOutputWithContext(ctx context.Context) AzureRMPtrOutput {
 	return o
+}
+
+func (o AzureRMPtrOutput) Elem() AzureRMOutput {
+	return o.ApplyT(func(v *AzureRM) AzureRM {
+		if v != nil {
+			return *v
+		}
+		var ret AzureRM
+		return ret
+	}).(AzureRMOutput)
 }
 
 type AzureRMArrayOutput struct{ *pulumi.OutputState }
@@ -442,6 +448,10 @@ func (o AzureRMMapOutput) MapIndex(k pulumi.StringInput) AzureRMOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMInput)(nil)).Elem(), &AzureRM{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMPtrInput)(nil)).Elem(), &AzureRM{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMArrayInput)(nil)).Elem(), AzureRMArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AzureRMMapInput)(nil)).Elem(), AzureRMMap{})
 	pulumi.RegisterOutputType(AzureRMOutput{})
 	pulumi.RegisterOutputType(AzureRMPtrOutput{})
 	pulumi.RegisterOutputType(AzureRMArrayOutput{})

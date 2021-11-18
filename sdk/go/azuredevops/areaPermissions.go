@@ -20,6 +20,47 @@ import (
 // Permission for Areas within Azure DevOps can be applied on two different levels.
 // Those levels are reflected by specifying (or omitting) values for the arguments `projectId` and `path`.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			Visibility:       pulumi.String("private"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewAreaPermissions(ctx, "root_permissions", &azuredevops.AreaPermissionsArgs{
+// 			ProjectId: project.ID(),
+// 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
+// 				return project_readers.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			Path: pulumi.String("/"),
+// 			Permissions: pulumi.StringMap{
+// 				"CREATE_CHILDREN": pulumi.String("Deny"),
+// 				"GENERIC_READ":    pulumi.String("Allow"),
+// 				"DELETE":          pulumi.String("Deny"),
+// 				"WORK_ITEM_READ":  pulumi.String("Allow"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
@@ -206,7 +247,7 @@ type AreaPermissionsArrayInput interface {
 type AreaPermissionsArray []AreaPermissionsInput
 
 func (AreaPermissionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*AreaPermissions)(nil))
+	return reflect.TypeOf((*[]*AreaPermissions)(nil)).Elem()
 }
 
 func (i AreaPermissionsArray) ToAreaPermissionsArrayOutput() AreaPermissionsArrayOutput {
@@ -231,7 +272,7 @@ type AreaPermissionsMapInput interface {
 type AreaPermissionsMap map[string]AreaPermissionsInput
 
 func (AreaPermissionsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*AreaPermissions)(nil))
+	return reflect.TypeOf((*map[string]*AreaPermissions)(nil)).Elem()
 }
 
 func (i AreaPermissionsMap) ToAreaPermissionsMapOutput() AreaPermissionsMapOutput {
@@ -242,9 +283,7 @@ func (i AreaPermissionsMap) ToAreaPermissionsMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(AreaPermissionsMapOutput)
 }
 
-type AreaPermissionsOutput struct {
-	*pulumi.OutputState
-}
+type AreaPermissionsOutput struct{ *pulumi.OutputState }
 
 func (AreaPermissionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*AreaPermissions)(nil))
@@ -263,14 +302,12 @@ func (o AreaPermissionsOutput) ToAreaPermissionsPtrOutput() AreaPermissionsPtrOu
 }
 
 func (o AreaPermissionsOutput) ToAreaPermissionsPtrOutputWithContext(ctx context.Context) AreaPermissionsPtrOutput {
-	return o.ApplyT(func(v AreaPermissions) *AreaPermissions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AreaPermissions) *AreaPermissions {
 		return &v
 	}).(AreaPermissionsPtrOutput)
 }
 
-type AreaPermissionsPtrOutput struct {
-	*pulumi.OutputState
-}
+type AreaPermissionsPtrOutput struct{ *pulumi.OutputState }
 
 func (AreaPermissionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**AreaPermissions)(nil))
@@ -282,6 +319,16 @@ func (o AreaPermissionsPtrOutput) ToAreaPermissionsPtrOutput() AreaPermissionsPt
 
 func (o AreaPermissionsPtrOutput) ToAreaPermissionsPtrOutputWithContext(ctx context.Context) AreaPermissionsPtrOutput {
 	return o
+}
+
+func (o AreaPermissionsPtrOutput) Elem() AreaPermissionsOutput {
+	return o.ApplyT(func(v *AreaPermissions) AreaPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret AreaPermissions
+		return ret
+	}).(AreaPermissionsOutput)
 }
 
 type AreaPermissionsArrayOutput struct{ *pulumi.OutputState }
@@ -325,6 +372,10 @@ func (o AreaPermissionsMapOutput) MapIndex(k pulumi.StringInput) AreaPermissions
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*AreaPermissionsInput)(nil)).Elem(), &AreaPermissions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AreaPermissionsPtrInput)(nil)).Elem(), &AreaPermissions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AreaPermissionsArrayInput)(nil)).Elem(), AreaPermissionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AreaPermissionsMapInput)(nil)).Elem(), AreaPermissionsMap{})
 	pulumi.RegisterOutputType(AreaPermissionsOutput{})
 	pulumi.RegisterOutputType(AreaPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(AreaPermissionsArrayOutput{})

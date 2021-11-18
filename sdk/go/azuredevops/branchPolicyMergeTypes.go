@@ -31,7 +31,7 @@ import (
 // 		}
 // 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -42,18 +42,18 @@ import (
 // 			ProjectId: project.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
-// 			Settings: &azuredevops.BranchPolicyMergeTypesSettingsArgs{
+// 			Settings: &BranchPolicyMergeTypesSettingsArgs{
 // 				AllowSquash:               pulumi.Bool(true),
 // 				AllowRebaseAndFastForward: pulumi.Bool(true),
 // 				AllowBasicNoFastForward:   pulumi.Bool(true),
 // 				AllowRebaseWithMerge:      pulumi.Bool(true),
-// 				Scopes: azuredevops.BranchPolicyMergeTypesSettingsScopeArray{
-// 					&azuredevops.BranchPolicyMergeTypesSettingsScopeArgs{
+// 				Scopes: BranchPolicyMergeTypesSettingsScopeArray{
+// 					&BranchPolicyMergeTypesSettingsScopeArgs{
 // 						RepositoryId:  git.ID(),
 // 						RepositoryRef: git.DefaultBranch,
 // 						MatchType:     pulumi.String("Exact"),
 // 					},
-// 					&azuredevops.BranchPolicyMergeTypesSettingsScopeArgs{
+// 					&BranchPolicyMergeTypesSettingsScopeArgs{
 // 						RepositoryId:  nil,
 // 						RepositoryRef: pulumi.String("refs/heads/releases"),
 // 						MatchType:     pulumi.String("Prefix"),
@@ -241,7 +241,7 @@ type BranchPolicyMergeTypesArrayInput interface {
 type BranchPolicyMergeTypesArray []BranchPolicyMergeTypesInput
 
 func (BranchPolicyMergeTypesArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BranchPolicyMergeTypes)(nil))
+	return reflect.TypeOf((*[]*BranchPolicyMergeTypes)(nil)).Elem()
 }
 
 func (i BranchPolicyMergeTypesArray) ToBranchPolicyMergeTypesArrayOutput() BranchPolicyMergeTypesArrayOutput {
@@ -266,7 +266,7 @@ type BranchPolicyMergeTypesMapInput interface {
 type BranchPolicyMergeTypesMap map[string]BranchPolicyMergeTypesInput
 
 func (BranchPolicyMergeTypesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BranchPolicyMergeTypes)(nil))
+	return reflect.TypeOf((*map[string]*BranchPolicyMergeTypes)(nil)).Elem()
 }
 
 func (i BranchPolicyMergeTypesMap) ToBranchPolicyMergeTypesMapOutput() BranchPolicyMergeTypesMapOutput {
@@ -277,9 +277,7 @@ func (i BranchPolicyMergeTypesMap) ToBranchPolicyMergeTypesMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMergeTypesMapOutput)
 }
 
-type BranchPolicyMergeTypesOutput struct {
-	*pulumi.OutputState
-}
+type BranchPolicyMergeTypesOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyMergeTypesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BranchPolicyMergeTypes)(nil))
@@ -298,14 +296,12 @@ func (o BranchPolicyMergeTypesOutput) ToBranchPolicyMergeTypesPtrOutput() Branch
 }
 
 func (o BranchPolicyMergeTypesOutput) ToBranchPolicyMergeTypesPtrOutputWithContext(ctx context.Context) BranchPolicyMergeTypesPtrOutput {
-	return o.ApplyT(func(v BranchPolicyMergeTypes) *BranchPolicyMergeTypes {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyMergeTypes) *BranchPolicyMergeTypes {
 		return &v
 	}).(BranchPolicyMergeTypesPtrOutput)
 }
 
-type BranchPolicyMergeTypesPtrOutput struct {
-	*pulumi.OutputState
-}
+type BranchPolicyMergeTypesPtrOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyMergeTypesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BranchPolicyMergeTypes)(nil))
@@ -317,6 +313,16 @@ func (o BranchPolicyMergeTypesPtrOutput) ToBranchPolicyMergeTypesPtrOutput() Bra
 
 func (o BranchPolicyMergeTypesPtrOutput) ToBranchPolicyMergeTypesPtrOutputWithContext(ctx context.Context) BranchPolicyMergeTypesPtrOutput {
 	return o
+}
+
+func (o BranchPolicyMergeTypesPtrOutput) Elem() BranchPolicyMergeTypesOutput {
+	return o.ApplyT(func(v *BranchPolicyMergeTypes) BranchPolicyMergeTypes {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyMergeTypes
+		return ret
+	}).(BranchPolicyMergeTypesOutput)
 }
 
 type BranchPolicyMergeTypesArrayOutput struct{ *pulumi.OutputState }
@@ -360,6 +366,10 @@ func (o BranchPolicyMergeTypesMapOutput) MapIndex(k pulumi.StringInput) BranchPo
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMergeTypesInput)(nil)).Elem(), &BranchPolicyMergeTypes{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMergeTypesPtrInput)(nil)).Elem(), &BranchPolicyMergeTypes{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMergeTypesArrayInput)(nil)).Elem(), BranchPolicyMergeTypesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMergeTypesMapInput)(nil)).Elem(), BranchPolicyMergeTypesMap{})
 	pulumi.RegisterOutputType(BranchPolicyMergeTypesOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMergeTypesPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMergeTypesArrayOutput{})

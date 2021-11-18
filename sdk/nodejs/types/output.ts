@@ -839,6 +839,7 @@ export interface VariableGroupVariable {
      */
     value?: string;
 }
+
 export namespace Agent {
     export interface GetPoolsAgentPool {
         /**
@@ -855,6 +856,7 @@ export namespace Agent {
          */
         poolType: string;
     }
+
 }
 
 export namespace Build {
@@ -1036,6 +1038,7 @@ export namespace Build {
          */
         value?: string;
     }
+
 }
 
 export namespace Core {
@@ -1057,6 +1060,7 @@ export namespace Core {
          */
         state: string;
     }
+
 }
 
 export namespace Identities {
@@ -1086,6 +1090,7 @@ export namespace Identities {
          */
         principalName: string;
     }
+
 }
 
 export namespace Pipeline {
@@ -1118,6 +1123,7 @@ export namespace Pipeline {
          */
         value?: string;
     }
+
 }
 
 export namespace Policy {
@@ -1216,6 +1222,7 @@ export namespace Policy {
          */
         repositoryRef?: string;
     }
+
 }
 
 export namespace Repository {
@@ -1276,6 +1283,7 @@ export namespace Repository {
          */
         sourceUrl?: string;
     }
+
 }
 
 export namespace ServiceEndpoint {
@@ -1366,4 +1374,5 @@ export namespace ServiceEndpoint {
         token: string;
         tokenHash: string;
     }
+
 }

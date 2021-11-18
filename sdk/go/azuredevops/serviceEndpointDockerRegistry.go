@@ -291,7 +291,7 @@ type ServiceEndpointDockerRegistryArrayInput interface {
 type ServiceEndpointDockerRegistryArray []ServiceEndpointDockerRegistryInput
 
 func (ServiceEndpointDockerRegistryArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEndpointDockerRegistry)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointDockerRegistry)(nil)).Elem()
 }
 
 func (i ServiceEndpointDockerRegistryArray) ToServiceEndpointDockerRegistryArrayOutput() ServiceEndpointDockerRegistryArrayOutput {
@@ -316,7 +316,7 @@ type ServiceEndpointDockerRegistryMapInput interface {
 type ServiceEndpointDockerRegistryMap map[string]ServiceEndpointDockerRegistryInput
 
 func (ServiceEndpointDockerRegistryMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEndpointDockerRegistry)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointDockerRegistry)(nil)).Elem()
 }
 
 func (i ServiceEndpointDockerRegistryMap) ToServiceEndpointDockerRegistryMapOutput() ServiceEndpointDockerRegistryMapOutput {
@@ -327,9 +327,7 @@ func (i ServiceEndpointDockerRegistryMap) ToServiceEndpointDockerRegistryMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointDockerRegistryMapOutput)
 }
 
-type ServiceEndpointDockerRegistryOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointDockerRegistryOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointDockerRegistryOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointDockerRegistry)(nil))
@@ -348,14 +346,12 @@ func (o ServiceEndpointDockerRegistryOutput) ToServiceEndpointDockerRegistryPtrO
 }
 
 func (o ServiceEndpointDockerRegistryOutput) ToServiceEndpointDockerRegistryPtrOutputWithContext(ctx context.Context) ServiceEndpointDockerRegistryPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointDockerRegistry) *ServiceEndpointDockerRegistry {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointDockerRegistry) *ServiceEndpointDockerRegistry {
 		return &v
 	}).(ServiceEndpointDockerRegistryPtrOutput)
 }
 
-type ServiceEndpointDockerRegistryPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointDockerRegistryPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointDockerRegistryPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEndpointDockerRegistry)(nil))
@@ -367,6 +363,16 @@ func (o ServiceEndpointDockerRegistryPtrOutput) ToServiceEndpointDockerRegistryP
 
 func (o ServiceEndpointDockerRegistryPtrOutput) ToServiceEndpointDockerRegistryPtrOutputWithContext(ctx context.Context) ServiceEndpointDockerRegistryPtrOutput {
 	return o
+}
+
+func (o ServiceEndpointDockerRegistryPtrOutput) Elem() ServiceEndpointDockerRegistryOutput {
+	return o.ApplyT(func(v *ServiceEndpointDockerRegistry) ServiceEndpointDockerRegistry {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointDockerRegistry
+		return ret
+	}).(ServiceEndpointDockerRegistryOutput)
 }
 
 type ServiceEndpointDockerRegistryArrayOutput struct{ *pulumi.OutputState }
@@ -410,6 +416,10 @@ func (o ServiceEndpointDockerRegistryMapOutput) MapIndex(k pulumi.StringInput) S
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointDockerRegistryInput)(nil)).Elem(), &ServiceEndpointDockerRegistry{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointDockerRegistryPtrInput)(nil)).Elem(), &ServiceEndpointDockerRegistry{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointDockerRegistryArrayInput)(nil)).Elem(), ServiceEndpointDockerRegistryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointDockerRegistryMapInput)(nil)).Elem(), ServiceEndpointDockerRegistryMap{})
 	pulumi.RegisterOutputType(ServiceEndpointDockerRegistryOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointDockerRegistryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointDockerRegistryArrayOutput{})

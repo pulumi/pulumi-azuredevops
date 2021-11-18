@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  *     projectId: team.projectId,
  *     teamId: team.id,
  *     mode: "overwrite",
- *     members: [builtinProjectReaders.descriptor],
+ *     members: [builtinProjectReaders.apply(builtinProjectReaders => builtinProjectReaders.descriptor)],
  * });
  * ```
  * ## Relevant Links

@@ -8,20 +8,23 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
-__all__ = [
-    'org_service_url',
-    'personal_access_token',
-]
+import types
 
 __config__ = pulumi.Config('azuredevops')
 
-org_service_url = __config__.get('orgServiceUrl') or _utilities.get_env('AZDO_ORG_SERVICE_URL')
-"""
-The url of the Azure DevOps instance which should be used.
-"""
 
-personal_access_token = __config__.get('personalAccessToken')
-"""
-The personal access token which should be used.
-"""
+class _ExportableConfig(types.ModuleType):
+    @property
+    def org_service_url(self) -> Optional[str]:
+        """
+        The url of the Azure DevOps instance which should be used.
+        """
+        return __config__.get('orgServiceUrl') or _utilities.get_env('AZDO_ORG_SERVICE_URL')
+
+    @property
+    def personal_access_token(self) -> Optional[str]:
+        """
+        The personal access token which should be used.
+        """
+        return __config__.get('personalAccessToken')
 

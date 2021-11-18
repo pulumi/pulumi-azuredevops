@@ -14,6 +14,56 @@ import (
 // Manages a Service Fabric service endpoint within Azure DevOps.
 //
 // ## Example Usage
+// ### Client Certificate Authentication
+//
+// ```go
+// package main
+//
+// import (
+// 	"encoding/base64"
+// 	"io/ioutil"
+//
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func filebase64OrPanic(path string) pulumi.StringPtrInput {
+// 	if fileData, err := ioutil.ReadFile(path); err == nil {
+// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+// 	} else {
+// 		panic(err.Error())
+// 	}
+// }
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 			Visibility:       pulumi.String("private"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
+// 			ProjectId:           project.ID(),
+// 			ServiceEndpointName: pulumi.String("Sample Service Fabric"),
+// 			Description:         pulumi.String("Managed by Terraform"),
+// 			ClusterEndpoint:     pulumi.String("tcp://test"),
+// 			Certificate: &ServiceEndpointServiceFabricCertificateArgs{
+// 				ServerCertificateLookup:     pulumi.String("Thumbprint"),
+// 				ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
+// 				ClientCertificate:           filebase64OrPanic("certificate.pfx"),
+// 				ClientCertificatePassword:   pulumi.String("password"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ### Azure Active Directory Authentication
 //
 // ```go
@@ -39,7 +89,7 @@ import (
 // 			ServiceEndpointName: pulumi.String("Sample Service Fabric"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 			ClusterEndpoint:     pulumi.String("tcp://test"),
-// 			AzureActiveDirectory: &azuredevops.ServiceEndpointServiceFabricAzureActiveDirectoryArgs{
+// 			AzureActiveDirectory: &ServiceEndpointServiceFabricAzureActiveDirectoryArgs{
 // 				ServerCertificateLookup:     pulumi.String("Thumbprint"),
 // 				ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
 // 				Username:                    pulumi.String("username"),
@@ -78,7 +128,7 @@ import (
 // 			ServiceEndpointName: pulumi.String("Sample Service Fabric"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 			ClusterEndpoint:     pulumi.String("tcp://test"),
-// 			None: &azuredevops.ServiceEndpointServiceFabricNoneArgs{
+// 			None: &ServiceEndpointServiceFabricNoneArgs{
 // 				Unsecured:  pulumi.Bool(false),
 // 				ClusterSpn: pulumi.String("HTTP/www.contoso.com"),
 // 			},
@@ -281,7 +331,7 @@ type ServiceEndpointServiceFabricArrayInput interface {
 type ServiceEndpointServiceFabricArray []ServiceEndpointServiceFabricInput
 
 func (ServiceEndpointServiceFabricArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEndpointServiceFabric)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointServiceFabric)(nil)).Elem()
 }
 
 func (i ServiceEndpointServiceFabricArray) ToServiceEndpointServiceFabricArrayOutput() ServiceEndpointServiceFabricArrayOutput {
@@ -306,7 +356,7 @@ type ServiceEndpointServiceFabricMapInput interface {
 type ServiceEndpointServiceFabricMap map[string]ServiceEndpointServiceFabricInput
 
 func (ServiceEndpointServiceFabricMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEndpointServiceFabric)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointServiceFabric)(nil)).Elem()
 }
 
 func (i ServiceEndpointServiceFabricMap) ToServiceEndpointServiceFabricMapOutput() ServiceEndpointServiceFabricMapOutput {
@@ -317,9 +367,7 @@ func (i ServiceEndpointServiceFabricMap) ToServiceEndpointServiceFabricMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricMapOutput)
 }
 
-type ServiceEndpointServiceFabricOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointServiceFabricOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointServiceFabricOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointServiceFabric)(nil))
@@ -338,14 +386,12 @@ func (o ServiceEndpointServiceFabricOutput) ToServiceEndpointServiceFabricPtrOut
 }
 
 func (o ServiceEndpointServiceFabricOutput) ToServiceEndpointServiceFabricPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointServiceFabric) *ServiceEndpointServiceFabric {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointServiceFabric) *ServiceEndpointServiceFabric {
 		return &v
 	}).(ServiceEndpointServiceFabricPtrOutput)
 }
 
-type ServiceEndpointServiceFabricPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointServiceFabricPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointServiceFabricPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEndpointServiceFabric)(nil))
@@ -357,6 +403,16 @@ func (o ServiceEndpointServiceFabricPtrOutput) ToServiceEndpointServiceFabricPtr
 
 func (o ServiceEndpointServiceFabricPtrOutput) ToServiceEndpointServiceFabricPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricPtrOutput {
 	return o
+}
+
+func (o ServiceEndpointServiceFabricPtrOutput) Elem() ServiceEndpointServiceFabricOutput {
+	return o.ApplyT(func(v *ServiceEndpointServiceFabric) ServiceEndpointServiceFabric {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointServiceFabric
+		return ret
+	}).(ServiceEndpointServiceFabricOutput)
 }
 
 type ServiceEndpointServiceFabricArrayOutput struct{ *pulumi.OutputState }
@@ -400,6 +456,10 @@ func (o ServiceEndpointServiceFabricMapOutput) MapIndex(k pulumi.StringInput) Se
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricInput)(nil)).Elem(), &ServiceEndpointServiceFabric{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricPtrInput)(nil)).Elem(), &ServiceEndpointServiceFabric{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricArrayInput)(nil)).Elem(), ServiceEndpointServiceFabricArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricMapInput)(nil)).Elem(), ServiceEndpointServiceFabricMap{})
 	pulumi.RegisterOutputType(ServiceEndpointServiceFabricOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointServiceFabricPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointServiceFabricArrayOutput{})
