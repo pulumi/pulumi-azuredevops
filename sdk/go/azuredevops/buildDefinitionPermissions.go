@@ -15,6 +15,72 @@ import (
 //
 // > **Note** Permissions can be assigned to group principals and not to single user principals.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			Visibility:       pulumi.String("private"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		repository, err := azuredevops.NewGit(ctx, "repository", &azuredevops.GitArgs{
+// 			ProjectId: project.ID(),
+// 			Initialization: &GitInitializationArgs{
+// 				InitType: pulumi.String("Clean"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		build, err := azuredevops.NewBuildDefinition(ctx, "build", &azuredevops.BuildDefinitionArgs{
+// 			ProjectId: project.ID(),
+// 			Path:      pulumi.String("\\ExampleFolder"),
+// 			CiTrigger: &BuildDefinitionCiTriggerArgs{
+// 				UseYaml: pulumi.Bool(true),
+// 			},
+// 			Repository: &BuildDefinitionRepositoryArgs{
+// 				RepoType:   pulumi.String("TfsGit"),
+// 				RepoId:     repository.ID(),
+// 				BranchName: repository.DefaultBranch,
+// 				YmlPath:    pulumi.String("azure-pipelines.yml"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "permissions", &azuredevops.BuildDefinitionPermissionsArgs{
+// 			ProjectId: project.ID(),
+// 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
+// 				return project_readers.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			BuildDefinitionId: build.ID(),
+// 			Permissions: pulumi.StringMap{
+// 				"ViewBuilds":       pulumi.String("Allow"),
+// 				"EditBuildQuality": pulumi.String("Deny"),
+// 				"DeleteBuilds":     pulumi.String("Deny"),
+// 				"StopBuilds":       pulumi.String("Allow"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
@@ -204,7 +270,7 @@ type BuildDefinitionPermissionsArrayInput interface {
 type BuildDefinitionPermissionsArray []BuildDefinitionPermissionsInput
 
 func (BuildDefinitionPermissionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BuildDefinitionPermissions)(nil))
+	return reflect.TypeOf((*[]*BuildDefinitionPermissions)(nil)).Elem()
 }
 
 func (i BuildDefinitionPermissionsArray) ToBuildDefinitionPermissionsArrayOutput() BuildDefinitionPermissionsArrayOutput {
@@ -229,7 +295,7 @@ type BuildDefinitionPermissionsMapInput interface {
 type BuildDefinitionPermissionsMap map[string]BuildDefinitionPermissionsInput
 
 func (BuildDefinitionPermissionsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BuildDefinitionPermissions)(nil))
+	return reflect.TypeOf((*map[string]*BuildDefinitionPermissions)(nil)).Elem()
 }
 
 func (i BuildDefinitionPermissionsMap) ToBuildDefinitionPermissionsMapOutput() BuildDefinitionPermissionsMapOutput {
@@ -240,9 +306,7 @@ func (i BuildDefinitionPermissionsMap) ToBuildDefinitionPermissionsMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsMapOutput)
 }
 
-type BuildDefinitionPermissionsOutput struct {
-	*pulumi.OutputState
-}
+type BuildDefinitionPermissionsOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionPermissionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BuildDefinitionPermissions)(nil))
@@ -261,14 +325,12 @@ func (o BuildDefinitionPermissionsOutput) ToBuildDefinitionPermissionsPtrOutput(
 }
 
 func (o BuildDefinitionPermissionsOutput) ToBuildDefinitionPermissionsPtrOutputWithContext(ctx context.Context) BuildDefinitionPermissionsPtrOutput {
-	return o.ApplyT(func(v BuildDefinitionPermissions) *BuildDefinitionPermissions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionPermissions) *BuildDefinitionPermissions {
 		return &v
 	}).(BuildDefinitionPermissionsPtrOutput)
 }
 
-type BuildDefinitionPermissionsPtrOutput struct {
-	*pulumi.OutputState
-}
+type BuildDefinitionPermissionsPtrOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionPermissionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BuildDefinitionPermissions)(nil))
@@ -280,6 +342,16 @@ func (o BuildDefinitionPermissionsPtrOutput) ToBuildDefinitionPermissionsPtrOutp
 
 func (o BuildDefinitionPermissionsPtrOutput) ToBuildDefinitionPermissionsPtrOutputWithContext(ctx context.Context) BuildDefinitionPermissionsPtrOutput {
 	return o
+}
+
+func (o BuildDefinitionPermissionsPtrOutput) Elem() BuildDefinitionPermissionsOutput {
+	return o.ApplyT(func(v *BuildDefinitionPermissions) BuildDefinitionPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret BuildDefinitionPermissions
+		return ret
+	}).(BuildDefinitionPermissionsOutput)
 }
 
 type BuildDefinitionPermissionsArrayOutput struct{ *pulumi.OutputState }
@@ -323,6 +395,10 @@ func (o BuildDefinitionPermissionsMapOutput) MapIndex(k pulumi.StringInput) Buil
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPermissionsInput)(nil)).Elem(), &BuildDefinitionPermissions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPermissionsPtrInput)(nil)).Elem(), &BuildDefinitionPermissions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPermissionsArrayInput)(nil)).Elem(), BuildDefinitionPermissionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPermissionsMapInput)(nil)).Elem(), BuildDefinitionPermissionsMap{})
 	pulumi.RegisterOutputType(BuildDefinitionPermissionsOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionPermissionsArrayOutput{})

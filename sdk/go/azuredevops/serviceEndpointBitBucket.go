@@ -248,7 +248,7 @@ type ServiceEndpointBitBucketArrayInput interface {
 type ServiceEndpointBitBucketArray []ServiceEndpointBitBucketInput
 
 func (ServiceEndpointBitBucketArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEndpointBitBucket)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointBitBucket)(nil)).Elem()
 }
 
 func (i ServiceEndpointBitBucketArray) ToServiceEndpointBitBucketArrayOutput() ServiceEndpointBitBucketArrayOutput {
@@ -273,7 +273,7 @@ type ServiceEndpointBitBucketMapInput interface {
 type ServiceEndpointBitBucketMap map[string]ServiceEndpointBitBucketInput
 
 func (ServiceEndpointBitBucketMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEndpointBitBucket)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointBitBucket)(nil)).Elem()
 }
 
 func (i ServiceEndpointBitBucketMap) ToServiceEndpointBitBucketMapOutput() ServiceEndpointBitBucketMapOutput {
@@ -284,9 +284,7 @@ func (i ServiceEndpointBitBucketMap) ToServiceEndpointBitBucketMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketMapOutput)
 }
 
-type ServiceEndpointBitBucketOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointBitBucketOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointBitBucketOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointBitBucket)(nil))
@@ -305,14 +303,12 @@ func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketPtrOutput() Se
 }
 
 func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketPtrOutputWithContext(ctx context.Context) ServiceEndpointBitBucketPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointBitBucket) *ServiceEndpointBitBucket {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointBitBucket) *ServiceEndpointBitBucket {
 		return &v
 	}).(ServiceEndpointBitBucketPtrOutput)
 }
 
-type ServiceEndpointBitBucketPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointBitBucketPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointBitBucketPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEndpointBitBucket)(nil))
@@ -324,6 +320,16 @@ func (o ServiceEndpointBitBucketPtrOutput) ToServiceEndpointBitBucketPtrOutput()
 
 func (o ServiceEndpointBitBucketPtrOutput) ToServiceEndpointBitBucketPtrOutputWithContext(ctx context.Context) ServiceEndpointBitBucketPtrOutput {
 	return o
+}
+
+func (o ServiceEndpointBitBucketPtrOutput) Elem() ServiceEndpointBitBucketOutput {
+	return o.ApplyT(func(v *ServiceEndpointBitBucket) ServiceEndpointBitBucket {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointBitBucket
+		return ret
+	}).(ServiceEndpointBitBucketOutput)
 }
 
 type ServiceEndpointBitBucketArrayOutput struct{ *pulumi.OutputState }
@@ -367,6 +373,10 @@ func (o ServiceEndpointBitBucketMapOutput) MapIndex(k pulumi.StringInput) Servic
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointBitBucketInput)(nil)).Elem(), &ServiceEndpointBitBucket{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointBitBucketPtrInput)(nil)).Elem(), &ServiceEndpointBitBucket{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointBitBucketArrayInput)(nil)).Elem(), ServiceEndpointBitBucketArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointBitBucketMapInput)(nil)).Elem(), ServiceEndpointBitBucketMap{})
 	pulumi.RegisterOutputType(ServiceEndpointBitBucketOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointBitBucketPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointBitBucketArrayOutput{})

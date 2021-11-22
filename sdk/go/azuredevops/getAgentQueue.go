@@ -4,6 +4,9 @@
 package azuredevops
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -30,10 +33,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("name", queue.ApplyT(func(queue azuredevops.GetAgentQueueResult) (string, error) {
+// 		ctx.Export("name", queue.ApplyT(func(queue GetAgentQueueResult) (string, error) {
 // 			return queue.Name, nil
 // 		}).(pulumi.StringOutput))
-// 		ctx.Export("poolId", queue.ApplyT(func(queue azuredevops.GetAgentQueueResult) (int, error) {
+// 		ctx.Export("poolId", queue.ApplyT(func(queue GetAgentQueueResult) (int, error) {
 // 			return queue.AgentPoolId, nil
 // 		}).(pulumi.IntOutput))
 // 		return nil
@@ -70,4 +73,64 @@ type GetAgentQueueResult struct {
 	Name string `pulumi:"name"`
 	// Project identifier to which the agent queue belongs.
 	ProjectId string `pulumi:"projectId"`
+}
+
+func GetAgentQueueOutput(ctx *pulumi.Context, args GetAgentQueueOutputArgs, opts ...pulumi.InvokeOption) GetAgentQueueResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetAgentQueueResult, error) {
+			args := v.(GetAgentQueueArgs)
+			r, err := GetAgentQueue(ctx, &args, opts...)
+			return *r, err
+		}).(GetAgentQueueResultOutput)
+}
+
+// A collection of arguments for invoking getAgentQueue.
+type GetAgentQueueOutputArgs struct {
+	// Name of the Agent Queue.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Project Id.
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+}
+
+func (GetAgentQueueOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAgentQueueArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getAgentQueue.
+type GetAgentQueueResultOutput struct{ *pulumi.OutputState }
+
+func (GetAgentQueueResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAgentQueueResult)(nil)).Elem()
+}
+
+func (o GetAgentQueueResultOutput) ToGetAgentQueueResultOutput() GetAgentQueueResultOutput {
+	return o
+}
+
+func (o GetAgentQueueResultOutput) ToGetAgentQueueResultOutputWithContext(ctx context.Context) GetAgentQueueResultOutput {
+	return o
+}
+
+// Agent pool identifier to which the agent queue belongs.
+func (o GetAgentQueueResultOutput) AgentPoolId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetAgentQueueResult) int { return v.AgentPoolId }).(pulumi.IntOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetAgentQueueResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentQueueResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the agent queue.
+func (o GetAgentQueueResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentQueueResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Project identifier to which the agent queue belongs.
+func (o GetAgentQueueResultOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAgentQueueResult) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetAgentQueueResultOutput{})
 }

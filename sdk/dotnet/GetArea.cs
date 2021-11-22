@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps
 {
@@ -57,6 +58,53 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Task<GetAreaResult> InvokeAsync(GetAreaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Area (Component) within Azure DevOps.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         //---------------------------------------------------------------------------
+        ///         // Azure DevOps project
+        ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+        ///         {
+        ///             WorkItemTemplate = "Agile",
+        ///             VersionControl = "Git",
+        ///             Visibility = "private",
+        ///             Description = "Managed by Terraform",
+        ///         });
+        ///         var area = project.Id.Apply(id =&gt; AzureDevOps.GetArea.InvokeAsync(new AzureDevOps.GetAreaArgs
+        ///         {
+        ///             ProjectId = id,
+        ///             Path = "/",
+        ///             FetchChildren = false,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
+        /// </summary>
+        public static Output<GetAreaResult> Invoke(GetAreaInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaInvokeArgs(), options.WithVersion());
     }
 
 
@@ -81,6 +129,31 @@ namespace Pulumi.AzureDevOps
         public string ProjectId { get; set; } = null!;
 
         public GetAreaArgs()
+        {
+        }
+    }
+
+    public sealed class GetAreaInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Read children nodes, _Depth_: 1, _Default_: `true`
+        /// </summary>
+        [Input("fetchChildren")]
+        public Input<bool>? FetchChildren { get; set; }
+
+        /// <summary>
+        /// The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// The project ID.
+        /// </summary>
+        [Input("projectId", required: true)]
+        public Input<string> ProjectId { get; set; } = null!;
+
+        public GetAreaInvokeArgs()
         {
         }
     }

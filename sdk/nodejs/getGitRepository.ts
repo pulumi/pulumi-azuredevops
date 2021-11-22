@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -96,4 +95,22 @@ export interface GetGitRepositoryResult {
      * Url of the Git repository web view
      */
     readonly webUrl: string;
+}
+
+export function getGitRepositoryOutput(args: GetGitRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitRepositoryResult> {
+    return pulumi.output(args).apply(a => getGitRepository(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getGitRepository.
+ */
+export interface GetGitRepositoryOutputArgs {
+    /**
+     * Name of the Git repository to retrieve
+     */
+    name: pulumi.Input<string>;
+    /**
+     * ID of project to list Git repositories
+     */
+    projectId: pulumi.Input<string>;
 }

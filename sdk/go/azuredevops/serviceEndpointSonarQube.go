@@ -248,7 +248,7 @@ type ServiceEndpointSonarQubeArrayInput interface {
 type ServiceEndpointSonarQubeArray []ServiceEndpointSonarQubeInput
 
 func (ServiceEndpointSonarQubeArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEndpointSonarQube)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointSonarQube)(nil)).Elem()
 }
 
 func (i ServiceEndpointSonarQubeArray) ToServiceEndpointSonarQubeArrayOutput() ServiceEndpointSonarQubeArrayOutput {
@@ -273,7 +273,7 @@ type ServiceEndpointSonarQubeMapInput interface {
 type ServiceEndpointSonarQubeMap map[string]ServiceEndpointSonarQubeInput
 
 func (ServiceEndpointSonarQubeMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEndpointSonarQube)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointSonarQube)(nil)).Elem()
 }
 
 func (i ServiceEndpointSonarQubeMap) ToServiceEndpointSonarQubeMapOutput() ServiceEndpointSonarQubeMapOutput {
@@ -284,9 +284,7 @@ func (i ServiceEndpointSonarQubeMap) ToServiceEndpointSonarQubeMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSonarQubeMapOutput)
 }
 
-type ServiceEndpointSonarQubeOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointSonarQubeOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointSonarQubeOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointSonarQube)(nil))
@@ -305,14 +303,12 @@ func (o ServiceEndpointSonarQubeOutput) ToServiceEndpointSonarQubePtrOutput() Se
 }
 
 func (o ServiceEndpointSonarQubeOutput) ToServiceEndpointSonarQubePtrOutputWithContext(ctx context.Context) ServiceEndpointSonarQubePtrOutput {
-	return o.ApplyT(func(v ServiceEndpointSonarQube) *ServiceEndpointSonarQube {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointSonarQube) *ServiceEndpointSonarQube {
 		return &v
 	}).(ServiceEndpointSonarQubePtrOutput)
 }
 
-type ServiceEndpointSonarQubePtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointSonarQubePtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointSonarQubePtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEndpointSonarQube)(nil))
@@ -324,6 +320,16 @@ func (o ServiceEndpointSonarQubePtrOutput) ToServiceEndpointSonarQubePtrOutput()
 
 func (o ServiceEndpointSonarQubePtrOutput) ToServiceEndpointSonarQubePtrOutputWithContext(ctx context.Context) ServiceEndpointSonarQubePtrOutput {
 	return o
+}
+
+func (o ServiceEndpointSonarQubePtrOutput) Elem() ServiceEndpointSonarQubeOutput {
+	return o.ApplyT(func(v *ServiceEndpointSonarQube) ServiceEndpointSonarQube {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointSonarQube
+		return ret
+	}).(ServiceEndpointSonarQubeOutput)
 }
 
 type ServiceEndpointSonarQubeArrayOutput struct{ *pulumi.OutputState }
@@ -367,6 +373,10 @@ func (o ServiceEndpointSonarQubeMapOutput) MapIndex(k pulumi.StringInput) Servic
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointSonarQubeInput)(nil)).Elem(), &ServiceEndpointSonarQube{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointSonarQubePtrInput)(nil)).Elem(), &ServiceEndpointSonarQube{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointSonarQubeArrayInput)(nil)).Elem(), ServiceEndpointSonarQubeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointSonarQubeMapInput)(nil)).Elem(), ServiceEndpointSonarQubeMap{})
 	pulumi.RegisterOutputType(ServiceEndpointSonarQubeOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointSonarQubePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointSonarQubeArrayOutput{})

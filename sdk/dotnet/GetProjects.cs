@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps
 {
@@ -32,10 +33,22 @@ namespace Pulumi.AzureDevOps
         ///             Name = "contoso",
         ///             State = "wellFormed",
         ///         }));
-        ///         this.ProjectId = test.Apply(test =&gt; test.Projects.Select(__item =&gt; __item.ProjectId).ToList());
-        ///         this.Name = test.Apply(test =&gt; test.Projects.Select(__item =&gt; __item.Name).ToList());
-        ///         this.ProjectUrl = test.Apply(test =&gt; test.Projects.Select(__item =&gt; __item.ProjectUrl).ToList());
-        ///         this.State = test.Apply(test =&gt; test.Projects.Select(__item =&gt; __item.State).ToList());
+        ///         this.ProjectId = 
+        ///         {
+        ///             test.Apply(test =&gt; test.Projects),
+        ///         }.Select(__item =&gt; __item?.ProjectId).ToList();
+        ///         this.Name = 
+        ///         {
+        ///             test.Apply(test =&gt; test.Projects),
+        ///         }.Select(__item =&gt; __item?.Name).ToList();
+        ///         this.ProjectUrl = 
+        ///         {
+        ///             test.Apply(test =&gt; test.Projects),
+        ///         }.Select(__item =&gt; __item?.ProjectUrl).ToList();
+        ///         this.State = 
+        ///         {
+        ///             test.Apply(test =&gt; test.Projects),
+        ///         }.Select(__item =&gt; __item?.State).ToList();
         ///     }
         /// 
         ///     [Output("projectId")]
@@ -56,6 +69,64 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Task<GetProjectsResult> InvokeAsync(GetProjectsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectsResult>("azuredevops:index/getProjects:getProjects", args ?? new GetProjectsArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about existing Projects within Azure DevOps.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var test = Output.Create(AzureDevOps.GetProjects.InvokeAsync(new AzureDevOps.GetProjectsArgs
+        ///         {
+        ///             Name = "contoso",
+        ///             State = "wellFormed",
+        ///         }));
+        ///         this.ProjectId = 
+        ///         {
+        ///             test.Apply(test =&gt; test.Projects),
+        ///         }.Select(__item =&gt; __item?.ProjectId).ToList();
+        ///         this.Name = 
+        ///         {
+        ///             test.Apply(test =&gt; test.Projects),
+        ///         }.Select(__item =&gt; __item?.Name).ToList();
+        ///         this.ProjectUrl = 
+        ///         {
+        ///             test.Apply(test =&gt; test.Projects),
+        ///         }.Select(__item =&gt; __item?.ProjectUrl).ToList();
+        ///         this.State = 
+        ///         {
+        ///             test.Apply(test =&gt; test.Projects),
+        ///         }.Select(__item =&gt; __item?.State).ToList();
+        ///     }
+        /// 
+        ///     [Output("projectId")]
+        ///     public Output&lt;string&gt; ProjectId { get; set; }
+        ///     [Output("name")]
+        ///     public Output&lt;string&gt; Name { get; set; }
+        ///     [Output("projectUrl")]
+        ///     public Output&lt;string&gt; ProjectUrl { get; set; }
+        ///     [Output("state")]
+        ///     public Output&lt;string&gt; State { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+        /// </summary>
+        public static Output<GetProjectsResult> Invoke(GetProjectsInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProjectsResult>("azuredevops:index/getProjects:getProjects", args ?? new GetProjectsInvokeArgs(), options.WithVersion());
     }
 
 
@@ -74,6 +145,25 @@ namespace Pulumi.AzureDevOps
         public string? State { get; set; }
 
         public GetProjectsArgs()
+        {
+        }
+    }
+
+    public sealed class GetProjectsInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Project, if not specified all projects will be returned.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+        /// </summary>
+        [Input("state")]
+        public Input<string>? State { get; set; }
+
+        public GetProjectsInvokeArgs()
         {
         }
     }

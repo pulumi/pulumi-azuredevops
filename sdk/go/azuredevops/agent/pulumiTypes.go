@@ -132,6 +132,8 @@ func (o GetPoolsAgentPoolArrayOutput) Index(i pulumi.IntInput) GetPoolsAgentPool
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolsAgentPoolInput)(nil)).Elem(), GetPoolsAgentPoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolsAgentPoolArrayInput)(nil)).Elem(), GetPoolsAgentPoolArray{})
 	pulumi.RegisterOutputType(GetPoolsAgentPoolOutput{})
 	pulumi.RegisterOutputType(GetPoolsAgentPoolArrayOutput{})
 }

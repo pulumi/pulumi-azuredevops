@@ -12,6 +12,7 @@ __all__ = [
     'GetGroupResult',
     'AwaitableGetGroupResult',
     'get_group',
+    'get_group_output',
 ]
 
 @pulumi.output_type
@@ -141,3 +142,36 @@ def get_group(name: Optional[str] = None,
         origin=__ret__.origin,
         origin_id=__ret__.origin_id,
         project_id=__ret__.project_id)
+
+
+@_utilities.lift_output_func(get_group)
+def get_group_output(name: Optional[pulumi.Input[str]] = None,
+                     project_id: Optional[pulumi.Input[Optional[str]]] = None,
+                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
+    """
+    Use this data source to access information about an existing Group within Azure DevOps
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    project = azuredevops.get_project(name="contoso-project")
+    test = azuredevops.get_group(project_id=project.id,
+        name="Test Group")
+    pulumi.export("groupId", test.id)
+    pulumi.export("groupDescriptor", test.descriptor)
+    test_collection_group = azuredevops.get_group(name="Project Collection Administrators")
+    pulumi.export("collectionGroupId", test_collection_group.id)
+    pulumi.export("collectionGroupDescriptor", test_collection_group.descriptor)
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+
+
+    :param str name: The Group Name.
+    :param str project_id: The Project ID. If no project ID is specified the project collection groups will be searched.
+    """
+    ...

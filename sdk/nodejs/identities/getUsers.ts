@@ -108,3 +108,29 @@ export interface GetUsersResult {
      */
     readonly users: outputs.Identities.GetUsersUser[];
 }
+
+export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
+    return pulumi.output(args).apply(a => getUsers(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getUsers.
+ */
+export interface GetUsersOutputArgs {
+    /**
+     * The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
+     */
+    origin?: pulumi.Input<string>;
+    /**
+     * The unique identifier from the system of origin.
+     */
+    originId?: pulumi.Input<string>;
+    /**
+     * The PrincipalName of this graph member from the source provider.
+     */
+    principalName?: pulumi.Input<string>;
+    /**
+     * A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
+     */
+    subjectTypes?: pulumi.Input<pulumi.Input<string>[]>;
+}

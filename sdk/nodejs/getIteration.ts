@@ -102,3 +102,25 @@ export interface GetIterationResult {
      */
     readonly projectId: string;
 }
+
+export function getIterationOutput(args: GetIterationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIterationResult> {
+    return pulumi.output(args).apply(a => getIteration(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getIteration.
+ */
+export interface GetIterationOutputArgs {
+    /**
+     * Read children nodes, _Depth_: 1, _Default_: `true`
+     */
+    fetchChildren?: pulumi.Input<boolean>;
+    /**
+     * The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * The project ID.
+     */
+    projectId: pulumi.Input<string>;
+}

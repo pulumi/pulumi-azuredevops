@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps
 {
@@ -61,6 +62,57 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Task<GetIterationResult> InvokeAsync(GetIterationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetIterationResult>("azuredevops:index/getIteration:getIteration", args ?? new GetIterationArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+        ///         {
+        ///             WorkItemTemplate = "Agile",
+        ///             VersionControl = "Git",
+        ///             Visibility = "private",
+        ///             Description = "Managed by Terraform",
+        ///         });
+        ///         var root_iteration = project.Id.Apply(id =&gt; AzureDevOps.GetIteration.InvokeAsync(new AzureDevOps.GetIterationArgs
+        ///         {
+        ///             ProjectId = id,
+        ///             Path = "/",
+        ///             FetchChildren = true,
+        ///         }));
+        ///         var child_iteration = project.Id.Apply(id =&gt; AzureDevOps.GetIteration.InvokeAsync(new AzureDevOps.GetIterationArgs
+        ///         {
+        ///             ProjectId = id,
+        ///             Path = "/Iteration 1",
+        ///             FetchChildren = true,
+        ///         }));
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
+        /// </summary>
+        public static Output<GetIterationResult> Invoke(GetIterationInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetIterationResult>("azuredevops:index/getIteration:getIteration", args ?? new GetIterationInvokeArgs(), options.WithVersion());
     }
 
 
@@ -85,6 +137,31 @@ namespace Pulumi.AzureDevOps
         public string ProjectId { get; set; } = null!;
 
         public GetIterationArgs()
+        {
+        }
+    }
+
+    public sealed class GetIterationInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Read children nodes, _Depth_: 1, _Default_: `true`
+        /// </summary>
+        [Input("fetchChildren")]
+        public Input<bool>? FetchChildren { get; set; }
+
+        /// <summary>
+        /// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+        /// </summary>
+        [Input("path")]
+        public Input<string>? Path { get; set; }
+
+        /// <summary>
+        /// The project ID.
+        /// </summary>
+        [Input("projectId", required: true)]
+        public Input<string> ProjectId { get; set; } = null!;
+
+        public GetIterationInvokeArgs()
         {
         }
     }

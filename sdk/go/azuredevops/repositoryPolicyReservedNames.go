@@ -38,7 +38,7 @@ import (
 // 		}
 // 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -254,7 +254,7 @@ type RepositoryPolicyReservedNamesArrayInput interface {
 type RepositoryPolicyReservedNamesArray []RepositoryPolicyReservedNamesInput
 
 func (RepositoryPolicyReservedNamesArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryPolicyReservedNames)(nil))
+	return reflect.TypeOf((*[]*RepositoryPolicyReservedNames)(nil)).Elem()
 }
 
 func (i RepositoryPolicyReservedNamesArray) ToRepositoryPolicyReservedNamesArrayOutput() RepositoryPolicyReservedNamesArrayOutput {
@@ -279,7 +279,7 @@ type RepositoryPolicyReservedNamesMapInput interface {
 type RepositoryPolicyReservedNamesMap map[string]RepositoryPolicyReservedNamesInput
 
 func (RepositoryPolicyReservedNamesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryPolicyReservedNames)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPolicyReservedNames)(nil)).Elem()
 }
 
 func (i RepositoryPolicyReservedNamesMap) ToRepositoryPolicyReservedNamesMapOutput() RepositoryPolicyReservedNamesMapOutput {
@@ -290,9 +290,7 @@ func (i RepositoryPolicyReservedNamesMap) ToRepositoryPolicyReservedNamesMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyReservedNamesMapOutput)
 }
 
-type RepositoryPolicyReservedNamesOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyReservedNamesOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyReservedNamesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RepositoryPolicyReservedNames)(nil))
@@ -311,14 +309,12 @@ func (o RepositoryPolicyReservedNamesOutput) ToRepositoryPolicyReservedNamesPtrO
 }
 
 func (o RepositoryPolicyReservedNamesOutput) ToRepositoryPolicyReservedNamesPtrOutputWithContext(ctx context.Context) RepositoryPolicyReservedNamesPtrOutput {
-	return o.ApplyT(func(v RepositoryPolicyReservedNames) *RepositoryPolicyReservedNames {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPolicyReservedNames) *RepositoryPolicyReservedNames {
 		return &v
 	}).(RepositoryPolicyReservedNamesPtrOutput)
 }
 
-type RepositoryPolicyReservedNamesPtrOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyReservedNamesPtrOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyReservedNamesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RepositoryPolicyReservedNames)(nil))
@@ -330,6 +326,16 @@ func (o RepositoryPolicyReservedNamesPtrOutput) ToRepositoryPolicyReservedNamesP
 
 func (o RepositoryPolicyReservedNamesPtrOutput) ToRepositoryPolicyReservedNamesPtrOutputWithContext(ctx context.Context) RepositoryPolicyReservedNamesPtrOutput {
 	return o
+}
+
+func (o RepositoryPolicyReservedNamesPtrOutput) Elem() RepositoryPolicyReservedNamesOutput {
+	return o.ApplyT(func(v *RepositoryPolicyReservedNames) RepositoryPolicyReservedNames {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryPolicyReservedNames
+		return ret
+	}).(RepositoryPolicyReservedNamesOutput)
 }
 
 type RepositoryPolicyReservedNamesArrayOutput struct{ *pulumi.OutputState }
@@ -373,6 +379,10 @@ func (o RepositoryPolicyReservedNamesMapOutput) MapIndex(k pulumi.StringInput) R
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyReservedNamesInput)(nil)).Elem(), &RepositoryPolicyReservedNames{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyReservedNamesPtrInput)(nil)).Elem(), &RepositoryPolicyReservedNames{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyReservedNamesArrayInput)(nil)).Elem(), RepositoryPolicyReservedNamesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyReservedNamesMapInput)(nil)).Elem(), RepositoryPolicyReservedNamesMap{})
 	pulumi.RegisterOutputType(RepositoryPolicyReservedNamesOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyReservedNamesPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyReservedNamesArrayOutput{})

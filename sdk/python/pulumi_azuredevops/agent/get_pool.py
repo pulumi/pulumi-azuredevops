@@ -12,6 +12,7 @@ __all__ = [
     'GetPoolResult',
     'AwaitableGetPoolResult',
     'get_pool',
+    'get_pool_output',
 ]
 
 warnings.warn("""azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool""", DeprecationWarning)
@@ -108,3 +109,31 @@ def get_pool(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         pool_type=__ret__.pool_type)
+
+
+@_utilities.lift_output_func(get_pool)
+def get_pool_output(name: Optional[pulumi.Input[str]] = None,
+                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPoolResult]:
+    """
+    Use this data source to access information about an existing Agent Pool within Azure DevOps.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    pool = azuredevops.get_pool(name="Sample Agent Pool")
+    pulumi.export("name", pool.name)
+    pulumi.export("poolType", pool.pool_type)
+    pulumi.export("autoProvision", pool.auto_provision)
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
+
+
+    :param str name: Name of the Agent Pool.
+    """
+    pulumi.log.warn("""get_pool is deprecated: azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool""")
+    ...

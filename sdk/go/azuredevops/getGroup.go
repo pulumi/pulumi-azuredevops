@@ -4,6 +4,9 @@
 package azuredevops
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,14 +25,14 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "contoso-project"
-// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		opt1 := project.Id
-// 		test, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+// 		test, err := azuredevops.LookupGroup(ctx, &GetGroupArgs{
 // 			ProjectId: &opt1,
 // 			Name:      "Test Group",
 // 		}, nil)
@@ -38,7 +41,7 @@ import (
 // 		}
 // 		ctx.Export("groupId", test.Id)
 // 		ctx.Export("groupDescriptor", test.Descriptor)
-// 		test_collection_group, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+// 		test_collection_group, err := azuredevops.LookupGroup(ctx, &GetGroupArgs{
 // 			Name: "Project Collection Administrators",
 // 		}, nil)
 // 		if err != nil {
@@ -82,4 +85,72 @@ type LookupGroupResult struct {
 	// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
 	OriginId  string  `pulumi:"originId"`
 	ProjectId *string `pulumi:"projectId"`
+}
+
+func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...pulumi.InvokeOption) LookupGroupResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupGroupResult, error) {
+			args := v.(LookupGroupArgs)
+			r, err := LookupGroup(ctx, &args, opts...)
+			return *r, err
+		}).(LookupGroupResultOutput)
+}
+
+// A collection of arguments for invoking getGroup.
+type LookupGroupOutputArgs struct {
+	// The Group Name.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Project ID. If no project ID is specified the project collection groups will be searched.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+}
+
+func (LookupGroupOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGroupArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getGroup.
+type LookupGroupResultOutput struct{ *pulumi.OutputState }
+
+func (LookupGroupResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupGroupResult)(nil)).Elem()
+}
+
+func (o LookupGroupResultOutput) ToLookupGroupResultOutput() LookupGroupResultOutput {
+	return o
+}
+
+func (o LookupGroupResultOutput) ToLookupGroupResultOutputWithContext(ctx context.Context) LookupGroupResultOutput {
+	return o
+}
+
+// The Descriptor is the primary way to reference the graph subject. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+func (o LookupGroupResultOutput) Descriptor() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Descriptor }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupGroupResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupGroupResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+func (o LookupGroupResultOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+func (o LookupGroupResultOutput) OriginId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupGroupResult) string { return v.OriginId }).(pulumi.StringOutput)
+}
+
+func (o LookupGroupResultOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupGroupResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupGroupResultOutput{})
 }

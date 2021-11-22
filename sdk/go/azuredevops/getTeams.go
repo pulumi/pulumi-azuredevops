@@ -4,6 +4,9 @@
 package azuredevops
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -27,4 +30,54 @@ type GetTeamsResult struct {
 	Id        string         `pulumi:"id"`
 	ProjectId *string        `pulumi:"projectId"`
 	Teams     []GetTeamsTeam `pulumi:"teams"`
+}
+
+func GetTeamsOutput(ctx *pulumi.Context, args GetTeamsOutputArgs, opts ...pulumi.InvokeOption) GetTeamsResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetTeamsResult, error) {
+			args := v.(GetTeamsArgs)
+			r, err := GetTeams(ctx, &args, opts...)
+			return *r, err
+		}).(GetTeamsResultOutput)
+}
+
+// A collection of arguments for invoking getTeams.
+type GetTeamsOutputArgs struct {
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+}
+
+func (GetTeamsOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getTeams.
+type GetTeamsResultOutput struct{ *pulumi.OutputState }
+
+func (GetTeamsResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTeamsResult)(nil)).Elem()
+}
+
+func (o GetTeamsResultOutput) ToGetTeamsResultOutput() GetTeamsResultOutput {
+	return o
+}
+
+func (o GetTeamsResultOutput) ToGetTeamsResultOutputWithContext(ctx context.Context) GetTeamsResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetTeamsResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTeamsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetTeamsResultOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetTeamsResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetTeamsResultOutput) Teams() GetTeamsTeamArrayOutput {
+	return o.ApplyT(func(v GetTeamsResult) []GetTeamsTeam { return v.Teams }).(GetTeamsTeamArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetTeamsResultOutput{})
 }

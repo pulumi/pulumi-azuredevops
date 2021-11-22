@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * });
  * const permissions = new azuredevops.BuildDefinitionPermissions("permissions", {
  *     projectId: project.id,
- *     principal: project_readers.id,
+ *     principal: project_readers.apply(project_readers => project_readers.id),
  *     buildDefinitionId: build.id,
  *     permissions: {
  *         ViewBuilds: "Allow",

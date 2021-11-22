@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps
 {
@@ -63,6 +64,59 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azuredevops:index/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Group within Azure DevOps
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         {
+        ///             Name = "contoso-project",
+        ///         }));
+        ///         var test = project.Apply(project =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+        ///         {
+        ///             ProjectId = project.Id,
+        ///             Name = "Test Group",
+        ///         })));
+        ///         this.GroupId = test.Apply(test =&gt; test.Id);
+        ///         this.GroupDescriptor = test.Apply(test =&gt; test.Descriptor);
+        ///         var test_collection_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+        ///         {
+        ///             Name = "Project Collection Administrators",
+        ///         }));
+        ///         this.CollectionGroupId = test_collection_group.Apply(test_collection_group =&gt; test_collection_group.Id);
+        ///         this.CollectionGroupDescriptor = test_collection_group.Apply(test_collection_group =&gt; test_collection_group.Descriptor);
+        ///     }
+        /// 
+        ///     [Output("groupId")]
+        ///     public Output&lt;string&gt; GroupId { get; set; }
+        ///     [Output("groupDescriptor")]
+        ///     public Output&lt;string&gt; GroupDescriptor { get; set; }
+        ///     [Output("collectionGroupId")]
+        ///     public Output&lt;string&gt; CollectionGroupId { get; set; }
+        ///     [Output("collectionGroupDescriptor")]
+        ///     public Output&lt;string&gt; CollectionGroupDescriptor { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+        /// </summary>
+        public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azuredevops:index/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithVersion());
     }
 
 
@@ -81,6 +135,25 @@ namespace Pulumi.AzureDevOps
         public string? ProjectId { get; set; }
 
         public GetGroupArgs()
+        {
+        }
+    }
+
+    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// The Group Name.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Project ID. If no project ID is specified the project collection groups will be searched.
+        /// </summary>
+        [Input("projectId")]
+        public Input<string>? ProjectId { get; set; }
+
+        public GetGroupInvokeArgs()
         {
         }
     }

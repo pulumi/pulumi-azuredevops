@@ -36,7 +36,7 @@ import (
 // 		_, err = azuredevops.NewServiceEndpointGitHub(ctx, "serviceendpointGh1", &azuredevops.ServiceEndpointGitHubArgs{
 // 			ProjectId:           project.ID(),
 // 			ServiceEndpointName: pulumi.String("Sample GithHub Personal Access Token"),
-// 			AuthPersonal: &azuredevops.ServiceEndpointGitHubAuthPersonalArgs{
+// 			AuthPersonal: &ServiceEndpointGitHubAuthPersonalArgs{
 // 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
 // 		})
@@ -61,7 +61,7 @@ import (
 // 		_, err := azuredevops.NewServiceEndpointGitHub(ctx, "serviceendpointGh2", &azuredevops.ServiceEndpointGitHubArgs{
 // 			ProjectId:           pulumi.Any(azuredevops_project.Project.Id),
 // 			ServiceEndpointName: pulumi.String("Sample GithHub Grant"),
-// 			AuthOauth: &azuredevops.ServiceEndpointGitHubAuthOauthArgs{
+// 			AuthOauth: &ServiceEndpointGitHubAuthOauthArgs{
 // 				OauthConfigurationId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			},
 // 		})
@@ -280,7 +280,7 @@ type GitHubArrayInput interface {
 type GitHubArray []GitHubInput
 
 func (GitHubArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GitHub)(nil))
+	return reflect.TypeOf((*[]*GitHub)(nil)).Elem()
 }
 
 func (i GitHubArray) ToGitHubArrayOutput() GitHubArrayOutput {
@@ -305,7 +305,7 @@ type GitHubMapInput interface {
 type GitHubMap map[string]GitHubInput
 
 func (GitHubMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GitHub)(nil))
+	return reflect.TypeOf((*map[string]*GitHub)(nil)).Elem()
 }
 
 func (i GitHubMap) ToGitHubMapOutput() GitHubMapOutput {
@@ -316,9 +316,7 @@ func (i GitHubMap) ToGitHubMapOutputWithContext(ctx context.Context) GitHubMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubMapOutput)
 }
 
-type GitHubOutput struct {
-	*pulumi.OutputState
-}
+type GitHubOutput struct{ *pulumi.OutputState }
 
 func (GitHubOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GitHub)(nil))
@@ -337,14 +335,12 @@ func (o GitHubOutput) ToGitHubPtrOutput() GitHubPtrOutput {
 }
 
 func (o GitHubOutput) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
-	return o.ApplyT(func(v GitHub) *GitHub {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHub) *GitHub {
 		return &v
 	}).(GitHubPtrOutput)
 }
 
-type GitHubPtrOutput struct {
-	*pulumi.OutputState
-}
+type GitHubPtrOutput struct{ *pulumi.OutputState }
 
 func (GitHubPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GitHub)(nil))
@@ -356,6 +352,16 @@ func (o GitHubPtrOutput) ToGitHubPtrOutput() GitHubPtrOutput {
 
 func (o GitHubPtrOutput) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
 	return o
+}
+
+func (o GitHubPtrOutput) Elem() GitHubOutput {
+	return o.ApplyT(func(v *GitHub) GitHub {
+		if v != nil {
+			return *v
+		}
+		var ret GitHub
+		return ret
+	}).(GitHubOutput)
 }
 
 type GitHubArrayOutput struct{ *pulumi.OutputState }
@@ -399,6 +405,10 @@ func (o GitHubMapOutput) MapIndex(k pulumi.StringInput) GitHubOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubInput)(nil)).Elem(), &GitHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubPtrInput)(nil)).Elem(), &GitHub{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubArrayInput)(nil)).Elem(), GitHubArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitHubMapInput)(nil)).Elem(), GitHubMap{})
 	pulumi.RegisterOutputType(GitHubOutput{})
 	pulumi.RegisterOutputType(GitHubPtrOutput{})
 	pulumi.RegisterOutputType(GitHubArrayOutput{})

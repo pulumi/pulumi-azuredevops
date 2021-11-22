@@ -296,7 +296,7 @@ type ServiceEndpointAzureEcrArrayInput interface {
 type ServiceEndpointAzureEcrArray []ServiceEndpointAzureEcrInput
 
 func (ServiceEndpointAzureEcrArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ServiceEndpointAzureEcr)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointAzureEcr)(nil)).Elem()
 }
 
 func (i ServiceEndpointAzureEcrArray) ToServiceEndpointAzureEcrArrayOutput() ServiceEndpointAzureEcrArrayOutput {
@@ -321,7 +321,7 @@ type ServiceEndpointAzureEcrMapInput interface {
 type ServiceEndpointAzureEcrMap map[string]ServiceEndpointAzureEcrInput
 
 func (ServiceEndpointAzureEcrMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ServiceEndpointAzureEcr)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointAzureEcr)(nil)).Elem()
 }
 
 func (i ServiceEndpointAzureEcrMap) ToServiceEndpointAzureEcrMapOutput() ServiceEndpointAzureEcrMapOutput {
@@ -332,9 +332,7 @@ func (i ServiceEndpointAzureEcrMap) ToServiceEndpointAzureEcrMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrMapOutput)
 }
 
-type ServiceEndpointAzureEcrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointAzureEcrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureEcrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ServiceEndpointAzureEcr)(nil))
@@ -353,14 +351,12 @@ func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrPtrOutput() Serv
 }
 
 func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointAzureEcr) *ServiceEndpointAzureEcr {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointAzureEcr) *ServiceEndpointAzureEcr {
 		return &v
 	}).(ServiceEndpointAzureEcrPtrOutput)
 }
 
-type ServiceEndpointAzureEcrPtrOutput struct {
-	*pulumi.OutputState
-}
+type ServiceEndpointAzureEcrPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureEcrPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ServiceEndpointAzureEcr)(nil))
@@ -372,6 +368,16 @@ func (o ServiceEndpointAzureEcrPtrOutput) ToServiceEndpointAzureEcrPtrOutput() S
 
 func (o ServiceEndpointAzureEcrPtrOutput) ToServiceEndpointAzureEcrPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrPtrOutput {
 	return o
+}
+
+func (o ServiceEndpointAzureEcrPtrOutput) Elem() ServiceEndpointAzureEcrOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureEcr) ServiceEndpointAzureEcr {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceEndpointAzureEcr
+		return ret
+	}).(ServiceEndpointAzureEcrOutput)
 }
 
 type ServiceEndpointAzureEcrArrayOutput struct{ *pulumi.OutputState }
@@ -415,6 +421,10 @@ func (o ServiceEndpointAzureEcrMapOutput) MapIndex(k pulumi.StringInput) Service
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrInput)(nil)).Elem(), &ServiceEndpointAzureEcr{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrPtrInput)(nil)).Elem(), &ServiceEndpointAzureEcr{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrArrayInput)(nil)).Elem(), ServiceEndpointAzureEcrArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrMapInput)(nil)).Elem(), ServiceEndpointAzureEcrMap{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureEcrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureEcrPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureEcrArrayOutput{})

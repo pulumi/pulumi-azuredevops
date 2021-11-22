@@ -31,7 +31,7 @@ import (
 // 		}
 // 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -40,7 +40,7 @@ import (
 // 		}
 // 		buildDefinition, err := azuredevops.NewBuildDefinition(ctx, "buildDefinition", &azuredevops.BuildDefinitionArgs{
 // 			ProjectId: project.ID(),
-// 			Repository: &azuredevops.BuildDefinitionRepositoryArgs{
+// 			Repository: &BuildDefinitionRepositoryArgs{
 // 				RepoType: pulumi.String("TfsGit"),
 // 				RepoId:   git.ID(),
 // 				YmlPath:  pulumi.String("azure-pipelines.yml"),
@@ -53,7 +53,7 @@ import (
 // 			ProjectId: project.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
-// 			Settings: &azuredevops.BranchPolicyBuildValidationSettingsArgs{
+// 			Settings: &BranchPolicyBuildValidationSettingsArgs{
 // 				DisplayName:       pulumi.String("Don't break the build!"),
 // 				BuildDefinitionId: buildDefinition.ID(),
 // 				ValidDuration:     pulumi.Int(720),
@@ -62,13 +62,13 @@ import (
 // 					pulumi.String("!/WebApp/Tests/*"),
 // 					pulumi.String("*.cs"),
 // 				},
-// 				Scopes: azuredevops.BranchPolicyBuildValidationSettingsScopeArray{
-// 					&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
+// 				Scopes: BranchPolicyBuildValidationSettingsScopeArray{
+// 					&BranchPolicyBuildValidationSettingsScopeArgs{
 // 						RepositoryId:  git.ID(),
 // 						RepositoryRef: git.DefaultBranch,
 // 						MatchType:     pulumi.String("Exact"),
 // 					},
-// 					&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
+// 					&BranchPolicyBuildValidationSettingsScopeArgs{
 // 						RepositoryId:  git.ID(),
 // 						RepositoryRef: pulumi.String("refs/heads/releases"),
 // 						MatchType:     pulumi.String("Prefix"),
@@ -262,7 +262,7 @@ type BranchPolicyBuildValidationArrayInput interface {
 type BranchPolicyBuildValidationArray []BranchPolicyBuildValidationInput
 
 func (BranchPolicyBuildValidationArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*BranchPolicyBuildValidation)(nil))
+	return reflect.TypeOf((*[]*BranchPolicyBuildValidation)(nil)).Elem()
 }
 
 func (i BranchPolicyBuildValidationArray) ToBranchPolicyBuildValidationArrayOutput() BranchPolicyBuildValidationArrayOutput {
@@ -287,7 +287,7 @@ type BranchPolicyBuildValidationMapInput interface {
 type BranchPolicyBuildValidationMap map[string]BranchPolicyBuildValidationInput
 
 func (BranchPolicyBuildValidationMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*BranchPolicyBuildValidation)(nil))
+	return reflect.TypeOf((*map[string]*BranchPolicyBuildValidation)(nil)).Elem()
 }
 
 func (i BranchPolicyBuildValidationMap) ToBranchPolicyBuildValidationMapOutput() BranchPolicyBuildValidationMapOutput {
@@ -298,9 +298,7 @@ func (i BranchPolicyBuildValidationMap) ToBranchPolicyBuildValidationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationMapOutput)
 }
 
-type BranchPolicyBuildValidationOutput struct {
-	*pulumi.OutputState
-}
+type BranchPolicyBuildValidationOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyBuildValidationOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*BranchPolicyBuildValidation)(nil))
@@ -319,14 +317,12 @@ func (o BranchPolicyBuildValidationOutput) ToBranchPolicyBuildValidationPtrOutpu
 }
 
 func (o BranchPolicyBuildValidationOutput) ToBranchPolicyBuildValidationPtrOutputWithContext(ctx context.Context) BranchPolicyBuildValidationPtrOutput {
-	return o.ApplyT(func(v BranchPolicyBuildValidation) *BranchPolicyBuildValidation {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyBuildValidation) *BranchPolicyBuildValidation {
 		return &v
 	}).(BranchPolicyBuildValidationPtrOutput)
 }
 
-type BranchPolicyBuildValidationPtrOutput struct {
-	*pulumi.OutputState
-}
+type BranchPolicyBuildValidationPtrOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyBuildValidationPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**BranchPolicyBuildValidation)(nil))
@@ -338,6 +334,16 @@ func (o BranchPolicyBuildValidationPtrOutput) ToBranchPolicyBuildValidationPtrOu
 
 func (o BranchPolicyBuildValidationPtrOutput) ToBranchPolicyBuildValidationPtrOutputWithContext(ctx context.Context) BranchPolicyBuildValidationPtrOutput {
 	return o
+}
+
+func (o BranchPolicyBuildValidationPtrOutput) Elem() BranchPolicyBuildValidationOutput {
+	return o.ApplyT(func(v *BranchPolicyBuildValidation) BranchPolicyBuildValidation {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyBuildValidation
+		return ret
+	}).(BranchPolicyBuildValidationOutput)
 }
 
 type BranchPolicyBuildValidationArrayOutput struct{ *pulumi.OutputState }
@@ -381,6 +387,10 @@ func (o BranchPolicyBuildValidationMapOutput) MapIndex(k pulumi.StringInput) Bra
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationInput)(nil)).Elem(), &BranchPolicyBuildValidation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationPtrInput)(nil)).Elem(), &BranchPolicyBuildValidation{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationArrayInput)(nil)).Elem(), BranchPolicyBuildValidationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationMapInput)(nil)).Elem(), BranchPolicyBuildValidationMap{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationOutput{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationArrayOutput{})

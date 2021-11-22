@@ -66,9 +66,9 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
     import pulumi_azuredevops as azuredevops
 
     pools = azuredevops.get_pools()
-    pulumi.export("agentPoolName", [__item.name for __item in pools.agent_pools])
-    pulumi.export("autoProvision", [__item.auto_provision for __item in pools.agent_pools])
-    pulumi.export("poolType", [__item.pool_type for __item in pools.agent_pools])
+    pulumi.export("agentPoolName", [__item.name for __item in [pools.agent_pools]])
+    pulumi.export("autoProvision", [__item.auto_provision for __item in [pools.agent_pools]])
+    pulumi.export("poolType", [__item.pool_type for __item in [pools.agent_pools]])
     ```
     ## Relevant Links
 

@@ -122,6 +122,86 @@ import (
 // }
 // ```
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 			Description:      pulumi.String("Test Project Description"),
+// 			Visibility:       pulumi.String("private"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewGitPermissions(ctx, "project_git_root_permissions", &azuredevops.GitPermissionsArgs{
+// 			ProjectId: project.ID(),
+// 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
+// 				return project_readers.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			Permissions: pulumi.StringMap{
+// 				"CreateRepository": pulumi.String("Deny"),
+// 				"DeleteRepository": pulumi.String("Deny"),
+// 				"RenameRepository": pulumi.String("NotSet"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewGit(ctx, "git_repo", &azuredevops.GitArgs{
+// 			ProjectId:     project.ID(),
+// 			DefaultBranch: pulumi.String("refs/heads/master"),
+// 			Initialization: &GitInitializationArgs{
+// 				InitType: pulumi.String("Clean"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewGitPermissions(ctx, "project_git_repo_permissions", &azuredevops.GitPermissionsArgs{
+// 			ProjectId:    git_repo.ProjectId,
+// 			RepositoryId: git_repo.ID(),
+// 			Principal: project_administrators.ApplyT(func(project_administrators GetGroupResult) (string, error) {
+// 				return project_administrators.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			Permissions: pulumi.StringMap{
+// 				"RemoveOthersLocks": pulumi.String("Allow"),
+// 				"ManagePermissions": pulumi.String("Deny"),
+// 				"CreateTag":         pulumi.String("Deny"),
+// 				"CreateBranch":      pulumi.String("NotSet"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewGitPermissions(ctx, "project_git_branch_permissions", &azuredevops.GitPermissionsArgs{
+// 			ProjectId:    git_repo.ProjectId,
+// 			RepositoryId: git_repo.ID(),
+// 			BranchName:   pulumi.String("master"),
+// 			Principal: project_contributors.ApplyT(func(project_contributors GetGroupResult) (string, error) {
+// 				return project_contributors.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			Permissions: pulumi.StringMap{
+// 				"RemoveOthersLocks": pulumi.String("Allow"),
+// 				"ForcePush":         pulumi.String("Deny"),
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
@@ -318,7 +398,7 @@ type GitPermissionsArrayInput interface {
 type GitPermissionsArray []GitPermissionsInput
 
 func (GitPermissionsArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*GitPermissions)(nil))
+	return reflect.TypeOf((*[]*GitPermissions)(nil)).Elem()
 }
 
 func (i GitPermissionsArray) ToGitPermissionsArrayOutput() GitPermissionsArrayOutput {
@@ -343,7 +423,7 @@ type GitPermissionsMapInput interface {
 type GitPermissionsMap map[string]GitPermissionsInput
 
 func (GitPermissionsMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*GitPermissions)(nil))
+	return reflect.TypeOf((*map[string]*GitPermissions)(nil)).Elem()
 }
 
 func (i GitPermissionsMap) ToGitPermissionsMapOutput() GitPermissionsMapOutput {
@@ -354,9 +434,7 @@ func (i GitPermissionsMap) ToGitPermissionsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsMapOutput)
 }
 
-type GitPermissionsOutput struct {
-	*pulumi.OutputState
-}
+type GitPermissionsOutput struct{ *pulumi.OutputState }
 
 func (GitPermissionsOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*GitPermissions)(nil))
@@ -375,14 +453,12 @@ func (o GitPermissionsOutput) ToGitPermissionsPtrOutput() GitPermissionsPtrOutpu
 }
 
 func (o GitPermissionsOutput) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
-	return o.ApplyT(func(v GitPermissions) *GitPermissions {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitPermissions) *GitPermissions {
 		return &v
 	}).(GitPermissionsPtrOutput)
 }
 
-type GitPermissionsPtrOutput struct {
-	*pulumi.OutputState
-}
+type GitPermissionsPtrOutput struct{ *pulumi.OutputState }
 
 func (GitPermissionsPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**GitPermissions)(nil))
@@ -394,6 +470,16 @@ func (o GitPermissionsPtrOutput) ToGitPermissionsPtrOutput() GitPermissionsPtrOu
 
 func (o GitPermissionsPtrOutput) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
 	return o
+}
+
+func (o GitPermissionsPtrOutput) Elem() GitPermissionsOutput {
+	return o.ApplyT(func(v *GitPermissions) GitPermissions {
+		if v != nil {
+			return *v
+		}
+		var ret GitPermissions
+		return ret
+	}).(GitPermissionsOutput)
 }
 
 type GitPermissionsArrayOutput struct{ *pulumi.OutputState }
@@ -437,6 +523,10 @@ func (o GitPermissionsMapOutput) MapIndex(k pulumi.StringInput) GitPermissionsOu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GitPermissionsInput)(nil)).Elem(), &GitPermissions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitPermissionsPtrInput)(nil)).Elem(), &GitPermissions{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitPermissionsArrayInput)(nil)).Elem(), GitPermissionsArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitPermissionsMapInput)(nil)).Elem(), GitPermissionsMap{})
 	pulumi.RegisterOutputType(GitPermissionsOutput{})
 	pulumi.RegisterOutputType(GitPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(GitPermissionsArrayOutput{})

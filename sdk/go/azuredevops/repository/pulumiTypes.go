@@ -115,7 +115,7 @@ func (o GitInitializationOutput) ToGitInitializationPtrOutput() GitInitializatio
 }
 
 func (o GitInitializationOutput) ToGitInitializationPtrOutputWithContext(ctx context.Context) GitInitializationPtrOutput {
-	return o.ApplyT(func(v GitInitialization) *GitInitialization {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitInitialization) *GitInitialization {
 		return &v
 	}).(GitInitializationPtrOutput)
 }
@@ -155,7 +155,13 @@ func (o GitInitializationPtrOutput) ToGitInitializationPtrOutputWithContext(ctx 
 }
 
 func (o GitInitializationPtrOutput) Elem() GitInitializationOutput {
-	return o.ApplyT(func(v *GitInitialization) GitInitialization { return *v }).(GitInitializationOutput)
+	return o.ApplyT(func(v *GitInitialization) GitInitialization {
+		if v != nil {
+			return *v
+		}
+		var ret GitInitialization
+		return ret
+	}).(GitInitializationOutput)
 }
 
 // The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
@@ -368,6 +374,10 @@ func (o GetRepositoriesRepositoryArrayOutput) Index(i pulumi.IntInput) GetReposi
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GitInitializationInput)(nil)).Elem(), GitInitializationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GitInitializationPtrInput)(nil)).Elem(), GitInitializationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepositoryInput)(nil)).Elem(), GetRepositoriesRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetRepositoriesRepositoryArrayInput)(nil)).Elem(), GetRepositoriesRepositoryArray{})
 	pulumi.RegisterOutputType(GitInitializationOutput{})
 	pulumi.RegisterOutputType(GitInitializationPtrOutput{})
 	pulumi.RegisterOutputType(GetRepositoriesRepositoryOutput{})

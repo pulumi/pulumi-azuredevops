@@ -99,3 +99,25 @@ export interface GetAreaResult {
      */
     readonly projectId: string;
 }
+
+export function getAreaOutput(args: GetAreaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAreaResult> {
+    return pulumi.output(args).apply(a => getArea(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getArea.
+ */
+export interface GetAreaOutputArgs {
+    /**
+     * Read children nodes, _Depth_: 1, _Default_: `true`
+     */
+    fetchChildren?: pulumi.Input<boolean>;
+    /**
+     * The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * The project ID.
+     */
+    projectId: pulumi.Input<string>;
+}

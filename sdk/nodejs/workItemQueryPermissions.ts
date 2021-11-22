@@ -81,7 +81,7 @@ import * as utilities from "./utilities";
  * }));
  * const wiq_project_permissions = new azuredevops.WorkItemQueryPermissions("wiq-project-permissions", {
  *     projectId: project.id,
- *     principal: project_readers.id,
+ *     principal: project_readers.apply(project_readers => project_readers.id),
  *     permissions: {
  *         Read: "Allow",
  *         Delete: "Deny",
@@ -92,7 +92,7 @@ import * as utilities from "./utilities";
  * const wiq_sharedqueries_permissions = new azuredevops.WorkItemQueryPermissions("wiq-sharedqueries-permissions", {
  *     projectId: project.id,
  *     path: "/",
- *     principal: project_contributors.id,
+ *     principal: project_contributors.apply(project_contributors => project_contributors.id),
  *     permissions: {
  *         Read: "Allow",
  *         Delete: "Deny",

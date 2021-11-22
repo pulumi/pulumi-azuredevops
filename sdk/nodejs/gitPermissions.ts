@@ -106,7 +106,7 @@ import * as utilities from "./utilities";
  * }));
  * const project_git_root_permissions = new azuredevops.GitPermissions("project-git-root-permissions", {
  *     projectId: project.id,
- *     principal: project_readers.id,
+ *     principal: project_readers.apply(project_readers => project_readers.id),
  *     permissions: {
  *         CreateRepository: "Deny",
  *         DeleteRepository: "Deny",
@@ -123,7 +123,7 @@ import * as utilities from "./utilities";
  * const project_git_repo_permissions = new azuredevops.GitPermissions("project-git-repo-permissions", {
  *     projectId: git_repo.projectId,
  *     repositoryId: git_repo.id,
- *     principal: project_administrators.id,
+ *     principal: project_administrators.apply(project_administrators => project_administrators.id),
  *     permissions: {
  *         RemoveOthersLocks: "Allow",
  *         ManagePermissions: "Deny",
@@ -135,7 +135,7 @@ import * as utilities from "./utilities";
  *     projectId: git_repo.projectId,
  *     repositoryId: git_repo.id,
  *     branchName: "master",
- *     principal: project_contributors.id,
+ *     principal: project_contributors.apply(project_contributors => project_contributors.id),
  *     permissions: {
  *         RemoveOthersLocks: "Allow",
  *         ForcePush: "Deny",

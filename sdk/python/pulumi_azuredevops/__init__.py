@@ -76,17 +76,28 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
-    import pulumi_azuredevops.agent as agent
-    import pulumi_azuredevops.build as build
-    import pulumi_azuredevops.config as config
-    import pulumi_azuredevops.core as core
-    import pulumi_azuredevops.entitlement as entitlement
-    import pulumi_azuredevops.identities as identities
-    import pulumi_azuredevops.pipeline as pipeline
-    import pulumi_azuredevops.policy as policy
-    import pulumi_azuredevops.repository as repository
-    import pulumi_azuredevops.security as security
-    import pulumi_azuredevops.serviceendpoint as serviceendpoint
+    import pulumi_azuredevops.agent as __agent
+    agent = __agent
+    import pulumi_azuredevops.build as __build
+    build = __build
+    import pulumi_azuredevops.config as __config
+    config = __config
+    import pulumi_azuredevops.core as __core
+    core = __core
+    import pulumi_azuredevops.entitlement as __entitlement
+    entitlement = __entitlement
+    import pulumi_azuredevops.identities as __identities
+    identities = __identities
+    import pulumi_azuredevops.pipeline as __pipeline
+    pipeline = __pipeline
+    import pulumi_azuredevops.policy as __policy
+    policy = __policy
+    import pulumi_azuredevops.repository as __repository
+    repository = __repository
+    import pulumi_azuredevops.security as __security
+    security = __security
+    import pulumi_azuredevops.serviceendpoint as __serviceendpoint
+    serviceendpoint = __serviceendpoint
 else:
     agent = _utilities.lazy_import('pulumi_azuredevops.agent')
     build = _utilities.lazy_import('pulumi_azuredevops.build')

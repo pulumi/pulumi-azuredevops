@@ -36,7 +36,7 @@ import (
 // 		}
 // 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -279,7 +279,7 @@ type RepositoryPolicyAuthorEmailPatternArrayInput interface {
 type RepositoryPolicyAuthorEmailPatternArray []RepositoryPolicyAuthorEmailPatternInput
 
 func (RepositoryPolicyAuthorEmailPatternArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryPolicyAuthorEmailPattern)(nil))
+	return reflect.TypeOf((*[]*RepositoryPolicyAuthorEmailPattern)(nil)).Elem()
 }
 
 func (i RepositoryPolicyAuthorEmailPatternArray) ToRepositoryPolicyAuthorEmailPatternArrayOutput() RepositoryPolicyAuthorEmailPatternArrayOutput {
@@ -304,7 +304,7 @@ type RepositoryPolicyAuthorEmailPatternMapInput interface {
 type RepositoryPolicyAuthorEmailPatternMap map[string]RepositoryPolicyAuthorEmailPatternInput
 
 func (RepositoryPolicyAuthorEmailPatternMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryPolicyAuthorEmailPattern)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPolicyAuthorEmailPattern)(nil)).Elem()
 }
 
 func (i RepositoryPolicyAuthorEmailPatternMap) ToRepositoryPolicyAuthorEmailPatternMapOutput() RepositoryPolicyAuthorEmailPatternMapOutput {
@@ -315,9 +315,7 @@ func (i RepositoryPolicyAuthorEmailPatternMap) ToRepositoryPolicyAuthorEmailPatt
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternMapOutput)
 }
 
-type RepositoryPolicyAuthorEmailPatternOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyAuthorEmailPatternOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyAuthorEmailPatternOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RepositoryPolicyAuthorEmailPattern)(nil))
@@ -336,14 +334,12 @@ func (o RepositoryPolicyAuthorEmailPatternOutput) ToRepositoryPolicyAuthorEmailP
 }
 
 func (o RepositoryPolicyAuthorEmailPatternOutput) ToRepositoryPolicyAuthorEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternPtrOutput {
-	return o.ApplyT(func(v RepositoryPolicyAuthorEmailPattern) *RepositoryPolicyAuthorEmailPattern {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPolicyAuthorEmailPattern) *RepositoryPolicyAuthorEmailPattern {
 		return &v
 	}).(RepositoryPolicyAuthorEmailPatternPtrOutput)
 }
 
-type RepositoryPolicyAuthorEmailPatternPtrOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyAuthorEmailPatternPtrOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyAuthorEmailPatternPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RepositoryPolicyAuthorEmailPattern)(nil))
@@ -355,6 +351,16 @@ func (o RepositoryPolicyAuthorEmailPatternPtrOutput) ToRepositoryPolicyAuthorEma
 
 func (o RepositoryPolicyAuthorEmailPatternPtrOutput) ToRepositoryPolicyAuthorEmailPatternPtrOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternPtrOutput {
 	return o
+}
+
+func (o RepositoryPolicyAuthorEmailPatternPtrOutput) Elem() RepositoryPolicyAuthorEmailPatternOutput {
+	return o.ApplyT(func(v *RepositoryPolicyAuthorEmailPattern) RepositoryPolicyAuthorEmailPattern {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryPolicyAuthorEmailPattern
+		return ret
+	}).(RepositoryPolicyAuthorEmailPatternOutput)
 }
 
 type RepositoryPolicyAuthorEmailPatternArrayOutput struct{ *pulumi.OutputState }
@@ -398,6 +404,10 @@ func (o RepositoryPolicyAuthorEmailPatternMapOutput) MapIndex(k pulumi.StringInp
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternInput)(nil)).Elem(), &RepositoryPolicyAuthorEmailPattern{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternPtrInput)(nil)).Elem(), &RepositoryPolicyAuthorEmailPattern{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternArrayInput)(nil)).Elem(), RepositoryPolicyAuthorEmailPatternArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyAuthorEmailPatternMapInput)(nil)).Elem(), RepositoryPolicyAuthorEmailPatternMap{})
 	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyAuthorEmailPatternArrayOutput{})

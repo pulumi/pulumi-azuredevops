@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const pools = azuredevops.getPools({});
- * export const agentPoolName = pools.then(pools => pools.agentPools.map(__item => __item.name));
- * export const autoProvision = pools.then(pools => pools.agentPools.map(__item => __item.autoProvision));
- * export const poolType = pools.then(pools => pools.agentPools.map(__item => __item.poolType));
+ * export const agentPoolName = [pools.then(pools => pools.agentPools)].map(__item => __item?.name);
+ * export const autoProvision = [pools.then(pools => pools.agentPools)].map(__item => __item?.autoProvision);
+ * export const poolType = [pools.then(pools => pools.agentPools)].map(__item => __item?.poolType);
  * ```
  * ## Relevant Links
  *

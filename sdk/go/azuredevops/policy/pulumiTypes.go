@@ -127,7 +127,7 @@ func (o BranchPolicyBuildValidationSettingsOutput) ToBranchPolicyBuildValidation
 }
 
 func (o BranchPolicyBuildValidationSettingsOutput) ToBranchPolicyBuildValidationSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyBuildValidationSettingsPtrOutput {
-	return o.ApplyT(func(v BranchPolicyBuildValidationSettings) *BranchPolicyBuildValidationSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyBuildValidationSettings) *BranchPolicyBuildValidationSettings {
 		return &v
 	}).(BranchPolicyBuildValidationSettingsPtrOutput)
 }
@@ -184,7 +184,13 @@ func (o BranchPolicyBuildValidationSettingsPtrOutput) ToBranchPolicyBuildValidat
 }
 
 func (o BranchPolicyBuildValidationSettingsPtrOutput) Elem() BranchPolicyBuildValidationSettingsOutput {
-	return o.ApplyT(func(v *BranchPolicyBuildValidationSettings) BranchPolicyBuildValidationSettings { return *v }).(BranchPolicyBuildValidationSettingsOutput)
+	return o.ApplyT(func(v *BranchPolicyBuildValidationSettings) BranchPolicyBuildValidationSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyBuildValidationSettings
+		return ret
+	}).(BranchPolicyBuildValidationSettingsOutput)
 }
 
 // The ID of the build to monitor for the policy.
@@ -493,7 +499,7 @@ func (o BranchPolicyMinReviewersSettingsOutput) ToBranchPolicyMinReviewersSettin
 }
 
 func (o BranchPolicyMinReviewersSettingsOutput) ToBranchPolicyMinReviewersSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersSettingsPtrOutput {
-	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *BranchPolicyMinReviewersSettings {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyMinReviewersSettings) *BranchPolicyMinReviewersSettings {
 		return &v
 	}).(BranchPolicyMinReviewersSettingsPtrOutput)
 }
@@ -553,7 +559,13 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) ToBranchPolicyMinReviewersSet
 }
 
 func (o BranchPolicyMinReviewersSettingsPtrOutput) Elem() BranchPolicyMinReviewersSettingsOutput {
-	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) BranchPolicyMinReviewersSettings { return *v }).(BranchPolicyMinReviewersSettingsOutput)
+	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) BranchPolicyMinReviewersSettings {
+		if v != nil {
+			return *v
+		}
+		var ret BranchPolicyMinReviewersSettings
+		return ret
+	}).(BranchPolicyMinReviewersSettingsOutput)
 }
 
 // Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
@@ -752,6 +764,14 @@ func (o BranchPolicyMinReviewersSettingsScopeArrayOutput) Index(i pulumi.IntInpu
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationSettingsInput)(nil)).Elem(), BranchPolicyBuildValidationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationSettingsPtrInput)(nil)).Elem(), BranchPolicyBuildValidationSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationSettingsScopeInput)(nil)).Elem(), BranchPolicyBuildValidationSettingsScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyBuildValidationSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyBuildValidationSettingsScopeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersSettingsInput)(nil)).Elem(), BranchPolicyMinReviewersSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersSettingsPtrInput)(nil)).Elem(), BranchPolicyMinReviewersSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersSettingsScopeInput)(nil)).Elem(), BranchPolicyMinReviewersSettingsScopeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersSettingsScopeArrayInput)(nil)).Elem(), BranchPolicyMinReviewersSettingsScopeArray{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationSettingsOutput{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyBuildValidationSettingsScopeOutput{})

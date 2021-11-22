@@ -4,6 +4,9 @@
 package repository
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,7 +26,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "contoso-project"
-// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -31,7 +34,7 @@ import (
 // 		}
 // 		opt1 := project.Id
 // 		opt2 := true
-// 		_, err = azuredevops.GetRepositories(ctx, &azuredevops.GetRepositoriesArgs{
+// 		_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
 // 			ProjectId:     &opt1,
 // 			IncludeHidden: &opt2,
 // 		}, nil)
@@ -40,7 +43,7 @@ import (
 // 		}
 // 		opt3 := project.Id
 // 		opt4 := "contoso-repo"
-// 		_, err = azuredevops.GetRepositories(ctx, &azuredevops.GetRepositoriesArgs{
+// 		_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
 // 			ProjectId: &opt3,
 // 			Name:      &opt4,
 // 		}, nil)
@@ -85,4 +88,69 @@ type GetRepositoriesResult struct {
 	ProjectId *string `pulumi:"projectId"`
 	// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
 	Repositories []GetRepositoriesRepository `pulumi:"repositories"`
+}
+
+func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoriesResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetRepositoriesResult, error) {
+			args := v.(GetRepositoriesArgs)
+			r, err := GetRepositories(ctx, &args, opts...)
+			return *r, err
+		}).(GetRepositoriesResultOutput)
+}
+
+// A collection of arguments for invoking getRepositories.
+type GetRepositoriesOutputArgs struct {
+	IncludeHidden pulumi.BoolPtrInput `pulumi:"includeHidden"`
+	// Name of the Git repository to retrieve; requires `projectId` to be specified as well
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of project to list Git repositories
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+}
+
+func (GetRepositoriesOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoriesArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getRepositories.
+type GetRepositoriesResultOutput struct{ *pulumi.OutputState }
+
+func (GetRepositoriesResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetRepositoriesResult)(nil)).Elem()
+}
+
+func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutput() GetRepositoriesResultOutput {
+	return o
+}
+
+func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutputWithContext(ctx context.Context) GetRepositoriesResultOutput {
+	return o
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetRepositoriesResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetRepositoriesResultOutput) IncludeHidden() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) *bool { return v.IncludeHidden }).(pulumi.BoolPtrOutput)
+}
+
+// Git repository name.
+func (o GetRepositoriesResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Project identifier to which the Git repository belongs.
+func (o GetRepositoriesResultOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+func (o GetRepositoriesResultOutput) Repositories() GetRepositoriesRepositoryArrayOutput {
+	return o.ApplyT(func(v GetRepositoriesResult) []GetRepositoriesRepository { return v.Repositories }).(GetRepositoriesRepositoryArrayOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetRepositoriesResultOutput{})
 }

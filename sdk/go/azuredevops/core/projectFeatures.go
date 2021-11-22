@@ -26,7 +26,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "Test Project"
-// 		tf_project_test_001, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 		tf_project_test_001, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -205,7 +205,7 @@ type ProjectFeaturesArrayInput interface {
 type ProjectFeaturesArray []ProjectFeaturesInput
 
 func (ProjectFeaturesArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*ProjectFeatures)(nil))
+	return reflect.TypeOf((*[]*ProjectFeatures)(nil)).Elem()
 }
 
 func (i ProjectFeaturesArray) ToProjectFeaturesArrayOutput() ProjectFeaturesArrayOutput {
@@ -230,7 +230,7 @@ type ProjectFeaturesMapInput interface {
 type ProjectFeaturesMap map[string]ProjectFeaturesInput
 
 func (ProjectFeaturesMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*ProjectFeatures)(nil))
+	return reflect.TypeOf((*map[string]*ProjectFeatures)(nil)).Elem()
 }
 
 func (i ProjectFeaturesMap) ToProjectFeaturesMapOutput() ProjectFeaturesMapOutput {
@@ -241,9 +241,7 @@ func (i ProjectFeaturesMap) ToProjectFeaturesMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesMapOutput)
 }
 
-type ProjectFeaturesOutput struct {
-	*pulumi.OutputState
-}
+type ProjectFeaturesOutput struct{ *pulumi.OutputState }
 
 func (ProjectFeaturesOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*ProjectFeatures)(nil))
@@ -262,14 +260,12 @@ func (o ProjectFeaturesOutput) ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOu
 }
 
 func (o ProjectFeaturesOutput) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
-	return o.ApplyT(func(v ProjectFeatures) *ProjectFeatures {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectFeatures) *ProjectFeatures {
 		return &v
 	}).(ProjectFeaturesPtrOutput)
 }
 
-type ProjectFeaturesPtrOutput struct {
-	*pulumi.OutputState
-}
+type ProjectFeaturesPtrOutput struct{ *pulumi.OutputState }
 
 func (ProjectFeaturesPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**ProjectFeatures)(nil))
@@ -281,6 +277,16 @@ func (o ProjectFeaturesPtrOutput) ToProjectFeaturesPtrOutput() ProjectFeaturesPt
 
 func (o ProjectFeaturesPtrOutput) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
 	return o
+}
+
+func (o ProjectFeaturesPtrOutput) Elem() ProjectFeaturesOutput {
+	return o.ApplyT(func(v *ProjectFeatures) ProjectFeatures {
+		if v != nil {
+			return *v
+		}
+		var ret ProjectFeatures
+		return ret
+	}).(ProjectFeaturesOutput)
 }
 
 type ProjectFeaturesArrayOutput struct{ *pulumi.OutputState }
@@ -324,6 +330,10 @@ func (o ProjectFeaturesMapOutput) MapIndex(k pulumi.StringInput) ProjectFeatures
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFeaturesInput)(nil)).Elem(), &ProjectFeatures{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFeaturesPtrInput)(nil)).Elem(), &ProjectFeatures{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFeaturesArrayInput)(nil)).Elem(), ProjectFeaturesArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFeaturesMapInput)(nil)).Elem(), ProjectFeaturesMap{})
 	pulumi.RegisterOutputType(ProjectFeaturesOutput{})
 	pulumi.RegisterOutputType(ProjectFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ProjectFeaturesArrayOutput{})

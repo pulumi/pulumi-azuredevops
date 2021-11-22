@@ -12,6 +12,7 @@ __all__ = [
     'GetProjectResult',
     'AwaitableGetProjectResult',
     'get_project',
+    'get_project_output',
 ]
 
 warnings.warn("""azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject""", DeprecationWarning)
@@ -164,3 +165,36 @@ def get_project(name: Optional[str] = None,
         version_control=__ret__.version_control,
         visibility=__ret__.visibility,
         work_item_template=__ret__.work_item_template)
+
+
+@_utilities.lift_output_func(get_project)
+def get_project_output(name: Optional[pulumi.Input[Optional[str]]] = None,
+                       project_id: Optional[pulumi.Input[Optional[str]]] = None,
+                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetProjectResult]:
+    """
+    Use this data source to access information about an existing Project within Azure DevOps.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    project = azuredevops.get_project(name="Sample Project")
+    pulumi.export("id", project.id)
+    pulumi.export("name", project.name)
+    pulumi.export("visibility", project.visibility)
+    pulumi.export("versionControl", project.version_control)
+    pulumi.export("workItemTemplate", project.work_item_template)
+    pulumi.export("processTemplateId", project.process_template_id)
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+
+
+    :param str name: Name of the Project.
+    :param str project_id: ID of the Project.
+    """
+    pulumi.log.warn("""get_project is deprecated: azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject""")
+    ...

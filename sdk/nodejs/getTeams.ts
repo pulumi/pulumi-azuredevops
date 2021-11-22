@@ -37,3 +37,14 @@ export interface GetTeamsResult {
     readonly projectId?: string;
     readonly teams: outputs.GetTeamsTeam[];
 }
+
+export function getTeamsOutput(args?: GetTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamsResult> {
+    return pulumi.output(args).apply(a => getTeams(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getTeams.
+ */
+export interface GetTeamsOutputArgs {
+    projectId?: pulumi.Input<string>;
+}

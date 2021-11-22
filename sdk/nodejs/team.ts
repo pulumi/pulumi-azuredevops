@@ -29,8 +29,8 @@ import * as utilities from "./utilities";
  * }));
  * const team = new azuredevops.Team("team", {
  *     projectId: project.id,
- *     administrators: [builtinProjectContributors.descriptor],
- *     members: [builtinProjectReaders.descriptor],
+ *     administrators: [builtinProjectContributors.apply(builtinProjectContributors => builtinProjectContributors.descriptor)],
+ *     members: [builtinProjectReaders.apply(builtinProjectReaders => builtinProjectReaders.descriptor)],
  * });
  * ```
  * ## Relevant Links

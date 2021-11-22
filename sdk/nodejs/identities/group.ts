@@ -27,8 +27,8 @@ import * as utilities from "../utilities";
  *     displayName: "Test group",
  *     description: "Test description",
  *     members: [
- *         tf_project_readers.descriptor,
- *         tf_project_contributors.descriptor,
+ *         tf_project_readers.apply(tf_project_readers => tf_project_readers.descriptor),
+ *         tf_project_contributors.apply(tf_project_contributors => tf_project_contributors.descriptor),
  *     ],
  * });
  * ```

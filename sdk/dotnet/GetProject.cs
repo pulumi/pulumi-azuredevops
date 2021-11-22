@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps
 {
@@ -60,6 +61,56 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Task<GetProjectResult> InvokeAsync(GetProjectArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectResult>("azuredevops:index/getProject:getProject", args ?? new GetProjectArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Project within Azure DevOps.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         {
+        ///             Name = "Sample Project",
+        ///         }));
+        ///         this.Id = project.Apply(project =&gt; project.Id);
+        ///         this.Name = project.Apply(project =&gt; project.Name);
+        ///         this.Visibility = project.Apply(project =&gt; project.Visibility);
+        ///         this.VersionControl = project.Apply(project =&gt; project.VersionControl);
+        ///         this.WorkItemTemplate = project.Apply(project =&gt; project.WorkItemTemplate);
+        ///         this.ProcessTemplateId = project.Apply(project =&gt; project.ProcessTemplateId);
+        ///     }
+        /// 
+        ///     [Output("id")]
+        ///     public Output&lt;string&gt; Id { get; set; }
+        ///     [Output("name")]
+        ///     public Output&lt;string&gt; Name { get; set; }
+        ///     [Output("visibility")]
+        ///     public Output&lt;string&gt; Visibility { get; set; }
+        ///     [Output("versionControl")]
+        ///     public Output&lt;string&gt; VersionControl { get; set; }
+        ///     [Output("workItemTemplate")]
+        ///     public Output&lt;string&gt; WorkItemTemplate { get; set; }
+        ///     [Output("processTemplateId")]
+        ///     public Output&lt;string&gt; ProcessTemplateId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+        /// </summary>
+        public static Output<GetProjectResult> Invoke(GetProjectInvokeArgs? args = null, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetProjectResult>("azuredevops:index/getProject:getProject", args ?? new GetProjectInvokeArgs(), options.WithVersion());
     }
 
 
@@ -78,6 +129,25 @@ namespace Pulumi.AzureDevOps
         public string? ProjectId { get; set; }
 
         public GetProjectArgs()
+        {
+        }
+    }
+
+    public sealed class GetProjectInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Project.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// ID of the Project.
+        /// </summary>
+        [Input("projectId")]
+        public Input<string>? ProjectId { get; set; }
+
+        public GetProjectInvokeArgs()
         {
         }
     }

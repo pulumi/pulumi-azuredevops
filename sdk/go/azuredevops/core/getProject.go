@@ -4,6 +4,9 @@
 package core
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +25,7 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "Sample Project"
-// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
@@ -72,4 +75,81 @@ type LookupProjectResult struct {
 	VersionControl    string  `pulumi:"versionControl"`
 	Visibility        string  `pulumi:"visibility"`
 	WorkItemTemplate  string  `pulumi:"workItemTemplate"`
+}
+
+func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts ...pulumi.InvokeOption) LookupProjectResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupProjectResult, error) {
+			args := v.(LookupProjectArgs)
+			r, err := LookupProject(ctx, &args, opts...)
+			return *r, err
+		}).(LookupProjectResultOutput)
+}
+
+// A collection of arguments for invoking getProject.
+type LookupProjectOutputArgs struct {
+	// Name of the Project.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of the Project.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+}
+
+func (LookupProjectOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProjectArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getProject.
+type LookupProjectResultOutput struct{ *pulumi.OutputState }
+
+func (LookupProjectResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupProjectResult)(nil)).Elem()
+}
+
+func (o LookupProjectResultOutput) ToLookupProjectResultOutput() LookupProjectResultOutput {
+	return o
+}
+
+func (o LookupProjectResultOutput) ToLookupProjectResultOutputWithContext(ctx context.Context) LookupProjectResultOutput {
+	return o
+}
+
+func (o LookupProjectResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+func (o LookupProjectResultOutput) Features() pulumi.MapOutput {
+	return o.ApplyT(func(v LookupProjectResult) map[string]interface{} { return v.Features }).(pulumi.MapOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o LookupProjectResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o LookupProjectResultOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProjectResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupProjectResultOutput) ProcessTemplateId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.ProcessTemplateId }).(pulumi.StringOutput)
+}
+
+func (o LookupProjectResultOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupProjectResult) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+func (o LookupProjectResultOutput) VersionControl() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.VersionControl }).(pulumi.StringOutput)
+}
+
+func (o LookupProjectResultOutput) Visibility() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.Visibility }).(pulumi.StringOutput)
+}
+
+func (o LookupProjectResultOutput) WorkItemTemplate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupProjectResult) string { return v.WorkItemTemplate }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(LookupProjectResultOutput{})
 }

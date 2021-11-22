@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
+using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps
 {
@@ -57,6 +58,53 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public static Task<GetAgentQueueResult> InvokeAsync(GetAgentQueueArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAgentQueueResult>("azuredevops:index/getAgentQueue:getAgentQueue", args ?? new GetAgentQueueArgs(), options.WithVersion());
+
+        /// <summary>
+        /// Use this data source to access information about an existing Agent Queue within Azure DevOps.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         // Azure DevOps project
+        ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+        ///         {
+        ///             WorkItemTemplate = "Agile",
+        ///             VersionControl = "Git",
+        ///             Visibility = "private",
+        ///             Description = "Managed by Terraform",
+        ///         });
+        ///         var queue = project.Id.Apply(id =&gt; AzureDevOps.GetAgentQueue.InvokeAsync(new AzureDevOps.GetAgentQueueArgs
+        ///         {
+        ///             ProjectId = id,
+        ///             Name = "Sample Agent Queue",
+        ///         }));
+        ///         this.Name = queue.Apply(queue =&gt; queue.Name);
+        ///         this.PoolId = queue.Apply(queue =&gt; queue.AgentPoolId);
+        ///     }
+        /// 
+        ///     [Output("name")]
+        ///     public Output&lt;string&gt; Name { get; set; }
+        ///     [Output("poolId")]
+        ///     public Output&lt;string&gt; PoolId { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 5.1 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-5.1)
+        /// </summary>
+        public static Output<GetAgentQueueResult> Invoke(GetAgentQueueInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetAgentQueueResult>("azuredevops:index/getAgentQueue:getAgentQueue", args ?? new GetAgentQueueInvokeArgs(), options.WithVersion());
     }
 
 
@@ -75,6 +123,25 @@ namespace Pulumi.AzureDevOps
         public string ProjectId { get; set; } = null!;
 
         public GetAgentQueueArgs()
+        {
+        }
+    }
+
+    public sealed class GetAgentQueueInvokeArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Name of the Agent Queue.
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// The Project Id.
+        /// </summary>
+        [Input("projectId", required: true)]
+        public Input<string> ProjectId { get; set; } = null!;
+
+        public GetAgentQueueInvokeArgs()
         {
         }
     }

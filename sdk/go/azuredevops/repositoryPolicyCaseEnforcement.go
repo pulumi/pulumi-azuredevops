@@ -38,7 +38,7 @@ import (
 // 		}
 // 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
 // 			ProjectId: project.ID(),
-// 			Initialization: &azuredevops.GitInitializationArgs{
+// 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
 // 		})
@@ -269,7 +269,7 @@ type RepositoryPolicyCaseEnforcementArrayInput interface {
 type RepositoryPolicyCaseEnforcementArray []RepositoryPolicyCaseEnforcementInput
 
 func (RepositoryPolicyCaseEnforcementArray) ElementType() reflect.Type {
-	return reflect.TypeOf(([]*RepositoryPolicyCaseEnforcement)(nil))
+	return reflect.TypeOf((*[]*RepositoryPolicyCaseEnforcement)(nil)).Elem()
 }
 
 func (i RepositoryPolicyCaseEnforcementArray) ToRepositoryPolicyCaseEnforcementArrayOutput() RepositoryPolicyCaseEnforcementArrayOutput {
@@ -294,7 +294,7 @@ type RepositoryPolicyCaseEnforcementMapInput interface {
 type RepositoryPolicyCaseEnforcementMap map[string]RepositoryPolicyCaseEnforcementInput
 
 func (RepositoryPolicyCaseEnforcementMap) ElementType() reflect.Type {
-	return reflect.TypeOf((map[string]*RepositoryPolicyCaseEnforcement)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPolicyCaseEnforcement)(nil)).Elem()
 }
 
 func (i RepositoryPolicyCaseEnforcementMap) ToRepositoryPolicyCaseEnforcementMapOutput() RepositoryPolicyCaseEnforcementMapOutput {
@@ -305,9 +305,7 @@ func (i RepositoryPolicyCaseEnforcementMap) ToRepositoryPolicyCaseEnforcementMap
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCaseEnforcementMapOutput)
 }
 
-type RepositoryPolicyCaseEnforcementOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyCaseEnforcementOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyCaseEnforcementOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((*RepositoryPolicyCaseEnforcement)(nil))
@@ -326,14 +324,12 @@ func (o RepositoryPolicyCaseEnforcementOutput) ToRepositoryPolicyCaseEnforcement
 }
 
 func (o RepositoryPolicyCaseEnforcementOutput) ToRepositoryPolicyCaseEnforcementPtrOutputWithContext(ctx context.Context) RepositoryPolicyCaseEnforcementPtrOutput {
-	return o.ApplyT(func(v RepositoryPolicyCaseEnforcement) *RepositoryPolicyCaseEnforcement {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPolicyCaseEnforcement) *RepositoryPolicyCaseEnforcement {
 		return &v
 	}).(RepositoryPolicyCaseEnforcementPtrOutput)
 }
 
-type RepositoryPolicyCaseEnforcementPtrOutput struct {
-	*pulumi.OutputState
-}
+type RepositoryPolicyCaseEnforcementPtrOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyCaseEnforcementPtrOutput) ElementType() reflect.Type {
 	return reflect.TypeOf((**RepositoryPolicyCaseEnforcement)(nil))
@@ -345,6 +341,16 @@ func (o RepositoryPolicyCaseEnforcementPtrOutput) ToRepositoryPolicyCaseEnforcem
 
 func (o RepositoryPolicyCaseEnforcementPtrOutput) ToRepositoryPolicyCaseEnforcementPtrOutputWithContext(ctx context.Context) RepositoryPolicyCaseEnforcementPtrOutput {
 	return o
+}
+
+func (o RepositoryPolicyCaseEnforcementPtrOutput) Elem() RepositoryPolicyCaseEnforcementOutput {
+	return o.ApplyT(func(v *RepositoryPolicyCaseEnforcement) RepositoryPolicyCaseEnforcement {
+		if v != nil {
+			return *v
+		}
+		var ret RepositoryPolicyCaseEnforcement
+		return ret
+	}).(RepositoryPolicyCaseEnforcementOutput)
 }
 
 type RepositoryPolicyCaseEnforcementArrayOutput struct{ *pulumi.OutputState }
@@ -388,6 +394,10 @@ func (o RepositoryPolicyCaseEnforcementMapOutput) MapIndex(k pulumi.StringInput)
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyCaseEnforcementInput)(nil)).Elem(), &RepositoryPolicyCaseEnforcement{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyCaseEnforcementPtrInput)(nil)).Elem(), &RepositoryPolicyCaseEnforcement{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyCaseEnforcementArrayInput)(nil)).Elem(), RepositoryPolicyCaseEnforcementArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyCaseEnforcementMapInput)(nil)).Elem(), RepositoryPolicyCaseEnforcementMap{})
 	pulumi.RegisterOutputType(RepositoryPolicyCaseEnforcementOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyCaseEnforcementPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyCaseEnforcementArrayOutput{})

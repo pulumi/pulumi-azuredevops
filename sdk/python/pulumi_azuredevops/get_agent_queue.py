@@ -12,6 +12,7 @@ __all__ = [
     'GetAgentQueueResult',
     'AwaitableGetAgentQueueResult',
     'get_agent_queue',
+    'get_agent_queue_output',
 ]
 
 @pulumi.output_type
@@ -123,3 +124,38 @@ def get_agent_queue(name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         project_id=__ret__.project_id)
+
+
+@_utilities.lift_output_func(get_agent_queue)
+def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
+                           project_id: Optional[pulumi.Input[str]] = None,
+                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAgentQueueResult]:
+    """
+    Use this data source to access information about an existing Agent Queue within Azure DevOps.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    # Azure DevOps project
+    project = azuredevops.Project("project",
+        work_item_template="Agile",
+        version_control="Git",
+        visibility="private",
+        description="Managed by Terraform")
+    queue = project.id.apply(lambda id: azuredevops.get_agent_queue(project_id=id,
+        name="Sample Agent Queue"))
+    pulumi.export("name", queue.name)
+    pulumi.export("poolId", queue.agent_pool_id)
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 5.1 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-5.1)
+
+
+    :param str name: Name of the Agent Queue.
+    :param str project_id: The Project Id.
+    """
+    ...

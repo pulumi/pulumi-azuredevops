@@ -4,6 +4,9 @@
 package azuredevops
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -23,13 +26,13 @@ import (
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
 // 		opt0 := "contoso-project"
-// 		project, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+// 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
 // 			Name: &opt0,
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.GetGitRepository(ctx, &azuredevops.GetGitRepositoryArgs{
+// 		_, err = azuredevops.GetGitRepository(ctx, &GetGitRepositoryArgs{
 // 			ProjectId: project.Id,
 // 			Name:      "contoso-repo",
 // 		}, nil)
@@ -81,4 +84,93 @@ type GetGitRepositoryResult struct {
 	Url string `pulumi:"url"`
 	// Url of the Git repository web view
 	WebUrl string `pulumi:"webUrl"`
+}
+
+func GetGitRepositoryOutput(ctx *pulumi.Context, args GetGitRepositoryOutputArgs, opts ...pulumi.InvokeOption) GetGitRepositoryResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetGitRepositoryResult, error) {
+			args := v.(GetGitRepositoryArgs)
+			r, err := GetGitRepository(ctx, &args, opts...)
+			return *r, err
+		}).(GetGitRepositoryResultOutput)
+}
+
+// A collection of arguments for invoking getGitRepository.
+type GetGitRepositoryOutputArgs struct {
+	// Name of the Git repository to retrieve
+	Name pulumi.StringInput `pulumi:"name"`
+	// ID of project to list Git repositories
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+}
+
+func (GetGitRepositoryOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGitRepositoryArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getGitRepository.
+type GetGitRepositoryResultOutput struct{ *pulumi.OutputState }
+
+func (GetGitRepositoryResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGitRepositoryResult)(nil)).Elem()
+}
+
+func (o GetGitRepositoryResultOutput) ToGetGitRepositoryResultOutput() GetGitRepositoryResultOutput {
+	return o
+}
+
+func (o GetGitRepositoryResultOutput) ToGetGitRepositoryResultOutputWithContext(ctx context.Context) GetGitRepositoryResultOutput {
+	return o
+}
+
+// The ref of the default branch.
+func (o GetGitRepositoryResultOutput) DefaultBranch() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.DefaultBranch }).(pulumi.StringOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetGitRepositoryResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetGitRepositoryResultOutput) IsFork() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) bool { return v.IsFork }).(pulumi.BoolOutput)
+}
+
+// Git repository name.
+func (o GetGitRepositoryResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Project identifier to which the Git repository belongs.
+func (o GetGitRepositoryResultOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+// HTTPS Url to clone the Git repository
+func (o GetGitRepositoryResultOutput) RemoteUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.RemoteUrl }).(pulumi.StringOutput)
+}
+
+// Compressed size (bytes) of the repository.
+func (o GetGitRepositoryResultOutput) Size() pulumi.IntOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) int { return v.Size }).(pulumi.IntOutput)
+}
+
+// SSH Url to clone the Git repository
+func (o GetGitRepositoryResultOutput) SshUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.SshUrl }).(pulumi.StringOutput)
+}
+
+// Details REST API endpoint for the Git Repository.
+func (o GetGitRepositoryResultOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.Url }).(pulumi.StringOutput)
+}
+
+// Url of the Git repository web view
+func (o GetGitRepositoryResultOutput) WebUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGitRepositoryResult) string { return v.WebUrl }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetGitRepositoryResultOutput{})
 }

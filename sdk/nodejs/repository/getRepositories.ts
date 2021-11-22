@@ -86,3 +86,22 @@ export interface GetRepositoriesResult {
      */
     readonly repositories: outputs.Repository.GetRepositoriesRepository[];
 }
+
+export function getRepositoriesOutput(args?: GetRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
+    return pulumi.output(args).apply(a => getRepositories(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getRepositories.
+ */
+export interface GetRepositoriesOutputArgs {
+    includeHidden?: pulumi.Input<boolean>;
+    /**
+     * Name of the Git repository to retrieve; requires `projectId` to be specified as well
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * ID of project to list Git repositories
+     */
+    projectId?: pulumi.Input<string>;
+}

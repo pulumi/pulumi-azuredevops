@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
@@ -83,4 +82,22 @@ export interface GetGroupResult {
      */
     readonly originId: string;
     readonly projectId?: string;
+}
+
+export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
+    return pulumi.output(args).apply(a => getGroup(a, opts))
+}
+
+/**
+ * A collection of arguments for invoking getGroup.
+ */
+export interface GetGroupOutputArgs {
+    /**
+     * The Group Name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The Project ID. If no project ID is specified the project collection groups will be searched.
+     */
+    projectId?: pulumi.Input<string>;
 }

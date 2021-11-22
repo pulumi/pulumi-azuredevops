@@ -4,6 +4,9 @@
 package azuredevops
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -75,4 +78,80 @@ type GetIterationResult struct {
 	Path string `pulumi:"path"`
 	// The project ID of the child Iteration node
 	ProjectId string `pulumi:"projectId"`
+}
+
+func GetIterationOutput(ctx *pulumi.Context, args GetIterationOutputArgs, opts ...pulumi.InvokeOption) GetIterationResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (GetIterationResult, error) {
+			args := v.(GetIterationArgs)
+			r, err := GetIteration(ctx, &args, opts...)
+			return *r, err
+		}).(GetIterationResultOutput)
+}
+
+// A collection of arguments for invoking getIteration.
+type GetIterationOutputArgs struct {
+	// Read children nodes, _Depth_: 1, _Default_: `true`
+	FetchChildren pulumi.BoolPtrInput `pulumi:"fetchChildren"`
+	// The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
+	Path pulumi.StringPtrInput `pulumi:"path"`
+	// The project ID.
+	ProjectId pulumi.StringInput `pulumi:"projectId"`
+}
+
+func (GetIterationOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIterationArgs)(nil)).Elem()
+}
+
+// A collection of values returned by getIteration.
+type GetIterationResultOutput struct{ *pulumi.OutputState }
+
+func (GetIterationResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetIterationResult)(nil)).Elem()
+}
+
+func (o GetIterationResultOutput) ToGetIterationResultOutput() GetIterationResultOutput {
+	return o
+}
+
+func (o GetIterationResultOutput) ToGetIterationResultOutputWithContext(ctx context.Context) GetIterationResultOutput {
+	return o
+}
+
+// A list of `children` blocks as defined below, empty if `hasChildren == false`
+func (o GetIterationResultOutput) Childrens() GetIterationChildrenArrayOutput {
+	return o.ApplyT(func(v GetIterationResult) []GetIterationChildren { return v.Childrens }).(GetIterationChildrenArrayOutput)
+}
+
+func (o GetIterationResultOutput) FetchChildren() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GetIterationResult) *bool { return v.FetchChildren }).(pulumi.BoolPtrOutput)
+}
+
+// Indicator if the child Iteration node has child nodes
+func (o GetIterationResultOutput) HasChildren() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetIterationResult) bool { return v.HasChildren }).(pulumi.BoolOutput)
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetIterationResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIterationResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the child Iteration node
+func (o GetIterationResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIterationResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The complete path (in relative URL format) of the child Iteration
+func (o GetIterationResultOutput) Path() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIterationResult) string { return v.Path }).(pulumi.StringOutput)
+}
+
+// The project ID of the child Iteration node
+func (o GetIterationResultOutput) ProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetIterationResult) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetIterationResultOutput{})
 }
