@@ -34,6 +34,8 @@ __all__ = [
     'BuildDefinitionPullRequestTriggerOverrideBranchFilter',
     'BuildDefinitionPullRequestTriggerOverridePathFilter',
     'BuildDefinitionRepository',
+    'BuildDefinitionSchedule',
+    'BuildDefinitionScheduleBranchFilter',
     'BuildDefinitionVariable',
     'GitInitialization',
     'ServiceEndpointArtifactoryAuthenticationBasic',
@@ -851,8 +853,10 @@ class BranchPolicyStatusCheckSettings(dict):
                  author_id: Optional[str] = None,
                  display_name: Optional[str] = None,
                  filename_patterns: Optional[Sequence[str]] = None,
+                 genre: Optional[str] = None,
                  invalidate_on_update: Optional[bool] = None):
         """
+        :param str name: The status name to check.
         :param Sequence['BranchPolicyStatusCheckSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined
                at least once.
         :param str applicability: Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
@@ -861,6 +865,7 @@ class BranchPolicyStatusCheckSettings(dict):
         :param str author_id: The authorized user can post the status.
         :param str display_name: The display name.
         :param Sequence[str] filename_patterns: If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
+        :param str genre: The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
         :param bool invalidate_on_update: Reset status whenever there are new changes.
         """
         pulumi.set(__self__, "name", name)
@@ -873,12 +878,17 @@ class BranchPolicyStatusCheckSettings(dict):
             pulumi.set(__self__, "display_name", display_name)
         if filename_patterns is not None:
             pulumi.set(__self__, "filename_patterns", filename_patterns)
+        if genre is not None:
+            pulumi.set(__self__, "genre", genre)
         if invalidate_on_update is not None:
             pulumi.set(__self__, "invalidate_on_update", invalidate_on_update)
 
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The status name to check.
+        """
         return pulumi.get(self, "name")
 
     @property
@@ -923,6 +933,14 @@ class BranchPolicyStatusCheckSettings(dict):
         If a path filter is set, the policy will only apply when files which match the filter are changes. Not setting this field means that the policy will always apply. You can specify absolute paths and wildcards. Example: `["/WebApp/Models/Data.cs", "/WebApp/*", "*.cs"]`. Paths prefixed with "!" are excluded. Example: `["/WebApp/*", "!/WebApp/Tests/*"]`. Order is significant.
         """
         return pulumi.get(self, "filename_patterns")
+
+    @property
+    @pulumi.getter
+    def genre(self) -> Optional[str]:
+        """
+        The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
+        """
+        return pulumi.get(self, "genre")
 
     @property
     @pulumi.getter(name="invalidateOnUpdate")
@@ -1667,6 +1685,136 @@ class BuildDefinitionRepository(dict):
         The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
         return pulumi.get(self, "service_connection_id")
+
+
+@pulumi.output_type
+class BuildDefinitionSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysToBuilds":
+            suggest = "days_to_builds"
+        elif key == "branchFilters":
+            suggest = "branch_filters"
+        elif key == "scheduleJobId":
+            suggest = "schedule_job_id"
+        elif key == "scheduleOnlyWithChanges":
+            suggest = "schedule_only_with_changes"
+        elif key == "startHours":
+            suggest = "start_hours"
+        elif key == "startMinutes":
+            suggest = "start_minutes"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_to_builds: Sequence[str],
+                 branch_filters: Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']] = None,
+                 schedule_job_id: Optional[str] = None,
+                 schedule_only_with_changes: Optional[bool] = None,
+                 start_hours: Optional[int] = None,
+                 start_minutes: Optional[int] = None,
+                 time_zone: Optional[str] = None):
+        """
+        :param Sequence['BuildDefinitionScheduleBranchFilterArgs'] branch_filters: block supports the following:
+        :param str schedule_job_id: The ID of the schedule job
+        """
+        pulumi.set(__self__, "days_to_builds", days_to_builds)
+        if branch_filters is not None:
+            pulumi.set(__self__, "branch_filters", branch_filters)
+        if schedule_job_id is not None:
+            pulumi.set(__self__, "schedule_job_id", schedule_job_id)
+        if schedule_only_with_changes is not None:
+            pulumi.set(__self__, "schedule_only_with_changes", schedule_only_with_changes)
+        if start_hours is not None:
+            pulumi.set(__self__, "start_hours", start_hours)
+        if start_minutes is not None:
+            pulumi.set(__self__, "start_minutes", start_minutes)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="daysToBuilds")
+    def days_to_builds(self) -> Sequence[str]:
+        return pulumi.get(self, "days_to_builds")
+
+    @property
+    @pulumi.getter(name="branchFilters")
+    def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']]:
+        """
+        block supports the following:
+        """
+        return pulumi.get(self, "branch_filters")
+
+    @property
+    @pulumi.getter(name="scheduleJobId")
+    def schedule_job_id(self) -> Optional[str]:
+        """
+        The ID of the schedule job
+        """
+        return pulumi.get(self, "schedule_job_id")
+
+    @property
+    @pulumi.getter(name="scheduleOnlyWithChanges")
+    def schedule_only_with_changes(self) -> Optional[bool]:
+        return pulumi.get(self, "schedule_only_with_changes")
+
+    @property
+    @pulumi.getter(name="startHours")
+    def start_hours(self) -> Optional[int]:
+        return pulumi.get(self, "start_hours")
+
+    @property
+    @pulumi.getter(name="startMinutes")
+    def start_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "start_minutes")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class BuildDefinitionScheduleBranchFilter(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to exclude.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to include.
+        """
+        return pulumi.get(self, "includes")
 
 
 @pulumi.output_type
@@ -3200,6 +3348,7 @@ class GetUsersUserResult(dict):
     def __init__(__self__, *,
                  descriptor: str,
                  display_name: str,
+                 id: str,
                  mail_address: str,
                  origin: str,
                  principal_name: str,
@@ -3207,6 +3356,7 @@ class GetUsersUserResult(dict):
         """
         :param str descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
         :param str display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+        :param str id: The user ID.
         :param str mail_address: The email address of record for a given graph member. This may be different than the principal name.
         :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         :param str principal_name: The PrincipalName of this graph member from the source provider.
@@ -3214,6 +3364,7 @@ class GetUsersUserResult(dict):
         """
         pulumi.set(__self__, "descriptor", descriptor)
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "mail_address", mail_address)
         pulumi.set(__self__, "origin", origin)
         pulumi.set(__self__, "principal_name", principal_name)
@@ -3235,6 +3386,14 @@ class GetUsersUserResult(dict):
         This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The user ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="mailAddress")

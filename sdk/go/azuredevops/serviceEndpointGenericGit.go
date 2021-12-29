@@ -67,7 +67,7 @@ type ServiceEndpointGenericGit struct {
 	Description   pulumi.StringPtrOutput `pulumi:"description"`
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrOutput `pulumi:"enablePipelinesAccess"`
-	// The password or token key used to authenticate to the git repository using basic authentication.
+	// The PAT or password used to authenticate to the git repository.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash pulumi.StringOutput `pulumi:"passwordHash"`
@@ -77,7 +77,7 @@ type ServiceEndpointGenericGit struct {
 	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
 	// The name of the service endpoint.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
-	// The username used to authenticate to the git repository using basic authentication.
+	// The username used to authenticate to the git repository.
 	Username pulumi.StringPtrOutput `pulumi:"username"`
 }
 
@@ -123,7 +123,7 @@ type serviceEndpointGenericGitState struct {
 	Description   *string           `pulumi:"description"`
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess *bool `pulumi:"enablePipelinesAccess"`
-	// The password or token key used to authenticate to the git repository using basic authentication.
+	// The PAT or password used to authenticate to the git repository.
 	Password *string `pulumi:"password"`
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash *string `pulumi:"passwordHash"`
@@ -133,7 +133,7 @@ type serviceEndpointGenericGitState struct {
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
 	// The name of the service endpoint.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
-	// The username used to authenticate to the git repository using basic authentication.
+	// The username used to authenticate to the git repository.
 	Username *string `pulumi:"username"`
 }
 
@@ -142,7 +142,7 @@ type ServiceEndpointGenericGitState struct {
 	Description   pulumi.StringPtrInput
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrInput
-	// The password or token key used to authenticate to the git repository using basic authentication.
+	// The PAT or password used to authenticate to the git repository.
 	Password pulumi.StringPtrInput
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash pulumi.StringPtrInput
@@ -152,7 +152,7 @@ type ServiceEndpointGenericGitState struct {
 	RepositoryUrl pulumi.StringPtrInput
 	// The name of the service endpoint.
 	ServiceEndpointName pulumi.StringPtrInput
-	// The username used to authenticate to the git repository using basic authentication.
+	// The username used to authenticate to the git repository.
 	Username pulumi.StringPtrInput
 }
 
@@ -165,7 +165,7 @@ type serviceEndpointGenericGitArgs struct {
 	Description   *string           `pulumi:"description"`
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess *bool `pulumi:"enablePipelinesAccess"`
-	// The password or token key used to authenticate to the git repository using basic authentication.
+	// The PAT or password used to authenticate to the git repository.
 	Password *string `pulumi:"password"`
 	// The project ID or project name to associate with the service endpoint.
 	ProjectId string `pulumi:"projectId"`
@@ -173,7 +173,7 @@ type serviceEndpointGenericGitArgs struct {
 	RepositoryUrl string `pulumi:"repositoryUrl"`
 	// The name of the service endpoint.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
-	// The username used to authenticate to the git repository using basic authentication.
+	// The username used to authenticate to the git repository.
 	Username *string `pulumi:"username"`
 }
 
@@ -183,7 +183,7 @@ type ServiceEndpointGenericGitArgs struct {
 	Description   pulumi.StringPtrInput
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrInput
-	// The password or token key used to authenticate to the git repository using basic authentication.
+	// The PAT or password used to authenticate to the git repository.
 	Password pulumi.StringPtrInput
 	// The project ID or project name to associate with the service endpoint.
 	ProjectId pulumi.StringInput
@@ -191,7 +191,7 @@ type ServiceEndpointGenericGitArgs struct {
 	RepositoryUrl pulumi.StringInput
 	// The name of the service endpoint.
 	ServiceEndpointName pulumi.StringInput
-	// The username used to authenticate to the git repository using basic authentication.
+	// The username used to authenticate to the git repository.
 	Username pulumi.StringPtrInput
 }
 

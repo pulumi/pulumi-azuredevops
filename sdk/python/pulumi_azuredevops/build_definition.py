@@ -22,13 +22,14 @@ class BuildDefinitionArgs:
                  name: Optional[pulumi.Input[str]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
                  variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
         """
         The set of arguments for constructing a BuildDefinition resource.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input['BuildDefinitionRepositoryArgs'] repository: A `repository` block as documented below.
-        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build.
+        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         :param pulumi.Input['BuildDefinitionCiTriggerArgs'] ci_trigger: Continuous Integration trigger.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
@@ -48,6 +49,8 @@ class BuildDefinitionArgs:
             pulumi.set(__self__, "path", path)
         if pull_request_trigger is not None:
             pulumi.set(__self__, "pull_request_trigger", pull_request_trigger)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
         if variable_groups is not None:
             pulumi.set(__self__, "variable_groups", variable_groups)
         if variables is not None:
@@ -81,7 +84,7 @@ class BuildDefinitionArgs:
     @pulumi.getter(name="agentPoolName")
     def agent_pool_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The agent pool that should execute the build.
+        The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         """
         return pulumi.get(self, "agent_pool_name")
 
@@ -138,6 +141,15 @@ class BuildDefinitionArgs:
         pulumi.set(self, "pull_request_trigger", value)
 
     @property
+    @pulumi.getter
+    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]:
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]):
+        pulumi.set(self, "schedules", value)
+
+    @property
     @pulumi.getter(name="variableGroups")
     def variable_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
@@ -173,11 +185,12 @@ class _BuildDefinitionState:
                  pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
                  repository: Optional[pulumi.Input['BuildDefinitionRepositoryArgs']] = None,
                  revision: Optional[pulumi.Input[int]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
                  variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None):
         """
         Input properties used for looking up and filtering BuildDefinition resources.
-        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build.
+        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         :param pulumi.Input['BuildDefinitionCiTriggerArgs'] ci_trigger: Continuous Integration trigger.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
@@ -204,6 +217,8 @@ class _BuildDefinitionState:
             pulumi.set(__self__, "repository", repository)
         if revision is not None:
             pulumi.set(__self__, "revision", revision)
+        if schedules is not None:
+            pulumi.set(__self__, "schedules", schedules)
         if variable_groups is not None:
             pulumi.set(__self__, "variable_groups", variable_groups)
         if variables is not None:
@@ -213,7 +228,7 @@ class _BuildDefinitionState:
     @pulumi.getter(name="agentPoolName")
     def agent_pool_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The agent pool that should execute the build.
+        The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         """
         return pulumi.get(self, "agent_pool_name")
 
@@ -306,6 +321,15 @@ class _BuildDefinitionState:
         pulumi.set(self, "revision", value)
 
     @property
+    @pulumi.getter
+    def schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]:
+        return pulumi.get(self, "schedules")
+
+    @schedules.setter
+    def schedules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]]):
+        pulumi.set(self, "schedules", value)
+
+    @property
     @pulumi.getter(name="variableGroups")
     def variable_groups(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[int]]]]:
         """
@@ -342,6 +366,7 @@ class BuildDefinition(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[str]] = None,
                  pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionScheduleArgs']]]]] = None,
                  variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None,
                  __props__=None):
@@ -377,6 +402,23 @@ class BuildDefinition(pulumi.CustomResource):
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=True,
             ),
+            schedules=[azuredevops.BuildDefinitionScheduleArgs(
+                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
+                    includes=["master"],
+                    excludes=[
+                        "test",
+                        "regression",
+                    ],
+                )],
+                days_to_builds=[
+                    "Wed",
+                    "Sun",
+                ],
+                schedule_only_with_changes=True,
+                start_hours=10,
+                start_minutes=59,
+                time_zone="(UTC) Coordinated Universal Time",
+            )],
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
                 repo_id=repository.id,
@@ -414,7 +456,24 @@ class BuildDefinition(pulumi.CustomResource):
                 branch_name="master",
                 yml_path="azure-pipelines.yml",
                 service_connection_id="...",
-            ))
+            ),
+            schedules=[azuredevops.BuildDefinitionScheduleArgs(
+                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
+                    includes=["main"],
+                    excludes=[
+                        "test",
+                        "regression",
+                    ],
+                )],
+                days_to_builds=[
+                    "Wed",
+                    "Sun",
+                ],
+                schedule_only_with_changes=True,
+                start_hours=10,
+                start_minutes=59,
+                time_zone="(UTC) Coordinated Universal Time",
+            )])
         ```
         ## Relevant Links
 
@@ -436,7 +495,7 @@ class BuildDefinition(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build.
+        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']] ci_trigger: Continuous Integration trigger.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
@@ -484,6 +543,23 @@ class BuildDefinition(pulumi.CustomResource):
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=True,
             ),
+            schedules=[azuredevops.BuildDefinitionScheduleArgs(
+                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
+                    includes=["master"],
+                    excludes=[
+                        "test",
+                        "regression",
+                    ],
+                )],
+                days_to_builds=[
+                    "Wed",
+                    "Sun",
+                ],
+                schedule_only_with_changes=True,
+                start_hours=10,
+                start_minutes=59,
+                time_zone="(UTC) Coordinated Universal Time",
+            )],
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
                 repo_id=repository.id,
@@ -521,7 +597,24 @@ class BuildDefinition(pulumi.CustomResource):
                 branch_name="master",
                 yml_path="azure-pipelines.yml",
                 service_connection_id="...",
-            ))
+            ),
+            schedules=[azuredevops.BuildDefinitionScheduleArgs(
+                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
+                    includes=["main"],
+                    excludes=[
+                        "test",
+                        "regression",
+                    ],
+                )],
+                days_to_builds=[
+                    "Wed",
+                    "Sun",
+                ],
+                schedule_only_with_changes=True,
+                start_hours=10,
+                start_minutes=59,
+                time_zone="(UTC) Coordinated Universal Time",
+            )])
         ```
         ## Relevant Links
 
@@ -563,6 +656,7 @@ class BuildDefinition(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[str]] = None,
                  pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
                  repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
+                 schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionScheduleArgs']]]]] = None,
                  variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None,
                  __props__=None):
@@ -588,6 +682,7 @@ class BuildDefinition(pulumi.CustomResource):
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository
+            __props__.__dict__["schedules"] = schedules
             __props__.__dict__["variable_groups"] = variable_groups
             __props__.__dict__["variables"] = variables
             __props__.__dict__["revision"] = None
@@ -611,6 +706,7 @@ class BuildDefinition(pulumi.CustomResource):
             pull_request_trigger: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionPullRequestTriggerArgs']]] = None,
             repository: Optional[pulumi.Input[pulumi.InputType['BuildDefinitionRepositoryArgs']]] = None,
             revision: Optional[pulumi.Input[int]] = None,
+            schedules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionScheduleArgs']]]]] = None,
             variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
             variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['BuildDefinitionVariableArgs']]]]] = None) -> 'BuildDefinition':
         """
@@ -620,7 +716,7 @@ class BuildDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build.
+        :param pulumi.Input[str] agent_pool_name: The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         :param pulumi.Input[pulumi.InputType['BuildDefinitionCiTriggerArgs']] ci_trigger: Continuous Integration trigger.
         :param pulumi.Input[str] name: The name of the build definition.
         :param pulumi.Input[str] path: The folder path of the build definition.
@@ -643,6 +739,7 @@ class BuildDefinition(pulumi.CustomResource):
         __props__.__dict__["pull_request_trigger"] = pull_request_trigger
         __props__.__dict__["repository"] = repository
         __props__.__dict__["revision"] = revision
+        __props__.__dict__["schedules"] = schedules
         __props__.__dict__["variable_groups"] = variable_groups
         __props__.__dict__["variables"] = variables
         return BuildDefinition(resource_name, opts=opts, __props__=__props__)
@@ -651,7 +748,7 @@ class BuildDefinition(pulumi.CustomResource):
     @pulumi.getter(name="agentPoolName")
     def agent_pool_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The agent pool that should execute the build.
+        The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         """
         return pulumi.get(self, "agent_pool_name")
 
@@ -710,6 +807,11 @@ class BuildDefinition(pulumi.CustomResource):
         The revision of the build definition
         """
         return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter
+    def schedules(self) -> pulumi.Output[Optional[Sequence['outputs.BuildDefinitionSchedule']]]:
+        return pulumi.get(self, "schedules")
 
     @property
     @pulumi.getter(name="variableGroups")

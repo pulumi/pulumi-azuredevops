@@ -15,6 +15,8 @@ type GetUsersUser struct {
 	Descriptor string `pulumi:"descriptor"`
 	// This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
 	DisplayName string `pulumi:"displayName"`
+	// The user ID.
+	Id string `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress string `pulumi:"mailAddress"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
@@ -41,6 +43,8 @@ type GetUsersUserArgs struct {
 	Descriptor pulumi.StringInput `pulumi:"descriptor"`
 	// This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
+	// The user ID.
+	Id pulumi.StringInput `pulumi:"id"`
 	// The email address of record for a given graph member. This may be different than the principal name.
 	MailAddress pulumi.StringInput `pulumi:"mailAddress"`
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
@@ -110,6 +114,11 @@ func (o GetUsersUserOutput) Descriptor() pulumi.StringOutput {
 // This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
 func (o GetUsersUserOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUsersUser) string { return v.DisplayName }).(pulumi.StringOutput)
+}
+
+// The user ID.
+func (o GetUsersUserOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetUsersUser) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The email address of record for a given graph member. This may be different than the principal name.

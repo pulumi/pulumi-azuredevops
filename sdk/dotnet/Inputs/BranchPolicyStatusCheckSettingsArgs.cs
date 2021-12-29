@@ -45,11 +45,20 @@ namespace Pulumi.AzureDevOps.Inputs
         }
 
         /// <summary>
+        /// The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
+        /// </summary>
+        [Input("genre")]
+        public Input<string>? Genre { get; set; }
+
+        /// <summary>
         /// Reset status whenever there are new changes.
         /// </summary>
         [Input("invalidateOnUpdate")]
         public Input<bool>? InvalidateOnUpdate { get; set; }
 
+        /// <summary>
+        /// The status name to check.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

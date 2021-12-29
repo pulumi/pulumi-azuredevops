@@ -218,9 +218,16 @@ export interface BranchPolicyStatusCheckSettings {
      */
     filenamePatterns?: pulumi.Input<pulumi.Input<string>[]>;
     /**
+     * The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
+     */
+    genre?: pulumi.Input<string>;
+    /**
      * Reset status whenever there are new changes.
      */
     invalidateOnUpdate?: pulumi.Input<boolean>;
+    /**
+     * The status name to check.
+     */
     name: pulumi.Input<string>;
     /**
      * Controls which repositories and branches the policy will be enabled for. This block must be defined
@@ -424,6 +431,33 @@ export interface BuildDefinitionRepository {
      * The path of the Yaml file describing the build definition.
      */
     ymlPath: pulumi.Input<string>;
+}
+
+export interface BuildDefinitionSchedule {
+    /**
+     * block supports the following:
+     */
+    branchFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionScheduleBranchFilter>[]>;
+    daysToBuilds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the schedule job
+     */
+    scheduleJobId?: pulumi.Input<string>;
+    scheduleOnlyWithChanges?: pulumi.Input<boolean>;
+    startHours?: pulumi.Input<number>;
+    startMinutes?: pulumi.Input<number>;
+    timeZone?: pulumi.Input<string>;
+}
+
+export interface BuildDefinitionScheduleBranchFilter {
+    /**
+     * List of branch patterns to exclude.
+     */
+    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of branch patterns to include.
+     */
+    includes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface BuildDefinitionVariable {
@@ -842,6 +876,33 @@ export namespace Build {
          * The path of the Yaml file describing the build definition.
          */
         ymlPath: pulumi.Input<string>;
+    }
+
+    export interface BuildDefinitionSchedule {
+        /**
+         * block supports the following:
+         */
+        branchFilters?: pulumi.Input<pulumi.Input<inputs.Build.BuildDefinitionScheduleBranchFilter>[]>;
+        daysToBuilds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the schedule job
+         */
+        scheduleJobId?: pulumi.Input<string>;
+        scheduleOnlyWithChanges?: pulumi.Input<boolean>;
+        startHours?: pulumi.Input<number>;
+        startMinutes?: pulumi.Input<number>;
+        timeZone?: pulumi.Input<string>;
+    }
+
+    export interface BuildDefinitionScheduleBranchFilter {
+        /**
+         * List of branch patterns to exclude.
+         */
+        excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of branch patterns to include.
+         */
+        includes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BuildDefinitionVariable {

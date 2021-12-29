@@ -22,6 +22,10 @@ namespace Pulumi.AzureDevOps.Identities.Outputs
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
+        /// The user ID.
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// The email address of record for a given graph member. This may be different than the principal name.
         /// </summary>
         public readonly string MailAddress;
@@ -44,6 +48,8 @@ namespace Pulumi.AzureDevOps.Identities.Outputs
 
             string displayName,
 
+            string id,
+
             string mailAddress,
 
             string origin,
@@ -54,6 +60,7 @@ namespace Pulumi.AzureDevOps.Identities.Outputs
         {
             Descriptor = descriptor;
             DisplayName = displayName;
+            Id = id;
             MailAddress = mailAddress;
             Origin = origin;
             OriginId = originId;

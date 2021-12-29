@@ -218,9 +218,16 @@ export interface BranchPolicyStatusCheckSettings {
      */
     filenamePatterns?: string[];
     /**
+     * The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
+     */
+    genre?: string;
+    /**
      * Reset status whenever there are new changes.
      */
     invalidateOnUpdate?: boolean;
+    /**
+     * The status name to check.
+     */
     name: string;
     /**
      * Controls which repositories and branches the policy will be enabled for. This block must be defined
@@ -426,6 +433,33 @@ export interface BuildDefinitionRepository {
     ymlPath: string;
 }
 
+export interface BuildDefinitionSchedule {
+    /**
+     * block supports the following:
+     */
+    branchFilters?: outputs.BuildDefinitionScheduleBranchFilter[];
+    daysToBuilds: string[];
+    /**
+     * The ID of the schedule job
+     */
+    scheduleJobId: string;
+    scheduleOnlyWithChanges?: boolean;
+    startHours?: number;
+    startMinutes?: number;
+    timeZone?: string;
+}
+
+export interface BuildDefinitionScheduleBranchFilter {
+    /**
+     * List of branch patterns to exclude.
+     */
+    excludes?: string[];
+    /**
+     * List of branch patterns to include.
+     */
+    includes?: string[];
+}
+
 export interface BuildDefinitionVariable {
     /**
      * True if the variable can be overridden. Defaults to `true`.
@@ -587,6 +621,10 @@ export interface GetUsersUser {
      * This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
      */
     displayName: string;
+    /**
+     * The user ID.
+     */
+    id: string;
     /**
      * The email address of record for a given graph member. This may be different than the principal name.
      */
@@ -839,7 +877,6 @@ export interface VariableGroupVariable {
      */
     value?: string;
 }
-
 export namespace Agent {
     export interface GetPoolsAgentPool {
         /**
@@ -1016,6 +1053,33 @@ export namespace Build {
         ymlPath: string;
     }
 
+    export interface BuildDefinitionSchedule {
+        /**
+         * block supports the following:
+         */
+        branchFilters?: outputs.Build.BuildDefinitionScheduleBranchFilter[];
+        daysToBuilds: string[];
+        /**
+         * The ID of the schedule job
+         */
+        scheduleJobId: string;
+        scheduleOnlyWithChanges?: boolean;
+        startHours?: number;
+        startMinutes?: number;
+        timeZone?: string;
+    }
+
+    export interface BuildDefinitionScheduleBranchFilter {
+        /**
+         * List of branch patterns to exclude.
+         */
+        excludes?: string[];
+        /**
+         * List of branch patterns to include.
+         */
+        includes?: string[];
+    }
+
     export interface BuildDefinitionVariable {
         /**
          * True if the variable can be overridden. Defaults to `true`.
@@ -1073,6 +1137,10 @@ export namespace Identities {
          * This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
          */
         displayName: string;
+        /**
+         * The user ID.
+         */
+        id: string;
         /**
          * The email address of record for a given graph member. This may be different than the principal name.
          */

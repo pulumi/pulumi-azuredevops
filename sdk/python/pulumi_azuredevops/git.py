@@ -294,78 +294,6 @@ class Git(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        Manages a git repository within Azure DevOps.
-
-        ## Example Usage
-        ### Create Git repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        project = azuredevops.Project("project",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile")
-        repo = azuredevops.Git("repo",
-            project_id=project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        ```
-        ### Create Fork of another Azure DevOps Git repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        repo = azuredevops.Git("repo",
-            project_id=azuredevops_project["project"]["id"],
-            parent_repository_id=azuredevops_git_repository["parent"]["id"],
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        ```
-        ### Create Import from another Git repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        repo = azuredevops.Git("repo",
-            project_id=azuredevops_project["project"]["id"],
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Import",
-                source_type="Git",
-                source_url="https://github.com/microsoft/terraform-provider-azuredevops.git",
-            ))
-        ```
-        ### Import from a Private Repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        serviceendpoint = azuredevops.ServiceEndpointGenericGit("serviceendpoint",
-            project_id=azuredevops_project["project"]["id"],
-            repository_url="https://dev.azure.com/org/project/_git/repository",
-            username="username",
-            password="<password>/<PAT>",
-            service_endpoint_name="Sample Generic Git",
-            description="Managed by Terraform")
-        repo = azuredevops.Git("repo",
-            project_id=azuredevops_project["project"]["id"],
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Import",
-                source_type="Git",
-                source_url="https://dev.azure.com/example-org/private-repository.git",
-                service_connection_id=serviceendpoint.id,
-            ))
-        ```
-        ## Relevant Links
-
-        - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
-
         ## Import
 
         Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
@@ -379,6 +307,38 @@ class Git(pulumi.CustomResource):
         ```sh
          $ pulumi import azuredevops:index/git:Git repository projectName/00000000-0000-0000-0000-000000000000
         ```
+
+         hcl resource "azuredevops_git_repository" "repo" {
+
+         project_id = azuredevops_project.project.id
+
+         name
+
+         = "Existing Git Repository"
+
+         default_branch = "refs/heads/main"
+
+         initialization {
+
+         init_type = "Clean"
+
+         }
+
+         lifecycle {
+
+         ignore_changes = [
+
+        # Ignore changes to initialization to support importing existing repositories
+
+        # Given that a repo now exists, either imported into terraform state or created by terraform,
+
+        # we don't care for the configuration of initialization against the existing resource
+
+         initialization,
+
+         ]
+
+         } }
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -395,78 +355,6 @@ class Git(pulumi.CustomResource):
                  args: GitArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a git repository within Azure DevOps.
-
-        ## Example Usage
-        ### Create Git repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        project = azuredevops.Project("project",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile")
-        repo = azuredevops.Git("repo",
-            project_id=project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        ```
-        ### Create Fork of another Azure DevOps Git repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        repo = azuredevops.Git("repo",
-            project_id=azuredevops_project["project"]["id"],
-            parent_repository_id=azuredevops_git_repository["parent"]["id"],
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        ```
-        ### Create Import from another Git repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        repo = azuredevops.Git("repo",
-            project_id=azuredevops_project["project"]["id"],
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Import",
-                source_type="Git",
-                source_url="https://github.com/microsoft/terraform-provider-azuredevops.git",
-            ))
-        ```
-        ### Import from a Private Repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        serviceendpoint = azuredevops.ServiceEndpointGenericGit("serviceendpoint",
-            project_id=azuredevops_project["project"]["id"],
-            repository_url="https://dev.azure.com/org/project/_git/repository",
-            username="username",
-            password="<password>/<PAT>",
-            service_endpoint_name="Sample Generic Git",
-            description="Managed by Terraform")
-        repo = azuredevops.Git("repo",
-            project_id=azuredevops_project["project"]["id"],
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Import",
-                source_type="Git",
-                source_url="https://dev.azure.com/example-org/private-repository.git",
-                service_connection_id=serviceendpoint.id,
-            ))
-        ```
-        ## Relevant Links
-
-        - [Azure DevOps Service REST API 5.1 - Git Repositories](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/repositories?view=azure-devops-rest-5.1)
-
         ## Import
 
         Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
@@ -480,6 +368,38 @@ class Git(pulumi.CustomResource):
         ```sh
          $ pulumi import azuredevops:index/git:Git repository projectName/00000000-0000-0000-0000-000000000000
         ```
+
+         hcl resource "azuredevops_git_repository" "repo" {
+
+         project_id = azuredevops_project.project.id
+
+         name
+
+         = "Existing Git Repository"
+
+         default_branch = "refs/heads/main"
+
+         initialization {
+
+         init_type = "Clean"
+
+         }
+
+         lifecycle {
+
+         ignore_changes = [
+
+        # Ignore changes to initialization to support importing existing repositories
+
+        # Given that a repo now exists, either imported into terraform state or created by terraform,
+
+        # we don't care for the configuration of initialization against the existing resource
+
+         initialization,
+
+         ]
+
+         } }
 
         :param str resource_name: The name of the resource.
         :param GitArgs args: The arguments to use to populate this resource's properties.

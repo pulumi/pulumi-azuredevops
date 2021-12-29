@@ -2,7 +2,7 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-_(none)_
+* Upgrade terraform-provider-azuredevops to v0.1.8
 
 ---
 

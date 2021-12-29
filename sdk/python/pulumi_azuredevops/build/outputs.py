@@ -20,6 +20,8 @@ __all__ = [
     'BuildDefinitionPullRequestTriggerOverrideBranchFilter',
     'BuildDefinitionPullRequestTriggerOverridePathFilter',
     'BuildDefinitionRepository',
+    'BuildDefinitionSchedule',
+    'BuildDefinitionScheduleBranchFilter',
     'BuildDefinitionVariable',
 ]
 
@@ -603,6 +605,136 @@ class BuildDefinitionRepository(dict):
         The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
         return pulumi.get(self, "service_connection_id")
+
+
+@pulumi.output_type
+class BuildDefinitionSchedule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "daysToBuilds":
+            suggest = "days_to_builds"
+        elif key == "branchFilters":
+            suggest = "branch_filters"
+        elif key == "scheduleJobId":
+            suggest = "schedule_job_id"
+        elif key == "scheduleOnlyWithChanges":
+            suggest = "schedule_only_with_changes"
+        elif key == "startHours":
+            suggest = "start_hours"
+        elif key == "startMinutes":
+            suggest = "start_minutes"
+        elif key == "timeZone":
+            suggest = "time_zone"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionSchedule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionSchedule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionSchedule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 days_to_builds: Sequence[str],
+                 branch_filters: Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']] = None,
+                 schedule_job_id: Optional[str] = None,
+                 schedule_only_with_changes: Optional[bool] = None,
+                 start_hours: Optional[int] = None,
+                 start_minutes: Optional[int] = None,
+                 time_zone: Optional[str] = None):
+        """
+        :param Sequence['BuildDefinitionScheduleBranchFilterArgs'] branch_filters: block supports the following:
+        :param str schedule_job_id: The ID of the schedule job
+        """
+        pulumi.set(__self__, "days_to_builds", days_to_builds)
+        if branch_filters is not None:
+            pulumi.set(__self__, "branch_filters", branch_filters)
+        if schedule_job_id is not None:
+            pulumi.set(__self__, "schedule_job_id", schedule_job_id)
+        if schedule_only_with_changes is not None:
+            pulumi.set(__self__, "schedule_only_with_changes", schedule_only_with_changes)
+        if start_hours is not None:
+            pulumi.set(__self__, "start_hours", start_hours)
+        if start_minutes is not None:
+            pulumi.set(__self__, "start_minutes", start_minutes)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="daysToBuilds")
+    def days_to_builds(self) -> Sequence[str]:
+        return pulumi.get(self, "days_to_builds")
+
+    @property
+    @pulumi.getter(name="branchFilters")
+    def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']]:
+        """
+        block supports the following:
+        """
+        return pulumi.get(self, "branch_filters")
+
+    @property
+    @pulumi.getter(name="scheduleJobId")
+    def schedule_job_id(self) -> Optional[str]:
+        """
+        The ID of the schedule job
+        """
+        return pulumi.get(self, "schedule_job_id")
+
+    @property
+    @pulumi.getter(name="scheduleOnlyWithChanges")
+    def schedule_only_with_changes(self) -> Optional[bool]:
+        return pulumi.get(self, "schedule_only_with_changes")
+
+    @property
+    @pulumi.getter(name="startHours")
+    def start_hours(self) -> Optional[int]:
+        return pulumi.get(self, "start_hours")
+
+    @property
+    @pulumi.getter(name="startMinutes")
+    def start_minutes(self) -> Optional[int]:
+        return pulumi.get(self, "start_minutes")
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[str]:
+        return pulumi.get(self, "time_zone")
+
+
+@pulumi.output_type
+class BuildDefinitionScheduleBranchFilter(dict):
+    def __init__(__self__, *,
+                 excludes: Optional[Sequence[str]] = None,
+                 includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to exclude.
+        """
+        return pulumi.get(self, "excludes")
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to include.
+        """
+        return pulumi.get(self, "includes")
 
 
 @pulumi.output_type

@@ -17,6 +17,7 @@ class GetUsersUserResult(dict):
     def __init__(__self__, *,
                  descriptor: str,
                  display_name: str,
+                 id: str,
                  mail_address: str,
                  origin: str,
                  principal_name: str,
@@ -24,6 +25,7 @@ class GetUsersUserResult(dict):
         """
         :param str descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
         :param str display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+        :param str id: The user ID.
         :param str mail_address: The email address of record for a given graph member. This may be different than the principal name.
         :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         :param str principal_name: The PrincipalName of this graph member from the source provider.
@@ -31,6 +33,7 @@ class GetUsersUserResult(dict):
         """
         pulumi.set(__self__, "descriptor", descriptor)
         pulumi.set(__self__, "display_name", display_name)
+        pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "mail_address", mail_address)
         pulumi.set(__self__, "origin", origin)
         pulumi.set(__self__, "principal_name", principal_name)
@@ -52,6 +55,14 @@ class GetUsersUserResult(dict):
         This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
         """
         return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The user ID.
+        """
+        return pulumi.get(self, "id")
 
     @property
     @pulumi.getter(name="mailAddress")
