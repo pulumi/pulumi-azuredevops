@@ -2,9 +2,12 @@ CHANGELOG
 =========
 
 ## HEAD (Unreleased)
-* Upgrade terraform-provider-azuredevops to v0.1.8
+_(none)_
 
 ---
+
+## 2.3.1 (2021-12-30)
+* Upgrade terraform-provider-azuredevops to v0.1.8
 
 ## 2.3.0 (2021-11-22)
 * Upgrade to terraform-bridge 3.11.0
