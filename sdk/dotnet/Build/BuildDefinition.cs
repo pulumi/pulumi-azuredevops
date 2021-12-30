@@ -58,6 +58,36 @@ namespace Pulumi.AzureDevOps.Build
     ///             {
     ///                 UseYaml = true,
     ///             },
+    ///             Schedules = 
+    ///             {
+    ///                 new AzureDevOps.Inputs.BuildDefinitionScheduleArgs
+    ///                 {
+    ///                     BranchFilters = 
+    ///                     {
+    ///                         new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs
+    ///                         {
+    ///                             Includes = 
+    ///                             {
+    ///                                 "master",
+    ///                             },
+    ///                             Excludes = 
+    ///                             {
+    ///                                 "test",
+    ///                                 "regression",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     DaysToBuilds = 
+    ///                     {
+    ///                         "Wed",
+    ///                         "Sun",
+    ///                     },
+    ///                     ScheduleOnlyWithChanges = true,
+    ///                     StartHours = 10,
+    ///                     StartMinutes = 59,
+    ///                     TimeZone = "(UTC) Coordinated Universal Time",
+    ///                 },
+    ///             },
     ///             Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
     ///             {
     ///                 RepoType = "TfsGit",
@@ -114,6 +144,36 @@ namespace Pulumi.AzureDevOps.Build
     ///                 YmlPath = "azure-pipelines.yml",
     ///                 ServiceConnectionId = "...",
     ///             },
+    ///             Schedules = 
+    ///             {
+    ///                 new AzureDevOps.Inputs.BuildDefinitionScheduleArgs
+    ///                 {
+    ///                     BranchFilters = 
+    ///                     {
+    ///                         new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs
+    ///                         {
+    ///                             Includes = 
+    ///                             {
+    ///                                 "main",
+    ///                             },
+    ///                             Excludes = 
+    ///                             {
+    ///                                 "test",
+    ///                                 "regression",
+    ///                             },
+    ///                         },
+    ///                     },
+    ///                     DaysToBuilds = 
+    ///                     {
+    ///                         "Wed",
+    ///                         "Sun",
+    ///                     },
+    ///                     ScheduleOnlyWithChanges = true,
+    ///                     StartHours = 10,
+    ///                     StartMinutes = 59,
+    ///                     TimeZone = "(UTC) Coordinated Universal Time",
+    ///                 },
+    ///             },
     ///         });
     ///     }
     /// 
@@ -142,7 +202,7 @@ namespace Pulumi.AzureDevOps.Build
     public partial class BuildDefinition : Pulumi.CustomResource
     {
         /// <summary>
-        /// The agent pool that should execute the build.
+        /// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         /// </summary>
         [Output("agentPoolName")]
         public Output<string?> AgentPoolName { get; private set; } = null!;
@@ -188,6 +248,9 @@ namespace Pulumi.AzureDevOps.Build
         /// </summary>
         [Output("revision")]
         public Output<int> Revision { get; private set; } = null!;
+
+        [Output("schedules")]
+        public Output<ImmutableArray<Outputs.BuildDefinitionSchedule>> Schedules { get; private set; } = null!;
 
         /// <summary>
         /// A list of variable group IDs (integers) to link to the build definition.
@@ -248,7 +311,7 @@ namespace Pulumi.AzureDevOps.Build
     public sealed class BuildDefinitionArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The agent pool that should execute the build.
+        /// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         /// </summary>
         [Input("agentPoolName")]
         public Input<string>? AgentPoolName { get; set; }
@@ -289,6 +352,14 @@ namespace Pulumi.AzureDevOps.Build
         [Input("repository", required: true)]
         public Input<Inputs.BuildDefinitionRepositoryArgs> Repository { get; set; } = null!;
 
+        [Input("schedules")]
+        private InputList<Inputs.BuildDefinitionScheduleArgs>? _schedules;
+        public InputList<Inputs.BuildDefinitionScheduleArgs> Schedules
+        {
+            get => _schedules ?? (_schedules = new InputList<Inputs.BuildDefinitionScheduleArgs>());
+            set => _schedules = value;
+        }
+
         [Input("variableGroups")]
         private InputList<int>? _variableGroups;
 
@@ -321,7 +392,7 @@ namespace Pulumi.AzureDevOps.Build
     public sealed class BuildDefinitionState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The agent pool that should execute the build.
+        /// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
         /// </summary>
         [Input("agentPoolName")]
         public Input<string>? AgentPoolName { get; set; }
@@ -367,6 +438,14 @@ namespace Pulumi.AzureDevOps.Build
         /// </summary>
         [Input("revision")]
         public Input<int>? Revision { get; set; }
+
+        [Input("schedules")]
+        private InputList<Inputs.BuildDefinitionScheduleGetArgs>? _schedules;
+        public InputList<Inputs.BuildDefinitionScheduleGetArgs> Schedules
+        {
+            get => _schedules ?? (_schedules = new InputList<Inputs.BuildDefinitionScheduleGetArgs>());
+            set => _schedules = value;
+        }
 
         [Input("variableGroups")]
         private InputList<int>? _variableGroups;

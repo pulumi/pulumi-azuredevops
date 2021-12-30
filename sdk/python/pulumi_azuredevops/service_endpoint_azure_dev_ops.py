@@ -261,6 +261,8 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         """
         Manages an Azure DevOps service endpoint within Azure DevOps.
 
+        > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
+
         ## Example Usage
 
         ```python
@@ -307,6 +309,8 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Azure DevOps service endpoint within Azure DevOps.
+
+        > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
 
         ## Example Usage
 

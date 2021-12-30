@@ -40,6 +40,23 @@ import * as utilities from "./utilities";
  *     ciTrigger: {
  *         useYaml: true,
  *     },
+ *     schedules: [{
+ *         branchFilters: [{
+ *             includes: ["master"],
+ *             excludes: [
+ *                 "test",
+ *                 "regression",
+ *             ],
+ *         }],
+ *         daysToBuilds: [
+ *             "Wed",
+ *             "Sun",
+ *         ],
+ *         scheduleOnlyWithChanges: true,
+ *         startHours: 10,
+ *         startMinutes: 59,
+ *         timeZone: "(UTC) Coordinated Universal Time",
+ *     }],
  *     repository: {
  *         repoType: "TfsGit",
  *         repoId: repository.id,
@@ -79,6 +96,23 @@ import * as utilities from "./utilities";
  *         ymlPath: "azure-pipelines.yml",
  *         serviceConnectionId: "...",
  *     },
+ *     schedules: [{
+ *         branchFilters: [{
+ *             includes: ["main"],
+ *             excludes: [
+ *                 "test",
+ *                 "regression",
+ *             ],
+ *         }],
+ *         daysToBuilds: [
+ *             "Wed",
+ *             "Sun",
+ *         ],
+ *         scheduleOnlyWithChanges: true,
+ *         startHours: 10,
+ *         startMinutes: 59,
+ *         timeZone: "(UTC) Coordinated Universal Time",
+ *     }],
  * });
  * ```
  * ## Relevant Links
@@ -128,7 +162,7 @@ export class BuildDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * The agent pool that should execute the build.
+     * The agent pool that should execute the build. Defaults to `Azure Pipelines`.
      */
     public readonly agentPoolName!: pulumi.Output<string | undefined>;
     /**
@@ -159,6 +193,7 @@ export class BuildDefinition extends pulumi.CustomResource {
      * The revision of the build definition
      */
     public /*out*/ readonly revision!: pulumi.Output<number>;
+    public readonly schedules!: pulumi.Output<outputs.BuildDefinitionSchedule[] | undefined>;
     /**
      * A list of variable group IDs (integers) to link to the build definition.
      */
@@ -189,6 +224,7 @@ export class BuildDefinition extends pulumi.CustomResource {
             inputs["pullRequestTrigger"] = state ? state.pullRequestTrigger : undefined;
             inputs["repository"] = state ? state.repository : undefined;
             inputs["revision"] = state ? state.revision : undefined;
+            inputs["schedules"] = state ? state.schedules : undefined;
             inputs["variableGroups"] = state ? state.variableGroups : undefined;
             inputs["variables"] = state ? state.variables : undefined;
         } else {
@@ -206,6 +242,7 @@ export class BuildDefinition extends pulumi.CustomResource {
             inputs["projectId"] = args ? args.projectId : undefined;
             inputs["pullRequestTrigger"] = args ? args.pullRequestTrigger : undefined;
             inputs["repository"] = args ? args.repository : undefined;
+            inputs["schedules"] = args ? args.schedules : undefined;
             inputs["variableGroups"] = args ? args.variableGroups : undefined;
             inputs["variables"] = args ? args.variables : undefined;
             inputs["revision"] = undefined /*out*/;
@@ -224,7 +261,7 @@ export class BuildDefinition extends pulumi.CustomResource {
  */
 export interface BuildDefinitionState {
     /**
-     * The agent pool that should execute the build.
+     * The agent pool that should execute the build. Defaults to `Azure Pipelines`.
      */
     agentPoolName?: pulumi.Input<string>;
     /**
@@ -255,6 +292,7 @@ export interface BuildDefinitionState {
      * The revision of the build definition
      */
     revision?: pulumi.Input<number>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionSchedule>[]>;
     /**
      * A list of variable group IDs (integers) to link to the build definition.
      */
@@ -270,7 +308,7 @@ export interface BuildDefinitionState {
  */
 export interface BuildDefinitionArgs {
     /**
-     * The agent pool that should execute the build.
+     * The agent pool that should execute the build. Defaults to `Azure Pipelines`.
      */
     agentPoolName?: pulumi.Input<string>;
     /**
@@ -297,6 +335,7 @@ export interface BuildDefinitionArgs {
      * A `repository` block as documented below.
      */
     repository: pulumi.Input<inputs.BuildDefinitionRepository>;
+    schedules?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionSchedule>[]>;
     /**
      * A list of variable group IDs (integers) to link to the build definition.
      */

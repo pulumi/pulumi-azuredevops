@@ -75,7 +75,7 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
      */
     public readonly enablePipelinesAccess!: pulumi.Output<boolean | undefined>;
     /**
-     * The password or token key used to authenticate to the git repository using basic authentication.
+     * The PAT or password used to authenticate to the git repository.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -95,7 +95,7 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
      */
     public readonly serviceEndpointName!: pulumi.Output<string>;
     /**
-     * The username used to authenticate to the git repository using basic authentication.
+     * The username used to authenticate to the git repository.
      */
     public readonly username!: pulumi.Output<string | undefined>;
 
@@ -160,7 +160,7 @@ export interface ServiceEndpointGenericGitState {
      */
     enablePipelinesAccess?: pulumi.Input<boolean>;
     /**
-     * The password or token key used to authenticate to the git repository using basic authentication.
+     * The PAT or password used to authenticate to the git repository.
      */
     password?: pulumi.Input<string>;
     /**
@@ -180,7 +180,7 @@ export interface ServiceEndpointGenericGitState {
      */
     serviceEndpointName?: pulumi.Input<string>;
     /**
-     * The username used to authenticate to the git repository using basic authentication.
+     * The username used to authenticate to the git repository.
      */
     username?: pulumi.Input<string>;
 }
@@ -196,7 +196,7 @@ export interface ServiceEndpointGenericGitArgs {
      */
     enablePipelinesAccess?: pulumi.Input<boolean>;
     /**
-     * The password or token key used to authenticate to the git repository using basic authentication.
+     * The PAT or password used to authenticate to the git repository.
      */
     password?: pulumi.Input<string>;
     /**
@@ -212,7 +212,7 @@ export interface ServiceEndpointGenericGitArgs {
      */
     serviceEndpointName: pulumi.Input<string>;
     /**
-     * The username used to authenticate to the git repository using basic authentication.
+     * The username used to authenticate to the git repository.
      */
     username?: pulumi.Input<string>;
 }

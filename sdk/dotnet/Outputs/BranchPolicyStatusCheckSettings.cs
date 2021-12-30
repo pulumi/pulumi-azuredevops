@@ -32,9 +32,16 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly ImmutableArray<string> FilenamePatterns;
         /// <summary>
+        /// The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
+        /// </summary>
+        public readonly string? Genre;
+        /// <summary>
         /// Reset status whenever there are new changes.
         /// </summary>
         public readonly bool? InvalidateOnUpdate;
+        /// <summary>
+        /// The status name to check.
+        /// </summary>
         public readonly string Name;
         /// <summary>
         /// Controls which repositories and branches the policy will be enabled for. This block must be defined
@@ -52,6 +59,8 @@ namespace Pulumi.AzureDevOps.Outputs
 
             ImmutableArray<string> filenamePatterns,
 
+            string? genre,
+
             bool? invalidateOnUpdate,
 
             string name,
@@ -62,6 +71,7 @@ namespace Pulumi.AzureDevOps.Outputs
             AuthorId = authorId;
             DisplayName = displayName;
             FilenamePatterns = filenamePatterns;
+            Genre = genre;
             InvalidateOnUpdate = invalidateOnUpdate;
             Name = name;
             Scopes = scopes;

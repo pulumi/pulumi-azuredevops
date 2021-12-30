@@ -27,8 +27,8 @@ class ServiceEndpointGenericGitArgs:
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
-        :param pulumi.Input[str] password: The password or token key used to authenticate to the git repository using basic authentication.
-        :param pulumi.Input[str] username: The username used to authenticate to the git repository using basic authentication.
+        :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
+        :param pulumi.Input[str] username: The username used to authenticate to the git repository.
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "repository_url", repository_url)
@@ -114,7 +114,7 @@ class ServiceEndpointGenericGitArgs:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password or token key used to authenticate to the git repository using basic authentication.
+        The PAT or password used to authenticate to the git repository.
         """
         return pulumi.get(self, "password")
 
@@ -126,7 +126,7 @@ class ServiceEndpointGenericGitArgs:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        The username used to authenticate to the git repository using basic authentication.
+        The username used to authenticate to the git repository.
         """
         return pulumi.get(self, "username")
 
@@ -150,12 +150,12 @@ class _ServiceEndpointGenericGitState:
         """
         Input properties used for looking up and filtering ServiceEndpointGenericGit resources.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
-        :param pulumi.Input[str] password: The password or token key used to authenticate to the git repository using basic authentication.
+        :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The project ID or project name to associate with the service endpoint.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
-        :param pulumi.Input[str] username: The username used to authenticate to the git repository using basic authentication.
+        :param pulumi.Input[str] username: The username used to authenticate to the git repository.
         """
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
@@ -210,7 +210,7 @@ class _ServiceEndpointGenericGitState:
     @pulumi.getter
     def password(self) -> Optional[pulumi.Input[str]]:
         """
-        The password or token key used to authenticate to the git repository using basic authentication.
+        The PAT or password used to authenticate to the git repository.
         """
         return pulumi.get(self, "password")
 
@@ -270,7 +270,7 @@ class _ServiceEndpointGenericGitState:
     @pulumi.getter
     def username(self) -> Optional[pulumi.Input[str]]:
         """
-        The username used to authenticate to the git repository using basic authentication.
+        The username used to authenticate to the git repository.
         """
         return pulumi.get(self, "username")
 
@@ -330,11 +330,11 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
-        :param pulumi.Input[str] password: The password or token key used to authenticate to the git repository using basic authentication.
+        :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
         :param pulumi.Input[str] project_id: The project ID or project name to associate with the service endpoint.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
-        :param pulumi.Input[str] username: The username used to authenticate to the git repository using basic authentication.
+        :param pulumi.Input[str] username: The username used to authenticate to the git repository.
         """
         ...
     @overload
@@ -453,12 +453,12 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
-        :param pulumi.Input[str] password: The password or token key used to authenticate to the git repository using basic authentication.
+        :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The project ID or project name to associate with the service endpoint.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
-        :param pulumi.Input[str] username: The username used to authenticate to the git repository using basic authentication.
+        :param pulumi.Input[str] username: The username used to authenticate to the git repository.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -497,7 +497,7 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
     @pulumi.getter
     def password(self) -> pulumi.Output[Optional[str]]:
         """
-        The password or token key used to authenticate to the git repository using basic authentication.
+        The PAT or password used to authenticate to the git repository.
         """
         return pulumi.get(self, "password")
 
@@ -537,7 +537,7 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
     @pulumi.getter
     def username(self) -> pulumi.Output[Optional[str]]:
         """
-        The username used to authenticate to the git repository using basic authentication.
+        The username used to authenticate to the git repository.
         """
         return pulumi.get(self, "username")
 

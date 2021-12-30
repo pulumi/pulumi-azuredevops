@@ -70,7 +70,7 @@ namespace Pulumi.AzureDevOps
         public Output<bool?> EnablePipelinesAccess { get; private set; } = null!;
 
         /// <summary>
-        /// The password or token key used to authenticate to the git repository using basic authentication.
+        /// The PAT or password used to authenticate to the git repository.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ServiceEndpointName { get; private set; } = null!;
 
         /// <summary>
-        /// The username used to authenticate to the git repository using basic authentication.
+        /// The username used to authenticate to the git repository.
         /// </summary>
         [Output("username")]
         public Output<string?> Username { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? EnablePipelinesAccess { get; set; }
 
         /// <summary>
-        /// The password or token key used to authenticate to the git repository using basic authentication.
+        /// The PAT or password used to authenticate to the git repository.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -193,7 +193,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ServiceEndpointName { get; set; } = null!;
 
         /// <summary>
-        /// The username used to authenticate to the git repository using basic authentication.
+        /// The username used to authenticate to the git repository.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
@@ -223,7 +223,7 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? EnablePipelinesAccess { get; set; }
 
         /// <summary>
-        /// The password or token key used to authenticate to the git repository using basic authentication.
+        /// The PAT or password used to authenticate to the git repository.
         /// </summary>
         [Input("password")]
         public Input<string>? Password { get; set; }
@@ -253,7 +253,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ServiceEndpointName { get; set; }
 
         /// <summary>
-        /// The username used to authenticate to the git repository using basic authentication.
+        /// The username used to authenticate to the git repository.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }

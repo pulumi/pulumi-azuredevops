@@ -1619,6 +1619,248 @@ func (o BuildDefinitionRepositoryPtrOutput) YmlPath() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type BuildDefinitionSchedule struct {
+	// block supports the following:
+	BranchFilters []BuildDefinitionScheduleBranchFilter `pulumi:"branchFilters"`
+	DaysToBuilds  []string                              `pulumi:"daysToBuilds"`
+	// The ID of the schedule job
+	ScheduleJobId           *string `pulumi:"scheduleJobId"`
+	ScheduleOnlyWithChanges *bool   `pulumi:"scheduleOnlyWithChanges"`
+	StartHours              *int    `pulumi:"startHours"`
+	StartMinutes            *int    `pulumi:"startMinutes"`
+	TimeZone                *string `pulumi:"timeZone"`
+}
+
+// BuildDefinitionScheduleInput is an input type that accepts BuildDefinitionScheduleArgs and BuildDefinitionScheduleOutput values.
+// You can construct a concrete instance of `BuildDefinitionScheduleInput` via:
+//
+//          BuildDefinitionScheduleArgs{...}
+type BuildDefinitionScheduleInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionScheduleOutput() BuildDefinitionScheduleOutput
+	ToBuildDefinitionScheduleOutputWithContext(context.Context) BuildDefinitionScheduleOutput
+}
+
+type BuildDefinitionScheduleArgs struct {
+	// block supports the following:
+	BranchFilters BuildDefinitionScheduleBranchFilterArrayInput `pulumi:"branchFilters"`
+	DaysToBuilds  pulumi.StringArrayInput                       `pulumi:"daysToBuilds"`
+	// The ID of the schedule job
+	ScheduleJobId           pulumi.StringPtrInput `pulumi:"scheduleJobId"`
+	ScheduleOnlyWithChanges pulumi.BoolPtrInput   `pulumi:"scheduleOnlyWithChanges"`
+	StartHours              pulumi.IntPtrInput    `pulumi:"startHours"`
+	StartMinutes            pulumi.IntPtrInput    `pulumi:"startMinutes"`
+	TimeZone                pulumi.StringPtrInput `pulumi:"timeZone"`
+}
+
+func (BuildDefinitionScheduleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionSchedule)(nil)).Elem()
+}
+
+func (i BuildDefinitionScheduleArgs) ToBuildDefinitionScheduleOutput() BuildDefinitionScheduleOutput {
+	return i.ToBuildDefinitionScheduleOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionScheduleArgs) ToBuildDefinitionScheduleOutputWithContext(ctx context.Context) BuildDefinitionScheduleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionScheduleOutput)
+}
+
+// BuildDefinitionScheduleArrayInput is an input type that accepts BuildDefinitionScheduleArray and BuildDefinitionScheduleArrayOutput values.
+// You can construct a concrete instance of `BuildDefinitionScheduleArrayInput` via:
+//
+//          BuildDefinitionScheduleArray{ BuildDefinitionScheduleArgs{...} }
+type BuildDefinitionScheduleArrayInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionScheduleArrayOutput() BuildDefinitionScheduleArrayOutput
+	ToBuildDefinitionScheduleArrayOutputWithContext(context.Context) BuildDefinitionScheduleArrayOutput
+}
+
+type BuildDefinitionScheduleArray []BuildDefinitionScheduleInput
+
+func (BuildDefinitionScheduleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionSchedule)(nil)).Elem()
+}
+
+func (i BuildDefinitionScheduleArray) ToBuildDefinitionScheduleArrayOutput() BuildDefinitionScheduleArrayOutput {
+	return i.ToBuildDefinitionScheduleArrayOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionScheduleArray) ToBuildDefinitionScheduleArrayOutputWithContext(ctx context.Context) BuildDefinitionScheduleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionScheduleArrayOutput)
+}
+
+type BuildDefinitionScheduleOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionScheduleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionSchedule)(nil)).Elem()
+}
+
+func (o BuildDefinitionScheduleOutput) ToBuildDefinitionScheduleOutput() BuildDefinitionScheduleOutput {
+	return o
+}
+
+func (o BuildDefinitionScheduleOutput) ToBuildDefinitionScheduleOutputWithContext(ctx context.Context) BuildDefinitionScheduleOutput {
+	return o
+}
+
+// block supports the following:
+func (o BuildDefinitionScheduleOutput) BranchFilters() BuildDefinitionScheduleBranchFilterArrayOutput {
+	return o.ApplyT(func(v BuildDefinitionSchedule) []BuildDefinitionScheduleBranchFilter { return v.BranchFilters }).(BuildDefinitionScheduleBranchFilterArrayOutput)
+}
+
+func (o BuildDefinitionScheduleOutput) DaysToBuilds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BuildDefinitionSchedule) []string { return v.DaysToBuilds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the schedule job
+func (o BuildDefinitionScheduleOutput) ScheduleJobId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionSchedule) *string { return v.ScheduleJobId }).(pulumi.StringPtrOutput)
+}
+
+func (o BuildDefinitionScheduleOutput) ScheduleOnlyWithChanges() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionSchedule) *bool { return v.ScheduleOnlyWithChanges }).(pulumi.BoolPtrOutput)
+}
+
+func (o BuildDefinitionScheduleOutput) StartHours() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionSchedule) *int { return v.StartHours }).(pulumi.IntPtrOutput)
+}
+
+func (o BuildDefinitionScheduleOutput) StartMinutes() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionSchedule) *int { return v.StartMinutes }).(pulumi.IntPtrOutput)
+}
+
+func (o BuildDefinitionScheduleOutput) TimeZone() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BuildDefinitionSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
+}
+
+type BuildDefinitionScheduleArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionScheduleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionSchedule)(nil)).Elem()
+}
+
+func (o BuildDefinitionScheduleArrayOutput) ToBuildDefinitionScheduleArrayOutput() BuildDefinitionScheduleArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionScheduleArrayOutput) ToBuildDefinitionScheduleArrayOutputWithContext(ctx context.Context) BuildDefinitionScheduleArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionScheduleArrayOutput) Index(i pulumi.IntInput) BuildDefinitionScheduleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinitionSchedule {
+		return vs[0].([]BuildDefinitionSchedule)[vs[1].(int)]
+	}).(BuildDefinitionScheduleOutput)
+}
+
+type BuildDefinitionScheduleBranchFilter struct {
+	// List of branch patterns to exclude.
+	Excludes []string `pulumi:"excludes"`
+	// List of branch patterns to include.
+	Includes []string `pulumi:"includes"`
+}
+
+// BuildDefinitionScheduleBranchFilterInput is an input type that accepts BuildDefinitionScheduleBranchFilterArgs and BuildDefinitionScheduleBranchFilterOutput values.
+// You can construct a concrete instance of `BuildDefinitionScheduleBranchFilterInput` via:
+//
+//          BuildDefinitionScheduleBranchFilterArgs{...}
+type BuildDefinitionScheduleBranchFilterInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionScheduleBranchFilterOutput() BuildDefinitionScheduleBranchFilterOutput
+	ToBuildDefinitionScheduleBranchFilterOutputWithContext(context.Context) BuildDefinitionScheduleBranchFilterOutput
+}
+
+type BuildDefinitionScheduleBranchFilterArgs struct {
+	// List of branch patterns to exclude.
+	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// List of branch patterns to include.
+	Includes pulumi.StringArrayInput `pulumi:"includes"`
+}
+
+func (BuildDefinitionScheduleBranchFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionScheduleBranchFilter)(nil)).Elem()
+}
+
+func (i BuildDefinitionScheduleBranchFilterArgs) ToBuildDefinitionScheduleBranchFilterOutput() BuildDefinitionScheduleBranchFilterOutput {
+	return i.ToBuildDefinitionScheduleBranchFilterOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionScheduleBranchFilterArgs) ToBuildDefinitionScheduleBranchFilterOutputWithContext(ctx context.Context) BuildDefinitionScheduleBranchFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionScheduleBranchFilterOutput)
+}
+
+// BuildDefinitionScheduleBranchFilterArrayInput is an input type that accepts BuildDefinitionScheduleBranchFilterArray and BuildDefinitionScheduleBranchFilterArrayOutput values.
+// You can construct a concrete instance of `BuildDefinitionScheduleBranchFilterArrayInput` via:
+//
+//          BuildDefinitionScheduleBranchFilterArray{ BuildDefinitionScheduleBranchFilterArgs{...} }
+type BuildDefinitionScheduleBranchFilterArrayInput interface {
+	pulumi.Input
+
+	ToBuildDefinitionScheduleBranchFilterArrayOutput() BuildDefinitionScheduleBranchFilterArrayOutput
+	ToBuildDefinitionScheduleBranchFilterArrayOutputWithContext(context.Context) BuildDefinitionScheduleBranchFilterArrayOutput
+}
+
+type BuildDefinitionScheduleBranchFilterArray []BuildDefinitionScheduleBranchFilterInput
+
+func (BuildDefinitionScheduleBranchFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionScheduleBranchFilter)(nil)).Elem()
+}
+
+func (i BuildDefinitionScheduleBranchFilterArray) ToBuildDefinitionScheduleBranchFilterArrayOutput() BuildDefinitionScheduleBranchFilterArrayOutput {
+	return i.ToBuildDefinitionScheduleBranchFilterArrayOutputWithContext(context.Background())
+}
+
+func (i BuildDefinitionScheduleBranchFilterArray) ToBuildDefinitionScheduleBranchFilterArrayOutputWithContext(ctx context.Context) BuildDefinitionScheduleBranchFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionScheduleBranchFilterArrayOutput)
+}
+
+type BuildDefinitionScheduleBranchFilterOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionScheduleBranchFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BuildDefinitionScheduleBranchFilter)(nil)).Elem()
+}
+
+func (o BuildDefinitionScheduleBranchFilterOutput) ToBuildDefinitionScheduleBranchFilterOutput() BuildDefinitionScheduleBranchFilterOutput {
+	return o
+}
+
+func (o BuildDefinitionScheduleBranchFilterOutput) ToBuildDefinitionScheduleBranchFilterOutputWithContext(ctx context.Context) BuildDefinitionScheduleBranchFilterOutput {
+	return o
+}
+
+// List of branch patterns to exclude.
+func (o BuildDefinitionScheduleBranchFilterOutput) Excludes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BuildDefinitionScheduleBranchFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
+}
+
+// List of branch patterns to include.
+func (o BuildDefinitionScheduleBranchFilterOutput) Includes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BuildDefinitionScheduleBranchFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
+}
+
+type BuildDefinitionScheduleBranchFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (BuildDefinitionScheduleBranchFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BuildDefinitionScheduleBranchFilter)(nil)).Elem()
+}
+
+func (o BuildDefinitionScheduleBranchFilterArrayOutput) ToBuildDefinitionScheduleBranchFilterArrayOutput() BuildDefinitionScheduleBranchFilterArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionScheduleBranchFilterArrayOutput) ToBuildDefinitionScheduleBranchFilterArrayOutputWithContext(ctx context.Context) BuildDefinitionScheduleBranchFilterArrayOutput {
+	return o
+}
+
+func (o BuildDefinitionScheduleBranchFilterArrayOutput) Index(i pulumi.IntInput) BuildDefinitionScheduleBranchFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinitionScheduleBranchFilter {
+		return vs[0].([]BuildDefinitionScheduleBranchFilter)[vs[1].(int)]
+	}).(BuildDefinitionScheduleBranchFilterOutput)
+}
+
 type BuildDefinitionVariable struct {
 	// True if the variable can be overridden. Defaults to `true`.
 	AllowOverride *bool `pulumi:"allowOverride"`
@@ -1773,6 +2015,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput)(nil)).Elem(), BuildDefinitionPullRequestTriggerOverridePathFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionRepositoryInput)(nil)).Elem(), BuildDefinitionRepositoryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionRepositoryPtrInput)(nil)).Elem(), BuildDefinitionRepositoryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionScheduleInput)(nil)).Elem(), BuildDefinitionScheduleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionScheduleArrayInput)(nil)).Elem(), BuildDefinitionScheduleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionScheduleBranchFilterInput)(nil)).Elem(), BuildDefinitionScheduleBranchFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionScheduleBranchFilterArrayInput)(nil)).Elem(), BuildDefinitionScheduleBranchFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionVariableInput)(nil)).Elem(), BuildDefinitionVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionVariableArrayInput)(nil)).Elem(), BuildDefinitionVariableArray{})
 	pulumi.RegisterOutputType(BuildDefinitionCiTriggerOutput{})
@@ -1795,6 +2041,10 @@ func init() {
 	pulumi.RegisterOutputType(BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionRepositoryOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionRepositoryPtrOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionScheduleOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionScheduleArrayOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionScheduleBranchFilterOutput{})
+	pulumi.RegisterOutputType(BuildDefinitionScheduleBranchFilterArrayOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionVariableOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionVariableArrayOutput{})
 }

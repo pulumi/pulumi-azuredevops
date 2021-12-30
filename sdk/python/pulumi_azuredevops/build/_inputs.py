@@ -19,6 +19,8 @@ __all__ = [
     'BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs',
     'BuildDefinitionPullRequestTriggerOverridePathFilterArgs',
     'BuildDefinitionRepositoryArgs',
+    'BuildDefinitionScheduleArgs',
+    'BuildDefinitionScheduleBranchFilterArgs',
     'BuildDefinitionVariableArgs',
 ]
 
@@ -604,6 +606,143 @@ class BuildDefinitionRepositoryArgs:
     @service_connection_id.setter
     def service_connection_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_connection_id", value)
+
+
+@pulumi.input_type
+class BuildDefinitionScheduleArgs:
+    def __init__(__self__, *,
+                 days_to_builds: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 branch_filters: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]]] = None,
+                 schedule_job_id: Optional[pulumi.Input[str]] = None,
+                 schedule_only_with_changes: Optional[pulumi.Input[bool]] = None,
+                 start_hours: Optional[pulumi.Input[int]] = None,
+                 start_minutes: Optional[pulumi.Input[int]] = None,
+                 time_zone: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]] branch_filters: block supports the following:
+        :param pulumi.Input[str] schedule_job_id: The ID of the schedule job
+        """
+        pulumi.set(__self__, "days_to_builds", days_to_builds)
+        if branch_filters is not None:
+            pulumi.set(__self__, "branch_filters", branch_filters)
+        if schedule_job_id is not None:
+            pulumi.set(__self__, "schedule_job_id", schedule_job_id)
+        if schedule_only_with_changes is not None:
+            pulumi.set(__self__, "schedule_only_with_changes", schedule_only_with_changes)
+        if start_hours is not None:
+            pulumi.set(__self__, "start_hours", start_hours)
+        if start_minutes is not None:
+            pulumi.set(__self__, "start_minutes", start_minutes)
+        if time_zone is not None:
+            pulumi.set(__self__, "time_zone", time_zone)
+
+    @property
+    @pulumi.getter(name="daysToBuilds")
+    def days_to_builds(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "days_to_builds")
+
+    @days_to_builds.setter
+    def days_to_builds(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "days_to_builds", value)
+
+    @property
+    @pulumi.getter(name="branchFilters")
+    def branch_filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]]]:
+        """
+        block supports the following:
+        """
+        return pulumi.get(self, "branch_filters")
+
+    @branch_filters.setter
+    def branch_filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]]]):
+        pulumi.set(self, "branch_filters", value)
+
+    @property
+    @pulumi.getter(name="scheduleJobId")
+    def schedule_job_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the schedule job
+        """
+        return pulumi.get(self, "schedule_job_id")
+
+    @schedule_job_id.setter
+    def schedule_job_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "schedule_job_id", value)
+
+    @property
+    @pulumi.getter(name="scheduleOnlyWithChanges")
+    def schedule_only_with_changes(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "schedule_only_with_changes")
+
+    @schedule_only_with_changes.setter
+    def schedule_only_with_changes(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "schedule_only_with_changes", value)
+
+    @property
+    @pulumi.getter(name="startHours")
+    def start_hours(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "start_hours")
+
+    @start_hours.setter
+    def start_hours(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_hours", value)
+
+    @property
+    @pulumi.getter(name="startMinutes")
+    def start_minutes(self) -> Optional[pulumi.Input[int]]:
+        return pulumi.get(self, "start_minutes")
+
+    @start_minutes.setter
+    def start_minutes(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "start_minutes", value)
+
+    @property
+    @pulumi.getter(name="timeZone")
+    def time_zone(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "time_zone")
+
+    @time_zone.setter
+    def time_zone(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class BuildDefinitionScheduleBranchFilterArgs:
+    def __init__(__self__, *,
+                 excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: List of branch patterns to include.
+        """
+        if excludes is not None:
+            pulumi.set(__self__, "excludes", excludes)
+        if includes is not None:
+            pulumi.set(__self__, "includes", includes)
+
+    @property
+    @pulumi.getter
+    def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of branch patterns to exclude.
+        """
+        return pulumi.get(self, "excludes")
+
+    @excludes.setter
+    def excludes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excludes", value)
+
+    @property
+    @pulumi.getter
+    def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        List of branch patterns to include.
+        """
+        return pulumi.get(self, "includes")
+
+    @includes.setter
+    def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "includes", value)
 
 
 @pulumi.input_type

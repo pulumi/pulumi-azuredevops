@@ -62,6 +62,29 @@ import (
 // 			CiTrigger: &BuildDefinitionCiTriggerArgs{
 // 				UseYaml: pulumi.Bool(true),
 // 			},
+// 			Schedules: BuildDefinitionScheduleArray{
+// 				&BuildDefinitionScheduleArgs{
+// 					BranchFilters: BuildDefinitionScheduleBranchFilterArray{
+// 						&BuildDefinitionScheduleBranchFilterArgs{
+// 							Includes: pulumi.StringArray{
+// 								pulumi.String("master"),
+// 							},
+// 							Excludes: pulumi.StringArray{
+// 								pulumi.String("test"),
+// 								pulumi.String("regression"),
+// 							},
+// 						},
+// 					},
+// 					DaysToBuilds: pulumi.StringArray{
+// 						pulumi.String("Wed"),
+// 						pulumi.String("Sun"),
+// 					},
+// 					ScheduleOnlyWithChanges: pulumi.Bool(true),
+// 					StartHours:              pulumi.Int(10),
+// 					StartMinutes:            pulumi.Int(59),
+// 					TimeZone:                pulumi.String("(UTC) Coordinated Universal Time"),
+// 				},
+// 			},
 // 			Repository: &BuildDefinitionRepositoryArgs{
 // 				RepoType:   pulumi.String("TfsGit"),
 // 				RepoId:     repository.ID(),
@@ -115,6 +138,29 @@ import (
 // 				YmlPath:             pulumi.String("azure-pipelines.yml"),
 // 				ServiceConnectionId: pulumi.String("..."),
 // 			},
+// 			Schedules: BuildDefinitionScheduleArray{
+// 				&BuildDefinitionScheduleArgs{
+// 					BranchFilters: BuildDefinitionScheduleBranchFilterArray{
+// 						&BuildDefinitionScheduleBranchFilterArgs{
+// 							Includes: pulumi.StringArray{
+// 								pulumi.String("main"),
+// 							},
+// 							Excludes: pulumi.StringArray{
+// 								pulumi.String("test"),
+// 								pulumi.String("regression"),
+// 							},
+// 						},
+// 					},
+// 					DaysToBuilds: pulumi.StringArray{
+// 						pulumi.String("Wed"),
+// 						pulumi.String("Sun"),
+// 					},
+// 					ScheduleOnlyWithChanges: pulumi.Bool(true),
+// 					StartHours:              pulumi.Int(10),
+// 					StartMinutes:            pulumi.Int(59),
+// 					TimeZone:                pulumi.String("(UTC) Coordinated Universal Time"),
+// 				},
+// 			},
 // 		})
 // 		if err != nil {
 // 			return err
@@ -143,7 +189,7 @@ import (
 type BuildDefinition struct {
 	pulumi.CustomResourceState
 
-	// The agent pool that should execute the build.
+	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName pulumi.StringPtrOutput `pulumi:"agentPoolName"`
 	// Continuous Integration trigger.
 	CiTrigger BuildDefinitionCiTriggerPtrOutput `pulumi:"ciTrigger"`
@@ -158,7 +204,8 @@ type BuildDefinition struct {
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryOutput `pulumi:"repository"`
 	// The revision of the build definition
-	Revision pulumi.IntOutput `pulumi:"revision"`
+	Revision  pulumi.IntOutput                   `pulumi:"revision"`
+	Schedules BuildDefinitionScheduleArrayOutput `pulumi:"schedules"`
 	// A list of variable group IDs (integers) to link to the build definition.
 	VariableGroups pulumi.IntArrayOutput `pulumi:"variableGroups"`
 	// A list of `variable` blocks, as documented below.
@@ -206,7 +253,7 @@ func GetBuildDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BuildDefinition resources.
 type buildDefinitionState struct {
-	// The agent pool that should execute the build.
+	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// Continuous Integration trigger.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
@@ -221,7 +268,8 @@ type buildDefinitionState struct {
 	// A `repository` block as documented below.
 	Repository *BuildDefinitionRepository `pulumi:"repository"`
 	// The revision of the build definition
-	Revision *int `pulumi:"revision"`
+	Revision  *int                      `pulumi:"revision"`
+	Schedules []BuildDefinitionSchedule `pulumi:"schedules"`
 	// A list of variable group IDs (integers) to link to the build definition.
 	VariableGroups []int `pulumi:"variableGroups"`
 	// A list of `variable` blocks, as documented below.
@@ -229,7 +277,7 @@ type buildDefinitionState struct {
 }
 
 type BuildDefinitionState struct {
-	// The agent pool that should execute the build.
+	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName pulumi.StringPtrInput
 	// Continuous Integration trigger.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
@@ -244,7 +292,8 @@ type BuildDefinitionState struct {
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryPtrInput
 	// The revision of the build definition
-	Revision pulumi.IntPtrInput
+	Revision  pulumi.IntPtrInput
+	Schedules BuildDefinitionScheduleArrayInput
 	// A list of variable group IDs (integers) to link to the build definition.
 	VariableGroups pulumi.IntArrayInput
 	// A list of `variable` blocks, as documented below.
@@ -256,7 +305,7 @@ func (BuildDefinitionState) ElementType() reflect.Type {
 }
 
 type buildDefinitionArgs struct {
-	// The agent pool that should execute the build.
+	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// Continuous Integration trigger.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
@@ -270,6 +319,7 @@ type buildDefinitionArgs struct {
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepository `pulumi:"repository"`
+	Schedules  []BuildDefinitionSchedule `pulumi:"schedules"`
 	// A list of variable group IDs (integers) to link to the build definition.
 	VariableGroups []int `pulumi:"variableGroups"`
 	// A list of `variable` blocks, as documented below.
@@ -278,7 +328,7 @@ type buildDefinitionArgs struct {
 
 // The set of arguments for constructing a BuildDefinition resource.
 type BuildDefinitionArgs struct {
-	// The agent pool that should execute the build.
+	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 	AgentPoolName pulumi.StringPtrInput
 	// Continuous Integration trigger.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
@@ -292,6 +342,7 @@ type BuildDefinitionArgs struct {
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryInput
+	Schedules  BuildDefinitionScheduleArrayInput
 	// A list of variable group IDs (integers) to link to the build definition.
 	VariableGroups pulumi.IntArrayInput
 	// A list of `variable` blocks, as documented below.
