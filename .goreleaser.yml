@@ -28,7 +28,8 @@ builds:
   - -X github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-azuredevops/
 changelog:
-  skip: true
+  use: git
+  sort: asc
 release:
   disable: false
 snapshot:
