@@ -19,14 +19,14 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "My first project",
  * });
- * const builtinProjectContributors = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * const builtinProjectContributors = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Contributors",
- * }));
- * const builtinProjectReaders = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * });
+ * const builtinProjectReaders = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Readers",
- * }));
+ * });
  * const team = new azuredevops.Team("team", {
  *     projectId: project.id,
  *     administrators: [builtinProjectContributors.apply(builtinProjectContributors => builtinProjectContributors.descriptor)],
@@ -107,30 +107,28 @@ export class Team extends pulumi.CustomResource {
      */
     constructor(name: string, args: TeamArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: TeamArgs | TeamState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TeamState | undefined;
-            inputs["administrators"] = state ? state.administrators : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["members"] = state ? state.members : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["administrators"] = state ? state.administrators : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as TeamArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["administrators"] = args ? args.administrators : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["members"] = args ? args.members : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["administrators"] = args ? args.administrators : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Team.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Team.__pulumiType, name, resourceInputs, opts);
     }
 }
 

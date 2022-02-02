@@ -216,7 +216,7 @@ type GitInput interface {
 }
 
 func (*Git) ElementType() reflect.Type {
-	return reflect.TypeOf((*Git)(nil))
+	return reflect.TypeOf((**Git)(nil)).Elem()
 }
 
 func (i *Git) ToGitOutput() GitOutput {
@@ -225,35 +225,6 @@ func (i *Git) ToGitOutput() GitOutput {
 
 func (i *Git) ToGitOutputWithContext(ctx context.Context) GitOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitOutput)
-}
-
-func (i *Git) ToGitPtrOutput() GitPtrOutput {
-	return i.ToGitPtrOutputWithContext(context.Background())
-}
-
-func (i *Git) ToGitPtrOutputWithContext(ctx context.Context) GitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitPtrOutput)
-}
-
-type GitPtrInput interface {
-	pulumi.Input
-
-	ToGitPtrOutput() GitPtrOutput
-	ToGitPtrOutputWithContext(ctx context.Context) GitPtrOutput
-}
-
-type gitPtrType GitArgs
-
-func (*gitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**Git)(nil))
-}
-
-func (i *gitPtrType) ToGitPtrOutput() GitPtrOutput {
-	return i.ToGitPtrOutputWithContext(context.Background())
-}
-
-func (i *gitPtrType) ToGitPtrOutputWithContext(ctx context.Context) GitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitPtrOutput)
 }
 
 // GitArrayInput is an input type that accepts GitArray and GitArrayOutput values.
@@ -309,7 +280,7 @@ func (i GitMap) ToGitMapOutputWithContext(ctx context.Context) GitMapOutput {
 type GitOutput struct{ *pulumi.OutputState }
 
 func (GitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*Git)(nil))
+	return reflect.TypeOf((**Git)(nil)).Elem()
 }
 
 func (o GitOutput) ToGitOutput() GitOutput {
@@ -320,44 +291,10 @@ func (o GitOutput) ToGitOutputWithContext(ctx context.Context) GitOutput {
 	return o
 }
 
-func (o GitOutput) ToGitPtrOutput() GitPtrOutput {
-	return o.ToGitPtrOutputWithContext(context.Background())
-}
-
-func (o GitOutput) ToGitPtrOutputWithContext(ctx context.Context) GitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v Git) *Git {
-		return &v
-	}).(GitPtrOutput)
-}
-
-type GitPtrOutput struct{ *pulumi.OutputState }
-
-func (GitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**Git)(nil))
-}
-
-func (o GitPtrOutput) ToGitPtrOutput() GitPtrOutput {
-	return o
-}
-
-func (o GitPtrOutput) ToGitPtrOutputWithContext(ctx context.Context) GitPtrOutput {
-	return o
-}
-
-func (o GitPtrOutput) Elem() GitOutput {
-	return o.ApplyT(func(v *Git) Git {
-		if v != nil {
-			return *v
-		}
-		var ret Git
-		return ret
-	}).(GitOutput)
-}
-
 type GitArrayOutput struct{ *pulumi.OutputState }
 
 func (GitArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]Git)(nil))
+	return reflect.TypeOf((*[]*Git)(nil)).Elem()
 }
 
 func (o GitArrayOutput) ToGitArrayOutput() GitArrayOutput {
@@ -369,15 +306,15 @@ func (o GitArrayOutput) ToGitArrayOutputWithContext(ctx context.Context) GitArra
 }
 
 func (o GitArrayOutput) Index(i pulumi.IntInput) GitOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) Git {
-		return vs[0].([]Git)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Git {
+		return vs[0].([]*Git)[vs[1].(int)]
 	}).(GitOutput)
 }
 
 type GitMapOutput struct{ *pulumi.OutputState }
 
 func (GitMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]Git)(nil))
+	return reflect.TypeOf((*map[string]*Git)(nil)).Elem()
 }
 
 func (o GitMapOutput) ToGitMapOutput() GitMapOutput {
@@ -389,18 +326,16 @@ func (o GitMapOutput) ToGitMapOutputWithContext(ctx context.Context) GitMapOutpu
 }
 
 func (o GitMapOutput) MapIndex(k pulumi.StringInput) GitOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) Git {
-		return vs[0].(map[string]Git)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *Git {
+		return vs[0].(map[string]*Git)[vs[1].(string)]
 	}).(GitOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GitInput)(nil)).Elem(), &Git{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GitPtrInput)(nil)).Elem(), &Git{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitArrayInput)(nil)).Elem(), GitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitMapInput)(nil)).Elem(), GitMap{})
 	pulumi.RegisterOutputType(GitOutput{})
-	pulumi.RegisterOutputType(GitPtrOutput{})
 	pulumi.RegisterOutputType(GitArrayOutput{})
 	pulumi.RegisterOutputType(GitMapOutput{})
 }

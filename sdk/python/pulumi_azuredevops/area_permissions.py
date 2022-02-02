@@ -215,8 +215,8 @@ class AreaPermissions(pulumi.CustomResource):
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
+        project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
         root_permissions = azuredevops.AreaPermissions("root-permissions",
             project_id=project.id,
             principal=project_readers.id,
@@ -275,8 +275,8 @@ class AreaPermissions(pulumi.CustomResource):
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
+        project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
         root_permissions = azuredevops.AreaPermissions("root-permissions",
             project_id=project.id,
             principal=project_readers.id,

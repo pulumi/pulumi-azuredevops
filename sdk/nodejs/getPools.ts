@@ -28,9 +28,7 @@ export function getPools(opts?: pulumi.InvokeOptions): Promise<GetPoolsResult> {
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azuredevops:index/getPools:getPools", {
     }, opts);
 }

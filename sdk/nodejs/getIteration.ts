@@ -20,16 +20,16 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const root-iteration = project.id.apply(id => azuredevops.getIteration({
- *     projectId: id,
+ * const root-iteration = azuredevops.getIterationOutput({
+ *     projectId: project.id,
  *     path: "/",
  *     fetchChildren: true,
- * }));
- * const child-iteration = project.id.apply(id => azuredevops.getIteration({
- *     projectId: id,
+ * });
+ * const child-iteration = azuredevops.getIterationOutput({
+ *     projectId: project.id,
  *     path: "/Iteration 1",
  *     fetchChildren: true,
- * }));
+ * });
  * ```
  * ## Relevant Links
  *
@@ -44,9 +44,7 @@ export function getIteration(args: GetIterationArgs, opts?: pulumi.InvokeOptions
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azuredevops:index/getIteration:getIteration", {
         "fetchChildren": args.fetchChildren,
         "path": args.path,

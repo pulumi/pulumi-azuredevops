@@ -113,33 +113,31 @@ export class Project extends pulumi.CustomResource {
      */
     constructor(name: string, args?: ProjectArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ProjectArgs | ProjectState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ProjectState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["features"] = state ? state.features : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["processTemplateId"] = state ? state.processTemplateId : undefined;
-            inputs["versionControl"] = state ? state.versionControl : undefined;
-            inputs["visibility"] = state ? state.visibility : undefined;
-            inputs["workItemTemplate"] = state ? state.workItemTemplate : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["features"] = state ? state.features : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["processTemplateId"] = state ? state.processTemplateId : undefined;
+            resourceInputs["versionControl"] = state ? state.versionControl : undefined;
+            resourceInputs["visibility"] = state ? state.visibility : undefined;
+            resourceInputs["workItemTemplate"] = state ? state.workItemTemplate : undefined;
         } else {
             const args = argsOrState as ProjectArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["features"] = args ? args.features : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["versionControl"] = args ? args.versionControl : undefined;
-            inputs["visibility"] = args ? args.visibility : undefined;
-            inputs["workItemTemplate"] = args ? args.workItemTemplate : undefined;
-            inputs["processTemplateId"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["features"] = args ? args.features : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["versionControl"] = args ? args.versionControl : undefined;
+            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["workItemTemplate"] = args ? args.workItemTemplate : undefined;
+            resourceInputs["processTemplateId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:Core/project:Project" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Project.__pulumiType, name, inputs, opts);
+        super(Project.__pulumiType, name, resourceInputs, opts);
     }
 }
 

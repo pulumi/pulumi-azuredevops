@@ -92,18 +92,18 @@ import * as utilities from "./utilities";
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const project-readers = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * const project-readers = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Readers",
- * }));
- * const project-contributors = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * });
+ * const project-contributors = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Contributors",
- * }));
- * const project-administrators = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * });
+ * const project-administrators = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Project administrators",
- * }));
+ * });
  * const project_git_root_permissions = new azuredevops.GitPermissions("project-git-root-permissions", {
  *     projectId: project.id,
  *     principal: project_readers.apply(project_readers => project_readers.id),
@@ -216,16 +216,16 @@ export class GitPermissions extends pulumi.CustomResource {
      */
     constructor(name: string, args: GitPermissionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GitPermissionsArgs | GitPermissionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GitPermissionsState | undefined;
-            inputs["branchName"] = state ? state.branchName : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["replace"] = state ? state.replace : undefined;
-            inputs["repositoryId"] = state ? state.repositoryId : undefined;
+            resourceInputs["branchName"] = state ? state.branchName : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["replace"] = state ? state.replace : undefined;
+            resourceInputs["repositoryId"] = state ? state.repositoryId : undefined;
         } else {
             const args = argsOrState as GitPermissionsArgs | undefined;
             if ((!args || args.permissions === undefined) && !opts.urn) {
@@ -237,17 +237,15 @@ export class GitPermissions extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["branchName"] = args ? args.branchName : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["replace"] = args ? args.replace : undefined;
-            inputs["repositoryId"] = args ? args.repositoryId : undefined;
+            resourceInputs["branchName"] = args ? args.branchName : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["replace"] = args ? args.replace : undefined;
+            resourceInputs["repositoryId"] = args ? args.repositoryId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GitPermissions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GitPermissions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

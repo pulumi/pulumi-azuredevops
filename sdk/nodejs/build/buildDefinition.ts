@@ -218,21 +218,21 @@ export class BuildDefinition extends pulumi.CustomResource {
     /** @deprecated azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition */
     constructor(name: string, argsOrState?: BuildDefinitionArgs | BuildDefinitionState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("BuildDefinition is deprecated: azuredevops.build.BuildDefinition has been deprecated in favor of azuredevops.BuildDefinition")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BuildDefinitionState | undefined;
-            inputs["agentPoolName"] = state ? state.agentPoolName : undefined;
-            inputs["ciTrigger"] = state ? state.ciTrigger : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["pullRequestTrigger"] = state ? state.pullRequestTrigger : undefined;
-            inputs["repository"] = state ? state.repository : undefined;
-            inputs["revision"] = state ? state.revision : undefined;
-            inputs["schedules"] = state ? state.schedules : undefined;
-            inputs["variableGroups"] = state ? state.variableGroups : undefined;
-            inputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["agentPoolName"] = state ? state.agentPoolName : undefined;
+            resourceInputs["ciTrigger"] = state ? state.ciTrigger : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["pullRequestTrigger"] = state ? state.pullRequestTrigger : undefined;
+            resourceInputs["repository"] = state ? state.repository : undefined;
+            resourceInputs["revision"] = state ? state.revision : undefined;
+            resourceInputs["schedules"] = state ? state.schedules : undefined;
+            resourceInputs["variableGroups"] = state ? state.variableGroups : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as BuildDefinitionArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -241,22 +241,20 @@ export class BuildDefinition extends pulumi.CustomResource {
             if ((!args || args.repository === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'repository'");
             }
-            inputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            inputs["ciTrigger"] = args ? args.ciTrigger : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["path"] = args ? args.path : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["pullRequestTrigger"] = args ? args.pullRequestTrigger : undefined;
-            inputs["repository"] = args ? args.repository : undefined;
-            inputs["schedules"] = args ? args.schedules : undefined;
-            inputs["variableGroups"] = args ? args.variableGroups : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
-            inputs["revision"] = undefined /*out*/;
+            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
+            resourceInputs["ciTrigger"] = args ? args.ciTrigger : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["pullRequestTrigger"] = args ? args.pullRequestTrigger : undefined;
+            resourceInputs["repository"] = args ? args.repository : undefined;
+            resourceInputs["schedules"] = args ? args.schedules : undefined;
+            resourceInputs["variableGroups"] = args ? args.variableGroups : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["revision"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BuildDefinition.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BuildDefinition.__pulumiType, name, resourceInputs, opts);
     }
 }
 

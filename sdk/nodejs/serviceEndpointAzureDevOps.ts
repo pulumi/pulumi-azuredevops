@@ -105,18 +105,18 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointAzureDevOpsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointAzureDevOpsArgs | ServiceEndpointAzureDevOpsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointAzureDevOpsState | undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["orgUrl"] = state ? state.orgUrl : undefined;
-            inputs["personalAccessToken"] = state ? state.personalAccessToken : undefined;
-            inputs["personalAccessTokenHash"] = state ? state.personalAccessTokenHash : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["releaseApiUrl"] = state ? state.releaseApiUrl : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["orgUrl"] = state ? state.orgUrl : undefined;
+            resourceInputs["personalAccessToken"] = state ? state.personalAccessToken : undefined;
+            resourceInputs["personalAccessTokenHash"] = state ? state.personalAccessTokenHash : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["releaseApiUrl"] = state ? state.releaseApiUrl : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureDevOpsArgs | undefined;
             if ((!args || args.orgUrl === undefined) && !opts.urn) {
@@ -134,19 +134,17 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["orgUrl"] = args ? args.orgUrl : undefined;
-            inputs["personalAccessToken"] = args ? args.personalAccessToken : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["releaseApiUrl"] = args ? args.releaseApiUrl : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            inputs["personalAccessTokenHash"] = undefined /*out*/;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["orgUrl"] = args ? args.orgUrl : undefined;
+            resourceInputs["personalAccessToken"] = args ? args.personalAccessToken : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["releaseApiUrl"] = args ? args.releaseApiUrl : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["personalAccessTokenHash"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceEndpointAzureDevOps.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceEndpointAzureDevOps.__pulumiType, name, resourceInputs, opts);
     }
 }
 

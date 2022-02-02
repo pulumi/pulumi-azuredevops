@@ -209,8 +209,8 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
+        project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
         repository = azuredevops.Git("repository",
             project_id=project.id,
             initialization=azuredevops.GitInitializationArgs(
@@ -281,8 +281,8 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
+        project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
         repository = azuredevops.Git("repository",
             project_id=project.id,
             initialization=azuredevops.GitInitializationArgs(

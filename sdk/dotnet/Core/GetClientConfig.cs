@@ -39,7 +39,7 @@ namespace Pulumi.AzureDevOps.Core
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetClientConfigResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClientConfigResult>("azuredevops:Core/getClientConfig:getClientConfig", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetClientConfigResult>("azuredevops:Core/getClientConfig:getClientConfig", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

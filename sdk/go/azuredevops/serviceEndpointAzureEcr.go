@@ -242,7 +242,7 @@ type ServiceEndpointAzureEcrInput interface {
 }
 
 func (*ServiceEndpointAzureEcr) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAzureEcr)(nil))
+	return reflect.TypeOf((**ServiceEndpointAzureEcr)(nil)).Elem()
 }
 
 func (i *ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutput() ServiceEndpointAzureEcrOutput {
@@ -251,35 +251,6 @@ func (i *ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutput() ServiceEndpo
 
 func (i *ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrOutput)
-}
-
-func (i *ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrPtrOutput() ServiceEndpointAzureEcrPtrOutput {
-	return i.ToServiceEndpointAzureEcrPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrPtrOutput)
-}
-
-type ServiceEndpointAzureEcrPtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointAzureEcrPtrOutput() ServiceEndpointAzureEcrPtrOutput
-	ToServiceEndpointAzureEcrPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrPtrOutput
-}
-
-type serviceEndpointAzureEcrPtrType ServiceEndpointAzureEcrArgs
-
-func (*serviceEndpointAzureEcrPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointAzureEcr)(nil))
-}
-
-func (i *serviceEndpointAzureEcrPtrType) ToServiceEndpointAzureEcrPtrOutput() ServiceEndpointAzureEcrPtrOutput {
-	return i.ToServiceEndpointAzureEcrPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointAzureEcrPtrType) ToServiceEndpointAzureEcrPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrPtrOutput)
 }
 
 // ServiceEndpointAzureEcrArrayInput is an input type that accepts ServiceEndpointAzureEcrArray and ServiceEndpointAzureEcrArrayOutput values.
@@ -335,7 +306,7 @@ func (i ServiceEndpointAzureEcrMap) ToServiceEndpointAzureEcrMapOutputWithContex
 type ServiceEndpointAzureEcrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureEcrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAzureEcr)(nil))
+	return reflect.TypeOf((**ServiceEndpointAzureEcr)(nil)).Elem()
 }
 
 func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrOutput() ServiceEndpointAzureEcrOutput {
@@ -346,44 +317,10 @@ func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrOutputWithContex
 	return o
 }
 
-func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrPtrOutput() ServiceEndpointAzureEcrPtrOutput {
-	return o.ToServiceEndpointAzureEcrPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointAzureEcr) *ServiceEndpointAzureEcr {
-		return &v
-	}).(ServiceEndpointAzureEcrPtrOutput)
-}
-
-type ServiceEndpointAzureEcrPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointAzureEcrPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointAzureEcr)(nil))
-}
-
-func (o ServiceEndpointAzureEcrPtrOutput) ToServiceEndpointAzureEcrPtrOutput() ServiceEndpointAzureEcrPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointAzureEcrPtrOutput) ToServiceEndpointAzureEcrPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointAzureEcrPtrOutput) Elem() ServiceEndpointAzureEcrOutput {
-	return o.ApplyT(func(v *ServiceEndpointAzureEcr) ServiceEndpointAzureEcr {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointAzureEcr
-		return ret
-	}).(ServiceEndpointAzureEcrOutput)
-}
-
 type ServiceEndpointAzureEcrArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureEcrArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointAzureEcr)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointAzureEcr)(nil)).Elem()
 }
 
 func (o ServiceEndpointAzureEcrArrayOutput) ToServiceEndpointAzureEcrArrayOutput() ServiceEndpointAzureEcrArrayOutput {
@@ -395,15 +332,15 @@ func (o ServiceEndpointAzureEcrArrayOutput) ToServiceEndpointAzureEcrArrayOutput
 }
 
 func (o ServiceEndpointAzureEcrArrayOutput) Index(i pulumi.IntInput) ServiceEndpointAzureEcrOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointAzureEcr {
-		return vs[0].([]ServiceEndpointAzureEcr)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointAzureEcr {
+		return vs[0].([]*ServiceEndpointAzureEcr)[vs[1].(int)]
 	}).(ServiceEndpointAzureEcrOutput)
 }
 
 type ServiceEndpointAzureEcrMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureEcrMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointAzureEcr)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointAzureEcr)(nil)).Elem()
 }
 
 func (o ServiceEndpointAzureEcrMapOutput) ToServiceEndpointAzureEcrMapOutput() ServiceEndpointAzureEcrMapOutput {
@@ -415,18 +352,16 @@ func (o ServiceEndpointAzureEcrMapOutput) ToServiceEndpointAzureEcrMapOutputWith
 }
 
 func (o ServiceEndpointAzureEcrMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointAzureEcrOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointAzureEcr {
-		return vs[0].(map[string]ServiceEndpointAzureEcr)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointAzureEcr {
+		return vs[0].(map[string]*ServiceEndpointAzureEcr)[vs[1].(string)]
 	}).(ServiceEndpointAzureEcrOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrInput)(nil)).Elem(), &ServiceEndpointAzureEcr{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrPtrInput)(nil)).Elem(), &ServiceEndpointAzureEcr{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrArrayInput)(nil)).Elem(), ServiceEndpointAzureEcrArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureEcrMapInput)(nil)).Elem(), ServiceEndpointAzureEcrMap{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureEcrOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointAzureEcrPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureEcrArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureEcrMapOutput{})
 }

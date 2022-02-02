@@ -36,7 +36,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewWorkItemQueryPermissions(ctx, "project_wiq_root_permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+// 		_, err := azuredevops.NewWorkItemQueryPermissions(ctx, "project-wiq-root-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 // 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
 // 			Principal: pulumi.Any(data.Azuredevops_group.Project - readers.Id),
 // 			Permissions: pulumi.StringMap{
@@ -71,7 +71,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewWorkItemQueryPermissions(ctx, "wiq_folder_permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+// 		_, err := azuredevops.NewWorkItemQueryPermissions(ctx, "wiq-folder-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 // 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
 // 			Path:      pulumi.String("/Team"),
 // 			Principal: pulumi.Any(data.Azuredevops_group.Project - readers.Id),
@@ -110,7 +110,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "wiq_project_permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+// 		project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Readers"),
+// 		}, nil)
+// 		project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Contributors"),
+// 		}, nil)
+// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "wiq-project-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 // 			ProjectId: project.ID(),
 // 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
 // 				return project_readers.Id, nil
@@ -125,7 +133,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "wiq_sharedqueries_permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "wiq-sharedqueries-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 // 			ProjectId: project.ID(),
 // 			Path:      pulumi.String("/"),
 // 			Principal: project_contributors.ApplyT(func(project_contributors GetGroupResult) (string, error) {
@@ -275,7 +283,7 @@ type WorkItemQueryPermissionsInput interface {
 }
 
 func (*WorkItemQueryPermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkItemQueryPermissions)(nil))
+	return reflect.TypeOf((**WorkItemQueryPermissions)(nil)).Elem()
 }
 
 func (i *WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutput() WorkItemQueryPermissionsOutput {
@@ -284,35 +292,6 @@ func (i *WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutput() WorkItemQu
 
 func (i *WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutputWithContext(ctx context.Context) WorkItemQueryPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkItemQueryPermissionsOutput)
-}
-
-func (i *WorkItemQueryPermissions) ToWorkItemQueryPermissionsPtrOutput() WorkItemQueryPermissionsPtrOutput {
-	return i.ToWorkItemQueryPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *WorkItemQueryPermissions) ToWorkItemQueryPermissionsPtrOutputWithContext(ctx context.Context) WorkItemQueryPermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkItemQueryPermissionsPtrOutput)
-}
-
-type WorkItemQueryPermissionsPtrInput interface {
-	pulumi.Input
-
-	ToWorkItemQueryPermissionsPtrOutput() WorkItemQueryPermissionsPtrOutput
-	ToWorkItemQueryPermissionsPtrOutputWithContext(ctx context.Context) WorkItemQueryPermissionsPtrOutput
-}
-
-type workItemQueryPermissionsPtrType WorkItemQueryPermissionsArgs
-
-func (*workItemQueryPermissionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkItemQueryPermissions)(nil))
-}
-
-func (i *workItemQueryPermissionsPtrType) ToWorkItemQueryPermissionsPtrOutput() WorkItemQueryPermissionsPtrOutput {
-	return i.ToWorkItemQueryPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *workItemQueryPermissionsPtrType) ToWorkItemQueryPermissionsPtrOutputWithContext(ctx context.Context) WorkItemQueryPermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(WorkItemQueryPermissionsPtrOutput)
 }
 
 // WorkItemQueryPermissionsArrayInput is an input type that accepts WorkItemQueryPermissionsArray and WorkItemQueryPermissionsArrayOutput values.
@@ -368,7 +347,7 @@ func (i WorkItemQueryPermissionsMap) ToWorkItemQueryPermissionsMapOutputWithCont
 type WorkItemQueryPermissionsOutput struct{ *pulumi.OutputState }
 
 func (WorkItemQueryPermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*WorkItemQueryPermissions)(nil))
+	return reflect.TypeOf((**WorkItemQueryPermissions)(nil)).Elem()
 }
 
 func (o WorkItemQueryPermissionsOutput) ToWorkItemQueryPermissionsOutput() WorkItemQueryPermissionsOutput {
@@ -379,44 +358,10 @@ func (o WorkItemQueryPermissionsOutput) ToWorkItemQueryPermissionsOutputWithCont
 	return o
 }
 
-func (o WorkItemQueryPermissionsOutput) ToWorkItemQueryPermissionsPtrOutput() WorkItemQueryPermissionsPtrOutput {
-	return o.ToWorkItemQueryPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (o WorkItemQueryPermissionsOutput) ToWorkItemQueryPermissionsPtrOutputWithContext(ctx context.Context) WorkItemQueryPermissionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkItemQueryPermissions) *WorkItemQueryPermissions {
-		return &v
-	}).(WorkItemQueryPermissionsPtrOutput)
-}
-
-type WorkItemQueryPermissionsPtrOutput struct{ *pulumi.OutputState }
-
-func (WorkItemQueryPermissionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**WorkItemQueryPermissions)(nil))
-}
-
-func (o WorkItemQueryPermissionsPtrOutput) ToWorkItemQueryPermissionsPtrOutput() WorkItemQueryPermissionsPtrOutput {
-	return o
-}
-
-func (o WorkItemQueryPermissionsPtrOutput) ToWorkItemQueryPermissionsPtrOutputWithContext(ctx context.Context) WorkItemQueryPermissionsPtrOutput {
-	return o
-}
-
-func (o WorkItemQueryPermissionsPtrOutput) Elem() WorkItemQueryPermissionsOutput {
-	return o.ApplyT(func(v *WorkItemQueryPermissions) WorkItemQueryPermissions {
-		if v != nil {
-			return *v
-		}
-		var ret WorkItemQueryPermissions
-		return ret
-	}).(WorkItemQueryPermissionsOutput)
-}
-
 type WorkItemQueryPermissionsArrayOutput struct{ *pulumi.OutputState }
 
 func (WorkItemQueryPermissionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]WorkItemQueryPermissions)(nil))
+	return reflect.TypeOf((*[]*WorkItemQueryPermissions)(nil)).Elem()
 }
 
 func (o WorkItemQueryPermissionsArrayOutput) ToWorkItemQueryPermissionsArrayOutput() WorkItemQueryPermissionsArrayOutput {
@@ -428,15 +373,15 @@ func (o WorkItemQueryPermissionsArrayOutput) ToWorkItemQueryPermissionsArrayOutp
 }
 
 func (o WorkItemQueryPermissionsArrayOutput) Index(i pulumi.IntInput) WorkItemQueryPermissionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) WorkItemQueryPermissions {
-		return vs[0].([]WorkItemQueryPermissions)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkItemQueryPermissions {
+		return vs[0].([]*WorkItemQueryPermissions)[vs[1].(int)]
 	}).(WorkItemQueryPermissionsOutput)
 }
 
 type WorkItemQueryPermissionsMapOutput struct{ *pulumi.OutputState }
 
 func (WorkItemQueryPermissionsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]WorkItemQueryPermissions)(nil))
+	return reflect.TypeOf((*map[string]*WorkItemQueryPermissions)(nil)).Elem()
 }
 
 func (o WorkItemQueryPermissionsMapOutput) ToWorkItemQueryPermissionsMapOutput() WorkItemQueryPermissionsMapOutput {
@@ -448,18 +393,16 @@ func (o WorkItemQueryPermissionsMapOutput) ToWorkItemQueryPermissionsMapOutputWi
 }
 
 func (o WorkItemQueryPermissionsMapOutput) MapIndex(k pulumi.StringInput) WorkItemQueryPermissionsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) WorkItemQueryPermissions {
-		return vs[0].(map[string]WorkItemQueryPermissions)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *WorkItemQueryPermissions {
+		return vs[0].(map[string]*WorkItemQueryPermissions)[vs[1].(string)]
 	}).(WorkItemQueryPermissionsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkItemQueryPermissionsInput)(nil)).Elem(), &WorkItemQueryPermissions{})
-	pulumi.RegisterInputType(reflect.TypeOf((*WorkItemQueryPermissionsPtrInput)(nil)).Elem(), &WorkItemQueryPermissions{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkItemQueryPermissionsArrayInput)(nil)).Elem(), WorkItemQueryPermissionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkItemQueryPermissionsMapInput)(nil)).Elem(), WorkItemQueryPermissionsMap{})
 	pulumi.RegisterOutputType(WorkItemQueryPermissionsOutput{})
-	pulumi.RegisterOutputType(WorkItemQueryPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(WorkItemQueryPermissionsArrayOutput{})
 	pulumi.RegisterOutputType(WorkItemQueryPermissionsMapOutput{})
 }

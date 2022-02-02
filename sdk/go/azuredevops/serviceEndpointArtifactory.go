@@ -216,7 +216,7 @@ type ServiceEndpointArtifactoryInput interface {
 }
 
 func (*ServiceEndpointArtifactory) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointArtifactory)(nil))
+	return reflect.TypeOf((**ServiceEndpointArtifactory)(nil)).Elem()
 }
 
 func (i *ServiceEndpointArtifactory) ToServiceEndpointArtifactoryOutput() ServiceEndpointArtifactoryOutput {
@@ -225,35 +225,6 @@ func (i *ServiceEndpointArtifactory) ToServiceEndpointArtifactoryOutput() Servic
 
 func (i *ServiceEndpointArtifactory) ToServiceEndpointArtifactoryOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArtifactoryOutput)
-}
-
-func (i *ServiceEndpointArtifactory) ToServiceEndpointArtifactoryPtrOutput() ServiceEndpointArtifactoryPtrOutput {
-	return i.ToServiceEndpointArtifactoryPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointArtifactory) ToServiceEndpointArtifactoryPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArtifactoryPtrOutput)
-}
-
-type ServiceEndpointArtifactoryPtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointArtifactoryPtrOutput() ServiceEndpointArtifactoryPtrOutput
-	ToServiceEndpointArtifactoryPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryPtrOutput
-}
-
-type serviceEndpointArtifactoryPtrType ServiceEndpointArtifactoryArgs
-
-func (*serviceEndpointArtifactoryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointArtifactory)(nil))
-}
-
-func (i *serviceEndpointArtifactoryPtrType) ToServiceEndpointArtifactoryPtrOutput() ServiceEndpointArtifactoryPtrOutput {
-	return i.ToServiceEndpointArtifactoryPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointArtifactoryPtrType) ToServiceEndpointArtifactoryPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointArtifactoryPtrOutput)
 }
 
 // ServiceEndpointArtifactoryArrayInput is an input type that accepts ServiceEndpointArtifactoryArray and ServiceEndpointArtifactoryArrayOutput values.
@@ -309,7 +280,7 @@ func (i ServiceEndpointArtifactoryMap) ToServiceEndpointArtifactoryMapOutputWith
 type ServiceEndpointArtifactoryOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointArtifactoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointArtifactory)(nil))
+	return reflect.TypeOf((**ServiceEndpointArtifactory)(nil)).Elem()
 }
 
 func (o ServiceEndpointArtifactoryOutput) ToServiceEndpointArtifactoryOutput() ServiceEndpointArtifactoryOutput {
@@ -320,44 +291,10 @@ func (o ServiceEndpointArtifactoryOutput) ToServiceEndpointArtifactoryOutputWith
 	return o
 }
 
-func (o ServiceEndpointArtifactoryOutput) ToServiceEndpointArtifactoryPtrOutput() ServiceEndpointArtifactoryPtrOutput {
-	return o.ToServiceEndpointArtifactoryPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointArtifactoryOutput) ToServiceEndpointArtifactoryPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointArtifactory) *ServiceEndpointArtifactory {
-		return &v
-	}).(ServiceEndpointArtifactoryPtrOutput)
-}
-
-type ServiceEndpointArtifactoryPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointArtifactoryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointArtifactory)(nil))
-}
-
-func (o ServiceEndpointArtifactoryPtrOutput) ToServiceEndpointArtifactoryPtrOutput() ServiceEndpointArtifactoryPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointArtifactoryPtrOutput) ToServiceEndpointArtifactoryPtrOutputWithContext(ctx context.Context) ServiceEndpointArtifactoryPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointArtifactoryPtrOutput) Elem() ServiceEndpointArtifactoryOutput {
-	return o.ApplyT(func(v *ServiceEndpointArtifactory) ServiceEndpointArtifactory {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointArtifactory
-		return ret
-	}).(ServiceEndpointArtifactoryOutput)
-}
-
 type ServiceEndpointArtifactoryArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointArtifactoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointArtifactory)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointArtifactory)(nil)).Elem()
 }
 
 func (o ServiceEndpointArtifactoryArrayOutput) ToServiceEndpointArtifactoryArrayOutput() ServiceEndpointArtifactoryArrayOutput {
@@ -369,15 +306,15 @@ func (o ServiceEndpointArtifactoryArrayOutput) ToServiceEndpointArtifactoryArray
 }
 
 func (o ServiceEndpointArtifactoryArrayOutput) Index(i pulumi.IntInput) ServiceEndpointArtifactoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointArtifactory {
-		return vs[0].([]ServiceEndpointArtifactory)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointArtifactory {
+		return vs[0].([]*ServiceEndpointArtifactory)[vs[1].(int)]
 	}).(ServiceEndpointArtifactoryOutput)
 }
 
 type ServiceEndpointArtifactoryMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointArtifactoryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointArtifactory)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointArtifactory)(nil)).Elem()
 }
 
 func (o ServiceEndpointArtifactoryMapOutput) ToServiceEndpointArtifactoryMapOutput() ServiceEndpointArtifactoryMapOutput {
@@ -389,18 +326,16 @@ func (o ServiceEndpointArtifactoryMapOutput) ToServiceEndpointArtifactoryMapOutp
 }
 
 func (o ServiceEndpointArtifactoryMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointArtifactoryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointArtifactory {
-		return vs[0].(map[string]ServiceEndpointArtifactory)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointArtifactory {
+		return vs[0].(map[string]*ServiceEndpointArtifactory)[vs[1].(string)]
 	}).(ServiceEndpointArtifactoryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryInput)(nil)).Elem(), &ServiceEndpointArtifactory{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryPtrInput)(nil)).Elem(), &ServiceEndpointArtifactory{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryArrayInput)(nil)).Elem(), ServiceEndpointArtifactoryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryMapInput)(nil)).Elem(), ServiceEndpointArtifactoryMap{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointArtifactoryPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryMapOutput{})
 }

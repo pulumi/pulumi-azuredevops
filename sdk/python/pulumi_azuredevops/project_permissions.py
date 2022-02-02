@@ -177,8 +177,8 @@ class ProjectPermissions(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
+        project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
         project_perm = azuredevops.ProjectPermissions("project-perm",
             project_id=project.id,
             principal=project_readers.id,
@@ -230,8 +230,8 @@ class ProjectPermissions(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
+        project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
         project_perm = azuredevops.ProjectPermissions("project-perm",
             project_id=project.id,
             principal=project_readers.id,

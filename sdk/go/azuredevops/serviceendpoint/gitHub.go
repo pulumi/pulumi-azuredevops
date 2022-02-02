@@ -226,7 +226,7 @@ type GitHubInput interface {
 }
 
 func (*GitHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitHub)(nil))
+	return reflect.TypeOf((**GitHub)(nil)).Elem()
 }
 
 func (i *GitHub) ToGitHubOutput() GitHubOutput {
@@ -235,35 +235,6 @@ func (i *GitHub) ToGitHubOutput() GitHubOutput {
 
 func (i *GitHub) ToGitHubOutputWithContext(ctx context.Context) GitHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubOutput)
-}
-
-func (i *GitHub) ToGitHubPtrOutput() GitHubPtrOutput {
-	return i.ToGitHubPtrOutputWithContext(context.Background())
-}
-
-func (i *GitHub) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitHubPtrOutput)
-}
-
-type GitHubPtrInput interface {
-	pulumi.Input
-
-	ToGitHubPtrOutput() GitHubPtrOutput
-	ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput
-}
-
-type gitHubPtrType GitHubArgs
-
-func (*gitHubPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GitHub)(nil))
-}
-
-func (i *gitHubPtrType) ToGitHubPtrOutput() GitHubPtrOutput {
-	return i.ToGitHubPtrOutputWithContext(context.Background())
-}
-
-func (i *gitHubPtrType) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitHubPtrOutput)
 }
 
 // GitHubArrayInput is an input type that accepts GitHubArray and GitHubArrayOutput values.
@@ -319,7 +290,7 @@ func (i GitHubMap) ToGitHubMapOutputWithContext(ctx context.Context) GitHubMapOu
 type GitHubOutput struct{ *pulumi.OutputState }
 
 func (GitHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitHub)(nil))
+	return reflect.TypeOf((**GitHub)(nil)).Elem()
 }
 
 func (o GitHubOutput) ToGitHubOutput() GitHubOutput {
@@ -330,44 +301,10 @@ func (o GitHubOutput) ToGitHubOutputWithContext(ctx context.Context) GitHubOutpu
 	return o
 }
 
-func (o GitHubOutput) ToGitHubPtrOutput() GitHubPtrOutput {
-	return o.ToGitHubPtrOutputWithContext(context.Background())
-}
-
-func (o GitHubOutput) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitHub) *GitHub {
-		return &v
-	}).(GitHubPtrOutput)
-}
-
-type GitHubPtrOutput struct{ *pulumi.OutputState }
-
-func (GitHubPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GitHub)(nil))
-}
-
-func (o GitHubPtrOutput) ToGitHubPtrOutput() GitHubPtrOutput {
-	return o
-}
-
-func (o GitHubPtrOutput) ToGitHubPtrOutputWithContext(ctx context.Context) GitHubPtrOutput {
-	return o
-}
-
-func (o GitHubPtrOutput) Elem() GitHubOutput {
-	return o.ApplyT(func(v *GitHub) GitHub {
-		if v != nil {
-			return *v
-		}
-		var ret GitHub
-		return ret
-	}).(GitHubOutput)
-}
-
 type GitHubArrayOutput struct{ *pulumi.OutputState }
 
 func (GitHubArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GitHub)(nil))
+	return reflect.TypeOf((*[]*GitHub)(nil)).Elem()
 }
 
 func (o GitHubArrayOutput) ToGitHubArrayOutput() GitHubArrayOutput {
@@ -379,15 +316,15 @@ func (o GitHubArrayOutput) ToGitHubArrayOutputWithContext(ctx context.Context) G
 }
 
 func (o GitHubArrayOutput) Index(i pulumi.IntInput) GitHubOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GitHub {
-		return vs[0].([]GitHub)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GitHub {
+		return vs[0].([]*GitHub)[vs[1].(int)]
 	}).(GitHubOutput)
 }
 
 type GitHubMapOutput struct{ *pulumi.OutputState }
 
 func (GitHubMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GitHub)(nil))
+	return reflect.TypeOf((*map[string]*GitHub)(nil)).Elem()
 }
 
 func (o GitHubMapOutput) ToGitHubMapOutput() GitHubMapOutput {
@@ -399,18 +336,16 @@ func (o GitHubMapOutput) ToGitHubMapOutputWithContext(ctx context.Context) GitHu
 }
 
 func (o GitHubMapOutput) MapIndex(k pulumi.StringInput) GitHubOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GitHub {
-		return vs[0].(map[string]GitHub)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GitHub {
+		return vs[0].(map[string]*GitHub)[vs[1].(string)]
 	}).(GitHubOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GitHubInput)(nil)).Elem(), &GitHub{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GitHubPtrInput)(nil)).Elem(), &GitHub{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitHubArrayInput)(nil)).Elem(), GitHubArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitHubMapInput)(nil)).Elem(), GitHubMap{})
 	pulumi.RegisterOutputType(GitHubOutput{})
-	pulumi.RegisterOutputType(GitHubPtrOutput{})
 	pulumi.RegisterOutputType(GitHubArrayOutput{})
 	pulumi.RegisterOutputType(GitHubMapOutput{})
 }

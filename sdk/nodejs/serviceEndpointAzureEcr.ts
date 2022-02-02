@@ -118,24 +118,24 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointAzureEcrArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointAzureEcrArgs | ServiceEndpointAzureEcrState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointAzureEcrState | undefined;
-            inputs["appObjectId"] = state ? state.appObjectId : undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["azSpnRoleAssignmentId"] = state ? state.azSpnRoleAssignmentId : undefined;
-            inputs["azSpnRolePermissions"] = state ? state.azSpnRolePermissions : undefined;
-            inputs["azurecrName"] = state ? state.azurecrName : undefined;
-            inputs["azurecrSpnTenantid"] = state ? state.azurecrSpnTenantid : undefined;
-            inputs["azurecrSubscriptionId"] = state ? state.azurecrSubscriptionId : undefined;
-            inputs["azurecrSubscriptionName"] = state ? state.azurecrSubscriptionName : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["resourceGroup"] = state ? state.resourceGroup : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            inputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
-            inputs["spnObjectId"] = state ? state.spnObjectId : undefined;
+            resourceInputs["appObjectId"] = state ? state.appObjectId : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["azSpnRoleAssignmentId"] = state ? state.azSpnRoleAssignmentId : undefined;
+            resourceInputs["azSpnRolePermissions"] = state ? state.azSpnRolePermissions : undefined;
+            resourceInputs["azurecrName"] = state ? state.azurecrName : undefined;
+            resourceInputs["azurecrSpnTenantid"] = state ? state.azurecrSpnTenantid : undefined;
+            resourceInputs["azurecrSubscriptionId"] = state ? state.azurecrSubscriptionId : undefined;
+            resourceInputs["azurecrSubscriptionName"] = state ? state.azurecrSubscriptionName : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
+            resourceInputs["spnObjectId"] = state ? state.spnObjectId : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureEcrArgs | undefined;
             if ((!args || args.azurecrName === undefined) && !opts.urn) {
@@ -159,25 +159,23 @@ export class ServiceEndpointAzureEcr extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["azurecrName"] = args ? args.azurecrName : undefined;
-            inputs["azurecrSpnTenantid"] = args ? args.azurecrSpnTenantid : undefined;
-            inputs["azurecrSubscriptionId"] = args ? args.azurecrSubscriptionId : undefined;
-            inputs["azurecrSubscriptionName"] = args ? args.azurecrSubscriptionName : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            inputs["appObjectId"] = undefined /*out*/;
-            inputs["azSpnRoleAssignmentId"] = undefined /*out*/;
-            inputs["azSpnRolePermissions"] = undefined /*out*/;
-            inputs["servicePrincipalId"] = undefined /*out*/;
-            inputs["spnObjectId"] = undefined /*out*/;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["azurecrName"] = args ? args.azurecrName : undefined;
+            resourceInputs["azurecrSpnTenantid"] = args ? args.azurecrSpnTenantid : undefined;
+            resourceInputs["azurecrSubscriptionId"] = args ? args.azurecrSubscriptionId : undefined;
+            resourceInputs["azurecrSubscriptionName"] = args ? args.azurecrSubscriptionName : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["appObjectId"] = undefined /*out*/;
+            resourceInputs["azSpnRoleAssignmentId"] = undefined /*out*/;
+            resourceInputs["azSpnRolePermissions"] = undefined /*out*/;
+            resourceInputs["servicePrincipalId"] = undefined /*out*/;
+            resourceInputs["spnObjectId"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceEndpointAzureEcr.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceEndpointAzureEcr.__pulumiType, name, resourceInputs, opts);
     }
 }
 

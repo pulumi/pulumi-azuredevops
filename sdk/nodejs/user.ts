@@ -91,31 +91,29 @@ export class User extends pulumi.CustomResource {
      */
     constructor(name: string, args?: UserArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: UserArgs | UserState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as UserState | undefined;
-            inputs["accountLicenseType"] = state ? state.accountLicenseType : undefined;
-            inputs["descriptor"] = state ? state.descriptor : undefined;
-            inputs["licensingSource"] = state ? state.licensingSource : undefined;
-            inputs["origin"] = state ? state.origin : undefined;
-            inputs["originId"] = state ? state.originId : undefined;
-            inputs["principalName"] = state ? state.principalName : undefined;
+            resourceInputs["accountLicenseType"] = state ? state.accountLicenseType : undefined;
+            resourceInputs["descriptor"] = state ? state.descriptor : undefined;
+            resourceInputs["licensingSource"] = state ? state.licensingSource : undefined;
+            resourceInputs["origin"] = state ? state.origin : undefined;
+            resourceInputs["originId"] = state ? state.originId : undefined;
+            resourceInputs["principalName"] = state ? state.principalName : undefined;
         } else {
             const args = argsOrState as UserArgs | undefined;
-            inputs["accountLicenseType"] = args ? args.accountLicenseType : undefined;
-            inputs["licensingSource"] = args ? args.licensingSource : undefined;
-            inputs["origin"] = args ? args.origin : undefined;
-            inputs["originId"] = args ? args.originId : undefined;
-            inputs["principalName"] = args ? args.principalName : undefined;
-            inputs["descriptor"] = undefined /*out*/;
+            resourceInputs["accountLicenseType"] = args ? args.accountLicenseType : undefined;
+            resourceInputs["licensingSource"] = args ? args.licensingSource : undefined;
+            resourceInputs["origin"] = args ? args.origin : undefined;
+            resourceInputs["originId"] = args ? args.originId : undefined;
+            resourceInputs["principalName"] = args ? args.principalName : undefined;
+            resourceInputs["descriptor"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:Entitlement/user:User" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(User.__pulumiType, name, inputs, opts);
+        super(User.__pulumiType, name, resourceInputs, opts);
     }
 }
 

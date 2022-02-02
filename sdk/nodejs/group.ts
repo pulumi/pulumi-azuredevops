@@ -14,14 +14,14 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const project = new azuredevops.Project("project", {});
- * const tf-project-readers = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * const tf-project-readers = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Readers",
- * }));
- * const tf-project-contributors = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * });
+ * const tf-project-contributors = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Contributors",
- * }));
+ * });
  * const group = new azuredevops.Group("group", {
  *     scope: project.id,
  *     displayName: "Test group",
@@ -134,43 +134,41 @@ export class Group extends pulumi.CustomResource {
      */
     constructor(name: string, args?: GroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GroupArgs | GroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupState | undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["descriptor"] = state ? state.descriptor : undefined;
-            inputs["displayName"] = state ? state.displayName : undefined;
-            inputs["domain"] = state ? state.domain : undefined;
-            inputs["mail"] = state ? state.mail : undefined;
-            inputs["members"] = state ? state.members : undefined;
-            inputs["origin"] = state ? state.origin : undefined;
-            inputs["originId"] = state ? state.originId : undefined;
-            inputs["principalName"] = state ? state.principalName : undefined;
-            inputs["scope"] = state ? state.scope : undefined;
-            inputs["subjectKind"] = state ? state.subjectKind : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["descriptor"] = state ? state.descriptor : undefined;
+            resourceInputs["displayName"] = state ? state.displayName : undefined;
+            resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["mail"] = state ? state.mail : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["origin"] = state ? state.origin : undefined;
+            resourceInputs["originId"] = state ? state.originId : undefined;
+            resourceInputs["principalName"] = state ? state.principalName : undefined;
+            resourceInputs["scope"] = state ? state.scope : undefined;
+            resourceInputs["subjectKind"] = state ? state.subjectKind : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as GroupArgs | undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["displayName"] = args ? args.displayName : undefined;
-            inputs["mail"] = args ? args.mail : undefined;
-            inputs["members"] = args ? args.members : undefined;
-            inputs["originId"] = args ? args.originId : undefined;
-            inputs["scope"] = args ? args.scope : undefined;
-            inputs["descriptor"] = undefined /*out*/;
-            inputs["domain"] = undefined /*out*/;
-            inputs["origin"] = undefined /*out*/;
-            inputs["principalName"] = undefined /*out*/;
-            inputs["subjectKind"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["mail"] = args ? args.mail : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["originId"] = args ? args.originId : undefined;
+            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["descriptor"] = undefined /*out*/;
+            resourceInputs["domain"] = undefined /*out*/;
+            resourceInputs["origin"] = undefined /*out*/;
+            resourceInputs["principalName"] = undefined /*out*/;
+            resourceInputs["subjectKind"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:Identities/group:Group" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Group.__pulumiType, name, inputs, opts);
+        super(Group.__pulumiType, name, resourceInputs, opts);
     }
 }
 

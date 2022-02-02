@@ -183,8 +183,8 @@ class TeamAdministrators(pulumi.CustomResource):
             version_control="Git",
             visibility="private",
             description="My first project")
-        builtin_project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Contributors"))
+        builtin_project_contributors = azuredevops.get_group_output(project_id=project.id,
+            name="Contributors")
         team = azuredevops.Team("team", project_id=project.id)
         team_administrators = azuredevops.TeamAdministrators("teamAdministrators",
             project_id=team.project_id,
@@ -233,8 +233,8 @@ class TeamAdministrators(pulumi.CustomResource):
             version_control="Git",
             visibility="private",
             description="My first project")
-        builtin_project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Contributors"))
+        builtin_project_contributors = azuredevops.get_group_output(project_id=project.id,
+            name="Contributors")
         team = azuredevops.Team("team", project_id=project.id)
         team_administrators = azuredevops.TeamAdministrators("teamAdministrators",
             project_id=team.project_id,

@@ -25,16 +25,16 @@ namespace Pulumi.AzureDevOps.Identities
     ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
     ///         {
     ///         });
-    ///         var tf_project_readers = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         var tf_project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = id,
+    ///             ProjectId = project.Id,
     ///             Name = "Readers",
-    ///         }));
-    ///         var tf_project_contributors = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         });
+    ///         var tf_project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = id,
+    ///             ProjectId = project.Id,
     ///             Name = "Contributors",
-    ///         }));
+    ///         });
     ///         var @group = new AzureDevOps.Group("group", new AzureDevOps.GroupArgs
     ///         {
     ///             Scope = project.Id,

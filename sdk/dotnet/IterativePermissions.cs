@@ -36,11 +36,11 @@ namespace Pulumi.AzureDevOps
     ///             Visibility = "private",
     ///             Description = "Managed by Terraform",
     ///         });
-    ///         var project_readers = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         var project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = id,
+    ///             ProjectId = project.Id,
     ///             Name = "Readers",
-    ///         }));
+    ///         });
     ///         var root_permissions = new AzureDevOps.IterativePermissions("root-permissions", new AzureDevOps.IterativePermissionsArgs
     ///         {
     ///             ProjectId = project.Id,

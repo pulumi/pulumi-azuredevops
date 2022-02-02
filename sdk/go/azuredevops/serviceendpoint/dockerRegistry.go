@@ -233,7 +233,7 @@ type DockerRegistryInput interface {
 }
 
 func (*DockerRegistry) ElementType() reflect.Type {
-	return reflect.TypeOf((*DockerRegistry)(nil))
+	return reflect.TypeOf((**DockerRegistry)(nil)).Elem()
 }
 
 func (i *DockerRegistry) ToDockerRegistryOutput() DockerRegistryOutput {
@@ -242,35 +242,6 @@ func (i *DockerRegistry) ToDockerRegistryOutput() DockerRegistryOutput {
 
 func (i *DockerRegistry) ToDockerRegistryOutputWithContext(ctx context.Context) DockerRegistryOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryOutput)
-}
-
-func (i *DockerRegistry) ToDockerRegistryPtrOutput() DockerRegistryPtrOutput {
-	return i.ToDockerRegistryPtrOutputWithContext(context.Background())
-}
-
-func (i *DockerRegistry) ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryPtrOutput)
-}
-
-type DockerRegistryPtrInput interface {
-	pulumi.Input
-
-	ToDockerRegistryPtrOutput() DockerRegistryPtrOutput
-	ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput
-}
-
-type dockerRegistryPtrType DockerRegistryArgs
-
-func (*dockerRegistryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DockerRegistry)(nil))
-}
-
-func (i *dockerRegistryPtrType) ToDockerRegistryPtrOutput() DockerRegistryPtrOutput {
-	return i.ToDockerRegistryPtrOutputWithContext(context.Background())
-}
-
-func (i *dockerRegistryPtrType) ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DockerRegistryPtrOutput)
 }
 
 // DockerRegistryArrayInput is an input type that accepts DockerRegistryArray and DockerRegistryArrayOutput values.
@@ -326,7 +297,7 @@ func (i DockerRegistryMap) ToDockerRegistryMapOutputWithContext(ctx context.Cont
 type DockerRegistryOutput struct{ *pulumi.OutputState }
 
 func (DockerRegistryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DockerRegistry)(nil))
+	return reflect.TypeOf((**DockerRegistry)(nil)).Elem()
 }
 
 func (o DockerRegistryOutput) ToDockerRegistryOutput() DockerRegistryOutput {
@@ -337,44 +308,10 @@ func (o DockerRegistryOutput) ToDockerRegistryOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o DockerRegistryOutput) ToDockerRegistryPtrOutput() DockerRegistryPtrOutput {
-	return o.ToDockerRegistryPtrOutputWithContext(context.Background())
-}
-
-func (o DockerRegistryOutput) ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DockerRegistry) *DockerRegistry {
-		return &v
-	}).(DockerRegistryPtrOutput)
-}
-
-type DockerRegistryPtrOutput struct{ *pulumi.OutputState }
-
-func (DockerRegistryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DockerRegistry)(nil))
-}
-
-func (o DockerRegistryPtrOutput) ToDockerRegistryPtrOutput() DockerRegistryPtrOutput {
-	return o
-}
-
-func (o DockerRegistryPtrOutput) ToDockerRegistryPtrOutputWithContext(ctx context.Context) DockerRegistryPtrOutput {
-	return o
-}
-
-func (o DockerRegistryPtrOutput) Elem() DockerRegistryOutput {
-	return o.ApplyT(func(v *DockerRegistry) DockerRegistry {
-		if v != nil {
-			return *v
-		}
-		var ret DockerRegistry
-		return ret
-	}).(DockerRegistryOutput)
-}
-
 type DockerRegistryArrayOutput struct{ *pulumi.OutputState }
 
 func (DockerRegistryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DockerRegistry)(nil))
+	return reflect.TypeOf((*[]*DockerRegistry)(nil)).Elem()
 }
 
 func (o DockerRegistryArrayOutput) ToDockerRegistryArrayOutput() DockerRegistryArrayOutput {
@@ -386,15 +323,15 @@ func (o DockerRegistryArrayOutput) ToDockerRegistryArrayOutputWithContext(ctx co
 }
 
 func (o DockerRegistryArrayOutput) Index(i pulumi.IntInput) DockerRegistryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DockerRegistry {
-		return vs[0].([]DockerRegistry)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *DockerRegistry {
+		return vs[0].([]*DockerRegistry)[vs[1].(int)]
 	}).(DockerRegistryOutput)
 }
 
 type DockerRegistryMapOutput struct{ *pulumi.OutputState }
 
 func (DockerRegistryMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]DockerRegistry)(nil))
+	return reflect.TypeOf((*map[string]*DockerRegistry)(nil)).Elem()
 }
 
 func (o DockerRegistryMapOutput) ToDockerRegistryMapOutput() DockerRegistryMapOutput {
@@ -406,18 +343,16 @@ func (o DockerRegistryMapOutput) ToDockerRegistryMapOutputWithContext(ctx contex
 }
 
 func (o DockerRegistryMapOutput) MapIndex(k pulumi.StringInput) DockerRegistryOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) DockerRegistry {
-		return vs[0].(map[string]DockerRegistry)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *DockerRegistry {
+		return vs[0].(map[string]*DockerRegistry)[vs[1].(string)]
 	}).(DockerRegistryOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DockerRegistryInput)(nil)).Elem(), &DockerRegistry{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DockerRegistryPtrInput)(nil)).Elem(), &DockerRegistry{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DockerRegistryArrayInput)(nil)).Elem(), DockerRegistryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DockerRegistryMapInput)(nil)).Elem(), DockerRegistryMap{})
 	pulumi.RegisterOutputType(DockerRegistryOutput{})
-	pulumi.RegisterOutputType(DockerRegistryPtrOutput{})
 	pulumi.RegisterOutputType(DockerRegistryArrayOutput{})
 	pulumi.RegisterOutputType(DockerRegistryMapOutput{})
 }

@@ -258,10 +258,10 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
-        project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Contributors"))
+        project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
+        project_contributors = azuredevops.get_group_output(project_id=project.id,
+            name="Contributors")
         wiq_project_permissions = azuredevops.WorkItemQueryPermissions("wiq-project-permissions",
             project_id=project.id,
             principal=project_readers.id,
@@ -370,10 +370,10 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
-        project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Contributors"))
+        project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
+        project_contributors = azuredevops.get_group_output(project_id=project.id,
+            name="Contributors")
         wiq_project_permissions = azuredevops.WorkItemQueryPermissions("wiq-project-permissions",
             project_id=project.id,
             principal=project_readers.id,

@@ -235,7 +235,7 @@ type ServiceEndpointAwsInput interface {
 }
 
 func (*ServiceEndpointAws) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAws)(nil))
+	return reflect.TypeOf((**ServiceEndpointAws)(nil)).Elem()
 }
 
 func (i *ServiceEndpointAws) ToServiceEndpointAwsOutput() ServiceEndpointAwsOutput {
@@ -244,35 +244,6 @@ func (i *ServiceEndpointAws) ToServiceEndpointAwsOutput() ServiceEndpointAwsOutp
 
 func (i *ServiceEndpointAws) ToServiceEndpointAwsOutputWithContext(ctx context.Context) ServiceEndpointAwsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsOutput)
-}
-
-func (i *ServiceEndpointAws) ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput {
-	return i.ToServiceEndpointAwsPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointAws) ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsPtrOutput)
-}
-
-type ServiceEndpointAwsPtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput
-	ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput
-}
-
-type serviceEndpointAwsPtrType ServiceEndpointAwsArgs
-
-func (*serviceEndpointAwsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointAws)(nil))
-}
-
-func (i *serviceEndpointAwsPtrType) ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput {
-	return i.ToServiceEndpointAwsPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointAwsPtrType) ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsPtrOutput)
 }
 
 // ServiceEndpointAwsArrayInput is an input type that accepts ServiceEndpointAwsArray and ServiceEndpointAwsArrayOutput values.
@@ -328,7 +299,7 @@ func (i ServiceEndpointAwsMap) ToServiceEndpointAwsMapOutputWithContext(ctx cont
 type ServiceEndpointAwsOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAwsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAws)(nil))
+	return reflect.TypeOf((**ServiceEndpointAws)(nil)).Elem()
 }
 
 func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsOutput() ServiceEndpointAwsOutput {
@@ -339,44 +310,10 @@ func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsOutputWithContext(ctx cont
 	return o
 }
 
-func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput {
-	return o.ToServiceEndpointAwsPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointAws) *ServiceEndpointAws {
-		return &v
-	}).(ServiceEndpointAwsPtrOutput)
-}
-
-type ServiceEndpointAwsPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointAwsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointAws)(nil))
-}
-
-func (o ServiceEndpointAwsPtrOutput) ToServiceEndpointAwsPtrOutput() ServiceEndpointAwsPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointAwsPtrOutput) ToServiceEndpointAwsPtrOutputWithContext(ctx context.Context) ServiceEndpointAwsPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointAwsPtrOutput) Elem() ServiceEndpointAwsOutput {
-	return o.ApplyT(func(v *ServiceEndpointAws) ServiceEndpointAws {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointAws
-		return ret
-	}).(ServiceEndpointAwsOutput)
-}
-
 type ServiceEndpointAwsArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAwsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointAws)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointAws)(nil)).Elem()
 }
 
 func (o ServiceEndpointAwsArrayOutput) ToServiceEndpointAwsArrayOutput() ServiceEndpointAwsArrayOutput {
@@ -388,15 +325,15 @@ func (o ServiceEndpointAwsArrayOutput) ToServiceEndpointAwsArrayOutputWithContex
 }
 
 func (o ServiceEndpointAwsArrayOutput) Index(i pulumi.IntInput) ServiceEndpointAwsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointAws {
-		return vs[0].([]ServiceEndpointAws)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointAws {
+		return vs[0].([]*ServiceEndpointAws)[vs[1].(int)]
 	}).(ServiceEndpointAwsOutput)
 }
 
 type ServiceEndpointAwsMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAwsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointAws)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointAws)(nil)).Elem()
 }
 
 func (o ServiceEndpointAwsMapOutput) ToServiceEndpointAwsMapOutput() ServiceEndpointAwsMapOutput {
@@ -408,18 +345,16 @@ func (o ServiceEndpointAwsMapOutput) ToServiceEndpointAwsMapOutputWithContext(ct
 }
 
 func (o ServiceEndpointAwsMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointAwsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointAws {
-		return vs[0].(map[string]ServiceEndpointAws)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointAws {
+		return vs[0].(map[string]*ServiceEndpointAws)[vs[1].(string)]
 	}).(ServiceEndpointAwsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAwsInput)(nil)).Elem(), &ServiceEndpointAws{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAwsPtrInput)(nil)).Elem(), &ServiceEndpointAws{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAwsArrayInput)(nil)).Elem(), ServiceEndpointAwsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAwsMapInput)(nil)).Elem(), ServiceEndpointAwsMap{})
 	pulumi.RegisterOutputType(ServiceEndpointAwsOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointAwsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAwsArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAwsMapOutput{})
 }

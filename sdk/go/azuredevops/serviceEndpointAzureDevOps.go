@@ -204,7 +204,7 @@ type ServiceEndpointAzureDevOpsInput interface {
 }
 
 func (*ServiceEndpointAzureDevOps) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAzureDevOps)(nil))
+	return reflect.TypeOf((**ServiceEndpointAzureDevOps)(nil)).Elem()
 }
 
 func (i *ServiceEndpointAzureDevOps) ToServiceEndpointAzureDevOpsOutput() ServiceEndpointAzureDevOpsOutput {
@@ -213,35 +213,6 @@ func (i *ServiceEndpointAzureDevOps) ToServiceEndpointAzureDevOpsOutput() Servic
 
 func (i *ServiceEndpointAzureDevOps) ToServiceEndpointAzureDevOpsOutputWithContext(ctx context.Context) ServiceEndpointAzureDevOpsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureDevOpsOutput)
-}
-
-func (i *ServiceEndpointAzureDevOps) ToServiceEndpointAzureDevOpsPtrOutput() ServiceEndpointAzureDevOpsPtrOutput {
-	return i.ToServiceEndpointAzureDevOpsPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointAzureDevOps) ToServiceEndpointAzureDevOpsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureDevOpsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureDevOpsPtrOutput)
-}
-
-type ServiceEndpointAzureDevOpsPtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointAzureDevOpsPtrOutput() ServiceEndpointAzureDevOpsPtrOutput
-	ToServiceEndpointAzureDevOpsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureDevOpsPtrOutput
-}
-
-type serviceEndpointAzureDevOpsPtrType ServiceEndpointAzureDevOpsArgs
-
-func (*serviceEndpointAzureDevOpsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointAzureDevOps)(nil))
-}
-
-func (i *serviceEndpointAzureDevOpsPtrType) ToServiceEndpointAzureDevOpsPtrOutput() ServiceEndpointAzureDevOpsPtrOutput {
-	return i.ToServiceEndpointAzureDevOpsPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointAzureDevOpsPtrType) ToServiceEndpointAzureDevOpsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureDevOpsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureDevOpsPtrOutput)
 }
 
 // ServiceEndpointAzureDevOpsArrayInput is an input type that accepts ServiceEndpointAzureDevOpsArray and ServiceEndpointAzureDevOpsArrayOutput values.
@@ -297,7 +268,7 @@ func (i ServiceEndpointAzureDevOpsMap) ToServiceEndpointAzureDevOpsMapOutputWith
 type ServiceEndpointAzureDevOpsOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureDevOpsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointAzureDevOps)(nil))
+	return reflect.TypeOf((**ServiceEndpointAzureDevOps)(nil)).Elem()
 }
 
 func (o ServiceEndpointAzureDevOpsOutput) ToServiceEndpointAzureDevOpsOutput() ServiceEndpointAzureDevOpsOutput {
@@ -308,44 +279,10 @@ func (o ServiceEndpointAzureDevOpsOutput) ToServiceEndpointAzureDevOpsOutputWith
 	return o
 }
 
-func (o ServiceEndpointAzureDevOpsOutput) ToServiceEndpointAzureDevOpsPtrOutput() ServiceEndpointAzureDevOpsPtrOutput {
-	return o.ToServiceEndpointAzureDevOpsPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointAzureDevOpsOutput) ToServiceEndpointAzureDevOpsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureDevOpsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointAzureDevOps) *ServiceEndpointAzureDevOps {
-		return &v
-	}).(ServiceEndpointAzureDevOpsPtrOutput)
-}
-
-type ServiceEndpointAzureDevOpsPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointAzureDevOpsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointAzureDevOps)(nil))
-}
-
-func (o ServiceEndpointAzureDevOpsPtrOutput) ToServiceEndpointAzureDevOpsPtrOutput() ServiceEndpointAzureDevOpsPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointAzureDevOpsPtrOutput) ToServiceEndpointAzureDevOpsPtrOutputWithContext(ctx context.Context) ServiceEndpointAzureDevOpsPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointAzureDevOpsPtrOutput) Elem() ServiceEndpointAzureDevOpsOutput {
-	return o.ApplyT(func(v *ServiceEndpointAzureDevOps) ServiceEndpointAzureDevOps {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointAzureDevOps
-		return ret
-	}).(ServiceEndpointAzureDevOpsOutput)
-}
-
 type ServiceEndpointAzureDevOpsArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureDevOpsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointAzureDevOps)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointAzureDevOps)(nil)).Elem()
 }
 
 func (o ServiceEndpointAzureDevOpsArrayOutput) ToServiceEndpointAzureDevOpsArrayOutput() ServiceEndpointAzureDevOpsArrayOutput {
@@ -357,15 +294,15 @@ func (o ServiceEndpointAzureDevOpsArrayOutput) ToServiceEndpointAzureDevOpsArray
 }
 
 func (o ServiceEndpointAzureDevOpsArrayOutput) Index(i pulumi.IntInput) ServiceEndpointAzureDevOpsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointAzureDevOps {
-		return vs[0].([]ServiceEndpointAzureDevOps)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointAzureDevOps {
+		return vs[0].([]*ServiceEndpointAzureDevOps)[vs[1].(int)]
 	}).(ServiceEndpointAzureDevOpsOutput)
 }
 
 type ServiceEndpointAzureDevOpsMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureDevOpsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointAzureDevOps)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointAzureDevOps)(nil)).Elem()
 }
 
 func (o ServiceEndpointAzureDevOpsMapOutput) ToServiceEndpointAzureDevOpsMapOutput() ServiceEndpointAzureDevOpsMapOutput {
@@ -377,18 +314,16 @@ func (o ServiceEndpointAzureDevOpsMapOutput) ToServiceEndpointAzureDevOpsMapOutp
 }
 
 func (o ServiceEndpointAzureDevOpsMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointAzureDevOpsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointAzureDevOps {
-		return vs[0].(map[string]ServiceEndpointAzureDevOps)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointAzureDevOps {
+		return vs[0].(map[string]*ServiceEndpointAzureDevOps)[vs[1].(string)]
 	}).(ServiceEndpointAzureDevOpsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureDevOpsInput)(nil)).Elem(), &ServiceEndpointAzureDevOps{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureDevOpsPtrInput)(nil)).Elem(), &ServiceEndpointAzureDevOps{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureDevOpsArrayInput)(nil)).Elem(), ServiceEndpointAzureDevOpsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointAzureDevOpsMapInput)(nil)).Elem(), ServiceEndpointAzureDevOpsMap{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureDevOpsOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointAzureDevOpsPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureDevOpsArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointAzureDevOpsMapOutput{})
 }

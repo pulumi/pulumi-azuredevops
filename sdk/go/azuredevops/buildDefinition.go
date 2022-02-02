@@ -361,7 +361,7 @@ type BuildDefinitionInput interface {
 }
 
 func (*BuildDefinition) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildDefinition)(nil))
+	return reflect.TypeOf((**BuildDefinition)(nil)).Elem()
 }
 
 func (i *BuildDefinition) ToBuildDefinitionOutput() BuildDefinitionOutput {
@@ -370,35 +370,6 @@ func (i *BuildDefinition) ToBuildDefinitionOutput() BuildDefinitionOutput {
 
 func (i *BuildDefinition) ToBuildDefinitionOutputWithContext(ctx context.Context) BuildDefinitionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionOutput)
-}
-
-func (i *BuildDefinition) ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput {
-	return i.ToBuildDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *BuildDefinition) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPtrOutput)
-}
-
-type BuildDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput
-	ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput
-}
-
-type buildDefinitionPtrType BuildDefinitionArgs
-
-func (*buildDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BuildDefinition)(nil))
-}
-
-func (i *buildDefinitionPtrType) ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput {
-	return i.ToBuildDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *buildDefinitionPtrType) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPtrOutput)
 }
 
 // BuildDefinitionArrayInput is an input type that accepts BuildDefinitionArray and BuildDefinitionArrayOutput values.
@@ -454,7 +425,7 @@ func (i BuildDefinitionMap) ToBuildDefinitionMapOutputWithContext(ctx context.Co
 type BuildDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BuildDefinition)(nil))
+	return reflect.TypeOf((**BuildDefinition)(nil)).Elem()
 }
 
 func (o BuildDefinitionOutput) ToBuildDefinitionOutput() BuildDefinitionOutput {
@@ -465,44 +436,10 @@ func (o BuildDefinitionOutput) ToBuildDefinitionOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o BuildDefinitionOutput) ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput {
-	return o.ToBuildDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o BuildDefinitionOutput) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinition) *BuildDefinition {
-		return &v
-	}).(BuildDefinitionPtrOutput)
-}
-
-type BuildDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (BuildDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BuildDefinition)(nil))
-}
-
-func (o BuildDefinitionPtrOutput) ToBuildDefinitionPtrOutput() BuildDefinitionPtrOutput {
-	return o
-}
-
-func (o BuildDefinitionPtrOutput) ToBuildDefinitionPtrOutputWithContext(ctx context.Context) BuildDefinitionPtrOutput {
-	return o
-}
-
-func (o BuildDefinitionPtrOutput) Elem() BuildDefinitionOutput {
-	return o.ApplyT(func(v *BuildDefinition) BuildDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret BuildDefinition
-		return ret
-	}).(BuildDefinitionOutput)
-}
-
 type BuildDefinitionArrayOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BuildDefinition)(nil))
+	return reflect.TypeOf((*[]*BuildDefinition)(nil)).Elem()
 }
 
 func (o BuildDefinitionArrayOutput) ToBuildDefinitionArrayOutput() BuildDefinitionArrayOutput {
@@ -514,15 +451,15 @@ func (o BuildDefinitionArrayOutput) ToBuildDefinitionArrayOutputWithContext(ctx 
 }
 
 func (o BuildDefinitionArrayOutput) Index(i pulumi.IntInput) BuildDefinitionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinition {
-		return vs[0].([]BuildDefinition)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BuildDefinition {
+		return vs[0].([]*BuildDefinition)[vs[1].(int)]
 	}).(BuildDefinitionOutput)
 }
 
 type BuildDefinitionMapOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BuildDefinition)(nil))
+	return reflect.TypeOf((*map[string]*BuildDefinition)(nil)).Elem()
 }
 
 func (o BuildDefinitionMapOutput) ToBuildDefinitionMapOutput() BuildDefinitionMapOutput {
@@ -534,18 +471,16 @@ func (o BuildDefinitionMapOutput) ToBuildDefinitionMapOutputWithContext(ctx cont
 }
 
 func (o BuildDefinitionMapOutput) MapIndex(k pulumi.StringInput) BuildDefinitionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BuildDefinition {
-		return vs[0].(map[string]BuildDefinition)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BuildDefinition {
+		return vs[0].(map[string]*BuildDefinition)[vs[1].(string)]
 	}).(BuildDefinitionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionInput)(nil)).Elem(), &BuildDefinition{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionPtrInput)(nil)).Elem(), &BuildDefinition{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionArrayInput)(nil)).Elem(), BuildDefinitionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionMapInput)(nil)).Elem(), BuildDefinitionMap{})
 	pulumi.RegisterOutputType(BuildDefinitionOutput{})
-	pulumi.RegisterOutputType(BuildDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionArrayOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionMapOutput{})
 }

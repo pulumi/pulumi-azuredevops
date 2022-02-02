@@ -119,14 +119,14 @@ export class BranchPolicyMinReviewers extends pulumi.CustomResource {
     /** @deprecated azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers */
     constructor(name: string, argsOrState?: BranchPolicyMinReviewersArgs | BranchPolicyMinReviewersState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("BranchPolicyMinReviewers is deprecated: azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchPolicyMinReviewersState | undefined;
-            inputs["blocking"] = state ? state.blocking : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["blocking"] = state ? state.blocking : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
         } else {
             const args = argsOrState as BranchPolicyMinReviewersArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -135,15 +135,13 @@ export class BranchPolicyMinReviewers extends pulumi.CustomResource {
             if ((!args || args.settings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
-            inputs["blocking"] = args ? args.blocking : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["blocking"] = args ? args.blocking : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BranchPolicyMinReviewers.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BranchPolicyMinReviewers.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -156,8 +156,8 @@ class GroupMembership(pulumi.CustomResource):
 
         project = azuredevops.Project("project")
         user = azuredevops.User("user", principal_name="foo@contoso.com")
-        group = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Build Administrators"))
+        group = azuredevops.get_group_output(project_id=project.id,
+            name="Build Administrators")
         membership = azuredevops.GroupMembership("membership",
             group=group.descriptor,
             members=[user.descriptor])
@@ -201,8 +201,8 @@ class GroupMembership(pulumi.CustomResource):
 
         project = azuredevops.Project("project")
         user = azuredevops.User("user", principal_name="foo@contoso.com")
-        group = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Build Administrators"))
+        group = azuredevops.get_group_output(project_id=project.id,
+            name="Build Administrators")
         membership = azuredevops.GroupMembership("membership",
             group=group.descriptor,
             members=[user.descriptor])

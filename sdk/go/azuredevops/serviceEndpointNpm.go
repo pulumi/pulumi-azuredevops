@@ -194,7 +194,7 @@ type ServiceEndpointNpmInput interface {
 }
 
 func (*ServiceEndpointNpm) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointNpm)(nil))
+	return reflect.TypeOf((**ServiceEndpointNpm)(nil)).Elem()
 }
 
 func (i *ServiceEndpointNpm) ToServiceEndpointNpmOutput() ServiceEndpointNpmOutput {
@@ -203,35 +203,6 @@ func (i *ServiceEndpointNpm) ToServiceEndpointNpmOutput() ServiceEndpointNpmOutp
 
 func (i *ServiceEndpointNpm) ToServiceEndpointNpmOutputWithContext(ctx context.Context) ServiceEndpointNpmOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointNpmOutput)
-}
-
-func (i *ServiceEndpointNpm) ToServiceEndpointNpmPtrOutput() ServiceEndpointNpmPtrOutput {
-	return i.ToServiceEndpointNpmPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointNpm) ToServiceEndpointNpmPtrOutputWithContext(ctx context.Context) ServiceEndpointNpmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointNpmPtrOutput)
-}
-
-type ServiceEndpointNpmPtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointNpmPtrOutput() ServiceEndpointNpmPtrOutput
-	ToServiceEndpointNpmPtrOutputWithContext(ctx context.Context) ServiceEndpointNpmPtrOutput
-}
-
-type serviceEndpointNpmPtrType ServiceEndpointNpmArgs
-
-func (*serviceEndpointNpmPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointNpm)(nil))
-}
-
-func (i *serviceEndpointNpmPtrType) ToServiceEndpointNpmPtrOutput() ServiceEndpointNpmPtrOutput {
-	return i.ToServiceEndpointNpmPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointNpmPtrType) ToServiceEndpointNpmPtrOutputWithContext(ctx context.Context) ServiceEndpointNpmPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointNpmPtrOutput)
 }
 
 // ServiceEndpointNpmArrayInput is an input type that accepts ServiceEndpointNpmArray and ServiceEndpointNpmArrayOutput values.
@@ -287,7 +258,7 @@ func (i ServiceEndpointNpmMap) ToServiceEndpointNpmMapOutputWithContext(ctx cont
 type ServiceEndpointNpmOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointNpmOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointNpm)(nil))
+	return reflect.TypeOf((**ServiceEndpointNpm)(nil)).Elem()
 }
 
 func (o ServiceEndpointNpmOutput) ToServiceEndpointNpmOutput() ServiceEndpointNpmOutput {
@@ -298,44 +269,10 @@ func (o ServiceEndpointNpmOutput) ToServiceEndpointNpmOutputWithContext(ctx cont
 	return o
 }
 
-func (o ServiceEndpointNpmOutput) ToServiceEndpointNpmPtrOutput() ServiceEndpointNpmPtrOutput {
-	return o.ToServiceEndpointNpmPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointNpmOutput) ToServiceEndpointNpmPtrOutputWithContext(ctx context.Context) ServiceEndpointNpmPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointNpm) *ServiceEndpointNpm {
-		return &v
-	}).(ServiceEndpointNpmPtrOutput)
-}
-
-type ServiceEndpointNpmPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointNpmPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointNpm)(nil))
-}
-
-func (o ServiceEndpointNpmPtrOutput) ToServiceEndpointNpmPtrOutput() ServiceEndpointNpmPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointNpmPtrOutput) ToServiceEndpointNpmPtrOutputWithContext(ctx context.Context) ServiceEndpointNpmPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointNpmPtrOutput) Elem() ServiceEndpointNpmOutput {
-	return o.ApplyT(func(v *ServiceEndpointNpm) ServiceEndpointNpm {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointNpm
-		return ret
-	}).(ServiceEndpointNpmOutput)
-}
-
 type ServiceEndpointNpmArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointNpmArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointNpm)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointNpm)(nil)).Elem()
 }
 
 func (o ServiceEndpointNpmArrayOutput) ToServiceEndpointNpmArrayOutput() ServiceEndpointNpmArrayOutput {
@@ -347,15 +284,15 @@ func (o ServiceEndpointNpmArrayOutput) ToServiceEndpointNpmArrayOutputWithContex
 }
 
 func (o ServiceEndpointNpmArrayOutput) Index(i pulumi.IntInput) ServiceEndpointNpmOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointNpm {
-		return vs[0].([]ServiceEndpointNpm)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointNpm {
+		return vs[0].([]*ServiceEndpointNpm)[vs[1].(int)]
 	}).(ServiceEndpointNpmOutput)
 }
 
 type ServiceEndpointNpmMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointNpmMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointNpm)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointNpm)(nil)).Elem()
 }
 
 func (o ServiceEndpointNpmMapOutput) ToServiceEndpointNpmMapOutput() ServiceEndpointNpmMapOutput {
@@ -367,18 +304,16 @@ func (o ServiceEndpointNpmMapOutput) ToServiceEndpointNpmMapOutputWithContext(ct
 }
 
 func (o ServiceEndpointNpmMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointNpmOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointNpm {
-		return vs[0].(map[string]ServiceEndpointNpm)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointNpm {
+		return vs[0].(map[string]*ServiceEndpointNpm)[vs[1].(string)]
 	}).(ServiceEndpointNpmOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointNpmInput)(nil)).Elem(), &ServiceEndpointNpm{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointNpmPtrInput)(nil)).Elem(), &ServiceEndpointNpm{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointNpmArrayInput)(nil)).Elem(), ServiceEndpointNpmArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointNpmMapInput)(nil)).Elem(), ServiceEndpointNpmMap{})
 	pulumi.RegisterOutputType(ServiceEndpointNpmOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointNpmPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointNpmArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointNpmMapOutput{})
 }

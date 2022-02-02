@@ -128,20 +128,20 @@ export class DockerRegistry extends pulumi.CustomResource {
     /** @deprecated azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry */
     constructor(name: string, argsOrState?: DockerRegistryArgs | DockerRegistryState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("DockerRegistry is deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as DockerRegistryState | undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["dockerEmail"] = state ? state.dockerEmail : undefined;
-            inputs["dockerPassword"] = state ? state.dockerPassword : undefined;
-            inputs["dockerPasswordHash"] = state ? state.dockerPasswordHash : undefined;
-            inputs["dockerRegistry"] = state ? state.dockerRegistry : undefined;
-            inputs["dockerUsername"] = state ? state.dockerUsername : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["registryType"] = state ? state.registryType : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["dockerEmail"] = state ? state.dockerEmail : undefined;
+            resourceInputs["dockerPassword"] = state ? state.dockerPassword : undefined;
+            resourceInputs["dockerPasswordHash"] = state ? state.dockerPasswordHash : undefined;
+            resourceInputs["dockerRegistry"] = state ? state.dockerRegistry : undefined;
+            resourceInputs["dockerUsername"] = state ? state.dockerUsername : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["registryType"] = state ? state.registryType : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as DockerRegistryArgs | undefined;
             if ((!args || args.dockerRegistry === undefined) && !opts.urn) {
@@ -156,21 +156,19 @@ export class DockerRegistry extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["dockerEmail"] = args ? args.dockerEmail : undefined;
-            inputs["dockerPassword"] = args ? args.dockerPassword : undefined;
-            inputs["dockerRegistry"] = args ? args.dockerRegistry : undefined;
-            inputs["dockerUsername"] = args ? args.dockerUsername : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["registryType"] = args ? args.registryType : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            inputs["dockerPasswordHash"] = undefined /*out*/;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["dockerEmail"] = args ? args.dockerEmail : undefined;
+            resourceInputs["dockerPassword"] = args ? args.dockerPassword : undefined;
+            resourceInputs["dockerRegistry"] = args ? args.dockerRegistry : undefined;
+            resourceInputs["dockerUsername"] = args ? args.dockerUsername : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["registryType"] = args ? args.registryType : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["dockerPasswordHash"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(DockerRegistry.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(DockerRegistry.__pulumiType, name, resourceInputs, opts);
     }
 }
 

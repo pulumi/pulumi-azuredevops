@@ -184,7 +184,7 @@ type ServiceEndpointPipelineInput interface {
 }
 
 func (*ServiceEndpointPipeline) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointPipeline)(nil))
+	return reflect.TypeOf((**ServiceEndpointPipeline)(nil)).Elem()
 }
 
 func (i *ServiceEndpointPipeline) ToServiceEndpointPipelineOutput() ServiceEndpointPipelineOutput {
@@ -193,35 +193,6 @@ func (i *ServiceEndpointPipeline) ToServiceEndpointPipelineOutput() ServiceEndpo
 
 func (i *ServiceEndpointPipeline) ToServiceEndpointPipelineOutputWithContext(ctx context.Context) ServiceEndpointPipelineOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelineOutput)
-}
-
-func (i *ServiceEndpointPipeline) ToServiceEndpointPipelinePtrOutput() ServiceEndpointPipelinePtrOutput {
-	return i.ToServiceEndpointPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointPipeline) ToServiceEndpointPipelinePtrOutputWithContext(ctx context.Context) ServiceEndpointPipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelinePtrOutput)
-}
-
-type ServiceEndpointPipelinePtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointPipelinePtrOutput() ServiceEndpointPipelinePtrOutput
-	ToServiceEndpointPipelinePtrOutputWithContext(ctx context.Context) ServiceEndpointPipelinePtrOutput
-}
-
-type serviceEndpointPipelinePtrType ServiceEndpointPipelineArgs
-
-func (*serviceEndpointPipelinePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointPipeline)(nil))
-}
-
-func (i *serviceEndpointPipelinePtrType) ToServiceEndpointPipelinePtrOutput() ServiceEndpointPipelinePtrOutput {
-	return i.ToServiceEndpointPipelinePtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointPipelinePtrType) ToServiceEndpointPipelinePtrOutputWithContext(ctx context.Context) ServiceEndpointPipelinePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelinePtrOutput)
 }
 
 // ServiceEndpointPipelineArrayInput is an input type that accepts ServiceEndpointPipelineArray and ServiceEndpointPipelineArrayOutput values.
@@ -277,7 +248,7 @@ func (i ServiceEndpointPipelineMap) ToServiceEndpointPipelineMapOutputWithContex
 type ServiceEndpointPipelineOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPipelineOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointPipeline)(nil))
+	return reflect.TypeOf((**ServiceEndpointPipeline)(nil)).Elem()
 }
 
 func (o ServiceEndpointPipelineOutput) ToServiceEndpointPipelineOutput() ServiceEndpointPipelineOutput {
@@ -288,44 +259,10 @@ func (o ServiceEndpointPipelineOutput) ToServiceEndpointPipelineOutputWithContex
 	return o
 }
 
-func (o ServiceEndpointPipelineOutput) ToServiceEndpointPipelinePtrOutput() ServiceEndpointPipelinePtrOutput {
-	return o.ToServiceEndpointPipelinePtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointPipelineOutput) ToServiceEndpointPipelinePtrOutputWithContext(ctx context.Context) ServiceEndpointPipelinePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointPipeline) *ServiceEndpointPipeline {
-		return &v
-	}).(ServiceEndpointPipelinePtrOutput)
-}
-
-type ServiceEndpointPipelinePtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointPipelinePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointPipeline)(nil))
-}
-
-func (o ServiceEndpointPipelinePtrOutput) ToServiceEndpointPipelinePtrOutput() ServiceEndpointPipelinePtrOutput {
-	return o
-}
-
-func (o ServiceEndpointPipelinePtrOutput) ToServiceEndpointPipelinePtrOutputWithContext(ctx context.Context) ServiceEndpointPipelinePtrOutput {
-	return o
-}
-
-func (o ServiceEndpointPipelinePtrOutput) Elem() ServiceEndpointPipelineOutput {
-	return o.ApplyT(func(v *ServiceEndpointPipeline) ServiceEndpointPipeline {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointPipeline
-		return ret
-	}).(ServiceEndpointPipelineOutput)
-}
-
 type ServiceEndpointPipelineArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPipelineArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointPipeline)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointPipeline)(nil)).Elem()
 }
 
 func (o ServiceEndpointPipelineArrayOutput) ToServiceEndpointPipelineArrayOutput() ServiceEndpointPipelineArrayOutput {
@@ -337,15 +274,15 @@ func (o ServiceEndpointPipelineArrayOutput) ToServiceEndpointPipelineArrayOutput
 }
 
 func (o ServiceEndpointPipelineArrayOutput) Index(i pulumi.IntInput) ServiceEndpointPipelineOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointPipeline {
-		return vs[0].([]ServiceEndpointPipeline)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointPipeline {
+		return vs[0].([]*ServiceEndpointPipeline)[vs[1].(int)]
 	}).(ServiceEndpointPipelineOutput)
 }
 
 type ServiceEndpointPipelineMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPipelineMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointPipeline)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointPipeline)(nil)).Elem()
 }
 
 func (o ServiceEndpointPipelineMapOutput) ToServiceEndpointPipelineMapOutput() ServiceEndpointPipelineMapOutput {
@@ -357,18 +294,16 @@ func (o ServiceEndpointPipelineMapOutput) ToServiceEndpointPipelineMapOutputWith
 }
 
 func (o ServiceEndpointPipelineMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointPipelineOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointPipeline {
-		return vs[0].(map[string]ServiceEndpointPipeline)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointPipeline {
+		return vs[0].(map[string]*ServiceEndpointPipeline)[vs[1].(string)]
 	}).(ServiceEndpointPipelineOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelineInput)(nil)).Elem(), &ServiceEndpointPipeline{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelinePtrInput)(nil)).Elem(), &ServiceEndpointPipeline{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelineArrayInput)(nil)).Elem(), ServiceEndpointPipelineArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointPipelineMapInput)(nil)).Elem(), ServiceEndpointPipelineMap{})
 	pulumi.RegisterOutputType(ServiceEndpointPipelineOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointPipelinePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPipelineArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointPipelineMapOutput{})
 }

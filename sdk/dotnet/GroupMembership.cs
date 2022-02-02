@@ -29,11 +29,11 @@ namespace Pulumi.AzureDevOps
     ///         {
     ///             PrincipalName = "foo@contoso.com",
     ///         });
-    ///         var @group = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         var @group = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = id,
+    ///             ProjectId = project.Id,
     ///             Name = "Build Administrators",
-    ///         }));
+    ///         });
     ///         var membership = new AzureDevOps.GroupMembership("membership", new AzureDevOps.GroupMembershipArgs
     ///         {
     ///             Group = @group.Apply(@group =&gt; @group.Descriptor),

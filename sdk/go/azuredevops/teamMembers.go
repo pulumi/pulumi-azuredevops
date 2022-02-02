@@ -34,6 +34,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		builtinProjectReaders := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Readers"),
+// 		}, nil)
 // 		team, err := azuredevops.NewTeam(ctx, "team", &azuredevops.TeamArgs{
 // 			ProjectId: project.ID(),
 // 		})
@@ -189,7 +193,7 @@ type TeamMembersInput interface {
 }
 
 func (*TeamMembers) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamMembers)(nil))
+	return reflect.TypeOf((**TeamMembers)(nil)).Elem()
 }
 
 func (i *TeamMembers) ToTeamMembersOutput() TeamMembersOutput {
@@ -198,35 +202,6 @@ func (i *TeamMembers) ToTeamMembersOutput() TeamMembersOutput {
 
 func (i *TeamMembers) ToTeamMembersOutputWithContext(ctx context.Context) TeamMembersOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersOutput)
-}
-
-func (i *TeamMembers) ToTeamMembersPtrOutput() TeamMembersPtrOutput {
-	return i.ToTeamMembersPtrOutputWithContext(context.Background())
-}
-
-func (i *TeamMembers) ToTeamMembersPtrOutputWithContext(ctx context.Context) TeamMembersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersPtrOutput)
-}
-
-type TeamMembersPtrInput interface {
-	pulumi.Input
-
-	ToTeamMembersPtrOutput() TeamMembersPtrOutput
-	ToTeamMembersPtrOutputWithContext(ctx context.Context) TeamMembersPtrOutput
-}
-
-type teamMembersPtrType TeamMembersArgs
-
-func (*teamMembersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamMembers)(nil))
-}
-
-func (i *teamMembersPtrType) ToTeamMembersPtrOutput() TeamMembersPtrOutput {
-	return i.ToTeamMembersPtrOutputWithContext(context.Background())
-}
-
-func (i *teamMembersPtrType) ToTeamMembersPtrOutputWithContext(ctx context.Context) TeamMembersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamMembersPtrOutput)
 }
 
 // TeamMembersArrayInput is an input type that accepts TeamMembersArray and TeamMembersArrayOutput values.
@@ -282,7 +257,7 @@ func (i TeamMembersMap) ToTeamMembersMapOutputWithContext(ctx context.Context) T
 type TeamMembersOutput struct{ *pulumi.OutputState }
 
 func (TeamMembersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamMembers)(nil))
+	return reflect.TypeOf((**TeamMembers)(nil)).Elem()
 }
 
 func (o TeamMembersOutput) ToTeamMembersOutput() TeamMembersOutput {
@@ -293,44 +268,10 @@ func (o TeamMembersOutput) ToTeamMembersOutputWithContext(ctx context.Context) T
 	return o
 }
 
-func (o TeamMembersOutput) ToTeamMembersPtrOutput() TeamMembersPtrOutput {
-	return o.ToTeamMembersPtrOutputWithContext(context.Background())
-}
-
-func (o TeamMembersOutput) ToTeamMembersPtrOutputWithContext(ctx context.Context) TeamMembersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamMembers) *TeamMembers {
-		return &v
-	}).(TeamMembersPtrOutput)
-}
-
-type TeamMembersPtrOutput struct{ *pulumi.OutputState }
-
-func (TeamMembersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamMembers)(nil))
-}
-
-func (o TeamMembersPtrOutput) ToTeamMembersPtrOutput() TeamMembersPtrOutput {
-	return o
-}
-
-func (o TeamMembersPtrOutput) ToTeamMembersPtrOutputWithContext(ctx context.Context) TeamMembersPtrOutput {
-	return o
-}
-
-func (o TeamMembersPtrOutput) Elem() TeamMembersOutput {
-	return o.ApplyT(func(v *TeamMembers) TeamMembers {
-		if v != nil {
-			return *v
-		}
-		var ret TeamMembers
-		return ret
-	}).(TeamMembersOutput)
-}
-
 type TeamMembersArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamMembersArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TeamMembers)(nil))
+	return reflect.TypeOf((*[]*TeamMembers)(nil)).Elem()
 }
 
 func (o TeamMembersArrayOutput) ToTeamMembersArrayOutput() TeamMembersArrayOutput {
@@ -342,15 +283,15 @@ func (o TeamMembersArrayOutput) ToTeamMembersArrayOutputWithContext(ctx context.
 }
 
 func (o TeamMembersArrayOutput) Index(i pulumi.IntInput) TeamMembersOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamMembers {
-		return vs[0].([]TeamMembers)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamMembers {
+		return vs[0].([]*TeamMembers)[vs[1].(int)]
 	}).(TeamMembersOutput)
 }
 
 type TeamMembersMapOutput struct{ *pulumi.OutputState }
 
 func (TeamMembersMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TeamMembers)(nil))
+	return reflect.TypeOf((*map[string]*TeamMembers)(nil)).Elem()
 }
 
 func (o TeamMembersMapOutput) ToTeamMembersMapOutput() TeamMembersMapOutput {
@@ -362,18 +303,16 @@ func (o TeamMembersMapOutput) ToTeamMembersMapOutputWithContext(ctx context.Cont
 }
 
 func (o TeamMembersMapOutput) MapIndex(k pulumi.StringInput) TeamMembersOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TeamMembers {
-		return vs[0].(map[string]TeamMembers)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TeamMembers {
+		return vs[0].(map[string]*TeamMembers)[vs[1].(string)]
 	}).(TeamMembersOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersInput)(nil)).Elem(), &TeamMembers{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersPtrInput)(nil)).Elem(), &TeamMembers{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersArrayInput)(nil)).Elem(), TeamMembersArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamMembersMapInput)(nil)).Elem(), TeamMembersMap{})
 	pulumi.RegisterOutputType(TeamMembersOutput{})
-	pulumi.RegisterOutputType(TeamMembersPtrOutput{})
 	pulumi.RegisterOutputType(TeamMembersArrayOutput{})
 	pulumi.RegisterOutputType(TeamMembersMapOutput{})
 }

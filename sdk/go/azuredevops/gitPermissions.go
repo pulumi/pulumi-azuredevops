@@ -36,7 +36,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewGitPermissions(ctx, "project_git_root_permissions", &azuredevops.GitPermissionsArgs{
+// 		_, err := azuredevops.NewGitPermissions(ctx, "project-git-root-permissions", &azuredevops.GitPermissionsArgs{
 // 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
 // 			Principal: pulumi.Any(data.Azuredevops_group.Project - readers.Id),
 // 			Permissions: pulumi.StringMap{
@@ -69,7 +69,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewGitPermissions(ctx, "project_git_repo_permissions", &azuredevops.GitPermissionsArgs{
+// 		_, err := azuredevops.NewGitPermissions(ctx, "project-git-repo-permissions", &azuredevops.GitPermissionsArgs{
 // 			ProjectId:    pulumi.Any(data.Azuredevops_git_repository.Git - repo.Project_id),
 // 			RepositoryId: pulumi.Any(data.Azuredevops_git_repository.Git - repo.Id),
 // 			Principal:    pulumi.Any(data.Azuredevops_group.Project - administrators.Id),
@@ -104,7 +104,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewGitPermissions(ctx, "project_git_branch_permissions", &azuredevops.GitPermissionsArgs{
+// 		_, err := azuredevops.NewGitPermissions(ctx, "project-git-branch-permissions", &azuredevops.GitPermissionsArgs{
 // 			ProjectId:    pulumi.Any(data.Azuredevops_git_repository.Git - repo.Project_id),
 // 			RepositoryId: pulumi.Any(data.Azuredevops_git_repository.Git - repo.Id),
 // 			BranchName:   pulumi.String("refs/heads/master"),
@@ -143,7 +143,19 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewGitPermissions(ctx, "project_git_root_permissions", &azuredevops.GitPermissionsArgs{
+// 		project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Readers"),
+// 		}, nil)
+// 		project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Contributors"),
+// 		}, nil)
+// 		project_administrators := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Project administrators"),
+// 		}, nil)
+// 		_, err = azuredevops.NewGitPermissions(ctx, "project-git-root-permissions", &azuredevops.GitPermissionsArgs{
 // 			ProjectId: project.ID(),
 // 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
 // 				return project_readers.Id, nil
@@ -157,7 +169,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewGit(ctx, "git_repo", &azuredevops.GitArgs{
+// 		_, err = azuredevops.NewGit(ctx, "git-repo", &azuredevops.GitArgs{
 // 			ProjectId:     project.ID(),
 // 			DefaultBranch: pulumi.String("refs/heads/master"),
 // 			Initialization: &GitInitializationArgs{
@@ -167,7 +179,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewGitPermissions(ctx, "project_git_repo_permissions", &azuredevops.GitPermissionsArgs{
+// 		_, err = azuredevops.NewGitPermissions(ctx, "project-git-repo-permissions", &azuredevops.GitPermissionsArgs{
 // 			ProjectId:    git_repo.ProjectId,
 // 			RepositoryId: git_repo.ID(),
 // 			Principal: project_administrators.ApplyT(func(project_administrators GetGroupResult) (string, error) {
@@ -183,7 +195,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewGitPermissions(ctx, "project_git_branch_permissions", &azuredevops.GitPermissionsArgs{
+// 		_, err = azuredevops.NewGitPermissions(ctx, "project-git-branch-permissions", &azuredevops.GitPermissionsArgs{
 // 			ProjectId:    git_repo.ProjectId,
 // 			RepositoryId: git_repo.ID(),
 // 			BranchName:   pulumi.String("master"),
@@ -344,7 +356,7 @@ type GitPermissionsInput interface {
 }
 
 func (*GitPermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitPermissions)(nil))
+	return reflect.TypeOf((**GitPermissions)(nil)).Elem()
 }
 
 func (i *GitPermissions) ToGitPermissionsOutput() GitPermissionsOutput {
@@ -353,35 +365,6 @@ func (i *GitPermissions) ToGitPermissionsOutput() GitPermissionsOutput {
 
 func (i *GitPermissions) ToGitPermissionsOutputWithContext(ctx context.Context) GitPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsOutput)
-}
-
-func (i *GitPermissions) ToGitPermissionsPtrOutput() GitPermissionsPtrOutput {
-	return i.ToGitPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *GitPermissions) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsPtrOutput)
-}
-
-type GitPermissionsPtrInput interface {
-	pulumi.Input
-
-	ToGitPermissionsPtrOutput() GitPermissionsPtrOutput
-	ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput
-}
-
-type gitPermissionsPtrType GitPermissionsArgs
-
-func (*gitPermissionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**GitPermissions)(nil))
-}
-
-func (i *gitPermissionsPtrType) ToGitPermissionsPtrOutput() GitPermissionsPtrOutput {
-	return i.ToGitPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *gitPermissionsPtrType) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsPtrOutput)
 }
 
 // GitPermissionsArrayInput is an input type that accepts GitPermissionsArray and GitPermissionsArrayOutput values.
@@ -437,7 +420,7 @@ func (i GitPermissionsMap) ToGitPermissionsMapOutputWithContext(ctx context.Cont
 type GitPermissionsOutput struct{ *pulumi.OutputState }
 
 func (GitPermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GitPermissions)(nil))
+	return reflect.TypeOf((**GitPermissions)(nil)).Elem()
 }
 
 func (o GitPermissionsOutput) ToGitPermissionsOutput() GitPermissionsOutput {
@@ -448,44 +431,10 @@ func (o GitPermissionsOutput) ToGitPermissionsOutputWithContext(ctx context.Cont
 	return o
 }
 
-func (o GitPermissionsOutput) ToGitPermissionsPtrOutput() GitPermissionsPtrOutput {
-	return o.ToGitPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (o GitPermissionsOutput) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitPermissions) *GitPermissions {
-		return &v
-	}).(GitPermissionsPtrOutput)
-}
-
-type GitPermissionsPtrOutput struct{ *pulumi.OutputState }
-
-func (GitPermissionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GitPermissions)(nil))
-}
-
-func (o GitPermissionsPtrOutput) ToGitPermissionsPtrOutput() GitPermissionsPtrOutput {
-	return o
-}
-
-func (o GitPermissionsPtrOutput) ToGitPermissionsPtrOutputWithContext(ctx context.Context) GitPermissionsPtrOutput {
-	return o
-}
-
-func (o GitPermissionsPtrOutput) Elem() GitPermissionsOutput {
-	return o.ApplyT(func(v *GitPermissions) GitPermissions {
-		if v != nil {
-			return *v
-		}
-		var ret GitPermissions
-		return ret
-	}).(GitPermissionsOutput)
-}
-
 type GitPermissionsArrayOutput struct{ *pulumi.OutputState }
 
 func (GitPermissionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GitPermissions)(nil))
+	return reflect.TypeOf((*[]*GitPermissions)(nil)).Elem()
 }
 
 func (o GitPermissionsArrayOutput) ToGitPermissionsArrayOutput() GitPermissionsArrayOutput {
@@ -497,15 +446,15 @@ func (o GitPermissionsArrayOutput) ToGitPermissionsArrayOutputWithContext(ctx co
 }
 
 func (o GitPermissionsArrayOutput) Index(i pulumi.IntInput) GitPermissionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GitPermissions {
-		return vs[0].([]GitPermissions)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GitPermissions {
+		return vs[0].([]*GitPermissions)[vs[1].(int)]
 	}).(GitPermissionsOutput)
 }
 
 type GitPermissionsMapOutput struct{ *pulumi.OutputState }
 
 func (GitPermissionsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]GitPermissions)(nil))
+	return reflect.TypeOf((*map[string]*GitPermissions)(nil)).Elem()
 }
 
 func (o GitPermissionsMapOutput) ToGitPermissionsMapOutput() GitPermissionsMapOutput {
@@ -517,18 +466,16 @@ func (o GitPermissionsMapOutput) ToGitPermissionsMapOutputWithContext(ctx contex
 }
 
 func (o GitPermissionsMapOutput) MapIndex(k pulumi.StringInput) GitPermissionsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) GitPermissions {
-		return vs[0].(map[string]GitPermissions)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *GitPermissions {
+		return vs[0].(map[string]*GitPermissions)[vs[1].(string)]
 	}).(GitPermissionsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GitPermissionsInput)(nil)).Elem(), &GitPermissions{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GitPermissionsPtrInput)(nil)).Elem(), &GitPermissions{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitPermissionsArrayInput)(nil)).Elem(), GitPermissionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitPermissionsMapInput)(nil)).Elem(), GitPermissionsMap{})
 	pulumi.RegisterOutputType(GitPermissionsOutput{})
-	pulumi.RegisterOutputType(GitPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(GitPermissionsArrayOutput{})
 	pulumi.RegisterOutputType(GitPermissionsMapOutput{})
 }

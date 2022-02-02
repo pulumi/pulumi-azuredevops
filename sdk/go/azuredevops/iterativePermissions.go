@@ -41,7 +41,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewIterativePermissions(ctx, "root_permissions", &azuredevops.IterativePermissionsArgs{
+// 		_ = azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Readers"),
+// 		}, nil)
+// 		_, err = azuredevops.NewIterativePermissions(ctx, "root-permissions", &azuredevops.IterativePermissionsArgs{
 // 			ProjectId: project.ID(),
 // 			Principal: pulumi.Any(azuredevops_group.Project - readers.Id),
 // 			Permissions: pulumi.StringMap{
@@ -53,7 +57,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewIterativePermissions(ctx, "iteration_permissions", &azuredevops.IterativePermissionsArgs{
+// 		_, err = azuredevops.NewIterativePermissions(ctx, "iteration-permissions", &azuredevops.IterativePermissionsArgs{
 // 			ProjectId: project.ID(),
 // 			Principal: pulumi.Any(azuredevops_group.Project - readers.Id),
 // 			Path:      pulumi.String("Iteration 1"),
@@ -202,7 +206,7 @@ type IterativePermissionsInput interface {
 }
 
 func (*IterativePermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*IterativePermissions)(nil))
+	return reflect.TypeOf((**IterativePermissions)(nil)).Elem()
 }
 
 func (i *IterativePermissions) ToIterativePermissionsOutput() IterativePermissionsOutput {
@@ -211,35 +215,6 @@ func (i *IterativePermissions) ToIterativePermissionsOutput() IterativePermissio
 
 func (i *IterativePermissions) ToIterativePermissionsOutputWithContext(ctx context.Context) IterativePermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IterativePermissionsOutput)
-}
-
-func (i *IterativePermissions) ToIterativePermissionsPtrOutput() IterativePermissionsPtrOutput {
-	return i.ToIterativePermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *IterativePermissions) ToIterativePermissionsPtrOutputWithContext(ctx context.Context) IterativePermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IterativePermissionsPtrOutput)
-}
-
-type IterativePermissionsPtrInput interface {
-	pulumi.Input
-
-	ToIterativePermissionsPtrOutput() IterativePermissionsPtrOutput
-	ToIterativePermissionsPtrOutputWithContext(ctx context.Context) IterativePermissionsPtrOutput
-}
-
-type iterativePermissionsPtrType IterativePermissionsArgs
-
-func (*iterativePermissionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**IterativePermissions)(nil))
-}
-
-func (i *iterativePermissionsPtrType) ToIterativePermissionsPtrOutput() IterativePermissionsPtrOutput {
-	return i.ToIterativePermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *iterativePermissionsPtrType) ToIterativePermissionsPtrOutputWithContext(ctx context.Context) IterativePermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(IterativePermissionsPtrOutput)
 }
 
 // IterativePermissionsArrayInput is an input type that accepts IterativePermissionsArray and IterativePermissionsArrayOutput values.
@@ -295,7 +270,7 @@ func (i IterativePermissionsMap) ToIterativePermissionsMapOutputWithContext(ctx 
 type IterativePermissionsOutput struct{ *pulumi.OutputState }
 
 func (IterativePermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*IterativePermissions)(nil))
+	return reflect.TypeOf((**IterativePermissions)(nil)).Elem()
 }
 
 func (o IterativePermissionsOutput) ToIterativePermissionsOutput() IterativePermissionsOutput {
@@ -306,44 +281,10 @@ func (o IterativePermissionsOutput) ToIterativePermissionsOutputWithContext(ctx 
 	return o
 }
 
-func (o IterativePermissionsOutput) ToIterativePermissionsPtrOutput() IterativePermissionsPtrOutput {
-	return o.ToIterativePermissionsPtrOutputWithContext(context.Background())
-}
-
-func (o IterativePermissionsOutput) ToIterativePermissionsPtrOutputWithContext(ctx context.Context) IterativePermissionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v IterativePermissions) *IterativePermissions {
-		return &v
-	}).(IterativePermissionsPtrOutput)
-}
-
-type IterativePermissionsPtrOutput struct{ *pulumi.OutputState }
-
-func (IterativePermissionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**IterativePermissions)(nil))
-}
-
-func (o IterativePermissionsPtrOutput) ToIterativePermissionsPtrOutput() IterativePermissionsPtrOutput {
-	return o
-}
-
-func (o IterativePermissionsPtrOutput) ToIterativePermissionsPtrOutputWithContext(ctx context.Context) IterativePermissionsPtrOutput {
-	return o
-}
-
-func (o IterativePermissionsPtrOutput) Elem() IterativePermissionsOutput {
-	return o.ApplyT(func(v *IterativePermissions) IterativePermissions {
-		if v != nil {
-			return *v
-		}
-		var ret IterativePermissions
-		return ret
-	}).(IterativePermissionsOutput)
-}
-
 type IterativePermissionsArrayOutput struct{ *pulumi.OutputState }
 
 func (IterativePermissionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]IterativePermissions)(nil))
+	return reflect.TypeOf((*[]*IterativePermissions)(nil)).Elem()
 }
 
 func (o IterativePermissionsArrayOutput) ToIterativePermissionsArrayOutput() IterativePermissionsArrayOutput {
@@ -355,15 +296,15 @@ func (o IterativePermissionsArrayOutput) ToIterativePermissionsArrayOutputWithCo
 }
 
 func (o IterativePermissionsArrayOutput) Index(i pulumi.IntInput) IterativePermissionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IterativePermissions {
-		return vs[0].([]IterativePermissions)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IterativePermissions {
+		return vs[0].([]*IterativePermissions)[vs[1].(int)]
 	}).(IterativePermissionsOutput)
 }
 
 type IterativePermissionsMapOutput struct{ *pulumi.OutputState }
 
 func (IterativePermissionsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]IterativePermissions)(nil))
+	return reflect.TypeOf((*map[string]*IterativePermissions)(nil)).Elem()
 }
 
 func (o IterativePermissionsMapOutput) ToIterativePermissionsMapOutput() IterativePermissionsMapOutput {
@@ -375,18 +316,16 @@ func (o IterativePermissionsMapOutput) ToIterativePermissionsMapOutputWithContex
 }
 
 func (o IterativePermissionsMapOutput) MapIndex(k pulumi.StringInput) IterativePermissionsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) IterativePermissions {
-		return vs[0].(map[string]IterativePermissions)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *IterativePermissions {
+		return vs[0].(map[string]*IterativePermissions)[vs[1].(string)]
 	}).(IterativePermissionsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IterativePermissionsInput)(nil)).Elem(), &IterativePermissions{})
-	pulumi.RegisterInputType(reflect.TypeOf((*IterativePermissionsPtrInput)(nil)).Elem(), &IterativePermissions{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IterativePermissionsArrayInput)(nil)).Elem(), IterativePermissionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IterativePermissionsMapInput)(nil)).Elem(), IterativePermissionsMap{})
 	pulumi.RegisterOutputType(IterativePermissionsOutput{})
-	pulumi.RegisterOutputType(IterativePermissionsPtrOutput{})
 	pulumi.RegisterOutputType(IterativePermissionsArrayOutput{})
 	pulumi.RegisterOutputType(IterativePermissionsMapOutput{})
 }

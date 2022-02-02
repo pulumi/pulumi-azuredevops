@@ -134,21 +134,21 @@ export class Git extends pulumi.CustomResource {
      */
     constructor(name: string, args: GitArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: GitArgs | GitState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GitState | undefined;
-            inputs["defaultBranch"] = state ? state.defaultBranch : undefined;
-            inputs["initialization"] = state ? state.initialization : undefined;
-            inputs["isFork"] = state ? state.isFork : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["parentRepositoryId"] = state ? state.parentRepositoryId : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["remoteUrl"] = state ? state.remoteUrl : undefined;
-            inputs["size"] = state ? state.size : undefined;
-            inputs["sshUrl"] = state ? state.sshUrl : undefined;
-            inputs["url"] = state ? state.url : undefined;
-            inputs["webUrl"] = state ? state.webUrl : undefined;
+            resourceInputs["defaultBranch"] = state ? state.defaultBranch : undefined;
+            resourceInputs["initialization"] = state ? state.initialization : undefined;
+            resourceInputs["isFork"] = state ? state.isFork : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["parentRepositoryId"] = state ? state.parentRepositoryId : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["remoteUrl"] = state ? state.remoteUrl : undefined;
+            resourceInputs["size"] = state ? state.size : undefined;
+            resourceInputs["sshUrl"] = state ? state.sshUrl : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
+            resourceInputs["webUrl"] = state ? state.webUrl : undefined;
         } else {
             const args = argsOrState as GitArgs | undefined;
             if ((!args || args.initialization === undefined) && !opts.urn) {
@@ -157,24 +157,22 @@ export class Git extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["defaultBranch"] = args ? args.defaultBranch : undefined;
-            inputs["initialization"] = args ? args.initialization : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["parentRepositoryId"] = args ? args.parentRepositoryId : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["isFork"] = undefined /*out*/;
-            inputs["remoteUrl"] = undefined /*out*/;
-            inputs["size"] = undefined /*out*/;
-            inputs["sshUrl"] = undefined /*out*/;
-            inputs["url"] = undefined /*out*/;
-            inputs["webUrl"] = undefined /*out*/;
+            resourceInputs["defaultBranch"] = args ? args.defaultBranch : undefined;
+            resourceInputs["initialization"] = args ? args.initialization : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["parentRepositoryId"] = args ? args.parentRepositoryId : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["isFork"] = undefined /*out*/;
+            resourceInputs["remoteUrl"] = undefined /*out*/;
+            resourceInputs["size"] = undefined /*out*/;
+            resourceInputs["sshUrl"] = undefined /*out*/;
+            resourceInputs["url"] = undefined /*out*/;
+            resourceInputs["webUrl"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:Repository/git:Git" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Git.__pulumiType, name, inputs, opts);
+        super(Git.__pulumiType, name, resourceInputs, opts);
     }
 }
 

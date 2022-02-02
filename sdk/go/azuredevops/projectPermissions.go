@@ -36,7 +36,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewProjectPermissions(ctx, "project_perm", &azuredevops.ProjectPermissionsArgs{
+// 		project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Readers"),
+// 		}, nil)
+// 		_, err = azuredevops.NewProjectPermissions(ctx, "project-perm", &azuredevops.ProjectPermissionsArgs{
 // 			ProjectId: project.ID(),
 // 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
 // 				return project_readers.Id, nil
@@ -177,7 +181,7 @@ type ProjectPermissionsInput interface {
 }
 
 func (*ProjectPermissions) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectPermissions)(nil))
+	return reflect.TypeOf((**ProjectPermissions)(nil)).Elem()
 }
 
 func (i *ProjectPermissions) ToProjectPermissionsOutput() ProjectPermissionsOutput {
@@ -186,35 +190,6 @@ func (i *ProjectPermissions) ToProjectPermissionsOutput() ProjectPermissionsOutp
 
 func (i *ProjectPermissions) ToProjectPermissionsOutputWithContext(ctx context.Context) ProjectPermissionsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPermissionsOutput)
-}
-
-func (i *ProjectPermissions) ToProjectPermissionsPtrOutput() ProjectPermissionsPtrOutput {
-	return i.ToProjectPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *ProjectPermissions) ToProjectPermissionsPtrOutputWithContext(ctx context.Context) ProjectPermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectPermissionsPtrOutput)
-}
-
-type ProjectPermissionsPtrInput interface {
-	pulumi.Input
-
-	ToProjectPermissionsPtrOutput() ProjectPermissionsPtrOutput
-	ToProjectPermissionsPtrOutputWithContext(ctx context.Context) ProjectPermissionsPtrOutput
-}
-
-type projectPermissionsPtrType ProjectPermissionsArgs
-
-func (*projectPermissionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectPermissions)(nil))
-}
-
-func (i *projectPermissionsPtrType) ToProjectPermissionsPtrOutput() ProjectPermissionsPtrOutput {
-	return i.ToProjectPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (i *projectPermissionsPtrType) ToProjectPermissionsPtrOutputWithContext(ctx context.Context) ProjectPermissionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectPermissionsPtrOutput)
 }
 
 // ProjectPermissionsArrayInput is an input type that accepts ProjectPermissionsArray and ProjectPermissionsArrayOutput values.
@@ -270,7 +245,7 @@ func (i ProjectPermissionsMap) ToProjectPermissionsMapOutputWithContext(ctx cont
 type ProjectPermissionsOutput struct{ *pulumi.OutputState }
 
 func (ProjectPermissionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectPermissions)(nil))
+	return reflect.TypeOf((**ProjectPermissions)(nil)).Elem()
 }
 
 func (o ProjectPermissionsOutput) ToProjectPermissionsOutput() ProjectPermissionsOutput {
@@ -281,44 +256,10 @@ func (o ProjectPermissionsOutput) ToProjectPermissionsOutputWithContext(ctx cont
 	return o
 }
 
-func (o ProjectPermissionsOutput) ToProjectPermissionsPtrOutput() ProjectPermissionsPtrOutput {
-	return o.ToProjectPermissionsPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectPermissionsOutput) ToProjectPermissionsPtrOutputWithContext(ctx context.Context) ProjectPermissionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectPermissions) *ProjectPermissions {
-		return &v
-	}).(ProjectPermissionsPtrOutput)
-}
-
-type ProjectPermissionsPtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectPermissionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectPermissions)(nil))
-}
-
-func (o ProjectPermissionsPtrOutput) ToProjectPermissionsPtrOutput() ProjectPermissionsPtrOutput {
-	return o
-}
-
-func (o ProjectPermissionsPtrOutput) ToProjectPermissionsPtrOutputWithContext(ctx context.Context) ProjectPermissionsPtrOutput {
-	return o
-}
-
-func (o ProjectPermissionsPtrOutput) Elem() ProjectPermissionsOutput {
-	return o.ApplyT(func(v *ProjectPermissions) ProjectPermissions {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectPermissions
-		return ret
-	}).(ProjectPermissionsOutput)
-}
-
 type ProjectPermissionsArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectPermissionsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectPermissions)(nil))
+	return reflect.TypeOf((*[]*ProjectPermissions)(nil)).Elem()
 }
 
 func (o ProjectPermissionsArrayOutput) ToProjectPermissionsArrayOutput() ProjectPermissionsArrayOutput {
@@ -330,15 +271,15 @@ func (o ProjectPermissionsArrayOutput) ToProjectPermissionsArrayOutputWithContex
 }
 
 func (o ProjectPermissionsArrayOutput) Index(i pulumi.IntInput) ProjectPermissionsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectPermissions {
-		return vs[0].([]ProjectPermissions)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProjectPermissions {
+		return vs[0].([]*ProjectPermissions)[vs[1].(int)]
 	}).(ProjectPermissionsOutput)
 }
 
 type ProjectPermissionsMapOutput struct{ *pulumi.OutputState }
 
 func (ProjectPermissionsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProjectPermissions)(nil))
+	return reflect.TypeOf((*map[string]*ProjectPermissions)(nil)).Elem()
 }
 
 func (o ProjectPermissionsMapOutput) ToProjectPermissionsMapOutput() ProjectPermissionsMapOutput {
@@ -350,18 +291,16 @@ func (o ProjectPermissionsMapOutput) ToProjectPermissionsMapOutputWithContext(ct
 }
 
 func (o ProjectPermissionsMapOutput) MapIndex(k pulumi.StringInput) ProjectPermissionsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProjectPermissions {
-		return vs[0].(map[string]ProjectPermissions)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProjectPermissions {
+		return vs[0].(map[string]*ProjectPermissions)[vs[1].(string)]
 	}).(ProjectPermissionsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectPermissionsInput)(nil)).Elem(), &ProjectPermissions{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectPermissionsPtrInput)(nil)).Elem(), &ProjectPermissions{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectPermissionsArrayInput)(nil)).Elem(), ProjectPermissionsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectPermissionsMapInput)(nil)).Elem(), ProjectPermissionsMap{})
 	pulumi.RegisterOutputType(ProjectPermissionsOutput{})
-	pulumi.RegisterOutputType(ProjectPermissionsPtrOutput{})
 	pulumi.RegisterOutputType(ProjectPermissionsArrayOutput{})
 	pulumi.RegisterOutputType(ProjectPermissionsMapOutput{})
 }

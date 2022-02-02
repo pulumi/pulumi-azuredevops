@@ -183,7 +183,7 @@ type BranchPolicyCommentResolutionInput interface {
 }
 
 func (*BranchPolicyCommentResolution) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyCommentResolution)(nil))
+	return reflect.TypeOf((**BranchPolicyCommentResolution)(nil)).Elem()
 }
 
 func (i *BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutput() BranchPolicyCommentResolutionOutput {
@@ -192,35 +192,6 @@ func (i *BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutput() 
 
 func (i *BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionOutput)
-}
-
-func (i *BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionPtrOutput() BranchPolicyCommentResolutionPtrOutput {
-	return i.ToBranchPolicyCommentResolutionPtrOutputWithContext(context.Background())
-}
-
-func (i *BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionPtrOutput)
-}
-
-type BranchPolicyCommentResolutionPtrInput interface {
-	pulumi.Input
-
-	ToBranchPolicyCommentResolutionPtrOutput() BranchPolicyCommentResolutionPtrOutput
-	ToBranchPolicyCommentResolutionPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionPtrOutput
-}
-
-type branchPolicyCommentResolutionPtrType BranchPolicyCommentResolutionArgs
-
-func (*branchPolicyCommentResolutionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchPolicyCommentResolution)(nil))
-}
-
-func (i *branchPolicyCommentResolutionPtrType) ToBranchPolicyCommentResolutionPtrOutput() BranchPolicyCommentResolutionPtrOutput {
-	return i.ToBranchPolicyCommentResolutionPtrOutputWithContext(context.Background())
-}
-
-func (i *branchPolicyCommentResolutionPtrType) ToBranchPolicyCommentResolutionPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionPtrOutput)
 }
 
 // BranchPolicyCommentResolutionArrayInput is an input type that accepts BranchPolicyCommentResolutionArray and BranchPolicyCommentResolutionArrayOutput values.
@@ -276,7 +247,7 @@ func (i BranchPolicyCommentResolutionMap) ToBranchPolicyCommentResolutionMapOutp
 type BranchPolicyCommentResolutionOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyCommentResolutionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyCommentResolution)(nil))
+	return reflect.TypeOf((**BranchPolicyCommentResolution)(nil)).Elem()
 }
 
 func (o BranchPolicyCommentResolutionOutput) ToBranchPolicyCommentResolutionOutput() BranchPolicyCommentResolutionOutput {
@@ -287,44 +258,10 @@ func (o BranchPolicyCommentResolutionOutput) ToBranchPolicyCommentResolutionOutp
 	return o
 }
 
-func (o BranchPolicyCommentResolutionOutput) ToBranchPolicyCommentResolutionPtrOutput() BranchPolicyCommentResolutionPtrOutput {
-	return o.ToBranchPolicyCommentResolutionPtrOutputWithContext(context.Background())
-}
-
-func (o BranchPolicyCommentResolutionOutput) ToBranchPolicyCommentResolutionPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyCommentResolution) *BranchPolicyCommentResolution {
-		return &v
-	}).(BranchPolicyCommentResolutionPtrOutput)
-}
-
-type BranchPolicyCommentResolutionPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchPolicyCommentResolutionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchPolicyCommentResolution)(nil))
-}
-
-func (o BranchPolicyCommentResolutionPtrOutput) ToBranchPolicyCommentResolutionPtrOutput() BranchPolicyCommentResolutionPtrOutput {
-	return o
-}
-
-func (o BranchPolicyCommentResolutionPtrOutput) ToBranchPolicyCommentResolutionPtrOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionPtrOutput {
-	return o
-}
-
-func (o BranchPolicyCommentResolutionPtrOutput) Elem() BranchPolicyCommentResolutionOutput {
-	return o.ApplyT(func(v *BranchPolicyCommentResolution) BranchPolicyCommentResolution {
-		if v != nil {
-			return *v
-		}
-		var ret BranchPolicyCommentResolution
-		return ret
-	}).(BranchPolicyCommentResolutionOutput)
-}
-
 type BranchPolicyCommentResolutionArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyCommentResolutionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BranchPolicyCommentResolution)(nil))
+	return reflect.TypeOf((*[]*BranchPolicyCommentResolution)(nil)).Elem()
 }
 
 func (o BranchPolicyCommentResolutionArrayOutput) ToBranchPolicyCommentResolutionArrayOutput() BranchPolicyCommentResolutionArrayOutput {
@@ -336,15 +273,15 @@ func (o BranchPolicyCommentResolutionArrayOutput) ToBranchPolicyCommentResolutio
 }
 
 func (o BranchPolicyCommentResolutionArrayOutput) Index(i pulumi.IntInput) BranchPolicyCommentResolutionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyCommentResolution {
-		return vs[0].([]BranchPolicyCommentResolution)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyCommentResolution {
+		return vs[0].([]*BranchPolicyCommentResolution)[vs[1].(int)]
 	}).(BranchPolicyCommentResolutionOutput)
 }
 
 type BranchPolicyCommentResolutionMapOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyCommentResolutionMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BranchPolicyCommentResolution)(nil))
+	return reflect.TypeOf((*map[string]*BranchPolicyCommentResolution)(nil)).Elem()
 }
 
 func (o BranchPolicyCommentResolutionMapOutput) ToBranchPolicyCommentResolutionMapOutput() BranchPolicyCommentResolutionMapOutput {
@@ -356,18 +293,16 @@ func (o BranchPolicyCommentResolutionMapOutput) ToBranchPolicyCommentResolutionM
 }
 
 func (o BranchPolicyCommentResolutionMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyCommentResolutionOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchPolicyCommentResolution {
-		return vs[0].(map[string]BranchPolicyCommentResolution)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BranchPolicyCommentResolution {
+		return vs[0].(map[string]*BranchPolicyCommentResolution)[vs[1].(string)]
 	}).(BranchPolicyCommentResolutionOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyCommentResolutionInput)(nil)).Elem(), &BranchPolicyCommentResolution{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyCommentResolutionPtrInput)(nil)).Elem(), &BranchPolicyCommentResolution{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyCommentResolutionArrayInput)(nil)).Elem(), BranchPolicyCommentResolutionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyCommentResolutionMapInput)(nil)).Elem(), BranchPolicyCommentResolutionMap{})
 	pulumi.RegisterOutputType(BranchPolicyCommentResolutionOutput{})
-	pulumi.RegisterOutputType(BranchPolicyCommentResolutionPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyCommentResolutionArrayOutput{})
 	pulumi.RegisterOutputType(BranchPolicyCommentResolutionMapOutput{})
 }

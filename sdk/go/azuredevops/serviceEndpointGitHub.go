@@ -230,7 +230,7 @@ type ServiceEndpointGitHubInput interface {
 }
 
 func (*ServiceEndpointGitHub) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointGitHub)(nil))
+	return reflect.TypeOf((**ServiceEndpointGitHub)(nil)).Elem()
 }
 
 func (i *ServiceEndpointGitHub) ToServiceEndpointGitHubOutput() ServiceEndpointGitHubOutput {
@@ -239,35 +239,6 @@ func (i *ServiceEndpointGitHub) ToServiceEndpointGitHubOutput() ServiceEndpointG
 
 func (i *ServiceEndpointGitHub) ToServiceEndpointGitHubOutputWithContext(ctx context.Context) ServiceEndpointGitHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubOutput)
-}
-
-func (i *ServiceEndpointGitHub) ToServiceEndpointGitHubPtrOutput() ServiceEndpointGitHubPtrOutput {
-	return i.ToServiceEndpointGitHubPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointGitHub) ToServiceEndpointGitHubPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubPtrOutput)
-}
-
-type ServiceEndpointGitHubPtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointGitHubPtrOutput() ServiceEndpointGitHubPtrOutput
-	ToServiceEndpointGitHubPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubPtrOutput
-}
-
-type serviceEndpointGitHubPtrType ServiceEndpointGitHubArgs
-
-func (*serviceEndpointGitHubPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointGitHub)(nil))
-}
-
-func (i *serviceEndpointGitHubPtrType) ToServiceEndpointGitHubPtrOutput() ServiceEndpointGitHubPtrOutput {
-	return i.ToServiceEndpointGitHubPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointGitHubPtrType) ToServiceEndpointGitHubPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubPtrOutput)
 }
 
 // ServiceEndpointGitHubArrayInput is an input type that accepts ServiceEndpointGitHubArray and ServiceEndpointGitHubArrayOutput values.
@@ -323,7 +294,7 @@ func (i ServiceEndpointGitHubMap) ToServiceEndpointGitHubMapOutputWithContext(ct
 type ServiceEndpointGitHubOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGitHubOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointGitHub)(nil))
+	return reflect.TypeOf((**ServiceEndpointGitHub)(nil)).Elem()
 }
 
 func (o ServiceEndpointGitHubOutput) ToServiceEndpointGitHubOutput() ServiceEndpointGitHubOutput {
@@ -334,44 +305,10 @@ func (o ServiceEndpointGitHubOutput) ToServiceEndpointGitHubOutputWithContext(ct
 	return o
 }
 
-func (o ServiceEndpointGitHubOutput) ToServiceEndpointGitHubPtrOutput() ServiceEndpointGitHubPtrOutput {
-	return o.ToServiceEndpointGitHubPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointGitHubOutput) ToServiceEndpointGitHubPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointGitHub) *ServiceEndpointGitHub {
-		return &v
-	}).(ServiceEndpointGitHubPtrOutput)
-}
-
-type ServiceEndpointGitHubPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointGitHubPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointGitHub)(nil))
-}
-
-func (o ServiceEndpointGitHubPtrOutput) ToServiceEndpointGitHubPtrOutput() ServiceEndpointGitHubPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointGitHubPtrOutput) ToServiceEndpointGitHubPtrOutputWithContext(ctx context.Context) ServiceEndpointGitHubPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointGitHubPtrOutput) Elem() ServiceEndpointGitHubOutput {
-	return o.ApplyT(func(v *ServiceEndpointGitHub) ServiceEndpointGitHub {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointGitHub
-		return ret
-	}).(ServiceEndpointGitHubOutput)
-}
-
 type ServiceEndpointGitHubArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGitHubArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointGitHub)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointGitHub)(nil)).Elem()
 }
 
 func (o ServiceEndpointGitHubArrayOutput) ToServiceEndpointGitHubArrayOutput() ServiceEndpointGitHubArrayOutput {
@@ -383,15 +320,15 @@ func (o ServiceEndpointGitHubArrayOutput) ToServiceEndpointGitHubArrayOutputWith
 }
 
 func (o ServiceEndpointGitHubArrayOutput) Index(i pulumi.IntInput) ServiceEndpointGitHubOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointGitHub {
-		return vs[0].([]ServiceEndpointGitHub)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointGitHub {
+		return vs[0].([]*ServiceEndpointGitHub)[vs[1].(int)]
 	}).(ServiceEndpointGitHubOutput)
 }
 
 type ServiceEndpointGitHubMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGitHubMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointGitHub)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointGitHub)(nil)).Elem()
 }
 
 func (o ServiceEndpointGitHubMapOutput) ToServiceEndpointGitHubMapOutput() ServiceEndpointGitHubMapOutput {
@@ -403,18 +340,16 @@ func (o ServiceEndpointGitHubMapOutput) ToServiceEndpointGitHubMapOutputWithCont
 }
 
 func (o ServiceEndpointGitHubMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointGitHubOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointGitHub {
-		return vs[0].(map[string]ServiceEndpointGitHub)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointGitHub {
+		return vs[0].(map[string]*ServiceEndpointGitHub)[vs[1].(string)]
 	}).(ServiceEndpointGitHubOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubInput)(nil)).Elem(), &ServiceEndpointGitHub{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubPtrInput)(nil)).Elem(), &ServiceEndpointGitHub{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubArrayInput)(nil)).Elem(), ServiceEndpointGitHubArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGitHubMapInput)(nil)).Elem(), ServiceEndpointGitHubMap{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointGitHubPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGitHubMapOutput{})
 }

@@ -15,10 +15,10 @@ import * as utilities from "../utilities";
  *
  * const project = new azuredevops.Project("project", {});
  * const user = new azuredevops.User("user", {principalName: "foo@contoso.com"});
- * const group = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * const group = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Build Administrators",
- * }));
+ * });
  * const membership = new azuredevops.GroupMembership("membership", {
  *     group: group.apply(group => group.descriptor),
  *     members: [user.descriptor],
@@ -96,13 +96,13 @@ export class GroupMembership extends pulumi.CustomResource {
     /** @deprecated azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership */
     constructor(name: string, argsOrState?: GroupMembershipArgs | GroupMembershipState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("GroupMembership is deprecated: azuredevops.identities.GroupMembership has been deprecated in favor of azuredevops.GroupMembership")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as GroupMembershipState | undefined;
-            inputs["group"] = state ? state.group : undefined;
-            inputs["members"] = state ? state.members : undefined;
-            inputs["mode"] = state ? state.mode : undefined;
+            resourceInputs["group"] = state ? state.group : undefined;
+            resourceInputs["members"] = state ? state.members : undefined;
+            resourceInputs["mode"] = state ? state.mode : undefined;
         } else {
             const args = argsOrState as GroupMembershipArgs | undefined;
             if ((!args || args.group === undefined) && !opts.urn) {
@@ -111,14 +111,12 @@ export class GroupMembership extends pulumi.CustomResource {
             if ((!args || args.members === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'members'");
             }
-            inputs["group"] = args ? args.group : undefined;
-            inputs["members"] = args ? args.members : undefined;
-            inputs["mode"] = args ? args.mode : undefined;
+            resourceInputs["group"] = args ? args.group : undefined;
+            resourceInputs["members"] = args ? args.members : undefined;
+            resourceInputs["mode"] = args ? args.mode : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(GroupMembership.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(GroupMembership.__pulumiType, name, resourceInputs, opts);
     }
 }
 

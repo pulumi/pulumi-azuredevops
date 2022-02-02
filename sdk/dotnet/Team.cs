@@ -29,16 +29,16 @@ namespace Pulumi.AzureDevOps
     ///             Visibility = "private",
     ///             Description = "My first project",
     ///         });
-    ///         var builtinProjectContributors = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         var builtinProjectContributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = id,
+    ///             ProjectId = project.Id,
     ///             Name = "Contributors",
-    ///         }));
-    ///         var builtinProjectReaders = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         });
+    ///         var builtinProjectReaders = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = id,
+    ///             ProjectId = project.Id,
     ///             Name = "Readers",
-    ///         }));
+    ///         });
     ///         var team = new AzureDevOps.Team("team", new AzureDevOps.TeamArgs
     ///         {
     ///             ProjectId = project.Id,

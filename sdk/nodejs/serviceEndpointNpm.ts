@@ -102,17 +102,17 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointNpmArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointNpmArgs | ServiceEndpointNpmState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointNpmState | undefined;
-            inputs["accessToken"] = state ? state.accessToken : undefined;
-            inputs["accessTokenHash"] = state ? state.accessTokenHash : undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["accessToken"] = state ? state.accessToken : undefined;
+            resourceInputs["accessTokenHash"] = state ? state.accessTokenHash : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServiceEndpointNpmArgs | undefined;
             if ((!args || args.accessToken === undefined) && !opts.urn) {
@@ -127,18 +127,16 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["accessToken"] = args ? args.accessToken : undefined;
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["accessTokenHash"] = undefined /*out*/;
+            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["accessTokenHash"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceEndpointNpm.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceEndpointNpm.__pulumiType, name, resourceInputs, opts);
     }
 }
 

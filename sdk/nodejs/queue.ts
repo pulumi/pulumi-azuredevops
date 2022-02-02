@@ -91,12 +91,12 @@ export class Queue extends pulumi.CustomResource {
      */
     constructor(name: string, args: QueueArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: QueueArgs | QueueState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as QueueState | undefined;
-            inputs["agentPoolId"] = state ? state.agentPoolId : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["agentPoolId"] = state ? state.agentPoolId : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
         } else {
             const args = argsOrState as QueueArgs | undefined;
             if ((!args || args.agentPoolId === undefined) && !opts.urn) {
@@ -105,15 +105,13 @@ export class Queue extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["agentPoolId"] = args ? args.agentPoolId : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["agentPoolId"] = args ? args.agentPoolId : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:Agent/queue:Queue" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(Queue.__pulumiType, name, inputs, opts);
+        super(Queue.__pulumiType, name, resourceInputs, opts);
     }
 }
 

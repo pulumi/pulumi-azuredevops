@@ -133,7 +133,7 @@ def get_area(fetch_children: Optional[bool] = None,
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    area = project.id.apply(lambda id: azuredevops.get_area(project_id=id,
+    area = project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
         path="/",
         fetch_children=False))
     ```
@@ -191,7 +191,7 @@ def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = Non
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    area = project.id.apply(lambda id: azuredevops.get_area(project_id=id,
+    area = project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
         path="/",
         fetch_children=False))
     ```

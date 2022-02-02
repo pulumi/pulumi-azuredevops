@@ -277,7 +277,7 @@ type ServiceEndpointServiceFabricInput interface {
 }
 
 func (*ServiceEndpointServiceFabric) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointServiceFabric)(nil))
+	return reflect.TypeOf((**ServiceEndpointServiceFabric)(nil)).Elem()
 }
 
 func (i *ServiceEndpointServiceFabric) ToServiceEndpointServiceFabricOutput() ServiceEndpointServiceFabricOutput {
@@ -286,35 +286,6 @@ func (i *ServiceEndpointServiceFabric) ToServiceEndpointServiceFabricOutput() Se
 
 func (i *ServiceEndpointServiceFabric) ToServiceEndpointServiceFabricOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricOutput)
-}
-
-func (i *ServiceEndpointServiceFabric) ToServiceEndpointServiceFabricPtrOutput() ServiceEndpointServiceFabricPtrOutput {
-	return i.ToServiceEndpointServiceFabricPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointServiceFabric) ToServiceEndpointServiceFabricPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricPtrOutput)
-}
-
-type ServiceEndpointServiceFabricPtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointServiceFabricPtrOutput() ServiceEndpointServiceFabricPtrOutput
-	ToServiceEndpointServiceFabricPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricPtrOutput
-}
-
-type serviceEndpointServiceFabricPtrType ServiceEndpointServiceFabricArgs
-
-func (*serviceEndpointServiceFabricPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointServiceFabric)(nil))
-}
-
-func (i *serviceEndpointServiceFabricPtrType) ToServiceEndpointServiceFabricPtrOutput() ServiceEndpointServiceFabricPtrOutput {
-	return i.ToServiceEndpointServiceFabricPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointServiceFabricPtrType) ToServiceEndpointServiceFabricPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricPtrOutput)
 }
 
 // ServiceEndpointServiceFabricArrayInput is an input type that accepts ServiceEndpointServiceFabricArray and ServiceEndpointServiceFabricArrayOutput values.
@@ -370,7 +341,7 @@ func (i ServiceEndpointServiceFabricMap) ToServiceEndpointServiceFabricMapOutput
 type ServiceEndpointServiceFabricOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointServiceFabricOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointServiceFabric)(nil))
+	return reflect.TypeOf((**ServiceEndpointServiceFabric)(nil)).Elem()
 }
 
 func (o ServiceEndpointServiceFabricOutput) ToServiceEndpointServiceFabricOutput() ServiceEndpointServiceFabricOutput {
@@ -381,44 +352,10 @@ func (o ServiceEndpointServiceFabricOutput) ToServiceEndpointServiceFabricOutput
 	return o
 }
 
-func (o ServiceEndpointServiceFabricOutput) ToServiceEndpointServiceFabricPtrOutput() ServiceEndpointServiceFabricPtrOutput {
-	return o.ToServiceEndpointServiceFabricPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointServiceFabricOutput) ToServiceEndpointServiceFabricPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointServiceFabric) *ServiceEndpointServiceFabric {
-		return &v
-	}).(ServiceEndpointServiceFabricPtrOutput)
-}
-
-type ServiceEndpointServiceFabricPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointServiceFabricPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointServiceFabric)(nil))
-}
-
-func (o ServiceEndpointServiceFabricPtrOutput) ToServiceEndpointServiceFabricPtrOutput() ServiceEndpointServiceFabricPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointServiceFabricPtrOutput) ToServiceEndpointServiceFabricPtrOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointServiceFabricPtrOutput) Elem() ServiceEndpointServiceFabricOutput {
-	return o.ApplyT(func(v *ServiceEndpointServiceFabric) ServiceEndpointServiceFabric {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointServiceFabric
-		return ret
-	}).(ServiceEndpointServiceFabricOutput)
-}
-
 type ServiceEndpointServiceFabricArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointServiceFabricArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointServiceFabric)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointServiceFabric)(nil)).Elem()
 }
 
 func (o ServiceEndpointServiceFabricArrayOutput) ToServiceEndpointServiceFabricArrayOutput() ServiceEndpointServiceFabricArrayOutput {
@@ -430,15 +367,15 @@ func (o ServiceEndpointServiceFabricArrayOutput) ToServiceEndpointServiceFabricA
 }
 
 func (o ServiceEndpointServiceFabricArrayOutput) Index(i pulumi.IntInput) ServiceEndpointServiceFabricOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointServiceFabric {
-		return vs[0].([]ServiceEndpointServiceFabric)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointServiceFabric {
+		return vs[0].([]*ServiceEndpointServiceFabric)[vs[1].(int)]
 	}).(ServiceEndpointServiceFabricOutput)
 }
 
 type ServiceEndpointServiceFabricMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointServiceFabricMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointServiceFabric)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointServiceFabric)(nil)).Elem()
 }
 
 func (o ServiceEndpointServiceFabricMapOutput) ToServiceEndpointServiceFabricMapOutput() ServiceEndpointServiceFabricMapOutput {
@@ -450,18 +387,16 @@ func (o ServiceEndpointServiceFabricMapOutput) ToServiceEndpointServiceFabricMap
 }
 
 func (o ServiceEndpointServiceFabricMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointServiceFabricOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointServiceFabric {
-		return vs[0].(map[string]ServiceEndpointServiceFabric)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointServiceFabric {
+		return vs[0].(map[string]*ServiceEndpointServiceFabric)[vs[1].(string)]
 	}).(ServiceEndpointServiceFabricOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricInput)(nil)).Elem(), &ServiceEndpointServiceFabric{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricPtrInput)(nil)).Elem(), &ServiceEndpointServiceFabric{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricArrayInput)(nil)).Elem(), ServiceEndpointServiceFabricArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricMapInput)(nil)).Elem(), ServiceEndpointServiceFabricMap{})
 	pulumi.RegisterOutputType(ServiceEndpointServiceFabricOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointServiceFabricPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointServiceFabricArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointServiceFabricMapOutput{})
 }

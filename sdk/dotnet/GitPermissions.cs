@@ -129,21 +129,21 @@ namespace Pulumi.AzureDevOps
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
     ///         });
-    ///         var project_readers = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         var project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = id,
+    ///             ProjectId = project.Id,
     ///             Name = "Readers",
-    ///         }));
-    ///         var project_contributors = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         });
+    ///         var project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = id,
+    ///             ProjectId = project.Id,
     ///             Name = "Contributors",
-    ///         }));
-    ///         var project_administrators = project.Id.Apply(id =&gt; AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         });
+    ///         var project_administrators = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = id,
+    ///             ProjectId = project.Id,
     ///             Name = "Project administrators",
-    ///         }));
+    ///         });
     ///         var project_git_root_permissions = new AzureDevOps.GitPermissions("project-git-root-permissions", new AzureDevOps.GitPermissionsArgs
     ///         {
     ///             ProjectId = project.Id,

@@ -197,7 +197,7 @@ type ServiceEndpointGenericInput interface {
 }
 
 func (*ServiceEndpointGeneric) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointGeneric)(nil))
+	return reflect.TypeOf((**ServiceEndpointGeneric)(nil)).Elem()
 }
 
 func (i *ServiceEndpointGeneric) ToServiceEndpointGenericOutput() ServiceEndpointGenericOutput {
@@ -206,35 +206,6 @@ func (i *ServiceEndpointGeneric) ToServiceEndpointGenericOutput() ServiceEndpoin
 
 func (i *ServiceEndpointGeneric) ToServiceEndpointGenericOutputWithContext(ctx context.Context) ServiceEndpointGenericOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGenericOutput)
-}
-
-func (i *ServiceEndpointGeneric) ToServiceEndpointGenericPtrOutput() ServiceEndpointGenericPtrOutput {
-	return i.ToServiceEndpointGenericPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointGeneric) ToServiceEndpointGenericPtrOutputWithContext(ctx context.Context) ServiceEndpointGenericPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGenericPtrOutput)
-}
-
-type ServiceEndpointGenericPtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointGenericPtrOutput() ServiceEndpointGenericPtrOutput
-	ToServiceEndpointGenericPtrOutputWithContext(ctx context.Context) ServiceEndpointGenericPtrOutput
-}
-
-type serviceEndpointGenericPtrType ServiceEndpointGenericArgs
-
-func (*serviceEndpointGenericPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointGeneric)(nil))
-}
-
-func (i *serviceEndpointGenericPtrType) ToServiceEndpointGenericPtrOutput() ServiceEndpointGenericPtrOutput {
-	return i.ToServiceEndpointGenericPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointGenericPtrType) ToServiceEndpointGenericPtrOutputWithContext(ctx context.Context) ServiceEndpointGenericPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGenericPtrOutput)
 }
 
 // ServiceEndpointGenericArrayInput is an input type that accepts ServiceEndpointGenericArray and ServiceEndpointGenericArrayOutput values.
@@ -290,7 +261,7 @@ func (i ServiceEndpointGenericMap) ToServiceEndpointGenericMapOutputWithContext(
 type ServiceEndpointGenericOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGenericOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointGeneric)(nil))
+	return reflect.TypeOf((**ServiceEndpointGeneric)(nil)).Elem()
 }
 
 func (o ServiceEndpointGenericOutput) ToServiceEndpointGenericOutput() ServiceEndpointGenericOutput {
@@ -301,44 +272,10 @@ func (o ServiceEndpointGenericOutput) ToServiceEndpointGenericOutputWithContext(
 	return o
 }
 
-func (o ServiceEndpointGenericOutput) ToServiceEndpointGenericPtrOutput() ServiceEndpointGenericPtrOutput {
-	return o.ToServiceEndpointGenericPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointGenericOutput) ToServiceEndpointGenericPtrOutputWithContext(ctx context.Context) ServiceEndpointGenericPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointGeneric) *ServiceEndpointGeneric {
-		return &v
-	}).(ServiceEndpointGenericPtrOutput)
-}
-
-type ServiceEndpointGenericPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointGenericPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointGeneric)(nil))
-}
-
-func (o ServiceEndpointGenericPtrOutput) ToServiceEndpointGenericPtrOutput() ServiceEndpointGenericPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointGenericPtrOutput) ToServiceEndpointGenericPtrOutputWithContext(ctx context.Context) ServiceEndpointGenericPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointGenericPtrOutput) Elem() ServiceEndpointGenericOutput {
-	return o.ApplyT(func(v *ServiceEndpointGeneric) ServiceEndpointGeneric {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointGeneric
-		return ret
-	}).(ServiceEndpointGenericOutput)
-}
-
 type ServiceEndpointGenericArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGenericArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointGeneric)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointGeneric)(nil)).Elem()
 }
 
 func (o ServiceEndpointGenericArrayOutput) ToServiceEndpointGenericArrayOutput() ServiceEndpointGenericArrayOutput {
@@ -350,15 +287,15 @@ func (o ServiceEndpointGenericArrayOutput) ToServiceEndpointGenericArrayOutputWi
 }
 
 func (o ServiceEndpointGenericArrayOutput) Index(i pulumi.IntInput) ServiceEndpointGenericOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointGeneric {
-		return vs[0].([]ServiceEndpointGeneric)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointGeneric {
+		return vs[0].([]*ServiceEndpointGeneric)[vs[1].(int)]
 	}).(ServiceEndpointGenericOutput)
 }
 
 type ServiceEndpointGenericMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGenericMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointGeneric)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointGeneric)(nil)).Elem()
 }
 
 func (o ServiceEndpointGenericMapOutput) ToServiceEndpointGenericMapOutput() ServiceEndpointGenericMapOutput {
@@ -370,18 +307,16 @@ func (o ServiceEndpointGenericMapOutput) ToServiceEndpointGenericMapOutputWithCo
 }
 
 func (o ServiceEndpointGenericMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointGenericOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointGeneric {
-		return vs[0].(map[string]ServiceEndpointGeneric)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointGeneric {
+		return vs[0].(map[string]*ServiceEndpointGeneric)[vs[1].(string)]
 	}).(ServiceEndpointGenericOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGenericInput)(nil)).Elem(), &ServiceEndpointGeneric{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGenericPtrInput)(nil)).Elem(), &ServiceEndpointGeneric{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGenericArrayInput)(nil)).Elem(), ServiceEndpointGenericArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointGenericMapInput)(nil)).Elem(), ServiceEndpointGenericMap{})
 	pulumi.RegisterOutputType(ServiceEndpointGenericOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointGenericPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGenericArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointGenericMapOutput{})
 }
