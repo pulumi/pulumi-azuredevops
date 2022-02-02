@@ -97,8 +97,8 @@ def get_agent_queue(name: Optional[str] = None,
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    queue = project.id.apply(lambda id: azuredevops.get_agent_queue(project_id=id,
-        name="Sample Agent Queue"))
+    queue = azuredevops.get_agent_queue_output(project_id=project.id,
+        name="Sample Agent Queue")
     pulumi.export("name", queue.name)
     pulumi.export("poolId", queue.agent_pool_id)
     ```
@@ -145,8 +145,8 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    queue = project.id.apply(lambda id: azuredevops.get_agent_queue(project_id=id,
-        name="Sample Agent Queue"))
+    queue = azuredevops.get_agent_queue_output(project_id=project.id,
+        name="Sample Agent Queue")
     pulumi.export("name", queue.name)
     pulumi.export("poolId", queue.agent_pool_id)
     ```

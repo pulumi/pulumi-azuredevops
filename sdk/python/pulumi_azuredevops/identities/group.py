@@ -341,10 +341,10 @@ class Group(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project")
-        tf_project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
-        tf_project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Contributors"))
+        tf_project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
+        tf_project_contributors = azuredevops.get_group_output(project_id=project.id,
+            name="Contributors")
         group = azuredevops.Group("group",
             scope=project.id,
             display_name="Test group",
@@ -395,10 +395,10 @@ class Group(pulumi.CustomResource):
         import pulumi_azuredevops as azuredevops
 
         project = azuredevops.Project("project")
-        tf_project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
-        tf_project_contributors = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Contributors"))
+        tf_project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
+        tf_project_contributors = azuredevops.get_group_output(project_id=project.id,
+            name="Contributors")
         group = azuredevops.Group("group",
             scope=project.id,
             display_name="Test group",

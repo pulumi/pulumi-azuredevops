@@ -118,15 +118,15 @@ export class RepositoryPolicyMaxFileSize extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryPolicyMaxFileSizeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryPolicyMaxFileSizeArgs | RepositoryPolicyMaxFileSizeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyMaxFileSizeState | undefined;
-            inputs["blocking"] = state ? state.blocking : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["maxFileSize"] = state ? state.maxFileSize : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["repositoryIds"] = state ? state.repositoryIds : undefined;
+            resourceInputs["blocking"] = state ? state.blocking : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["maxFileSize"] = state ? state.maxFileSize : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["repositoryIds"] = state ? state.repositoryIds : undefined;
         } else {
             const args = argsOrState as RepositoryPolicyMaxFileSizeArgs | undefined;
             if ((!args || args.maxFileSize === undefined) && !opts.urn) {
@@ -135,16 +135,14 @@ export class RepositoryPolicyMaxFileSize extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["blocking"] = args ? args.blocking : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["maxFileSize"] = args ? args.maxFileSize : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["repositoryIds"] = args ? args.repositoryIds : undefined;
+            resourceInputs["blocking"] = args ? args.blocking : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["maxFileSize"] = args ? args.maxFileSize : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["repositoryIds"] = args ? args.repositoryIds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RepositoryPolicyMaxFileSize.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RepositoryPolicyMaxFileSize.__pulumiType, name, resourceInputs, opts);
     }
 }
 

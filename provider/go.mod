@@ -10,6 +10,6 @@ replace (
 
 require (
 	github.com/microsoft/terraform-provider-azuredevops v0.1.8
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.11.0
-	github.com/pulumi/pulumi/sdk/v3 v3.17.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.18.0
+	github.com/pulumi/pulumi/sdk/v3 v3.23.2
 )

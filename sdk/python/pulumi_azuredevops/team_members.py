@@ -183,8 +183,8 @@ class TeamMembers(pulumi.CustomResource):
             version_control="Git",
             visibility="private",
             description="My first project")
-        builtin_project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
+        builtin_project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
         team = azuredevops.Team("team", project_id=project.id)
         team_members = azuredevops.TeamMembers("teamMembers",
             project_id=team.project_id,
@@ -233,8 +233,8 @@ class TeamMembers(pulumi.CustomResource):
             version_control="Git",
             visibility="private",
             description="My first project")
-        builtin_project_readers = project.id.apply(lambda id: azuredevops.get_group(project_id=id,
-            name="Readers"))
+        builtin_project_readers = azuredevops.get_group_output(project_id=project.id,
+            name="Readers")
         team = azuredevops.Team("team", project_id=project.id)
         team_members = azuredevops.TeamMembers("teamMembers",
             project_id=team.project_id,

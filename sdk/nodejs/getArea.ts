@@ -22,7 +22,7 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const area = project.id.apply(id => azuredevops.getArea({
+ * const area = project.id.apply(id => azuredevops.getAreaOutput({
  *     projectId: id,
  *     path: "/",
  *     fetchChildren: "false",
@@ -41,9 +41,7 @@ export function getArea(args: GetAreaArgs, opts?: pulumi.InvokeOptions): Promise
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azuredevops:index/getArea:getArea", {
         "fetchChildren": args.fetchChildren,
         "path": args.path,

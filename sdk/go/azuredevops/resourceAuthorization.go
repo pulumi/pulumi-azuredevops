@@ -183,7 +183,7 @@ type ResourceAuthorizationInput interface {
 }
 
 func (*ResourceAuthorization) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAuthorization)(nil))
+	return reflect.TypeOf((**ResourceAuthorization)(nil)).Elem()
 }
 
 func (i *ResourceAuthorization) ToResourceAuthorizationOutput() ResourceAuthorizationOutput {
@@ -192,35 +192,6 @@ func (i *ResourceAuthorization) ToResourceAuthorizationOutput() ResourceAuthoriz
 
 func (i *ResourceAuthorization) ToResourceAuthorizationOutputWithContext(ctx context.Context) ResourceAuthorizationOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationOutput)
-}
-
-func (i *ResourceAuthorization) ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput {
-	return i.ToResourceAuthorizationPtrOutputWithContext(context.Background())
-}
-
-func (i *ResourceAuthorization) ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationPtrOutput)
-}
-
-type ResourceAuthorizationPtrInput interface {
-	pulumi.Input
-
-	ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput
-	ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput
-}
-
-type resourceAuthorizationPtrType ResourceAuthorizationArgs
-
-func (*resourceAuthorizationPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceAuthorization)(nil))
-}
-
-func (i *resourceAuthorizationPtrType) ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput {
-	return i.ToResourceAuthorizationPtrOutputWithContext(context.Background())
-}
-
-func (i *resourceAuthorizationPtrType) ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationPtrOutput)
 }
 
 // ResourceAuthorizationArrayInput is an input type that accepts ResourceAuthorizationArray and ResourceAuthorizationArrayOutput values.
@@ -276,7 +247,7 @@ func (i ResourceAuthorizationMap) ToResourceAuthorizationMapOutputWithContext(ct
 type ResourceAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ResourceAuthorizationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ResourceAuthorization)(nil))
+	return reflect.TypeOf((**ResourceAuthorization)(nil)).Elem()
 }
 
 func (o ResourceAuthorizationOutput) ToResourceAuthorizationOutput() ResourceAuthorizationOutput {
@@ -287,44 +258,10 @@ func (o ResourceAuthorizationOutput) ToResourceAuthorizationOutputWithContext(ct
 	return o
 }
 
-func (o ResourceAuthorizationOutput) ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput {
-	return o.ToResourceAuthorizationPtrOutputWithContext(context.Background())
-}
-
-func (o ResourceAuthorizationOutput) ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceAuthorization) *ResourceAuthorization {
-		return &v
-	}).(ResourceAuthorizationPtrOutput)
-}
-
-type ResourceAuthorizationPtrOutput struct{ *pulumi.OutputState }
-
-func (ResourceAuthorizationPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ResourceAuthorization)(nil))
-}
-
-func (o ResourceAuthorizationPtrOutput) ToResourceAuthorizationPtrOutput() ResourceAuthorizationPtrOutput {
-	return o
-}
-
-func (o ResourceAuthorizationPtrOutput) ToResourceAuthorizationPtrOutputWithContext(ctx context.Context) ResourceAuthorizationPtrOutput {
-	return o
-}
-
-func (o ResourceAuthorizationPtrOutput) Elem() ResourceAuthorizationOutput {
-	return o.ApplyT(func(v *ResourceAuthorization) ResourceAuthorization {
-		if v != nil {
-			return *v
-		}
-		var ret ResourceAuthorization
-		return ret
-	}).(ResourceAuthorizationOutput)
-}
-
 type ResourceAuthorizationArrayOutput struct{ *pulumi.OutputState }
 
 func (ResourceAuthorizationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ResourceAuthorization)(nil))
+	return reflect.TypeOf((*[]*ResourceAuthorization)(nil)).Elem()
 }
 
 func (o ResourceAuthorizationArrayOutput) ToResourceAuthorizationArrayOutput() ResourceAuthorizationArrayOutput {
@@ -336,15 +273,15 @@ func (o ResourceAuthorizationArrayOutput) ToResourceAuthorizationArrayOutputWith
 }
 
 func (o ResourceAuthorizationArrayOutput) Index(i pulumi.IntInput) ResourceAuthorizationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ResourceAuthorization {
-		return vs[0].([]ResourceAuthorization)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceAuthorization {
+		return vs[0].([]*ResourceAuthorization)[vs[1].(int)]
 	}).(ResourceAuthorizationOutput)
 }
 
 type ResourceAuthorizationMapOutput struct{ *pulumi.OutputState }
 
 func (ResourceAuthorizationMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ResourceAuthorization)(nil))
+	return reflect.TypeOf((*map[string]*ResourceAuthorization)(nil)).Elem()
 }
 
 func (o ResourceAuthorizationMapOutput) ToResourceAuthorizationMapOutput() ResourceAuthorizationMapOutput {
@@ -356,18 +293,16 @@ func (o ResourceAuthorizationMapOutput) ToResourceAuthorizationMapOutputWithCont
 }
 
 func (o ResourceAuthorizationMapOutput) MapIndex(k pulumi.StringInput) ResourceAuthorizationOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ResourceAuthorization {
-		return vs[0].(map[string]ResourceAuthorization)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ResourceAuthorization {
+		return vs[0].(map[string]*ResourceAuthorization)[vs[1].(string)]
 	}).(ResourceAuthorizationOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAuthorizationInput)(nil)).Elem(), &ResourceAuthorization{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAuthorizationPtrInput)(nil)).Elem(), &ResourceAuthorization{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAuthorizationArrayInput)(nil)).Elem(), ResourceAuthorizationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ResourceAuthorizationMapInput)(nil)).Elem(), ResourceAuthorizationMap{})
 	pulumi.RegisterOutputType(ResourceAuthorizationOutput{})
-	pulumi.RegisterOutputType(ResourceAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(ResourceAuthorizationArrayOutput{})
 	pulumi.RegisterOutputType(ResourceAuthorizationMapOutput{})
 }

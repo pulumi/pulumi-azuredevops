@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps
 {
@@ -36,7 +35,7 @@ namespace Pulumi.AzureDevOps
         ///             Visibility = "private",
         ///             Description = "Managed by Terraform",
         ///         });
-        ///         var area = project.Id.Apply(id =&gt; AzureDevOps.GetArea.InvokeAsync(new AzureDevOps.GetAreaArgs
+        ///         var area = project.Id.Apply(id =&gt; AzureDevOps.GetArea.Invoke(new AzureDevOps.GetAreaInvokeArgs
         ///         {
         ///             ProjectId = id,
         ///             Path = "/",
@@ -57,7 +56,7 @@ namespace Pulumi.AzureDevOps
         /// - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
         /// </summary>
         public static Task<GetAreaResult> InvokeAsync(GetAreaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Area (Component) within Azure DevOps.
@@ -83,7 +82,7 @@ namespace Pulumi.AzureDevOps
         ///             Visibility = "private",
         ///             Description = "Managed by Terraform",
         ///         });
-        ///         var area = project.Id.Apply(id =&gt; AzureDevOps.GetArea.InvokeAsync(new AzureDevOps.GetAreaArgs
+        ///         var area = project.Id.Apply(id =&gt; AzureDevOps.GetArea.Invoke(new AzureDevOps.GetAreaInvokeArgs
         ///         {
         ///             ProjectId = id,
         ///             Path = "/",
@@ -104,7 +103,7 @@ namespace Pulumi.AzureDevOps
         /// - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
         /// </summary>
         public static Output<GetAreaResult> Invoke(GetAreaInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaInvokeArgs(), options.WithDefaults());
     }
 
 

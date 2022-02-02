@@ -39,9 +39,7 @@ export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.Invoke
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azuredevops:Repository/getRepositories:getRepositories", {
         "includeHidden": args.includeHidden,
         "name": args.name,

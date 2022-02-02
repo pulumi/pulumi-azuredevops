@@ -104,18 +104,18 @@ export class ServiceEndpointGeneric extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointGenericArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointGenericArgs | ServiceEndpointGenericState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointGenericState | undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["passwordHash"] = state ? state.passwordHash : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["serverUrl"] = state ? state.serverUrl : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["passwordHash"] = state ? state.passwordHash : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["serverUrl"] = state ? state.serverUrl : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as ServiceEndpointGenericArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -127,19 +127,17 @@ export class ServiceEndpointGeneric extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["serverUrl"] = args ? args.serverUrl : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["passwordHash"] = undefined /*out*/;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["serverUrl"] = args ? args.serverUrl : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["passwordHash"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceEndpointGeneric.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceEndpointGeneric.__pulumiType, name, resourceInputs, opts);
     }
 }
 

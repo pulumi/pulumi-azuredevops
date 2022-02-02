@@ -122,15 +122,15 @@ export class RepositoryPolicyFilePathPattern extends pulumi.CustomResource {
      */
     constructor(name: string, args: RepositoryPolicyFilePathPatternArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: RepositoryPolicyFilePathPatternArgs | RepositoryPolicyFilePathPatternState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as RepositoryPolicyFilePathPatternState | undefined;
-            inputs["blocking"] = state ? state.blocking : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["filepathPatterns"] = state ? state.filepathPatterns : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["repositoryIds"] = state ? state.repositoryIds : undefined;
+            resourceInputs["blocking"] = state ? state.blocking : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["filepathPatterns"] = state ? state.filepathPatterns : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["repositoryIds"] = state ? state.repositoryIds : undefined;
         } else {
             const args = argsOrState as RepositoryPolicyFilePathPatternArgs | undefined;
             if ((!args || args.filepathPatterns === undefined) && !opts.urn) {
@@ -139,16 +139,14 @@ export class RepositoryPolicyFilePathPattern extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["blocking"] = args ? args.blocking : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["filepathPatterns"] = args ? args.filepathPatterns : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["repositoryIds"] = args ? args.repositoryIds : undefined;
+            resourceInputs["blocking"] = args ? args.blocking : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["filepathPatterns"] = args ? args.filepathPatterns : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["repositoryIds"] = args ? args.repositoryIds : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(RepositoryPolicyFilePathPattern.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(RepositoryPolicyFilePathPattern.__pulumiType, name, resourceInputs, opts);
     }
 }
 

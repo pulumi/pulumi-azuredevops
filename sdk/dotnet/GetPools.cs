@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
         /// </summary>
         public static Task<GetPoolsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolsResult>("azuredevops:index/getPools:getPools", InvokeArgs.Empty, options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolsResult>("azuredevops:index/getPools:getPools", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

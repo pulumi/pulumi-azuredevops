@@ -147,18 +147,18 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointServiceFabricArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointServiceFabricArgs | ServiceEndpointServiceFabricState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointServiceFabricState | undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
-            inputs["certificate"] = state ? state.certificate : undefined;
-            inputs["clusterEndpoint"] = state ? state.clusterEndpoint : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["none"] = state ? state.none : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["azureActiveDirectory"] = state ? state.azureActiveDirectory : undefined;
+            resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["clusterEndpoint"] = state ? state.clusterEndpoint : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["none"] = state ? state.none : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointServiceFabricArgs | undefined;
             if ((!args || args.clusterEndpoint === undefined) && !opts.urn) {
@@ -170,19 +170,17 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            inputs["certificate"] = args ? args.certificate : undefined;
-            inputs["clusterEndpoint"] = args ? args.clusterEndpoint : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["none"] = args ? args.none : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
+            resourceInputs["certificate"] = args ? args.certificate : undefined;
+            resourceInputs["clusterEndpoint"] = args ? args.clusterEndpoint : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["none"] = args ? args.none : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceEndpointServiceFabric.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceEndpointServiceFabric.__pulumiType, name, resourceInputs, opts);
     }
 }
 

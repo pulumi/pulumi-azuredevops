@@ -114,21 +114,21 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointSshArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointSshArgs | ServiceEndpointSshState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointSshState | undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["host"] = state ? state.host : undefined;
-            inputs["password"] = state ? state.password : undefined;
-            inputs["passwordHash"] = state ? state.passwordHash : undefined;
-            inputs["port"] = state ? state.port : undefined;
-            inputs["privateKey"] = state ? state.privateKey : undefined;
-            inputs["privateKeyHash"] = state ? state.privateKeyHash : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            inputs["username"] = state ? state.username : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["host"] = state ? state.host : undefined;
+            resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["passwordHash"] = state ? state.passwordHash : undefined;
+            resourceInputs["port"] = state ? state.port : undefined;
+            resourceInputs["privateKey"] = state ? state.privateKey : undefined;
+            resourceInputs["privateKeyHash"] = state ? state.privateKeyHash : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["username"] = state ? state.username : undefined;
         } else {
             const args = argsOrState as ServiceEndpointSshArgs | undefined;
             if ((!args || args.host === undefined) && !opts.urn) {
@@ -143,22 +143,20 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
             if ((!args || args.username === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["host"] = args ? args.host : undefined;
-            inputs["password"] = args ? args.password : undefined;
-            inputs["port"] = args ? args.port : undefined;
-            inputs["privateKey"] = args ? args.privateKey : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            inputs["username"] = args ? args.username : undefined;
-            inputs["passwordHash"] = undefined /*out*/;
-            inputs["privateKeyHash"] = undefined /*out*/;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["host"] = args ? args.host : undefined;
+            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["port"] = args ? args.port : undefined;
+            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["passwordHash"] = undefined /*out*/;
+            resourceInputs["privateKeyHash"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceEndpointSsh.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceEndpointSsh.__pulumiType, name, resourceInputs, opts);
     }
 }
 

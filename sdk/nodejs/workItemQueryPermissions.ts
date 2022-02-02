@@ -71,14 +71,14 @@ import * as utilities from "./utilities";
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const project-readers = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * const project-readers = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Readers",
- * }));
- * const project-contributors = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * });
+ * const project-contributors = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Contributors",
- * }));
+ * });
  * const wiq_project_permissions = new azuredevops.WorkItemQueryPermissions("wiq-project-permissions", {
  *     projectId: project.id,
  *     principal: project_readers.apply(project_readers => project_readers.id),
@@ -169,15 +169,15 @@ export class WorkItemQueryPermissions extends pulumi.CustomResource {
      */
     constructor(name: string, args: WorkItemQueryPermissionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: WorkItemQueryPermissionsArgs | WorkItemQueryPermissionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkItemQueryPermissionsState | undefined;
-            inputs["path"] = state ? state.path : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["replace"] = state ? state.replace : undefined;
+            resourceInputs["path"] = state ? state.path : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["replace"] = state ? state.replace : undefined;
         } else {
             const args = argsOrState as WorkItemQueryPermissionsArgs | undefined;
             if ((!args || args.permissions === undefined) && !opts.urn) {
@@ -189,16 +189,14 @@ export class WorkItemQueryPermissions extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["path"] = args ? args.path : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["replace"] = args ? args.replace : undefined;
+            resourceInputs["path"] = args ? args.path : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["replace"] = args ? args.replace : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(WorkItemQueryPermissions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(WorkItemQueryPermissions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

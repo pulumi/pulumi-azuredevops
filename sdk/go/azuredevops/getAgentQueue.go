@@ -33,6 +33,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		queue := azuredevops.GetAgentQueueOutput(ctx, GetAgentQueueOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Sample Agent Queue"),
+// 		}, nil)
 // 		ctx.Export("name", queue.ApplyT(func(queue GetAgentQueueResult) (string, error) {
 // 			return queue.Name, nil
 // 		}).(pulumi.StringOutput))

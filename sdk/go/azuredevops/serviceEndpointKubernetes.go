@@ -184,7 +184,7 @@ type ServiceEndpointKubernetesInput interface {
 }
 
 func (*ServiceEndpointKubernetes) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointKubernetes)(nil))
+	return reflect.TypeOf((**ServiceEndpointKubernetes)(nil)).Elem()
 }
 
 func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutput() ServiceEndpointKubernetesOutput {
@@ -193,35 +193,6 @@ func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutput() ServiceE
 
 func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutputWithContext(ctx context.Context) ServiceEndpointKubernetesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesOutput)
-}
-
-func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput {
-	return i.ToServiceEndpointKubernetesPtrOutputWithContext(context.Background())
-}
-
-func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesPtrOutput)
-}
-
-type ServiceEndpointKubernetesPtrInput interface {
-	pulumi.Input
-
-	ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput
-	ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput
-}
-
-type serviceEndpointKubernetesPtrType ServiceEndpointKubernetesArgs
-
-func (*serviceEndpointKubernetesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointKubernetes)(nil))
-}
-
-func (i *serviceEndpointKubernetesPtrType) ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput {
-	return i.ToServiceEndpointKubernetesPtrOutputWithContext(context.Background())
-}
-
-func (i *serviceEndpointKubernetesPtrType) ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesPtrOutput)
 }
 
 // ServiceEndpointKubernetesArrayInput is an input type that accepts ServiceEndpointKubernetesArray and ServiceEndpointKubernetesArrayOutput values.
@@ -277,7 +248,7 @@ func (i ServiceEndpointKubernetesMap) ToServiceEndpointKubernetesMapOutputWithCo
 type ServiceEndpointKubernetesOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointKubernetesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ServiceEndpointKubernetes)(nil))
+	return reflect.TypeOf((**ServiceEndpointKubernetes)(nil)).Elem()
 }
 
 func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesOutput() ServiceEndpointKubernetesOutput {
@@ -288,44 +259,10 @@ func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesOutputWithCo
 	return o
 }
 
-func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput {
-	return o.ToServiceEndpointKubernetesPtrOutputWithContext(context.Background())
-}
-
-func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceEndpointKubernetes) *ServiceEndpointKubernetes {
-		return &v
-	}).(ServiceEndpointKubernetesPtrOutput)
-}
-
-type ServiceEndpointKubernetesPtrOutput struct{ *pulumi.OutputState }
-
-func (ServiceEndpointKubernetesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ServiceEndpointKubernetes)(nil))
-}
-
-func (o ServiceEndpointKubernetesPtrOutput) ToServiceEndpointKubernetesPtrOutput() ServiceEndpointKubernetesPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointKubernetesPtrOutput) ToServiceEndpointKubernetesPtrOutputWithContext(ctx context.Context) ServiceEndpointKubernetesPtrOutput {
-	return o
-}
-
-func (o ServiceEndpointKubernetesPtrOutput) Elem() ServiceEndpointKubernetesOutput {
-	return o.ApplyT(func(v *ServiceEndpointKubernetes) ServiceEndpointKubernetes {
-		if v != nil {
-			return *v
-		}
-		var ret ServiceEndpointKubernetes
-		return ret
-	}).(ServiceEndpointKubernetesOutput)
-}
-
 type ServiceEndpointKubernetesArrayOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointKubernetesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ServiceEndpointKubernetes)(nil))
+	return reflect.TypeOf((*[]*ServiceEndpointKubernetes)(nil)).Elem()
 }
 
 func (o ServiceEndpointKubernetesArrayOutput) ToServiceEndpointKubernetesArrayOutput() ServiceEndpointKubernetesArrayOutput {
@@ -337,15 +274,15 @@ func (o ServiceEndpointKubernetesArrayOutput) ToServiceEndpointKubernetesArrayOu
 }
 
 func (o ServiceEndpointKubernetesArrayOutput) Index(i pulumi.IntInput) ServiceEndpointKubernetesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ServiceEndpointKubernetes {
-		return vs[0].([]ServiceEndpointKubernetes)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointKubernetes {
+		return vs[0].([]*ServiceEndpointKubernetes)[vs[1].(int)]
 	}).(ServiceEndpointKubernetesOutput)
 }
 
 type ServiceEndpointKubernetesMapOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointKubernetesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ServiceEndpointKubernetes)(nil))
+	return reflect.TypeOf((*map[string]*ServiceEndpointKubernetes)(nil)).Elem()
 }
 
 func (o ServiceEndpointKubernetesMapOutput) ToServiceEndpointKubernetesMapOutput() ServiceEndpointKubernetesMapOutput {
@@ -357,18 +294,16 @@ func (o ServiceEndpointKubernetesMapOutput) ToServiceEndpointKubernetesMapOutput
 }
 
 func (o ServiceEndpointKubernetesMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointKubernetesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ServiceEndpointKubernetes {
-		return vs[0].(map[string]ServiceEndpointKubernetes)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ServiceEndpointKubernetes {
+		return vs[0].(map[string]*ServiceEndpointKubernetes)[vs[1].(string)]
 	}).(ServiceEndpointKubernetesOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesInput)(nil)).Elem(), &ServiceEndpointKubernetes{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesPtrInput)(nil)).Elem(), &ServiceEndpointKubernetes{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesArrayInput)(nil)).Elem(), ServiceEndpointKubernetesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointKubernetesMapInput)(nil)).Elem(), ServiceEndpointKubernetesMap{})
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesOutput{})
-	pulumi.RegisterOutputType(ServiceEndpointKubernetesPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesArrayOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointKubernetesMapOutput{})
 }

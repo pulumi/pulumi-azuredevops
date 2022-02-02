@@ -121,16 +121,16 @@ export class VariableGroup extends pulumi.CustomResource {
      */
     constructor(name: string, args: VariableGroupArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: VariableGroupArgs | VariableGroupState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VariableGroupState | undefined;
-            inputs["allowAccess"] = state ? state.allowAccess : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["keyVault"] = state ? state.keyVault : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["variables"] = state ? state.variables : undefined;
+            resourceInputs["allowAccess"] = state ? state.allowAccess : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["keyVault"] = state ? state.keyVault : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["variables"] = state ? state.variables : undefined;
         } else {
             const args = argsOrState as VariableGroupArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -139,19 +139,17 @@ export class VariableGroup extends pulumi.CustomResource {
             if ((!args || args.variables === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'variables'");
             }
-            inputs["allowAccess"] = args ? args.allowAccess : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["keyVault"] = args ? args.keyVault : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["allowAccess"] = args ? args.allowAccess : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["keyVault"] = args ? args.keyVault : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["variables"] = args ? args.variables : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:Pipeline/variableGroup:VariableGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(VariableGroup.__pulumiType, name, inputs, opts);
+        super(VariableGroup.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -183,7 +183,7 @@ type BranchPolicyWorkItemLinkingInput interface {
 }
 
 func (*BranchPolicyWorkItemLinking) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyWorkItemLinking)(nil))
+	return reflect.TypeOf((**BranchPolicyWorkItemLinking)(nil)).Elem()
 }
 
 func (i *BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutput() BranchPolicyWorkItemLinkingOutput {
@@ -192,35 +192,6 @@ func (i *BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutput() Bran
 
 func (i *BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingOutput)
-}
-
-func (i *BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingPtrOutput() BranchPolicyWorkItemLinkingPtrOutput {
-	return i.ToBranchPolicyWorkItemLinkingPtrOutputWithContext(context.Background())
-}
-
-func (i *BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingPtrOutput)
-}
-
-type BranchPolicyWorkItemLinkingPtrInput interface {
-	pulumi.Input
-
-	ToBranchPolicyWorkItemLinkingPtrOutput() BranchPolicyWorkItemLinkingPtrOutput
-	ToBranchPolicyWorkItemLinkingPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingPtrOutput
-}
-
-type branchPolicyWorkItemLinkingPtrType BranchPolicyWorkItemLinkingArgs
-
-func (*branchPolicyWorkItemLinkingPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchPolicyWorkItemLinking)(nil))
-}
-
-func (i *branchPolicyWorkItemLinkingPtrType) ToBranchPolicyWorkItemLinkingPtrOutput() BranchPolicyWorkItemLinkingPtrOutput {
-	return i.ToBranchPolicyWorkItemLinkingPtrOutputWithContext(context.Background())
-}
-
-func (i *branchPolicyWorkItemLinkingPtrType) ToBranchPolicyWorkItemLinkingPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyWorkItemLinkingPtrOutput)
 }
 
 // BranchPolicyWorkItemLinkingArrayInput is an input type that accepts BranchPolicyWorkItemLinkingArray and BranchPolicyWorkItemLinkingArrayOutput values.
@@ -276,7 +247,7 @@ func (i BranchPolicyWorkItemLinkingMap) ToBranchPolicyWorkItemLinkingMapOutputWi
 type BranchPolicyWorkItemLinkingOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyWorkItemLinkingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyWorkItemLinking)(nil))
+	return reflect.TypeOf((**BranchPolicyWorkItemLinking)(nil)).Elem()
 }
 
 func (o BranchPolicyWorkItemLinkingOutput) ToBranchPolicyWorkItemLinkingOutput() BranchPolicyWorkItemLinkingOutput {
@@ -287,44 +258,10 @@ func (o BranchPolicyWorkItemLinkingOutput) ToBranchPolicyWorkItemLinkingOutputWi
 	return o
 }
 
-func (o BranchPolicyWorkItemLinkingOutput) ToBranchPolicyWorkItemLinkingPtrOutput() BranchPolicyWorkItemLinkingPtrOutput {
-	return o.ToBranchPolicyWorkItemLinkingPtrOutputWithContext(context.Background())
-}
-
-func (o BranchPolicyWorkItemLinkingOutput) ToBranchPolicyWorkItemLinkingPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyWorkItemLinking) *BranchPolicyWorkItemLinking {
-		return &v
-	}).(BranchPolicyWorkItemLinkingPtrOutput)
-}
-
-type BranchPolicyWorkItemLinkingPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchPolicyWorkItemLinkingPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchPolicyWorkItemLinking)(nil))
-}
-
-func (o BranchPolicyWorkItemLinkingPtrOutput) ToBranchPolicyWorkItemLinkingPtrOutput() BranchPolicyWorkItemLinkingPtrOutput {
-	return o
-}
-
-func (o BranchPolicyWorkItemLinkingPtrOutput) ToBranchPolicyWorkItemLinkingPtrOutputWithContext(ctx context.Context) BranchPolicyWorkItemLinkingPtrOutput {
-	return o
-}
-
-func (o BranchPolicyWorkItemLinkingPtrOutput) Elem() BranchPolicyWorkItemLinkingOutput {
-	return o.ApplyT(func(v *BranchPolicyWorkItemLinking) BranchPolicyWorkItemLinking {
-		if v != nil {
-			return *v
-		}
-		var ret BranchPolicyWorkItemLinking
-		return ret
-	}).(BranchPolicyWorkItemLinkingOutput)
-}
-
 type BranchPolicyWorkItemLinkingArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyWorkItemLinkingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BranchPolicyWorkItemLinking)(nil))
+	return reflect.TypeOf((*[]*BranchPolicyWorkItemLinking)(nil)).Elem()
 }
 
 func (o BranchPolicyWorkItemLinkingArrayOutput) ToBranchPolicyWorkItemLinkingArrayOutput() BranchPolicyWorkItemLinkingArrayOutput {
@@ -336,15 +273,15 @@ func (o BranchPolicyWorkItemLinkingArrayOutput) ToBranchPolicyWorkItemLinkingArr
 }
 
 func (o BranchPolicyWorkItemLinkingArrayOutput) Index(i pulumi.IntInput) BranchPolicyWorkItemLinkingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyWorkItemLinking {
-		return vs[0].([]BranchPolicyWorkItemLinking)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyWorkItemLinking {
+		return vs[0].([]*BranchPolicyWorkItemLinking)[vs[1].(int)]
 	}).(BranchPolicyWorkItemLinkingOutput)
 }
 
 type BranchPolicyWorkItemLinkingMapOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyWorkItemLinkingMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BranchPolicyWorkItemLinking)(nil))
+	return reflect.TypeOf((*map[string]*BranchPolicyWorkItemLinking)(nil)).Elem()
 }
 
 func (o BranchPolicyWorkItemLinkingMapOutput) ToBranchPolicyWorkItemLinkingMapOutput() BranchPolicyWorkItemLinkingMapOutput {
@@ -356,18 +293,16 @@ func (o BranchPolicyWorkItemLinkingMapOutput) ToBranchPolicyWorkItemLinkingMapOu
 }
 
 func (o BranchPolicyWorkItemLinkingMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyWorkItemLinkingOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchPolicyWorkItemLinking {
-		return vs[0].(map[string]BranchPolicyWorkItemLinking)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BranchPolicyWorkItemLinking {
+		return vs[0].(map[string]*BranchPolicyWorkItemLinking)[vs[1].(string)]
 	}).(BranchPolicyWorkItemLinkingOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingInput)(nil)).Elem(), &BranchPolicyWorkItemLinking{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingPtrInput)(nil)).Elem(), &BranchPolicyWorkItemLinking{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingArrayInput)(nil)).Elem(), BranchPolicyWorkItemLinkingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyWorkItemLinkingMapInput)(nil)).Elem(), BranchPolicyWorkItemLinkingMap{})
 	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingOutput{})
-	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingArrayOutput{})
 	pulumi.RegisterOutputType(BranchPolicyWorkItemLinkingMapOutput{})
 }

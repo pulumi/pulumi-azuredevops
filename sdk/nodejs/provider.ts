@@ -42,16 +42,14 @@ export class Provider extends pulumi.ProviderResource {
      * @param opts A bag of options that control this resource's behavior.
      */
     constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            inputs["orgServiceUrl"] = (args ? args.orgServiceUrl : undefined) ?? utilities.getEnv("AZDO_ORG_SERVICE_URL");
-            inputs["personalAccessToken"] = args ? args.personalAccessToken : undefined;
+            resourceInputs["orgServiceUrl"] = (args ? args.orgServiceUrl : undefined) ?? utilities.getEnv("AZDO_ORG_SERVICE_URL");
+            resourceInputs["personalAccessToken"] = args ? args.personalAccessToken : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Provider.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
 

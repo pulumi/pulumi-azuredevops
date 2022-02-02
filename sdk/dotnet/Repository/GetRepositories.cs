@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps.Repository
 {
@@ -54,7 +53,7 @@ namespace Pulumi.AzureDevOps.Repository
         /// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
         /// </summary>
         public static Task<GetRepositoriesResult> InvokeAsync(GetRepositoriesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("azuredevops:Repository/getRepositories:getRepositories", args ?? new GetRepositoriesArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("azuredevops:Repository/getRepositories:getRepositories", args ?? new GetRepositoriesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
@@ -97,7 +96,7 @@ namespace Pulumi.AzureDevOps.Repository
         /// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
         /// </summary>
         public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("azuredevops:Repository/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("azuredevops:Repository/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
     }
 
 

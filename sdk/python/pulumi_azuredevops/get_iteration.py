@@ -131,12 +131,12 @@ def get_iteration(fetch_children: Optional[bool] = None,
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    root_iteration = project.id.apply(lambda id: azuredevops.get_iteration(project_id=id,
+    root_iteration = azuredevops.get_iteration_output(project_id=project.id,
         path="/",
-        fetch_children=True))
-    child_iteration = project.id.apply(lambda id: azuredevops.get_iteration(project_id=id,
+        fetch_children=True)
+    child_iteration = azuredevops.get_iteration_output(project_id=project.id,
         path="/Iteration 1",
-        fetch_children=True))
+        fetch_children=True)
     ```
     ## Relevant Links
 
@@ -190,12 +190,12 @@ def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] 
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    root_iteration = project.id.apply(lambda id: azuredevops.get_iteration(project_id=id,
+    root_iteration = azuredevops.get_iteration_output(project_id=project.id,
         path="/",
-        fetch_children=True))
-    child_iteration = project.id.apply(lambda id: azuredevops.get_iteration(project_id=id,
+        fetch_children=True)
+    child_iteration = azuredevops.get_iteration_output(project_id=project.id,
         path="/Iteration 1",
-        fetch_children=True))
+        fetch_children=True)
     ```
     ## Relevant Links
 

@@ -91,15 +91,15 @@ export class ResourceAuthorization extends pulumi.CustomResource {
      */
     constructor(name: string, args: ResourceAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ResourceAuthorizationArgs | ResourceAuthorizationState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ResourceAuthorizationState | undefined;
-            inputs["authorized"] = state ? state.authorized : undefined;
-            inputs["definitionId"] = state ? state.definitionId : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["resourceId"] = state ? state.resourceId : undefined;
-            inputs["type"] = state ? state.type : undefined;
+            resourceInputs["authorized"] = state ? state.authorized : undefined;
+            resourceInputs["definitionId"] = state ? state.definitionId : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["resourceId"] = state ? state.resourceId : undefined;
+            resourceInputs["type"] = state ? state.type : undefined;
         } else {
             const args = argsOrState as ResourceAuthorizationArgs | undefined;
             if ((!args || args.authorized === undefined) && !opts.urn) {
@@ -111,18 +111,16 @@ export class ResourceAuthorization extends pulumi.CustomResource {
             if ((!args || args.resourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            inputs["authorized"] = args ? args.authorized : undefined;
-            inputs["definitionId"] = args ? args.definitionId : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["resourceId"] = args ? args.resourceId : undefined;
-            inputs["type"] = args ? args.type : undefined;
+            resourceInputs["authorized"] = args ? args.authorized : undefined;
+            resourceInputs["definitionId"] = args ? args.definitionId : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["type"] = args ? args.type : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:Security/resourceAuthorization:ResourceAuthorization" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ResourceAuthorization.__pulumiType, name, inputs, opts);
+        super(ResourceAuthorization.__pulumiType, name, resourceInputs, opts);
     }
 }
 

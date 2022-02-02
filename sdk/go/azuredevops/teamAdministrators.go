@@ -34,6 +34,10 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
+// 		builtinProjectContributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: project.ID(),
+// 			Name:      pulumi.String("Contributors"),
+// 		}, nil)
 // 		team, err := azuredevops.NewTeam(ctx, "team", &azuredevops.TeamArgs{
 // 			ProjectId: project.ID(),
 // 		})
@@ -189,7 +193,7 @@ type TeamAdministratorsInput interface {
 }
 
 func (*TeamAdministrators) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamAdministrators)(nil))
+	return reflect.TypeOf((**TeamAdministrators)(nil)).Elem()
 }
 
 func (i *TeamAdministrators) ToTeamAdministratorsOutput() TeamAdministratorsOutput {
@@ -198,35 +202,6 @@ func (i *TeamAdministrators) ToTeamAdministratorsOutput() TeamAdministratorsOutp
 
 func (i *TeamAdministrators) ToTeamAdministratorsOutputWithContext(ctx context.Context) TeamAdministratorsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamAdministratorsOutput)
-}
-
-func (i *TeamAdministrators) ToTeamAdministratorsPtrOutput() TeamAdministratorsPtrOutput {
-	return i.ToTeamAdministratorsPtrOutputWithContext(context.Background())
-}
-
-func (i *TeamAdministrators) ToTeamAdministratorsPtrOutputWithContext(ctx context.Context) TeamAdministratorsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamAdministratorsPtrOutput)
-}
-
-type TeamAdministratorsPtrInput interface {
-	pulumi.Input
-
-	ToTeamAdministratorsPtrOutput() TeamAdministratorsPtrOutput
-	ToTeamAdministratorsPtrOutputWithContext(ctx context.Context) TeamAdministratorsPtrOutput
-}
-
-type teamAdministratorsPtrType TeamAdministratorsArgs
-
-func (*teamAdministratorsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamAdministrators)(nil))
-}
-
-func (i *teamAdministratorsPtrType) ToTeamAdministratorsPtrOutput() TeamAdministratorsPtrOutput {
-	return i.ToTeamAdministratorsPtrOutputWithContext(context.Background())
-}
-
-func (i *teamAdministratorsPtrType) ToTeamAdministratorsPtrOutputWithContext(ctx context.Context) TeamAdministratorsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(TeamAdministratorsPtrOutput)
 }
 
 // TeamAdministratorsArrayInput is an input type that accepts TeamAdministratorsArray and TeamAdministratorsArrayOutput values.
@@ -282,7 +257,7 @@ func (i TeamAdministratorsMap) ToTeamAdministratorsMapOutputWithContext(ctx cont
 type TeamAdministratorsOutput struct{ *pulumi.OutputState }
 
 func (TeamAdministratorsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*TeamAdministrators)(nil))
+	return reflect.TypeOf((**TeamAdministrators)(nil)).Elem()
 }
 
 func (o TeamAdministratorsOutput) ToTeamAdministratorsOutput() TeamAdministratorsOutput {
@@ -293,44 +268,10 @@ func (o TeamAdministratorsOutput) ToTeamAdministratorsOutputWithContext(ctx cont
 	return o
 }
 
-func (o TeamAdministratorsOutput) ToTeamAdministratorsPtrOutput() TeamAdministratorsPtrOutput {
-	return o.ToTeamAdministratorsPtrOutputWithContext(context.Background())
-}
-
-func (o TeamAdministratorsOutput) ToTeamAdministratorsPtrOutputWithContext(ctx context.Context) TeamAdministratorsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v TeamAdministrators) *TeamAdministrators {
-		return &v
-	}).(TeamAdministratorsPtrOutput)
-}
-
-type TeamAdministratorsPtrOutput struct{ *pulumi.OutputState }
-
-func (TeamAdministratorsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**TeamAdministrators)(nil))
-}
-
-func (o TeamAdministratorsPtrOutput) ToTeamAdministratorsPtrOutput() TeamAdministratorsPtrOutput {
-	return o
-}
-
-func (o TeamAdministratorsPtrOutput) ToTeamAdministratorsPtrOutputWithContext(ctx context.Context) TeamAdministratorsPtrOutput {
-	return o
-}
-
-func (o TeamAdministratorsPtrOutput) Elem() TeamAdministratorsOutput {
-	return o.ApplyT(func(v *TeamAdministrators) TeamAdministrators {
-		if v != nil {
-			return *v
-		}
-		var ret TeamAdministrators
-		return ret
-	}).(TeamAdministratorsOutput)
-}
-
 type TeamAdministratorsArrayOutput struct{ *pulumi.OutputState }
 
 func (TeamAdministratorsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]TeamAdministrators)(nil))
+	return reflect.TypeOf((*[]*TeamAdministrators)(nil)).Elem()
 }
 
 func (o TeamAdministratorsArrayOutput) ToTeamAdministratorsArrayOutput() TeamAdministratorsArrayOutput {
@@ -342,15 +283,15 @@ func (o TeamAdministratorsArrayOutput) ToTeamAdministratorsArrayOutputWithContex
 }
 
 func (o TeamAdministratorsArrayOutput) Index(i pulumi.IntInput) TeamAdministratorsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) TeamAdministrators {
-		return vs[0].([]TeamAdministrators)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamAdministrators {
+		return vs[0].([]*TeamAdministrators)[vs[1].(int)]
 	}).(TeamAdministratorsOutput)
 }
 
 type TeamAdministratorsMapOutput struct{ *pulumi.OutputState }
 
 func (TeamAdministratorsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]TeamAdministrators)(nil))
+	return reflect.TypeOf((*map[string]*TeamAdministrators)(nil)).Elem()
 }
 
 func (o TeamAdministratorsMapOutput) ToTeamAdministratorsMapOutput() TeamAdministratorsMapOutput {
@@ -362,18 +303,16 @@ func (o TeamAdministratorsMapOutput) ToTeamAdministratorsMapOutputWithContext(ct
 }
 
 func (o TeamAdministratorsMapOutput) MapIndex(k pulumi.StringInput) TeamAdministratorsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) TeamAdministrators {
-		return vs[0].(map[string]TeamAdministrators)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *TeamAdministrators {
+		return vs[0].(map[string]*TeamAdministrators)[vs[1].(string)]
 	}).(TeamAdministratorsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamAdministratorsInput)(nil)).Elem(), &TeamAdministrators{})
-	pulumi.RegisterInputType(reflect.TypeOf((*TeamAdministratorsPtrInput)(nil)).Elem(), &TeamAdministrators{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamAdministratorsArrayInput)(nil)).Elem(), TeamAdministratorsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*TeamAdministratorsMapInput)(nil)).Elem(), TeamAdministratorsMap{})
 	pulumi.RegisterOutputType(TeamAdministratorsOutput{})
-	pulumi.RegisterOutputType(TeamAdministratorsPtrOutput{})
 	pulumi.RegisterOutputType(TeamAdministratorsArrayOutput{})
 	pulumi.RegisterOutputType(TeamAdministratorsMapOutput{})
 }

@@ -94,19 +94,19 @@ export class Kubernetes extends pulumi.CustomResource {
     /** @deprecated azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes */
     constructor(name: string, argsOrState?: KubernetesArgs | KubernetesState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Kubernetes is deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as KubernetesState | undefined;
-            inputs["apiserverUrl"] = state ? state.apiserverUrl : undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["authorizationType"] = state ? state.authorizationType : undefined;
-            inputs["azureSubscriptions"] = state ? state.azureSubscriptions : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["kubeconfigs"] = state ? state.kubeconfigs : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["serviceAccounts"] = state ? state.serviceAccounts : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["apiserverUrl"] = state ? state.apiserverUrl : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
+            resourceInputs["azureSubscriptions"] = state ? state.azureSubscriptions : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["kubeconfigs"] = state ? state.kubeconfigs : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["serviceAccounts"] = state ? state.serviceAccounts : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as KubernetesArgs | undefined;
             if ((!args || args.apiserverUrl === undefined) && !opts.urn) {
@@ -121,20 +121,18 @@ export class Kubernetes extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            inputs["apiserverUrl"] = args ? args.apiserverUrl : undefined;
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["authorizationType"] = args ? args.authorizationType : undefined;
-            inputs["azureSubscriptions"] = args ? args.azureSubscriptions : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["kubeconfigs"] = args ? args.kubeconfigs : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["serviceAccounts"] = args ? args.serviceAccounts : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["apiserverUrl"] = args ? args.apiserverUrl : undefined;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
+            resourceInputs["azureSubscriptions"] = args ? args.azureSubscriptions : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["kubeconfigs"] = args ? args.kubeconfigs : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["serviceAccounts"] = args ? args.serviceAccounts : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Kubernetes.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Kubernetes.__pulumiType, name, resourceInputs, opts);
     }
 }
 

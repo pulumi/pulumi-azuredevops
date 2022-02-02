@@ -190,7 +190,7 @@ type BitBucketInput interface {
 }
 
 func (*BitBucket) ElementType() reflect.Type {
-	return reflect.TypeOf((*BitBucket)(nil))
+	return reflect.TypeOf((**BitBucket)(nil)).Elem()
 }
 
 func (i *BitBucket) ToBitBucketOutput() BitBucketOutput {
@@ -199,35 +199,6 @@ func (i *BitBucket) ToBitBucketOutput() BitBucketOutput {
 
 func (i *BitBucket) ToBitBucketOutputWithContext(ctx context.Context) BitBucketOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BitBucketOutput)
-}
-
-func (i *BitBucket) ToBitBucketPtrOutput() BitBucketPtrOutput {
-	return i.ToBitBucketPtrOutputWithContext(context.Background())
-}
-
-func (i *BitBucket) ToBitBucketPtrOutputWithContext(ctx context.Context) BitBucketPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BitBucketPtrOutput)
-}
-
-type BitBucketPtrInput interface {
-	pulumi.Input
-
-	ToBitBucketPtrOutput() BitBucketPtrOutput
-	ToBitBucketPtrOutputWithContext(ctx context.Context) BitBucketPtrOutput
-}
-
-type bitBucketPtrType BitBucketArgs
-
-func (*bitBucketPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BitBucket)(nil))
-}
-
-func (i *bitBucketPtrType) ToBitBucketPtrOutput() BitBucketPtrOutput {
-	return i.ToBitBucketPtrOutputWithContext(context.Background())
-}
-
-func (i *bitBucketPtrType) ToBitBucketPtrOutputWithContext(ctx context.Context) BitBucketPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BitBucketPtrOutput)
 }
 
 // BitBucketArrayInput is an input type that accepts BitBucketArray and BitBucketArrayOutput values.
@@ -283,7 +254,7 @@ func (i BitBucketMap) ToBitBucketMapOutputWithContext(ctx context.Context) BitBu
 type BitBucketOutput struct{ *pulumi.OutputState }
 
 func (BitBucketOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BitBucket)(nil))
+	return reflect.TypeOf((**BitBucket)(nil)).Elem()
 }
 
 func (o BitBucketOutput) ToBitBucketOutput() BitBucketOutput {
@@ -294,44 +265,10 @@ func (o BitBucketOutput) ToBitBucketOutputWithContext(ctx context.Context) BitBu
 	return o
 }
 
-func (o BitBucketOutput) ToBitBucketPtrOutput() BitBucketPtrOutput {
-	return o.ToBitBucketPtrOutputWithContext(context.Background())
-}
-
-func (o BitBucketOutput) ToBitBucketPtrOutputWithContext(ctx context.Context) BitBucketPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BitBucket) *BitBucket {
-		return &v
-	}).(BitBucketPtrOutput)
-}
-
-type BitBucketPtrOutput struct{ *pulumi.OutputState }
-
-func (BitBucketPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BitBucket)(nil))
-}
-
-func (o BitBucketPtrOutput) ToBitBucketPtrOutput() BitBucketPtrOutput {
-	return o
-}
-
-func (o BitBucketPtrOutput) ToBitBucketPtrOutputWithContext(ctx context.Context) BitBucketPtrOutput {
-	return o
-}
-
-func (o BitBucketPtrOutput) Elem() BitBucketOutput {
-	return o.ApplyT(func(v *BitBucket) BitBucket {
-		if v != nil {
-			return *v
-		}
-		var ret BitBucket
-		return ret
-	}).(BitBucketOutput)
-}
-
 type BitBucketArrayOutput struct{ *pulumi.OutputState }
 
 func (BitBucketArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BitBucket)(nil))
+	return reflect.TypeOf((*[]*BitBucket)(nil)).Elem()
 }
 
 func (o BitBucketArrayOutput) ToBitBucketArrayOutput() BitBucketArrayOutput {
@@ -343,15 +280,15 @@ func (o BitBucketArrayOutput) ToBitBucketArrayOutputWithContext(ctx context.Cont
 }
 
 func (o BitBucketArrayOutput) Index(i pulumi.IntInput) BitBucketOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BitBucket {
-		return vs[0].([]BitBucket)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BitBucket {
+		return vs[0].([]*BitBucket)[vs[1].(int)]
 	}).(BitBucketOutput)
 }
 
 type BitBucketMapOutput struct{ *pulumi.OutputState }
 
 func (BitBucketMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BitBucket)(nil))
+	return reflect.TypeOf((*map[string]*BitBucket)(nil)).Elem()
 }
 
 func (o BitBucketMapOutput) ToBitBucketMapOutput() BitBucketMapOutput {
@@ -363,18 +300,16 @@ func (o BitBucketMapOutput) ToBitBucketMapOutputWithContext(ctx context.Context)
 }
 
 func (o BitBucketMapOutput) MapIndex(k pulumi.StringInput) BitBucketOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BitBucket {
-		return vs[0].(map[string]BitBucket)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BitBucket {
+		return vs[0].(map[string]*BitBucket)[vs[1].(string)]
 	}).(BitBucketOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BitBucketInput)(nil)).Elem(), &BitBucket{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BitBucketPtrInput)(nil)).Elem(), &BitBucket{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BitBucketArrayInput)(nil)).Elem(), BitBucketArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BitBucketMapInput)(nil)).Elem(), BitBucketMap{})
 	pulumi.RegisterOutputType(BitBucketOutput{})
-	pulumi.RegisterOutputType(BitBucketPtrOutput{})
 	pulumi.RegisterOutputType(BitBucketArrayOutput{})
 	pulumi.RegisterOutputType(BitBucketMapOutput{})
 }

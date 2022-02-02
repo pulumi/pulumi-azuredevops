@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps
 {
@@ -34,18 +33,18 @@ namespace Pulumi.AzureDevOps
         ///             Visibility = "private",
         ///             Description = "Managed by Terraform",
         ///         });
-        ///         var root_iteration = project.Id.Apply(id =&gt; AzureDevOps.GetIteration.InvokeAsync(new AzureDevOps.GetIterationArgs
+        ///         var root_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
         ///         {
-        ///             ProjectId = id,
+        ///             ProjectId = project.Id,
         ///             Path = "/",
         ///             FetchChildren = true,
-        ///         }));
-        ///         var child_iteration = project.Id.Apply(id =&gt; AzureDevOps.GetIteration.InvokeAsync(new AzureDevOps.GetIterationArgs
+        ///         });
+        ///         var child_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
         ///         {
-        ///             ProjectId = id,
+        ///             ProjectId = project.Id,
         ///             Path = "/Iteration 1",
         ///             FetchChildren = true,
-        ///         }));
+        ///         });
         ///     }
         /// 
         /// }
@@ -61,7 +60,7 @@ namespace Pulumi.AzureDevOps
         /// - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
         /// </summary>
         public static Task<GetIterationResult> InvokeAsync(GetIterationArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetIterationResult>("azuredevops:index/getIteration:getIteration", args ?? new GetIterationArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetIterationResult>("azuredevops:index/getIteration:getIteration", args ?? new GetIterationArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
@@ -85,18 +84,18 @@ namespace Pulumi.AzureDevOps
         ///             Visibility = "private",
         ///             Description = "Managed by Terraform",
         ///         });
-        ///         var root_iteration = project.Id.Apply(id =&gt; AzureDevOps.GetIteration.InvokeAsync(new AzureDevOps.GetIterationArgs
+        ///         var root_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
         ///         {
-        ///             ProjectId = id,
+        ///             ProjectId = project.Id,
         ///             Path = "/",
         ///             FetchChildren = true,
-        ///         }));
-        ///         var child_iteration = project.Id.Apply(id =&gt; AzureDevOps.GetIteration.InvokeAsync(new AzureDevOps.GetIterationArgs
+        ///         });
+        ///         var child_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
         ///         {
-        ///             ProjectId = id,
+        ///             ProjectId = project.Id,
         ///             Path = "/Iteration 1",
         ///             FetchChildren = true,
-        ///         }));
+        ///         });
         ///     }
         /// 
         /// }
@@ -112,7 +111,7 @@ namespace Pulumi.AzureDevOps
         /// - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
         /// </summary>
         public static Output<GetIterationResult> Invoke(GetIterationInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetIterationResult>("azuredevops:index/getIteration:getIteration", args ?? new GetIterationInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetIterationResult>("azuredevops:index/getIteration:getIteration", args ?? new GetIterationInvokeArgs(), options.WithDefaults());
     }
 
 

@@ -148,19 +148,19 @@ export class AzureRM extends pulumi.CustomResource {
     /** @deprecated azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM */
     constructor(name: string, argsOrState?: AzureRMArgs | AzureRMState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AzureRMState | undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["azurermSpnTenantid"] = state ? state.azurermSpnTenantid : undefined;
-            inputs["azurermSubscriptionId"] = state ? state.azurermSubscriptionId : undefined;
-            inputs["azurermSubscriptionName"] = state ? state.azurermSubscriptionName : undefined;
-            inputs["credentials"] = state ? state.credentials : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["resourceGroup"] = state ? state.resourceGroup : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["azurermSpnTenantid"] = state ? state.azurermSpnTenantid : undefined;
+            resourceInputs["azurermSubscriptionId"] = state ? state.azurermSubscriptionId : undefined;
+            resourceInputs["azurermSubscriptionName"] = state ? state.azurermSubscriptionName : undefined;
+            resourceInputs["credentials"] = state ? state.credentials : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as AzureRMArgs | undefined;
             if ((!args || args.azurermSpnTenantid === undefined) && !opts.urn) {
@@ -178,20 +178,18 @@ export class AzureRM extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["azurermSpnTenantid"] = args ? args.azurermSpnTenantid : undefined;
-            inputs["azurermSubscriptionId"] = args ? args.azurermSubscriptionId : undefined;
-            inputs["azurermSubscriptionName"] = args ? args.azurermSubscriptionName : undefined;
-            inputs["credentials"] = args ? args.credentials : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["azurermSpnTenantid"] = args ? args.azurermSpnTenantid : undefined;
+            resourceInputs["azurermSubscriptionId"] = args ? args.azurermSubscriptionId : undefined;
+            resourceInputs["azurermSubscriptionName"] = args ? args.azurermSubscriptionName : undefined;
+            resourceInputs["credentials"] = args ? args.credentials : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(AzureRM.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(AzureRM.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -200,7 +200,7 @@ type RepositoryPolicyCheckCredentialsInput interface {
 }
 
 func (*RepositoryPolicyCheckCredentials) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyCheckCredentials)(nil))
+	return reflect.TypeOf((**RepositoryPolicyCheckCredentials)(nil)).Elem()
 }
 
 func (i *RepositoryPolicyCheckCredentials) ToRepositoryPolicyCheckCredentialsOutput() RepositoryPolicyCheckCredentialsOutput {
@@ -209,35 +209,6 @@ func (i *RepositoryPolicyCheckCredentials) ToRepositoryPolicyCheckCredentialsOut
 
 func (i *RepositoryPolicyCheckCredentials) ToRepositoryPolicyCheckCredentialsOutputWithContext(ctx context.Context) RepositoryPolicyCheckCredentialsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCheckCredentialsOutput)
-}
-
-func (i *RepositoryPolicyCheckCredentials) ToRepositoryPolicyCheckCredentialsPtrOutput() RepositoryPolicyCheckCredentialsPtrOutput {
-	return i.ToRepositoryPolicyCheckCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *RepositoryPolicyCheckCredentials) ToRepositoryPolicyCheckCredentialsPtrOutputWithContext(ctx context.Context) RepositoryPolicyCheckCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCheckCredentialsPtrOutput)
-}
-
-type RepositoryPolicyCheckCredentialsPtrInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyCheckCredentialsPtrOutput() RepositoryPolicyCheckCredentialsPtrOutput
-	ToRepositoryPolicyCheckCredentialsPtrOutputWithContext(ctx context.Context) RepositoryPolicyCheckCredentialsPtrOutput
-}
-
-type repositoryPolicyCheckCredentialsPtrType RepositoryPolicyCheckCredentialsArgs
-
-func (*repositoryPolicyCheckCredentialsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPolicyCheckCredentials)(nil))
-}
-
-func (i *repositoryPolicyCheckCredentialsPtrType) ToRepositoryPolicyCheckCredentialsPtrOutput() RepositoryPolicyCheckCredentialsPtrOutput {
-	return i.ToRepositoryPolicyCheckCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryPolicyCheckCredentialsPtrType) ToRepositoryPolicyCheckCredentialsPtrOutputWithContext(ctx context.Context) RepositoryPolicyCheckCredentialsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCheckCredentialsPtrOutput)
 }
 
 // RepositoryPolicyCheckCredentialsArrayInput is an input type that accepts RepositoryPolicyCheckCredentialsArray and RepositoryPolicyCheckCredentialsArrayOutput values.
@@ -293,7 +264,7 @@ func (i RepositoryPolicyCheckCredentialsMap) ToRepositoryPolicyCheckCredentialsM
 type RepositoryPolicyCheckCredentialsOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyCheckCredentialsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyCheckCredentials)(nil))
+	return reflect.TypeOf((**RepositoryPolicyCheckCredentials)(nil)).Elem()
 }
 
 func (o RepositoryPolicyCheckCredentialsOutput) ToRepositoryPolicyCheckCredentialsOutput() RepositoryPolicyCheckCredentialsOutput {
@@ -304,44 +275,10 @@ func (o RepositoryPolicyCheckCredentialsOutput) ToRepositoryPolicyCheckCredentia
 	return o
 }
 
-func (o RepositoryPolicyCheckCredentialsOutput) ToRepositoryPolicyCheckCredentialsPtrOutput() RepositoryPolicyCheckCredentialsPtrOutput {
-	return o.ToRepositoryPolicyCheckCredentialsPtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryPolicyCheckCredentialsOutput) ToRepositoryPolicyCheckCredentialsPtrOutputWithContext(ctx context.Context) RepositoryPolicyCheckCredentialsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPolicyCheckCredentials) *RepositoryPolicyCheckCredentials {
-		return &v
-	}).(RepositoryPolicyCheckCredentialsPtrOutput)
-}
-
-type RepositoryPolicyCheckCredentialsPtrOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyCheckCredentialsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPolicyCheckCredentials)(nil))
-}
-
-func (o RepositoryPolicyCheckCredentialsPtrOutput) ToRepositoryPolicyCheckCredentialsPtrOutput() RepositoryPolicyCheckCredentialsPtrOutput {
-	return o
-}
-
-func (o RepositoryPolicyCheckCredentialsPtrOutput) ToRepositoryPolicyCheckCredentialsPtrOutputWithContext(ctx context.Context) RepositoryPolicyCheckCredentialsPtrOutput {
-	return o
-}
-
-func (o RepositoryPolicyCheckCredentialsPtrOutput) Elem() RepositoryPolicyCheckCredentialsOutput {
-	return o.ApplyT(func(v *RepositoryPolicyCheckCredentials) RepositoryPolicyCheckCredentials {
-		if v != nil {
-			return *v
-		}
-		var ret RepositoryPolicyCheckCredentials
-		return ret
-	}).(RepositoryPolicyCheckCredentialsOutput)
-}
-
 type RepositoryPolicyCheckCredentialsArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyCheckCredentialsArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryPolicyCheckCredentials)(nil))
+	return reflect.TypeOf((*[]*RepositoryPolicyCheckCredentials)(nil)).Elem()
 }
 
 func (o RepositoryPolicyCheckCredentialsArrayOutput) ToRepositoryPolicyCheckCredentialsArrayOutput() RepositoryPolicyCheckCredentialsArrayOutput {
@@ -353,15 +290,15 @@ func (o RepositoryPolicyCheckCredentialsArrayOutput) ToRepositoryPolicyCheckCred
 }
 
 func (o RepositoryPolicyCheckCredentialsArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyCheckCredentialsOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryPolicyCheckCredentials {
-		return vs[0].([]RepositoryPolicyCheckCredentials)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicyCheckCredentials {
+		return vs[0].([]*RepositoryPolicyCheckCredentials)[vs[1].(int)]
 	}).(RepositoryPolicyCheckCredentialsOutput)
 }
 
 type RepositoryPolicyCheckCredentialsMapOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyCheckCredentialsMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RepositoryPolicyCheckCredentials)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPolicyCheckCredentials)(nil)).Elem()
 }
 
 func (o RepositoryPolicyCheckCredentialsMapOutput) ToRepositoryPolicyCheckCredentialsMapOutput() RepositoryPolicyCheckCredentialsMapOutput {
@@ -373,18 +310,16 @@ func (o RepositoryPolicyCheckCredentialsMapOutput) ToRepositoryPolicyCheckCreden
 }
 
 func (o RepositoryPolicyCheckCredentialsMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyCheckCredentialsOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryPolicyCheckCredentials {
-		return vs[0].(map[string]RepositoryPolicyCheckCredentials)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RepositoryPolicyCheckCredentials {
+		return vs[0].(map[string]*RepositoryPolicyCheckCredentials)[vs[1].(string)]
 	}).(RepositoryPolicyCheckCredentialsOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyCheckCredentialsInput)(nil)).Elem(), &RepositoryPolicyCheckCredentials{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyCheckCredentialsPtrInput)(nil)).Elem(), &RepositoryPolicyCheckCredentials{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyCheckCredentialsArrayInput)(nil)).Elem(), RepositoryPolicyCheckCredentialsArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyCheckCredentialsMapInput)(nil)).Elem(), RepositoryPolicyCheckCredentialsMap{})
 	pulumi.RegisterOutputType(RepositoryPolicyCheckCredentialsOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyCheckCredentialsPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyCheckCredentialsArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyCheckCredentialsMapOutput{})
 }

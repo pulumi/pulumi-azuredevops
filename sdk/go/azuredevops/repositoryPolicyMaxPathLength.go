@@ -215,7 +215,7 @@ type RepositoryPolicyMaxPathLengthInput interface {
 }
 
 func (*RepositoryPolicyMaxPathLength) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyMaxPathLength)(nil))
+	return reflect.TypeOf((**RepositoryPolicyMaxPathLength)(nil)).Elem()
 }
 
 func (i *RepositoryPolicyMaxPathLength) ToRepositoryPolicyMaxPathLengthOutput() RepositoryPolicyMaxPathLengthOutput {
@@ -224,35 +224,6 @@ func (i *RepositoryPolicyMaxPathLength) ToRepositoryPolicyMaxPathLengthOutput() 
 
 func (i *RepositoryPolicyMaxPathLength) ToRepositoryPolicyMaxPathLengthOutputWithContext(ctx context.Context) RepositoryPolicyMaxPathLengthOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxPathLengthOutput)
-}
-
-func (i *RepositoryPolicyMaxPathLength) ToRepositoryPolicyMaxPathLengthPtrOutput() RepositoryPolicyMaxPathLengthPtrOutput {
-	return i.ToRepositoryPolicyMaxPathLengthPtrOutputWithContext(context.Background())
-}
-
-func (i *RepositoryPolicyMaxPathLength) ToRepositoryPolicyMaxPathLengthPtrOutputWithContext(ctx context.Context) RepositoryPolicyMaxPathLengthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxPathLengthPtrOutput)
-}
-
-type RepositoryPolicyMaxPathLengthPtrInput interface {
-	pulumi.Input
-
-	ToRepositoryPolicyMaxPathLengthPtrOutput() RepositoryPolicyMaxPathLengthPtrOutput
-	ToRepositoryPolicyMaxPathLengthPtrOutputWithContext(ctx context.Context) RepositoryPolicyMaxPathLengthPtrOutput
-}
-
-type repositoryPolicyMaxPathLengthPtrType RepositoryPolicyMaxPathLengthArgs
-
-func (*repositoryPolicyMaxPathLengthPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPolicyMaxPathLength)(nil))
-}
-
-func (i *repositoryPolicyMaxPathLengthPtrType) ToRepositoryPolicyMaxPathLengthPtrOutput() RepositoryPolicyMaxPathLengthPtrOutput {
-	return i.ToRepositoryPolicyMaxPathLengthPtrOutputWithContext(context.Background())
-}
-
-func (i *repositoryPolicyMaxPathLengthPtrType) ToRepositoryPolicyMaxPathLengthPtrOutputWithContext(ctx context.Context) RepositoryPolicyMaxPathLengthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxPathLengthPtrOutput)
 }
 
 // RepositoryPolicyMaxPathLengthArrayInput is an input type that accepts RepositoryPolicyMaxPathLengthArray and RepositoryPolicyMaxPathLengthArrayOutput values.
@@ -308,7 +279,7 @@ func (i RepositoryPolicyMaxPathLengthMap) ToRepositoryPolicyMaxPathLengthMapOutp
 type RepositoryPolicyMaxPathLengthOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyMaxPathLengthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*RepositoryPolicyMaxPathLength)(nil))
+	return reflect.TypeOf((**RepositoryPolicyMaxPathLength)(nil)).Elem()
 }
 
 func (o RepositoryPolicyMaxPathLengthOutput) ToRepositoryPolicyMaxPathLengthOutput() RepositoryPolicyMaxPathLengthOutput {
@@ -319,44 +290,10 @@ func (o RepositoryPolicyMaxPathLengthOutput) ToRepositoryPolicyMaxPathLengthOutp
 	return o
 }
 
-func (o RepositoryPolicyMaxPathLengthOutput) ToRepositoryPolicyMaxPathLengthPtrOutput() RepositoryPolicyMaxPathLengthPtrOutput {
-	return o.ToRepositoryPolicyMaxPathLengthPtrOutputWithContext(context.Background())
-}
-
-func (o RepositoryPolicyMaxPathLengthOutput) ToRepositoryPolicyMaxPathLengthPtrOutputWithContext(ctx context.Context) RepositoryPolicyMaxPathLengthPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v RepositoryPolicyMaxPathLength) *RepositoryPolicyMaxPathLength {
-		return &v
-	}).(RepositoryPolicyMaxPathLengthPtrOutput)
-}
-
-type RepositoryPolicyMaxPathLengthPtrOutput struct{ *pulumi.OutputState }
-
-func (RepositoryPolicyMaxPathLengthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**RepositoryPolicyMaxPathLength)(nil))
-}
-
-func (o RepositoryPolicyMaxPathLengthPtrOutput) ToRepositoryPolicyMaxPathLengthPtrOutput() RepositoryPolicyMaxPathLengthPtrOutput {
-	return o
-}
-
-func (o RepositoryPolicyMaxPathLengthPtrOutput) ToRepositoryPolicyMaxPathLengthPtrOutputWithContext(ctx context.Context) RepositoryPolicyMaxPathLengthPtrOutput {
-	return o
-}
-
-func (o RepositoryPolicyMaxPathLengthPtrOutput) Elem() RepositoryPolicyMaxPathLengthOutput {
-	return o.ApplyT(func(v *RepositoryPolicyMaxPathLength) RepositoryPolicyMaxPathLength {
-		if v != nil {
-			return *v
-		}
-		var ret RepositoryPolicyMaxPathLength
-		return ret
-	}).(RepositoryPolicyMaxPathLengthOutput)
-}
-
 type RepositoryPolicyMaxPathLengthArrayOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyMaxPathLengthArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]RepositoryPolicyMaxPathLength)(nil))
+	return reflect.TypeOf((*[]*RepositoryPolicyMaxPathLength)(nil)).Elem()
 }
 
 func (o RepositoryPolicyMaxPathLengthArrayOutput) ToRepositoryPolicyMaxPathLengthArrayOutput() RepositoryPolicyMaxPathLengthArrayOutput {
@@ -368,15 +305,15 @@ func (o RepositoryPolicyMaxPathLengthArrayOutput) ToRepositoryPolicyMaxPathLengt
 }
 
 func (o RepositoryPolicyMaxPathLengthArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyMaxPathLengthOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) RepositoryPolicyMaxPathLength {
-		return vs[0].([]RepositoryPolicyMaxPathLength)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicyMaxPathLength {
+		return vs[0].([]*RepositoryPolicyMaxPathLength)[vs[1].(int)]
 	}).(RepositoryPolicyMaxPathLengthOutput)
 }
 
 type RepositoryPolicyMaxPathLengthMapOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyMaxPathLengthMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]RepositoryPolicyMaxPathLength)(nil))
+	return reflect.TypeOf((*map[string]*RepositoryPolicyMaxPathLength)(nil)).Elem()
 }
 
 func (o RepositoryPolicyMaxPathLengthMapOutput) ToRepositoryPolicyMaxPathLengthMapOutput() RepositoryPolicyMaxPathLengthMapOutput {
@@ -388,18 +325,16 @@ func (o RepositoryPolicyMaxPathLengthMapOutput) ToRepositoryPolicyMaxPathLengthM
 }
 
 func (o RepositoryPolicyMaxPathLengthMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyMaxPathLengthOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) RepositoryPolicyMaxPathLength {
-		return vs[0].(map[string]RepositoryPolicyMaxPathLength)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *RepositoryPolicyMaxPathLength {
+		return vs[0].(map[string]*RepositoryPolicyMaxPathLength)[vs[1].(string)]
 	}).(RepositoryPolicyMaxPathLengthOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyMaxPathLengthInput)(nil)).Elem(), &RepositoryPolicyMaxPathLength{})
-	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyMaxPathLengthPtrInput)(nil)).Elem(), &RepositoryPolicyMaxPathLength{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyMaxPathLengthArrayInput)(nil)).Elem(), RepositoryPolicyMaxPathLengthArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*RepositoryPolicyMaxPathLengthMapInput)(nil)).Elem(), RepositoryPolicyMaxPathLengthMap{})
 	pulumi.RegisterOutputType(RepositoryPolicyMaxPathLengthOutput{})
-	pulumi.RegisterOutputType(RepositoryPolicyMaxPathLengthPtrOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyMaxPathLengthArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryPolicyMaxPathLengthMapOutput{})
 }

@@ -107,14 +107,14 @@ export class BranchPolicyCommentResolution extends pulumi.CustomResource {
      */
     constructor(name: string, args: BranchPolicyCommentResolutionArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BranchPolicyCommentResolutionArgs | BranchPolicyCommentResolutionState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BranchPolicyCommentResolutionState | undefined;
-            inputs["blocking"] = state ? state.blocking : undefined;
-            inputs["enabled"] = state ? state.enabled : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["settings"] = state ? state.settings : undefined;
+            resourceInputs["blocking"] = state ? state.blocking : undefined;
+            resourceInputs["enabled"] = state ? state.enabled : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["settings"] = state ? state.settings : undefined;
         } else {
             const args = argsOrState as BranchPolicyCommentResolutionArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -123,15 +123,13 @@ export class BranchPolicyCommentResolution extends pulumi.CustomResource {
             if ((!args || args.settings === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
-            inputs["blocking"] = args ? args.blocking : undefined;
-            inputs["enabled"] = args ? args.enabled : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["blocking"] = args ? args.blocking : undefined;
+            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["settings"] = args ? args.settings : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BranchPolicyCommentResolution.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BranchPolicyCommentResolution.__pulumiType, name, resourceInputs, opts);
     }
 }
 

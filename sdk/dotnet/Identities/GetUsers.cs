@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
-using Pulumi.Utilities;
 
 namespace Pulumi.AzureDevOps.Identities
 {
@@ -61,7 +60,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
@@ -111,7 +110,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithVersion());
+            => Pulumi.Deployment.Instance.Invoke<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
     }
 
 

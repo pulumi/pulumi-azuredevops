@@ -21,10 +21,10 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const project-readers = project.id.apply(id => azuredevops.getGroup({
- *     projectId: id,
+ * const project-readers = azuredevops.getGroupOutput({
+ *     projectId: project.id,
  *     name: "Readers",
- * }));
+ * });
  * const repository = new azuredevops.Git("repository", {
  *     projectId: project.id,
  *     initialization: {
@@ -126,15 +126,15 @@ export class BuildDefinitionPermissions extends pulumi.CustomResource {
      */
     constructor(name: string, args: BuildDefinitionPermissionsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: BuildDefinitionPermissionsArgs | BuildDefinitionPermissionsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as BuildDefinitionPermissionsState | undefined;
-            inputs["buildDefinitionId"] = state ? state.buildDefinitionId : undefined;
-            inputs["permissions"] = state ? state.permissions : undefined;
-            inputs["principal"] = state ? state.principal : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["replace"] = state ? state.replace : undefined;
+            resourceInputs["buildDefinitionId"] = state ? state.buildDefinitionId : undefined;
+            resourceInputs["permissions"] = state ? state.permissions : undefined;
+            resourceInputs["principal"] = state ? state.principal : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["replace"] = state ? state.replace : undefined;
         } else {
             const args = argsOrState as BuildDefinitionPermissionsArgs | undefined;
             if ((!args || args.buildDefinitionId === undefined) && !opts.urn) {
@@ -149,16 +149,14 @@ export class BuildDefinitionPermissions extends pulumi.CustomResource {
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
-            inputs["buildDefinitionId"] = args ? args.buildDefinitionId : undefined;
-            inputs["permissions"] = args ? args.permissions : undefined;
-            inputs["principal"] = args ? args.principal : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["replace"] = args ? args.replace : undefined;
+            resourceInputs["buildDefinitionId"] = args ? args.buildDefinitionId : undefined;
+            resourceInputs["permissions"] = args ? args.permissions : undefined;
+            resourceInputs["principal"] = args ? args.principal : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["replace"] = args ? args.replace : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(BuildDefinitionPermissions.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(BuildDefinitionPermissions.__pulumiType, name, resourceInputs, opts);
     }
 }
 

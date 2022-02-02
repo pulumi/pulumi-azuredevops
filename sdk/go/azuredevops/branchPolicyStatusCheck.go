@@ -199,7 +199,7 @@ type BranchPolicyStatusCheckInput interface {
 }
 
 func (*BranchPolicyStatusCheck) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyStatusCheck)(nil))
+	return reflect.TypeOf((**BranchPolicyStatusCheck)(nil)).Elem()
 }
 
 func (i *BranchPolicyStatusCheck) ToBranchPolicyStatusCheckOutput() BranchPolicyStatusCheckOutput {
@@ -208,35 +208,6 @@ func (i *BranchPolicyStatusCheck) ToBranchPolicyStatusCheckOutput() BranchPolicy
 
 func (i *BranchPolicyStatusCheck) ToBranchPolicyStatusCheckOutputWithContext(ctx context.Context) BranchPolicyStatusCheckOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckOutput)
-}
-
-func (i *BranchPolicyStatusCheck) ToBranchPolicyStatusCheckPtrOutput() BranchPolicyStatusCheckPtrOutput {
-	return i.ToBranchPolicyStatusCheckPtrOutputWithContext(context.Background())
-}
-
-func (i *BranchPolicyStatusCheck) ToBranchPolicyStatusCheckPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckPtrOutput)
-}
-
-type BranchPolicyStatusCheckPtrInput interface {
-	pulumi.Input
-
-	ToBranchPolicyStatusCheckPtrOutput() BranchPolicyStatusCheckPtrOutput
-	ToBranchPolicyStatusCheckPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckPtrOutput
-}
-
-type branchPolicyStatusCheckPtrType BranchPolicyStatusCheckArgs
-
-func (*branchPolicyStatusCheckPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchPolicyStatusCheck)(nil))
-}
-
-func (i *branchPolicyStatusCheckPtrType) ToBranchPolicyStatusCheckPtrOutput() BranchPolicyStatusCheckPtrOutput {
-	return i.ToBranchPolicyStatusCheckPtrOutputWithContext(context.Background())
-}
-
-func (i *branchPolicyStatusCheckPtrType) ToBranchPolicyStatusCheckPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckPtrOutput)
 }
 
 // BranchPolicyStatusCheckArrayInput is an input type that accepts BranchPolicyStatusCheckArray and BranchPolicyStatusCheckArrayOutput values.
@@ -292,7 +263,7 @@ func (i BranchPolicyStatusCheckMap) ToBranchPolicyStatusCheckMapOutputWithContex
 type BranchPolicyStatusCheckOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyStatusCheckOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyStatusCheck)(nil))
+	return reflect.TypeOf((**BranchPolicyStatusCheck)(nil)).Elem()
 }
 
 func (o BranchPolicyStatusCheckOutput) ToBranchPolicyStatusCheckOutput() BranchPolicyStatusCheckOutput {
@@ -303,44 +274,10 @@ func (o BranchPolicyStatusCheckOutput) ToBranchPolicyStatusCheckOutputWithContex
 	return o
 }
 
-func (o BranchPolicyStatusCheckOutput) ToBranchPolicyStatusCheckPtrOutput() BranchPolicyStatusCheckPtrOutput {
-	return o.ToBranchPolicyStatusCheckPtrOutputWithContext(context.Background())
-}
-
-func (o BranchPolicyStatusCheckOutput) ToBranchPolicyStatusCheckPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyStatusCheck) *BranchPolicyStatusCheck {
-		return &v
-	}).(BranchPolicyStatusCheckPtrOutput)
-}
-
-type BranchPolicyStatusCheckPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchPolicyStatusCheckPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchPolicyStatusCheck)(nil))
-}
-
-func (o BranchPolicyStatusCheckPtrOutput) ToBranchPolicyStatusCheckPtrOutput() BranchPolicyStatusCheckPtrOutput {
-	return o
-}
-
-func (o BranchPolicyStatusCheckPtrOutput) ToBranchPolicyStatusCheckPtrOutputWithContext(ctx context.Context) BranchPolicyStatusCheckPtrOutput {
-	return o
-}
-
-func (o BranchPolicyStatusCheckPtrOutput) Elem() BranchPolicyStatusCheckOutput {
-	return o.ApplyT(func(v *BranchPolicyStatusCheck) BranchPolicyStatusCheck {
-		if v != nil {
-			return *v
-		}
-		var ret BranchPolicyStatusCheck
-		return ret
-	}).(BranchPolicyStatusCheckOutput)
-}
-
 type BranchPolicyStatusCheckArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyStatusCheckArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BranchPolicyStatusCheck)(nil))
+	return reflect.TypeOf((*[]*BranchPolicyStatusCheck)(nil)).Elem()
 }
 
 func (o BranchPolicyStatusCheckArrayOutput) ToBranchPolicyStatusCheckArrayOutput() BranchPolicyStatusCheckArrayOutput {
@@ -352,15 +289,15 @@ func (o BranchPolicyStatusCheckArrayOutput) ToBranchPolicyStatusCheckArrayOutput
 }
 
 func (o BranchPolicyStatusCheckArrayOutput) Index(i pulumi.IntInput) BranchPolicyStatusCheckOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyStatusCheck {
-		return vs[0].([]BranchPolicyStatusCheck)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyStatusCheck {
+		return vs[0].([]*BranchPolicyStatusCheck)[vs[1].(int)]
 	}).(BranchPolicyStatusCheckOutput)
 }
 
 type BranchPolicyStatusCheckMapOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyStatusCheckMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BranchPolicyStatusCheck)(nil))
+	return reflect.TypeOf((*map[string]*BranchPolicyStatusCheck)(nil)).Elem()
 }
 
 func (o BranchPolicyStatusCheckMapOutput) ToBranchPolicyStatusCheckMapOutput() BranchPolicyStatusCheckMapOutput {
@@ -372,18 +309,16 @@ func (o BranchPolicyStatusCheckMapOutput) ToBranchPolicyStatusCheckMapOutputWith
 }
 
 func (o BranchPolicyStatusCheckMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyStatusCheckOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchPolicyStatusCheck {
-		return vs[0].(map[string]BranchPolicyStatusCheck)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BranchPolicyStatusCheck {
+		return vs[0].(map[string]*BranchPolicyStatusCheck)[vs[1].(string)]
 	}).(BranchPolicyStatusCheckOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyStatusCheckInput)(nil)).Elem(), &BranchPolicyStatusCheck{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyStatusCheckPtrInput)(nil)).Elem(), &BranchPolicyStatusCheck{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyStatusCheckArrayInput)(nil)).Elem(), BranchPolicyStatusCheckArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyStatusCheckMapInput)(nil)).Elem(), BranchPolicyStatusCheckMap{})
 	pulumi.RegisterOutputType(BranchPolicyStatusCheckOutput{})
-	pulumi.RegisterOutputType(BranchPolicyStatusCheckPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyStatusCheckArrayOutput{})
 	pulumi.RegisterOutputType(BranchPolicyStatusCheckMapOutput{})
 }

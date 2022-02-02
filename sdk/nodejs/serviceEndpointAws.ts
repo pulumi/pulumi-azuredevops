@@ -119,22 +119,22 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointAwsArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointAwsArgs | ServiceEndpointAwsState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointAwsState | undefined;
-            inputs["accessKeyId"] = state ? state.accessKeyId : undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["externalId"] = state ? state.externalId : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["roleSessionName"] = state ? state.roleSessionName : undefined;
-            inputs["roleToAssume"] = state ? state.roleToAssume : undefined;
-            inputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
-            inputs["secretAccessKeyHash"] = state ? state.secretAccessKeyHash : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            inputs["sessionToken"] = state ? state.sessionToken : undefined;
-            inputs["sessionTokenHash"] = state ? state.sessionTokenHash : undefined;
+            resourceInputs["accessKeyId"] = state ? state.accessKeyId : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["externalId"] = state ? state.externalId : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["roleSessionName"] = state ? state.roleSessionName : undefined;
+            resourceInputs["roleToAssume"] = state ? state.roleToAssume : undefined;
+            resourceInputs["secretAccessKey"] = state ? state.secretAccessKey : undefined;
+            resourceInputs["secretAccessKeyHash"] = state ? state.secretAccessKeyHash : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["sessionToken"] = state ? state.sessionToken : undefined;
+            resourceInputs["sessionTokenHash"] = state ? state.sessionTokenHash : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAwsArgs | undefined;
             if ((!args || args.accessKeyId === undefined) && !opts.urn) {
@@ -149,23 +149,21 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            inputs["accessKeyId"] = args ? args.accessKeyId : undefined;
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["externalId"] = args ? args.externalId : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["roleSessionName"] = args ? args.roleSessionName : undefined;
-            inputs["roleToAssume"] = args ? args.roleToAssume : undefined;
-            inputs["secretAccessKey"] = args ? args.secretAccessKey : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            inputs["sessionToken"] = args ? args.sessionToken : undefined;
-            inputs["secretAccessKeyHash"] = undefined /*out*/;
-            inputs["sessionTokenHash"] = undefined /*out*/;
+            resourceInputs["accessKeyId"] = args ? args.accessKeyId : undefined;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["externalId"] = args ? args.externalId : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["roleSessionName"] = args ? args.roleSessionName : undefined;
+            resourceInputs["roleToAssume"] = args ? args.roleToAssume : undefined;
+            resourceInputs["secretAccessKey"] = args ? args.secretAccessKey : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["sessionToken"] = args ? args.sessionToken : undefined;
+            resourceInputs["secretAccessKeyHash"] = undefined /*out*/;
+            resourceInputs["sessionTokenHash"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceEndpointAws.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceEndpointAws.__pulumiType, name, resourceInputs, opts);
     }
 }
 

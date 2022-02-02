@@ -32,7 +32,7 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewProjectFeatures(ctx, "my_project_features", &azuredevops.ProjectFeaturesArgs{
+// 		_, err = azuredevops.NewProjectFeatures(ctx, "my-project-features", &azuredevops.ProjectFeaturesArgs{
 // 			ProjectId: pulumi.String(tf_project_test_001.Id),
 // 			Features: pulumi.StringMap{
 // 				"testplans": pulumi.String("disabled"),
@@ -155,7 +155,7 @@ type ProjectFeaturesInput interface {
 }
 
 func (*ProjectFeatures) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectFeatures)(nil))
+	return reflect.TypeOf((**ProjectFeatures)(nil)).Elem()
 }
 
 func (i *ProjectFeatures) ToProjectFeaturesOutput() ProjectFeaturesOutput {
@@ -164,35 +164,6 @@ func (i *ProjectFeatures) ToProjectFeaturesOutput() ProjectFeaturesOutput {
 
 func (i *ProjectFeatures) ToProjectFeaturesOutputWithContext(ctx context.Context) ProjectFeaturesOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesOutput)
-}
-
-func (i *ProjectFeatures) ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput {
-	return i.ToProjectFeaturesPtrOutputWithContext(context.Background())
-}
-
-func (i *ProjectFeatures) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesPtrOutput)
-}
-
-type ProjectFeaturesPtrInput interface {
-	pulumi.Input
-
-	ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput
-	ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput
-}
-
-type projectFeaturesPtrType ProjectFeaturesArgs
-
-func (*projectFeaturesPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectFeatures)(nil))
-}
-
-func (i *projectFeaturesPtrType) ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput {
-	return i.ToProjectFeaturesPtrOutputWithContext(context.Background())
-}
-
-func (i *projectFeaturesPtrType) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ProjectFeaturesPtrOutput)
 }
 
 // ProjectFeaturesArrayInput is an input type that accepts ProjectFeaturesArray and ProjectFeaturesArrayOutput values.
@@ -248,7 +219,7 @@ func (i ProjectFeaturesMap) ToProjectFeaturesMapOutputWithContext(ctx context.Co
 type ProjectFeaturesOutput struct{ *pulumi.OutputState }
 
 func (ProjectFeaturesOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ProjectFeatures)(nil))
+	return reflect.TypeOf((**ProjectFeatures)(nil)).Elem()
 }
 
 func (o ProjectFeaturesOutput) ToProjectFeaturesOutput() ProjectFeaturesOutput {
@@ -259,44 +230,10 @@ func (o ProjectFeaturesOutput) ToProjectFeaturesOutputWithContext(ctx context.Co
 	return o
 }
 
-func (o ProjectFeaturesOutput) ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput {
-	return o.ToProjectFeaturesPtrOutputWithContext(context.Background())
-}
-
-func (o ProjectFeaturesOutput) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ProjectFeatures) *ProjectFeatures {
-		return &v
-	}).(ProjectFeaturesPtrOutput)
-}
-
-type ProjectFeaturesPtrOutput struct{ *pulumi.OutputState }
-
-func (ProjectFeaturesPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ProjectFeatures)(nil))
-}
-
-func (o ProjectFeaturesPtrOutput) ToProjectFeaturesPtrOutput() ProjectFeaturesPtrOutput {
-	return o
-}
-
-func (o ProjectFeaturesPtrOutput) ToProjectFeaturesPtrOutputWithContext(ctx context.Context) ProjectFeaturesPtrOutput {
-	return o
-}
-
-func (o ProjectFeaturesPtrOutput) Elem() ProjectFeaturesOutput {
-	return o.ApplyT(func(v *ProjectFeatures) ProjectFeatures {
-		if v != nil {
-			return *v
-		}
-		var ret ProjectFeatures
-		return ret
-	}).(ProjectFeaturesOutput)
-}
-
 type ProjectFeaturesArrayOutput struct{ *pulumi.OutputState }
 
 func (ProjectFeaturesArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ProjectFeatures)(nil))
+	return reflect.TypeOf((*[]*ProjectFeatures)(nil)).Elem()
 }
 
 func (o ProjectFeaturesArrayOutput) ToProjectFeaturesArrayOutput() ProjectFeaturesArrayOutput {
@@ -308,15 +245,15 @@ func (o ProjectFeaturesArrayOutput) ToProjectFeaturesArrayOutputWithContext(ctx 
 }
 
 func (o ProjectFeaturesArrayOutput) Index(i pulumi.IntInput) ProjectFeaturesOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ProjectFeatures {
-		return vs[0].([]ProjectFeatures)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProjectFeatures {
+		return vs[0].([]*ProjectFeatures)[vs[1].(int)]
 	}).(ProjectFeaturesOutput)
 }
 
 type ProjectFeaturesMapOutput struct{ *pulumi.OutputState }
 
 func (ProjectFeaturesMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]ProjectFeatures)(nil))
+	return reflect.TypeOf((*map[string]*ProjectFeatures)(nil)).Elem()
 }
 
 func (o ProjectFeaturesMapOutput) ToProjectFeaturesMapOutput() ProjectFeaturesMapOutput {
@@ -328,18 +265,16 @@ func (o ProjectFeaturesMapOutput) ToProjectFeaturesMapOutputWithContext(ctx cont
 }
 
 func (o ProjectFeaturesMapOutput) MapIndex(k pulumi.StringInput) ProjectFeaturesOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) ProjectFeatures {
-		return vs[0].(map[string]ProjectFeatures)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *ProjectFeatures {
+		return vs[0].(map[string]*ProjectFeatures)[vs[1].(string)]
 	}).(ProjectFeaturesOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFeaturesInput)(nil)).Elem(), &ProjectFeatures{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFeaturesPtrInput)(nil)).Elem(), &ProjectFeatures{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFeaturesArrayInput)(nil)).Elem(), ProjectFeaturesArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ProjectFeaturesMapInput)(nil)).Elem(), ProjectFeaturesMap{})
 	pulumi.RegisterOutputType(ProjectFeaturesOutput{})
-	pulumi.RegisterOutputType(ProjectFeaturesPtrOutput{})
 	pulumi.RegisterOutputType(ProjectFeaturesArrayOutput{})
 	pulumi.RegisterOutputType(ProjectFeaturesMapOutput{})
 }

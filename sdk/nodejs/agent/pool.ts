@@ -85,23 +85,21 @@ export class Pool extends pulumi.CustomResource {
     /** @deprecated azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool */
     constructor(name: string, argsOrState?: PoolArgs | PoolState, opts?: pulumi.CustomResourceOptions) {
         pulumi.log.warn("Pool is deprecated: azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool")
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
-            inputs["autoProvision"] = state ? state.autoProvision : undefined;
-            inputs["name"] = state ? state.name : undefined;
-            inputs["poolType"] = state ? state.poolType : undefined;
+            resourceInputs["autoProvision"] = state ? state.autoProvision : undefined;
+            resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["poolType"] = state ? state.poolType : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
-            inputs["autoProvision"] = args ? args.autoProvision : undefined;
-            inputs["name"] = args ? args.name : undefined;
-            inputs["poolType"] = args ? args.poolType : undefined;
+            resourceInputs["autoProvision"] = args ? args.autoProvision : undefined;
+            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["poolType"] = args ? args.poolType : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(Pool.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(Pool.__pulumiType, name, resourceInputs, opts);
     }
 }
 

@@ -191,7 +191,7 @@ type BranchPolicyMinReviewersInput interface {
 }
 
 func (*BranchPolicyMinReviewers) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyMinReviewers)(nil))
+	return reflect.TypeOf((**BranchPolicyMinReviewers)(nil)).Elem()
 }
 
 func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersOutput() BranchPolicyMinReviewersOutput {
@@ -200,35 +200,6 @@ func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersOutput() BranchPoli
 
 func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersOutputWithContext(ctx context.Context) BranchPolicyMinReviewersOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersOutput)
-}
-
-func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput {
-	return i.ToBranchPolicyMinReviewersPtrOutputWithContext(context.Background())
-}
-
-func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersPtrOutput)
-}
-
-type BranchPolicyMinReviewersPtrInput interface {
-	pulumi.Input
-
-	ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput
-	ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput
-}
-
-type branchPolicyMinReviewersPtrType BranchPolicyMinReviewersArgs
-
-func (*branchPolicyMinReviewersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchPolicyMinReviewers)(nil))
-}
-
-func (i *branchPolicyMinReviewersPtrType) ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput {
-	return i.ToBranchPolicyMinReviewersPtrOutputWithContext(context.Background())
-}
-
-func (i *branchPolicyMinReviewersPtrType) ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersPtrOutput)
 }
 
 // BranchPolicyMinReviewersArrayInput is an input type that accepts BranchPolicyMinReviewersArray and BranchPolicyMinReviewersArrayOutput values.
@@ -284,7 +255,7 @@ func (i BranchPolicyMinReviewersMap) ToBranchPolicyMinReviewersMapOutputWithCont
 type BranchPolicyMinReviewersOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyMinReviewersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*BranchPolicyMinReviewers)(nil))
+	return reflect.TypeOf((**BranchPolicyMinReviewers)(nil)).Elem()
 }
 
 func (o BranchPolicyMinReviewersOutput) ToBranchPolicyMinReviewersOutput() BranchPolicyMinReviewersOutput {
@@ -295,44 +266,10 @@ func (o BranchPolicyMinReviewersOutput) ToBranchPolicyMinReviewersOutputWithCont
 	return o
 }
 
-func (o BranchPolicyMinReviewersOutput) ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput {
-	return o.ToBranchPolicyMinReviewersPtrOutputWithContext(context.Background())
-}
-
-func (o BranchPolicyMinReviewersOutput) ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyMinReviewers) *BranchPolicyMinReviewers {
-		return &v
-	}).(BranchPolicyMinReviewersPtrOutput)
-}
-
-type BranchPolicyMinReviewersPtrOutput struct{ *pulumi.OutputState }
-
-func (BranchPolicyMinReviewersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**BranchPolicyMinReviewers)(nil))
-}
-
-func (o BranchPolicyMinReviewersPtrOutput) ToBranchPolicyMinReviewersPtrOutput() BranchPolicyMinReviewersPtrOutput {
-	return o
-}
-
-func (o BranchPolicyMinReviewersPtrOutput) ToBranchPolicyMinReviewersPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersPtrOutput {
-	return o
-}
-
-func (o BranchPolicyMinReviewersPtrOutput) Elem() BranchPolicyMinReviewersOutput {
-	return o.ApplyT(func(v *BranchPolicyMinReviewers) BranchPolicyMinReviewers {
-		if v != nil {
-			return *v
-		}
-		var ret BranchPolicyMinReviewers
-		return ret
-	}).(BranchPolicyMinReviewersOutput)
-}
-
 type BranchPolicyMinReviewersArrayOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyMinReviewersArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]BranchPolicyMinReviewers)(nil))
+	return reflect.TypeOf((*[]*BranchPolicyMinReviewers)(nil)).Elem()
 }
 
 func (o BranchPolicyMinReviewersArrayOutput) ToBranchPolicyMinReviewersArrayOutput() BranchPolicyMinReviewersArrayOutput {
@@ -344,15 +281,15 @@ func (o BranchPolicyMinReviewersArrayOutput) ToBranchPolicyMinReviewersArrayOutp
 }
 
 func (o BranchPolicyMinReviewersArrayOutput) Index(i pulumi.IntInput) BranchPolicyMinReviewersOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BranchPolicyMinReviewers {
-		return vs[0].([]BranchPolicyMinReviewers)[vs[1].(int)]
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyMinReviewers {
+		return vs[0].([]*BranchPolicyMinReviewers)[vs[1].(int)]
 	}).(BranchPolicyMinReviewersOutput)
 }
 
 type BranchPolicyMinReviewersMapOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyMinReviewersMapOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*map[string]BranchPolicyMinReviewers)(nil))
+	return reflect.TypeOf((*map[string]*BranchPolicyMinReviewers)(nil)).Elem()
 }
 
 func (o BranchPolicyMinReviewersMapOutput) ToBranchPolicyMinReviewersMapOutput() BranchPolicyMinReviewersMapOutput {
@@ -364,18 +301,16 @@ func (o BranchPolicyMinReviewersMapOutput) ToBranchPolicyMinReviewersMapOutputWi
 }
 
 func (o BranchPolicyMinReviewersMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyMinReviewersOutput {
-	return pulumi.All(o, k).ApplyT(func(vs []interface{}) BranchPolicyMinReviewers {
-		return vs[0].(map[string]BranchPolicyMinReviewers)[vs[1].(string)]
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) *BranchPolicyMinReviewers {
+		return vs[0].(map[string]*BranchPolicyMinReviewers)[vs[1].(string)]
 	}).(BranchPolicyMinReviewersOutput)
 }
 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersInput)(nil)).Elem(), &BranchPolicyMinReviewers{})
-	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersPtrInput)(nil)).Elem(), &BranchPolicyMinReviewers{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersArrayInput)(nil)).Elem(), BranchPolicyMinReviewersArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyMinReviewersMapInput)(nil)).Elem(), BranchPolicyMinReviewersMap{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersOutput{})
-	pulumi.RegisterOutputType(BranchPolicyMinReviewersPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersArrayOutput{})
 	pulumi.RegisterOutputType(BranchPolicyMinReviewersMapOutput{})
 }

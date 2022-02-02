@@ -20,10 +20,10 @@ import * as utilities from "./utilities";
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const queue = project.id.apply(id => azuredevops.getAgentQueue({
- *     projectId: id,
+ * const queue = azuredevops.getAgentQueueOutput({
+ *     projectId: project.id,
  *     name: "Sample Agent Queue",
- * }));
+ * });
  * export const name = queue.apply(queue => queue.name);
  * export const poolId = queue.apply(queue => queue.agentPoolId);
  * ```
@@ -36,9 +36,7 @@ export function getAgentQueue(args: GetAgentQueueArgs, opts?: pulumi.InvokeOptio
         opts = {}
     }
 
-    if (!opts.version) {
-        opts.version = utilities.getVersion();
-    }
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azuredevops:index/getAgentQueue:getAgentQueue", {
         "name": args.name,
         "projectId": args.projectId,

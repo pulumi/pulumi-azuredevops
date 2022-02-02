@@ -102,17 +102,17 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointSonarQubeArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointSonarQubeArgs | ServiceEndpointSonarQubeState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointSonarQubeState | undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
-            inputs["token"] = state ? state.token : undefined;
-            inputs["tokenHash"] = state ? state.tokenHash : undefined;
-            inputs["url"] = state ? state.url : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["token"] = state ? state.token : undefined;
+            resourceInputs["tokenHash"] = state ? state.tokenHash : undefined;
+            resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServiceEndpointSonarQubeArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -127,18 +127,16 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            inputs["token"] = args ? args.token : undefined;
-            inputs["url"] = args ? args.url : undefined;
-            inputs["tokenHash"] = undefined /*out*/;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["url"] = args ? args.url : undefined;
+            resourceInputs["tokenHash"] = undefined /*out*/;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
-        super(ServiceEndpointSonarQube.__pulumiType, name, inputs, opts);
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        super(ServiceEndpointSonarQube.__pulumiType, name, resourceInputs, opts);
     }
 }
 

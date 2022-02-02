@@ -119,16 +119,16 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
      */
     constructor(name: string, args: ServiceEndpointGitHubArgs, opts?: pulumi.CustomResourceOptions)
     constructor(name: string, argsOrState?: ServiceEndpointGitHubArgs | ServiceEndpointGitHubState, opts?: pulumi.CustomResourceOptions) {
-        let inputs: pulumi.Inputs = {};
+        let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as ServiceEndpointGitHubState | undefined;
-            inputs["authOauth"] = state ? state.authOauth : undefined;
-            inputs["authPersonal"] = state ? state.authPersonal : undefined;
-            inputs["authorization"] = state ? state.authorization : undefined;
-            inputs["description"] = state ? state.description : undefined;
-            inputs["projectId"] = state ? state.projectId : undefined;
-            inputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["authOauth"] = state ? state.authOauth : undefined;
+            resourceInputs["authPersonal"] = state ? state.authPersonal : undefined;
+            resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["projectId"] = state ? state.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointGitHubArgs | undefined;
             if ((!args || args.projectId === undefined) && !opts.urn) {
@@ -137,19 +137,17 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
             if ((!args || args.serviceEndpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
-            inputs["authOauth"] = args ? args.authOauth : undefined;
-            inputs["authPersonal"] = args ? args.authPersonal : undefined;
-            inputs["authorization"] = args ? args.authorization : undefined;
-            inputs["description"] = args ? args.description : undefined;
-            inputs["projectId"] = args ? args.projectId : undefined;
-            inputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["authOauth"] = args ? args.authOauth : undefined;
+            resourceInputs["authPersonal"] = args ? args.authPersonal : undefined;
+            resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
-        if (!opts.version) {
-            opts = pulumi.mergeOptions(opts, { version: utilities.getVersion()});
-        }
+        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/gitHub:GitHub" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(ServiceEndpointGitHub.__pulumiType, name, inputs, opts);
+        super(ServiceEndpointGitHub.__pulumiType, name, resourceInputs, opts);
     }
 }
 
