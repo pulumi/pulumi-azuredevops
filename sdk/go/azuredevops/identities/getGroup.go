@@ -24,16 +24,14 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "contoso-project"
 // 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("contoso-project"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := project.Id
 // 		test, err := azuredevops.LookupGroup(ctx, &GetGroupArgs{
-// 			ProjectId: &opt1,
+// 			ProjectId: pulumi.StringRef(project.Id),
 // 			Name:      "Test Group",
 // 		}, nil)
 // 		if err != nil {

@@ -24,9 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "contoso-user@contoso.onmicrosoft.com"
 // 		_, err := azuredevops.GetUsers(ctx, &GetUsersArgs{
-// 			PrincipalName: &opt0,
+// 			PrincipalName: pulumi.StringRef("contoso-user@contoso.onmicrosoft.com"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -35,9 +34,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := "aad"
 // 		_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
-// 			Origin: &opt1,
+// 			Origin: pulumi.StringRef("aad"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -51,11 +49,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt2 := "aad"
-// 		opt3 := "a7ead982-8438-4cd2-b9e3-c3aa51a7b675"
 // 		_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
-// 			Origin:   &opt2,
-// 			OriginId: &opt3,
+// 			Origin:   pulumi.StringRef("aad"),
+// 			OriginId: pulumi.StringRef("a7ead982-8438-4cd2-b9e3-c3aa51a7b675"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
