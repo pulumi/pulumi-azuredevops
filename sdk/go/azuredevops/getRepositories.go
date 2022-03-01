@@ -25,27 +25,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "contoso-project"
 // 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("contoso-project"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt1 := project.Id
-// 		opt2 := true
 // 		_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
-// 			ProjectId:     &opt1,
-// 			IncludeHidden: &opt2,
+// 			ProjectId:     pulumi.StringRef(project.Id),
+// 			IncludeHidden: pulumi.BoolRef(true),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		opt3 := project.Id
-// 		opt4 := "contoso-repo"
 // 		_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
-// 			ProjectId: &opt3,
-// 			Name:      &opt4,
+// 			ProjectId: pulumi.StringRef(project.Id),
+// 			Name:      pulumi.StringRef("contoso-repo"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err

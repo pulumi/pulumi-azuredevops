@@ -25,9 +25,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		opt0 := "contoso-project"
 // 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: &opt0,
+// 			Name: pulumi.StringRef("contoso-project"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
