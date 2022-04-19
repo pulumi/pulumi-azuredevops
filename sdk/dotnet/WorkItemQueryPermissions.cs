@@ -33,10 +33,22 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
+    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
+    ///         {
+    ///             WorkItemTemplate = "Agile",
+    ///             VersionControl = "Git",
+    ///             Visibility = "private",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         {
+    ///             ProjectId = example.Id,
+    ///             Name = "Readers",
+    ///         });
     ///         var project_wiq_root_permissions = new AzureDevOps.WorkItemQueryPermissions("project-wiq-root-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
     ///         {
-    ///             ProjectId = azuredevops_project.Project.Id,
-    ///             Principal = data.Azuredevops_group.Project_readers.Id,
+    ///             ProjectId = example.Id,
+    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
     ///             Permissions = 
     ///             {
     ///                 { "CreateRepository", "Deny" },
@@ -65,11 +77,23 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var wiq_folder_permissions = new AzureDevOps.WorkItemQueryPermissions("wiq-folder-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
+    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectId = azuredevops_project.Project.Id,
+    ///             WorkItemTemplate = "Agile",
+    ///             VersionControl = "Git",
+    ///             Visibility = "private",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         {
+    ///             ProjectId = example.Id,
+    ///             Name = "Readers",
+    ///         });
+    ///         var example_permissions = new AzureDevOps.WorkItemQueryPermissions("example-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
+    ///         {
+    ///             ProjectId = example.Id,
     ///             Path = "/Team",
-    ///             Principal = data.Azuredevops_group.Project_readers.Id,
+    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
     ///             Permissions = 
     ///             {
     ///                 { "Contribute", "Allow" },
@@ -92,27 +116,27 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
     ///         {
-    ///             Description = "Test Project Description",
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             VersionControl = "Git",
+    ///             Visibility = "private",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = example.Id,
     ///             Name = "Readers",
     ///         });
-    ///         var project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = example.Id,
     ///             Name = "Contributors",
     ///         });
-    ///         var wiq_project_permissions = new AzureDevOps.WorkItemQueryPermissions("wiq-project-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
+    ///         var example_project_permissions = new AzureDevOps.WorkItemQueryPermissions("example-project-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             Principal = project_readers.Apply(project_readers =&gt; project_readers.Id),
+    ///             ProjectId = example.Id,
+    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
     ///             Permissions = 
     ///             {
     ///                 { "Read", "Allow" },
@@ -121,11 +145,11 @@ namespace Pulumi.AzureDevOps
     ///                 { "ManagePermissions", "Deny" },
     ///             },
     ///         });
-    ///         var wiq_sharedqueries_permissions = new AzureDevOps.WorkItemQueryPermissions("wiq-sharedqueries-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
+    ///         var example_sharedqueries_permissions = new AzureDevOps.WorkItemQueryPermissions("example-sharedqueries-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = example.Id,
     ///             Path = "/",
-    ///             Principal = project_contributors.Apply(project_contributors =&gt; project_contributors.Id),
+    ///             Principal = example_contributors.Apply(example_contributors =&gt; example_contributors.Id),
     ///             Permissions = 
     ///             {
     ///                 { "Read", "Allow" },
@@ -138,7 +162,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+    /// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 

@@ -25,15 +25,15 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: pulumi.StringRef("contoso-project"),
+// 		example, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+// 			Name: pulumi.StringRef("Example Project"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = azuredevops.GetGitRepository(ctx, &GetGitRepositoryArgs{
-// 			ProjectId: project.Id,
-// 			Name:      "contoso-repo",
+// 			ProjectId: example.Id,
+// 			Name:      "Example Repository",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -44,7 +44,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
 func GetGitRepository(ctx *pulumi.Context, args *GetGitRepositoryArgs, opts ...pulumi.InvokeOption) (*GetGitRepositoryResult, error) {
 	var rv GetGitRepositoryResult
 	err := ctx.Invoke("azuredevops:index/getGitRepository:getGitRepository", args, &rv, opts...)
@@ -90,7 +90,11 @@ func GetGitRepositoryOutput(ctx *pulumi.Context, args GetGitRepositoryOutputArgs
 		ApplyT(func(v interface{}) (GetGitRepositoryResult, error) {
 			args := v.(GetGitRepositoryArgs)
 			r, err := GetGitRepository(ctx, &args, opts...)
-			return *r, err
+			var s GetGitRepositoryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetGitRepositoryResultOutput)
 }
 

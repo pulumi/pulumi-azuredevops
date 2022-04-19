@@ -6,36 +6,81 @@ import { input as inputs, output as outputs } from "../types";
 import * as utilities from "../utilities";
 
 /**
- * Manages variable groups within Azure DevOps.
- *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {});
- * const variablegroup = new azuredevops.VariableGroup("variablegroup", {
- *     projectId: project.id,
- *     description: "Test Variable Group Description",
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleVariableGroup = new azuredevops.VariableGroup("exampleVariableGroup", {
+ *     projectId: exampleProject.id,
+ *     description: "Example Variable Group Description",
  *     allowAccess: true,
  *     variables: [
  *         {
- *             name: "key",
- *             value: "value",
+ *             name: "key1",
+ *             value: "val1",
  *         },
  *         {
- *             name: "Account Password",
- *             secretValue: "p@ssword123",
+ *             name: "key2",
+ *             secretValue: "val2",
  *             isSecret: true,
+ *         },
+ *     ],
+ * });
+ * ```
+ * ### With AzureRM Key Vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     description: "Managed by Terraform",
+ *     credentials: {
+ *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
+ *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *     },
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * const exampleVariableGroup = new azuredevops.VariableGroup("exampleVariableGroup", {
+ *     projectId: exampleProject.id,
+ *     description: "Example Variable Group Description",
+ *     allowAccess: true,
+ *     keyVault: {
+ *         name: "example-kv",
+ *         serviceEndpointId: exampleServiceEndpointAzureRM.id,
+ *     },
+ *     variables: [
+ *         {
+ *             name: "key1",
+ *         },
+ *         {
+ *             name: "key2",
  *         },
  *     ],
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
- * - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+ * - [Azure DevOps Service REST API 6.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *
@@ -51,13 +96,13 @@ import * as utilities from "../utilities";
  * **Variable groups containing secret values cannot be imported.** Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup "Test Project/10"
+ *  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example "Example Project/10"
  * ```
  *
  *  or
  *
  * ```sh
- *  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup 00000000-0000-0000-0000-000000000000/0
+ *  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
  * ```
  *
  *  _Note that for secret variables, the import command retrieve blank value in the tfstate._

@@ -25,17 +25,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointGitHub(ctx, "serviceendpointGh1", &azuredevops.ServiceEndpointGitHubArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample GithHub Personal Access Token"),
+// 		_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example GitHub Personal Access Token"),
 // 			AuthPersonal: &ServiceEndpointGitHubAuthPersonalArgs{
 // 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
@@ -58,9 +59,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewServiceEndpointGitHub(ctx, "serviceendpointGh2", &azuredevops.ServiceEndpointGitHubArgs{
-// 			ProjectId:           pulumi.Any(azuredevops_project.Project.Id),
-// 			ServiceEndpointName: pulumi.String("Sample GithHub Grant"),
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+// 			Visibility:       pulumi.String("private"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example GitHub"),
 // 			AuthOauth: &ServiceEndpointGitHubAuthOauthArgs{
 // 				OauthConfigurationId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			},
@@ -83,9 +93,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewServiceEndpointGitHub(ctx, "serviceendpointGh3", &azuredevops.ServiceEndpointGitHubArgs{
-// 			ProjectId:           pulumi.Any(azuredevops_project.Project.Id),
-// 			ServiceEndpointName: pulumi.String("Sample GithHub Apps: Azure Pipelines"),
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+// 			Visibility:       pulumi.String("private"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example GitHub Apps: Azure Pipelines"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
@@ -97,14 +116,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointGitHub struct {
 	pulumi.CustomResourceState
@@ -115,7 +134,7 @@ type ServiceEndpointGitHub struct {
 	AuthPersonal  ServiceEndpointGitHubAuthPersonalPtrOutput `pulumi:"authPersonal"`
 	Authorization pulumi.StringMapOutput                     `pulumi:"authorization"`
 	Description   pulumi.StringPtrOutput                     `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
@@ -168,7 +187,7 @@ type serviceEndpointGitHubState struct {
 	AuthPersonal  *ServiceEndpointGitHubAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                  `pulumi:"authorization"`
 	Description   *string                            `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
@@ -181,7 +200,7 @@ type ServiceEndpointGitHubState struct {
 	AuthPersonal  ServiceEndpointGitHubAuthPersonalPtrInput
 	Authorization pulumi.StringMapInput
 	Description   pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
@@ -198,7 +217,7 @@ type serviceEndpointGitHubArgs struct {
 	AuthPersonal  *ServiceEndpointGitHubAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                  `pulumi:"authorization"`
 	Description   *string                            `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
@@ -212,7 +231,7 @@ type ServiceEndpointGitHubArgs struct {
 	AuthPersonal  ServiceEndpointGitHubAuthPersonalPtrInput
 	Authorization pulumi.StringMapInput
 	Description   pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput

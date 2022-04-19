@@ -13,27 +13,27 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "My first project",
+ *     description: "Managed by Terraform",
  * });
- * const builtinProjectContributors = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-project-contributors = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Contributors",
  * });
- * const team = new azuredevops.Team("team", {projectId: project.id});
- * const teamAdministrators = new azuredevops.TeamAdministrators("teamAdministrators", {
- *     projectId: team.projectId,
- *     teamId: team.id,
+ * const exampleTeam = new azuredevops.Team("exampleTeam", {projectId: exampleProject.id});
+ * const example_team_administrators = new azuredevops.TeamAdministrators("example-team-administrators", {
+ *     projectId: exampleTeam.projectId,
+ *     teamId: exampleTeam.id,
  *     mode: "overwrite",
- *     administrators: [builtinProjectContributors.apply(builtinProjectContributors => builtinProjectContributors.descriptor)],
+ *     administrators: [example_project_contributors.apply(example_project_contributors => example_project_contributors.descriptor)],
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *

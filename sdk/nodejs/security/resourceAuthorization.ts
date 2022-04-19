@@ -15,23 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {});
- * const bitbucketAccount = new azuredevops.ServiceEndpointBitBucket("bitbucketAccount", {
- *     projectId: project.id,
- *     username: "xxxx",
- *     password: "xxxx",
- *     serviceEndpointName: "test-bitbucket",
- *     description: "test",
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const auth = new azuredevops.ResourceAuthorization("auth", {
- *     projectId: project.id,
- *     resourceId: bitbucketAccount.id,
+ * const exampleServiceEndpointBitBucket = new azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket", {
+ *     projectId: exampleProject.id,
+ *     username: "username",
+ *     password: "password",
+ *     serviceEndpointName: "example-bitbucket",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("exampleResourceAuthorization", {
+ *     projectId: exampleProject.id,
+ *     resourceId: exampleServiceEndpointBitBucket.id,
  *     authorized: true,
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-6.0)
  *
  * @deprecated azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization
  */

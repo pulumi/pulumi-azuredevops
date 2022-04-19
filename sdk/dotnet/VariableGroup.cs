@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages variable groups within Azure DevOps.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -22,26 +20,87 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
+    ///             WorkItemTemplate = "Agile",
+    ///             VersionControl = "Git",
+    ///             Visibility = "private",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var variablegroup = new AzureDevOps.VariableGroup("variablegroup", new AzureDevOps.VariableGroupArgs
+    ///         var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new AzureDevOps.VariableGroupArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             Description = "Test Variable Group Description",
+    ///             ProjectId = exampleProject.Id,
+    ///             Description = "Example Variable Group Description",
     ///             AllowAccess = true,
     ///             Variables = 
     ///             {
     ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
     ///                 {
-    ///                     Name = "key",
-    ///                     Value = "value",
+    ///                     Name = "key1",
+    ///                     Value = "val1",
     ///                 },
     ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
     ///                 {
-    ///                     Name = "Account Password",
-    ///                     SecretValue = "p@ssword123",
+    ///                     Name = "key2",
+    ///                     SecretValue = "val2",
     ///                     IsSecret = true,
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### With AzureRM Key Vault
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+    ///         {
+    ///             WorkItemTemplate = "Agile",
+    ///             VersionControl = "Git",
+    ///             Visibility = "private",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new AzureDevOps.ServiceEndpointAzureRMArgs
+    ///         {
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example AzureRM",
+    ///             Description = "Managed by Terraform",
+    ///             Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
+    ///             {
+    ///                 Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
+    ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///             },
+    ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///             AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///             AzurermSubscriptionName = "Example Subscription Name",
+    ///         });
+    ///         var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new AzureDevOps.VariableGroupArgs
+    ///         {
+    ///             ProjectId = exampleProject.Id,
+    ///             Description = "Example Variable Group Description",
+    ///             AllowAccess = true,
+    ///             KeyVault = new AzureDevOps.Inputs.VariableGroupKeyVaultArgs
+    ///             {
+    ///                 Name = "example-kv",
+    ///                 ServiceEndpointId = exampleServiceEndpointAzureRM.Id,
+    ///             },
+    ///             Variables = 
+    ///             {
+    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///                 {
+    ///                     Name = "key1",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///                 {
+    ///                     Name = "key2",
     ///                 },
     ///             },
     ///         });
@@ -51,8 +110,8 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
-    /// - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+    /// - [Azure DevOps Service REST API 6.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 
@@ -68,13 +127,13 @@ namespace Pulumi.AzureDevOps
     /// **Variable groups containing secret values cannot be imported.** Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/variableGroup:VariableGroup variablegroup "Test Project/10"
+    ///  $ pulumi import azuredevops:index/variableGroup:VariableGroup example "Example Project/10"
     /// ```
     /// 
     ///  or
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/variableGroup:VariableGroup variablegroup 00000000-0000-0000-0000-000000000000/0
+    ///  $ pulumi import azuredevops:index/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// 
     ///  _Note that for secret variables, the import command retrieve blank value in the tfstate._

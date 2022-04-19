@@ -14,15 +14,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const serviceendpoint = new azuredevops.ServiceEndpointPipeline("serviceendpoint", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample Pipeline Runner",
- *     organizationName: "MyOrganization",
+ * const exampleServiceEndpointPipeline = new azuredevops.ServiceEndpointPipeline("exampleServiceEndpointPipeline", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example Pipeline Runner",
+ *     organizationName: "Organization Name",
  *     authPersonal: {
  *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  *     },
@@ -31,14 +32,14 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint can be imported using the `project id`, `service connection id`, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline serviceendpoint projectID/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointPipeline extends pulumi.CustomResource {
@@ -80,7 +81,7 @@ export class ServiceEndpointPipeline extends pulumi.CustomResource {
      */
     public readonly organizationName!: pulumi.Output<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -148,7 +149,7 @@ export interface ServiceEndpointPipelineState {
      */
     organizationName?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -172,7 +173,7 @@ export interface ServiceEndpointPipelineArgs {
      */
     organizationName: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

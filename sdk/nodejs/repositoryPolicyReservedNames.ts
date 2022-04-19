@@ -15,23 +15,23 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
- *     description: "Managed by Terraform",
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const git = new azuredevops.Git("git", {
- *     projectId: project.id,
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const repositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("repositoryPolicyReservedNames", {
- *     projectId: project.id,
+ * const exampleRepositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", {
+ *     projectId: exampleProject.id,
  *     enabled: true,
  *     blocking: true,
- *     repositoryIds: [git.id],
+ *     repositoryIds: [exampleGit.id],
  * });
  * ```
  *
@@ -40,22 +40,28 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const repositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("repositoryPolicyReservedNames", {
- *     projectId: azuredevops_project.p.id,
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleRepositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", {
+ *     projectId: exampleProject.id,
  *     enabled: true,
  *     blocking: true,
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID
  *
  * ```sh
- *  $ pulumi import azuredevops:index/repositoryPolicyReservedNames:RepositoryPolicyReservedNames p 00000000-0000-0000-0000-000000000000/0
+ *  $ pulumi import azuredevops:index/repositoryPolicyReservedNames:RepositoryPolicyReservedNames example 00000000-0000-0000-0000-000000000000/0
  * ```
  */
 export class RepositoryPolicyReservedNames extends pulumi.CustomResource {

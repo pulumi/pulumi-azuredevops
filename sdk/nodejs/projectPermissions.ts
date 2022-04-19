@@ -15,19 +15,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
- *     description: "Test Project Description",
+ * const example = new azuredevops.Project("example", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const project-readers = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: example.id,
  *     name: "Readers",
  * });
- * const project_perm = new azuredevops.ProjectPermissions("project-perm", {
- *     projectId: project.id,
- *     principal: project_readers.apply(project_readers => project_readers.id),
+ * const example_permission = new azuredevops.ProjectPermissions("example-permission", {
+ *     projectId: example.id,
+ *     principal: example_readers.apply(example_readers => example_readers.id),
  *     permissions: {
  *         DELETE: "Deny",
  *         EDIT_BUILD_STATUS: "NotSet",
@@ -38,7 +38,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+ * * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *

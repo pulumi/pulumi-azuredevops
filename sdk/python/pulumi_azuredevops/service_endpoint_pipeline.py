@@ -25,7 +25,7 @@ class ServiceEndpointPipelineArgs:
         The set of arguments for constructing a ServiceEndpointPipeline resource.
         :param pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         pulumi.set(__self__, "auth_personal", auth_personal)
@@ -65,7 +65,7 @@ class ServiceEndpointPipelineArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -117,7 +117,7 @@ class _ServiceEndpointPipelineState:
         Input properties used for looking up and filtering ServiceEndpointPipeline resources.
         :param pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         if auth_personal is not None:
@@ -179,7 +179,7 @@ class _ServiceEndpointPipelineState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -221,14 +221,15 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointPipeline("serviceendpoint",
-            project_id=project.id,
-            service_endpoint_name="Sample Pipeline Runner",
-            organization_name="MyOrganization",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("exampleServiceEndpointPipeline",
+            project_id=example_project.id,
+            service_endpoint_name="Example Pipeline Runner",
+            organization_name="Organization Name",
             auth_personal=azuredevops.ServiceEndpointPipelineAuthPersonalArgs(
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ),
@@ -236,21 +237,21 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint can be imported using the `project id`, `service connection id`, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline serviceendpoint projectID/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceEndpointPipelineAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         ...
@@ -268,14 +269,15 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointPipeline("serviceendpoint",
-            project_id=project.id,
-            service_endpoint_name="Sample Pipeline Runner",
-            organization_name="MyOrganization",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("exampleServiceEndpointPipeline",
+            project_id=example_project.id,
+            service_endpoint_name="Example Pipeline Runner",
+            organization_name="Organization Name",
             auth_personal=azuredevops.ServiceEndpointPipelineAuthPersonalArgs(
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ),
@@ -283,14 +285,14 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint can be imported using the `project id`, `service connection id`, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline serviceendpoint projectID/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -365,7 +367,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceEndpointPipelineAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] organization_name: The organization name used for `Organization Url` and `Release API Url` fields.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -410,7 +412,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

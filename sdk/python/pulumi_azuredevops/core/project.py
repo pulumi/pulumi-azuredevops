@@ -264,8 +264,8 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Test Project Description",
+        example = azuredevops.Project("example",
+            description="Managed by Terraform",
             features={
                 "artifacts": "disabled",
                 "testplans": "disabled",
@@ -276,7 +276,7 @@ class Project(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -287,13 +287,13 @@ class Project(pulumi.CustomResource):
         Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
 
         ```sh
-         $ pulumi import azuredevops:Core/project:Project project "Test Project"
+         $ pulumi import azuredevops:Core/project:Project example "Example Project"
         ```
 
          or
 
         ```sh
-         $ pulumi import azuredevops:Core/project:Project project 00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -321,8 +321,8 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Test Project Description",
+        example = azuredevops.Project("example",
+            description="Managed by Terraform",
             features={
                 "artifacts": "disabled",
                 "testplans": "disabled",
@@ -333,7 +333,7 @@ class Project(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -344,13 +344,13 @@ class Project(pulumi.CustomResource):
         Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
 
         ```sh
-         $ pulumi import azuredevops:Core/project:Project project "Test Project"
+         $ pulumi import azuredevops:Core/project:Project example "Example Project"
         ```
 
          or
 
         ```sh
-         $ pulumi import azuredevops:Core/project:Project project 00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.

@@ -22,32 +22,32 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///         });
-    ///         var git = new AzureDevOps.Git("git", new AzureDevOps.GitArgs
+    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///             {
     ///                 InitType = "Clean",
     ///             },
     ///         });
-    ///         var user = new AzureDevOps.User("user", new AzureDevOps.UserArgs
+    ///         var exampleUser = new AzureDevOps.User("exampleUser", new AzureDevOps.UserArgs
     ///         {
     ///             PrincipalName = "mail@email.com",
     ///             AccountLicenseType = "basic",
     ///         });
-    ///         var branchPolicyAutoReviewers = new AzureDevOps.BranchPolicyAutoReviewers("branchPolicyAutoReviewers", new AzureDevOps.BranchPolicyAutoReviewersArgs
+    ///         var exampleBranchPolicyAutoReviewers = new AzureDevOps.BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers", new AzureDevOps.BranchPolicyAutoReviewersArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Enabled = true,
     ///             Blocking = true,
     ///             Settings = new AzureDevOps.Inputs.BranchPolicyAutoReviewersSettingsArgs
     ///             {
     ///                 AutoReviewerIds = 
     ///                 {
-    ///                     user.Id,
+    ///                     exampleUser.Id,
     ///                 },
     ///                 SubmitterCanVote = false,
     ///                 Message = "Auto reviewer",
@@ -59,8 +59,8 @@ namespace Pulumi.AzureDevOps
     ///                 {
     ///                     new AzureDevOps.Inputs.BranchPolicyAutoReviewersSettingsScopeArgs
     ///                     {
-    ///                         RepositoryId = git.Id,
-    ///                         RepositoryRef = git.DefaultBranch,
+    ///                         RepositoryId = exampleGit.Id,
+    ///                         RepositoryRef = exampleGit.DefaultBranch,
     ///                         MatchType = "Exact",
     ///                     },
     ///                 },
@@ -72,14 +72,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers p 00000000-0000-0000-0000-000000000000/0
+    ///  $ pulumi import azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers example 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers")]

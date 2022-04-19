@@ -14,14 +14,14 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes")]
@@ -43,7 +43,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> AuthorizationType { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for authorization_type="AzureSubscription".
+        /// A `azure_subscription` block defined blow.
         /// </summary>
         [Output("azureSubscriptions")]
         public Output<ImmutableArray<Outputs.ServiceEndpointKubernetesAzureSubscription>> AzureSubscriptions { get; private set; } = null!;
@@ -52,19 +52,19 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for authorization_type="Kubeconfig".
+        /// A `kubeconfig` block defined blow.
         /// </summary>
         [Output("kubeconfigs")]
         public Output<ImmutableArray<Outputs.ServiceEndpointKubernetesKubeconfig>> Kubeconfigs { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+        /// A `service_account` block defined blow.
         /// </summary>
         [Output("serviceAccounts")]
         public Output<ImmutableArray<Outputs.ServiceEndpointKubernetesServiceAccount>> ServiceAccounts { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.ServiceEndpointKubernetesAzureSubscriptionArgs>? _azureSubscriptions;
 
         /// <summary>
-        /// The configuration for authorization_type="AzureSubscription".
+        /// A `azure_subscription` block defined blow.
         /// </summary>
         public InputList<Inputs.ServiceEndpointKubernetesAzureSubscriptionArgs> AzureSubscriptions
         {
@@ -164,7 +164,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.ServiceEndpointKubernetesKubeconfigArgs>? _kubeconfigs;
 
         /// <summary>
-        /// The configuration for authorization_type="Kubeconfig".
+        /// A `kubeconfig` block defined blow.
         /// </summary>
         public InputList<Inputs.ServiceEndpointKubernetesKubeconfigArgs> Kubeconfigs
         {
@@ -173,7 +173,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.ServiceEndpointKubernetesServiceAccountArgs>? _serviceAccounts;
 
         /// <summary>
-        /// The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+        /// A `service_account` block defined blow.
         /// </summary>
         public InputList<Inputs.ServiceEndpointKubernetesServiceAccountArgs> ServiceAccounts
         {
@@ -227,7 +227,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.ServiceEndpointKubernetesAzureSubscriptionGetArgs>? _azureSubscriptions;
 
         /// <summary>
-        /// The configuration for authorization_type="AzureSubscription".
+        /// A `azure_subscription` block defined blow.
         /// </summary>
         public InputList<Inputs.ServiceEndpointKubernetesAzureSubscriptionGetArgs> AzureSubscriptions
         {
@@ -242,7 +242,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.ServiceEndpointKubernetesKubeconfigGetArgs>? _kubeconfigs;
 
         /// <summary>
-        /// The configuration for authorization_type="Kubeconfig".
+        /// A `kubeconfig` block defined blow.
         /// </summary>
         public InputList<Inputs.ServiceEndpointKubernetesKubeconfigGetArgs> Kubeconfigs
         {
@@ -251,7 +251,7 @@ namespace Pulumi.AzureDevOps
         }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
@@ -260,7 +260,7 @@ namespace Pulumi.AzureDevOps
         private InputList<Inputs.ServiceEndpointKubernetesServiceAccountGetArgs>? _serviceAccounts;
 
         /// <summary>
-        /// The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+        /// A `service_account` block defined blow.
         /// </summary>
         public InputList<Inputs.ServiceEndpointKubernetesServiceAccountGetArgs> ServiceAccounts
         {

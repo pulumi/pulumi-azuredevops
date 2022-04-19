@@ -22,17 +22,18 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var serviceendpoint = new AzureDevOps.ServiceEndpointPipeline("serviceendpoint", new AzureDevOps.ServiceEndpointPipelineArgs
+    ///         var exampleServiceEndpointPipeline = new AzureDevOps.ServiceEndpointPipeline("exampleServiceEndpointPipeline", new AzureDevOps.ServiceEndpointPipelineArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample Pipeline Runner",
-    ///             OrganizationName = "MyOrganization",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example Pipeline Runner",
+    ///             OrganizationName = "Organization Name",
     ///             AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointPipelineAuthPersonalArgs
     ///             {
     ///                 PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -45,14 +46,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Service Endpoint can be imported using the `project id`, `service connection id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline serviceendpoint projectID/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline")]
@@ -77,7 +78,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> OrganizationName { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -158,7 +159,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> OrganizationName { get; set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -200,7 +201,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? OrganizationName { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

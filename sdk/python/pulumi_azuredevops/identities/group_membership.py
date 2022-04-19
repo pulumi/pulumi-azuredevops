@@ -159,17 +159,17 @@ class GroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        user = azuredevops.User("user", principal_name="foo@contoso.com")
-        group = azuredevops.get_group_output(project_id=project.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_user = azuredevops.User("exampleUser", principal_name="foo@contoso.com")
+        example_group = azuredevops.get_group_output(project_id=example_project.id,
             name="Build Administrators")
-        membership = azuredevops.GroupMembership("membership",
-            group=group.descriptor,
-            members=[user.descriptor])
+        example_group_membership = azuredevops.GroupMembership("exampleGroupMembership",
+            group=example_group.descriptor,
+            members=[example_user.descriptor])
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
+        - [Azure DevOps Service REST API 6.0 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -204,17 +204,17 @@ class GroupMembership(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        user = azuredevops.User("user", principal_name="foo@contoso.com")
-        group = azuredevops.get_group_output(project_id=project.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_user = azuredevops.User("exampleUser", principal_name="foo@contoso.com")
+        example_group = azuredevops.get_group_output(project_id=example_project.id,
             name="Build Administrators")
-        membership = azuredevops.GroupMembership("membership",
-            group=group.descriptor,
-            members=[user.descriptor])
+        example_group_membership = azuredevops.GroupMembership("exampleGroupMembership",
+            group=example_group.descriptor,
+            members=[example_user.descriptor])
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
+        - [Azure DevOps Service REST API 6.0 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 

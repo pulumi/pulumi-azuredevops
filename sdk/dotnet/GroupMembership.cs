@@ -22,24 +22,24 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///         });
-    ///         var user = new AzureDevOps.User("user", new AzureDevOps.UserArgs
+    ///         var exampleUser = new AzureDevOps.User("exampleUser", new AzureDevOps.UserArgs
     ///         {
     ///             PrincipalName = "foo@contoso.com",
     ///         });
-    ///         var @group = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var exampleGroup = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Build Administrators",
     ///         });
-    ///         var membership = new AzureDevOps.GroupMembership("membership", new AzureDevOps.GroupMembershipArgs
+    ///         var exampleGroupMembership = new AzureDevOps.GroupMembership("exampleGroupMembership", new AzureDevOps.GroupMembershipArgs
     ///         {
-    ///             Group = @group.Apply(@group =&gt; @group.Descriptor),
+    ///             Group = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor),
     ///             Members = 
     ///             {
-    ///                 user.Descriptor,
+    ///                 exampleUser.Descriptor,
     ///             },
     ///         });
     ///     }
@@ -48,7 +48,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
+    /// - [Azure DevOps Service REST API 6.0 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 

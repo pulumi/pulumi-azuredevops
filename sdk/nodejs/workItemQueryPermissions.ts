@@ -24,9 +24,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
+ * const example = new azuredevops.Project("example", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: example.id,
+ *     name: "Readers",
+ * });
  * const project_wiq_root_permissions = new azuredevops.WorkItemQueryPermissions("project-wiq-root-permissions", {
- *     projectId: azuredevops_project.project.id,
- *     principal: data.azuredevops_group["project-readers"].id,
+ *     projectId: example.id,
+ *     principal: example_readers.apply(example_readers => example_readers.id),
  *     permissions: {
  *         CreateRepository: "Deny",
  *         DeleteRepository: "Deny",
@@ -47,10 +57,20 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const wiq_folder_permissions = new azuredevops.WorkItemQueryPermissions("wiq-folder-permissions", {
- *     projectId: azuredevops_project.project.id,
+ * const example = new azuredevops.Project("example", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: example.id,
+ *     name: "Readers",
+ * });
+ * const example_permissions = new azuredevops.WorkItemQueryPermissions("example-permissions", {
+ *     projectId: example.id,
  *     path: "/Team",
- *     principal: data.azuredevops_group["project-readers"].id,
+ *     principal: example_readers.apply(example_readers => example_readers.id),
  *     permissions: {
  *         Contribute: "Allow",
  *         Delete: "Deny",
@@ -65,23 +85,23 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
- *     description: "Test Project Description",
- *     visibility: "private",
- *     versionControl: "Git",
+ * const example = new azuredevops.Project("example", {
  *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
  * });
- * const project-readers = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: example.id,
  *     name: "Readers",
  * });
- * const project-contributors = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-contributors = azuredevops.getGroupOutput({
+ *     projectId: example.id,
  *     name: "Contributors",
  * });
- * const wiq_project_permissions = new azuredevops.WorkItemQueryPermissions("wiq-project-permissions", {
- *     projectId: project.id,
- *     principal: project_readers.apply(project_readers => project_readers.id),
+ * const example_project_permissions = new azuredevops.WorkItemQueryPermissions("example-project-permissions", {
+ *     projectId: example.id,
+ *     principal: example_readers.apply(example_readers => example_readers.id),
  *     permissions: {
  *         Read: "Allow",
  *         Delete: "Deny",
@@ -89,10 +109,10 @@ import * as utilities from "./utilities";
  *         ManagePermissions: "Deny",
  *     },
  * });
- * const wiq_sharedqueries_permissions = new azuredevops.WorkItemQueryPermissions("wiq-sharedqueries-permissions", {
- *     projectId: project.id,
+ * const example_sharedqueries_permissions = new azuredevops.WorkItemQueryPermissions("example-sharedqueries-permissions", {
+ *     projectId: example.id,
  *     path: "/",
- *     principal: project_contributors.apply(project_contributors => project_contributors.id),
+ *     principal: example_contributors.apply(example_contributors => example_contributors.id),
  *     permissions: {
  *         Read: "Allow",
  *         Delete: "Deny",
@@ -101,7 +121,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+ * * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *

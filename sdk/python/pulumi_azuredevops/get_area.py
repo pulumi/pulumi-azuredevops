@@ -126,20 +126,18 @@ def get_area(fetch_children: Optional[bool] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    #---------------------------------------------------------------------------
-    # Azure DevOps project
-    project = azuredevops.Project("project",
+    example_project = azuredevops.Project("exampleProject",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    area = project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
+    example_area = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
         path="/",
         fetch_children=False))
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
 
     ## PAT Permissions Required
 
@@ -184,20 +182,18 @@ def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = Non
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    #---------------------------------------------------------------------------
-    # Azure DevOps project
-    project = azuredevops.Project("project",
+    example_project = azuredevops.Project("exampleProject",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    area = project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
+    example_area = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
         path="/",
         fetch_children=False))
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
 
     ## PAT Permissions Required
 

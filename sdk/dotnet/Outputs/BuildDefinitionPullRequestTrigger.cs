@@ -14,18 +14,9 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionPullRequestTrigger
     {
         public readonly string? CommentRequired;
-        /// <summary>
-        /// Set permissions for Forked repositories.
-        /// </summary>
         public readonly Outputs.BuildDefinitionPullRequestTriggerForks Forks;
         public readonly string? InitialBranch;
-        /// <summary>
-        /// Override the azure-pipeline file and use this configuration for all builds.
-        /// </summary>
         public readonly Outputs.BuildDefinitionPullRequestTriggerOverride? Override;
-        /// <summary>
-        /// Use the azure-pipeline file for the build configuration. Defaults to `false`.
-        /// </summary>
         public readonly bool? UseYaml;
 
         [OutputConstructor]

@@ -13,16 +13,16 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const pool = azuredevops.getPool({
- *     name: "Sample Agent Pool",
+ * const example = azuredevops.getPool({
+ *     name: "Example Agent Pool",
  * });
- * export const name = pool.then(pool => pool.name);
- * export const poolType = pool.then(pool => pool.poolType);
- * export const autoProvision = pool.then(pool => pool.autoProvision);
+ * export const name = example.then(example => example.name);
+ * export const poolType = example.then(example => example.poolType);
+ * export const autoProvision = example.then(example => example.autoProvision);
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
  */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     if (!opts) {

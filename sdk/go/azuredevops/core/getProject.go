@@ -24,25 +24,20 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: pulumi.StringRef("Sample Project"),
+// 		example, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+// 			Name: pulumi.StringRef("Example Project"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("id", project.Id)
-// 		ctx.Export("name", project.Name)
-// 		ctx.Export("visibility", project.Visibility)
-// 		ctx.Export("versionControl", project.VersionControl)
-// 		ctx.Export("workItemTemplate", project.WorkItemTemplate)
-// 		ctx.Export("processTemplateId", project.ProcessTemplateId)
+// 		ctx.Export("project", example)
 // 		return nil
 // 	})
 // }
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
 //
 // Deprecated: azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
@@ -81,7 +76,11 @@ func LookupProjectOutput(ctx *pulumi.Context, args LookupProjectOutputArgs, opts
 		ApplyT(func(v interface{}) (LookupProjectResult, error) {
 			args := v.(LookupProjectArgs)
 			r, err := LookupProject(ctx, &args, opts...)
-			return *r, err
+			var s LookupProjectResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupProjectResultOutput)
 }
 

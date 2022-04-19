@@ -247,9 +247,16 @@ class GitPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project_git_root_permissions = azuredevops.GitPermissions("project-git-root-permissions",
-            project_id=azuredevops_project["project"]["id"],
-            principal=data["azuredevops_group"]["project-readers"]["id"],
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "CreateRepository": "Deny",
                 "DeleteRepository": "Deny",
@@ -267,10 +274,21 @@ class GitPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project_git_repo_permissions = azuredevops.GitPermissions("project-git-repo-permissions",
-            project_id=data["azuredevops_git_repository"]["git-repo"]["project_id"],
-            repository_id=data["azuredevops_git_repository"]["git-repo"]["id"],
-            principal=data["azuredevops_group"]["project-administrators"]["id"],
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_group = azuredevops.get_group(name="Project Collection Administrators")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            principal=example_group.id,
             permissions={
                 "RemoveOthersLocks": "Allow",
                 "ManagePermissions": "Deny",
@@ -289,11 +307,22 @@ class GitPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project_git_branch_permissions = azuredevops.GitPermissions("project-git-branch-permissions",
-            project_id=data["azuredevops_git_repository"]["git-repo"]["project_id"],
-            repository_id=data["azuredevops_git_repository"]["git-repo"]["id"],
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_group = azuredevops.get_group(name="Project Collection Administrators")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
             branch_name="refs/heads/master",
-            principal=data["azuredevops_group"]["project-contributors"]["id"],
+            principal=example_group.id,
             permissions={
                 "RemoveOthersLocks": "Allow",
                 "ForcePush": "Deny",
@@ -306,46 +335,46 @@ class GitPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Test Project Description",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
             name="Readers")
-        project_contributors = azuredevops.get_group_output(project_id=project.id,
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
             name="Contributors")
-        project_administrators = azuredevops.get_group_output(project_id=project.id,
+        example_project_administrators = azuredevops.get_group_output(project_id=example_project.id,
             name="Project administrators")
-        project_git_root_permissions = azuredevops.GitPermissions("project-git-root-permissions",
-            project_id=project.id,
-            principal=project_readers.id,
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_project.id,
+            principal=example_project_readers.id,
             permissions={
                 "CreateRepository": "Deny",
                 "DeleteRepository": "Deny",
                 "RenameRepository": "NotSet",
             })
-        git_repo = azuredevops.Git("git-repo",
-            project_id=project.id,
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             default_branch="refs/heads/master",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        project_git_repo_permissions = azuredevops.GitPermissions("project-git-repo-permissions",
-            project_id=git_repo.project_id,
-            repository_id=git_repo.id,
-            principal=project_administrators.id,
+        example_repo_permissions = azuredevops.GitPermissions("example-repo-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            principal=example_project_administrators.id,
             permissions={
                 "RemoveOthersLocks": "Allow",
                 "ManagePermissions": "Deny",
                 "CreateTag": "Deny",
                 "CreateBranch": "NotSet",
             })
-        project_git_branch_permissions = azuredevops.GitPermissions("project-git-branch-permissions",
-            project_id=git_repo.project_id,
-            repository_id=git_repo.id,
+        example_branch_permissions = azuredevops.GitPermissions("example-branch-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
             branch_name="master",
-            principal=project_contributors.id,
+            principal=example_project_contributors.id,
             permissions={
                 "RemoveOthersLocks": "Allow",
                 "ForcePush": "Deny",
@@ -353,7 +382,7 @@ class GitPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -398,9 +427,16 @@ class GitPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project_git_root_permissions = azuredevops.GitPermissions("project-git-root-permissions",
-            project_id=azuredevops_project["project"]["id"],
-            principal=data["azuredevops_group"]["project-readers"]["id"],
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "CreateRepository": "Deny",
                 "DeleteRepository": "Deny",
@@ -418,10 +454,21 @@ class GitPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project_git_repo_permissions = azuredevops.GitPermissions("project-git-repo-permissions",
-            project_id=data["azuredevops_git_repository"]["git-repo"]["project_id"],
-            repository_id=data["azuredevops_git_repository"]["git-repo"]["id"],
-            principal=data["azuredevops_group"]["project-administrators"]["id"],
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_group = azuredevops.get_group(name="Project Collection Administrators")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            principal=example_group.id,
             permissions={
                 "RemoveOthersLocks": "Allow",
                 "ManagePermissions": "Deny",
@@ -440,11 +487,22 @@ class GitPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project_git_branch_permissions = azuredevops.GitPermissions("project-git-branch-permissions",
-            project_id=data["azuredevops_git_repository"]["git-repo"]["project_id"],
-            repository_id=data["azuredevops_git_repository"]["git-repo"]["id"],
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_group = azuredevops.get_group(name="Project Collection Administrators")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
             branch_name="refs/heads/master",
-            principal=data["azuredevops_group"]["project-contributors"]["id"],
+            principal=example_group.id,
             permissions={
                 "RemoveOthersLocks": "Allow",
                 "ForcePush": "Deny",
@@ -457,46 +515,46 @@ class GitPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Test Project Description",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
             name="Readers")
-        project_contributors = azuredevops.get_group_output(project_id=project.id,
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
             name="Contributors")
-        project_administrators = azuredevops.get_group_output(project_id=project.id,
+        example_project_administrators = azuredevops.get_group_output(project_id=example_project.id,
             name="Project administrators")
-        project_git_root_permissions = azuredevops.GitPermissions("project-git-root-permissions",
-            project_id=project.id,
-            principal=project_readers.id,
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_project.id,
+            principal=example_project_readers.id,
             permissions={
                 "CreateRepository": "Deny",
                 "DeleteRepository": "Deny",
                 "RenameRepository": "NotSet",
             })
-        git_repo = azuredevops.Git("git-repo",
-            project_id=project.id,
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             default_branch="refs/heads/master",
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        project_git_repo_permissions = azuredevops.GitPermissions("project-git-repo-permissions",
-            project_id=git_repo.project_id,
-            repository_id=git_repo.id,
-            principal=project_administrators.id,
+        example_repo_permissions = azuredevops.GitPermissions("example-repo-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            principal=example_project_administrators.id,
             permissions={
                 "RemoveOthersLocks": "Allow",
                 "ManagePermissions": "Deny",
                 "CreateTag": "Deny",
                 "CreateBranch": "NotSet",
             })
-        project_git_branch_permissions = azuredevops.GitPermissions("project-git-branch-permissions",
-            project_id=git_repo.project_id,
-            repository_id=git_repo.id,
+        example_branch_permissions = azuredevops.GitPermissions("example-branch-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
             branch_name="master",
-            principal=project_contributors.id,
+            principal=example_project_contributors.id,
             permissions={
                 "RemoveOthersLocks": "Allow",
                 "ForcePush": "Deny",
@@ -504,7 +562,7 @@ class GitPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 

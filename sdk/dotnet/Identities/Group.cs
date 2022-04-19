@@ -22,28 +22,28 @@ namespace Pulumi.AzureDevOps.Identities
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///         });
-    ///         var tf_project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Readers",
     ///         });
-    ///         var tf_project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Contributors",
     ///         });
-    ///         var @group = new AzureDevOps.Group("group", new AzureDevOps.GroupArgs
+    ///         var exampleGroup = new AzureDevOps.Group("exampleGroup", new AzureDevOps.GroupArgs
     ///         {
-    ///             Scope = project.Id,
-    ///             DisplayName = "Test group",
-    ///             Description = "Test description",
+    ///             Scope = exampleProject.Id,
+    ///             DisplayName = "Example group",
+    ///             Description = "Example description",
     ///             Members = 
     ///             {
-    ///                 tf_project_readers.Apply(tf_project_readers =&gt; tf_project_readers.Descriptor),
-    ///                 tf_project_contributors.Apply(tf_project_contributors =&gt; tf_project_contributors.Descriptor),
+    ///                 example_readers.Apply(example_readers =&gt; example_readers.Descriptor),
+    ///                 example_contributors.Apply(example_contributors =&gt; example_contributors.Descriptor),
     ///             },
     ///         });
     ///     }
@@ -52,7 +52,7 @@ namespace Pulumi.AzureDevOps.Identities
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 
@@ -63,7 +63,7 @@ namespace Pulumi.AzureDevOps.Identities
     /// Azure DevOps groups can be imported using the group identity descriptor, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:Identities/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+    ///  $ pulumi import azuredevops:Identities/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.identities.Group has been deprecated in favor of azuredevops.Group")]

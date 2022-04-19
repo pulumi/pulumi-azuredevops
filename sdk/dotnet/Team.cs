@@ -22,33 +22,33 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             WorkItemTemplate = "Agile",
     ///             VersionControl = "Git",
     ///             Visibility = "private",
-    ///             Description = "My first project",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var builtinProjectContributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Contributors",
     ///         });
-    ///         var builtinProjectReaders = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Readers",
     ///         });
-    ///         var team = new AzureDevOps.Team("team", new AzureDevOps.TeamArgs
+    ///         var exampleTeam = new AzureDevOps.Team("exampleTeam", new AzureDevOps.TeamArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Administrators = 
     ///             {
-    ///                 builtinProjectContributors.Apply(builtinProjectContributors =&gt; builtinProjectContributors.Descriptor),
+    ///                 example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Descriptor),
     ///             },
     ///             Members = 
     ///             {
-    ///                 builtinProjectReaders.Apply(builtinProjectReaders =&gt; builtinProjectReaders.Descriptor),
+    ///                 example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Descriptor),
     ///             },
     ///         });
     ///     }
@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 
@@ -68,7 +68,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps teams can be imported using the complete resource id `&lt;project_id&gt;/&lt;team_id&gt;` e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/team:Team team 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/team:Team")]

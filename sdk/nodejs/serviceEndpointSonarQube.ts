@@ -13,14 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const serviceendpoint = new azuredevops.ServiceEndpointSonarQube("serviceendpoint", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample SonarQube",
+ * const exampleServiceEndpointSonarQube = new azuredevops.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example SonarQube",
  *     url: "https://sonarqube.my.com",
  *     token: "0000000000000000000000000000000000000000",
  *     description: "Managed by Terraform",
@@ -28,15 +29,16 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
- * * [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
+ * - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+ * - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+ * - [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointSonarQube extends pulumi.CustomResource {
@@ -73,7 +75,7 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -150,7 +152,7 @@ export interface ServiceEndpointSonarQubeState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -181,7 +183,7 @@ export interface ServiceEndpointSonarQubeArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

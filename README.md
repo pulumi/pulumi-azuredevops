@@ -50,5 +50,5 @@ The following configuration points are available:
 
 ## Reference
 
-For further information, please visit [the AzureDevOps provider docs](https://www.pulumi.com/docs/intro/cloud-providers/azuredevops) 
-or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/docs/reference/pkg/azuredevops).
+For further information, please visit [the AzureDevOps provider docs](https://www.pulumi.com/registry/packages/azuredevops/) 
+or for detailed reference documentation, please visit [the API docs](https://www.pulumi.com/registry/packages/azuredevops/api-docs/).

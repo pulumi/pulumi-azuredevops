@@ -25,17 +25,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "serviceendpointGhes1", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample GitHub Enterprise"),
+// 		_, err = azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "exampleServiceEndpointGitHubEnterprise", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
 // 			Url:                 pulumi.String("https://github.contoso.com"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 			AuthPersonal: &ServiceEndpointGitHubEnterpriseAuthPersonalArgs{
@@ -51,14 +52,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointGitHubEnterprise struct {
 	pulumi.CustomResourceState
@@ -67,11 +68,11 @@ type ServiceEndpointGitHubEnterprise struct {
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalOutput `pulumi:"authPersonal"`
 	Authorization pulumi.StringMapOutput                            `pulumi:"authorization"`
 	Description   pulumi.StringPtrOutput                            `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
-	// Github Enterprise Server Url.
+	// GitHub Enterprise Server Url.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -120,11 +121,11 @@ type serviceEndpointGitHubEnterpriseState struct {
 	AuthPersonal  *ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                            `pulumi:"authorization"`
 	Description   *string                                      `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
-	// Github Enterprise Server Url.
+	// GitHub Enterprise Server Url.
 	Url *string `pulumi:"url"`
 }
 
@@ -133,11 +134,11 @@ type ServiceEndpointGitHubEnterpriseState struct {
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput
 	Authorization pulumi.StringMapInput
 	Description   pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
-	// Github Enterprise Server Url.
+	// GitHub Enterprise Server Url.
 	Url pulumi.StringPtrInput
 }
 
@@ -150,11 +151,11 @@ type serviceEndpointGitHubEnterpriseArgs struct {
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                           `pulumi:"authorization"`
 	Description   *string                                     `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
-	// Github Enterprise Server Url.
+	// GitHub Enterprise Server Url.
 	Url string `pulumi:"url"`
 }
 
@@ -164,11 +165,11 @@ type ServiceEndpointGitHubEnterpriseArgs struct {
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalInput
 	Authorization pulumi.StringMapInput
 	Description   pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput
-	// Github Enterprise Server Url.
+	// GitHub Enterprise Server Url.
 	Url pulumi.StringInput
 }
 

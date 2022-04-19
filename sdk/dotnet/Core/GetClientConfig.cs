@@ -27,8 +27,8 @@ namespace Pulumi.AzureDevOps.Core
         /// {
         ///     public MyStack()
         ///     {
-        ///         var clientConfig = Output.Create(AzureDevOps.GetClientConfig.InvokeAsync());
-        ///         this.OrgUrl = clientConfig.Apply(clientConfig =&gt; clientConfig.OrganizationUrl);
+        ///         var example = Output.Create(AzureDevOps.GetClientConfig.InvokeAsync());
+        ///         this.OrgUrl = example.Apply(example =&gt; example.OrganizationUrl);
         ///     }
         /// 
         ///     [Output("orgUrl")]

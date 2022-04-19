@@ -28,26 +28,26 @@ namespace Pulumi.AzureDevOps.Core
         /// {
         ///     public MyStack()
         ///     {
-        ///         var test = Output.Create(AzureDevOps.GetProjects.InvokeAsync(new AzureDevOps.GetProjectsArgs
+        ///         var example = Output.Create(AzureDevOps.GetProjects.InvokeAsync(new AzureDevOps.GetProjectsArgs
         ///         {
-        ///             Name = "contoso",
+        ///             Name = "Example Project",
         ///             State = "wellFormed",
         ///         }));
         ///         this.ProjectId = 
         ///         {
-        ///             test.Apply(test =&gt; test.Projects),
+        ///             example.Apply(example =&gt; example.Projects),
         ///         }.Select(__item =&gt; __item?.ProjectId).ToList();
         ///         this.Name = 
         ///         {
-        ///             test.Apply(test =&gt; test.Projects),
+        ///             example.Apply(example =&gt; example.Projects),
         ///         }.Select(__item =&gt; __item?.Name).ToList();
         ///         this.ProjectUrl = 
         ///         {
-        ///             test.Apply(test =&gt; test.Projects),
+        ///             example.Apply(example =&gt; example.Projects),
         ///         }.Select(__item =&gt; __item?.ProjectUrl).ToList();
         ///         this.State = 
         ///         {
-        ///             test.Apply(test =&gt; test.Projects),
+        ///             example.Apply(example =&gt; example.Projects),
         ///         }.Select(__item =&gt; __item?.State).ToList();
         ///     }
         /// 
@@ -65,7 +65,7 @@ namespace Pulumi.AzureDevOps.Core
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetProjectsResult> InvokeAsync(GetProjectsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetProjectsResult>("azuredevops:Core/getProjects:getProjects", args ?? new GetProjectsArgs(), options.WithDefaults());
@@ -86,26 +86,26 @@ namespace Pulumi.AzureDevOps.Core
         /// {
         ///     public MyStack()
         ///     {
-        ///         var test = Output.Create(AzureDevOps.GetProjects.InvokeAsync(new AzureDevOps.GetProjectsArgs
+        ///         var example = Output.Create(AzureDevOps.GetProjects.InvokeAsync(new AzureDevOps.GetProjectsArgs
         ///         {
-        ///             Name = "contoso",
+        ///             Name = "Example Project",
         ///             State = "wellFormed",
         ///         }));
         ///         this.ProjectId = 
         ///         {
-        ///             test.Apply(test =&gt; test.Projects),
+        ///             example.Apply(example =&gt; example.Projects),
         ///         }.Select(__item =&gt; __item?.ProjectId).ToList();
         ///         this.Name = 
         ///         {
-        ///             test.Apply(test =&gt; test.Projects),
+        ///             example.Apply(example =&gt; example.Projects),
         ///         }.Select(__item =&gt; __item?.Name).ToList();
         ///         this.ProjectUrl = 
         ///         {
-        ///             test.Apply(test =&gt; test.Projects),
+        ///             example.Apply(example =&gt; example.Projects),
         ///         }.Select(__item =&gt; __item?.ProjectUrl).ToList();
         ///         this.State = 
         ///         {
-        ///             test.Apply(test =&gt; test.Projects),
+        ///             example.Apply(example =&gt; example.Projects),
         ///         }.Select(__item =&gt; __item?.State).ToList();
         ///     }
         /// 
@@ -123,7 +123,7 @@ namespace Pulumi.AzureDevOps.Core
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetProjectsResult> Invoke(GetProjectsInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetProjectsResult>("azuredevops:Core/getProjects:getProjects", args ?? new GetProjectsInvokeArgs(), options.WithDefaults());

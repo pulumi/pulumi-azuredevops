@@ -13,29 +13,29 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
- *     description: "My first project",
+ *     description: "Managed by Terraform",
  * });
- * const builtinProjectContributors = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-project-contributors = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Contributors",
  * });
- * const builtinProjectReaders = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-project-readers = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Readers",
  * });
- * const team = new azuredevops.Team("team", {
- *     projectId: project.id,
- *     administrators: [builtinProjectContributors.apply(builtinProjectContributors => builtinProjectContributors.descriptor)],
- *     members: [builtinProjectReaders.apply(builtinProjectReaders => builtinProjectReaders.descriptor)],
+ * const exampleTeam = new azuredevops.Team("exampleTeam", {
+ *     projectId: exampleProject.id,
+ *     administrators: [example_project_contributors.apply(example_project_contributors => example_project_contributors.descriptor)],
+ *     members: [example_project_readers.apply(example_project_readers => example_project_readers.descriptor)],
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *
@@ -46,7 +46,7 @@ import * as utilities from "./utilities";
  * Azure DevOps teams can be imported using the complete resource id `<project_id>/<team_id>` e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:index/team:Team team 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class Team extends pulumi.CustomResource {

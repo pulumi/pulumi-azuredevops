@@ -13,11 +13,26 @@ namespace Pulumi.AzureDevOps.Outputs
     [OutputType]
     public sealed class GetTeamsTeamResult
     {
+        /// <summary>
+        /// List of subject descriptors for `administrators` of the team.
+        /// </summary>
         public readonly ImmutableArray<string> Administrators;
+        /// <summary>
+        /// Team description.
+        /// </summary>
         public readonly string Description;
         public readonly string Id;
+        /// <summary>
+        /// List of subject descriptors for `members` of the team.
+        /// </summary>
         public readonly ImmutableArray<string> Members;
+        /// <summary>
+        /// Team name.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The Project ID. If no project ID all teams of the organization will be returned.
+        /// </summary>
         public readonly string ProjectId;
 
         [OutputConstructor]

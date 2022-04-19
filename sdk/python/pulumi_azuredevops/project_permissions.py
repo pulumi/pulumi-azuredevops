@@ -172,16 +172,16 @@ class ProjectPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Test Project Description",
+        example = azuredevops.Project("example",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        project_perm = azuredevops.ProjectPermissions("project-perm",
-            project_id=project.id,
-            principal=project_readers.id,
+        example_permission = azuredevops.ProjectPermissions("example-permission",
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "DELETE": "Deny",
                 "EDIT_BUILD_STATUS": "NotSet",
@@ -191,7 +191,7 @@ class ProjectPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -225,16 +225,16 @@ class ProjectPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Test Project Description",
+        example = azuredevops.Project("example",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        project_perm = azuredevops.ProjectPermissions("project-perm",
-            project_id=project.id,
-            principal=project_readers.id,
+        example_permission = azuredevops.ProjectPermissions("example-permission",
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "DELETE": "Deny",
                 "EDIT_BUILD_STATUS": "NotSet",
@@ -244,7 +244,7 @@ class ProjectPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 

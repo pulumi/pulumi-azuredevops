@@ -37,17 +37,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample Service Fabric"),
+// 		_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "exampleServiceEndpointServiceFabric", &azuredevops.ServiceEndpointServiceFabricArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example Service Fabric"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 			ClusterEndpoint:     pulumi.String("tcp://test"),
 // 			Certificate: &ServiceEndpointServiceFabricCertificateArgs{
@@ -142,14 +143,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointServiceFabric struct {
 	pulumi.CustomResourceState
@@ -161,7 +162,7 @@ type ServiceEndpointServiceFabric struct {
 	ClusterEndpoint pulumi.StringOutput                       `pulumi:"clusterEndpoint"`
 	Description     pulumi.StringPtrOutput                    `pulumi:"description"`
 	None            ServiceEndpointServiceFabricNonePtrOutput `pulumi:"none"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
@@ -212,7 +213,7 @@ type serviceEndpointServiceFabricState struct {
 	ClusterEndpoint *string                           `pulumi:"clusterEndpoint"`
 	Description     *string                           `pulumi:"description"`
 	None            *ServiceEndpointServiceFabricNone `pulumi:"none"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
@@ -226,7 +227,7 @@ type ServiceEndpointServiceFabricState struct {
 	ClusterEndpoint pulumi.StringPtrInput
 	Description     pulumi.StringPtrInput
 	None            ServiceEndpointServiceFabricNonePtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
@@ -244,7 +245,7 @@ type serviceEndpointServiceFabricArgs struct {
 	ClusterEndpoint string                            `pulumi:"clusterEndpoint"`
 	Description     *string                           `pulumi:"description"`
 	None            *ServiceEndpointServiceFabricNone `pulumi:"none"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
@@ -259,7 +260,7 @@ type ServiceEndpointServiceFabricArgs struct {
 	ClusterEndpoint pulumi.StringInput
 	Description     pulumi.StringPtrInput
 	None            ServiceEndpointServiceFabricNonePtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput

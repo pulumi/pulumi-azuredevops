@@ -22,7 +22,7 @@ import (
 	"github.com/microsoft/terraform-provider-azuredevops/azuredevops"
 	"github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
-	shimv1 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v1"
+	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
 )
 
@@ -63,7 +63,7 @@ func makeResource(mod string, res string) tokens.Type {
 
 // Provider returns additional overlaid schema and metadata associated with the provider.
 func Provider() tfbridge.ProviderInfo {
-	p := shimv1.NewProvider(azuredevops.Provider())
+	p := shimv2.NewProvider(azuredevops.Provider())
 
 	prov := tfbridge.ProviderInfo{
 		P:           p,
@@ -148,9 +148,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_repository_policy_reserved_names": {
 				Tok: makeResource(mainMod, "RepositoryPolicyReservedNames"),
 			},
-			"azuredevops_team":                {Tok: makeResource(mainMod, "Team")},
-			"azuredevops_team_administrators": {Tok: makeResource(mainMod, "TeamAdministrators")},
-			"azuredevops_team_members":        {Tok: makeResource(mainMod, "TeamMembers")},
+			"azuredevops_team":                        {Tok: makeResource(mainMod, "Team")},
+			"azuredevops_team_administrators":         {Tok: makeResource(mainMod, "TeamAdministrators")},
+			"azuredevops_team_members":                {Tok: makeResource(mainMod, "TeamMembers")},
+			"azuredevops_environment":                 {Tok: makeResource(mainMod, "Environment")},
+			"azuredevops_git_repository_file":         {Tok: makeResource(mainMod, "GitRepositoryFile")},
+			"azuredevops_serviceendpoint_argocd":      {Tok: makeResource(mainMod, "ServiceendpointArgocd")},
+			"azuredevops_serviceendpoint_permissions": {Tok: makeResource(mainMod, "ServiceendpointPermissions")},
+			"azuredevops_servicehook_permissions":     {Tok: makeResource(mainMod, "ServicehookPermissions")},
+			"azuredevops_tagging_permissions":         {Tok: makeResource(mainMod, "TaggingPermissions")},
+			"azuredevops_project_pipeline_settings":   {Tok: makeResource(mainMod, "ProjectPipelineSettings")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azuredevops_area": {
@@ -165,8 +172,20 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_agent_queue": {
 				Tok: makeDataSource(mainMod, "getAgentQueue"),
 			},
-			"azuredevops_team":  {Tok: makeDataSource(mainMod, "getTeam")},
-			"azuredevops_teams": {Tok: makeDataSource(mainMod, "getTeams")},
+			"azuredevops_team": {
+				Tok: makeDataSource(mainMod, "getTeam"),
+				Docs: &tfbridge.DocInfo{
+					Source: "data_team.html.markdown",
+				},
+			},
+			"azuredevops_teams": {
+				Tok: makeDataSource(mainMod, "getTeams"),
+				Docs: &tfbridge.DocInfo{
+					Source: "data_teams.html.markdown",
+				},
+			},
+			"azuredevops_groups":         {Tok: makeDataSource(mainMod, "getGroups")},
+			"azuredevops_variable_group": {Tok: makeDataSource(mainMod, "getVariableGroup")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -212,7 +231,15 @@ func Provider() tfbridge.ProviderInfo {
 		makeResource(mainMod, "BranchPolicyMinReviewers"), "Policy", mainMod, nil)
 	prov.RenameResourceWithAlias("azuredevops_build_definition",
 		makeResource("Build", "BuildDefinition"),
-		makeResource(mainMod, "BuildDefinition"), "Build", mainMod, nil)
+		makeResource(mainMod, "BuildDefinition"), "Build", mainMod,
+		// Due to an error in codegen, the content of these docs result in an error in the Python SDK.
+		// When the following issue is resolved, we can restore the docs:
+		// https://github.com/pulumi/pulumi/issues/9441
+		&tfbridge.ResourceInfo{
+			Docs: &tfbridge.DocInfo{
+				Markdown: []byte(" "),
+			},
+		})
 	prov.RenameResourceWithAlias("azuredevops_project",
 		makeResource("Core", "Project"),
 		makeResource(mainMod, "Project"), "Core", mainMod, nil)

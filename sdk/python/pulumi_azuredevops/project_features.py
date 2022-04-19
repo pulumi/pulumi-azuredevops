@@ -101,9 +101,13 @@ class ProjectFeatures(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        tf_project_test_001 = azuredevops.get_project(name="Test Project")
-        my_project_features = azuredevops.ProjectFeatures("my-project-features",
-            project_id=tf_project_test_001.id,
+        example = azuredevops.Project("example",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_features = azuredevops.ProjectFeatures("example-features",
+            project_id=example.id,
             features={
                 "testplans": "disabled",
                 "artifacts": "enabled",
@@ -122,7 +126,7 @@ class ProjectFeatures(pulumi.CustomResource):
         Azure DevOps feature settings can be imported using the project id, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures project_id 00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -145,9 +149,13 @@ class ProjectFeatures(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        tf_project_test_001 = azuredevops.get_project(name="Test Project")
-        my_project_features = azuredevops.ProjectFeatures("my-project-features",
-            project_id=tf_project_test_001.id,
+        example = azuredevops.Project("example",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_features = azuredevops.ProjectFeatures("example-features",
+            project_id=example.id,
             features={
                 "testplans": "disabled",
                 "artifacts": "enabled",
@@ -166,7 +174,7 @@ class ProjectFeatures(pulumi.CustomResource):
         Azure DevOps feature settings can be imported using the project id, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures project_id 00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.

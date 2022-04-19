@@ -13,19 +13,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = azuredevops.getProject({
- *     name: "Sample Project",
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
  * });
- * export const id = project.then(project => project.id);
- * export const name = project.then(project => project.name);
- * export const visibility = project.then(project => project.visibility);
- * export const versionControl = project.then(project => project.versionControl);
- * export const workItemTemplate = project.then(project => project.workItemTemplate);
- * export const processTemplateId = project.then(project => project.processTemplateId);
+ * export const project = example;
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
  */
 export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     args = args || {};

@@ -12,6 +12,8 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages an Azure DevOps service endpoint within Azure DevOps.
     /// 
+    /// &gt; **Note** This resource is duplicate with `azuredevops.ServiceEndpointPipeline`,  will be removed in the future, use `azuredevops.ServiceEndpointPipeline` instead.
+    /// 
     /// &gt; **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
     /// 
     /// ## Example Usage
@@ -24,16 +26,17 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var test = new AzureDevOps.ServiceEndpointAzureDevOps("test", new AzureDevOps.ServiceEndpointAzureDevOpsArgs
+    ///         var exampleServiceEndpointAzureDevOps = new AzureDevOps.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", new AzureDevOps.ServiceEndpointAzureDevOpsArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample Azure DevOps",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example Azure DevOps",
     ///             OrgUrl = "https://dev.azure.com/testorganization",
     ///             ReleaseApiUrl = "https://vsrm.dev.azure.com/testorganization",
     ///             PersonalAccessToken = "0000000000000000000000000000000000000000000000000000",
@@ -45,14 +48,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Service Endpoint Azure DevOps can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps")]
@@ -83,7 +86,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> PersonalAccessTokenHash { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -170,7 +173,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> PersonalAccessToken { get; set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -224,7 +227,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? PersonalAccessTokenHash { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

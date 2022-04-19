@@ -25,17 +25,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointArtifactory(ctx, "serviceendpoint", &azuredevops.ServiceEndpointArtifactoryArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample Artifactory"),
+// 		_, err = azuredevops.NewServiceEndpointArtifactory(ctx, "exampleServiceEndpointArtifactory", &azuredevops.ServiceEndpointArtifactoryArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example Artifactory"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 			Url:                 pulumi.String("https://artifactory.my.com"),
 // 			AuthenticationToken: &ServiceEndpointArtifactoryAuthenticationTokenArgs{
@@ -61,14 +62,23 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewServiceEndpointArtifactory(ctx, "serviceendpoint", &azuredevops.ServiceEndpointArtifactoryArgs{
-// 			ProjectId:           pulumi.Any(azuredevops_project.Project.Id),
-// 			ServiceEndpointName: pulumi.String("Sample Artifactory"),
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+// 			Visibility:       pulumi.String("private"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewServiceEndpointArtifactory(ctx, "exampleServiceEndpointArtifactory", &azuredevops.ServiceEndpointArtifactoryArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example Artifactory"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 			Url:                 pulumi.String("https://artifactory.my.com"),
 // 			AuthenticationBasic: &ServiceEndpointArtifactoryAuthenticationBasicArgs{
-// 				Username: pulumi.String("sampleuser"),
-// 				Password: pulumi.String("0000000000000000000000000000000000000000"),
+// 				Username: pulumi.String("username"),
+// 				Password: pulumi.String("password"),
 // 			},
 // 		})
 // 		if err != nil {
@@ -88,7 +98,7 @@ import (
 // Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointArtifactory struct {
 	pulumi.CustomResourceState
@@ -98,7 +108,7 @@ type ServiceEndpointArtifactory struct {
 	Authorization       pulumi.StringMapOutput                                 `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
@@ -149,7 +159,7 @@ type serviceEndpointArtifactoryState struct {
 	Authorization       map[string]string                              `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
@@ -163,7 +173,7 @@ type ServiceEndpointArtifactoryState struct {
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
@@ -181,7 +191,7 @@ type serviceEndpointArtifactoryArgs struct {
 	Authorization       map[string]string                              `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
@@ -196,7 +206,7 @@ type ServiceEndpointArtifactoryArgs struct {
 	Authorization       pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput

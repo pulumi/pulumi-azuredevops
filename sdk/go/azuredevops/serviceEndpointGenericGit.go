@@ -26,20 +26,21 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointGenericGit(ctx, "serviceendpoint", &azuredevops.ServiceEndpointGenericGitArgs{
-// 			ProjectId:           project.ID(),
+// 		_, err = azuredevops.NewServiceEndpointGenericGit(ctx, "exampleServiceEndpointGenericGit", &azuredevops.ServiceEndpointGenericGitArgs{
+// 			ProjectId:           exampleProject.ID(),
 // 			RepositoryUrl:       pulumi.String("https://dev.azure.com/org/project/_git/repository"),
 // 			Username:            pulumi.String("username"),
 // 			Password:            pulumi.String("password"),
-// 			ServiceEndpointName: pulumi.String("Sample Generic Git"),
+// 			ServiceEndpointName: pulumi.String("Example Generic Git"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
@@ -51,14 +52,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint Generic Git can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointGenericGit struct {
 	pulumi.CustomResourceState
@@ -71,7 +72,7 @@ type ServiceEndpointGenericGit struct {
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash pulumi.StringOutput `pulumi:"passwordHash"`
-	// The project ID or project name to associate with the service endpoint.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The URL of the repository associated with the service endpoint.
 	RepositoryUrl pulumi.StringOutput `pulumi:"repositoryUrl"`
@@ -127,7 +128,7 @@ type serviceEndpointGenericGitState struct {
 	Password *string `pulumi:"password"`
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash *string `pulumi:"passwordHash"`
-	// The project ID or project name to associate with the service endpoint.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The URL of the repository associated with the service endpoint.
 	RepositoryUrl *string `pulumi:"repositoryUrl"`
@@ -146,7 +147,7 @@ type ServiceEndpointGenericGitState struct {
 	Password pulumi.StringPtrInput
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash pulumi.StringPtrInput
-	// The project ID or project name to associate with the service endpoint.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The URL of the repository associated with the service endpoint.
 	RepositoryUrl pulumi.StringPtrInput
@@ -167,7 +168,7 @@ type serviceEndpointGenericGitArgs struct {
 	EnablePipelinesAccess *bool `pulumi:"enablePipelinesAccess"`
 	// The PAT or password used to authenticate to the git repository.
 	Password *string `pulumi:"password"`
-	// The project ID or project name to associate with the service endpoint.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The URL of the repository associated with the service endpoint.
 	RepositoryUrl string `pulumi:"repositoryUrl"`
@@ -185,7 +186,7 @@ type ServiceEndpointGenericGitArgs struct {
 	EnablePipelinesAccess pulumi.BoolPtrInput
 	// The PAT or password used to authenticate to the git repository.
 	Password pulumi.StringPtrInput
-	// The project ID or project name to associate with the service endpoint.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The URL of the repository associated with the service endpoint.
 	RepositoryUrl pulumi.StringInput

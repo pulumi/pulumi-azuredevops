@@ -10,14 +10,14 @@ import * as utilities from "../utilities";
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:ServiceEndpoint/kubernetes:Kubernetes serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:ServiceEndpoint/kubernetes:Kubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  *
  * @deprecated azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes
@@ -61,20 +61,20 @@ export class Kubernetes extends pulumi.CustomResource {
      */
     public readonly authorizationType!: pulumi.Output<string>;
     /**
-     * The configuration for authorization_type="AzureSubscription".
+     * A `azureSubscription` block defined blow.
      */
     public readonly azureSubscriptions!: pulumi.Output<outputs.ServiceEndpoint.KubernetesAzureSubscription[] | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The configuration for authorization_type="Kubeconfig".
+     * A `kubeconfig` block defined blow.
      */
     public readonly kubeconfigs!: pulumi.Output<outputs.ServiceEndpoint.KubernetesKubeconfig[] | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+     * A `serviceAccount` block defined blow.
      */
     public readonly serviceAccounts!: pulumi.Output<outputs.ServiceEndpoint.KubernetesServiceAccount[] | undefined>;
     /**
@@ -150,20 +150,20 @@ export interface KubernetesState {
      */
     authorizationType?: pulumi.Input<string>;
     /**
-     * The configuration for authorization_type="AzureSubscription".
+     * A `azureSubscription` block defined blow.
      */
     azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesAzureSubscription>[]>;
     description?: pulumi.Input<string>;
     /**
-     * The configuration for authorization_type="Kubeconfig".
+     * A `kubeconfig` block defined blow.
      */
     kubeconfigs?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesKubeconfig>[]>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
-     * The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+     * A `serviceAccount` block defined blow.
      */
     serviceAccounts?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesServiceAccount>[]>;
     /**
@@ -186,20 +186,20 @@ export interface KubernetesArgs {
      */
     authorizationType: pulumi.Input<string>;
     /**
-     * The configuration for authorization_type="AzureSubscription".
+     * A `azureSubscription` block defined blow.
      */
     azureSubscriptions?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesAzureSubscription>[]>;
     description?: pulumi.Input<string>;
     /**
-     * The configuration for authorization_type="Kubeconfig".
+     * A `kubeconfig` block defined blow.
      */
     kubeconfigs?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesKubeconfig>[]>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**
-     * The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+     * A `serviceAccount` block defined blow.
      */
     serviceAccounts?: pulumi.Input<pulumi.Input<inputs.ServiceEndpoint.KubernetesServiceAccount>[]>;
     /**

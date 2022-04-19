@@ -14,8 +14,7 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
- *     description: "Managed by Terraform",
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
@@ -23,30 +22,31 @@ import * as utilities from "./utilities";
  *         testplans: "disabled",
  *         artifacts: "disabled",
  *     },
+ *     description: "Managed by Terraform",
  * });
- * const git = new azuredevops.Git("git", {
- *     projectId: project.id,
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const user = new azuredevops.User("user", {
+ * const exampleUser = new azuredevops.User("exampleUser", {
  *     principalName: "mail@email.com",
  *     accountLicenseType: "basic",
  * });
- * const branchPolicyStatusCheck = new azuredevops.BranchPolicyStatusCheck("branchPolicyStatusCheck", {
- *     projectId: project.id,
+ * const exampleBranchPolicyStatusCheck = new azuredevops.BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck", {
+ *     projectId: exampleProject.id,
  *     enabled: true,
  *     blocking: true,
  *     settings: {
  *         name: "Release",
- *         authorId: user.id,
+ *         authorId: exampleUser.id,
  *         invalidateOnUpdate: true,
  *         applicability: "conditional",
  *         displayName: "PreCheck",
  *         scopes: [{
- *             repositoryId: git.id,
- *             repositoryRef: git.defaultBranch,
+ *             repositoryId: exampleGit.id,
+ *             repositoryRef: exampleGit.defaultBranch,
  *             matchType: "Exact",
  *         }],
  *     },
@@ -54,14 +54,14 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
  *
  * ```sh
- *  $ pulumi import azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck p 00000000-0000-0000-0000-000000000000/0
+ *  $ pulumi import azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck example 00000000-0000-0000-0000-000000000000/0
  * ```
  */
 export class BranchPolicyStatusCheck extends pulumi.CustomResource {

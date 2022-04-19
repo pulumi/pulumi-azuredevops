@@ -51,7 +51,7 @@ import (
 // 		}
 // 		_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
 // 			Origin:   pulumi.StringRef("aad"),
-// 			OriginId: pulumi.StringRef("a7ead982-8438-4cd2-b9e3-c3aa51a7b675"),
+// 			OriginId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -62,7 +62,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
 //
 // Deprecated: azuredevops.identities.getUsers has been deprecated in favor of azuredevops.getUsers
 func GetUsers(ctx *pulumi.Context, args *GetUsersArgs, opts ...pulumi.InvokeOption) (*GetUsersResult, error) {
@@ -106,7 +106,11 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 		ApplyT(func(v interface{}) (GetUsersResult, error) {
 			args := v.(GetUsersArgs)
 			r, err := GetUsers(ctx, &args, opts...)
-			return *r, err
+			var s GetUsersResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetUsersResultOutput)
 }
 

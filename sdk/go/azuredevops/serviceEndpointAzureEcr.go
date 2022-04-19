@@ -25,22 +25,23 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointAzureEcr(ctx, "azurecr", &azuredevops.ServiceEndpointAzureEcrArgs{
-// 			ProjectId:               project.ID(),
-// 			ServiceEndpointName:     pulumi.String("Sample AzureCR"),
-// 			ResourceGroup:           pulumi.String("sample-rg"),
+// 		_, err = azuredevops.NewServiceEndpointAzureEcr(ctx, "exampleServiceEndpointAzureEcr", &azuredevops.ServiceEndpointAzureEcrArgs{
+// 			ProjectId:               exampleProject.ID(),
+// 			ServiceEndpointName:     pulumi.String("Example AzureCR"),
+// 			ResourceGroup:           pulumi.String("example-rg"),
 // 			AzurecrSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurecrName:             pulumi.String("sampleAcr"),
+// 			AzurecrName:             pulumi.String("ExampleAcr"),
 // 			AzurecrSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurecrSubscriptionName: pulumi.String("sampleSub"),
+// 			AzurecrSubscriptionName: pulumi.String("subscription name"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -51,7 +52,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 // - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
 //
 // ## Import
@@ -59,7 +60,7 @@ import (
 // Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointAzureEcr struct {
 	pulumi.CustomResourceState
@@ -77,7 +78,7 @@ type ServiceEndpointAzureEcr struct {
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringOutput    `pulumi:"azurecrSubscriptionName"`
 	Description             pulumi.StringPtrOutput `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
 	ResourceGroup pulumi.StringOutput `pulumi:"resourceGroup"`
@@ -151,7 +152,7 @@ type serviceEndpointAzureEcrState struct {
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName *string `pulumi:"azurecrSubscriptionName"`
 	Description             *string `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
 	ResourceGroup *string `pulumi:"resourceGroup"`
@@ -176,7 +177,7 @@ type ServiceEndpointAzureEcrState struct {
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringPtrInput
 	Description             pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The resource group to which the container registry belongs.
 	ResourceGroup pulumi.StringPtrInput
@@ -202,7 +203,7 @@ type serviceEndpointAzureEcrArgs struct {
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName string  `pulumi:"azurecrSubscriptionName"`
 	Description             *string `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The resource group to which the container registry belongs.
 	ResourceGroup string `pulumi:"resourceGroup"`
@@ -222,7 +223,7 @@ type ServiceEndpointAzureEcrArgs struct {
 	// The subscription name of the Azure targets.
 	AzurecrSubscriptionName pulumi.StringInput
 	Description             pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The resource group to which the container registry belongs.
 	ResourceGroup pulumi.StringInput

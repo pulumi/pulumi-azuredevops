@@ -13,6 +13,8 @@ import (
 
 // Manages an Azure DevOps service endpoint within Azure DevOps.
 //
+// > **Note** This resource is duplicate with `ServiceEndpointPipeline`,  will be removed in the future, use `ServiceEndpointPipeline` instead.
+//
 // > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
 //
 // ## Example Usage
@@ -27,17 +29,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointAzureDevOps(ctx, "test", &azuredevops.ServiceEndpointAzureDevOpsArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample Azure DevOps"),
+// 		_, err = azuredevops.NewServiceEndpointAzureDevOps(ctx, "exampleServiceEndpointAzureDevOps", &azuredevops.ServiceEndpointAzureDevOpsArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example Azure DevOps"),
 // 			OrgUrl:              pulumi.String("https://dev.azure.com/testorganization"),
 // 			ReleaseApiUrl:       pulumi.String("https://vsrm.dev.azure.com/testorganization"),
 // 			PersonalAccessToken: pulumi.String("0000000000000000000000000000000000000000000000000000"),
@@ -52,14 +55,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint Azure DevOps can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointAzureDevOps struct {
 	pulumi.CustomResourceState
@@ -72,7 +75,7 @@ type ServiceEndpointAzureDevOps struct {
 	PersonalAccessToken pulumi.StringOutput `pulumi:"personalAccessToken"`
 	// A bcrypted hash of the attribute 'personal_access_token'
 	PersonalAccessTokenHash pulumi.StringOutput `pulumi:"personalAccessTokenHash"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The URL of the release API.
 	ReleaseApiUrl pulumi.StringOutput `pulumi:"releaseApiUrl"`
@@ -132,7 +135,7 @@ type serviceEndpointAzureDevOpsState struct {
 	PersonalAccessToken *string `pulumi:"personalAccessToken"`
 	// A bcrypted hash of the attribute 'personal_access_token'
 	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The URL of the release API.
 	ReleaseApiUrl *string `pulumi:"releaseApiUrl"`
@@ -149,7 +152,7 @@ type ServiceEndpointAzureDevOpsState struct {
 	PersonalAccessToken pulumi.StringPtrInput
 	// A bcrypted hash of the attribute 'personal_access_token'
 	PersonalAccessTokenHash pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The URL of the release API.
 	ReleaseApiUrl pulumi.StringPtrInput
@@ -168,7 +171,7 @@ type serviceEndpointAzureDevOpsArgs struct {
 	OrgUrl string `pulumi:"orgUrl"`
 	// The Azure DevOps personal access token.
 	PersonalAccessToken string `pulumi:"personalAccessToken"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The URL of the release API.
 	ReleaseApiUrl string `pulumi:"releaseApiUrl"`
@@ -184,7 +187,7 @@ type ServiceEndpointAzureDevOpsArgs struct {
 	OrgUrl pulumi.StringInput
 	// The Azure DevOps personal access token.
 	PersonalAccessToken pulumi.StringInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The URL of the release API.
 	ReleaseApiUrl pulumi.StringInput

@@ -17,32 +17,32 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {});
- * const pool = azuredevops.getPool({
- *     name: "contoso-pool",
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const examplePool = azuredevops.getPool({
+ *     name: "example-pool",
  * });
- * const queue = new azuredevops.Queue("queue", {
- *     projectId: project.id,
- *     agentPoolId: pool.then(pool => pool.id),
+ * const exampleQueue = new azuredevops.Queue("exampleQueue", {
+ *     projectId: exampleProject.id,
+ *     agentPoolId: examplePool.then(examplePool => examplePool.id),
  * });
- * // Grant acccess to queue to all pipelines in the project
- * const auth = new azuredevops.ResourceAuthorization("auth", {
- *     projectId: project.id,
- *     resourceId: queue.id,
+ * // Grant access to queue to all pipelines in the project
+ * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("exampleResourceAuthorization", {
+ *     projectId: exampleProject.id,
+ *     resourceId: exampleQueue.id,
  *     type: "queue",
  *     authorized: true,
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:index/queue:Queue q 00000000-0000-0000-0000-000000000000/0
+ *  $ pulumi import azuredevops:index/queue:Queue example 00000000-0000-0000-0000-000000000000/0
  * ```
  */
 export class Queue extends pulumi.CustomResource {

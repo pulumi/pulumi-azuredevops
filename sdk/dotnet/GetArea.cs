@@ -26,16 +26,14 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     public MyStack()
         ///     {
-        ///         //---------------------------------------------------------------------------
-        ///         // Azure DevOps project
-        ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+        ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
         ///         {
         ///             WorkItemTemplate = "Agile",
         ///             VersionControl = "Git",
         ///             Visibility = "private",
         ///             Description = "Managed by Terraform",
         ///         });
-        ///         var area = project.Id.Apply(id =&gt; AzureDevOps.GetArea.Invoke(new AzureDevOps.GetAreaInvokeArgs
+        ///         var exampleArea = exampleProject.Id.Apply(id =&gt; AzureDevOps.GetArea.Invoke(new AzureDevOps.GetAreaInvokeArgs
         ///         {
         ///             ProjectId = id,
         ///             Path = "/",
@@ -49,7 +47,7 @@ namespace Pulumi.AzureDevOps
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
         /// 
         /// ## PAT Permissions Required
         /// 
@@ -73,16 +71,14 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     public MyStack()
         ///     {
-        ///         //---------------------------------------------------------------------------
-        ///         // Azure DevOps project
-        ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+        ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
         ///         {
         ///             WorkItemTemplate = "Agile",
         ///             VersionControl = "Git",
         ///             Visibility = "private",
         ///             Description = "Managed by Terraform",
         ///         });
-        ///         var area = project.Id.Apply(id =&gt; AzureDevOps.GetArea.Invoke(new AzureDevOps.GetAreaInvokeArgs
+        ///         var exampleArea = exampleProject.Id.Apply(id =&gt; AzureDevOps.GetArea.Invoke(new AzureDevOps.GetAreaInvokeArgs
         ///         {
         ///             ProjectId = id,
         ///             Path = "/",
@@ -96,7 +92,7 @@ namespace Pulumi.AzureDevOps
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
         /// 
         /// ## PAT Permissions Required
         /// 

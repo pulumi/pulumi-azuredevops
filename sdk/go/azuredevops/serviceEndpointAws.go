@@ -25,20 +25,21 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointAws(ctx, "serviceendpoint", &azuredevops.ServiceEndpointAwsArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample AWS"),
-// 			Description:         pulumi.String("Managed by AzureDevOps"),
+// 		_, err = azuredevops.NewServiceEndpointAws(ctx, "exampleServiceEndpointAws", &azuredevops.ServiceEndpointAwsArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example AWS"),
 // 			AccessKeyId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
 // 			SecretAccessKey:     pulumi.String("accesskey"),
+// 			Description:         pulumi.String("Managed by AzureDevOps"),
 // 		})
 // 		if err != nil {
 // 			return err
@@ -50,14 +51,14 @@ import (
 // ## Relevant Links
 //
 // * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
-// * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// * [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointAws struct {
 	pulumi.CustomResourceState
@@ -68,7 +69,7 @@ type ServiceEndpointAws struct {
 	Description   pulumi.StringPtrOutput `pulumi:"description"`
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId pulumi.StringPtrOutput `pulumi:"externalId"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Optional identifier for the assumed role session.
 	RoleSessionName pulumi.StringPtrOutput `pulumi:"roleSessionName"`
@@ -133,7 +134,7 @@ type serviceEndpointAwsState struct {
 	Description   *string           `pulumi:"description"`
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId *string `pulumi:"externalId"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// Optional identifier for the assumed role session.
 	RoleSessionName *string `pulumi:"roleSessionName"`
@@ -158,7 +159,7 @@ type ServiceEndpointAwsState struct {
 	Description   pulumi.StringPtrInput
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// Optional identifier for the assumed role session.
 	RoleSessionName pulumi.StringPtrInput
@@ -187,7 +188,7 @@ type serviceEndpointAwsArgs struct {
 	Description   *string           `pulumi:"description"`
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId *string `pulumi:"externalId"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// Optional identifier for the assumed role session.
 	RoleSessionName *string `pulumi:"roleSessionName"`
@@ -209,7 +210,7 @@ type ServiceEndpointAwsArgs struct {
 	Description   pulumi.StringPtrInput
 	// A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
 	ExternalId pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// Optional identifier for the assumed role session.
 	RoleSessionName pulumi.StringPtrInput

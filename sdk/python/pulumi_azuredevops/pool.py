@@ -18,7 +18,7 @@ class PoolArgs:
                  pool_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Pool resource.
-        :param pulumi.Input[bool] auto_provision: Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        :param pulumi.Input[bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
@@ -33,7 +33,7 @@ class PoolArgs:
     @pulumi.getter(name="autoProvision")
     def auto_provision(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         """
         return pulumi.get(self, "auto_provision")
 
@@ -74,7 +74,7 @@ class _PoolState:
                  pool_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Pool resources.
-        :param pulumi.Input[bool] auto_provision: Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        :param pulumi.Input[bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
@@ -89,7 +89,7 @@ class _PoolState:
     @pulumi.getter(name="autoProvision")
     def auto_provision(self) -> Optional[pulumi.Input[bool]]:
         """
-        Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         """
         return pulumi.get(self, "auto_provision")
 
@@ -140,23 +140,23 @@ class Pool(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        pool = azuredevops.Pool("pool", auto_provision=False)
+        example = azuredevops.Pool("example", auto_provision=False)
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Agent Pools can be imported using the agent pool ID, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/pool:Pool pool 42
+         $ pulumi import azuredevops:index/pool:Pool example 0
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_provision: Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        :param pulumi.Input[bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
@@ -175,18 +175,18 @@ class Pool(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        pool = azuredevops.Pool("pool", auto_provision=False)
+        example = azuredevops.Pool("example", auto_provision=False)
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Agent Pools can be imported using the agent pool ID, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/pool:Pool pool 42
+         $ pulumi import azuredevops:index/pool:Pool example 0
         ```
 
         :param str resource_name: The name of the resource.
@@ -244,7 +244,7 @@ class Pool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[bool] auto_provision: Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        :param pulumi.Input[bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
@@ -261,7 +261,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter(name="autoProvision")
     def auto_provision(self) -> pulumi.Output[Optional[bool]]:
         """
-        Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         """
         return pulumi.get(self, "auto_provision")
 

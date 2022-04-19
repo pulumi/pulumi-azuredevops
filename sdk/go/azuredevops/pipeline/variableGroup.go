@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages variable groups within Azure DevOps.
-//
 // ## Example Usage
 //
 // ```go
@@ -25,23 +23,88 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", nil)
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			Visibility:       pulumi.String("private"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewVariableGroup(ctx, "variablegroup", &azuredevops.VariableGroupArgs{
-// 			ProjectId:   project.ID(),
-// 			Description: pulumi.String("Test Variable Group Description"),
+// 		_, err = azuredevops.NewVariableGroup(ctx, "exampleVariableGroup", &azuredevops.VariableGroupArgs{
+// 			ProjectId:   exampleProject.ID(),
+// 			Description: pulumi.String("Example Variable Group Description"),
 // 			AllowAccess: pulumi.Bool(true),
 // 			Variables: VariableGroupVariableArray{
 // 				&VariableGroupVariableArgs{
-// 					Name:  pulumi.String("key"),
-// 					Value: pulumi.String("value"),
+// 					Name:  pulumi.String("key1"),
+// 					Value: pulumi.String("val1"),
 // 				},
 // 				&VariableGroupVariableArgs{
-// 					Name:        pulumi.String("Account Password"),
-// 					SecretValue: pulumi.String("p@ssword123"),
+// 					Name:        pulumi.String("key2"),
+// 					SecretValue: pulumi.String("val2"),
 // 					IsSecret:    pulumi.Bool(true),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
+// ### With AzureRM Key Vault
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			Visibility:       pulumi.String("private"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example AzureRM"),
+// 			Description:         pulumi.String("Managed by Terraform"),
+// 			Credentials: &ServiceEndpointAzureRMCredentialsArgs{
+// 				Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+// 			},
+// 			AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			AzurermSubscriptionName: pulumi.String("Example Subscription Name"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewVariableGroup(ctx, "exampleVariableGroup", &azuredevops.VariableGroupArgs{
+// 			ProjectId:   exampleProject.ID(),
+// 			Description: pulumi.String("Example Variable Group Description"),
+// 			AllowAccess: pulumi.Bool(true),
+// 			KeyVault: &VariableGroupKeyVaultArgs{
+// 				Name:              pulumi.String("example-kv"),
+// 				ServiceEndpointId: exampleServiceEndpointAzureRM.ID(),
+// 			},
+// 			Variables: VariableGroupVariableArray{
+// 				&VariableGroupVariableArgs{
+// 					Name: pulumi.String("key1"),
+// 				},
+// 				&VariableGroupVariableArgs{
+// 					Name: pulumi.String("key2"),
 // 				},
 // 			},
 // 		})
@@ -54,8 +117,8 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
-// - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 6.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //
@@ -71,13 +134,13 @@ import (
 // **Variable groups containing secret values cannot be imported.** Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup "Test Project/10"
+//  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example "Example Project/10"
 // ```
 //
 //  or
 //
 // ```sh
-//  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup variablegroup 00000000-0000-0000-0000-000000000000/0
+//  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
 // ```
 //
 //  _Note that for secret variables, the import command retrieve blank value in the tfstate._

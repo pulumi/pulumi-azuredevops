@@ -304,22 +304,38 @@ class Git(pulumi.CustomResource):
         Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
 
         ```sh
-         $ pulumi import azuredevops:Repository/git:Git repository projectName/repoName
+         $ pulumi import azuredevops:Repository/git:Git example projectName/repoName
         ```
 
          or
 
         ```sh
-         $ pulumi import azuredevops:Repository/git:Git repository projectName/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:Repository/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
 
-         hcl resource "azuredevops_git_repository" "repo" {
-
-         project_id = azuredevops_project.project.id
+         hcl resource "azuredevops_project" "example" {
 
          name
 
-         = "Existing Git Repository"
+         = "Example Project"
+
+         visibility
+
+         = "private"
+
+         version_control
+
+        = "Git"
+
+         work_item_template = "Agile" } resource "azuredevops_git_repository" "example" {
+
+         project_id
+
+         = azuredevops_project.example.id
+
+         name
+
+         = "Example Git Repository"
 
          default_branch = "refs/heads/main"
 
@@ -365,22 +381,38 @@ class Git(pulumi.CustomResource):
         Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
 
         ```sh
-         $ pulumi import azuredevops:Repository/git:Git repository projectName/repoName
+         $ pulumi import azuredevops:Repository/git:Git example projectName/repoName
         ```
 
          or
 
         ```sh
-         $ pulumi import azuredevops:Repository/git:Git repository projectName/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:Repository/git:Git example projectName/00000000-0000-0000-0000-000000000000
         ```
 
-         hcl resource "azuredevops_git_repository" "repo" {
-
-         project_id = azuredevops_project.project.id
+         hcl resource "azuredevops_project" "example" {
 
          name
 
-         = "Existing Git Repository"
+         = "Example Project"
+
+         visibility
+
+         = "private"
+
+         version_control
+
+        = "Git"
+
+         work_item_template = "Agile" } resource "azuredevops_git_repository" "example" {
+
+         project_id
+
+         = azuredevops_project.example.id
+
+         name
+
+         = "Example Git Repository"
 
          default_branch = "refs/heads/main"
 

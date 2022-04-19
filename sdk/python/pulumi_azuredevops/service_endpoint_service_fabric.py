@@ -26,7 +26,7 @@ class ServiceEndpointServiceFabricArgs:
         """
         The set of arguments for constructing a ServiceEndpointServiceFabric resource.
         :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
@@ -59,7 +59,7 @@ class ServiceEndpointServiceFabricArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -139,7 +139,7 @@ class _ServiceEndpointServiceFabricState:
         """
         Input properties used for looking up and filtering ServiceEndpointServiceFabric resources.
         :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         if authorization is not None:
@@ -220,7 +220,7 @@ class _ServiceEndpointServiceFabricState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -266,13 +266,14 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         import base64
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        test = azuredevops.ServiceEndpointServiceFabric("test",
-            project_id=project.id,
-            service_endpoint_name="Sample Service Fabric",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_service_fabric = azuredevops.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric",
+            project_id=example_project.id,
+            service_endpoint_name="Example Service Fabric",
             description="Managed by Terraform",
             cluster_endpoint="tcp://test",
             certificate=azuredevops.ServiceEndpointServiceFabricCertificateArgs(
@@ -326,20 +327,20 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         ...
@@ -359,13 +360,14 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         import base64
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        test = azuredevops.ServiceEndpointServiceFabric("test",
-            project_id=project.id,
-            service_endpoint_name="Sample Service Fabric",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_service_fabric = azuredevops.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric",
+            project_id=example_project.id,
+            service_endpoint_name="Example Service Fabric",
             description="Managed by Terraform",
             cluster_endpoint="tcp://test",
             certificate=azuredevops.ServiceEndpointServiceFabricCertificateArgs(
@@ -419,14 +421,14 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -504,7 +506,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] cluster_endpoint: Client connection endpoint for the cluster. Prefix the value with 'tcp://';. This value overrides the publish profile.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -558,7 +560,7 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

@@ -29,22 +29,22 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
     ///         {
     ///             WorkItemTemplate = "Agile",
     ///             VersionControl = "Git",
     ///             Visibility = "private",
     ///             Description = "Managed by Terraform",
     ///         });
-    ///         var project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = example.Id,
     ///             Name = "Readers",
     ///         });
-    ///         var root_permissions = new AzureDevOps.AreaPermissions("root-permissions", new AzureDevOps.AreaPermissionsArgs
+    ///         var example_root_permissions = new AzureDevOps.AreaPermissions("example-root-permissions", new AzureDevOps.AreaPermissionsArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             Principal = project_readers.Apply(project_readers =&gt; project_readers.Id),
+    ///             ProjectId = example.Id,
+    ///             Principal = example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Id),
     ///             Path = "/",
     ///             Permissions = 
     ///             {
@@ -60,7 +60,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+    /// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 

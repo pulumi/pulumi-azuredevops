@@ -24,7 +24,7 @@ class ServiceEndpointAzureDevOpsArgs:
         The set of arguments for constructing a ServiceEndpointAzureDevOps resource.
         :param pulumi.Input[str] org_url: The organization URL.
         :param pulumi.Input[str] personal_access_token: The Azure DevOps personal access token.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] release_api_url: The URL of the release API.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -66,7 +66,7 @@ class ServiceEndpointAzureDevOpsArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -133,7 +133,7 @@ class _ServiceEndpointAzureDevOpsState:
         :param pulumi.Input[str] org_url: The organization URL.
         :param pulumi.Input[str] personal_access_token: The Azure DevOps personal access token.
         :param pulumi.Input[str] personal_access_token_hash: A bcrypted hash of the attribute 'personal_access_token'
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] release_api_url: The URL of the release API.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -212,7 +212,7 @@ class _ServiceEndpointAzureDevOpsState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -261,6 +261,8 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         """
         Manages an Azure DevOps service endpoint within Azure DevOps.
 
+        > **Note** This resource is duplicate with `ServiceEndpointPipeline`,  will be removed in the future, use `ServiceEndpointPipeline` instead.
+
         > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
 
         ## Example Usage
@@ -269,13 +271,14 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        test = azuredevops.ServiceEndpointAzureDevOps("test",
-            project_id=project.id,
-            service_endpoint_name="Sample Azure DevOps",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_dev_ops = azuredevops.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps",
+            project_id=example_project.id,
+            service_endpoint_name="Example Azure DevOps",
             org_url="https://dev.azure.com/testorganization",
             release_api_url="https://vsrm.dev.azure.com/testorganization",
             personal_access_token="0000000000000000000000000000000000000000000000000000",
@@ -283,21 +286,21 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Azure DevOps can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] org_url: The organization URL.
         :param pulumi.Input[str] personal_access_token: The Azure DevOps personal access token.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] release_api_url: The URL of the release API.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -310,6 +313,8 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         """
         Manages an Azure DevOps service endpoint within Azure DevOps.
 
+        > **Note** This resource is duplicate with `ServiceEndpointPipeline`,  will be removed in the future, use `ServiceEndpointPipeline` instead.
+
         > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
 
         ## Example Usage
@@ -318,13 +323,14 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        test = azuredevops.ServiceEndpointAzureDevOps("test",
-            project_id=project.id,
-            service_endpoint_name="Sample Azure DevOps",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_dev_ops = azuredevops.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps",
+            project_id=example_project.id,
+            service_endpoint_name="Example Azure DevOps",
             org_url="https://dev.azure.com/testorganization",
             release_api_url="https://vsrm.dev.azure.com/testorganization",
             personal_access_token="0000000000000000000000000000000000000000000000000000",
@@ -332,14 +338,14 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Azure DevOps can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -422,7 +428,7 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         :param pulumi.Input[str] org_url: The organization URL.
         :param pulumi.Input[str] personal_access_token: The Azure DevOps personal access token.
         :param pulumi.Input[str] personal_access_token_hash: A bcrypted hash of the attribute 'personal_access_token'
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] release_api_url: The URL of the release API.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -478,7 +484,7 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

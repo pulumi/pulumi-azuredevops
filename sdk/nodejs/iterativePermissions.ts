@@ -20,28 +20,28 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const example = new azuredevops.Project("example", {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const project-readers = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: example.id,
  *     name: "Readers",
  * });
- * const root_permissions = new azuredevops.IterativePermissions("root-permissions", {
- *     projectId: project.id,
- *     principal: azuredevops_group["project-readers"].id,
+ * const example_root_permissions = new azuredevops.IterativePermissions("example-root-permissions", {
+ *     projectId: example.id,
+ *     principal: example_readers.apply(example_readers => example_readers.id),
  *     permissions: {
  *         CREATE_CHILDREN: "Deny",
  *         GENERIC_READ: "NotSet",
  *         DELETE: "Deny",
  *     },
  * });
- * const iteration_permissions = new azuredevops.IterativePermissions("iteration-permissions", {
- *     projectId: project.id,
- *     principal: azuredevops_group["project-readers"].id,
+ * const example_iteration_permissions = new azuredevops.IterativePermissions("example-iteration-permissions", {
+ *     projectId: example.id,
+ *     principal: example_readers.apply(example_readers => example_readers.id),
  *     path: "Iteration 1",
  *     permissions: {
  *         CREATE_CHILDREN: "Allow",
@@ -52,7 +52,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+ * * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *

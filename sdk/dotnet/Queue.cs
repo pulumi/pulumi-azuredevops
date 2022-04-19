@@ -26,23 +26,23 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///         });
-    ///         var pool = Output.Create(AzureDevOps.GetPool.InvokeAsync(new AzureDevOps.GetPoolArgs
+    ///         var examplePool = Output.Create(AzureDevOps.GetPool.InvokeAsync(new AzureDevOps.GetPoolArgs
     ///         {
-    ///             Name = "contoso-pool",
+    ///             Name = "example-pool",
     ///         }));
-    ///         var queue = new AzureDevOps.Queue("queue", new AzureDevOps.QueueArgs
+    ///         var exampleQueue = new AzureDevOps.Queue("exampleQueue", new AzureDevOps.QueueArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             AgentPoolId = pool.Apply(pool =&gt; pool.Id),
+    ///             ProjectId = exampleProject.Id,
+    ///             AgentPoolId = examplePool.Apply(examplePool =&gt; examplePool.Id),
     ///         });
-    ///         // Grant acccess to queue to all pipelines in the project
-    ///         var auth = new AzureDevOps.ResourceAuthorization("auth", new AzureDevOps.ResourceAuthorizationArgs
+    ///         // Grant access to queue to all pipelines in the project
+    ///         var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("exampleResourceAuthorization", new AzureDevOps.ResourceAuthorizationArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ResourceId = queue.Id,
+    ///             ProjectId = exampleProject.Id,
+    ///             ResourceId = exampleQueue.Id,
     ///             Type = "queue",
     ///             Authorized = true,
     ///         });
@@ -52,14 +52,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/queue:Queue q 00000000-0000-0000-0000-000000000000/0
+    ///  $ pulumi import azuredevops:index/queue:Queue example 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/queue:Queue")]

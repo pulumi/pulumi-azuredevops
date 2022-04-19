@@ -25,18 +25,19 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "dockerhubregistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample Docker Hub"),
-// 			DockerUsername:      pulumi.String("sample"),
+// 		_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "exampleServiceEndpointDockerRegistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example Docker Hub"),
+// 			DockerUsername:      pulumi.String("example"),
 // 			DockerEmail:         pulumi.String("email@example.com"),
 // 			DockerPassword:      pulumi.String("12345"),
 // 			RegistryType:        pulumi.String("DockerHub"),
@@ -44,9 +45,9 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "otherregistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample Docker Registry"),
+// 		_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "example-other", &azuredevops.ServiceEndpointDockerRegistryArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example Docker Registry"),
 // 			DockerRegistry:      pulumi.String("https://sample.azurecr.io/v1"),
 // 			DockerUsername:      pulumi.String("sample"),
 // 			DockerPassword:      pulumi.String("12345"),
@@ -61,7 +62,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 // - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
 //
 // ## Import
@@ -69,7 +70,7 @@ import (
 // Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 //
 // Deprecated: azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry
@@ -88,7 +89,7 @@ type DockerRegistry struct {
 	DockerRegistry pulumi.StringOutput `pulumi:"dockerRegistry"`
 	// The identifier of the Docker account user.
 	DockerUsername pulumi.StringPtrOutput `pulumi:"dockerUsername"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Can be "DockerHub" or "Others" (Default "DockerHub")
 	RegistryType pulumi.StringOutput `pulumi:"registryType"`
@@ -149,7 +150,7 @@ type dockerRegistryState struct {
 	DockerRegistry *string `pulumi:"dockerRegistry"`
 	// The identifier of the Docker account user.
 	DockerUsername *string `pulumi:"dockerUsername"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// Can be "DockerHub" or "Others" (Default "DockerHub")
 	RegistryType *string `pulumi:"registryType"`
@@ -170,7 +171,7 @@ type DockerRegistryState struct {
 	DockerRegistry pulumi.StringPtrInput
 	// The identifier of the Docker account user.
 	DockerUsername pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// Can be "DockerHub" or "Others" (Default "DockerHub")
 	RegistryType pulumi.StringPtrInput
@@ -193,7 +194,7 @@ type dockerRegistryArgs struct {
 	DockerRegistry string `pulumi:"dockerRegistry"`
 	// The identifier of the Docker account user.
 	DockerUsername *string `pulumi:"dockerUsername"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// Can be "DockerHub" or "Others" (Default "DockerHub")
 	RegistryType string `pulumi:"registryType"`
@@ -213,7 +214,7 @@ type DockerRegistryArgs struct {
 	DockerRegistry pulumi.StringInput
 	// The identifier of the Docker account user.
 	DockerUsername pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// Can be "DockerHub" or "Others" (Default "DockerHub")
 	RegistryType pulumi.StringInput

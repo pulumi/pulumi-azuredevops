@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const serviceendpointGhes1 = new azuredevops.ServiceEndpointGitHubEnterprise("serviceendpointGhes1", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample GitHub Enterprise",
+ * const exampleServiceEndpointGitHubEnterprise = new azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example GitHub Enterprise",
  *     url: "https://github.contoso.com",
  *     description: "Managed by Terraform",
  *     authPersonal: {
@@ -31,14 +32,14 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
@@ -76,7 +77,7 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -84,7 +85,7 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
      */
     public readonly serviceEndpointName!: pulumi.Output<string>;
     /**
-     * Github Enterprise Server Url.
+     * GitHub Enterprise Server Url.
      */
     public readonly url!: pulumi.Output<string>;
 
@@ -144,7 +145,7 @@ export interface ServiceEndpointGitHubEnterpriseState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -152,7 +153,7 @@ export interface ServiceEndpointGitHubEnterpriseState {
      */
     serviceEndpointName?: pulumi.Input<string>;
     /**
-     * Github Enterprise Server Url.
+     * GitHub Enterprise Server Url.
      */
     url?: pulumi.Input<string>;
 }
@@ -168,7 +169,7 @@ export interface ServiceEndpointGitHubEnterpriseArgs {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**
@@ -176,7 +177,7 @@ export interface ServiceEndpointGitHubEnterpriseArgs {
      */
     serviceEndpointName: pulumi.Input<string>;
     /**
-     * Github Enterprise Server Url.
+     * GitHub Enterprise Server Url.
      */
     url: pulumi.Input<string>;
 }

@@ -22,22 +22,23 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
     ///         // azure container registry service connection
-    ///         var azurecr = new AzureDevOps.ServiceEndpointAzureEcr("azurecr", new AzureDevOps.ServiceEndpointAzureEcrArgs
+    ///         var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr", new AzureDevOps.ServiceEndpointAzureEcrArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample AzureCR",
-    ///             ResourceGroup = "sample-rg",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example AzureCR",
+    ///             ResourceGroup = "example-rg",
     ///             AzurecrSpnTenantid = "00000000-0000-0000-0000-000000000000",
-    ///             AzurecrName = "sampleAcr",
+    ///             AzurecrName = "ExampleAcr",
     ///             AzurecrSubscriptionId = "00000000-0000-0000-0000-000000000000",
-    ///             AzurecrSubscriptionName = "sampleSub",
+    ///             AzurecrSubscriptionName = "subscription name",
     ///         });
     ///     }
     /// 
@@ -45,7 +46,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
     /// 
     /// ## Import
@@ -53,7 +54,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr")]
@@ -99,7 +100,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -207,7 +208,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -276,7 +277,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

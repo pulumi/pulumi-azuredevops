@@ -14,26 +14,26 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const example = new azuredevops.Project("example", {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const root-iteration = azuredevops.getIterationOutput({
- *     projectId: project.id,
+ * const example-root-iteration = azuredevops.getIterationOutput({
+ *     projectId: example.id,
  *     path: "/",
  *     fetchChildren: true,
  * });
- * const child-iteration = azuredevops.getIterationOutput({
- *     projectId: project.id,
+ * const example-child-iteration = azuredevops.getIterationOutput({
+ *     projectId: example.id,
  *     path: "/Iteration 1",
  *     fetchChildren: true,
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *

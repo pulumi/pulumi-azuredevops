@@ -24,7 +24,7 @@ class ServiceEndpointArtifactoryArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointArtifactory resource.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
         :param pulumi.Input[str] description: The Service Endpoint description.
@@ -45,7 +45,7 @@ class ServiceEndpointArtifactoryArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -130,7 +130,7 @@ class _ServiceEndpointArtifactoryState:
         """
         Input properties used for looking up and filtering ServiceEndpointArtifactory resources.
         :param pulumi.Input[str] description: The Service Endpoint description.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
         """
@@ -192,7 +192,7 @@ class _ServiceEndpointArtifactoryState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -247,13 +247,14 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointArtifactory("serviceendpoint",
-            project_id=project.id,
-            service_endpoint_name="Sample Artifactory",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_artifactory = azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory",
+            project_id=example_project.id,
+            service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
             authentication_token=azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs(
@@ -266,14 +267,19 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        serviceendpoint = azuredevops.ServiceEndpointArtifactory("serviceendpoint",
-            project_id=azuredevops_project["project"]["id"],
-            service_endpoint_name="Sample Artifactory",
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_artifactory = azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory",
+            project_id=example_project.id,
+            service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
             authentication_basic=azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs(
-                username="sampleuser",
-                password="0000000000000000000000000000000000000000",
+                username="username",
+                password="password",
             ))
         ```
         ## Relevant Links
@@ -286,13 +292,13 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The Service Endpoint description.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
         """
@@ -311,13 +317,14 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointArtifactory("serviceendpoint",
-            project_id=project.id,
-            service_endpoint_name="Sample Artifactory",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_artifactory = azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory",
+            project_id=example_project.id,
+            service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
             authentication_token=azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs(
@@ -330,14 +337,19 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        serviceendpoint = azuredevops.ServiceEndpointArtifactory("serviceendpoint",
-            project_id=azuredevops_project["project"]["id"],
-            service_endpoint_name="Sample Artifactory",
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_artifactory = azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory",
+            project_id=example_project.id,
+            service_endpoint_name="Example Artifactory",
             description="Managed by Terraform",
             url="https://artifactory.my.com",
             authentication_basic=azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs(
-                username="sampleuser",
-                password="0000000000000000000000000000000000000000",
+                username="username",
+                password="password",
             ))
         ```
         ## Relevant Links
@@ -350,7 +362,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -425,7 +437,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The Service Endpoint description.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
         """
@@ -469,7 +481,7 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

@@ -205,21 +205,25 @@ class ResourceAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        bitbucket_account = azuredevops.ServiceEndpointBitBucket("bitbucketAccount",
-            project_id=project.id,
-            username="xxxx",
-            password="xxxx",
-            service_endpoint_name="test-bitbucket",
-            description="test")
-        auth = azuredevops.ResourceAuthorization("auth",
-            project_id=project.id,
-            resource_id=bitbucket_account.id,
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
+            project_id=example_project.id,
+            username="username",
+            password="password",
+            service_endpoint_name="example-bitbucket",
+            description="Managed by Terraform")
+        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+            project_id=example_project.id,
+            resource_id=example_service_endpoint_bit_bucket.id,
             authorized=True)
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-6.0)
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -246,21 +250,25 @@ class ResourceAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        bitbucket_account = azuredevops.ServiceEndpointBitBucket("bitbucketAccount",
-            project_id=project.id,
-            username="xxxx",
-            password="xxxx",
-            service_endpoint_name="test-bitbucket",
-            description="test")
-        auth = azuredevops.ResourceAuthorization("auth",
-            project_id=project.id,
-            resource_id=bitbucket_account.id,
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
+            project_id=example_project.id,
+            username="username",
+            password="password",
+            service_endpoint_name="example-bitbucket",
+            description="Managed by Terraform")
+        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+            project_id=example_project.id,
+            resource_id=example_service_endpoint_bit_bucket.id,
             authorized=True)
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-6.0)
 
         :param str resource_name: The name of the resource.
         :param ResourceAuthorizationArgs args: The arguments to use to populate this resource's properties.

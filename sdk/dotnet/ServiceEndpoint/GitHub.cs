@@ -22,16 +22,17 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var serviceendpointGh1 = new AzureDevOps.ServiceEndpointGitHub("serviceendpointGh1", new AzureDevOps.ServiceEndpointGitHubArgs
+    ///         var exampleServiceEndpointGitHub = new AzureDevOps.ServiceEndpointGitHub("exampleServiceEndpointGitHub", new AzureDevOps.ServiceEndpointGitHubArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample GithHub Personal Access Token",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example GitHub Personal Access Token",
     ///             AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubAuthPersonalArgs
     ///             {
     ///                 PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -50,10 +51,17 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// {
     ///     public MyStack()
     ///     {
-    ///         var serviceendpointGh2 = new AzureDevOps.ServiceEndpointGitHub("serviceendpointGh2", new AzureDevOps.ServiceEndpointGitHubArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectId = azuredevops_project.Project.Id,
-    ///             ServiceEndpointName = "Sample GithHub Grant",
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var exampleServiceEndpointGitHub = new AzureDevOps.ServiceEndpointGitHub("exampleServiceEndpointGitHub", new AzureDevOps.ServiceEndpointGitHubArgs
+    ///         {
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example GitHub",
     ///             AuthOauth = new AzureDevOps.Inputs.ServiceEndpointGitHubAuthOauthArgs
     ///             {
     ///                 OauthConfigurationId = "00000000-0000-0000-0000-000000000000",
@@ -72,10 +80,17 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// {
     ///     public MyStack()
     ///     {
-    ///         var serviceendpointGh3 = new AzureDevOps.ServiceEndpointGitHub("serviceendpointGh3", new AzureDevOps.ServiceEndpointGitHubArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectId = azuredevops_project.Project.Id,
-    ///             ServiceEndpointName = "Sample GithHub Apps: Azure Pipelines",
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var exampleServiceEndpointGitHub = new AzureDevOps.ServiceEndpointGitHub("exampleServiceEndpointGitHub", new AzureDevOps.ServiceEndpointGitHubArgs
+    ///         {
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example GitHub Apps: Azure Pipelines",
     ///             Description = "Managed by Terraform",
     ///         });
     ///     }
@@ -84,14 +99,14 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:ServiceEndpoint/gitHub:GitHub serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:ServiceEndpoint/gitHub:GitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub")]
@@ -117,7 +132,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -198,7 +213,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -240,7 +255,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

@@ -22,16 +22,17 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var serviceendpointGhes1 = new AzureDevOps.ServiceEndpointGitHubEnterprise("serviceendpointGhes1", new AzureDevOps.ServiceEndpointGitHubEnterpriseArgs
+    ///         var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", new AzureDevOps.ServiceEndpointGitHubEnterpriseArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample GitHub Enterprise",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example GitHub Enterprise",
     ///             Url = "https://github.contoso.com",
     ///             Description = "Managed by Terraform",
     ///             AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs
@@ -45,14 +46,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise")]
@@ -71,7 +72,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -83,7 +84,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ServiceEndpointName { get; private set; } = null!;
 
         /// <summary>
-        /// Github Enterprise Server Url.
+        /// GitHub Enterprise Server Url.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -152,7 +153,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -164,7 +165,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ServiceEndpointName { get; set; } = null!;
 
         /// <summary>
-        /// Github Enterprise Server Url.
+        /// GitHub Enterprise Server Url.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -194,7 +195,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
@@ -206,7 +207,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ServiceEndpointName { get; set; }
 
         /// <summary>
-        /// Github Enterprise Server Url.
+        /// GitHub Enterprise Server Url.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

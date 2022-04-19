@@ -26,7 +26,7 @@ class ServiceEndpointAwsArgs:
         """
         The set of arguments for constructing a ServiceEndpointAws resource.
         :param pulumi.Input[str] access_key_id: The AWS access key ID for signing programmatic requests.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
@@ -67,7 +67,7 @@ class ServiceEndpointAwsArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -185,7 +185,7 @@ class _ServiceEndpointAwsState:
         Input properties used for looking up and filtering ServiceEndpointAws resources.
         :param pulumi.Input[str] access_key_id: The AWS access key ID for signing programmatic requests.
         :param pulumi.Input[str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] role_session_name: Optional identifier for the assumed role session.
         :param pulumi.Input[str] role_to_assume: The Amazon Resource Name (ARN) of the role to assume.
         :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
@@ -265,7 +265,7 @@ class _ServiceEndpointAwsState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -383,35 +383,36 @@ class ServiceEndpointAws(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointAws("serviceendpoint",
-            project_id=project.id,
-            service_endpoint_name="Sample AWS",
-            description="Managed by AzureDevOps",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("exampleServiceEndpointAws",
+            project_id=example_project.id,
+            service_endpoint_name="Example AWS",
             access_key_id="00000000-0000-0000-0000-000000000000",
-            secret_access_key="accesskey")
+            secret_access_key="accesskey",
+            description="Managed by AzureDevOps")
         ```
         ## Relevant Links
 
         * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
-        * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key_id: The AWS access key ID for signing programmatic requests.
         :param pulumi.Input[str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] role_session_name: Optional identifier for the assumed role session.
         :param pulumi.Input[str] role_to_assume: The Amazon Resource Name (ARN) of the role to assume.
         :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
@@ -433,28 +434,29 @@ class ServiceEndpointAws(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointAws("serviceendpoint",
-            project_id=project.id,
-            service_endpoint_name="Sample AWS",
-            description="Managed by AzureDevOps",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("exampleServiceEndpointAws",
+            project_id=example_project.id,
+            service_endpoint_name="Example AWS",
             access_key_id="00000000-0000-0000-0000-000000000000",
-            secret_access_key="accesskey")
+            secret_access_key="accesskey",
+            description="Managed by AzureDevOps")
         ```
         ## Relevant Links
 
         * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
-        * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -545,7 +547,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_key_id: The AWS access key ID for signing programmatic requests.
         :param pulumi.Input[str] external_id: A unique identifier that is used by third parties when assuming roles in their customers' accounts, aka cross-account role access.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] role_session_name: Optional identifier for the assumed role session.
         :param pulumi.Input[str] role_to_assume: The Amazon Resource Name (ARN) of the role to assume.
         :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
@@ -602,7 +604,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

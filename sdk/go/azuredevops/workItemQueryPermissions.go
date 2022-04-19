@@ -36,9 +36,24 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewWorkItemQueryPermissions(ctx, "project-wiq-root-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
-// 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
-// 			Principal: pulumi.Any(data.Azuredevops_group.Project - readers.Id),
+// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			Visibility:       pulumi.String("private"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: example.ID(),
+// 			Name:      pulumi.String("Readers"),
+// 		}, nil)
+// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "project-wiq-root-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+// 			ProjectId: example.ID(),
+// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+// 				return example_readers.Id, nil
+// 			}).(pulumi.StringOutput),
 // 			Permissions: pulumi.StringMap{
 // 				"CreateRepository": pulumi.String("Deny"),
 // 				"DeleteRepository": pulumi.String("Deny"),
@@ -71,10 +86,25 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewWorkItemQueryPermissions(ctx, "wiq-folder-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
-// 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
+// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			Visibility:       pulumi.String("private"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: example.ID(),
+// 			Name:      pulumi.String("Readers"),
+// 		}, nil)
+// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+// 			ProjectId: example.ID(),
 // 			Path:      pulumi.String("/Team"),
-// 			Principal: pulumi.Any(data.Azuredevops_group.Project - readers.Id),
+// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+// 				return example_readers.Id, nil
+// 			}).(pulumi.StringOutput),
 // 			Permissions: pulumi.StringMap{
 // 				"Contribute": pulumi.String("Allow"),
 // 				"Delete":     pulumi.String("Deny"),
@@ -101,27 +131,27 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			Description:      pulumi.String("Test Project Description"),
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
+// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			Visibility:       pulumi.String("private"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: example.ID(),
 // 			Name:      pulumi.String("Readers"),
 // 		}, nil)
-// 		project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: example.ID(),
 // 			Name:      pulumi.String("Contributors"),
 // 		}, nil)
-// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "wiq-project-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
-// 			ProjectId: project.ID(),
-// 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
-// 				return project_readers.Id, nil
+// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-project-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+// 			ProjectId: example.ID(),
+// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+// 				return example_readers.Id, nil
 // 			}).(pulumi.StringOutput),
 // 			Permissions: pulumi.StringMap{
 // 				"Read":              pulumi.String("Allow"),
@@ -133,11 +163,11 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "wiq-sharedqueries-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
-// 			ProjectId: project.ID(),
+// 		_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-sharedqueries-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+// 			ProjectId: example.ID(),
 // 			Path:      pulumi.String("/"),
-// 			Principal: project_contributors.ApplyT(func(project_contributors GetGroupResult) (string, error) {
-// 				return project_contributors.Id, nil
+// 			Principal: example_contributors.ApplyT(func(example_contributors GetGroupResult) (string, error) {
+// 				return example_contributors.Id, nil
 // 			}).(pulumi.StringOutput),
 // 			Permissions: pulumi.StringMap{
 // 				"Read":   pulumi.String("Allow"),
@@ -153,7 +183,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //

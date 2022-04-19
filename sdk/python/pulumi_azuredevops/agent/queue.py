@@ -114,28 +114,28 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        pool = azuredevops.get_pool(name="contoso-pool")
-        queue = azuredevops.Queue("queue",
-            project_id=project.id,
-            agent_pool_id=pool.id)
-        # Grant acccess to queue to all pipelines in the project
-        auth = azuredevops.ResourceAuthorization("auth",
-            project_id=project.id,
-            resource_id=queue.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_pool = azuredevops.get_pool(name="example-pool")
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        # Grant access to queue to all pipelines in the project
+        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+            project_id=example_project.id,
+            resource_id=example_queue.id,
             type="queue",
             authorized=True)
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
 
         ```sh
-         $ pulumi import azuredevops:Agent/queue:Queue q 00000000-0000-0000-0000-000000000000/0
+         $ pulumi import azuredevops:Agent/queue:Queue example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.
@@ -162,28 +162,28 @@ class Queue(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        pool = azuredevops.get_pool(name="contoso-pool")
-        queue = azuredevops.Queue("queue",
-            project_id=project.id,
-            agent_pool_id=pool.id)
-        # Grant acccess to queue to all pipelines in the project
-        auth = azuredevops.ResourceAuthorization("auth",
-            project_id=project.id,
-            resource_id=queue.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_pool = azuredevops.get_pool(name="example-pool")
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        # Grant access to queue to all pipelines in the project
+        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+            project_id=example_project.id,
+            resource_id=example_queue.id,
             type="queue",
             authorized=True)
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
 
         ```sh
-         $ pulumi import azuredevops:Agent/queue:Queue q 00000000-0000-0000-0000-000000000000/0
+         $ pulumi import azuredevops:Agent/queue:Queue example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.

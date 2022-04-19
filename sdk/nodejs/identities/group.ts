@@ -13,28 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {});
- * const tf-project-readers = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Readers",
  * });
- * const tf-project-contributors = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-contributors = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Contributors",
  * });
- * const group = new azuredevops.Group("group", {
- *     scope: project.id,
- *     displayName: "Test group",
- *     description: "Test description",
+ * const exampleGroup = new azuredevops.Group("exampleGroup", {
+ *     scope: exampleProject.id,
+ *     displayName: "Example group",
+ *     description: "Example description",
  *     members: [
- *         tf_project_readers.apply(tf_project_readers => tf_project_readers.descriptor),
- *         tf_project_contributors.apply(tf_project_contributors => tf_project_contributors.descriptor),
+ *         example_readers.apply(example_readers => example_readers.descriptor),
+ *         example_contributors.apply(example_contributors => example_contributors.descriptor),
  *     ],
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *
@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * Azure DevOps groups can be imported using the group identity descriptor, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:Identities/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+ *  $ pulumi import azuredevops:Identities/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
  * ```
  *
  * @deprecated azuredevops.identities.Group has been deprecated in favor of azuredevops.Group

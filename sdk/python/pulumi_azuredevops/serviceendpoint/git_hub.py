@@ -23,7 +23,7 @@ class GitHubArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a GitHub resource.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input['GitHubAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input['GitHubAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -43,7 +43,7 @@ class GitHubArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -119,7 +119,7 @@ class _GitHubState:
         Input properties used for looking up and filtering GitHub resources.
         :param pulumi.Input['GitHubAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input['GitHubAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         if auth_oauth is not None:
@@ -181,7 +181,7 @@ class _GitHubState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -228,13 +228,14 @@ class GitHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint_gh1 = azuredevops.ServiceEndpointGitHub("serviceendpointGh1",
-            project_id=project.id,
-            service_endpoint_name="Sample GithHub Personal Access Token",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Personal Access Token",
             auth_personal=azuredevops.ServiceEndpointGitHubAuthPersonalArgs(
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
@@ -244,9 +245,14 @@ class GitHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        serviceendpoint_gh2 = azuredevops.ServiceEndpointGitHub("serviceendpointGh2",
-            project_id=azuredevops_project["project"]["id"],
-            service_endpoint_name="Sample GithHub Grant",
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub",
             auth_oauth=azuredevops.ServiceEndpointGitHubAuthOauthArgs(
                 oauth_configuration_id="00000000-0000-0000-0000-000000000000",
             ))
@@ -256,28 +262,33 @@ class GitHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        serviceendpoint_gh3 = azuredevops.ServiceEndpointGitHub("serviceendpointGh3",
-            project_id=azuredevops_project["project"]["id"],
-            service_endpoint_name="Sample GithHub Apps: Azure Pipelines",
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Apps: Azure Pipelines",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:ServiceEndpoint/gitHub:GitHub serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:ServiceEndpoint/gitHub:GitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['GitHubAuthOauthArgs']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input[pulumi.InputType['GitHubAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         ...
@@ -295,13 +306,14 @@ class GitHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint_gh1 = azuredevops.ServiceEndpointGitHub("serviceendpointGh1",
-            project_id=project.id,
-            service_endpoint_name="Sample GithHub Personal Access Token",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Personal Access Token",
             auth_personal=azuredevops.ServiceEndpointGitHubAuthPersonalArgs(
                 personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
             ))
@@ -311,9 +323,14 @@ class GitHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        serviceendpoint_gh2 = azuredevops.ServiceEndpointGitHub("serviceendpointGh2",
-            project_id=azuredevops_project["project"]["id"],
-            service_endpoint_name="Sample GithHub Grant",
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub",
             auth_oauth=azuredevops.ServiceEndpointGitHubAuthOauthArgs(
                 oauth_configuration_id="00000000-0000-0000-0000-000000000000",
             ))
@@ -323,21 +340,26 @@ class GitHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        serviceendpoint_gh3 = azuredevops.ServiceEndpointGitHub("serviceendpointGh3",
-            project_id=azuredevops_project["project"]["id"],
-            service_endpoint_name="Sample GithHub Apps: Azure Pipelines",
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Apps: Azure Pipelines",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:ServiceEndpoint/gitHub:GitHub serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:ServiceEndpoint/gitHub:GitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -409,7 +431,7 @@ class GitHub(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['GitHubAuthOauthArgs']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input[pulumi.InputType['GitHubAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -454,7 +476,7 @@ class GitHub(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

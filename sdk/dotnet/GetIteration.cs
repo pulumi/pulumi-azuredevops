@@ -26,22 +26,22 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+        ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
         ///         {
         ///             WorkItemTemplate = "Agile",
         ///             VersionControl = "Git",
         ///             Visibility = "private",
         ///             Description = "Managed by Terraform",
         ///         });
-        ///         var root_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
+        ///         var example_root_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
         ///         {
-        ///             ProjectId = project.Id,
+        ///             ProjectId = example.Id,
         ///             Path = "/",
         ///             FetchChildren = true,
         ///         });
-        ///         var child_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
+        ///         var example_child_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
         ///         {
-        ///             ProjectId = project.Id,
+        ///             ProjectId = example.Id,
         ///             Path = "/Iteration 1",
         ///             FetchChildren = true,
         ///         });
@@ -53,7 +53,7 @@ namespace Pulumi.AzureDevOps
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
         /// 
         /// ## PAT Permissions Required
         /// 
@@ -77,22 +77,22 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+        ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
         ///         {
         ///             WorkItemTemplate = "Agile",
         ///             VersionControl = "Git",
         ///             Visibility = "private",
         ///             Description = "Managed by Terraform",
         ///         });
-        ///         var root_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
+        ///         var example_root_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
         ///         {
-        ///             ProjectId = project.Id,
+        ///             ProjectId = example.Id,
         ///             Path = "/",
         ///             FetchChildren = true,
         ///         });
-        ///         var child_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
+        ///         var example_child_iteration = AzureDevOps.GetIteration.Invoke(new AzureDevOps.GetIterationInvokeArgs
         ///         {
-        ///             ProjectId = project.Id,
+        ///             ProjectId = example.Id,
         ///             Path = "/Iteration 1",
         ///             FetchChildren = true,
         ///         });
@@ -104,7 +104,7 @@ namespace Pulumi.AzureDevOps
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
         /// 
         /// ## PAT Permissions Required
         /// 

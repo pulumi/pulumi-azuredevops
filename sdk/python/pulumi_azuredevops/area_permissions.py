@@ -210,16 +210,16 @@ class AreaPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example = azuredevops.Project("example",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_project_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        root_permissions = azuredevops.AreaPermissions("root-permissions",
-            project_id=project.id,
-            principal=project_readers.id,
+        example_root_permissions = azuredevops.AreaPermissions("example-root-permissions",
+            project_id=example.id,
+            principal=example_project_readers.id,
             path="/",
             permissions={
                 "CREATE_CHILDREN": "Deny",
@@ -230,7 +230,7 @@ class AreaPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -270,16 +270,16 @@ class AreaPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example = azuredevops.Project("example",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_project_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        root_permissions = azuredevops.AreaPermissions("root-permissions",
-            project_id=project.id,
-            principal=project_readers.id,
+        example_root_permissions = azuredevops.AreaPermissions("example-root-permissions",
+            project_id=example.id,
+            principal=example_project_readers.id,
             path="/",
             permissions={
                 "CREATE_CHILDREN": "Deny",
@@ -290,7 +290,7 @@ class AreaPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 

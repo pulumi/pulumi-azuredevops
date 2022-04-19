@@ -13,20 +13,20 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {});
- * const user = new azuredevops.User("user", {principalName: "foo@contoso.com"});
- * const group = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleUser = new azuredevops.User("exampleUser", {principalName: "foo@contoso.com"});
+ * const exampleGroup = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Build Administrators",
  * });
- * const membership = new azuredevops.GroupMembership("membership", {
- *     group: group.apply(group => group.descriptor),
- *     members: [user.descriptor],
+ * const exampleGroupMembership = new azuredevops.GroupMembership("exampleGroupMembership", {
+ *     group: exampleGroup.apply(exampleGroup => exampleGroup.descriptor),
+ *     members: [exampleUser.descriptor],
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
+ * - [Azure DevOps Service REST API 6.0 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *

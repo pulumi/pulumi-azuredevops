@@ -14,15 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {});
- * const git = new azuredevops.Git("git", {
- *     projectId: project.id,
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const branchPolicyMergeTypes = new azuredevops.BranchPolicyMergeTypes("branchPolicyMergeTypes", {
- *     projectId: project.id,
+ * const exampleBranchPolicyMergeTypes = new azuredevops.BranchPolicyMergeTypes("exampleBranchPolicyMergeTypes", {
+ *     projectId: exampleProject.id,
  *     enabled: true,
  *     blocking: true,
  *     settings: {
@@ -32,8 +32,8 @@ import * as utilities from "./utilities";
  *         allowRebaseWithMerge: true,
  *         scopes: [
  *             {
- *                 repositoryId: git.id,
- *                 repositoryRef: git.defaultBranch,
+ *                 repositoryId: exampleGit.id,
+ *                 repositoryRef: exampleGit.defaultBranch,
  *                 matchType: "Exact",
  *             },
  *             {
@@ -47,14 +47,14 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
  *
  * ```sh
- *  $ pulumi import azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes p 00000000-0000-0000-0000-000000000000/0
+ *  $ pulumi import azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes example 00000000-0000-0000-0000-000000000000/0
  * ```
  */
 export class BranchPolicyMergeTypes extends pulumi.CustomResource {

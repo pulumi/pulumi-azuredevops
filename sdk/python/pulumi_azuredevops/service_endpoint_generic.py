@@ -22,7 +22,7 @@ class ServiceEndpointGenericArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointGeneric resource.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] server_url: The URL of the server associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The service endpoint name.
         :param pulumi.Input[str] password: The password or token key used to authenticate to the server url using basic authentication.
@@ -44,7 +44,7 @@ class ServiceEndpointGenericArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -134,7 +134,7 @@ class _ServiceEndpointGenericState:
         Input properties used for looking up and filtering ServiceEndpointGeneric resources.
         :param pulumi.Input[str] password: The password or token key used to authenticate to the server url using basic authentication.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] server_url: The URL of the server associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The service endpoint name.
         :param pulumi.Input[str] username: The username used to authenticate to the server url using basic authentication.
@@ -202,7 +202,7 @@ class _ServiceEndpointGenericState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -270,34 +270,35 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointGeneric("serviceendpoint",
-            project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
             server_url="https://some-server.example.com",
             username="username",
             password="password",
-            service_endpoint_name="Sample Generic",
+            service_endpoint_name="Example Generic",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Generic can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] password: The password or token key used to authenticate to the server url using basic authentication.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] server_url: The URL of the server associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The service endpoint name.
         :param pulumi.Input[str] username: The username used to authenticate to the server url using basic authentication.
@@ -318,28 +319,29 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointGeneric("serviceendpoint",
-            project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
             server_url="https://some-server.example.com",
             username="username",
             password="password",
-            service_endpoint_name="Sample Generic",
+            service_endpoint_name="Example Generic",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Generic can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -417,7 +419,7 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] password: The password or token key used to authenticate to the server url using basic authentication.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] server_url: The URL of the server associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The service endpoint name.
         :param pulumi.Input[str] username: The username used to authenticate to the server url using basic authentication.
@@ -466,7 +468,7 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

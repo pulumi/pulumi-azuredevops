@@ -14,30 +14,31 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const serviceendpoint = new azuredevops.ServiceEndpointGenericGit("serviceendpoint", {
- *     projectId: project.id,
+ * const exampleServiceEndpointGenericGit = new azuredevops.ServiceEndpointGenericGit("exampleServiceEndpointGenericGit", {
+ *     projectId: exampleProject.id,
  *     repositoryUrl: "https://dev.azure.com/org/project/_git/repository",
  *     username: "username",
  *     password: "password",
- *     serviceEndpointName: "Sample Generic Git",
+ *     serviceEndpointName: "Example Generic Git",
  *     description: "Managed by Terraform",
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint Generic Git can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointGenericGit extends pulumi.CustomResource {
@@ -83,7 +84,7 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
      */
     public /*out*/ readonly passwordHash!: pulumi.Output<string>;
     /**
-     * The project ID or project name to associate with the service endpoint.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -166,7 +167,7 @@ export interface ServiceEndpointGenericGitState {
      */
     passwordHash?: pulumi.Input<string>;
     /**
-     * The project ID or project name to associate with the service endpoint.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -198,7 +199,7 @@ export interface ServiceEndpointGenericGitArgs {
      */
     password?: pulumi.Input<string>;
     /**
-     * The project ID or project name to associate with the service endpoint.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

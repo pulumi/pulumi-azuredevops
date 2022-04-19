@@ -25,7 +25,7 @@ class ServiceEndpointDockerRegistryArgs:
         """
         The set of arguments for constructing a ServiceEndpointDockerRegistry resource.
         :param pulumi.Input[str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] docker_email: The email for Docker account user.
@@ -63,7 +63,7 @@ class ServiceEndpointDockerRegistryArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -170,7 +170,7 @@ class _ServiceEndpointDockerRegistryState:
         :param pulumi.Input[str] docker_password_hash: A bcrypted hash of the attribute 'docker_password'
         :param pulumi.Input[str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         :param pulumi.Input[str] docker_username: The identifier of the Docker account user.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
@@ -277,7 +277,7 @@ class _ServiceEndpointDockerRegistryState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -334,22 +334,23 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
+            work_item_template="Agile",
+            description="Managed by Terraform")
         # dockerhub registry service connection
-        dockerhubregistry = azuredevops.ServiceEndpointDockerRegistry("dockerhubregistry",
-            project_id=project.id,
-            service_endpoint_name="Sample Docker Hub",
-            docker_username="sample",
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Hub",
+            docker_username="example",
             docker_email="email@example.com",
             docker_password="12345",
             registry_type="DockerHub")
         # other docker registry service connection
-        otherregistry = azuredevops.ServiceEndpointDockerRegistry("otherregistry",
-            project_id=project.id,
-            service_endpoint_name="Sample Docker Registry",
+        example_other = azuredevops.ServiceEndpointDockerRegistry("example-other",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Registry",
             docker_registry="https://sample.azurecr.io/v1",
             docker_username="sample",
             docker_password="12345",
@@ -357,7 +358,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
         - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
 
         ## Import
@@ -365,7 +366,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -374,7 +375,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         :param pulumi.Input[str] docker_password: The password for the account user identified above.
         :param pulumi.Input[str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         :param pulumi.Input[str] docker_username: The identifier of the Docker account user.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
@@ -393,22 +394,23 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
+            work_item_template="Agile",
+            description="Managed by Terraform")
         # dockerhub registry service connection
-        dockerhubregistry = azuredevops.ServiceEndpointDockerRegistry("dockerhubregistry",
-            project_id=project.id,
-            service_endpoint_name="Sample Docker Hub",
-            docker_username="sample",
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Hub",
+            docker_username="example",
             docker_email="email@example.com",
             docker_password="12345",
             registry_type="DockerHub")
         # other docker registry service connection
-        otherregistry = azuredevops.ServiceEndpointDockerRegistry("otherregistry",
-            project_id=project.id,
-            service_endpoint_name="Sample Docker Registry",
+        example_other = azuredevops.ServiceEndpointDockerRegistry("example-other",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Registry",
             docker_registry="https://sample.azurecr.io/v1",
             docker_username="sample",
             docker_password="12345",
@@ -416,7 +418,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
         - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
 
         ## Import
@@ -424,7 +426,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -515,7 +517,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         :param pulumi.Input[str] docker_password_hash: A bcrypted hash of the attribute 'docker_password'
         :param pulumi.Input[str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         :param pulumi.Input[str] docker_username: The identifier of the Docker account user.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
@@ -589,7 +591,7 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

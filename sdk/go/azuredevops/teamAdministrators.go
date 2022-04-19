@@ -25,32 +25,32 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			WorkItemTemplate: pulumi.String("Agile"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("My first project"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		builtinProjectContributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Name:      pulumi.String("Contributors"),
 // 		}, nil)
-// 		team, err := azuredevops.NewTeam(ctx, "team", &azuredevops.TeamArgs{
-// 			ProjectId: project.ID(),
+// 		exampleTeam, err := azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
+// 			ProjectId: exampleProject.ID(),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewTeamAdministrators(ctx, "teamAdministrators", &azuredevops.TeamAdministratorsArgs{
-// 			ProjectId: team.ProjectId,
-// 			TeamId:    team.ID(),
+// 		_, err = azuredevops.NewTeamAdministrators(ctx, "example-team-administrators", &azuredevops.TeamAdministratorsArgs{
+// 			ProjectId: exampleTeam.ProjectId,
+// 			TeamId:    exampleTeam.ID(),
 // 			Mode:      pulumi.String("overwrite"),
 // 			Administrators: pulumi.StringArray{
-// 				builtinProjectContributors.ApplyT(func(builtinProjectContributors GetGroupResult) (string, error) {
-// 					return builtinProjectContributors.Descriptor, nil
+// 				example_project_contributors.ApplyT(func(example_project_contributors GetGroupResult) (string, error) {
+// 					return example_project_contributors.Descriptor, nil
 // 				}).(pulumi.StringOutput),
 // 			},
 // 		})
@@ -63,7 +63,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //

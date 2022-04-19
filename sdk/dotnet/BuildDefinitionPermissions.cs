@@ -24,29 +24,29 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             WorkItemTemplate = "Agile",
     ///             VersionControl = "Git",
     ///             Visibility = "private",
     ///             Description = "Managed by Terraform",
     ///         });
-    ///         var project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Readers",
     ///         });
-    ///         var repository = new AzureDevOps.Git("repository", new AzureDevOps.GitArgs
+    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///             {
     ///                 InitType = "Clean",
     ///             },
     ///         });
-    ///         var build = new AzureDevOps.BuildDefinition("build", new AzureDevOps.BuildDefinitionArgs
+    ///         var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new AzureDevOps.BuildDefinitionArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Path = "\\ExampleFolder",
     ///             CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
     ///             {
@@ -55,16 +55,16 @@ namespace Pulumi.AzureDevOps
     ///             Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
     ///             {
     ///                 RepoType = "TfsGit",
-    ///                 RepoId = repository.Id,
-    ///                 BranchName = repository.DefaultBranch,
+    ///                 RepoId = exampleGit.Id,
+    ///                 BranchName = exampleGit.DefaultBranch,
     ///                 YmlPath = "azure-pipelines.yml",
     ///             },
     ///         });
-    ///         var permissions = new AzureDevOps.BuildDefinitionPermissions("permissions", new AzureDevOps.BuildDefinitionPermissionsArgs
+    ///         var exampleBuildDefinitionPermissions = new AzureDevOps.BuildDefinitionPermissions("exampleBuildDefinitionPermissions", new AzureDevOps.BuildDefinitionPermissionsArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             Principal = project_readers.Apply(project_readers =&gt; project_readers.Id),
-    ///             BuildDefinitionId = build.Id,
+    ///             ProjectId = exampleProject.Id,
+    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
+    ///             BuildDefinitionId = exampleBuildDefinition.Id,
     ///             Permissions = 
     ///             {
     ///                 { "ViewBuilds", "Allow" },
@@ -79,7 +79,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+    /// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 

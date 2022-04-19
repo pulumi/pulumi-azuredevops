@@ -278,170 +278,71 @@ export interface BranchPolicyWorkItemLinkingSettingsScope {
 }
 
 export interface BuildDefinitionCiTrigger {
-    /**
-     * Override the azure-pipeline file and use a this configuration for all builds.
-     */
     override?: outputs.BuildDefinitionCiTriggerOverride;
-    /**
-     * Use the azure-pipeline file for the build configuration. Defaults to `false`.
-     */
     useYaml?: boolean;
 }
 
 export interface BuildDefinitionCiTriggerOverride {
-    /**
-     * If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
-     */
     batch?: boolean;
-    /**
-     * The branches to include and exclude from the trigger.
-     */
     branchFilters?: outputs.BuildDefinitionCiTriggerOverrideBranchFilter[];
-    /**
-     * The number of max builds per branch. Defaults to `1`.
-     */
     maxConcurrentBuildsPerBranch?: number;
-    /**
-     * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-     */
     pathFilters?: outputs.BuildDefinitionCiTriggerOverridePathFilter[];
-    /**
-     * How often the external repository is polled. Defaults to `0`.
-     */
     pollingInterval?: number;
-    /**
-     * This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
-     */
     pollingJobId: string;
 }
 
 export interface BuildDefinitionCiTriggerOverrideBranchFilter {
-    /**
-     * List of branch patterns to exclude.
-     */
     excludes?: string[];
-    /**
-     * List of branch patterns to include.
-     */
     includes?: string[];
 }
 
 export interface BuildDefinitionCiTriggerOverridePathFilter {
-    /**
-     * List of branch patterns to exclude.
-     */
     excludes?: string[];
-    /**
-     * List of branch patterns to include.
-     */
     includes?: string[];
 }
 
 export interface BuildDefinitionPullRequestTrigger {
     commentRequired?: string;
-    /**
-     * Set permissions for Forked repositories.
-     */
     forks: outputs.BuildDefinitionPullRequestTriggerForks;
     initialBranch?: string;
-    /**
-     * Override the azure-pipeline file and use this configuration for all builds.
-     */
     override?: outputs.BuildDefinitionPullRequestTriggerOverride;
-    /**
-     * Use the azure-pipeline file for the build configuration. Defaults to `false`.
-     */
     useYaml?: boolean;
 }
 
 export interface BuildDefinitionPullRequestTriggerForks {
-    /**
-     * Build pull requests form forms of this repository.
-     */
     enabled: boolean;
-    /**
-     * Make secrets available to builds of forks.
-     */
     shareSecrets: boolean;
 }
 
 export interface BuildDefinitionPullRequestTriggerOverride {
-    /**
-     * . Defaults to `true`.
-     */
     autoCancel?: boolean;
-    /**
-     * The branches to include and exclude from the trigger.
-     */
     branchFilters?: outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter[];
-    /**
-     * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-     */
     pathFilters?: outputs.BuildDefinitionPullRequestTriggerOverridePathFilter[];
 }
 
 export interface BuildDefinitionPullRequestTriggerOverrideBranchFilter {
-    /**
-     * List of branch patterns to exclude.
-     */
     excludes?: string[];
-    /**
-     * List of branch patterns to include.
-     */
     includes?: string[];
 }
 
 export interface BuildDefinitionPullRequestTriggerOverridePathFilter {
-    /**
-     * List of branch patterns to exclude.
-     */
     excludes?: string[];
-    /**
-     * List of branch patterns to include.
-     */
     includes?: string[];
 }
 
 export interface BuildDefinitionRepository {
-    /**
-     * The branch name for which builds are triggered. Defaults to `master`.
-     */
     branchName?: string;
-    /**
-     * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
-     */
     githubEnterpriseUrl?: string;
-    /**
-     * The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-     */
     repoId: string;
-    /**
-     * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
-     */
     repoType: string;
-    /**
-     * Report build status. Default is true.
-     */
     reportBuildStatus?: boolean;
-    /**
-     * The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
-     */
     serviceConnectionId?: string;
-    /**
-     * The path of the Yaml file describing the build definition.
-     */
     ymlPath: string;
 }
 
 export interface BuildDefinitionSchedule {
-    /**
-     * block supports the following:
-     */
     branchFilters?: outputs.BuildDefinitionScheduleBranchFilter[];
     daysToBuilds: string[];
-    /**
-     * The ID of the schedule job
-     */
     scheduleJobId: string;
     scheduleOnlyWithChanges?: boolean;
     startHours?: number;
@@ -450,36 +351,15 @@ export interface BuildDefinitionSchedule {
 }
 
 export interface BuildDefinitionScheduleBranchFilter {
-    /**
-     * List of branch patterns to exclude.
-     */
     excludes?: string[];
-    /**
-     * List of branch patterns to include.
-     */
     includes?: string[];
 }
 
 export interface BuildDefinitionVariable {
-    /**
-     * True if the variable can be overridden. Defaults to `true`.
-     */
     allowOverride?: boolean;
-    /**
-     * True if the variable is a secret. Defaults to `false`.
-     */
     isSecret?: boolean;
-    /**
-     * The name of the variable.
-     */
     name: string;
-    /**
-     * The secret value of the variable. Used when `isSecret` set to `true`.
-     */
     secretValue?: string;
-    /**
-     * The value of the variable.
-     */
     value?: string;
 }
 
@@ -504,6 +384,45 @@ export interface GetAreaChildren {
      * The project ID.
      */
     projectId: string;
+}
+
+export interface GetGroupsGroup {
+    /**
+     * A short phrase to help human readers disambiguate groups with similar names
+     */
+    description?: string;
+    /**
+     * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+     */
+    descriptor: string;
+    /**
+     * This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+     */
+    displayName?: string;
+    /**
+     * This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
+     */
+    domain: string;
+    /**
+     * The email address of record for a given graph member. This may be different than the principal name.
+     */
+    mailAddress?: string;
+    /**
+     * The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+     */
+    origin: string;
+    /**
+     * The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+     */
+    originId?: string;
+    /**
+     * This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+     */
+    principalName: string;
+    /**
+     * This url is the full route to the source resource of this graph subject.
+     */
+    url: string;
 }
 
 export interface GetIterationChildren {
@@ -604,11 +523,26 @@ export interface GetRepositoriesRepository {
 }
 
 export interface GetTeamsTeam {
+    /**
+     * List of subject descriptors for `administrators` of the team.
+     */
     administrators: string[];
+    /**
+     * Team description.
+     */
     description: string;
     id: string;
+    /**
+     * List of subject descriptors for `members` of the team.
+     */
     members: string[];
+    /**
+     * Team name.
+     */
     name: string;
+    /**
+     * The Project ID. If no project ID all teams of the organization will be returned.
+     */
     projectId: string;
 }
 
@@ -641,6 +575,39 @@ export interface GetUsersUser {
      * The PrincipalName of this graph member from the source provider.
      */
     principalName: string;
+}
+
+export interface GetVariableGroupKeyVault {
+    /**
+     * The name of the Variable Group to retrieve.
+     */
+    name: string;
+    /**
+     * The id of the Azure subscription endpoint to access the key vault.
+     */
+    serviceEndpointId: string;
+}
+
+export interface GetVariableGroupVariable {
+    contentType: string;
+    enabled: boolean;
+    expires: string;
+    /**
+     * A boolean flag describing if the variable value is sensitive.
+     */
+    isSecret: boolean;
+    /**
+     * The name of the Variable Group to retrieve.
+     */
+    name: string;
+    /**
+     * The secret value of the variable.
+     */
+    secretValue: string;
+    /**
+     * The value of the variable.
+     */
+    value: string;
 }
 
 export interface GitInitialization {
@@ -702,7 +669,7 @@ export interface ServiceEndpointGitHubAuthOauth {
 
 export interface ServiceEndpointGitHubAuthPersonal {
     /**
-     * The Personal Access Token for Github.
+     * The Personal Access Token for GitHub.
      */
     personalAccessToken: string;
     personalAccessTokenHash: string;
@@ -710,7 +677,7 @@ export interface ServiceEndpointGitHubAuthPersonal {
 
 export interface ServiceEndpointGitHubEnterpriseAuthPersonal {
     /**
-     * The Personal Access Token for Github.
+     * The Personal Access Token for GitHub.
      */
     personalAccessToken: string;
     personalAccessTokenHash: string;
@@ -848,6 +815,27 @@ export interface ServiceEndpointServiceFabricNone {
     unsecured?: boolean;
 }
 
+export interface ServiceendpointArgocdAuthenticationBasic {
+    /**
+     * ArgoCD Password.
+     */
+    password: string;
+    passwordHash: string;
+    /**
+     * ArgoCD Username.
+     */
+    username: string;
+    usernameHash: string;
+}
+
+export interface ServiceendpointArgocdAuthenticationToken {
+    /**
+     * Authentication Token generated through ArgoCD.
+     */
+    token: string;
+    tokenHash: string;
+}
+
 export interface VariableGroupKeyVault {
     /**
      * The name of the Variable Group.
@@ -877,6 +865,7 @@ export interface VariableGroupVariable {
      */
     value?: string;
 }
+
 export namespace Agent {
     export interface GetPoolsAgentPool {
         /**
@@ -898,170 +887,71 @@ export namespace Agent {
 
 export namespace Build {
     export interface BuildDefinitionCiTrigger {
-        /**
-         * Override the azure-pipeline file and use a this configuration for all builds.
-         */
         override?: outputs.Build.BuildDefinitionCiTriggerOverride;
-        /**
-         * Use the azure-pipeline file for the build configuration. Defaults to `false`.
-         */
         useYaml?: boolean;
     }
 
     export interface BuildDefinitionCiTriggerOverride {
-        /**
-         * If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
-         */
         batch?: boolean;
-        /**
-         * The branches to include and exclude from the trigger.
-         */
         branchFilters?: outputs.Build.BuildDefinitionCiTriggerOverrideBranchFilter[];
-        /**
-         * The number of max builds per branch. Defaults to `1`.
-         */
         maxConcurrentBuildsPerBranch?: number;
-        /**
-         * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-         */
         pathFilters?: outputs.Build.BuildDefinitionCiTriggerOverridePathFilter[];
-        /**
-         * How often the external repository is polled. Defaults to `0`.
-         */
         pollingInterval?: number;
-        /**
-         * This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
-         */
         pollingJobId: string;
     }
 
     export interface BuildDefinitionCiTriggerOverrideBranchFilter {
-        /**
-         * List of branch patterns to exclude.
-         */
         excludes?: string[];
-        /**
-         * List of branch patterns to include.
-         */
         includes?: string[];
     }
 
     export interface BuildDefinitionCiTriggerOverridePathFilter {
-        /**
-         * List of branch patterns to exclude.
-         */
         excludes?: string[];
-        /**
-         * List of branch patterns to include.
-         */
         includes?: string[];
     }
 
     export interface BuildDefinitionPullRequestTrigger {
         commentRequired?: string;
-        /**
-         * Set permissions for Forked repositories.
-         */
         forks: outputs.Build.BuildDefinitionPullRequestTriggerForks;
         initialBranch?: string;
-        /**
-         * Override the azure-pipeline file and use this configuration for all builds.
-         */
         override?: outputs.Build.BuildDefinitionPullRequestTriggerOverride;
-        /**
-         * Use the azure-pipeline file for the build configuration. Defaults to `false`.
-         */
         useYaml?: boolean;
     }
 
     export interface BuildDefinitionPullRequestTriggerForks {
-        /**
-         * Build pull requests form forms of this repository.
-         */
         enabled: boolean;
-        /**
-         * Make secrets available to builds of forks.
-         */
         shareSecrets: boolean;
     }
 
     export interface BuildDefinitionPullRequestTriggerOverride {
-        /**
-         * . Defaults to `true`.
-         */
         autoCancel?: boolean;
-        /**
-         * The branches to include and exclude from the trigger.
-         */
         branchFilters?: outputs.Build.BuildDefinitionPullRequestTriggerOverrideBranchFilter[];
-        /**
-         * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-         */
         pathFilters?: outputs.Build.BuildDefinitionPullRequestTriggerOverridePathFilter[];
     }
 
     export interface BuildDefinitionPullRequestTriggerOverrideBranchFilter {
-        /**
-         * List of branch patterns to exclude.
-         */
         excludes?: string[];
-        /**
-         * List of branch patterns to include.
-         */
         includes?: string[];
     }
 
     export interface BuildDefinitionPullRequestTriggerOverridePathFilter {
-        /**
-         * List of branch patterns to exclude.
-         */
         excludes?: string[];
-        /**
-         * List of branch patterns to include.
-         */
         includes?: string[];
     }
 
     export interface BuildDefinitionRepository {
-        /**
-         * The branch name for which builds are triggered. Defaults to `master`.
-         */
         branchName?: string;
-        /**
-         * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
-         */
         githubEnterpriseUrl?: string;
-        /**
-         * The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
-         */
         repoId: string;
-        /**
-         * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
-         */
         repoType: string;
-        /**
-         * Report build status. Default is true.
-         */
         reportBuildStatus?: boolean;
-        /**
-         * The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
-         */
         serviceConnectionId?: string;
-        /**
-         * The path of the Yaml file describing the build definition.
-         */
         ymlPath: string;
     }
 
     export interface BuildDefinitionSchedule {
-        /**
-         * block supports the following:
-         */
         branchFilters?: outputs.Build.BuildDefinitionScheduleBranchFilter[];
         daysToBuilds: string[];
-        /**
-         * The ID of the schedule job
-         */
         scheduleJobId: string;
         scheduleOnlyWithChanges?: boolean;
         startHours?: number;
@@ -1070,36 +960,15 @@ export namespace Build {
     }
 
     export interface BuildDefinitionScheduleBranchFilter {
-        /**
-         * List of branch patterns to exclude.
-         */
         excludes?: string[];
-        /**
-         * List of branch patterns to include.
-         */
         includes?: string[];
     }
 
     export interface BuildDefinitionVariable {
-        /**
-         * True if the variable can be overridden. Defaults to `true`.
-         */
         allowOverride?: boolean;
-        /**
-         * True if the variable is a secret. Defaults to `false`.
-         */
         isSecret?: boolean;
-        /**
-         * The name of the variable.
-         */
         name: string;
-        /**
-         * The secret value of the variable. Used when `isSecret` set to `true`.
-         */
         secretValue?: string;
-        /**
-         * The value of the variable.
-         */
         value?: string;
     }
 
@@ -1373,7 +1242,7 @@ export namespace ServiceEndpoint {
 
     export interface GitHubAuthPersonal {
         /**
-         * The Personal Access Token for Github.
+         * The Personal Access Token for GitHub.
          */
         personalAccessToken: string;
         personalAccessTokenHash: string;

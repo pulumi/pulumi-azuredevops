@@ -24,36 +24,36 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: pulumi.StringRef("contoso-project"),
+// 		exampleProject, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+// 			Name: pulumi.StringRef("Example Project"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		test, err := azuredevops.LookupGroup(ctx, &GetGroupArgs{
-// 			ProjectId: pulumi.StringRef(project.Id),
-// 			Name:      "Test Group",
+// 		exampleGroup, err := azuredevops.LookupGroup(ctx, &GetGroupArgs{
+// 			ProjectId: pulumi.StringRef(exampleProject.Id),
+// 			Name:      "Example Group",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("groupId", test.Id)
-// 		ctx.Export("groupDescriptor", test.Descriptor)
-// 		test_collection_group, err := azuredevops.LookupGroup(ctx, &GetGroupArgs{
+// 		ctx.Export("groupId", exampleGroup.Id)
+// 		ctx.Export("groupDescriptor", exampleGroup.Descriptor)
+// 		_, err = azuredevops.LookupGroup(ctx, &GetGroupArgs{
 // 			Name: "Project Collection Administrators",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("collectionGroupId", test_collection_group.Id)
-// 		ctx.Export("collectionGroupDescriptor", test_collection_group.Descriptor)
+// 		ctx.Export("collectionGroupId", exampleGroup.Id)
+// 		ctx.Export("collectionGroupDescriptor", exampleGroup.Descriptor)
 // 		return nil
 // 	})
 // }
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
 func LookupGroup(ctx *pulumi.Context, args *LookupGroupArgs, opts ...pulumi.InvokeOption) (*LookupGroupResult, error) {
 	var rv LookupGroupResult
 	err := ctx.Invoke("azuredevops:index/getGroup:getGroup", args, &rv, opts...)
@@ -90,7 +90,11 @@ func LookupGroupOutput(ctx *pulumi.Context, args LookupGroupOutputArgs, opts ...
 		ApplyT(func(v interface{}) (LookupGroupResult, error) {
 			args := v.(LookupGroupArgs)
 			r, err := LookupGroup(ctx, &args, opts...)
-			return *r, err
+			var s LookupGroupResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupGroupResultOutput)
 }
 

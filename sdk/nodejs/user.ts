@@ -13,13 +13,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const user = new azuredevops.User("user", {
+ * const example = new azuredevops.User("example", {
  *     principalName: "foo@contoso.com",
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/add?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user-entitlements/add?view=azure-devops-rest-6.0)
+ * - [Programmatic mapping of access levels](https://docs.microsoft.com/en-us/azure/devops/organizations/security/access-levels?view=azure-devops#programmatic-mapping-of-access-levels)
  *
  * ## PAT Permissions Required
  *
@@ -66,7 +67,7 @@ export class User extends pulumi.CustomResource {
      */
     public /*out*/ readonly descriptor!: pulumi.Output<string>;
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      */
     public readonly licensingSource!: pulumi.Output<string | undefined>;
     /**
@@ -130,7 +131,7 @@ export interface UserState {
      */
     descriptor?: pulumi.Input<string>;
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      */
     licensingSource?: pulumi.Input<string>;
     /**
@@ -156,7 +157,7 @@ export interface UserArgs {
      */
     accountLicenseType?: pulumi.Input<string>;
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      */
     licensingSource?: pulumi.Input<string>;
     /**

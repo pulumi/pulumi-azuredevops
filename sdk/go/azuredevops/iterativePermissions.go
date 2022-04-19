@@ -32,7 +32,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
 // 			WorkItemTemplate: pulumi.String("Agile"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			Visibility:       pulumi.String("private"),
@@ -41,13 +41,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_ = azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: example.ID(),
 // 			Name:      pulumi.String("Readers"),
 // 		}, nil)
-// 		_, err = azuredevops.NewIterativePermissions(ctx, "root-permissions", &azuredevops.IterativePermissionsArgs{
-// 			ProjectId: project.ID(),
-// 			Principal: pulumi.Any(azuredevops_group.Project - readers.Id),
+// 		_, err = azuredevops.NewIterativePermissions(ctx, "example-root-permissions", &azuredevops.IterativePermissionsArgs{
+// 			ProjectId: example.ID(),
+// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+// 				return example_readers.Id, nil
+// 			}).(pulumi.StringOutput),
 // 			Permissions: pulumi.StringMap{
 // 				"CREATE_CHILDREN": pulumi.String("Deny"),
 // 				"GENERIC_READ":    pulumi.String("NotSet"),
@@ -57,10 +59,12 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewIterativePermissions(ctx, "iteration-permissions", &azuredevops.IterativePermissionsArgs{
-// 			ProjectId: project.ID(),
-// 			Principal: pulumi.Any(azuredevops_group.Project - readers.Id),
-// 			Path:      pulumi.String("Iteration 1"),
+// 		_, err = azuredevops.NewIterativePermissions(ctx, "example-iteration-permissions", &azuredevops.IterativePermissionsArgs{
+// 			ProjectId: example.ID(),
+// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+// 				return example_readers.Id, nil
+// 			}).(pulumi.StringOutput),
+// 			Path: pulumi.String("Iteration 1"),
 // 			Permissions: pulumi.StringMap{
 // 				"CREATE_CHILDREN": pulumi.String("Allow"),
 // 				"GENERIC_READ":    pulumi.String("NotSet"),
@@ -76,7 +80,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //

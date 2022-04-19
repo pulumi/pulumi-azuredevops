@@ -24,9 +24,9 @@ class ServiceEndpointGitHubEnterpriseArgs:
         """
         The set of arguments for constructing a ServiceEndpointGitHubEnterprise resource.
         :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] url: Github Enterprise Server Url.
+        :param pulumi.Input[str] url: GitHub Enterprise Server Url.
         """
         pulumi.set(__self__, "auth_personal", auth_personal)
         pulumi.set(__self__, "project_id", project_id)
@@ -53,7 +53,7 @@ class ServiceEndpointGitHubEnterpriseArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -77,7 +77,7 @@ class ServiceEndpointGitHubEnterpriseArgs:
     @pulumi.getter
     def url(self) -> pulumi.Input[str]:
         """
-        Github Enterprise Server Url.
+        GitHub Enterprise Server Url.
         """
         return pulumi.get(self, "url")
 
@@ -116,9 +116,9 @@ class _ServiceEndpointGitHubEnterpriseState:
         """
         Input properties used for looking up and filtering ServiceEndpointGitHubEnterprise resources.
         :param pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] url: Github Enterprise Server Url.
+        :param pulumi.Input[str] url: GitHub Enterprise Server Url.
         """
         if auth_personal is not None:
             pulumi.set(__self__, "auth_personal", auth_personal)
@@ -167,7 +167,7 @@ class _ServiceEndpointGitHubEnterpriseState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -191,7 +191,7 @@ class _ServiceEndpointGitHubEnterpriseState:
     @pulumi.getter
     def url(self) -> Optional[pulumi.Input[str]]:
         """
-        Github Enterprise Server Url.
+        GitHub Enterprise Server Url.
         """
         return pulumi.get(self, "url")
 
@@ -221,13 +221,14 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint_ghes1 = azuredevops.ServiceEndpointGitHubEnterprise("serviceendpointGhes1",
-            project_id=project.id,
-            service_endpoint_name="Sample GitHub Enterprise",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
             description="Managed by Terraform",
             auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
@@ -236,22 +237,22 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] url: Github Enterprise Server Url.
+        :param pulumi.Input[str] url: GitHub Enterprise Server Url.
         """
         ...
     @overload
@@ -268,13 +269,14 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint_ghes1 = azuredevops.ServiceEndpointGitHubEnterprise("serviceendpointGhes1",
-            project_id=project.id,
-            service_endpoint_name="Sample GitHub Enterprise",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Enterprise",
             url="https://github.contoso.com",
             description="Managed by Terraform",
             auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
@@ -283,14 +285,14 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -364,9 +366,9 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input[str] url: Github Enterprise Server Url.
+        :param pulumi.Input[str] url: GitHub Enterprise Server Url.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -402,7 +404,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -418,7 +420,7 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
     @pulumi.getter
     def url(self) -> pulumi.Output[str]:
         """
-        Github Enterprise Server Url.
+        GitHub Enterprise Server Url.
         """
         return pulumi.get(self, "url")
 

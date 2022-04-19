@@ -29,16 +29,17 @@ namespace Pulumi.AzureDevOps
     /// 
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var test = new AzureDevOps.ServiceEndpointServiceFabric("test", new AzureDevOps.ServiceEndpointServiceFabricArgs
+    ///         var exampleServiceEndpointServiceFabric = new AzureDevOps.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric", new AzureDevOps.ServiceEndpointServiceFabricArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample Service Fabric",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example Service Fabric",
     ///             Description = "Managed by Terraform",
     ///             ClusterEndpoint = "tcp://test",
     ///             Certificate = new AzureDevOps.Inputs.ServiceEndpointServiceFabricCertificateArgs
@@ -121,14 +122,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric")]
@@ -156,7 +157,7 @@ namespace Pulumi.AzureDevOps
         public Output<Outputs.ServiceEndpointServiceFabricNone?> None { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -240,7 +241,7 @@ namespace Pulumi.AzureDevOps
         public Input<Inputs.ServiceEndpointServiceFabricNoneArgs>? None { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -285,7 +286,7 @@ namespace Pulumi.AzureDevOps
         public Input<Inputs.ServiceEndpointServiceFabricNoneGetArgs>? None { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

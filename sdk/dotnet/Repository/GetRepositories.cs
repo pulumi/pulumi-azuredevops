@@ -28,19 +28,19 @@ namespace Pulumi.AzureDevOps.Repository
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         var example = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
         ///         {
-        ///             Name = "contoso-project",
+        ///             Name = "Example Project",
         ///         }));
-        ///         var allRepos = project.Apply(project =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
+        ///         var example_all_repos = example.Apply(example =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
         ///         {
-        ///             ProjectId = project.Id,
+        ///             ProjectId = example.Id,
         ///             IncludeHidden = true,
         ///         })));
-        ///         var singleRepo = project.Apply(project =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
+        ///         var example_single_repo = example.Apply(example =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
         ///         {
-        ///             ProjectId = project.Id,
-        ///             Name = "contoso-repo",
+        ///             ProjectId = example.Id,
+        ///             Name = "Example Repository",
         ///         })));
         ///     }
         /// 
@@ -50,7 +50,7 @@ namespace Pulumi.AzureDevOps.Repository
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetRepositoriesResult> InvokeAsync(GetRepositoriesArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("azuredevops:Repository/getRepositories:getRepositories", args ?? new GetRepositoriesArgs(), options.WithDefaults());
@@ -71,19 +71,19 @@ namespace Pulumi.AzureDevOps.Repository
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         var example = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
         ///         {
-        ///             Name = "contoso-project",
+        ///             Name = "Example Project",
         ///         }));
-        ///         var allRepos = project.Apply(project =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
+        ///         var example_all_repos = example.Apply(example =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
         ///         {
-        ///             ProjectId = project.Id,
+        ///             ProjectId = example.Id,
         ///             IncludeHidden = true,
         ///         })));
-        ///         var singleRepo = project.Apply(project =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
+        ///         var example_single_repo = example.Apply(example =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
         ///         {
-        ///             ProjectId = project.Id,
-        ///             Name = "contoso-repo",
+        ///             ProjectId = example.Id,
+        ///             Name = "Example Repository",
         ///         })));
         ///     }
         /// 
@@ -93,7 +93,7 @@ namespace Pulumi.AzureDevOps.Repository
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("azuredevops:Repository/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());

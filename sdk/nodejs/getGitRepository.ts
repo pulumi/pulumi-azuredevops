@@ -14,17 +14,17 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = azuredevops.getProject({
- *     name: "contoso-project",
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
  * });
- * const singleRepo = project.then(project => azuredevops.getGitRepository({
- *     projectId: project.id,
- *     name: "contoso-repo",
+ * const example-single-repo = example.then(example => azuredevops.getGitRepository({
+ *     projectId: example.id,
+ *     name: "Example Repository",
  * }));
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
  */
 export function getGitRepository(args: GetGitRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetGitRepositoryResult> {
     if (!opts) {

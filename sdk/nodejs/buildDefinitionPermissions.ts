@@ -15,39 +15,39 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const project-readers = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Readers",
  * });
- * const repository = new azuredevops.Git("repository", {
- *     projectId: project.id,
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const build = new azuredevops.BuildDefinition("build", {
- *     projectId: project.id,
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("exampleBuildDefinition", {
+ *     projectId: exampleProject.id,
  *     path: "\\ExampleFolder",
  *     ciTrigger: {
  *         useYaml: true,
  *     },
  *     repository: {
  *         repoType: "TfsGit",
- *         repoId: repository.id,
- *         branchName: repository.defaultBranch,
+ *         repoId: exampleGit.id,
+ *         branchName: exampleGit.defaultBranch,
  *         ymlPath: "azure-pipelines.yml",
  *     },
  * });
- * const permissions = new azuredevops.BuildDefinitionPermissions("permissions", {
- *     projectId: project.id,
- *     principal: project_readers.apply(project_readers => project_readers.id),
- *     buildDefinitionId: build.id,
+ * const exampleBuildDefinitionPermissions = new azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions", {
+ *     projectId: exampleProject.id,
+ *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     buildDefinitionId: exampleBuildDefinition.id,
  *     permissions: {
  *         ViewBuilds: "Allow",
  *         EditBuildQuality: "Deny",
@@ -58,7 +58,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+ * * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *

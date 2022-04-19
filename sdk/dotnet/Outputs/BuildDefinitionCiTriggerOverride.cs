@@ -13,29 +13,11 @@ namespace Pulumi.AzureDevOps.Outputs
     [OutputType]
     public sealed class BuildDefinitionCiTriggerOverride
     {
-        /// <summary>
-        /// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
-        /// </summary>
         public readonly bool? Batch;
-        /// <summary>
-        /// The branches to include and exclude from the trigger.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionCiTriggerOverrideBranchFilter> BranchFilters;
-        /// <summary>
-        /// The number of max builds per branch. Defaults to `1`.
-        /// </summary>
         public readonly int? MaxConcurrentBuildsPerBranch;
-        /// <summary>
-        /// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionCiTriggerOverridePathFilter> PathFilters;
-        /// <summary>
-        /// How often the external repository is polled. Defaults to `0`.
-        /// </summary>
         public readonly int? PollingInterval;
-        /// <summary>
-        /// This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
-        /// </summary>
         public readonly string? PollingJobId;
 
         [OutputConstructor]

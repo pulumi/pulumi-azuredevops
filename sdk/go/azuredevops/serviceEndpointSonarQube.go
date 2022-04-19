@@ -25,17 +25,18 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointSonarQube(ctx, "serviceendpoint", &azuredevops.ServiceEndpointSonarQubeArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample SonarQube"),
+// 		_, err = azuredevops.NewServiceEndpointSonarQube(ctx, "exampleServiceEndpointSonarQube", &azuredevops.ServiceEndpointSonarQubeArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example SonarQube"),
 // 			Url:                 pulumi.String("https://sonarqube.my.com"),
 // 			Token:               pulumi.String("0000000000000000000000000000000000000000"),
 // 			Description:         pulumi.String("Managed by Terraform"),
@@ -49,15 +50,16 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
-// * [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
+// - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+// - [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointSonarQube struct {
 	pulumi.CustomResourceState
@@ -65,7 +67,7 @@ type ServiceEndpointSonarQube struct {
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
@@ -121,7 +123,7 @@ type serviceEndpointSonarQubeState struct {
 	Authorization map[string]string `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
@@ -137,7 +139,7 @@ type ServiceEndpointSonarQubeState struct {
 	Authorization pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
@@ -157,7 +159,7 @@ type serviceEndpointSonarQubeArgs struct {
 	Authorization map[string]string `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
@@ -172,7 +174,7 @@ type ServiceEndpointSonarQubeArgs struct {
 	Authorization pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput

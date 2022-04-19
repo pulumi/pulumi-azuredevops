@@ -11,9 +11,91 @@ namespace Pulumi.AzureDevOps
 {
     public static class GetTeam
     {
+        /// <summary>
+        /// Use this data source to access information about an existing Team in a Project within Azure DevOps.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+        ///         {
+        ///             WorkItemTemplate = "Agile",
+        ///             VersionControl = "Git",
+        ///             Visibility = "private",
+        ///             Description = "Managed by Terraform",
+        ///         });
+        ///         var exampleTeam = AzureDevOps.GetTeam.Invoke(new AzureDevOps.GetTeamInvokeArgs
+        ///         {
+        ///             ProjectId = exampleProject.Id,
+        ///             Name = "Example Project Team",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **vso.project**:	Grants the ability to read projects and teams.
+        /// </summary>
         public static Task<GetTeamResult> InvokeAsync(GetTeamArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTeamResult>("azuredevops:index/getTeam:getTeam", args ?? new GetTeamArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to access information about an existing Team in a Project within Azure DevOps.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+        ///         {
+        ///             WorkItemTemplate = "Agile",
+        ///             VersionControl = "Git",
+        ///             Visibility = "private",
+        ///             Description = "Managed by Terraform",
+        ///         });
+        ///         var exampleTeam = AzureDevOps.GetTeam.Invoke(new AzureDevOps.GetTeamInvokeArgs
+        ///         {
+        ///             ProjectId = exampleProject.Id,
+        ///             Name = "Example Project Team",
+        ///         });
+        ///     }
+        /// 
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **vso.project**:	Grants the ability to read projects and teams.
+        /// </summary>
         public static Output<GetTeamResult> Invoke(GetTeamInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTeamResult>("azuredevops:index/getTeam:getTeam", args ?? new GetTeamInvokeArgs(), options.WithDefaults());
     }
@@ -21,9 +103,15 @@ namespace Pulumi.AzureDevOps
 
     public sealed class GetTeamArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Team.
+        /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Project ID.
+        /// </summary>
         [Input("projectId", required: true)]
         public string ProjectId { get; set; } = null!;
 
@@ -34,9 +122,15 @@ namespace Pulumi.AzureDevOps
 
     public sealed class GetTeamInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The name of the Team.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The Project ID.
+        /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
@@ -49,12 +143,21 @@ namespace Pulumi.AzureDevOps
     [OutputType]
     public sealed class GetTeamResult
     {
+        /// <summary>
+        /// List of subject descriptors for `administrators` of the team.
+        /// </summary>
         public readonly ImmutableArray<string> Administrators;
+        /// <summary>
+        /// Team description.
+        /// </summary>
         public readonly string Description;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// List of subject descriptors for `members` of the team.
+        /// </summary>
         public readonly ImmutableArray<string> Members;
         public readonly string Name;
         public readonly string ProjectId;

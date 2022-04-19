@@ -43,11 +43,17 @@ class GetTeamResult:
     @property
     @pulumi.getter
     def administrators(self) -> Sequence[str]:
+        """
+        List of subject descriptors for `administrators` of the team.
+        """
         return pulumi.get(self, "administrators")
 
     @property
     @pulumi.getter
     def description(self) -> str:
+        """
+        Team description.
+        """
         return pulumi.get(self, "description")
 
     @property
@@ -61,6 +67,9 @@ class GetTeamResult:
     @property
     @pulumi.getter
     def members(self) -> Sequence[str]:
+        """
+        List of subject descriptors for `members` of the team.
+        """
         return pulumi.get(self, "members")
 
     @property
@@ -92,7 +101,33 @@ def get_team(name: Optional[str] = None,
              project_id: Optional[str] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamResult:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Team in a Project within Azure DevOps.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example_project = azuredevops.Project("exampleProject",
+        work_item_template="Agile",
+        version_control="Git",
+        visibility="private",
+        description="Managed by Terraform")
+    example_team = azuredevops.get_team_output(project_id=example_project.id,
+        name="Example Project Team")
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+
+    ## PAT Permissions Required
+
+    - **vso.project**:	Grants the ability to read projects and teams.
+
+
+    :param str name: The name of the Team.
+    :param str project_id: The Project ID.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -117,6 +152,32 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
                     project_id: Optional[pulumi.Input[str]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
     """
-    Use this data source to access information about an existing resource.
+    Use this data source to access information about an existing Team in a Project within Azure DevOps.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example_project = azuredevops.Project("exampleProject",
+        work_item_template="Agile",
+        version_control="Git",
+        visibility="private",
+        description="Managed by Terraform")
+    example_team = azuredevops.get_team_output(project_id=example_project.id,
+        name="Example Project Team")
+    ```
+    ## Relevant Links
+
+    - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+
+    ## PAT Permissions Required
+
+    - **vso.project**:	Grants the ability to read projects and teams.
+
+
+    :param str name: The name of the Team.
+    :param str project_id: The Project ID.
     """
     ...

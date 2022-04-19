@@ -25,19 +25,20 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointBitBucket(ctx, "serviceendpoint", &azuredevops.ServiceEndpointBitBucketArgs{
-// 			ProjectId:           project.ID(),
+// 		_, err = azuredevops.NewServiceEndpointBitBucket(ctx, "exampleServiceEndpointBitBucket", &azuredevops.ServiceEndpointBitBucketArgs{
+// 			ProjectId:           exampleProject.ID(),
 // 			Username:            pulumi.String("username"),
 // 			Password:            pulumi.String("password"),
-// 			ServiceEndpointName: pulumi.String("Sample Bitbucket"),
+// 			ServiceEndpointName: pulumi.String("Example Bitbucket"),
 // 			Description:         pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
@@ -49,14 +50,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointBitBucket struct {
 	pulumi.CustomResourceState
@@ -67,7 +68,7 @@ type ServiceEndpointBitBucket struct {
 	Password pulumi.StringOutput `pulumi:"password"`
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash pulumi.StringOutput `pulumi:"passwordHash"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
@@ -128,7 +129,7 @@ type serviceEndpointBitBucketState struct {
 	Password *string `pulumi:"password"`
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash *string `pulumi:"passwordHash"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
@@ -143,7 +144,7 @@ type ServiceEndpointBitBucketState struct {
 	Password pulumi.StringPtrInput
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
@@ -160,7 +161,7 @@ type serviceEndpointBitBucketArgs struct {
 	Description   *string           `pulumi:"description"`
 	// Bitbucket account password.
 	Password string `pulumi:"password"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
@@ -174,7 +175,7 @@ type ServiceEndpointBitBucketArgs struct {
 	Description   pulumi.StringPtrInput
 	// Bitbucket account password.
 	Password pulumi.StringInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput

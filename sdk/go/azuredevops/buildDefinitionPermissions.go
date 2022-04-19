@@ -27,7 +27,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			WorkItemTemplate: pulumi.String("Agile"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			Visibility:       pulumi.String("private"),
@@ -36,12 +36,12 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Name:      pulumi.String("Readers"),
 // 		}, nil)
-// 		repository, err := azuredevops.NewGit(ctx, "repository", &azuredevops.GitArgs{
-// 			ProjectId: project.ID(),
+// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
@@ -49,28 +49,28 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		build, err := azuredevops.NewBuildDefinition(ctx, "build", &azuredevops.BuildDefinitionArgs{
-// 			ProjectId: project.ID(),
+// 		exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Path:      pulumi.String("\\ExampleFolder"),
 // 			CiTrigger: &BuildDefinitionCiTriggerArgs{
 // 				UseYaml: pulumi.Bool(true),
 // 			},
 // 			Repository: &BuildDefinitionRepositoryArgs{
 // 				RepoType:   pulumi.String("TfsGit"),
-// 				RepoId:     repository.ID(),
-// 				BranchName: repository.DefaultBranch,
+// 				RepoId:     exampleGit.ID(),
+// 				BranchName: exampleGit.DefaultBranch,
 // 				YmlPath:    pulumi.String("azure-pipelines.yml"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "permissions", &azuredevops.BuildDefinitionPermissionsArgs{
-// 			ProjectId: project.ID(),
-// 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
-// 				return project_readers.Id, nil
+// 		_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "exampleBuildDefinitionPermissions", &azuredevops.BuildDefinitionPermissionsArgs{
+// 			ProjectId: exampleProject.ID(),
+// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+// 				return example_readers.Id, nil
 // 			}).(pulumi.StringOutput),
-// 			BuildDefinitionId: build.ID(),
+// 			BuildDefinitionId: exampleBuildDefinition.ID(),
 // 			Permissions: pulumi.StringMap{
 // 				"ViewBuilds":       pulumi.String("Allow"),
 // 				"EditBuildQuality": pulumi.String("Deny"),
@@ -87,7 +87,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //

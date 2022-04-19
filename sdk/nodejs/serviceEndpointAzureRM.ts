@@ -21,14 +21,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const endpointazure = new azuredevops.ServiceEndpointAzureRM("endpointazure", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample AzureRM",
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
  *     description: "Managed by Terraform",
  *     credentials: {
  *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
@@ -36,7 +37,7 @@ import * as utilities from "./utilities";
  *     },
  *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
- *     azurermSubscriptionName: "Sample Subscription",
+ *     azurermSubscriptionName: "Example Subscription Name",
  * });
  * ```
  * ### Automatic AzureRM Service Endpoint
@@ -45,30 +46,29 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
  * });
- * const endpointazure = new azuredevops.ServiceEndpointAzureRM("endpointazure", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample AzureRM",
- *     description: "Managed by Terraform",
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
  *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
- *     azurermSubscriptionName: "Microsoft Azure DEMO",
+ *     azurermSubscriptionName: "Example Subscription Name",
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointAzureRM extends pulumi.CustomResource {
@@ -121,7 +121,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -215,7 +215,7 @@ export interface ServiceEndpointAzureRMState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -254,7 +254,7 @@ export interface ServiceEndpointAzureRMArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**
