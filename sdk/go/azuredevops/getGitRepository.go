@@ -90,7 +90,11 @@ func GetGitRepositoryOutput(ctx *pulumi.Context, args GetGitRepositoryOutputArgs
 		ApplyT(func(v interface{}) (GetGitRepositoryResult, error) {
 			args := v.(GetGitRepositoryArgs)
 			r, err := GetGitRepository(ctx, &args, opts...)
-			return *r, err
+			var s GetGitRepositoryResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetGitRepositoryResultOutput)
 }
 

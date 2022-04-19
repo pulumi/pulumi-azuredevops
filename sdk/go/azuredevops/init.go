@@ -40,10 +40,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BuildDefinition{}
 	case "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions":
 		r = &BuildDefinitionPermissions{}
+	case "azuredevops:index/environment:Environment":
+		r = &Environment{}
 	case "azuredevops:index/git:Git":
 		r = &Git{}
 	case "azuredevops:index/gitPermissions:GitPermissions":
 		r = &GitPermissions{}
+	case "azuredevops:index/gitRepositoryFile:GitRepositoryFile":
+		r = &GitRepositoryFile{}
 	case "azuredevops:index/group:Group":
 		r = &Group{}
 	case "azuredevops:index/groupMembership:GroupMembership":
@@ -110,6 +114,14 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointSonarQube{}
 	case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
 		r = &ServiceEndpointSsh{}
+	case "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd":
+		r = &ServiceendpointArgocd{}
+	case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
+		r = &ServiceendpointPermissions{}
+	case "azuredevops:index/servicehookPermissions:ServicehookPermissions":
+		r = &ServicehookPermissions{}
+	case "azuredevops:index/taggingPermissions:TaggingPermissions":
+		r = &TaggingPermissions{}
 	case "azuredevops:index/team:Team":
 		r = &Team{}
 	case "azuredevops:index/teamAdministrators:TeamAdministrators":
@@ -149,10 +161,7 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 }
 
 func init() {
-	version, err := PkgVersion()
-	if err != nil {
-		fmt.Printf("failed to determine package version. defaulting to v1: %v\n", err)
-	}
+	version, _ := PkgVersion()
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/areaPermissions",
@@ -205,12 +214,22 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/environment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/git",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/gitPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/gitRepositoryFile",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -376,6 +395,26 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceEndpointSsh",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointArgocd",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/servicehookPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/taggingPermissions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

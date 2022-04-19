@@ -50,6 +50,8 @@ __all__ = [
     'ServiceEndpointServiceFabricAzureActiveDirectoryArgs',
     'ServiceEndpointServiceFabricCertificateArgs',
     'ServiceEndpointServiceFabricNoneArgs',
+    'ServiceendpointArgocdAuthenticationBasicArgs',
+    'ServiceendpointArgocdAuthenticationTokenArgs',
     'VariableGroupKeyVaultArgs',
     'VariableGroupVariableArgs',
 ]
@@ -2691,6 +2693,101 @@ class ServiceEndpointServiceFabricNoneArgs:
     @unsecured.setter
     def unsecured(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "unsecured", value)
+
+
+@pulumi.input_type
+class ServiceendpointArgocdAuthenticationBasicArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str],
+                 password_hash: Optional[pulumi.Input[str]] = None,
+                 username_hash: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] password: ArgoCD Password.
+        :param pulumi.Input[str] username: ArgoCD Username.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+        if password_hash is not None:
+            pulumi.set(__self__, "password_hash", password_hash)
+        if username_hash is not None:
+            pulumi.set(__self__, "username_hash", username_hash)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        ArgoCD Password.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        ArgoCD Username.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "password_hash")
+
+    @password_hash.setter
+    def password_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "password_hash", value)
+
+    @property
+    @pulumi.getter(name="usernameHash")
+    def username_hash(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "username_hash")
+
+    @username_hash.setter
+    def username_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username_hash", value)
+
+
+@pulumi.input_type
+class ServiceendpointArgocdAuthenticationTokenArgs:
+    def __init__(__self__, *,
+                 token: pulumi.Input[str],
+                 token_hash: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] token: Authentication Token generated through ArgoCD.
+        """
+        pulumi.set(__self__, "token", token)
+        if token_hash is not None:
+            pulumi.set(__self__, "token_hash", token_hash)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[str]:
+        """
+        Authentication Token generated through ArgoCD.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token", value)
+
+    @property
+    @pulumi.getter(name="tokenHash")
+    def token_hash(self) -> Optional[pulumi.Input[str]]:
+        return pulumi.get(self, "token_hash")
+
+    @token_hash.setter
+    def token_hash(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "token_hash", value)
 
 
 @pulumi.input_type

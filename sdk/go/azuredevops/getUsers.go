@@ -104,7 +104,11 @@ func GetUsersOutput(ctx *pulumi.Context, args GetUsersOutputArgs, opts ...pulumi
 		ApplyT(func(v interface{}) (GetUsersResult, error) {
 			args := v.(GetUsersArgs)
 			r, err := GetUsers(ctx, &args, opts...)
-			return *r, err
+			var s GetUsersResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetUsersResultOutput)
 }
 

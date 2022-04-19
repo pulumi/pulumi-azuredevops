@@ -6642,6 +6642,344 @@ func (o ServiceEndpointServiceFabricNonePtrOutput) Unsecured() pulumi.BoolPtrOut
 	}).(pulumi.BoolPtrOutput)
 }
 
+type ServiceendpointArgocdAuthenticationBasic struct {
+	// ArgoCD Password.
+	Password     string  `pulumi:"password"`
+	PasswordHash *string `pulumi:"passwordHash"`
+	// ArgoCD Username.
+	Username     string  `pulumi:"username"`
+	UsernameHash *string `pulumi:"usernameHash"`
+}
+
+// ServiceendpointArgocdAuthenticationBasicInput is an input type that accepts ServiceendpointArgocdAuthenticationBasicArgs and ServiceendpointArgocdAuthenticationBasicOutput values.
+// You can construct a concrete instance of `ServiceendpointArgocdAuthenticationBasicInput` via:
+//
+//          ServiceendpointArgocdAuthenticationBasicArgs{...}
+type ServiceendpointArgocdAuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToServiceendpointArgocdAuthenticationBasicOutput() ServiceendpointArgocdAuthenticationBasicOutput
+	ToServiceendpointArgocdAuthenticationBasicOutputWithContext(context.Context) ServiceendpointArgocdAuthenticationBasicOutput
+}
+
+type ServiceendpointArgocdAuthenticationBasicArgs struct {
+	// ArgoCD Password.
+	Password     pulumi.StringInput    `pulumi:"password"`
+	PasswordHash pulumi.StringPtrInput `pulumi:"passwordHash"`
+	// ArgoCD Username.
+	Username     pulumi.StringInput    `pulumi:"username"`
+	UsernameHash pulumi.StringPtrInput `pulumi:"usernameHash"`
+}
+
+func (ServiceendpointArgocdAuthenticationBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointArgocdAuthenticationBasic)(nil)).Elem()
+}
+
+func (i ServiceendpointArgocdAuthenticationBasicArgs) ToServiceendpointArgocdAuthenticationBasicOutput() ServiceendpointArgocdAuthenticationBasicOutput {
+	return i.ToServiceendpointArgocdAuthenticationBasicOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointArgocdAuthenticationBasicArgs) ToServiceendpointArgocdAuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointArgocdAuthenticationBasicOutput)
+}
+
+func (i ServiceendpointArgocdAuthenticationBasicArgs) ToServiceendpointArgocdAuthenticationBasicPtrOutput() ServiceendpointArgocdAuthenticationBasicPtrOutput {
+	return i.ToServiceendpointArgocdAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointArgocdAuthenticationBasicArgs) ToServiceendpointArgocdAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointArgocdAuthenticationBasicOutput).ToServiceendpointArgocdAuthenticationBasicPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointArgocdAuthenticationBasicPtrInput is an input type that accepts ServiceendpointArgocdAuthenticationBasicArgs, ServiceendpointArgocdAuthenticationBasicPtr and ServiceendpointArgocdAuthenticationBasicPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointArgocdAuthenticationBasicPtrInput` via:
+//
+//          ServiceendpointArgocdAuthenticationBasicArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceendpointArgocdAuthenticationBasicPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointArgocdAuthenticationBasicPtrOutput() ServiceendpointArgocdAuthenticationBasicPtrOutput
+	ToServiceendpointArgocdAuthenticationBasicPtrOutputWithContext(context.Context) ServiceendpointArgocdAuthenticationBasicPtrOutput
+}
+
+type serviceendpointArgocdAuthenticationBasicPtrType ServiceendpointArgocdAuthenticationBasicArgs
+
+func ServiceendpointArgocdAuthenticationBasicPtr(v *ServiceendpointArgocdAuthenticationBasicArgs) ServiceendpointArgocdAuthenticationBasicPtrInput {
+	return (*serviceendpointArgocdAuthenticationBasicPtrType)(v)
+}
+
+func (*serviceendpointArgocdAuthenticationBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointArgocdAuthenticationBasic)(nil)).Elem()
+}
+
+func (i *serviceendpointArgocdAuthenticationBasicPtrType) ToServiceendpointArgocdAuthenticationBasicPtrOutput() ServiceendpointArgocdAuthenticationBasicPtrOutput {
+	return i.ToServiceendpointArgocdAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointArgocdAuthenticationBasicPtrType) ToServiceendpointArgocdAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointArgocdAuthenticationBasicPtrOutput)
+}
+
+type ServiceendpointArgocdAuthenticationBasicOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointArgocdAuthenticationBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointArgocdAuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicOutput) ToServiceendpointArgocdAuthenticationBasicOutput() ServiceendpointArgocdAuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicOutput) ToServiceendpointArgocdAuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicOutput) ToServiceendpointArgocdAuthenticationBasicPtrOutput() ServiceendpointArgocdAuthenticationBasicPtrOutput {
+	return o.ToServiceendpointArgocdAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicOutput) ToServiceendpointArgocdAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointArgocdAuthenticationBasic) *ServiceendpointArgocdAuthenticationBasic {
+		return &v
+	}).(ServiceendpointArgocdAuthenticationBasicPtrOutput)
+}
+
+// ArgoCD Password.
+func (o ServiceendpointArgocdAuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicOutput) PasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) *string { return v.PasswordHash }).(pulumi.StringPtrOutput)
+}
+
+// ArgoCD Username.
+func (o ServiceendpointArgocdAuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicOutput) UsernameHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) *string { return v.UsernameHash }).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointArgocdAuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointArgocdAuthenticationBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointArgocdAuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) ToServiceendpointArgocdAuthenticationBasicPtrOutput() ServiceendpointArgocdAuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) ToServiceendpointArgocdAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Elem() ServiceendpointArgocdAuthenticationBasicOutput {
+	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) ServiceendpointArgocdAuthenticationBasic {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointArgocdAuthenticationBasic
+		return ret
+	}).(ServiceendpointArgocdAuthenticationBasicOutput)
+}
+
+// ArgoCD Password.
+func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) PasswordHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PasswordHash
+	}).(pulumi.StringPtrOutput)
+}
+
+// ArgoCD Username.
+func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) UsernameHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UsernameHash
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointArgocdAuthenticationToken struct {
+	// Authentication Token generated through ArgoCD.
+	Token     string  `pulumi:"token"`
+	TokenHash *string `pulumi:"tokenHash"`
+}
+
+// ServiceendpointArgocdAuthenticationTokenInput is an input type that accepts ServiceendpointArgocdAuthenticationTokenArgs and ServiceendpointArgocdAuthenticationTokenOutput values.
+// You can construct a concrete instance of `ServiceendpointArgocdAuthenticationTokenInput` via:
+//
+//          ServiceendpointArgocdAuthenticationTokenArgs{...}
+type ServiceendpointArgocdAuthenticationTokenInput interface {
+	pulumi.Input
+
+	ToServiceendpointArgocdAuthenticationTokenOutput() ServiceendpointArgocdAuthenticationTokenOutput
+	ToServiceendpointArgocdAuthenticationTokenOutputWithContext(context.Context) ServiceendpointArgocdAuthenticationTokenOutput
+}
+
+type ServiceendpointArgocdAuthenticationTokenArgs struct {
+	// Authentication Token generated through ArgoCD.
+	Token     pulumi.StringInput    `pulumi:"token"`
+	TokenHash pulumi.StringPtrInput `pulumi:"tokenHash"`
+}
+
+func (ServiceendpointArgocdAuthenticationTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointArgocdAuthenticationToken)(nil)).Elem()
+}
+
+func (i ServiceendpointArgocdAuthenticationTokenArgs) ToServiceendpointArgocdAuthenticationTokenOutput() ServiceendpointArgocdAuthenticationTokenOutput {
+	return i.ToServiceendpointArgocdAuthenticationTokenOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointArgocdAuthenticationTokenArgs) ToServiceendpointArgocdAuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointArgocdAuthenticationTokenOutput)
+}
+
+func (i ServiceendpointArgocdAuthenticationTokenArgs) ToServiceendpointArgocdAuthenticationTokenPtrOutput() ServiceendpointArgocdAuthenticationTokenPtrOutput {
+	return i.ToServiceendpointArgocdAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointArgocdAuthenticationTokenArgs) ToServiceendpointArgocdAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointArgocdAuthenticationTokenOutput).ToServiceendpointArgocdAuthenticationTokenPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointArgocdAuthenticationTokenPtrInput is an input type that accepts ServiceendpointArgocdAuthenticationTokenArgs, ServiceendpointArgocdAuthenticationTokenPtr and ServiceendpointArgocdAuthenticationTokenPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointArgocdAuthenticationTokenPtrInput` via:
+//
+//          ServiceendpointArgocdAuthenticationTokenArgs{...}
+//
+//  or:
+//
+//          nil
+type ServiceendpointArgocdAuthenticationTokenPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointArgocdAuthenticationTokenPtrOutput() ServiceendpointArgocdAuthenticationTokenPtrOutput
+	ToServiceendpointArgocdAuthenticationTokenPtrOutputWithContext(context.Context) ServiceendpointArgocdAuthenticationTokenPtrOutput
+}
+
+type serviceendpointArgocdAuthenticationTokenPtrType ServiceendpointArgocdAuthenticationTokenArgs
+
+func ServiceendpointArgocdAuthenticationTokenPtr(v *ServiceendpointArgocdAuthenticationTokenArgs) ServiceendpointArgocdAuthenticationTokenPtrInput {
+	return (*serviceendpointArgocdAuthenticationTokenPtrType)(v)
+}
+
+func (*serviceendpointArgocdAuthenticationTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointArgocdAuthenticationToken)(nil)).Elem()
+}
+
+func (i *serviceendpointArgocdAuthenticationTokenPtrType) ToServiceendpointArgocdAuthenticationTokenPtrOutput() ServiceendpointArgocdAuthenticationTokenPtrOutput {
+	return i.ToServiceendpointArgocdAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointArgocdAuthenticationTokenPtrType) ToServiceendpointArgocdAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointArgocdAuthenticationTokenPtrOutput)
+}
+
+type ServiceendpointArgocdAuthenticationTokenOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointArgocdAuthenticationTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointArgocdAuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointArgocdAuthenticationTokenOutput) ToServiceendpointArgocdAuthenticationTokenOutput() ServiceendpointArgocdAuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointArgocdAuthenticationTokenOutput) ToServiceendpointArgocdAuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointArgocdAuthenticationTokenOutput) ToServiceendpointArgocdAuthenticationTokenPtrOutput() ServiceendpointArgocdAuthenticationTokenPtrOutput {
+	return o.ToServiceendpointArgocdAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointArgocdAuthenticationTokenOutput) ToServiceendpointArgocdAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointArgocdAuthenticationToken) *ServiceendpointArgocdAuthenticationToken {
+		return &v
+	}).(ServiceendpointArgocdAuthenticationTokenPtrOutput)
+}
+
+// Authentication Token generated through ArgoCD.
+func (o ServiceendpointArgocdAuthenticationTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+func (o ServiceendpointArgocdAuthenticationTokenOutput) TokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationToken) *string { return v.TokenHash }).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointArgocdAuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointArgocdAuthenticationTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointArgocdAuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) ToServiceendpointArgocdAuthenticationTokenPtrOutput() ServiceendpointArgocdAuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) ToServiceendpointArgocdAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointArgocdAuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) Elem() ServiceendpointArgocdAuthenticationTokenOutput {
+	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationToken) ServiceendpointArgocdAuthenticationToken {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointArgocdAuthenticationToken
+		return ret
+	}).(ServiceendpointArgocdAuthenticationTokenOutput)
+}
+
+// Authentication Token generated through ArgoCD.
+func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) TokenHash() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TokenHash
+	}).(pulumi.StringPtrOutput)
+}
+
 type VariableGroupKeyVault struct {
 	// The name of the Variable Group.
 	Name              string `pulumi:"name"`
@@ -7067,6 +7405,175 @@ func (o GetAreaChildrenArrayOutput) Index(i pulumi.IntInput) GetAreaChildrenOutp
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAreaChildren {
 		return vs[0].([]GetAreaChildren)[vs[1].(int)]
 	}).(GetAreaChildrenOutput)
+}
+
+type GetGroupsGroup struct {
+	// A short phrase to help human readers disambiguate groups with similar names
+	Description *string `pulumi:"description"`
+	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+	Descriptor string `pulumi:"descriptor"`
+	// This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+	DisplayName *string `pulumi:"displayName"`
+	// This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
+	Domain string `pulumi:"domain"`
+	// The email address of record for a given graph member. This may be different than the principal name.
+	MailAddress *string `pulumi:"mailAddress"`
+	// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+	Origin string `pulumi:"origin"`
+	// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+	OriginId *string `pulumi:"originId"`
+	// This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+	PrincipalName string `pulumi:"principalName"`
+	// This url is the full route to the source resource of this graph subject.
+	Url string `pulumi:"url"`
+}
+
+// GetGroupsGroupInput is an input type that accepts GetGroupsGroupArgs and GetGroupsGroupOutput values.
+// You can construct a concrete instance of `GetGroupsGroupInput` via:
+//
+//          GetGroupsGroupArgs{...}
+type GetGroupsGroupInput interface {
+	pulumi.Input
+
+	ToGetGroupsGroupOutput() GetGroupsGroupOutput
+	ToGetGroupsGroupOutputWithContext(context.Context) GetGroupsGroupOutput
+}
+
+type GetGroupsGroupArgs struct {
+	// A short phrase to help human readers disambiguate groups with similar names
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+	Descriptor pulumi.StringInput `pulumi:"descriptor"`
+	// This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+	DisplayName pulumi.StringPtrInput `pulumi:"displayName"`
+	// This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
+	Domain pulumi.StringInput `pulumi:"domain"`
+	// The email address of record for a given graph member. This may be different than the principal name.
+	MailAddress pulumi.StringPtrInput `pulumi:"mailAddress"`
+	// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+	Origin pulumi.StringInput `pulumi:"origin"`
+	// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+	OriginId pulumi.StringPtrInput `pulumi:"originId"`
+	// This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+	PrincipalName pulumi.StringInput `pulumi:"principalName"`
+	// This url is the full route to the source resource of this graph subject.
+	Url pulumi.StringInput `pulumi:"url"`
+}
+
+func (GetGroupsGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupsGroup)(nil)).Elem()
+}
+
+func (i GetGroupsGroupArgs) ToGetGroupsGroupOutput() GetGroupsGroupOutput {
+	return i.ToGetGroupsGroupOutputWithContext(context.Background())
+}
+
+func (i GetGroupsGroupArgs) ToGetGroupsGroupOutputWithContext(ctx context.Context) GetGroupsGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupsGroupOutput)
+}
+
+// GetGroupsGroupArrayInput is an input type that accepts GetGroupsGroupArray and GetGroupsGroupArrayOutput values.
+// You can construct a concrete instance of `GetGroupsGroupArrayInput` via:
+//
+//          GetGroupsGroupArray{ GetGroupsGroupArgs{...} }
+type GetGroupsGroupArrayInput interface {
+	pulumi.Input
+
+	ToGetGroupsGroupArrayOutput() GetGroupsGroupArrayOutput
+	ToGetGroupsGroupArrayOutputWithContext(context.Context) GetGroupsGroupArrayOutput
+}
+
+type GetGroupsGroupArray []GetGroupsGroupInput
+
+func (GetGroupsGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupsGroup)(nil)).Elem()
+}
+
+func (i GetGroupsGroupArray) ToGetGroupsGroupArrayOutput() GetGroupsGroupArrayOutput {
+	return i.ToGetGroupsGroupArrayOutputWithContext(context.Background())
+}
+
+func (i GetGroupsGroupArray) ToGetGroupsGroupArrayOutputWithContext(ctx context.Context) GetGroupsGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetGroupsGroupArrayOutput)
+}
+
+type GetGroupsGroupOutput struct{ *pulumi.OutputState }
+
+func (GetGroupsGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetGroupsGroup)(nil)).Elem()
+}
+
+func (o GetGroupsGroupOutput) ToGetGroupsGroupOutput() GetGroupsGroupOutput {
+	return o
+}
+
+func (o GetGroupsGroupOutput) ToGetGroupsGroupOutputWithContext(ctx context.Context) GetGroupsGroupOutput {
+	return o
+}
+
+// A short phrase to help human readers disambiguate groups with similar names
+func (o GetGroupsGroupOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupsGroup) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+func (o GetGroupsGroupOutput) Descriptor() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.Descriptor }).(pulumi.StringOutput)
+}
+
+// This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+func (o GetGroupsGroupOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupsGroup) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
+func (o GetGroupsGroupOutput) Domain() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.Domain }).(pulumi.StringOutput)
+}
+
+// The email address of record for a given graph member. This may be different than the principal name.
+func (o GetGroupsGroupOutput) MailAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupsGroup) *string { return v.MailAddress }).(pulumi.StringPtrOutput)
+}
+
+// The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+func (o GetGroupsGroupOutput) Origin() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.Origin }).(pulumi.StringOutput)
+}
+
+// The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+func (o GetGroupsGroupOutput) OriginId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetGroupsGroup) *string { return v.OriginId }).(pulumi.StringPtrOutput)
+}
+
+// This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+func (o GetGroupsGroupOutput) PrincipalName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.PrincipalName }).(pulumi.StringOutput)
+}
+
+// This url is the full route to the source resource of this graph subject.
+func (o GetGroupsGroupOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetGroupsGroup) string { return v.Url }).(pulumi.StringOutput)
+}
+
+type GetGroupsGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (GetGroupsGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetGroupsGroup)(nil)).Elem()
+}
+
+func (o GetGroupsGroupArrayOutput) ToGetGroupsGroupArrayOutput() GetGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetGroupsGroupArrayOutput) ToGetGroupsGroupArrayOutputWithContext(ctx context.Context) GetGroupsGroupArrayOutput {
+	return o
+}
+
+func (o GetGroupsGroupArrayOutput) Index(i pulumi.IntInput) GetGroupsGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetGroupsGroup {
+		return vs[0].([]GetGroupsGroup)[vs[1].(int)]
+	}).(GetGroupsGroupOutput)
 }
 
 type GetIterationChildren struct {
@@ -7891,6 +8398,254 @@ func (o GetUsersUserArrayOutput) Index(i pulumi.IntInput) GetUsersUserOutput {
 	}).(GetUsersUserOutput)
 }
 
+type GetVariableGroupKeyVault struct {
+	// The name of the Variable Group to retrieve.
+	Name string `pulumi:"name"`
+	// The id of the Azure subscription endpoint to access the key vault.
+	ServiceEndpointId string `pulumi:"serviceEndpointId"`
+}
+
+// GetVariableGroupKeyVaultInput is an input type that accepts GetVariableGroupKeyVaultArgs and GetVariableGroupKeyVaultOutput values.
+// You can construct a concrete instance of `GetVariableGroupKeyVaultInput` via:
+//
+//          GetVariableGroupKeyVaultArgs{...}
+type GetVariableGroupKeyVaultInput interface {
+	pulumi.Input
+
+	ToGetVariableGroupKeyVaultOutput() GetVariableGroupKeyVaultOutput
+	ToGetVariableGroupKeyVaultOutputWithContext(context.Context) GetVariableGroupKeyVaultOutput
+}
+
+type GetVariableGroupKeyVaultArgs struct {
+	// The name of the Variable Group to retrieve.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The id of the Azure subscription endpoint to access the key vault.
+	ServiceEndpointId pulumi.StringInput `pulumi:"serviceEndpointId"`
+}
+
+func (GetVariableGroupKeyVaultArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVariableGroupKeyVault)(nil)).Elem()
+}
+
+func (i GetVariableGroupKeyVaultArgs) ToGetVariableGroupKeyVaultOutput() GetVariableGroupKeyVaultOutput {
+	return i.ToGetVariableGroupKeyVaultOutputWithContext(context.Background())
+}
+
+func (i GetVariableGroupKeyVaultArgs) ToGetVariableGroupKeyVaultOutputWithContext(ctx context.Context) GetVariableGroupKeyVaultOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVariableGroupKeyVaultOutput)
+}
+
+// GetVariableGroupKeyVaultArrayInput is an input type that accepts GetVariableGroupKeyVaultArray and GetVariableGroupKeyVaultArrayOutput values.
+// You can construct a concrete instance of `GetVariableGroupKeyVaultArrayInput` via:
+//
+//          GetVariableGroupKeyVaultArray{ GetVariableGroupKeyVaultArgs{...} }
+type GetVariableGroupKeyVaultArrayInput interface {
+	pulumi.Input
+
+	ToGetVariableGroupKeyVaultArrayOutput() GetVariableGroupKeyVaultArrayOutput
+	ToGetVariableGroupKeyVaultArrayOutputWithContext(context.Context) GetVariableGroupKeyVaultArrayOutput
+}
+
+type GetVariableGroupKeyVaultArray []GetVariableGroupKeyVaultInput
+
+func (GetVariableGroupKeyVaultArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVariableGroupKeyVault)(nil)).Elem()
+}
+
+func (i GetVariableGroupKeyVaultArray) ToGetVariableGroupKeyVaultArrayOutput() GetVariableGroupKeyVaultArrayOutput {
+	return i.ToGetVariableGroupKeyVaultArrayOutputWithContext(context.Background())
+}
+
+func (i GetVariableGroupKeyVaultArray) ToGetVariableGroupKeyVaultArrayOutputWithContext(ctx context.Context) GetVariableGroupKeyVaultArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVariableGroupKeyVaultArrayOutput)
+}
+
+type GetVariableGroupKeyVaultOutput struct{ *pulumi.OutputState }
+
+func (GetVariableGroupKeyVaultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVariableGroupKeyVault)(nil)).Elem()
+}
+
+func (o GetVariableGroupKeyVaultOutput) ToGetVariableGroupKeyVaultOutput() GetVariableGroupKeyVaultOutput {
+	return o
+}
+
+func (o GetVariableGroupKeyVaultOutput) ToGetVariableGroupKeyVaultOutputWithContext(ctx context.Context) GetVariableGroupKeyVaultOutput {
+	return o
+}
+
+// The name of the Variable Group to retrieve.
+func (o GetVariableGroupKeyVaultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupKeyVault) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The id of the Azure subscription endpoint to access the key vault.
+func (o GetVariableGroupKeyVaultOutput) ServiceEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupKeyVault) string { return v.ServiceEndpointId }).(pulumi.StringOutput)
+}
+
+type GetVariableGroupKeyVaultArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVariableGroupKeyVaultArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVariableGroupKeyVault)(nil)).Elem()
+}
+
+func (o GetVariableGroupKeyVaultArrayOutput) ToGetVariableGroupKeyVaultArrayOutput() GetVariableGroupKeyVaultArrayOutput {
+	return o
+}
+
+func (o GetVariableGroupKeyVaultArrayOutput) ToGetVariableGroupKeyVaultArrayOutputWithContext(ctx context.Context) GetVariableGroupKeyVaultArrayOutput {
+	return o
+}
+
+func (o GetVariableGroupKeyVaultArrayOutput) Index(i pulumi.IntInput) GetVariableGroupKeyVaultOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVariableGroupKeyVault {
+		return vs[0].([]GetVariableGroupKeyVault)[vs[1].(int)]
+	}).(GetVariableGroupKeyVaultOutput)
+}
+
+type GetVariableGroupVariable struct {
+	ContentType string `pulumi:"contentType"`
+	Enabled     bool   `pulumi:"enabled"`
+	Expires     string `pulumi:"expires"`
+	// A boolean flag describing if the variable value is sensitive.
+	IsSecret bool `pulumi:"isSecret"`
+	// The name of the Variable Group to retrieve.
+	Name string `pulumi:"name"`
+	// The secret value of the variable.
+	SecretValue string `pulumi:"secretValue"`
+	// The value of the variable.
+	Value string `pulumi:"value"`
+}
+
+// GetVariableGroupVariableInput is an input type that accepts GetVariableGroupVariableArgs and GetVariableGroupVariableOutput values.
+// You can construct a concrete instance of `GetVariableGroupVariableInput` via:
+//
+//          GetVariableGroupVariableArgs{...}
+type GetVariableGroupVariableInput interface {
+	pulumi.Input
+
+	ToGetVariableGroupVariableOutput() GetVariableGroupVariableOutput
+	ToGetVariableGroupVariableOutputWithContext(context.Context) GetVariableGroupVariableOutput
+}
+
+type GetVariableGroupVariableArgs struct {
+	ContentType pulumi.StringInput `pulumi:"contentType"`
+	Enabled     pulumi.BoolInput   `pulumi:"enabled"`
+	Expires     pulumi.StringInput `pulumi:"expires"`
+	// A boolean flag describing if the variable value is sensitive.
+	IsSecret pulumi.BoolInput `pulumi:"isSecret"`
+	// The name of the Variable Group to retrieve.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The secret value of the variable.
+	SecretValue pulumi.StringInput `pulumi:"secretValue"`
+	// The value of the variable.
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (GetVariableGroupVariableArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVariableGroupVariable)(nil)).Elem()
+}
+
+func (i GetVariableGroupVariableArgs) ToGetVariableGroupVariableOutput() GetVariableGroupVariableOutput {
+	return i.ToGetVariableGroupVariableOutputWithContext(context.Background())
+}
+
+func (i GetVariableGroupVariableArgs) ToGetVariableGroupVariableOutputWithContext(ctx context.Context) GetVariableGroupVariableOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVariableGroupVariableOutput)
+}
+
+// GetVariableGroupVariableArrayInput is an input type that accepts GetVariableGroupVariableArray and GetVariableGroupVariableArrayOutput values.
+// You can construct a concrete instance of `GetVariableGroupVariableArrayInput` via:
+//
+//          GetVariableGroupVariableArray{ GetVariableGroupVariableArgs{...} }
+type GetVariableGroupVariableArrayInput interface {
+	pulumi.Input
+
+	ToGetVariableGroupVariableArrayOutput() GetVariableGroupVariableArrayOutput
+	ToGetVariableGroupVariableArrayOutputWithContext(context.Context) GetVariableGroupVariableArrayOutput
+}
+
+type GetVariableGroupVariableArray []GetVariableGroupVariableInput
+
+func (GetVariableGroupVariableArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVariableGroupVariable)(nil)).Elem()
+}
+
+func (i GetVariableGroupVariableArray) ToGetVariableGroupVariableArrayOutput() GetVariableGroupVariableArrayOutput {
+	return i.ToGetVariableGroupVariableArrayOutputWithContext(context.Background())
+}
+
+func (i GetVariableGroupVariableArray) ToGetVariableGroupVariableArrayOutputWithContext(ctx context.Context) GetVariableGroupVariableArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVariableGroupVariableArrayOutput)
+}
+
+type GetVariableGroupVariableOutput struct{ *pulumi.OutputState }
+
+func (GetVariableGroupVariableOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVariableGroupVariable)(nil)).Elem()
+}
+
+func (o GetVariableGroupVariableOutput) ToGetVariableGroupVariableOutput() GetVariableGroupVariableOutput {
+	return o
+}
+
+func (o GetVariableGroupVariableOutput) ToGetVariableGroupVariableOutputWithContext(ctx context.Context) GetVariableGroupVariableOutput {
+	return o
+}
+
+func (o GetVariableGroupVariableOutput) ContentType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.ContentType }).(pulumi.StringOutput)
+}
+
+func (o GetVariableGroupVariableOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVariableGroupVariable) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+func (o GetVariableGroupVariableOutput) Expires() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.Expires }).(pulumi.StringOutput)
+}
+
+// A boolean flag describing if the variable value is sensitive.
+func (o GetVariableGroupVariableOutput) GetIsSecret() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetVariableGroupVariable) bool { return v.IsSecret }).(pulumi.BoolOutput)
+}
+
+// The name of the Variable Group to retrieve.
+func (o GetVariableGroupVariableOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The secret value of the variable.
+func (o GetVariableGroupVariableOutput) SecretValue() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.SecretValue }).(pulumi.StringOutput)
+}
+
+// The value of the variable.
+func (o GetVariableGroupVariableOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVariableGroupVariable) string { return v.Value }).(pulumi.StringOutput)
+}
+
+type GetVariableGroupVariableArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVariableGroupVariableArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVariableGroupVariable)(nil)).Elem()
+}
+
+func (o GetVariableGroupVariableArrayOutput) ToGetVariableGroupVariableArrayOutput() GetVariableGroupVariableArrayOutput {
+	return o
+}
+
+func (o GetVariableGroupVariableArrayOutput) ToGetVariableGroupVariableArrayOutputWithContext(ctx context.Context) GetVariableGroupVariableArrayOutput {
+	return o
+}
+
+func (o GetVariableGroupVariableArrayOutput) Index(i pulumi.IntInput) GetVariableGroupVariableOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVariableGroupVariable {
+		return vs[0].([]GetVariableGroupVariable)[vs[1].(int)]
+	}).(GetVariableGroupVariableOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BranchPolicyAutoReviewersSettingsPtrInput)(nil)).Elem(), BranchPolicyAutoReviewersSettingsArgs{})
@@ -7974,12 +8729,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricCertificatePtrInput)(nil)).Elem(), ServiceEndpointServiceFabricCertificateArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricNoneInput)(nil)).Elem(), ServiceEndpointServiceFabricNoneArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointServiceFabricNonePtrInput)(nil)).Elem(), ServiceEndpointServiceFabricNoneArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointArgocdAuthenticationBasicInput)(nil)).Elem(), ServiceendpointArgocdAuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointArgocdAuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointArgocdAuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointArgocdAuthenticationTokenInput)(nil)).Elem(), ServiceendpointArgocdAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointArgocdAuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointArgocdAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableArrayInput)(nil)).Elem(), VariableGroupVariableArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAreaChildrenInput)(nil)).Elem(), GetAreaChildrenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetAreaChildrenArrayInput)(nil)).Elem(), GetAreaChildrenArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupInput)(nil)).Elem(), GetGroupsGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetGroupsGroupArrayInput)(nil)).Elem(), GetGroupsGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIterationChildrenInput)(nil)).Elem(), GetIterationChildrenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetIterationChildrenArrayInput)(nil)).Elem(), GetIterationChildrenArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetPoolsAgentPoolInput)(nil)).Elem(), GetPoolsAgentPoolArgs{})
@@ -7992,6 +8753,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTeamsTeamArrayInput)(nil)).Elem(), GetTeamsTeamArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupKeyVaultInput)(nil)).Elem(), GetVariableGroupKeyVaultArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupKeyVaultArrayInput)(nil)).Elem(), GetVariableGroupKeyVaultArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupVariableInput)(nil)).Elem(), GetVariableGroupVariableArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVariableGroupVariableArrayInput)(nil)).Elem(), GetVariableGroupVariableArray{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsOutput{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsPtrOutput{})
 	pulumi.RegisterOutputType(BranchPolicyAutoReviewersSettingsScopeOutput{})
@@ -8074,12 +8839,18 @@ func init() {
 	pulumi.RegisterOutputType(ServiceEndpointServiceFabricCertificatePtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointServiceFabricNoneOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointServiceFabricNonePtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointArgocdAuthenticationBasicOutput{})
+	pulumi.RegisterOutputType(ServiceendpointArgocdAuthenticationBasicPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointArgocdAuthenticationTokenOutput{})
+	pulumi.RegisterOutputType(ServiceendpointArgocdAuthenticationTokenPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableArrayOutput{})
 	pulumi.RegisterOutputType(GetAreaChildrenOutput{})
 	pulumi.RegisterOutputType(GetAreaChildrenArrayOutput{})
+	pulumi.RegisterOutputType(GetGroupsGroupOutput{})
+	pulumi.RegisterOutputType(GetGroupsGroupArrayOutput{})
 	pulumi.RegisterOutputType(GetIterationChildrenOutput{})
 	pulumi.RegisterOutputType(GetIterationChildrenArrayOutput{})
 	pulumi.RegisterOutputType(GetPoolsAgentPoolOutput{})
@@ -8092,4 +8863,8 @@ func init() {
 	pulumi.RegisterOutputType(GetTeamsTeamArrayOutput{})
 	pulumi.RegisterOutputType(GetUsersUserOutput{})
 	pulumi.RegisterOutputType(GetUsersUserArrayOutput{})
+	pulumi.RegisterOutputType(GetVariableGroupKeyVaultOutput{})
+	pulumi.RegisterOutputType(GetVariableGroupKeyVaultArrayOutput{})
+	pulumi.RegisterOutputType(GetVariableGroupVariableOutput{})
+	pulumi.RegisterOutputType(GetVariableGroupVariableArrayOutput{})
 }

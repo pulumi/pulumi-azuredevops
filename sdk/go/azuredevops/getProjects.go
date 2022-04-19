@@ -49,7 +49,11 @@ func GetProjectsOutput(ctx *pulumi.Context, args GetProjectsOutputArgs, opts ...
 		ApplyT(func(v interface{}) (GetProjectsResult, error) {
 			args := v.(GetProjectsArgs)
 			r, err := GetProjects(ctx, &args, opts...)
-			return *r, err
+			var s GetProjectsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetProjectsResultOutput)
 }
 

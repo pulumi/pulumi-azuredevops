@@ -6,17 +6,15 @@ import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
 /**
- * Manages variable groups within Azure DevOps.
- *
  * ## Example Usage
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {});
- * const variablegroup = new azuredevops.VariableGroup("variablegroup", {
- *     projectId: project.id,
+ * const testProject = new azuredevops.Project("testProject", {});
+ * const testVariableGroup = new azuredevops.VariableGroup("testVariableGroup", {
+ *     projectId: testProject.id,
  *     description: "Test Variable Group Description",
  *     allowAccess: true,
  *     variables: [
@@ -32,12 +30,51 @@ import * as utilities from "./utilities";
  *     ],
  * });
  * ```
+ * ### With AzureRM Key Vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const testProject = new azuredevops.Project("testProject", {});
+ * const testServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("testServiceEndpointAzureRM", {
+ *     projectId: testProject.id,
+ *     serviceEndpointName: "Sample AzureRM",
+ *     description: "Managed by Terraform",
+ *     credentials: {
+ *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
+ *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *     },
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Sample Subscription",
+ * });
+ * const variablegroup = new azuredevops.VariableGroup("variablegroup", {
+ *     projectId: testProject.id,
+ *     description: "Test Variable Group Description",
+ *     allowAccess: true,
+ *     keyVault: {
+ *         name: "test-kv",
+ *         serviceEndpointId: testServiceEndpointAzureRM.id,
+ *     },
+ *     variables: [
+ *         {
+ *             name: "key1",
+ *         },
+ *         {
+ *             name: "key2",
+ *         },
+ *     ],
+ * });
+ * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
- * - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+ * - [Azure DevOps Service REST API 6.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
+ *
+ * > **Note** After upgrading the API to v6, creating Variable Group linked to Key Vault requires full access permission or you wil get a 401 error.
  *
  * - **Variable Groups**: Read, Create, & Manage
  * - **Build**: Read & execute

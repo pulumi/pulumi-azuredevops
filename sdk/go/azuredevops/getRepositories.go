@@ -88,7 +88,11 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 		ApplyT(func(v interface{}) (GetRepositoriesResult, error) {
 			args := v.(GetRepositoriesArgs)
 			r, err := GetRepositories(ctx, &args, opts...)
-			return *r, err
+			var s GetRepositoriesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetRepositoriesResultOutput)
 }
 

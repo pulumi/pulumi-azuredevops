@@ -15,11 +15,13 @@ export * from "./branchPolicyStatusCheck";
 export * from "./branchPolicyWorkItemLinking";
 export * from "./buildDefinition";
 export * from "./buildDefinitionPermissions";
+export * from "./environment";
 export * from "./getAgentQueue";
 export * from "./getArea";
 export * from "./getClientConfig";
 export * from "./getGitRepository";
 export * from "./getGroup";
+export * from "./getGroups";
 export * from "./getIteration";
 export * from "./getPool";
 export * from "./getPools";
@@ -29,8 +31,10 @@ export * from "./getRepositories";
 export * from "./getTeam";
 export * from "./getTeams";
 export * from "./getUsers";
+export * from "./getVariableGroup";
 export * from "./git";
 export * from "./gitPermissions";
+export * from "./gitRepositoryFile";
 export * from "./group";
 export * from "./groupMembership";
 export * from "./iterativePermissions";
@@ -65,6 +69,10 @@ export * from "./serviceEndpointPipeline";
 export * from "./serviceEndpointServiceFabric";
 export * from "./serviceEndpointSonarQube";
 export * from "./serviceEndpointSsh";
+export * from "./serviceendpointArgocd";
+export * from "./serviceendpointPermissions";
+export * from "./servicehookPermissions";
+export * from "./taggingPermissions";
 export * from "./team";
 export * from "./teamAdministrators";
 export * from "./teamMembers";
@@ -112,8 +120,10 @@ import { BranchPolicyStatusCheck } from "./branchPolicyStatusCheck";
 import { BranchPolicyWorkItemLinking } from "./branchPolicyWorkItemLinking";
 import { BuildDefinition } from "./buildDefinition";
 import { BuildDefinitionPermissions } from "./buildDefinitionPermissions";
+import { Environment } from "./environment";
 import { Git } from "./git";
 import { GitPermissions } from "./gitPermissions";
+import { GitRepositoryFile } from "./gitRepositoryFile";
 import { Group } from "./group";
 import { GroupMembership } from "./groupMembership";
 import { IterativePermissions } from "./iterativePermissions";
@@ -147,6 +157,10 @@ import { ServiceEndpointPipeline } from "./serviceEndpointPipeline";
 import { ServiceEndpointServiceFabric } from "./serviceEndpointServiceFabric";
 import { ServiceEndpointSonarQube } from "./serviceEndpointSonarQube";
 import { ServiceEndpointSsh } from "./serviceEndpointSsh";
+import { ServiceendpointArgocd } from "./serviceendpointArgocd";
+import { ServiceendpointPermissions } from "./serviceendpointPermissions";
+import { ServicehookPermissions } from "./servicehookPermissions";
+import { TaggingPermissions } from "./taggingPermissions";
 import { Team } from "./team";
 import { TeamAdministrators } from "./teamAdministrators";
 import { TeamMembers } from "./teamMembers";
@@ -178,10 +192,14 @@ const _module = {
                 return new BuildDefinition(name, <any>undefined, { urn })
             case "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions":
                 return new BuildDefinitionPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/environment:Environment":
+                return new Environment(name, <any>undefined, { urn })
             case "azuredevops:index/git:Git":
                 return new Git(name, <any>undefined, { urn })
             case "azuredevops:index/gitPermissions:GitPermissions":
                 return new GitPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/gitRepositoryFile:GitRepositoryFile":
+                return new GitRepositoryFile(name, <any>undefined, { urn })
             case "azuredevops:index/group:Group":
                 return new Group(name, <any>undefined, { urn })
             case "azuredevops:index/groupMembership:GroupMembership":
@@ -248,6 +266,14 @@ const _module = {
                 return new ServiceEndpointSonarQube(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
                 return new ServiceEndpointSsh(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd":
+                return new ServiceendpointArgocd(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
+                return new ServiceendpointPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/servicehookPermissions:ServicehookPermissions":
+                return new ServicehookPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/taggingPermissions:TaggingPermissions":
+                return new TaggingPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/team:Team":
                 return new Team(name, <any>undefined, { urn })
             case "azuredevops:index/teamAdministrators:TeamAdministrators":
@@ -275,8 +301,10 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyStatusCh
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyWorkItemLinking", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinition", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinitionPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/git", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/gitRepositoryFile", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/group", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/groupMembership", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/iterativePermissions", _module)
@@ -310,6 +338,10 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointPipel
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointServiceFabric", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointArgocd", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/taggingPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/team", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/teamAdministrators", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/teamMembers", _module)

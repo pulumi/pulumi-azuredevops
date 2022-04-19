@@ -15,11 +15,13 @@ from .branch_policy_status_check import *
 from .branch_policy_work_item_linking import *
 from .build_definition import *
 from .build_definition_permissions import *
+from .environment import *
 from .get_agent_queue import *
 from .get_area import *
 from .get_client_config import *
 from .get_git_repository import *
 from .get_group import *
+from .get_groups import *
 from .get_iteration import *
 from .get_pool import *
 from .get_pools import *
@@ -29,8 +31,10 @@ from .get_repositories import *
 from .get_team import *
 from .get_teams import *
 from .get_users import *
+from .get_variable_group import *
 from .git import *
 from .git_permissions import *
+from .git_repository_file import *
 from .group import *
 from .group_membership import *
 from .iterative_permissions import *
@@ -65,6 +69,10 @@ from .service_endpoint_pipeline import *
 from .service_endpoint_service_fabric import *
 from .service_endpoint_sonar_qube import *
 from .service_endpoint_ssh import *
+from .serviceendpoint_argocd import *
+from .serviceendpoint_permissions import *
+from .servicehook_permissions import *
+from .tagging_permissions import *
 from .team import *
 from .team_administrators import *
 from .team_members import *
@@ -340,6 +348,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/environment",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/environment:Environment": "Environment"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/git",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -352,6 +368,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/gitPermissions:GitPermissions": "GitPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/gitRepositoryFile",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/gitRepositoryFile:GitRepositoryFile": "GitRepositoryFile"
   }
  },
  {
@@ -616,6 +640,38 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh": "ServiceEndpointSsh"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointArgocd",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd": "ServiceendpointArgocd"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointPermissions",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions": "ServiceendpointPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/servicehookPermissions",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/servicehookPermissions:ServicehookPermissions": "ServicehookPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/taggingPermissions",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/taggingPermissions:TaggingPermissions": "TaggingPermissions"
   }
  },
  {

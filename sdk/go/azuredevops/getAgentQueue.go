@@ -84,7 +84,11 @@ func GetAgentQueueOutput(ctx *pulumi.Context, args GetAgentQueueOutputArgs, opts
 		ApplyT(func(v interface{}) (GetAgentQueueResult, error) {
 			args := v.(GetAgentQueueArgs)
 			r, err := GetAgentQueue(ctx, &args, opts...)
-			return *r, err
+			var s GetAgentQueueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetAgentQueueResultOutput)
 }
 

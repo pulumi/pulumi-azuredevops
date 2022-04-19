@@ -506,6 +506,45 @@ export interface GetAreaChildren {
     projectId: string;
 }
 
+export interface GetGroupsGroup {
+    /**
+     * A short phrase to help human readers disambiguate groups with similar names
+     */
+    description?: string;
+    /**
+     * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+     */
+    descriptor: string;
+    /**
+     * This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+     */
+    displayName?: string;
+    /**
+     * This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
+     */
+    domain: string;
+    /**
+     * The email address of record for a given graph member. This may be different than the principal name.
+     */
+    mailAddress?: string;
+    /**
+     * The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+     */
+    origin: string;
+    /**
+     * The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+     */
+    originId?: string;
+    /**
+     * This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+     */
+    principalName: string;
+    /**
+     * This url is the full route to the source resource of this graph subject.
+     */
+    url: string;
+}
+
 export interface GetIterationChildren {
     /**
      * Indicator if the child Iteration node has child nodes
@@ -641,6 +680,39 @@ export interface GetUsersUser {
      * The PrincipalName of this graph member from the source provider.
      */
     principalName: string;
+}
+
+export interface GetVariableGroupKeyVault {
+    /**
+     * The name of the Variable Group to retrieve.
+     */
+    name: string;
+    /**
+     * The id of the Azure subscription endpoint to access the key vault.
+     */
+    serviceEndpointId: string;
+}
+
+export interface GetVariableGroupVariable {
+    contentType: string;
+    enabled: boolean;
+    expires: string;
+    /**
+     * A boolean flag describing if the variable value is sensitive.
+     */
+    isSecret: boolean;
+    /**
+     * The name of the Variable Group to retrieve.
+     */
+    name: string;
+    /**
+     * The secret value of the variable.
+     */
+    secretValue: string;
+    /**
+     * The value of the variable.
+     */
+    value: string;
 }
 
 export interface GitInitialization {
@@ -848,6 +920,27 @@ export interface ServiceEndpointServiceFabricNone {
     unsecured?: boolean;
 }
 
+export interface ServiceendpointArgocdAuthenticationBasic {
+    /**
+     * ArgoCD Password.
+     */
+    password: string;
+    passwordHash: string;
+    /**
+     * ArgoCD Username.
+     */
+    username: string;
+    usernameHash: string;
+}
+
+export interface ServiceendpointArgocdAuthenticationToken {
+    /**
+     * Authentication Token generated through ArgoCD.
+     */
+    token: string;
+    tokenHash: string;
+}
+
 export interface VariableGroupKeyVault {
     /**
      * The name of the Variable Group.
@@ -877,6 +970,7 @@ export interface VariableGroupVariable {
      */
     value?: string;
 }
+
 export namespace Agent {
     export interface GetPoolsAgentPool {
         /**

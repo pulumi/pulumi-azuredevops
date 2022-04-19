@@ -95,7 +95,11 @@ func GetIterationOutput(ctx *pulumi.Context, args GetIterationOutputArgs, opts .
 		ApplyT(func(v interface{}) (GetIterationResult, error) {
 			args := v.(GetIterationArgs)
 			r, err := GetIteration(ctx, &args, opts...)
-			return *r, err
+			var s GetIterationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetIterationResultOutput)
 }
 

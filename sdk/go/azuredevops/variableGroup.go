@@ -11,8 +11,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages variable groups within Azure DevOps.
-//
 // ## Example Usage
 //
 // ```go
@@ -25,12 +23,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", nil)
+// 		testProject, err := azuredevops.NewProject(ctx, "testProject", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewVariableGroup(ctx, "variablegroup", &azuredevops.VariableGroupArgs{
-// 			ProjectId:   project.ID(),
+// 		_, err = azuredevops.NewVariableGroup(ctx, "testVariableGroup", &azuredevops.VariableGroupArgs{
+// 			ProjectId:   testProject.ID(),
 // 			Description: pulumi.String("Test Variable Group Description"),
 // 			AllowAccess: pulumi.Bool(true),
 // 			Variables: VariableGroupVariableArray{
@@ -52,12 +50,69 @@ import (
 // 	})
 // }
 // ```
+// ### With AzureRM Key Vault
+//
+// ```go
+// package main
+//
+// import (
+// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+// )
+//
+// func main() {
+// 	pulumi.Run(func(ctx *pulumi.Context) error {
+// 		testProject, err := azuredevops.NewProject(ctx, "testProject", nil)
+// 		if err != nil {
+// 			return err
+// 		}
+// 		testServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "testServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
+// 			ProjectId:           testProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Sample AzureRM"),
+// 			Description:         pulumi.String("Managed by Terraform"),
+// 			Credentials: &ServiceEndpointAzureRMCredentialsArgs{
+// 				Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+// 			},
+// 			AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+// 			AzurermSubscriptionName: pulumi.String("Sample Subscription"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewVariableGroup(ctx, "variablegroup", &azuredevops.VariableGroupArgs{
+// 			ProjectId:   testProject.ID(),
+// 			Description: pulumi.String("Test Variable Group Description"),
+// 			AllowAccess: pulumi.Bool(true),
+// 			KeyVault: &VariableGroupKeyVaultArgs{
+// 				Name:              pulumi.String("test-kv"),
+// 				ServiceEndpointId: testServiceEndpointAzureRM.ID(),
+// 			},
+// 			Variables: VariableGroupVariableArray{
+// 				&VariableGroupVariableArgs{
+// 					Name: pulumi.String("key1"),
+// 				},
+// 				&VariableGroupVariableArgs{
+// 					Name: pulumi.String("key2"),
+// 				},
+// 			},
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		return nil
+// 	})
+// }
+// ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
-// - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 6.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
+//
+// > **Note** After upgrading the API to v6, creating Variable Group linked to Key Vault requires full access permission or you wil get a 401 error.
 //
 // - **Variable Groups**: Read, Create, & Manage
 // - **Build**: Read & execute

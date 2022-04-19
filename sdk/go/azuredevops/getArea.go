@@ -85,7 +85,11 @@ func GetAreaOutput(ctx *pulumi.Context, args GetAreaOutputArgs, opts ...pulumi.I
 		ApplyT(func(v interface{}) (GetAreaResult, error) {
 			args := v.(GetAreaArgs)
 			r, err := GetArea(ctx, &args, opts...)
-			return *r, err
+			var s GetAreaResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetAreaResultOutput)
 }
 

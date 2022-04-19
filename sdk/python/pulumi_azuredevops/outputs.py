@@ -51,15 +51,20 @@ __all__ = [
     'ServiceEndpointServiceFabricAzureActiveDirectory',
     'ServiceEndpointServiceFabricCertificate',
     'ServiceEndpointServiceFabricNone',
+    'ServiceendpointArgocdAuthenticationBasic',
+    'ServiceendpointArgocdAuthenticationToken',
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'GetAreaChildrenResult',
+    'GetGroupsGroupResult',
     'GetIterationChildrenResult',
     'GetPoolsAgentPoolResult',
     'GetProjectsProjectResult',
     'GetRepositoriesRepositoryResult',
     'GetTeamsTeamResult',
     'GetUsersUserResult',
+    'GetVariableGroupKeyVaultResult',
+    'GetVariableGroupVariableResult',
 ]
 
 @pulumi.output_type
@@ -2828,6 +2833,113 @@ class ServiceEndpointServiceFabricNone(dict):
 
 
 @pulumi.output_type
+class ServiceendpointArgocdAuthenticationBasic(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "passwordHash":
+            suggest = "password_hash"
+        elif key == "usernameHash":
+            suggest = "username_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceendpointArgocdAuthenticationBasic. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceendpointArgocdAuthenticationBasic.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceendpointArgocdAuthenticationBasic.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 password: str,
+                 username: str,
+                 password_hash: Optional[str] = None,
+                 username_hash: Optional[str] = None):
+        """
+        :param str password: ArgoCD Password.
+        :param str username: ArgoCD Username.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+        if password_hash is not None:
+            pulumi.set(__self__, "password_hash", password_hash)
+        if username_hash is not None:
+            pulumi.set(__self__, "username_hash", username_hash)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        ArgoCD Password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        ArgoCD Username.
+        """
+        return pulumi.get(self, "username")
+
+    @property
+    @pulumi.getter(name="passwordHash")
+    def password_hash(self) -> Optional[str]:
+        return pulumi.get(self, "password_hash")
+
+    @property
+    @pulumi.getter(name="usernameHash")
+    def username_hash(self) -> Optional[str]:
+        return pulumi.get(self, "username_hash")
+
+
+@pulumi.output_type
+class ServiceendpointArgocdAuthenticationToken(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "tokenHash":
+            suggest = "token_hash"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ServiceendpointArgocdAuthenticationToken. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ServiceendpointArgocdAuthenticationToken.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ServiceendpointArgocdAuthenticationToken.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 token: str,
+                 token_hash: Optional[str] = None):
+        """
+        :param str token: Authentication Token generated through ArgoCD.
+        """
+        pulumi.set(__self__, "token", token)
+        if token_hash is not None:
+            pulumi.set(__self__, "token_hash", token_hash)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        Authentication Token generated through ArgoCD.
+        """
+        return pulumi.get(self, "token")
+
+    @property
+    @pulumi.getter(name="tokenHash")
+    def token_hash(self) -> Optional[str]:
+        return pulumi.get(self, "token_hash")
+
+
+@pulumi.output_type
 class VariableGroupKeyVault(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -3028,6 +3140,116 @@ class GetAreaChildrenResult(dict):
         The project ID.
         """
         return pulumi.get(self, "project_id")
+
+
+@pulumi.output_type
+class GetGroupsGroupResult(dict):
+    def __init__(__self__, *,
+                 descriptor: str,
+                 domain: str,
+                 origin: str,
+                 principal_name: str,
+                 url: str,
+                 description: Optional[str] = None,
+                 display_name: Optional[str] = None,
+                 mail_address: Optional[str] = None,
+                 origin_id: Optional[str] = None):
+        """
+        :param str descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+        :param str domain: This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
+        :param str origin: The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+        :param str principal_name: This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+        :param str url: This url is the full route to the source resource of this graph subject.
+        :param str description: A short phrase to help human readers disambiguate groups with similar names
+        :param str display_name: This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+        :param str mail_address: The email address of record for a given graph member. This may be different than the principal name.
+        :param str origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+        """
+        pulumi.set(__self__, "descriptor", descriptor)
+        pulumi.set(__self__, "domain", domain)
+        pulumi.set(__self__, "origin", origin)
+        pulumi.set(__self__, "principal_name", principal_name)
+        pulumi.set(__self__, "url", url)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if mail_address is not None:
+            pulumi.set(__self__, "mail_address", mail_address)
+        if origin_id is not None:
+            pulumi.set(__self__, "origin_id", origin_id)
+
+    @property
+    @pulumi.getter
+    def descriptor(self) -> str:
+        """
+        The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the same graph subject across both Accounts and Organizations.
+        """
+        return pulumi.get(self, "descriptor")
+
+    @property
+    @pulumi.getter
+    def domain(self) -> str:
+        """
+        This represents the name of the container of origin for a graph member. (For MSA this is "Windows Live ID", for AD the name of the domain, for AAD the tenantID of the directory, for VSTS groups the ScopeId, etc)
+        """
+        return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter
+    def origin(self) -> str:
+        """
+        The type of source provider for the origin identifier (ex:AD, AAD, MSA)
+        """
+        return pulumi.get(self, "origin")
+
+    @property
+    @pulumi.getter(name="principalName")
+    def principal_name(self) -> str:
+        """
+        This is the PrincipalName of this graph member from the source provider. The source provider may change this field over time and it is not guaranteed to be immutable for the life of the graph member by VSTS.
+        """
+        return pulumi.get(self, "principal_name")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        """
+        This url is the full route to the source resource of this graph subject.
+        """
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        A short phrase to help human readers disambiguate groups with similar names
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[str]:
+        """
+        This is the non-unique display name of the graph subject. To change this field, you must alter its value in the source provider.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="mailAddress")
+    def mail_address(self) -> Optional[str]:
+        """
+        The email address of record for a given graph member. This may be different than the principal name.
+        """
+        return pulumi.get(self, "mail_address")
+
+    @property
+    @pulumi.getter(name="originId")
+    def origin_id(self) -> Optional[str]:
+        """
+        The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
+        """
+        return pulumi.get(self, "origin_id")
 
 
 @pulumi.output_type
@@ -3426,5 +3648,106 @@ class GetUsersUserResult(dict):
         The unique identifier from the system of origin.
         """
         return pulumi.get(self, "origin_id")
+
+
+@pulumi.output_type
+class GetVariableGroupKeyVaultResult(dict):
+    def __init__(__self__, *,
+                 name: str,
+                 service_endpoint_id: str):
+        """
+        :param str name: The name of the Variable Group to retrieve.
+        :param str service_endpoint_id: The id of the Azure subscription endpoint to access the key vault.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_endpoint_id", service_endpoint_id)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Variable Group to retrieve.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="serviceEndpointId")
+    def service_endpoint_id(self) -> str:
+        """
+        The id of the Azure subscription endpoint to access the key vault.
+        """
+        return pulumi.get(self, "service_endpoint_id")
+
+
+@pulumi.output_type
+class GetVariableGroupVariableResult(dict):
+    def __init__(__self__, *,
+                 content_type: str,
+                 enabled: bool,
+                 expires: str,
+                 is_secret: bool,
+                 name: str,
+                 secret_value: str,
+                 value: str):
+        """
+        :param bool is_secret: A boolean flag describing if the variable value is sensitive.
+        :param str name: The name of the Variable Group to retrieve.
+        :param str secret_value: The secret value of the variable.
+        :param str value: The value of the variable.
+        """
+        pulumi.set(__self__, "content_type", content_type)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "expires", expires)
+        pulumi.set(__self__, "is_secret", is_secret)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "secret_value", secret_value)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="contentType")
+    def content_type(self) -> str:
+        return pulumi.get(self, "content_type")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> bool:
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter
+    def expires(self) -> str:
+        return pulumi.get(self, "expires")
+
+    @property
+    @pulumi.getter(name="isSecret")
+    def is_secret(self) -> bool:
+        """
+        A boolean flag describing if the variable value is sensitive.
+        """
+        return pulumi.get(self, "is_secret")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the Variable Group to retrieve.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="secretValue")
+    def secret_value(self) -> str:
+        """
+        The secret value of the variable.
+        """
+        return pulumi.get(self, "secret_value")
+
+    @property
+    @pulumi.getter
+    def value(self) -> str:
+        """
+        The value of the variable.
+        """
+        return pulumi.get(self, "value")
 
 

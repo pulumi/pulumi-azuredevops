@@ -475,6 +475,17 @@ class BuildDefinition(pulumi.CustomResource):
                 time_zone="(UTC) Coordinated Universal Time",
             )])
         ```
+        ## Remarks
+
+        The path attribute can not end in `\` unless the path is the root value of `\`.
+
+        Valid path values (yaml encoded) include:
+        - `\\`
+        - `\\ExampleFolder`
+        - `\\\Nested\\Example Folder`
+
+        The value of `\\ExampleFolder\\` would be invalid.
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
@@ -616,6 +627,17 @@ class BuildDefinition(pulumi.CustomResource):
                 time_zone="(UTC) Coordinated Universal Time",
             )])
         ```
+        ## Remarks
+
+        The path attribute can not end in `\` unless the path is the root value of `\`.
+
+        Valid path values (yaml encoded) include:
+        - `\\`
+        - `\\ExampleFolder`
+        - `\\\Nested\\Example Folder`
+
+        The value of `\\ExampleFolder\\` would be invalid.
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)

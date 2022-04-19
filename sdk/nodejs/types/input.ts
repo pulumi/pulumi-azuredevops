@@ -688,6 +688,27 @@ export interface ServiceEndpointServiceFabricNone {
     unsecured?: pulumi.Input<boolean>;
 }
 
+export interface ServiceendpointArgocdAuthenticationBasic {
+    /**
+     * ArgoCD Password.
+     */
+    password: pulumi.Input<string>;
+    passwordHash?: pulumi.Input<string>;
+    /**
+     * ArgoCD Username.
+     */
+    username: pulumi.Input<string>;
+    usernameHash?: pulumi.Input<string>;
+}
+
+export interface ServiceendpointArgocdAuthenticationToken {
+    /**
+     * Authentication Token generated through ArgoCD.
+     */
+    token: pulumi.Input<string>;
+    tokenHash?: pulumi.Input<string>;
+}
+
 export interface VariableGroupKeyVault {
     /**
      * The name of the Variable Group.
@@ -717,7 +738,6 @@ export interface VariableGroupVariable {
      */
     value?: pulumi.Input<string>;
 }
-
 export namespace Agent {
 }
 

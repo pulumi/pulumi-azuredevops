@@ -37,7 +37,11 @@ func GetTeamsOutput(ctx *pulumi.Context, args GetTeamsOutputArgs, opts ...pulumi
 		ApplyT(func(v interface{}) (GetTeamsResult, error) {
 			args := v.(GetTeamsArgs)
 			r, err := GetTeams(ctx, &args, opts...)
-			return *r, err
+			var s GetTeamsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetTeamsResultOutput)
 }
 

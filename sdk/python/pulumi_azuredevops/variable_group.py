@@ -223,17 +223,15 @@ class VariableGroup(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None,
                  __props__=None):
         """
-        Manages variable groups within Azure DevOps.
-
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        variablegroup = azuredevops.VariableGroup("variablegroup",
-            project_id=project.id,
+        test_project = azuredevops.Project("testProject")
+        test_variable_group = azuredevops.VariableGroup("testVariableGroup",
+            project_id=test_project.id,
             description="Test Variable Group Description",
             allow_access=True,
             variables=[
@@ -248,12 +246,49 @@ class VariableGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        ### With AzureRM Key Vault
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        test_project = azuredevops.Project("testProject")
+        test_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("testServiceEndpointAzureRM",
+            project_id=test_project.id,
+            service_endpoint_name="Sample AzureRM",
+            description="Managed by Terraform",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid="00000000-0000-0000-0000-000000000000",
+                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Sample Subscription")
+        variablegroup = azuredevops.VariableGroup("variablegroup",
+            project_id=test_project.id,
+            description="Test Variable Group Description",
+            allow_access=True,
+            key_vault=azuredevops.VariableGroupKeyVaultArgs(
+                name="test-kv",
+                service_endpoint_id=test_service_endpoint_azure_rm.id,
+            ),
+            variables=[
+                azuredevops.VariableGroupVariableArgs(
+                    name="key1",
+                ),
+                azuredevops.VariableGroupVariableArgs(
+                    name="key2",
+                ),
+            ])
+        ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
-        - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+        - [Azure DevOps Service REST API 6.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
+
+        > **Note** After upgrading the API to v6, creating Variable Group linked to Key Vault requires full access permission or you wil get a 401 error.
 
         - **Variable Groups**: Read, Create, & Manage
         - **Build**: Read & execute
@@ -293,17 +328,15 @@ class VariableGroup(pulumi.CustomResource):
                  args: VariableGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages variable groups within Azure DevOps.
-
         ## Example Usage
 
         ```python
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        variablegroup = azuredevops.VariableGroup("variablegroup",
-            project_id=project.id,
+        test_project = azuredevops.Project("testProject")
+        test_variable_group = azuredevops.VariableGroup("testVariableGroup",
+            project_id=test_project.id,
             description="Test Variable Group Description",
             allow_access=True,
             variables=[
@@ -318,12 +351,49 @@ class VariableGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        ### With AzureRM Key Vault
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        test_project = azuredevops.Project("testProject")
+        test_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("testServiceEndpointAzureRM",
+            project_id=test_project.id,
+            service_endpoint_name="Sample AzureRM",
+            description="Managed by Terraform",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid="00000000-0000-0000-0000-000000000000",
+                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Sample Subscription")
+        variablegroup = azuredevops.VariableGroup("variablegroup",
+            project_id=test_project.id,
+            description="Test Variable Group Description",
+            allow_access=True,
+            key_vault=azuredevops.VariableGroupKeyVaultArgs(
+                name="test-kv",
+                service_endpoint_id=test_service_endpoint_azure_rm.id,
+            ),
+            variables=[
+                azuredevops.VariableGroupVariableArgs(
+                    name="key1",
+                ),
+                azuredevops.VariableGroupVariableArgs(
+                    name="key2",
+                ),
+            ])
+        ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
-        - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+        - [Azure DevOps Service REST API 6.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
+
+        > **Note** After upgrading the API to v6, creating Variable Group linked to Key Vault requires full access permission or you wil get a 401 error.
 
         - **Variable Groups**: Read, Create, & Manage
         - **Build**: Read & execute

@@ -148,9 +148,15 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_repository_policy_reserved_names": {
 				Tok: makeResource(mainMod, "RepositoryPolicyReservedNames"),
 			},
-			"azuredevops_team":                {Tok: makeResource(mainMod, "Team")},
-			"azuredevops_team_administrators": {Tok: makeResource(mainMod, "TeamAdministrators")},
-			"azuredevops_team_members":        {Tok: makeResource(mainMod, "TeamMembers")},
+			"azuredevops_team":                        {Tok: makeResource(mainMod, "Team")},
+			"azuredevops_team_administrators":         {Tok: makeResource(mainMod, "TeamAdministrators")},
+			"azuredevops_team_members":                {Tok: makeResource(mainMod, "TeamMembers")},
+			"azuredevops_environment":                 {Tok: makeResource(mainMod, "Environment")},
+			"azuredevops_git_repository_file":         {Tok: makeResource(mainMod, "GitRepositoryFile")},
+			"azuredevops_serviceendpoint_argocd":      {Tok: makeResource(mainMod, "ServiceendpointArgocd")},
+			"azuredevops_serviceendpoint_permissions": {Tok: makeResource(mainMod, "ServiceendpointPermissions")},
+			"azuredevops_servicehook_permissions":     {Tok: makeResource(mainMod, "ServicehookPermissions")},
+			"azuredevops_tagging_permissions":         {Tok: makeResource(mainMod, "TaggingPermissions")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azuredevops_area": {
@@ -165,8 +171,16 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_agent_queue": {
 				Tok: makeDataSource(mainMod, "getAgentQueue"),
 			},
-			"azuredevops_team":  {Tok: makeDataSource(mainMod, "getTeam")},
-			"azuredevops_teams": {Tok: makeDataSource(mainMod, "getTeams")},
+			"azuredevops_team": {
+				Tok:  makeDataSource(mainMod, "getTeam"),
+				Docs: noUpstreamDocs(),
+			},
+			"azuredevops_teams": {
+				Tok:  makeDataSource(mainMod, "getTeams"),
+				Docs: noUpstreamDocs(),
+			},
+			"azuredevops_groups":         {Tok: makeDataSource(mainMod, "getGroups")},
+			"azuredevops_variable_group": {Tok: makeDataSource(mainMod, "getVariableGroup")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
@@ -212,7 +226,15 @@ func Provider() tfbridge.ProviderInfo {
 		makeResource(mainMod, "BranchPolicyMinReviewers"), "Policy", mainMod, nil)
 	prov.RenameResourceWithAlias("azuredevops_build_definition",
 		makeResource("Build", "BuildDefinition"),
-		makeResource(mainMod, "BuildDefinition"), "Build", mainMod, nil)
+		makeResource(mainMod, "BuildDefinition"), "Build", mainMod, &tfbridge.ResourceInfo{
+			// The docs for this resource contain a string that causes codegen to generate an invalid docstring in the
+			// Python SDK, thereby failing the acceptance tests, so until this upstream bug is resolved, we omit the
+			// docs.
+			// The bug will likely be fixed in some version of Pulumi >= 3.29.1
+			Docs: &tfbridge.DocInfo{
+				Markdown: []byte(" "),
+			},
+		})
 	prov.RenameResourceWithAlias("azuredevops_project",
 		makeResource("Core", "Project"),
 		makeResource(mainMod, "Project"), "Core", mainMod, nil)
@@ -284,4 +306,12 @@ func Provider() tfbridge.ProviderInfo {
 	prov.SetAutonaming(255, "-")
 
 	return prov
+}
+
+// noUpstreamDocs indicates that an entity has no docs in the upstream provider. It often signals that an entity is
+// deprecated and should be removed in the next major version of the Pulumi provider.
+func noUpstreamDocs() *tfbridge.DocInfo {
+	return &tfbridge.DocInfo{
+		Markdown: []byte(" "),
+	}
 }

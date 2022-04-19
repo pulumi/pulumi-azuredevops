@@ -10,8 +10,6 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
-    /// Manages variable groups within Azure DevOps.
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -22,12 +20,12 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var testProject = new AzureDevOps.Project("testProject", new AzureDevOps.ProjectArgs
     ///         {
     ///         });
-    ///         var variablegroup = new AzureDevOps.VariableGroup("variablegroup", new AzureDevOps.VariableGroupArgs
+    ///         var testVariableGroup = new AzureDevOps.VariableGroup("testVariableGroup", new AzureDevOps.VariableGroupArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = testProject.Id,
     ///             Description = "Test Variable Group Description",
     ///             AllowAccess = true,
     ///             Variables = 
@@ -49,12 +47,67 @@ namespace Pulumi.AzureDevOps
     /// 
     /// }
     /// ```
+    /// ### With AzureRM Key Vault
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var testProject = new AzureDevOps.Project("testProject", new AzureDevOps.ProjectArgs
+    ///         {
+    ///         });
+    ///         var testServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("testServiceEndpointAzureRM", new AzureDevOps.ServiceEndpointAzureRMArgs
+    ///         {
+    ///             ProjectId = testProject.Id,
+    ///             ServiceEndpointName = "Sample AzureRM",
+    ///             Description = "Managed by Terraform",
+    ///             Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
+    ///             {
+    ///                 Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
+    ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///             },
+    ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///             AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///             AzurermSubscriptionName = "Sample Subscription",
+    ///         });
+    ///         var variablegroup = new AzureDevOps.VariableGroup("variablegroup", new AzureDevOps.VariableGroupArgs
+    ///         {
+    ///             ProjectId = testProject.Id,
+    ///             Description = "Test Variable Group Description",
+    ///             AllowAccess = true,
+    ///             KeyVault = new AzureDevOps.Inputs.VariableGroupKeyVaultArgs
+    ///             {
+    ///                 Name = "test-kv",
+    ///                 ServiceEndpointId = testServiceEndpointAzureRM.Id,
+    ///             },
+    ///             Variables = 
+    ///             {
+    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///                 {
+    ///                     Name = "key1",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///                 {
+    ///                     Name = "key2",
+    ///                 },
+    ///             },
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-5.1)
-    /// - [Azure DevOps Service REST API 5.1 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+    /// - [Azure DevOps Service REST API 6.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
+    /// 
+    /// &gt; **Note** After upgrading the API to v6, creating Variable Group linked to Key Vault requires full access permission or you wil get a 401 error.
     /// 
     /// - **Variable Groups**: Read, Create, &amp; Manage
     /// - **Build**: Read &amp; execute
