@@ -61,8 +61,8 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    client_config = azuredevops.get_client_config()
-    pulumi.export("orgUrl", client_config.organization_url)
+    example = azuredevops.get_client_config()
+    pulumi.export("orgUrl", example.organization_url)
     ```
     """
     __args__ = dict()

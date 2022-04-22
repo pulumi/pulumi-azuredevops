@@ -14,7 +14,7 @@ import (
 //
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
 //
 // Deprecated: azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects
 func GetProjects(ctx *pulumi.Context, args *GetProjectsArgs, opts ...pulumi.InvokeOption) (*GetProjectsResult, error) {
@@ -51,7 +51,11 @@ func GetProjectsOutput(ctx *pulumi.Context, args GetProjectsOutputArgs, opts ...
 		ApplyT(func(v interface{}) (GetProjectsResult, error) {
 			args := v.(GetProjectsArgs)
 			r, err := GetProjects(ctx, &args, opts...)
-			return *r, err
+			var s GetProjectsResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetProjectsResultOutput)
 }
 

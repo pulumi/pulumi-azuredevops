@@ -27,14 +27,14 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         var example = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
         ///         {
-        ///             Name = "contoso-project",
+        ///             Name = "Example Project",
         ///         }));
-        ///         var singleRepo = project.Apply(project =&gt; Output.Create(AzureDevOps.GetGitRepository.InvokeAsync(new AzureDevOps.GetGitRepositoryArgs
+        ///         var example_single_repo = example.Apply(example =&gt; Output.Create(AzureDevOps.GetGitRepository.InvokeAsync(new AzureDevOps.GetGitRepositoryArgs
         ///         {
-        ///             ProjectId = project.Id,
-        ///             Name = "contoso-repo",
+        ///             ProjectId = example.Id,
+        ///             Name = "Example Repository",
         ///         })));
         ///     }
         /// 
@@ -44,7 +44,7 @@ namespace Pulumi.AzureDevOps
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetGitRepositoryResult> InvokeAsync(GetGitRepositoryArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGitRepositoryResult>("azuredevops:index/getGitRepository:getGitRepository", args ?? new GetGitRepositoryArgs(), options.WithDefaults());
@@ -65,14 +65,14 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         var example = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
         ///         {
-        ///             Name = "contoso-project",
+        ///             Name = "Example Project",
         ///         }));
-        ///         var singleRepo = project.Apply(project =&gt; Output.Create(AzureDevOps.GetGitRepository.InvokeAsync(new AzureDevOps.GetGitRepositoryArgs
+        ///         var example_single_repo = example.Apply(example =&gt; Output.Create(AzureDevOps.GetGitRepository.InvokeAsync(new AzureDevOps.GetGitRepositoryArgs
         ///         {
-        ///             ProjectId = project.Id,
-        ///             Name = "contoso-repo",
+        ///             ProjectId = example.Id,
+        ///             Name = "Example Repository",
         ///         })));
         ///     }
         /// 
@@ -82,7 +82,7 @@ namespace Pulumi.AzureDevOps
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetGitRepositoryResult> Invoke(GetGitRepositoryInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGitRepositoryResult>("azuredevops:index/getGitRepository:getGitRepository", args ?? new GetGitRepositoryInvokeArgs(), options.WithDefaults());

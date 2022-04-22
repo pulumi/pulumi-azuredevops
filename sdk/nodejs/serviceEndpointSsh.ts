@@ -13,14 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const test = new azuredevops.ServiceEndpointSsh("test", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample SSH",
+ * const exampleServiceEndpointSsh = new azuredevops.ServiceEndpointSsh("exampleServiceEndpointSsh", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example SSH",
  *     host: "1.2.3.4",
  *     username: "username",
  *     description: "Managed by Terraform",
@@ -28,14 +29,14 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint SSH can be imported using **projectID/serviceEndpointID** or ** projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointSsh extends pulumi.CustomResource {
@@ -93,7 +94,7 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
      */
     public /*out*/ readonly privateKeyHash!: pulumi.Output<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -191,7 +192,7 @@ export interface ServiceEndpointSshState {
      */
     privateKeyHash?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -227,7 +228,7 @@ export interface ServiceEndpointSshArgs {
      */
     privateKey?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

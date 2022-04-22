@@ -24,9 +24,19 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project_git_root_permissions = new azuredevops.GitPermissions("project-git-root-permissions", {
- *     projectId: azuredevops_project.project.id,
- *     principal: data.azuredevops_group["project-readers"].id,
+ * const example = new azuredevops.Project("example", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: example.id,
+ *     name: "Readers",
+ * });
+ * const example_permissions = new azuredevops.GitPermissions("example-permissions", {
+ *     projectId: example.id,
+ *     principal: example_readers.apply(example_readers => example_readers.id),
  *     permissions: {
  *         CreateRepository: "Deny",
  *         DeleteRepository: "Deny",
@@ -45,10 +55,25 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project_git_repo_permissions = new azuredevops.GitPermissions("project-git-repo-permissions", {
- *     projectId: data.azuredevops_git_repository["git-repo"].project_id,
- *     repositoryId: data.azuredevops_git_repository["git-repo"].id,
- *     principal: data.azuredevops_group["project-administrators"].id,
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const example-group = azuredevops.getGroup({
+ *     name: "Project Collection Administrators",
+ * });
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const example_permissions = new azuredevops.GitPermissions("example-permissions", {
+ *     projectId: exampleGit.projectId,
+ *     repositoryId: exampleGit.id,
+ *     principal: example_group.then(example_group => example_group.id),
  *     permissions: {
  *         RemoveOthersLocks: "Allow",
  *         ManagePermissions: "Deny",
@@ -68,11 +93,26 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project_git_branch_permissions = new azuredevops.GitPermissions("project-git-branch-permissions", {
- *     projectId: data.azuredevops_git_repository["git-repo"].project_id,
- *     repositoryId: data.azuredevops_git_repository["git-repo"].id,
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const example-group = azuredevops.getGroup({
+ *     name: "Project Collection Administrators",
+ * });
+ * const example_permissions = new azuredevops.GitPermissions("example-permissions", {
+ *     projectId: exampleGit.projectId,
+ *     repositoryId: exampleGit.id,
  *     branchName: "refs/heads/master",
- *     principal: data.azuredevops_group["project-contributors"].id,
+ *     principal: example_group.then(example_group => example_group.id),
  *     permissions: {
  *         RemoveOthersLocks: "Allow",
  *         ForcePush: "Deny",
@@ -86,44 +126,44 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
- *     description: "Test Project Description",
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const project-readers = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-project-readers = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Readers",
  * });
- * const project-contributors = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-project-contributors = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Contributors",
  * });
- * const project-administrators = azuredevops.getGroupOutput({
- *     projectId: project.id,
+ * const example-project-administrators = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
  *     name: "Project administrators",
  * });
- * const project_git_root_permissions = new azuredevops.GitPermissions("project-git-root-permissions", {
- *     projectId: project.id,
- *     principal: project_readers.apply(project_readers => project_readers.id),
+ * const example_permissions = new azuredevops.GitPermissions("example-permissions", {
+ *     projectId: exampleProject.id,
+ *     principal: example_project_readers.apply(example_project_readers => example_project_readers.id),
  *     permissions: {
  *         CreateRepository: "Deny",
  *         DeleteRepository: "Deny",
  *         RenameRepository: "NotSet",
  *     },
  * });
- * const git_repo = new azuredevops.Git("git-repo", {
- *     projectId: project.id,
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
  *     defaultBranch: "refs/heads/master",
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const project_git_repo_permissions = new azuredevops.GitPermissions("project-git-repo-permissions", {
- *     projectId: git_repo.projectId,
- *     repositoryId: git_repo.id,
- *     principal: project_administrators.apply(project_administrators => project_administrators.id),
+ * const example_repo_permissions = new azuredevops.GitPermissions("example-repo-permissions", {
+ *     projectId: exampleGit.projectId,
+ *     repositoryId: exampleGit.id,
+ *     principal: example_project_administrators.apply(example_project_administrators => example_project_administrators.id),
  *     permissions: {
  *         RemoveOthersLocks: "Allow",
  *         ManagePermissions: "Deny",
@@ -131,11 +171,11 @@ import * as utilities from "./utilities";
  *         CreateBranch: "NotSet",
  *     },
  * });
- * const project_git_branch_permissions = new azuredevops.GitPermissions("project-git-branch-permissions", {
- *     projectId: git_repo.projectId,
- *     repositoryId: git_repo.id,
+ * const example_branch_permissions = new azuredevops.GitPermissions("example-branch-permissions", {
+ *     projectId: exampleGit.projectId,
+ *     repositoryId: exampleGit.id,
  *     branchName: "master",
- *     principal: project_contributors.apply(project_contributors => project_contributors.id),
+ *     principal: example_project_contributors.apply(example_project_contributors => example_project_contributors.id),
  *     permissions: {
  *         RemoveOthersLocks: "Allow",
  *         ForcePush: "Deny",
@@ -144,7 +184,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+ * * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
  *
  * ## PAT Permissions Required
  *

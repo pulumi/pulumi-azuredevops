@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
 // 			WorkItemTemplate: pulumi.String("Agile"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			Visibility:       pulumi.String("private"),
@@ -34,12 +34,12 @@ import (
 // 			return err
 // 		}
 // 		_ = azuredevops.GetIterationOutput(ctx, GetIterationOutputArgs{
-// 			ProjectId:     project.ID(),
+// 			ProjectId:     example.ID(),
 // 			Path:          pulumi.String("/"),
 // 			FetchChildren: pulumi.Bool(true),
 // 		}, nil)
 // 		_ = azuredevops.GetIterationOutput(ctx, GetIterationOutputArgs{
-// 			ProjectId:     project.ID(),
+// 			ProjectId:     example.ID(),
 // 			Path:          pulumi.String("/Iteration 1"),
 // 			FetchChildren: pulumi.Bool(true),
 // 		}, nil)
@@ -49,7 +49,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //
@@ -95,7 +95,11 @@ func GetIterationOutput(ctx *pulumi.Context, args GetIterationOutputArgs, opts .
 		ApplyT(func(v interface{}) (GetIterationResult, error) {
 			args := v.(GetIterationArgs)
 			r, err := GetIteration(ctx, &args, opts...)
-			return *r, err
+			var s GetIterationResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetIterationResultOutput)
 }
 

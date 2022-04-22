@@ -27,16 +27,16 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         ///     public MyStack()
         ///     {
-        ///         var user = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
+        ///         var example = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             PrincipalName = "contoso-user@contoso.onmicrosoft.com",
         ///         }));
-        ///         var all_users = Output.Create(AzureDevOps.GetUsers.InvokeAsync());
-        ///         var all_from_origin = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
+        ///         var example_all_users = Output.Create(AzureDevOps.GetUsers.InvokeAsync());
+        ///         var example_all_from_origin = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             Origin = "aad",
         ///         }));
-        ///         var all_from_subjectTypes = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
+        ///         var example_all_from_subjectTypes = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             SubjectTypes = 
         ///             {
@@ -44,10 +44,10 @@ namespace Pulumi.AzureDevOps.Identities
         ///                 "msa",
         ///             },
         ///         }));
-        ///         var all_from_origin_id = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
+        ///         var example_all_from_origin_id = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             Origin = "aad",
-        ///             OriginId = "a7ead982-8438-4cd2-b9e3-c3aa51a7b675",
+        ///             OriginId = "00000000-0000-0000-0000-000000000000",
         ///         }));
         ///     }
         /// 
@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
@@ -77,16 +77,16 @@ namespace Pulumi.AzureDevOps.Identities
         /// {
         ///     public MyStack()
         ///     {
-        ///         var user = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
+        ///         var example = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             PrincipalName = "contoso-user@contoso.onmicrosoft.com",
         ///         }));
-        ///         var all_users = Output.Create(AzureDevOps.GetUsers.InvokeAsync());
-        ///         var all_from_origin = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
+        ///         var example_all_users = Output.Create(AzureDevOps.GetUsers.InvokeAsync());
+        ///         var example_all_from_origin = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             Origin = "aad",
         ///         }));
-        ///         var all_from_subjectTypes = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
+        ///         var example_all_from_subjectTypes = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             SubjectTypes = 
         ///             {
@@ -94,10 +94,10 @@ namespace Pulumi.AzureDevOps.Identities
         ///                 "msa",
         ///             },
         ///         }));
-        ///         var all_from_origin_id = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
+        ///         var example_all_from_origin_id = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
         ///         {
         ///             Origin = "aad",
-        ///             OriginId = "a7ead982-8438-4cd2-b9e3-c3aa51a7b675",
+        ///             OriginId = "00000000-0000-0000-0000-000000000000",
         ///         }));
         ///     }
         /// 
@@ -107,7 +107,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());

@@ -25,18 +25,19 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewServiceEndpointPipeline(ctx, "serviceendpoint", &azuredevops.ServiceEndpointPipelineArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample Pipeline Runner"),
-// 			OrganizationName:    pulumi.String("MyOrganization"),
+// 		_, err = azuredevops.NewServiceEndpointPipeline(ctx, "exampleServiceEndpointPipeline", &azuredevops.ServiceEndpointPipelineArgs{
+// 			ProjectId:           exampleProject.ID(),
+// 			ServiceEndpointName: pulumi.String("Example Pipeline Runner"),
+// 			OrganizationName:    pulumi.String("Organization Name"),
 // 			AuthPersonal: &ServiceEndpointPipelineAuthPersonalArgs{
 // 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 // 			},
@@ -51,14 +52,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint can be imported using the `project id`, `service connection id`, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline serviceendpoint projectID/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
 // ```
 type ServiceEndpointPipeline struct {
 	pulumi.CustomResourceState
@@ -69,7 +70,7 @@ type ServiceEndpointPipeline struct {
 	Description   pulumi.StringPtrOutput                    `pulumi:"description"`
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName pulumi.StringOutput `pulumi:"organizationName"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
@@ -122,7 +123,7 @@ type serviceEndpointPipelineState struct {
 	Description   *string                              `pulumi:"description"`
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName *string `pulumi:"organizationName"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
@@ -135,7 +136,7 @@ type ServiceEndpointPipelineState struct {
 	Description   pulumi.StringPtrInput
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
@@ -152,7 +153,7 @@ type serviceEndpointPipelineArgs struct {
 	Description   *string                             `pulumi:"description"`
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName string `pulumi:"organizationName"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
@@ -166,7 +167,7 @@ type ServiceEndpointPipelineArgs struct {
 	Description   pulumi.StringPtrInput
 	// The organization name used for `Organization Url` and `Release API Url` fields.
 	OrganizationName pulumi.StringInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput

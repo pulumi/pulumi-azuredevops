@@ -25,14 +25,17 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		tf_project_test_001, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: pulumi.StringRef("Test Project"),
-// 		}, nil)
+// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+// 			Visibility:       pulumi.String("private"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewProjectFeatures(ctx, "my-project-features", &azuredevops.ProjectFeaturesArgs{
-// 			ProjectId: pulumi.String(tf_project_test_001.Id),
+// 		_, err = azuredevops.NewProjectFeatures(ctx, "example-features", &azuredevops.ProjectFeaturesArgs{
+// 			ProjectId: example.ID(),
 // 			Features: pulumi.StringMap{
 // 				"testplans": pulumi.String("disabled"),
 // 				"artifacts": pulumi.String("enabled"),
@@ -58,7 +61,7 @@ import (
 // Azure DevOps feature settings can be imported using the project id, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures project_id 00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
 // ```
 type ProjectFeatures struct {
 	pulumi.CustomResourceState

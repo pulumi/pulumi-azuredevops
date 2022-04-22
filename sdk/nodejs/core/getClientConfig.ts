@@ -13,8 +13,8 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const clientConfig = azuredevops.getClientConfig({});
- * export const orgUrl = clientConfig.then(clientConfig => clientConfig.organizationUrl);
+ * const example = azuredevops.getClientConfig({});
+ * export const orgUrl = example.then(example => example.organizationUrl);
  * ```
  */
 /** @deprecated azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig */

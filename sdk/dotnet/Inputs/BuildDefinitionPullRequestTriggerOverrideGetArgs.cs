@@ -12,18 +12,11 @@ namespace Pulumi.AzureDevOps.Inputs
 
     public sealed class BuildDefinitionPullRequestTriggerOverrideGetArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// . Defaults to `true`.
-        /// </summary>
         [Input("autoCancel")]
         public Input<bool>? AutoCancel { get; set; }
 
         [Input("branchFilters")]
         private InputList<Inputs.BuildDefinitionPullRequestTriggerOverrideBranchFilterGetArgs>? _branchFilters;
-
-        /// <summary>
-        /// The branches to include and exclude from the trigger.
-        /// </summary>
         public InputList<Inputs.BuildDefinitionPullRequestTriggerOverrideBranchFilterGetArgs> BranchFilters
         {
             get => _branchFilters ?? (_branchFilters = new InputList<Inputs.BuildDefinitionPullRequestTriggerOverrideBranchFilterGetArgs>());
@@ -32,10 +25,6 @@ namespace Pulumi.AzureDevOps.Inputs
 
         [Input("pathFilters")]
         private InputList<Inputs.BuildDefinitionPullRequestTriggerOverridePathFilterGetArgs>? _pathFilters;
-
-        /// <summary>
-        /// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-        /// </summary>
         public InputList<Inputs.BuildDefinitionPullRequestTriggerOverridePathFilterGetArgs> PathFilters
         {
             get => _pathFilters ?? (_pathFilters = new InputList<Inputs.BuildDefinitionPullRequestTriggerOverridePathFilterGetArgs>());

@@ -25,33 +25,33 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			WorkItemTemplate: pulumi.String("Agile"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("My first project"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		builtinProjectContributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Name:      pulumi.String("Contributors"),
 // 		}, nil)
-// 		builtinProjectReaders := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Name:      pulumi.String("Readers"),
 // 		}, nil)
-// 		_, err = azuredevops.NewTeam(ctx, "team", &azuredevops.TeamArgs{
-// 			ProjectId: project.ID(),
+// 		_, err = azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Administrators: pulumi.StringArray{
-// 				builtinProjectContributors.ApplyT(func(builtinProjectContributors GetGroupResult) (string, error) {
-// 					return builtinProjectContributors.Descriptor, nil
+// 				example_project_contributors.ApplyT(func(example_project_contributors GetGroupResult) (string, error) {
+// 					return example_project_contributors.Descriptor, nil
 // 				}).(pulumi.StringOutput),
 // 			},
 // 			Members: pulumi.StringArray{
-// 				builtinProjectReaders.ApplyT(func(builtinProjectReaders GetGroupResult) (string, error) {
-// 					return builtinProjectReaders.Descriptor, nil
+// 				example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
+// 					return example_project_readers.Descriptor, nil
 // 				}).(pulumi.StringOutput),
 // 			},
 // 		})
@@ -64,7 +64,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //
@@ -75,7 +75,7 @@ import (
 // Azure DevOps teams can be imported using the complete resource id `<project_id>/<team_id>` e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/team:Team team 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 type Team struct {
 	pulumi.CustomResourceState

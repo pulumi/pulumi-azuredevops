@@ -13,14 +13,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const serviceendpoint = new azuredevops.ServiceEndpointNpm("serviceendpoint", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample npm",
+ * const exampleServiceEndpointNpm = new azuredevops.ServiceEndpointNpm("exampleServiceEndpointNpm", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example npm",
  *     url: "https://registry.npmjs.org",
  *     accessToken: "00000000-0000-0000-0000-000000000000",
  *     description: "Managed by Terraform",
@@ -28,6 +29,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
+ * - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  * - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
  * - [npm User Token](https://docs.npmjs.com/about-access-tokens)
  *
@@ -36,7 +38,7 @@ import * as utilities from "./utilities";
  * Azure DevOps Service Endpoint npm can be imported using the **projectID/serviceEndpointID**, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointNpm extends pulumi.CustomResource {
@@ -81,7 +83,7 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -158,7 +160,7 @@ export interface ServiceEndpointNpmState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -185,7 +187,7 @@ export interface ServiceEndpointNpmArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

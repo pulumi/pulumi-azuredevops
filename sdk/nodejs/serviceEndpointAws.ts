@@ -13,30 +13,31 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const serviceendpoint = new azuredevops.ServiceEndpointAws("serviceendpoint", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample AWS",
- *     description: "Managed by AzureDevOps",
+ * const exampleServiceEndpointAws = new azuredevops.ServiceEndpointAws("exampleServiceEndpointAws", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AWS",
  *     accessKeyId: "00000000-0000-0000-0000-000000000000",
  *     secretAccessKey: "accesskey",
+ *     description: "Managed by AzureDevOps",
  * });
  * ```
  * ## Relevant Links
  *
  * * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
- * * [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * * [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint AWS can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointAws:ServiceEndpointAws azuredevops_serviceendpoint_aws.example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointAws extends pulumi.CustomResource {
@@ -78,7 +79,7 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
      */
     public readonly externalId!: pulumi.Output<string | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -182,7 +183,7 @@ export interface ServiceEndpointAwsState {
      */
     externalId?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -230,7 +231,7 @@ export interface ServiceEndpointAwsArgs {
      */
     externalId?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

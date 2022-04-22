@@ -13,17 +13,8 @@ namespace Pulumi.AzureDevOps.Outputs
     [OutputType]
     public sealed class BuildDefinitionPullRequestTriggerOverride
     {
-        /// <summary>
-        /// . Defaults to `true`.
-        /// </summary>
         public readonly bool? AutoCancel;
-        /// <summary>
-        /// The branches to include and exclude from the trigger.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter> BranchFilters;
-        /// <summary>
-        /// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
-        /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionPullRequestTriggerOverridePathFilter> PathFilters;
 
         [OutputConstructor]

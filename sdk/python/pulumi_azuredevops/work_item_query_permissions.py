@@ -214,9 +214,16 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
         project_wiq_root_permissions = azuredevops.WorkItemQueryPermissions("project-wiq-root-permissions",
-            project_id=azuredevops_project["project"]["id"],
-            principal=data["azuredevops_group"]["project-readers"]["id"],
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "CreateRepository": "Deny",
                 "DeleteRepository": "Deny",
@@ -236,10 +243,17 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        wiq_folder_permissions = azuredevops.WorkItemQueryPermissions("wiq-folder-permissions",
-            project_id=azuredevops_project["project"]["id"],
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.WorkItemQueryPermissions("example-permissions",
+            project_id=example.id,
             path="/Team",
-            principal=data["azuredevops_group"]["project-readers"]["id"],
+            principal=example_readers.id,
             permissions={
                 "Contribute": "Allow",
                 "Delete": "Deny",
@@ -253,28 +267,28 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Test Project Description",
-            visibility="private",
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
             version_control="Git",
-            work_item_template="Agile")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        project_contributors = azuredevops.get_group_output(project_id=project.id,
+        example_contributors = azuredevops.get_group_output(project_id=example.id,
             name="Contributors")
-        wiq_project_permissions = azuredevops.WorkItemQueryPermissions("wiq-project-permissions",
-            project_id=project.id,
-            principal=project_readers.id,
+        example_project_permissions = azuredevops.WorkItemQueryPermissions("example-project-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "Read": "Allow",
                 "Delete": "Deny",
                 "Contribute": "Deny",
                 "ManagePermissions": "Deny",
             })
-        wiq_sharedqueries_permissions = azuredevops.WorkItemQueryPermissions("wiq-sharedqueries-permissions",
-            project_id=project.id,
+        example_sharedqueries_permissions = azuredevops.WorkItemQueryPermissions("example-sharedqueries-permissions",
+            project_id=example.id,
             path="/",
-            principal=project_contributors.id,
+            principal=example_contributors.id,
             permissions={
                 "Read": "Allow",
                 "Delete": "Deny",
@@ -282,7 +296,7 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -326,9 +340,16 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
         project_wiq_root_permissions = azuredevops.WorkItemQueryPermissions("project-wiq-root-permissions",
-            project_id=azuredevops_project["project"]["id"],
-            principal=data["azuredevops_group"]["project-readers"]["id"],
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "CreateRepository": "Deny",
                 "DeleteRepository": "Deny",
@@ -348,10 +369,17 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        wiq_folder_permissions = azuredevops.WorkItemQueryPermissions("wiq-folder-permissions",
-            project_id=azuredevops_project["project"]["id"],
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.WorkItemQueryPermissions("example-permissions",
+            project_id=example.id,
             path="/Team",
-            principal=data["azuredevops_group"]["project-readers"]["id"],
+            principal=example_readers.id,
             permissions={
                 "Contribute": "Allow",
                 "Delete": "Deny",
@@ -365,28 +393,28 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Test Project Description",
-            visibility="private",
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
             version_control="Git",
-            work_item_template="Agile")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        project_contributors = azuredevops.get_group_output(project_id=project.id,
+        example_contributors = azuredevops.get_group_output(project_id=example.id,
             name="Contributors")
-        wiq_project_permissions = azuredevops.WorkItemQueryPermissions("wiq-project-permissions",
-            project_id=project.id,
-            principal=project_readers.id,
+        example_project_permissions = azuredevops.WorkItemQueryPermissions("example-project-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "Read": "Allow",
                 "Delete": "Deny",
                 "Contribute": "Deny",
                 "ManagePermissions": "Deny",
             })
-        wiq_sharedqueries_permissions = azuredevops.WorkItemQueryPermissions("wiq-sharedqueries-permissions",
-            project_id=project.id,
+        example_sharedqueries_permissions = azuredevops.WorkItemQueryPermissions("example-sharedqueries-permissions",
+            project_id=example.id,
             path="/",
-            principal=project_contributors.id,
+            principal=example_contributors.id,
             permissions={
                 "Read": "Allow",
                 "Delete": "Deny",
@@ -394,7 +422,7 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 

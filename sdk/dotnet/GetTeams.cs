@@ -11,9 +11,119 @@ namespace Pulumi.AzureDevOps
 {
     public static class GetTeams
     {
+        /// <summary>
+        /// Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(AzureDevOps.GetTeams.InvokeAsync());
+        ///         this.ProjectId = 
+        ///         {
+        ///             example.Apply(example =&gt; example.Teams),
+        ///         }.Select(__item =&gt; __item?.ProjectId).ToList();
+        ///         this.Name = 
+        ///         {
+        ///             example.Apply(example =&gt; example.Teams),
+        ///         }.Select(__item =&gt; __item?.Name).ToList();
+        ///         this.Alladministrators = 
+        ///         {
+        ///             example.Apply(example =&gt; example.Teams),
+        ///         }.Select(__item =&gt; __item?.Administrators).ToList();
+        ///         this.Administrators = 
+        ///         {
+        ///             example.Apply(example =&gt; example.Teams),
+        ///         }.Select(__item =&gt; __item?.Members).ToList();
+        ///     }
+        /// 
+        ///     [Output("projectId")]
+        ///     public Output&lt;string&gt; ProjectId { get; set; }
+        ///     [Output("name")]
+        ///     public Output&lt;string&gt; Name { get; set; }
+        ///     [Output("alladministrators")]
+        ///     public Output&lt;string&gt; Alladministrators { get; set; }
+        ///     [Output("administrators")]
+        ///     public Output&lt;string&gt; Administrators { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **vso.project**:	Grants the ability to read projects and teams.
+        /// </summary>
         public static Task<GetTeamsResult> InvokeAsync(GetTeamsArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// class MyStack : Stack
+        /// {
+        ///     public MyStack()
+        ///     {
+        ///         var example = Output.Create(AzureDevOps.GetTeams.InvokeAsync());
+        ///         this.ProjectId = 
+        ///         {
+        ///             example.Apply(example =&gt; example.Teams),
+        ///         }.Select(__item =&gt; __item?.ProjectId).ToList();
+        ///         this.Name = 
+        ///         {
+        ///             example.Apply(example =&gt; example.Teams),
+        ///         }.Select(__item =&gt; __item?.Name).ToList();
+        ///         this.Alladministrators = 
+        ///         {
+        ///             example.Apply(example =&gt; example.Teams),
+        ///         }.Select(__item =&gt; __item?.Administrators).ToList();
+        ///         this.Administrators = 
+        ///         {
+        ///             example.Apply(example =&gt; example.Teams),
+        ///         }.Select(__item =&gt; __item?.Members).ToList();
+        ///     }
+        /// 
+        ///     [Output("projectId")]
+        ///     public Output&lt;string&gt; ProjectId { get; set; }
+        ///     [Output("name")]
+        ///     public Output&lt;string&gt; Name { get; set; }
+        ///     [Output("alladministrators")]
+        ///     public Output&lt;string&gt; Alladministrators { get; set; }
+        ///     [Output("administrators")]
+        ///     public Output&lt;string&gt; Administrators { get; set; }
+        /// }
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+        /// 
+        /// ## PAT Permissions Required
+        /// 
+        /// - **vso.project**:	Grants the ability to read projects and teams.
+        /// </summary>
         public static Output<GetTeamsResult> Invoke(GetTeamsInvokeArgs? args = null, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsInvokeArgs(), options.WithDefaults());
     }
@@ -21,6 +131,9 @@ namespace Pulumi.AzureDevOps
 
     public sealed class GetTeamsArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Project ID. If no project ID all teams of the organization will be returned.
+        /// </summary>
         [Input("projectId")]
         public string? ProjectId { get; set; }
 
@@ -31,6 +144,9 @@ namespace Pulumi.AzureDevOps
 
     public sealed class GetTeamsInvokeArgs : Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// The Project ID. If no project ID all teams of the organization will be returned.
+        /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
@@ -47,7 +163,14 @@ namespace Pulumi.AzureDevOps
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// Project identifier.
+        /// - `id - Team identifier
+        /// </summary>
         public readonly string? ProjectId;
+        /// <summary>
+        /// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetTeamsTeamResult> Teams;
 
         [OutputConstructor]

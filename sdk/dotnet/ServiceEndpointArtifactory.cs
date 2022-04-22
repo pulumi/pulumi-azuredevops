@@ -22,16 +22,17 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var serviceendpoint = new AzureDevOps.ServiceEndpointArtifactory("serviceendpoint", new AzureDevOps.ServiceEndpointArtifactoryArgs
+    ///         var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", new AzureDevOps.ServiceEndpointArtifactoryArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample Artifactory",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example Artifactory",
     ///             Description = "Managed by Terraform",
     ///             Url = "https://artifactory.my.com",
     ///             AuthenticationToken = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationTokenArgs
@@ -53,16 +54,23 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var serviceendpoint = new AzureDevOps.ServiceEndpointArtifactory("serviceendpoint", new AzureDevOps.ServiceEndpointArtifactoryArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectId = azuredevops_project.Project.Id,
-    ///             ServiceEndpointName = "Sample Artifactory",
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", new AzureDevOps.ServiceEndpointArtifactoryArgs
+    ///         {
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example Artifactory",
     ///             Description = "Managed by Terraform",
     ///             Url = "https://artifactory.my.com",
     ///             AuthenticationBasic = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs
     ///             {
-    ///                 Username = "sampleuser",
-    ///                 Password = "0000000000000000000000000000000000000000",
+    ///                 Username = "username",
+    ///                 Password = "password",
     ///             },
     ///         });
     ///     }
@@ -79,7 +87,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory")]
@@ -101,7 +109,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -185,7 +193,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -230,7 +238,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

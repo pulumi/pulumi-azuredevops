@@ -126,21 +126,21 @@ def get_iteration(fetch_children: Optional[bool] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    project = azuredevops.Project("project",
+    example = azuredevops.Project("example",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    root_iteration = azuredevops.get_iteration_output(project_id=project.id,
+    example_root_iteration = azuredevops.get_iteration_output(project_id=example.id,
         path="/",
         fetch_children=True)
-    child_iteration = azuredevops.get_iteration_output(project_id=project.id,
+    example_child_iteration = azuredevops.get_iteration_output(project_id=example.id,
         path="/Iteration 1",
         fetch_children=True)
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
 
     ## PAT Permissions Required
 
@@ -185,21 +185,21 @@ def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] 
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    project = azuredevops.Project("project",
+    example = azuredevops.Project("example",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    root_iteration = azuredevops.get_iteration_output(project_id=project.id,
+    example_root_iteration = azuredevops.get_iteration_output(project_id=example.id,
         path="/",
         fetch_children=True)
-    child_iteration = azuredevops.get_iteration_output(project_id=project.id,
+    example_child_iteration = azuredevops.get_iteration_output(project_id=example.id,
         path="/Iteration 1",
         fetch_children=True)
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
 
     ## PAT Permissions Required
 

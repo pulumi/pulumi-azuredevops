@@ -14,28 +14,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {});
- * const git = new azuredevops.Git("git", {
- *     projectId: project.id,
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const buildDefinition = new azuredevops.BuildDefinition("buildDefinition", {
- *     projectId: project.id,
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("exampleBuildDefinition", {
+ *     projectId: exampleProject.id,
  *     repository: {
  *         repoType: "TfsGit",
- *         repoId: git.id,
+ *         repoId: exampleGit.id,
  *         ymlPath: "azure-pipelines.yml",
  *     },
  * });
- * const branchPolicyBuildValidation = new azuredevops.BranchPolicyBuildValidation("branchPolicyBuildValidation", {
- *     projectId: project.id,
+ * const exampleBranchPolicyBuildValidation = new azuredevops.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation", {
+ *     projectId: exampleProject.id,
  *     enabled: true,
  *     blocking: true,
  *     settings: {
- *         displayName: "Don't break the build!",
- *         buildDefinitionId: buildDefinition.id,
+ *         displayName: "Example build validation policy",
+ *         buildDefinitionId: exampleBuildDefinition.id,
  *         validDuration: 720,
  *         filenamePatterns: [
  *             "/WebApp/*",
@@ -44,12 +44,12 @@ import * as utilities from "../utilities";
  *         ],
  *         scopes: [
  *             {
- *                 repositoryId: git.id,
- *                 repositoryRef: git.defaultBranch,
+ *                 repositoryId: exampleGit.id,
+ *                 repositoryRef: exampleGit.defaultBranch,
  *                 matchType: "Exact",
  *             },
  *             {
- *                 repositoryId: git.id,
+ *                 repositoryId: exampleGit.id,
  *                 repositoryRef: "refs/heads/releases",
  *                 matchType: "Prefix",
  *             },
@@ -59,14 +59,14 @@ import * as utilities from "../utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
  *
  * ```sh
- *  $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation p 00000000-0000-0000-0000-000000000000/0
+ *  $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation example 00000000-0000-0000-0000-000000000000/0
  * ```
  *
  * @deprecated azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation

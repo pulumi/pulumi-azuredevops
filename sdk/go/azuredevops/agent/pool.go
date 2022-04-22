@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewPool(ctx, "pool", &azuredevops.PoolArgs{
+// 		_, err := azuredevops.NewPool(ctx, "example", &azuredevops.PoolArgs{
 // 			AutoProvision: pulumi.Bool(false),
 // 		})
 // 		if err != nil {
@@ -36,21 +36,21 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Agent Pools can be imported using the agent pool ID, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:Agent/pool:Pool pool 42
+//  $ pulumi import azuredevops:Agent/pool:Pool example 0
 // ```
 //
 // Deprecated: azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool
 type Pool struct {
 	pulumi.CustomResourceState
 
-	// Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision pulumi.BoolPtrOutput `pulumi:"autoProvision"`
 	// The name of the agent pool.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -87,7 +87,7 @@ func GetPool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pool resources.
 type poolState struct {
-	// Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision *bool `pulumi:"autoProvision"`
 	// The name of the agent pool.
 	Name *string `pulumi:"name"`
@@ -96,7 +96,7 @@ type poolState struct {
 }
 
 type PoolState struct {
-	// Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision pulumi.BoolPtrInput
 	// The name of the agent pool.
 	Name pulumi.StringPtrInput
@@ -109,7 +109,7 @@ func (PoolState) ElementType() reflect.Type {
 }
 
 type poolArgs struct {
-	// Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision *bool `pulumi:"autoProvision"`
 	// The name of the agent pool.
 	Name *string `pulumi:"name"`
@@ -119,7 +119,7 @@ type poolArgs struct {
 
 // The set of arguments for constructing a Pool resource.
 type PoolArgs struct {
-	// Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision pulumi.BoolPtrInput
 	// The name of the agent pool.
 	Name pulumi.StringPtrInput

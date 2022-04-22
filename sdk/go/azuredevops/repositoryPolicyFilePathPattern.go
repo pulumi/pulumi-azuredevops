@@ -25,17 +25,17 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			Description:      pulumi.String("Managed by Terraform"),
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
-// 			ProjectId: project.ID(),
+// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
@@ -43,8 +43,8 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "repositoryPolicyFilePathPattern", &azuredevops.RepositoryPolicyFilePathPatternArgs{
-// 			ProjectId: project.ID(),
+// 		_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "exampleRepositoryPolicyFilePathPattern", &azuredevops.RepositoryPolicyFilePathPatternArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
 // 			FilepathPatterns: pulumi.StringArray{
@@ -52,7 +52,7 @@ import (
 // 				pulumi.String("/home/test/*.ts"),
 // 			},
 // 			RepositoryIds: pulumi.StringArray{
-// 				git.ID(),
+// 				exampleGit.ID(),
 // 			},
 // 		})
 // 		if err != nil {
@@ -74,8 +74,17 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "repositoryPolicyFilePathPattern", &azuredevops.RepositoryPolicyFilePathPatternArgs{
-// 			ProjectId: pulumi.Any(azuredevops_project.P.Id),
+// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+// 			Visibility:       pulumi.String("private"),
+// 			VersionControl:   pulumi.String("Git"),
+// 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
+// 		})
+// 		if err != nil {
+// 			return err
+// 		}
+// 		_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "examplep", &azuredevops.RepositoryPolicyFilePathPatternArgs{
+// 			ProjectId: example.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
 // 			FilepathPatterns: pulumi.StringArray{
@@ -92,14 +101,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern p 00000000-0000-0000-0000-000000000000/0
+//  $ pulumi import azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern example 00000000-0000-0000-0000-000000000000/0
 // ```
 type RepositoryPolicyFilePathPattern struct {
 	pulumi.CustomResourceState

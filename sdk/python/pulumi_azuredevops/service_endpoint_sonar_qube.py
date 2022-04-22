@@ -21,7 +21,7 @@ class ServiceEndpointSonarQubeArgs:
                  description: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointSonarQube resource.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
@@ -40,7 +40,7 @@ class ServiceEndpointSonarQubeArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -119,7 +119,7 @@ class _ServiceEndpointSonarQubeState:
         """
         Input properties used for looking up and filtering ServiceEndpointSonarQube resources.
         :param pulumi.Input[str] description: The Service Endpoint description.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         :param pulumi.Input[str] token_hash: A bcrypted hash of the attribute 'token'
@@ -165,7 +165,7 @@ class _ServiceEndpointSonarQubeState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -243,34 +243,36 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointSonarQube("serviceendpoint",
-            project_id=project.id,
-            service_endpoint_name="Sample SonarQube",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_sonar_qube = azuredevops.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube",
+            project_id=example_project.id,
+            service_endpoint_name="Example SonarQube",
             url="https://sonarqube.my.com",
             token="0000000000000000000000000000000000000000",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
-        * [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
+        - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+        - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+        - [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
 
         ## Import
 
         Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The Service Endpoint description.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
@@ -290,28 +292,30 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointSonarQube("serviceendpoint",
-            project_id=project.id,
-            service_endpoint_name="Sample SonarQube",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_sonar_qube = azuredevops.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube",
+            project_id=example_project.id,
+            service_endpoint_name="Example SonarQube",
             url="https://sonarqube.my.com",
             token="0000000000000000000000000000000000000000",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
-        * [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
+        - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+        - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
+        - [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
 
         ## Import
 
         Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -387,7 +391,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: The Service Endpoint description.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         :param pulumi.Input[str] token_hash: A bcrypted hash of the attribute 'token'
@@ -423,7 +427,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

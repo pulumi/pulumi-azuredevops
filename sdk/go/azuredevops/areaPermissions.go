@@ -32,7 +32,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
 // 			WorkItemTemplate: pulumi.String("Agile"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			Visibility:       pulumi.String("private"),
@@ -41,14 +41,14 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: example.ID(),
 // 			Name:      pulumi.String("Readers"),
 // 		}, nil)
-// 		_, err = azuredevops.NewAreaPermissions(ctx, "root-permissions", &azuredevops.AreaPermissionsArgs{
-// 			ProjectId: project.ID(),
-// 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
-// 				return project_readers.Id, nil
+// 		_, err = azuredevops.NewAreaPermissions(ctx, "example-root-permissions", &azuredevops.AreaPermissionsArgs{
+// 			ProjectId: example.ID(),
+// 			Principal: example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
+// 				return example_project_readers.Id, nil
 // 			}).(pulumi.StringOutput),
 // 			Path: pulumi.String("/"),
 // 			Permissions: pulumi.StringMap{
@@ -67,7 +67,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //

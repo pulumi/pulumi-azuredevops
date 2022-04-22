@@ -24,22 +24,22 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
     ///         {
-    ///             Description = "Test Project Description",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = example.Id,
     ///             Name = "Readers",
     ///         });
-    ///         var project_perm = new AzureDevOps.ProjectPermissions("project-perm", new AzureDevOps.ProjectPermissionsArgs
+    ///         var example_permission = new AzureDevOps.ProjectPermissions("example-permission", new AzureDevOps.ProjectPermissionsArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             Principal = project_readers.Apply(project_readers =&gt; project_readers.Id),
+    ///             ProjectId = example.Id,
+    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
     ///             Permissions = 
     ///             {
     ///                 { "DELETE", "Deny" },
@@ -54,7 +54,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+    /// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 

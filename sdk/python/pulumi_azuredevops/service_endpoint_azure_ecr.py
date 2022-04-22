@@ -28,7 +28,7 @@ class ServiceEndpointAzureEcrArgs:
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
@@ -96,7 +96,7 @@ class ServiceEndpointAzureEcrArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -170,7 +170,7 @@ class _ServiceEndpointAzureEcrState:
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] service_principal_id: The service principal ID.
@@ -301,7 +301,7 @@ class _ServiceEndpointAzureEcrState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -379,23 +379,24 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
+            work_item_template="Agile",
+            description="Managed by Terraform")
         # azure container registry service connection
-        azurecr = azuredevops.ServiceEndpointAzureEcr("azurecr",
-            project_id=project.id,
-            service_endpoint_name="Sample AzureCR",
-            resource_group="sample-rg",
+        example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureCR",
+            resource_group="example-rg",
             azurecr_spn_tenantid="00000000-0000-0000-0000-000000000000",
-            azurecr_name="sampleAcr",
+            azurecr_name="ExampleAcr",
             azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
-            azurecr_subscription_name="sampleSub")
+            azurecr_subscription_name="subscription name")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
         - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
 
         ## Import
@@ -403,7 +404,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -412,7 +413,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
@@ -431,23 +432,24 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
+            work_item_template="Agile",
+            description="Managed by Terraform")
         # azure container registry service connection
-        azurecr = azuredevops.ServiceEndpointAzureEcr("azurecr",
-            project_id=project.id,
-            service_endpoint_name="Sample AzureCR",
-            resource_group="sample-rg",
+        example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureCR",
+            resource_group="example-rg",
             azurecr_spn_tenantid="00000000-0000-0000-0000-000000000000",
-            azurecr_name="sampleAcr",
+            azurecr_name="ExampleAcr",
             azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
-            azurecr_subscription_name="sampleSub")
+            azurecr_subscription_name="subscription name")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
         - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
 
         ## Import
@@ -455,7 +457,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -557,7 +559,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         :param pulumi.Input[str] azurecr_spn_tenantid: The tenant id of the service principal.
         :param pulumi.Input[str] azurecr_subscription_id: The subscription id of the Azure targets.
         :param pulumi.Input[str] azurecr_subscription_name: The subscription name of the Azure targets.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] service_principal_id: The service principal ID.
@@ -643,7 +645,7 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

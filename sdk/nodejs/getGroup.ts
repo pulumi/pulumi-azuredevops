@@ -13,24 +13,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = azuredevops.getProject({
- *     name: "contoso-project",
+ * const exampleProject = azuredevops.getProject({
+ *     name: "Example Project",
  * });
- * const test = project.then(project => azuredevops.getGroup({
- *     projectId: project.id,
- *     name: "Test Group",
+ * const exampleGroup = exampleProject.then(exampleProject => azuredevops.getGroup({
+ *     projectId: exampleProject.id,
+ *     name: "Example Group",
  * }));
- * export const groupId = test.then(test => test.id);
- * export const groupDescriptor = test.then(test => test.descriptor);
- * const test-collection-group = azuredevops.getGroup({
+ * export const groupId = exampleGroup.then(exampleGroup => exampleGroup.id);
+ * export const groupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * const example-collection-group = azuredevops.getGroup({
  *     name: "Project Collection Administrators",
  * });
- * export const collectionGroupId = test_collection_group.then(test_collection_group => test_collection_group.id);
- * export const collectionGroupDescriptor = test_collection_group.then(test_collection_group => test_collection_group.descriptor);
+ * export const collectionGroupId = exampleGroup.then(exampleGroup => exampleGroup.id);
+ * export const collectionGroupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
  */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     if (!opts) {

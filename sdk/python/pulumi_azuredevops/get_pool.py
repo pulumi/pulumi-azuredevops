@@ -81,14 +81,14 @@ def get_pool(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    pool = azuredevops.get_pool(name="Sample Agent Pool")
-    pulumi.export("name", pool.name)
-    pulumi.export("poolType", pool.pool_type)
-    pulumi.export("autoProvision", pool.auto_provision)
+    example = azuredevops.get_pool(name="Example Agent Pool")
+    pulumi.export("name", example.name)
+    pulumi.export("poolType", example.pool_type)
+    pulumi.export("autoProvision", example.auto_provision)
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
 
 
     :param str name: Name of the Agent Pool.
@@ -120,14 +120,14 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    pool = azuredevops.get_pool(name="Sample Agent Pool")
-    pulumi.export("name", pool.name)
-    pulumi.export("poolType", pool.pool_type)
-    pulumi.export("autoProvision", pool.auto_provision)
+    example = azuredevops.get_pool(name="Example Agent Pool")
+    pulumi.export("name", example.name)
+    pulumi.export("poolType", example.pool_type)
+    pulumi.export("autoProvision", example.auto_provision)
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
 
 
     :param str name: Name of the Agent Pool.

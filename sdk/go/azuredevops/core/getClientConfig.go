@@ -21,11 +21,11 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		clientConfig, err := azuredevops.GetClientConfig(ctx, nil, nil)
+// 		example, err := azuredevops.GetClientConfig(ctx, nil, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("orgUrl", clientConfig.OrganizationUrl)
+// 		ctx.Export("orgUrl", example.OrganizationUrl)
 // 		return nil
 // 	})
 // }

@@ -22,30 +22,30 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             WorkItemTemplate = "Agile",
     ///             VersionControl = "Git",
     ///             Visibility = "private",
-    ///             Description = "My first project",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var builtinProjectReaders = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Readers",
     ///         });
-    ///         var team = new AzureDevOps.Team("team", new AzureDevOps.TeamArgs
+    ///         var exampleTeam = new AzureDevOps.Team("exampleTeam", new AzureDevOps.TeamArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///         });
-    ///         var teamMembers = new AzureDevOps.TeamMembers("teamMembers", new AzureDevOps.TeamMembersArgs
+    ///         var example_team_members = new AzureDevOps.TeamMembers("example-team-members", new AzureDevOps.TeamMembersArgs
     ///         {
-    ///             ProjectId = team.ProjectId,
-    ///             TeamId = team.Id,
+    ///             ProjectId = exampleTeam.ProjectId,
+    ///             TeamId = exampleTeam.Id,
     ///             Mode = "overwrite",
     ///             Members = 
     ///             {
-    ///                 builtinProjectReaders.Apply(builtinProjectReaders =&gt; builtinProjectReaders.Descriptor),
+    ///                 example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Descriptor),
     ///             },
     ///         });
     ///     }
@@ -54,7 +54,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 

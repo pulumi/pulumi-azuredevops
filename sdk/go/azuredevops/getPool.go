@@ -24,22 +24,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		pool, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
-// 			Name: "Sample Agent Pool",
+// 		example, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
+// 			Name: "Example Agent Pool",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		ctx.Export("name", pool.Name)
-// 		ctx.Export("poolType", pool.PoolType)
-// 		ctx.Export("autoProvision", pool.AutoProvision)
+// 		ctx.Export("name", example.Name)
+// 		ctx.Export("poolType", example.PoolType)
+// 		ctx.Export("autoProvision", example.AutoProvision)
 // 		return nil
 // 	})
 // }
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
 func LookupPool(ctx *pulumi.Context, args *LookupPoolArgs, opts ...pulumi.InvokeOption) (*LookupPoolResult, error) {
 	var rv LookupPoolResult
 	err := ctx.Invoke("azuredevops:index/getPool:getPool", args, &rv, opts...)
@@ -69,7 +69,11 @@ func LookupPoolOutput(ctx *pulumi.Context, args LookupPoolOutputArgs, opts ...pu
 		ApplyT(func(v interface{}) (LookupPoolResult, error) {
 			args := v.(LookupPoolArgs)
 			r, err := LookupPool(ctx, &args, opts...)
-			return *r, err
+			var s LookupPoolResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(LookupPoolResultOutput)
 }
 

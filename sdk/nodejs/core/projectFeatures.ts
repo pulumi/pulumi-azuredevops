@@ -13,11 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const tf-project-test-001 = azuredevops.getProject({
- *     name: "Test Project",
+ * const example = new azuredevops.Project("example", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const my_project_features = new azuredevops.ProjectFeatures("my-project-features", {
- *     projectId: tf_project_test_001.then(tf_project_test_001 => tf_project_test_001.id),
+ * const example_features = new azuredevops.ProjectFeatures("example-features", {
+ *     projectId: example.id,
  *     features: {
  *         testplans: "disabled",
  *         artifacts: "enabled",
@@ -37,7 +40,7 @@ import * as utilities from "../utilities";
  * Azure DevOps feature settings can be imported using the project id, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:Core/projectFeatures:ProjectFeatures project_id 00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:Core/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
  * ```
  *
  * @deprecated azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures

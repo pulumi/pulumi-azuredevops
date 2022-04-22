@@ -24,28 +24,28 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", nil)
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		tf_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Name:      pulumi.String("Readers"),
 // 		}, nil)
-// 		tf_project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Name:      pulumi.String("Contributors"),
 // 		}, nil)
-// 		_, err = azuredevops.NewGroup(ctx, "group", &azuredevops.GroupArgs{
-// 			Scope:       project.ID(),
-// 			DisplayName: pulumi.String("Test group"),
-// 			Description: pulumi.String("Test description"),
+// 		_, err = azuredevops.NewGroup(ctx, "exampleGroup", &azuredevops.GroupArgs{
+// 			Scope:       exampleProject.ID(),
+// 			DisplayName: pulumi.String("Example group"),
+// 			Description: pulumi.String("Example description"),
 // 			Members: pulumi.StringArray{
-// 				tf_project_readers.ApplyT(func(tf_project_readers GetGroupResult) (string, error) {
-// 					return tf_project_readers.Descriptor, nil
+// 				example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+// 					return example_readers.Descriptor, nil
 // 				}).(pulumi.StringOutput),
-// 				tf_project_contributors.ApplyT(func(tf_project_contributors GetGroupResult) (string, error) {
-// 					return tf_project_contributors.Descriptor, nil
+// 				example_contributors.ApplyT(func(example_contributors GetGroupResult) (string, error) {
+// 					return example_contributors.Descriptor, nil
 // 				}).(pulumi.StringOutput),
 // 			},
 // 		})
@@ -58,7 +58,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //
@@ -69,7 +69,7 @@ import (
 // Azure DevOps groups can be imported using the group identity descriptor, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:Identities/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+//  $ pulumi import azuredevops:Identities/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
 // ```
 //
 // Deprecated: azuredevops.identities.Group has been deprecated in favor of azuredevops.Group

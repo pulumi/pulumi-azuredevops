@@ -24,30 +24,30 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
-    ///             Description = "Managed by Terraform",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var git = new AzureDevOps.Git("git", new AzureDevOps.GitArgs
+    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///             {
     ///                 InitType = "Clean",
     ///             },
     ///         });
-    ///         var repositoryPolicyCaseEnforcement = new AzureDevOps.RepositoryPolicyCaseEnforcement("repositoryPolicyCaseEnforcement", new AzureDevOps.RepositoryPolicyCaseEnforcementArgs
+    ///         var exampleRepositoryPolicyCaseEnforcement = new AzureDevOps.RepositoryPolicyCaseEnforcement("exampleRepositoryPolicyCaseEnforcement", new AzureDevOps.RepositoryPolicyCaseEnforcementArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Enabled = true,
     ///             Blocking = true,
     ///             EnforceConsistentCase = true,
     ///             RepositoryIds = 
     ///             {
-    ///                 git.Id,
+    ///                 exampleGit.Id,
     ///             },
     ///         });
     ///     }
@@ -64,9 +64,16 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var repositoryPolicyCaseEnforcement = new AzureDevOps.RepositoryPolicyCaseEnforcement("repositoryPolicyCaseEnforcement", new AzureDevOps.RepositoryPolicyCaseEnforcementArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectId = azuredevops_project.P.Id,
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var exampleRepositoryPolicyCaseEnforcement = new AzureDevOps.RepositoryPolicyCaseEnforcement("exampleRepositoryPolicyCaseEnforcement", new AzureDevOps.RepositoryPolicyCaseEnforcementArgs
+    ///         {
+    ///             ProjectId = exampleProject.Id,
     ///             Enabled = true,
     ///             Blocking = true,
     ///             EnforceConsistentCase = true,
@@ -77,14 +84,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement p 00000000-0000-0000-0000-000000000000/0
+    ///  $ pulumi import azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement example 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement")]

@@ -22,9 +22,8 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
-    ///             Description = "Managed by Terraform",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
@@ -33,29 +32,30 @@ namespace Pulumi.AzureDevOps
     ///                 { "testplans", "disabled" },
     ///                 { "artifacts", "disabled" },
     ///             },
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var git = new AzureDevOps.Git("git", new AzureDevOps.GitArgs
+    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///             {
     ///                 InitType = "Clean",
     ///             },
     ///         });
-    ///         var user = new AzureDevOps.User("user", new AzureDevOps.UserArgs
+    ///         var exampleUser = new AzureDevOps.User("exampleUser", new AzureDevOps.UserArgs
     ///         {
     ///             PrincipalName = "mail@email.com",
     ///             AccountLicenseType = "basic",
     ///         });
-    ///         var branchPolicyStatusCheck = new AzureDevOps.BranchPolicyStatusCheck("branchPolicyStatusCheck", new AzureDevOps.BranchPolicyStatusCheckArgs
+    ///         var exampleBranchPolicyStatusCheck = new AzureDevOps.BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck", new AzureDevOps.BranchPolicyStatusCheckArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Enabled = true,
     ///             Blocking = true,
     ///             Settings = new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsArgs
     ///             {
     ///                 Name = "Release",
-    ///                 AuthorId = user.Id,
+    ///                 AuthorId = exampleUser.Id,
     ///                 InvalidateOnUpdate = true,
     ///                 Applicability = "conditional",
     ///                 DisplayName = "PreCheck",
@@ -63,8 +63,8 @@ namespace Pulumi.AzureDevOps
     ///                 {
     ///                     new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsScopeArgs
     ///                     {
-    ///                         RepositoryId = git.Id,
-    ///                         RepositoryRef = git.DefaultBranch,
+    ///                         RepositoryId = exampleGit.Id,
+    ///                         RepositoryRef = exampleGit.DefaultBranch,
     ///                         MatchType = "Exact",
     ///                     },
     ///                 },
@@ -76,14 +76,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck p 00000000-0000-0000-0000-000000000000/0
+    ///  $ pulumi import azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck example 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck")]

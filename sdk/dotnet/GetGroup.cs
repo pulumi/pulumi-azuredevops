@@ -26,23 +26,23 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         var exampleProject = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
         ///         {
-        ///             Name = "contoso-project",
+        ///             Name = "Example Project",
         ///         }));
-        ///         var test = project.Apply(project =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+        ///         var exampleGroup = exampleProject.Apply(exampleProject =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
         ///         {
-        ///             ProjectId = project.Id,
-        ///             Name = "Test Group",
+        ///             ProjectId = exampleProject.Id,
+        ///             Name = "Example Group",
         ///         })));
-        ///         this.GroupId = test.Apply(test =&gt; test.Id);
-        ///         this.GroupDescriptor = test.Apply(test =&gt; test.Descriptor);
-        ///         var test_collection_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+        ///         this.GroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id);
+        ///         this.GroupDescriptor = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor);
+        ///         var example_collection_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
         ///         {
         ///             Name = "Project Collection Administrators",
         ///         }));
-        ///         this.CollectionGroupId = test_collection_group.Apply(test_collection_group =&gt; test_collection_group.Id);
-        ///         this.CollectionGroupDescriptor = test_collection_group.Apply(test_collection_group =&gt; test_collection_group.Descriptor);
+        ///         this.CollectionGroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id);
+        ///         this.CollectionGroupDescriptor = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor);
         ///     }
         /// 
         ///     [Output("groupId")]
@@ -59,7 +59,7 @@ namespace Pulumi.AzureDevOps
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azuredevops:index/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
@@ -79,23 +79,23 @@ namespace Pulumi.AzureDevOps
         /// {
         ///     public MyStack()
         ///     {
-        ///         var project = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+        ///         var exampleProject = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
         ///         {
-        ///             Name = "contoso-project",
+        ///             Name = "Example Project",
         ///         }));
-        ///         var test = project.Apply(project =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+        ///         var exampleGroup = exampleProject.Apply(exampleProject =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
         ///         {
-        ///             ProjectId = project.Id,
-        ///             Name = "Test Group",
+        ///             ProjectId = exampleProject.Id,
+        ///             Name = "Example Group",
         ///         })));
-        ///         this.GroupId = test.Apply(test =&gt; test.Id);
-        ///         this.GroupDescriptor = test.Apply(test =&gt; test.Descriptor);
-        ///         var test_collection_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+        ///         this.GroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id);
+        ///         this.GroupDescriptor = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor);
+        ///         var example_collection_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
         ///         {
         ///             Name = "Project Collection Administrators",
         ///         }));
-        ///         this.CollectionGroupId = test_collection_group.Apply(test_collection_group =&gt; test_collection_group.Id);
-        ///         this.CollectionGroupDescriptor = test_collection_group.Apply(test_collection_group =&gt; test_collection_group.Descriptor);
+        ///         this.CollectionGroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id);
+        ///         this.CollectionGroupDescriptor = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor);
         ///     }
         /// 
         ///     [Output("groupId")]
@@ -112,7 +112,7 @@ namespace Pulumi.AzureDevOps
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azuredevops:index/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());

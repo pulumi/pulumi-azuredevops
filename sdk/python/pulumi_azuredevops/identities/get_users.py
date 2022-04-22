@@ -117,19 +117,19 @@ def get_users(origin: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    user = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
-    all_users = azuredevops.get_users()
-    all_from_origin = azuredevops.get_users(origin="aad")
-    all_from_subject_types = azuredevops.get_users(subject_types=[
+    example = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
+    example_all_users = azuredevops.get_users()
+    example_all_from_origin = azuredevops.get_users(origin="aad")
+    example_all_from_subject_types = azuredevops.get_users(subject_types=[
         "aad",
         "msa",
     ])
-    all_from_origin_id = azuredevops.get_users(origin="aad",
-        origin_id="a7ead982-8438-4cd2-b9e3-c3aa51a7b675")
+    example_all_from_origin_id = azuredevops.get_users(origin="aad",
+        origin_id="00000000-0000-0000-0000-000000000000")
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
 
 
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
@@ -173,19 +173,19 @@ def get_users_output(origin: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    user = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
-    all_users = azuredevops.get_users()
-    all_from_origin = azuredevops.get_users(origin="aad")
-    all_from_subject_types = azuredevops.get_users(subject_types=[
+    example = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
+    example_all_users = azuredevops.get_users()
+    example_all_from_origin = azuredevops.get_users(origin="aad")
+    example_all_from_subject_types = azuredevops.get_users(subject_types=[
         "aad",
         "msa",
     ])
-    all_from_origin_id = azuredevops.get_users(origin="aad",
-        origin_id="a7ead982-8438-4cd2-b9e3-c3aa51a7b675")
+    example_all_from_origin_id = azuredevops.get_users(origin="aad",
+        origin_id="00000000-0000-0000-0000-000000000000")
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
 
 
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.

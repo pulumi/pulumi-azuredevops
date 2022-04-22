@@ -13,24 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
  * // dockerhub registry service connection
- * const dockerhubregistry = new azuredevops.ServiceEndpointDockerRegistry("dockerhubregistry", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample Docker Hub",
- *     dockerUsername: "sample",
+ * const exampleServiceEndpointDockerRegistry = new azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example Docker Hub",
+ *     dockerUsername: "example",
  *     dockerEmail: "email@example.com",
  *     dockerPassword: "12345",
  *     registryType: "DockerHub",
  * });
  * // other docker registry service connection
- * const otherregistry = new azuredevops.ServiceEndpointDockerRegistry("otherregistry", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample Docker Registry",
+ * const example_other = new azuredevops.ServiceEndpointDockerRegistry("example-other", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example Docker Registry",
  *     dockerRegistry: "https://sample.azurecr.io/v1",
  *     dockerUsername: "sample",
  *     dockerPassword: "12345",
@@ -39,7 +40,7 @@ import * as utilities from "../utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  * - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#sep-docreg)
  *
  * ## Import
@@ -47,7 +48,7 @@ import * as utilities from "../utilities";
  * Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  *
  * @deprecated azuredevops.serviceendpoint.DockerRegistry has been deprecated in favor of azuredevops.ServiceEndpointDockerRegistry
@@ -104,7 +105,7 @@ export class DockerRegistry extends pulumi.CustomResource {
      */
     public readonly dockerUsername!: pulumi.Output<string | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -199,7 +200,7 @@ export interface DockerRegistryState {
      */
     dockerUsername?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -235,7 +236,7 @@ export interface DockerRegistryArgs {
      */
     dockerUsername?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

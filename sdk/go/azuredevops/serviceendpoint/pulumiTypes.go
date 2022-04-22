@@ -315,7 +315,7 @@ func (o GitHubAuthOauthPtrOutput) OauthConfigurationId() pulumi.StringPtrOutput 
 }
 
 type GitHubAuthPersonal struct {
-	// The Personal Access Token for Github.
+	// The Personal Access Token for GitHub.
 	PersonalAccessToken     string  `pulumi:"personalAccessToken"`
 	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
 }
@@ -332,7 +332,7 @@ type GitHubAuthPersonalInput interface {
 }
 
 type GitHubAuthPersonalArgs struct {
-	// The Personal Access Token for Github.
+	// The Personal Access Token for GitHub.
 	PersonalAccessToken     pulumi.StringInput    `pulumi:"personalAccessToken"`
 	PersonalAccessTokenHash pulumi.StringPtrInput `pulumi:"personalAccessTokenHash"`
 }
@@ -414,7 +414,7 @@ func (o GitHubAuthPersonalOutput) ToGitHubAuthPersonalPtrOutputWithContext(ctx c
 	}).(GitHubAuthPersonalPtrOutput)
 }
 
-// The Personal Access Token for Github.
+// The Personal Access Token for GitHub.
 func (o GitHubAuthPersonalOutput) PersonalAccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GitHubAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
 }
@@ -447,7 +447,7 @@ func (o GitHubAuthPersonalPtrOutput) Elem() GitHubAuthPersonalOutput {
 	}).(GitHubAuthPersonalOutput)
 }
 
-// The Personal Access Token for Github.
+// The Personal Access Token for GitHub.
 func (o GitHubAuthPersonalPtrOutput) PersonalAccessToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitHubAuthPersonal) *string {
 		if v == nil {

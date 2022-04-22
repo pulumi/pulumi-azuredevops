@@ -29,7 +29,7 @@ class ServiceEndpointAzureRMArgs:
         :param pulumi.Input[str] azurerm_spn_tenantid: The tenant id if the service principal.
         :param pulumi.Input[str] azurerm_subscription_id: The subscription Id of the Azure targets.
         :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
@@ -89,7 +89,7 @@ class ServiceEndpointAzureRMArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -174,7 +174,7 @@ class _ServiceEndpointAzureRMState:
         :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
         :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -270,7 +270,7 @@ class _ServiceEndpointAzureRMState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -334,13 +334,14 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
-            project_id=project.id,
-            service_endpoint_name="Sample AzureRM",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
                 serviceprincipalid="00000000-0000-0000-0000-000000000000",
@@ -348,7 +349,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             ),
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
-            azurerm_subscription_name="Sample Subscription")
+            azurerm_subscription_name="Example Subscription Name")
         ```
         ### Automatic AzureRM Service Endpoint
 
@@ -356,28 +357,27 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
-            project_id=project.id,
-            service_endpoint_name="Sample AzureRM",
-            description="Managed by Terraform",
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
-            azurerm_subscription_name="Microsoft Azure DEMO")
+            azurerm_subscription_name="Example Subscription Name")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -387,7 +387,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
         :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -413,13 +413,14 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
-            project_id=project.id,
-            service_endpoint_name="Sample AzureRM",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
             credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
                 serviceprincipalid="00000000-0000-0000-0000-000000000000",
@@ -427,7 +428,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             ),
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
-            azurerm_subscription_name="Sample Subscription")
+            azurerm_subscription_name="Example Subscription Name")
         ```
         ### Automatic AzureRM Service Endpoint
 
@@ -435,28 +436,27 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
             work_item_template="Agile")
-        endpointazure = azuredevops.ServiceEndpointAzureRM("endpointazure",
-            project_id=project.id,
-            service_endpoint_name="Sample AzureRM",
-            description="Managed by Terraform",
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
-            azurerm_subscription_name="Microsoft Azure DEMO")
+            azurerm_subscription_name="Example Subscription Name")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -547,7 +547,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[str] azurerm_subscription_name: The subscription Name of the targets.
         :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
@@ -615,7 +615,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

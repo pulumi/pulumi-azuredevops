@@ -29,26 +29,26 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", nil)
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		pool, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
-// 			Name: "contoso-pool",
+// 		examplePool, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
+// 			Name: "example-pool",
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		queue, err := azuredevops.NewQueue(ctx, "queue", &azuredevops.QueueArgs{
-// 			ProjectId:   project.ID(),
-// 			AgentPoolId: pulumi.String(pool.Id),
+// 		exampleQueue, err := azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
+// 			ProjectId:   exampleProject.ID(),
+// 			AgentPoolId: pulumi.String(examplePool.Id),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewResourceAuthorization(ctx, "auth", &azuredevops.ResourceAuthorizationArgs{
-// 			ProjectId:  project.ID(),
-// 			ResourceId: queue.ID(),
+// 		_, err = azuredevops.NewResourceAuthorization(ctx, "exampleResourceAuthorization", &azuredevops.ResourceAuthorizationArgs{
+// 			ProjectId:  exampleProject.ID(),
+// 			ResourceId: exampleQueue.ID(),
 // 			Type:       pulumi.String("queue"),
 // 			Authorized: pulumi.Bool(true),
 // 		})
@@ -61,14 +61,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/queue:Queue q 00000000-0000-0000-0000-000000000000/0
+//  $ pulumi import azuredevops:index/queue:Queue example 00000000-0000-0000-0000-000000000000/0
 // ```
 type Queue struct {
 	pulumi.CustomResourceState

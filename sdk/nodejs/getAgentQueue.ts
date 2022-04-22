@@ -13,23 +13,22 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * // Azure DevOps project
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     workItemTemplate: "Agile",
  *     versionControl: "Git",
  *     visibility: "private",
  *     description: "Managed by Terraform",
  * });
- * const queue = azuredevops.getAgentQueueOutput({
- *     projectId: project.id,
- *     name: "Sample Agent Queue",
+ * const exampleAgentQueue = azuredevops.getAgentQueueOutput({
+ *     projectId: exampleProject.id,
+ *     name: "Example Agent Queue",
  * });
- * export const name = queue.apply(queue => queue.name);
- * export const poolId = queue.apply(queue => queue.agentPoolId);
+ * export const name = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.name);
+ * export const poolId = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.agentPoolId);
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
  */
 export function getAgentQueue(args: GetAgentQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentQueueResult> {
     if (!opts) {

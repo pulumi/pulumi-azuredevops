@@ -23,19 +23,20 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var serviceendpoint = new AzureDevOps.ServiceEndpointGeneric("serviceendpoint", new AzureDevOps.ServiceEndpointGenericArgs
+    ///         var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("exampleServiceEndpointGeneric", new AzureDevOps.ServiceEndpointGenericArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             ServerUrl = "https://some-server.example.com",
     ///             Username = "username",
     ///             Password = "password",
-    ///             ServiceEndpointName = "Sample Generic",
+    ///             ServiceEndpointName = "Example Generic",
     ///             Description = "Managed by Terraform",
     ///         });
     ///     }
@@ -44,14 +45,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Service Endpoint Generic can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric")]
@@ -76,7 +77,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> PasswordHash { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -163,7 +164,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Password { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -217,7 +218,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? PasswordHash { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

@@ -173,25 +173,25 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        git = azuredevops.Git("git",
-            project_id=project.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("branchPolicyWorkItemLinking",
-            project_id=project.id,
+        example_branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("exampleBranchPolicyWorkItemLinking",
+            project_id=example_project.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyWorkItemLinkingSettingsArgs(
                 scopes=[
                     azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        repository_id=git.id,
-                        repository_ref=git.default_branch,
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
                         match_type="Exact",
                     ),
                     azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        repository_id=git.id,
+                        repository_id=example_git.id,
                         repository_ref="refs/heads/releases",
                         match_type="Prefix",
                     ),
@@ -200,14 +200,14 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 
         ```sh
-         $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking p 00000000-0000-0000-0000-000000000000/0
+         $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,25 +232,25 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        git = azuredevops.Git("git",
-            project_id=project.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("branchPolicyWorkItemLinking",
-            project_id=project.id,
+        example_branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("exampleBranchPolicyWorkItemLinking",
+            project_id=example_project.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyWorkItemLinkingSettingsArgs(
                 scopes=[
                     azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        repository_id=git.id,
-                        repository_ref=git.default_branch,
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
                         match_type="Exact",
                     ),
                     azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
-                        repository_id=git.id,
+                        repository_id=example_git.id,
                         repository_ref="refs/heads/releases",
                         match_type="Prefix",
                     ),
@@ -259,14 +259,14 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 
         ```sh
-         $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking p 00000000-0000-0000-0000-000000000000/0
+         $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.

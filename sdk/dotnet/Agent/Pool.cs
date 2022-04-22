@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// {
     ///     public MyStack()
     ///     {
-    ///         var pool = new AzureDevOps.Pool("pool", new AzureDevOps.PoolArgs
+    ///         var example = new AzureDevOps.Pool("example", new AzureDevOps.PoolArgs
     ///         {
     ///             AutoProvision = false,
     ///         });
@@ -32,14 +32,14 @@ namespace Pulumi.AzureDevOps.Agent
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Agent Pools can be imported using the agent pool ID, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:Agent/pool:Pool pool 42
+    ///  $ pulumi import azuredevops:Agent/pool:Pool example 0
     /// ```
     /// </summary>
     [Obsolete(@"azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool")]
@@ -47,7 +47,7 @@ namespace Pulumi.AzureDevOps.Agent
     public partial class Pool : Pulumi.CustomResource
     {
         /// <summary>
-        /// Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         /// </summary>
         [Output("autoProvision")]
         public Output<bool?> AutoProvision { get; private set; } = null!;
@@ -111,7 +111,7 @@ namespace Pulumi.AzureDevOps.Agent
     public sealed class PoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         /// </summary>
         [Input("autoProvision")]
         public Input<bool>? AutoProvision { get; set; }
@@ -136,7 +136,7 @@ namespace Pulumi.AzureDevOps.Agent
     public sealed class PoolState : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         /// </summary>
         [Input("autoProvision")]
         public Input<bool>? AutoProvision { get; set; }

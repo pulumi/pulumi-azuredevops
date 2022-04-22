@@ -178,26 +178,26 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        git = azuredevops.Git("git",
-            project_id=project.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        build_definition = azuredevops.BuildDefinition("buildDefinition",
-            project_id=project.id,
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
-                repo_id=git.id,
+                repo_id=example_git.id,
                 yml_path="azure-pipelines.yml",
             ))
-        branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("branchPolicyBuildValidation",
-            project_id=project.id,
+        example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation",
+            project_id=example_project.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyBuildValidationSettingsArgs(
-                display_name="Don't break the build!",
-                build_definition_id=build_definition.id,
+                display_name="Example build validation policy",
+                build_definition_id=example_build_definition.id,
                 valid_duration=720,
                 filename_patterns=[
                     "/WebApp/*",
@@ -206,12 +206,12 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
                 ],
                 scopes=[
                     azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
-                        repository_id=git.id,
-                        repository_ref=git.default_branch,
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
                         match_type="Exact",
                     ),
                     azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
-                        repository_id=git.id,
+                        repository_id=example_git.id,
                         repository_ref="refs/heads/releases",
                         match_type="Prefix",
                     ),
@@ -220,14 +220,14 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 
         ```sh
-         $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation p 00000000-0000-0000-0000-000000000000/0
+         $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.
@@ -252,26 +252,26 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        git = azuredevops.Git("git",
-            project_id=project.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        build_definition = azuredevops.BuildDefinition("buildDefinition",
-            project_id=project.id,
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
-                repo_id=git.id,
+                repo_id=example_git.id,
                 yml_path="azure-pipelines.yml",
             ))
-        branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("branchPolicyBuildValidation",
-            project_id=project.id,
+        example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation",
+            project_id=example_project.id,
             enabled=True,
             blocking=True,
             settings=azuredevops.BranchPolicyBuildValidationSettingsArgs(
-                display_name="Don't break the build!",
-                build_definition_id=build_definition.id,
+                display_name="Example build validation policy",
+                build_definition_id=example_build_definition.id,
                 valid_duration=720,
                 filename_patterns=[
                     "/WebApp/*",
@@ -280,12 +280,12 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
                 ],
                 scopes=[
                     azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
-                        repository_id=git.id,
-                        repository_ref=git.default_branch,
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
                         match_type="Exact",
                     ),
                     azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
-                        repository_id=git.id,
+                        repository_id=example_git.id,
                         repository_ref="refs/heads/releases",
                         match_type="Prefix",
                     ),
@@ -294,14 +294,14 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 
         ```sh
-         $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation p 00000000-0000-0000-0000-000000000000/0
+         $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.

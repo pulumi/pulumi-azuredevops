@@ -91,20 +91,19 @@ def get_agent_queue(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    # Azure DevOps project
-    project = azuredevops.Project("project",
+    example_project = azuredevops.Project("exampleProject",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    queue = azuredevops.get_agent_queue_output(project_id=project.id,
-        name="Sample Agent Queue")
-    pulumi.export("name", queue.name)
-    pulumi.export("poolId", queue.agent_pool_id)
+    example_agent_queue = azuredevops.get_agent_queue_output(project_id=example_project.id,
+        name="Example Agent Queue")
+    pulumi.export("name", example_agent_queue.name)
+    pulumi.export("poolId", example_agent_queue.agent_pool_id)
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
 
 
     :param str name: Name of the Agent Queue.
@@ -139,20 +138,19 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    # Azure DevOps project
-    project = azuredevops.Project("project",
+    example_project = azuredevops.Project("exampleProject",
         work_item_template="Agile",
         version_control="Git",
         visibility="private",
         description="Managed by Terraform")
-    queue = azuredevops.get_agent_queue_output(project_id=project.id,
-        name="Sample Agent Queue")
-    pulumi.export("name", queue.name)
-    pulumi.export("poolId", queue.agent_pool_id)
+    example_agent_queue = azuredevops.get_agent_queue_output(project_id=example_project.id,
+        name="Example Agent Queue")
+    pulumi.export("name", example_agent_queue.name)
+    pulumi.export("poolId", example_agent_queue.agent_pool_id)
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
 
 
     :param str name: Name of the Agent Queue.

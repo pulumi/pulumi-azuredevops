@@ -205,23 +205,23 @@ class Team(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="My first project")
-        builtin_project_contributors = azuredevops.get_group_output(project_id=project.id,
+            description="Managed by Terraform")
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
             name="Contributors")
-        builtin_project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
             name="Readers")
-        team = azuredevops.Team("team",
-            project_id=project.id,
-            administrators=[builtin_project_contributors.descriptor],
-            members=[builtin_project_readers.descriptor])
+        example_team = azuredevops.Team("exampleTeam",
+            project_id=example_project.id,
+            administrators=[example_project_contributors.descriptor],
+            members=[example_project_readers.descriptor])
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -232,7 +232,7 @@ class Team(pulumi.CustomResource):
         Azure DevOps teams can be imported using the complete resource id `<project_id>/<team_id>` e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/team:Team team 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -258,23 +258,23 @@ class Team(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
-            description="My first project")
-        builtin_project_contributors = azuredevops.get_group_output(project_id=project.id,
+            description="Managed by Terraform")
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
             name="Contributors")
-        builtin_project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
             name="Readers")
-        team = azuredevops.Team("team",
-            project_id=project.id,
-            administrators=[builtin_project_contributors.descriptor],
-            members=[builtin_project_readers.descriptor])
+        example_team = azuredevops.Team("exampleTeam",
+            project_id=example_project.id,
+            administrators=[example_project_contributors.descriptor],
+            members=[example_project_readers.descriptor])
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -285,7 +285,7 @@ class Team(pulumi.CustomResource):
         Azure DevOps teams can be imported using the complete resource id `<project_id>/<team_id>` e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/team:Team team 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.

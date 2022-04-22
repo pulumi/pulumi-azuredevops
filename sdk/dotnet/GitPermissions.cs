@@ -33,10 +33,22 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project_git_root_permissions = new AzureDevOps.GitPermissions("project-git-root-permissions", new AzureDevOps.GitPermissionsArgs
+    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectId = azuredevops_project.Project.Id,
-    ///             Principal = data.Azuredevops_group.Project_readers.Id,
+    ///             WorkItemTemplate = "Agile",
+    ///             VersionControl = "Git",
+    ///             Visibility = "private",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         {
+    ///             ProjectId = example.Id,
+    ///             Name = "Readers",
+    ///         });
+    ///         var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new AzureDevOps.GitPermissionsArgs
+    ///         {
+    ///             ProjectId = example.Id,
+    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
     ///             Permissions = 
     ///             {
     ///                 { "CreateRepository", "Deny" },
@@ -63,11 +75,30 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project_git_repo_permissions = new AzureDevOps.GitPermissions("project-git-repo-permissions", new AzureDevOps.GitPermissionsArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectId = data.Azuredevops_git_repository.Git_repo.Project_id,
-    ///             RepositoryId = data.Azuredevops_git_repository.Git_repo.Id,
-    ///             Principal = data.Azuredevops_group.Project_administrators.Id,
+    ///             WorkItemTemplate = "Agile",
+    ///             VersionControl = "Git",
+    ///             Visibility = "private",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var example_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         {
+    ///             Name = "Project Collection Administrators",
+    ///         }));
+    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
+    ///         {
+    ///             ProjectId = exampleProject.Id,
+    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             {
+    ///                 InitType = "Clean",
+    ///             },
+    ///         });
+    ///         var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new AzureDevOps.GitPermissionsArgs
+    ///         {
+    ///             ProjectId = exampleGit.ProjectId,
+    ///             RepositoryId = exampleGit.Id,
+    ///             Principal = example_group.Apply(example_group =&gt; example_group.Id),
     ///             Permissions = 
     ///             {
     ///                 { "RemoveOthersLocks", "Allow" },
@@ -95,12 +126,31 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project_git_branch_permissions = new AzureDevOps.GitPermissions("project-git-branch-permissions", new AzureDevOps.GitPermissionsArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
-    ///             ProjectId = data.Azuredevops_git_repository.Git_repo.Project_id,
-    ///             RepositoryId = data.Azuredevops_git_repository.Git_repo.Id,
+    ///             WorkItemTemplate = "Agile",
+    ///             VersionControl = "Git",
+    ///             Visibility = "private",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
+    ///         {
+    ///             ProjectId = exampleProject.Id,
+    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             {
+    ///                 InitType = "Clean",
+    ///             },
+    ///         });
+    ///         var example_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
+    ///         {
+    ///             Name = "Project Collection Administrators",
+    ///         }));
+    ///         var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new AzureDevOps.GitPermissionsArgs
+    ///         {
+    ///             ProjectId = exampleGit.ProjectId,
+    ///             RepositoryId = exampleGit.Id,
     ///             BranchName = "refs/heads/master",
-    ///             Principal = data.Azuredevops_group.Project_contributors.Id,
+    ///             Principal = example_group.Apply(example_group =&gt; example_group.Id),
     ///             Permissions = 
     ///             {
     ///                 { "RemoveOthersLocks", "Allow" },
@@ -122,32 +172,32 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
-    ///             Description = "Test Project Description",
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Readers",
     ///         });
-    ///         var project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Contributors",
     ///         });
-    ///         var project_administrators = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_project_administrators = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Project administrators",
     ///         });
-    ///         var project_git_root_permissions = new AzureDevOps.GitPermissions("project-git-root-permissions", new AzureDevOps.GitPermissionsArgs
+    ///         var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new AzureDevOps.GitPermissionsArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             Principal = project_readers.Apply(project_readers =&gt; project_readers.Id),
+    ///             ProjectId = exampleProject.Id,
+    ///             Principal = example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Id),
     ///             Permissions = 
     ///             {
     ///                 { "CreateRepository", "Deny" },
@@ -155,20 +205,20 @@ namespace Pulumi.AzureDevOps
     ///                 { "RenameRepository", "NotSet" },
     ///             },
     ///         });
-    ///         var git_repo = new AzureDevOps.Git("git-repo", new AzureDevOps.GitArgs
+    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             DefaultBranch = "refs/heads/master",
     ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///             {
     ///                 InitType = "Clean",
     ///             },
     ///         });
-    ///         var project_git_repo_permissions = new AzureDevOps.GitPermissions("project-git-repo-permissions", new AzureDevOps.GitPermissionsArgs
+    ///         var example_repo_permissions = new AzureDevOps.GitPermissions("example-repo-permissions", new AzureDevOps.GitPermissionsArgs
     ///         {
-    ///             ProjectId = git_repo.ProjectId,
-    ///             RepositoryId = git_repo.Id,
-    ///             Principal = project_administrators.Apply(project_administrators =&gt; project_administrators.Id),
+    ///             ProjectId = exampleGit.ProjectId,
+    ///             RepositoryId = exampleGit.Id,
+    ///             Principal = example_project_administrators.Apply(example_project_administrators =&gt; example_project_administrators.Id),
     ///             Permissions = 
     ///             {
     ///                 { "RemoveOthersLocks", "Allow" },
@@ -177,12 +227,12 @@ namespace Pulumi.AzureDevOps
     ///                 { "CreateBranch", "NotSet" },
     ///             },
     ///         });
-    ///         var project_git_branch_permissions = new AzureDevOps.GitPermissions("project-git-branch-permissions", new AzureDevOps.GitPermissionsArgs
+    ///         var example_branch_permissions = new AzureDevOps.GitPermissions("example-branch-permissions", new AzureDevOps.GitPermissionsArgs
     ///         {
-    ///             ProjectId = git_repo.ProjectId,
-    ///             RepositoryId = git_repo.Id,
+    ///             ProjectId = exampleGit.ProjectId,
+    ///             RepositoryId = exampleGit.Id,
     ///             BranchName = "master",
-    ///             Principal = project_contributors.Apply(project_contributors =&gt; project_contributors.Id),
+    ///             Principal = example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Id),
     ///             Permissions = 
     ///             {
     ///                 { "RemoveOthersLocks", "Allow" },
@@ -195,7 +245,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+    /// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 

@@ -16,14 +16,15 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  * import * from "fs";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const test = new azuredevops.ServiceEndpointServiceFabric("test", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample Service Fabric",
+ * const exampleServiceEndpointServiceFabric = new azuredevops.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example Service Fabric",
  *     description: "Managed by Terraform",
  *     clusterEndpoint: "tcp://test",
  *     certificate: {
@@ -82,14 +83,14 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
@@ -130,7 +131,7 @@ export class ServiceEndpointServiceFabric extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly none!: pulumi.Output<outputs.ServiceEndpointServiceFabricNone | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -198,7 +199,7 @@ export interface ServiceEndpointServiceFabricState {
     description?: pulumi.Input<string>;
     none?: pulumi.Input<inputs.ServiceEndpointServiceFabricNone>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -221,7 +222,7 @@ export interface ServiceEndpointServiceFabricArgs {
     description?: pulumi.Input<string>;
     none?: pulumi.Input<inputs.ServiceEndpointServiceFabricNone>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

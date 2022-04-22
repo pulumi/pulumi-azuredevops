@@ -27,23 +27,23 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			Description:      pulumi.String("Test Project Description"),
+// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
 // 			Visibility:       pulumi.String("private"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			WorkItemTemplate: pulumi.String("Agile"),
+// 			Description:      pulumi.String("Managed by Terraform"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: example.ID(),
 // 			Name:      pulumi.String("Readers"),
 // 		}, nil)
-// 		_, err = azuredevops.NewProjectPermissions(ctx, "project-perm", &azuredevops.ProjectPermissionsArgs{
-// 			ProjectId: project.ID(),
-// 			Principal: project_readers.ApplyT(func(project_readers GetGroupResult) (string, error) {
-// 				return project_readers.Id, nil
+// 		_, err = azuredevops.NewProjectPermissions(ctx, "example-permission", &azuredevops.ProjectPermissionsArgs{
+// 			ProjectId: example.ID(),
+// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+// 				return example_readers.Id, nil
 // 			}).(pulumi.StringOutput),
 // 			Permissions: pulumi.StringMap{
 // 				"DELETE":              pulumi.String("Deny"),
@@ -61,7 +61,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //

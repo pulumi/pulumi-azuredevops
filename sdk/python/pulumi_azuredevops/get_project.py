@@ -127,17 +127,12 @@ def get_project(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    project = azuredevops.get_project(name="Sample Project")
-    pulumi.export("id", project.id)
-    pulumi.export("name", project.name)
-    pulumi.export("visibility", project.visibility)
-    pulumi.export("versionControl", project.version_control)
-    pulumi.export("workItemTemplate", project.work_item_template)
-    pulumi.export("processTemplateId", project.process_template_id)
+    example = azuredevops.get_project(name="Example Project")
+    pulumi.export("project", example)
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
 
 
     :param str name: Name of the Project.
@@ -177,17 +172,12 @@ def get_project_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    project = azuredevops.get_project(name="Sample Project")
-    pulumi.export("id", project.id)
-    pulumi.export("name", project.name)
-    pulumi.export("visibility", project.visibility)
-    pulumi.export("versionControl", project.version_control)
-    pulumi.export("workItemTemplate", project.work_item_template)
-    pulumi.export("processTemplateId", project.process_template_id)
+    example = azuredevops.get_project(name="Example Project")
+    pulumi.export("project", example)
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
 
 
     :param str name: Name of the Project.

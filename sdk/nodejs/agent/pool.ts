@@ -13,20 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const pool = new azuredevops.Pool("pool", {
+ * const example = new azuredevops.Pool("example", {
  *     autoProvision: false,
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Agent Pools can be imported using the agent pool ID, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:Agent/pool:Pool pool 42
+ *  $ pulumi import azuredevops:Agent/pool:Pool example 0
  * ```
  *
  * @deprecated azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool
@@ -61,7 +61,7 @@ export class Pool extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+     * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
     public readonly autoProvision!: pulumi.Output<boolean | undefined>;
     /**
@@ -108,7 +108,7 @@ export class Pool extends pulumi.CustomResource {
  */
 export interface PoolState {
     /**
-     * Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+     * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
     autoProvision?: pulumi.Input<boolean>;
     /**
@@ -126,7 +126,7 @@ export interface PoolState {
  */
 export interface PoolArgs {
     /**
-     * Specifies whether or not a queue should be automatically provisioned for each project collection. Defaults to `false`.
+     * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
     autoProvision?: pulumi.Input<boolean>;
     /**

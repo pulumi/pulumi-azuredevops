@@ -25,12 +25,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", nil)
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
-// 			ProjectId: project.ID(),
+// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
@@ -38,19 +38,19 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewBranchPolicyWorkItemLinking(ctx, "branchPolicyWorkItemLinking", &azuredevops.BranchPolicyWorkItemLinkingArgs{
-// 			ProjectId: project.ID(),
+// 		_, err = azuredevops.NewBranchPolicyWorkItemLinking(ctx, "exampleBranchPolicyWorkItemLinking", &azuredevops.BranchPolicyWorkItemLinkingArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
 // 			Settings: &BranchPolicyWorkItemLinkingSettingsArgs{
 // 				Scopes: BranchPolicyWorkItemLinkingSettingsScopeArray{
 // 					&BranchPolicyWorkItemLinkingSettingsScopeArgs{
-// 						RepositoryId:  git.ID(),
-// 						RepositoryRef: git.DefaultBranch,
+// 						RepositoryId:  exampleGit.ID(),
+// 						RepositoryRef: exampleGit.DefaultBranch,
 // 						MatchType:     pulumi.String("Exact"),
 // 					},
 // 					&BranchPolicyWorkItemLinkingSettingsScopeArgs{
-// 						RepositoryId:  git.ID(),
+// 						RepositoryId:  exampleGit.ID(),
 // 						RepositoryRef: pulumi.String("refs/heads/releases"),
 // 						MatchType:     pulumi.String("Prefix"),
 // 					},
@@ -66,14 +66,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking p 00000000-0000-0000-0000-000000000000/0
+//  $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking example 00000000-0000-0000-0000-000000000000/0
 // ```
 type BranchPolicyWorkItemLinking struct {
 	pulumi.CustomResourceState

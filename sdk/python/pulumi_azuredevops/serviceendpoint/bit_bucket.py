@@ -22,7 +22,7 @@ class BitBucketArgs:
         """
         The set of arguments for constructing a BitBucket resource.
         :param pulumi.Input[str] password: Bitbucket account password.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Bitbucket account username.
         """
@@ -51,7 +51,7 @@ class BitBucketArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -116,7 +116,7 @@ class _BitBucketState:
         Input properties used for looking up and filtering BitBucket resources.
         :param pulumi.Input[str] password: Bitbucket account password.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Bitbucket account username.
         """
@@ -181,7 +181,7 @@ class _BitBucketState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -240,33 +240,34 @@ class BitBucket(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointBitBucket("serviceendpoint",
-            project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
+            project_id=example_project.id,
             username="username",
             password="password",
-            service_endpoint_name="Sample Bitbucket",
+            service_endpoint_name="Example Bitbucket",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] password: Bitbucket account password.
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Bitbucket account username.
         """
@@ -285,27 +286,28 @@ class BitBucket(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointBitBucket("serviceendpoint",
-            project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
+            project_id=example_project.id,
             username="username",
             password="password",
-            service_endpoint_name="Sample Bitbucket",
+            service_endpoint_name="Example Bitbucket",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -383,7 +385,7 @@ class BitBucket(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] password: Bitbucket account password.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
-        :param pulumi.Input[str] project_id: The project ID or project name.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Bitbucket account username.
         """
@@ -430,7 +432,7 @@ class BitBucket(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

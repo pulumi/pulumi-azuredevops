@@ -23,7 +23,7 @@ class ServiceEndpointGenericGitArgs:
                  username: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ServiceEndpointGenericGit resource.
-        :param pulumi.Input[str] project_id: The project ID or project name to associate with the service endpoint.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
@@ -48,7 +48,7 @@ class ServiceEndpointGenericGitArgs:
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Input[str]:
         """
-        The project ID or project name to associate with the service endpoint.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -152,7 +152,7 @@ class _ServiceEndpointGenericGitState:
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
         :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
-        :param pulumi.Input[str] project_id: The project ID or project name to associate with the service endpoint.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
         :param pulumi.Input[str] username: The username used to authenticate to the git repository.
@@ -234,7 +234,7 @@ class _ServiceEndpointGenericGitState:
     @pulumi.getter(name="projectId")
     def project_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The project ID or project name to associate with the service endpoint.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 
@@ -303,35 +303,36 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointGenericGit("serviceendpoint",
-            project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_generic_git = azuredevops.ServiceEndpointGenericGit("exampleServiceEndpointGenericGit",
+            project_id=example_project.id,
             repository_url="https://dev.azure.com/org/project/_git/repository",
             username="username",
             password="password",
-            service_endpoint_name="Sample Generic Git",
+            service_endpoint_name="Example Generic Git",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Generic Git can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
         :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
-        :param pulumi.Input[str] project_id: The project ID or project name to associate with the service endpoint.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
         :param pulumi.Input[str] username: The username used to authenticate to the git repository.
@@ -352,28 +353,29 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        serviceendpoint = azuredevops.ServiceEndpointGenericGit("serviceendpoint",
-            project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_generic_git = azuredevops.ServiceEndpointGenericGit("exampleServiceEndpointGenericGit",
+            project_id=example_project.id,
             repository_url="https://dev.azure.com/org/project/_git/repository",
             username="username",
             password="password",
-            service_endpoint_name="Sample Generic Git",
+            service_endpoint_name="Example Generic Git",
             description="Managed by Terraform")
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps Service Endpoint Generic Git can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 
         ```sh
-         $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+         $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -455,7 +457,7 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
         :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
-        :param pulumi.Input[str] project_id: The project ID or project name to associate with the service endpoint.
+        :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
         :param pulumi.Input[str] username: The username used to authenticate to the git repository.
@@ -513,7 +515,7 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
     @pulumi.getter(name="projectId")
     def project_id(self) -> pulumi.Output[str]:
         """
-        The project ID or project name to associate with the service endpoint.
+        The ID of the project.
         """
         return pulumi.get(self, "project_id")
 

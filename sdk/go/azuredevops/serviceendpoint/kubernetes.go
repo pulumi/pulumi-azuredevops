@@ -15,14 +15,14 @@ import (
 //
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:ServiceEndpoint/kubernetes:Kubernetes serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:ServiceEndpoint/kubernetes:Kubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
 // ```
 //
 // Deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes
@@ -34,14 +34,14 @@ type Kubernetes struct {
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
 	AuthorizationType pulumi.StringOutput `pulumi:"authorizationType"`
-	// The configuration for authorization_type="AzureSubscription".
+	// A `azureSubscription` block defined blow.
 	AzureSubscriptions KubernetesAzureSubscriptionArrayOutput `pulumi:"azureSubscriptions"`
 	Description        pulumi.StringPtrOutput                 `pulumi:"description"`
-	// The configuration for authorization_type="Kubeconfig".
+	// A `kubeconfig` block defined blow.
 	Kubeconfigs KubernetesKubeconfigArrayOutput `pulumi:"kubeconfigs"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+	// A `serviceAccount` block defined blow.
 	ServiceAccounts KubernetesServiceAccountArrayOutput `pulumi:"serviceAccounts"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
@@ -93,14 +93,14 @@ type kubernetesState struct {
 	Authorization map[string]string `pulumi:"authorization"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
 	AuthorizationType *string `pulumi:"authorizationType"`
-	// The configuration for authorization_type="AzureSubscription".
+	// A `azureSubscription` block defined blow.
 	AzureSubscriptions []KubernetesAzureSubscription `pulumi:"azureSubscriptions"`
 	Description        *string                       `pulumi:"description"`
-	// The configuration for authorization_type="Kubeconfig".
+	// A `kubeconfig` block defined blow.
 	Kubeconfigs []KubernetesKubeconfig `pulumi:"kubeconfigs"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
-	// The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+	// A `serviceAccount` block defined blow.
 	ServiceAccounts []KubernetesServiceAccount `pulumi:"serviceAccounts"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
@@ -112,14 +112,14 @@ type KubernetesState struct {
 	Authorization pulumi.StringMapInput
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
 	AuthorizationType pulumi.StringPtrInput
-	// The configuration for authorization_type="AzureSubscription".
+	// A `azureSubscription` block defined blow.
 	AzureSubscriptions KubernetesAzureSubscriptionArrayInput
 	Description        pulumi.StringPtrInput
-	// The configuration for authorization_type="Kubeconfig".
+	// A `kubeconfig` block defined blow.
 	Kubeconfigs KubernetesKubeconfigArrayInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
-	// The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+	// A `serviceAccount` block defined blow.
 	ServiceAccounts KubernetesServiceAccountArrayInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
@@ -135,14 +135,14 @@ type kubernetesArgs struct {
 	Authorization map[string]string `pulumi:"authorization"`
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
 	AuthorizationType string `pulumi:"authorizationType"`
-	// The configuration for authorization_type="AzureSubscription".
+	// A `azureSubscription` block defined blow.
 	AzureSubscriptions []KubernetesAzureSubscription `pulumi:"azureSubscriptions"`
 	Description        *string                       `pulumi:"description"`
-	// The configuration for authorization_type="Kubeconfig".
+	// A `kubeconfig` block defined blow.
 	Kubeconfigs []KubernetesKubeconfig `pulumi:"kubeconfigs"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
-	// The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+	// A `serviceAccount` block defined blow.
 	ServiceAccounts []KubernetesServiceAccount `pulumi:"serviceAccounts"`
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
@@ -155,14 +155,14 @@ type KubernetesArgs struct {
 	Authorization pulumi.StringMapInput
 	// The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
 	AuthorizationType pulumi.StringInput
-	// The configuration for authorization_type="AzureSubscription".
+	// A `azureSubscription` block defined blow.
 	AzureSubscriptions KubernetesAzureSubscriptionArrayInput
 	Description        pulumi.StringPtrInput
-	// The configuration for authorization_type="Kubeconfig".
+	// A `kubeconfig` block defined blow.
 	Kubeconfigs KubernetesKubeconfigArrayInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
-	// The configuration for authorization_type="ServiceAccount". This type uses the credentials of a service account currently deployed to the cluster.
+	// A `serviceAccount` block defined blow.
 	ServiceAccounts KubernetesServiceAccountArrayInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput

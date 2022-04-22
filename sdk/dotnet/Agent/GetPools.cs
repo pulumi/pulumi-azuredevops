@@ -28,18 +28,18 @@ namespace Pulumi.AzureDevOps.Agent
         /// {
         ///     public MyStack()
         ///     {
-        ///         var pools = Output.Create(AzureDevOps.GetPools.InvokeAsync());
+        ///         var example = Output.Create(AzureDevOps.GetPools.InvokeAsync());
         ///         this.AgentPoolName = 
         ///         {
-        ///             pools.Apply(pools =&gt; pools.AgentPools),
+        ///             example.Apply(example =&gt; example.AgentPools),
         ///         }.Select(__item =&gt; __item?.Name).ToList();
         ///         this.AutoProvision = 
         ///         {
-        ///             pools.Apply(pools =&gt; pools.AgentPools),
+        ///             example.Apply(example =&gt; example.AgentPools),
         ///         }.Select(__item =&gt; __item?.AutoProvision).ToList();
         ///         this.PoolType = 
         ///         {
-        ///             pools.Apply(pools =&gt; pools.AgentPools),
+        ///             example.Apply(example =&gt; example.AgentPools),
         ///         }.Select(__item =&gt; __item?.PoolType).ToList();
         ///     }
         /// 
@@ -55,7 +55,7 @@ namespace Pulumi.AzureDevOps.Agent
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 5.1 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-5.1)
+        /// - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetPoolsResult> InvokeAsync(InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPoolsResult>("azuredevops:Agent/getPools:getPools", InvokeArgs.Empty, options.WithDefaults());

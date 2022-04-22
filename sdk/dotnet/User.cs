@@ -22,7 +22,7 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var user = new AzureDevOps.User("user", new AzureDevOps.UserArgs
+    ///         var example = new AzureDevOps.User("example", new AzureDevOps.UserArgs
     ///         {
     ///             PrincipalName = "foo@contoso.com",
     ///         });
@@ -32,7 +32,8 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user%20entitlements/add?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user-entitlements/add?view=azure-devops-rest-6.0)
+    /// - [Programmatic mapping of access levels](https://docs.microsoft.com/en-us/azure/devops/organizations/security/access-levels?view=azure-devops#programmatic-mapping-of-access-levels)
     /// 
     /// ## PAT Permissions Required
     /// 
@@ -58,7 +59,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> Descriptor { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
         /// </summary>
         [Output("licensingSource")]
         public Output<string?> LicensingSource { get; private set; } = null!;
@@ -138,7 +139,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? AccountLicenseType { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
         /// </summary>
         [Input("licensingSource")]
         public Input<string>? LicensingSource { get; set; }
@@ -181,7 +182,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Descriptor { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trail`
+        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
         /// </summary>
         [Input("licensingSource")]
         public Input<string>? LicensingSource { get; set; }

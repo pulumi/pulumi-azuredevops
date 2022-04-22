@@ -25,12 +25,12 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", nil)
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		git, err := azuredevops.NewGit(ctx, "git", &azuredevops.GitArgs{
-// 			ProjectId: project.ID(),
+// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Initialization: &GitInitializationArgs{
 // 				InitType: pulumi.String("Clean"),
 // 			},
@@ -38,24 +38,24 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		buildDefinition, err := azuredevops.NewBuildDefinition(ctx, "buildDefinition", &azuredevops.BuildDefinitionArgs{
-// 			ProjectId: project.ID(),
+// 		exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Repository: &BuildDefinitionRepositoryArgs{
 // 				RepoType: pulumi.String("TfsGit"),
-// 				RepoId:   git.ID(),
+// 				RepoId:   exampleGit.ID(),
 // 				YmlPath:  pulumi.String("azure-pipelines.yml"),
 // 			},
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		_, err = azuredevops.NewBranchPolicyBuildValidation(ctx, "branchPolicyBuildValidation", &azuredevops.BranchPolicyBuildValidationArgs{
-// 			ProjectId: project.ID(),
+// 		_, err = azuredevops.NewBranchPolicyBuildValidation(ctx, "exampleBranchPolicyBuildValidation", &azuredevops.BranchPolicyBuildValidationArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Enabled:   pulumi.Bool(true),
 // 			Blocking:  pulumi.Bool(true),
 // 			Settings: &BranchPolicyBuildValidationSettingsArgs{
-// 				DisplayName:       pulumi.String("Don't break the build!"),
-// 				BuildDefinitionId: buildDefinition.ID(),
+// 				DisplayName:       pulumi.String("Example build validation policy"),
+// 				BuildDefinitionId: exampleBuildDefinition.ID(),
 // 				ValidDuration:     pulumi.Int(720),
 // 				FilenamePatterns: pulumi.StringArray{
 // 					pulumi.String("/WebApp/*"),
@@ -64,12 +64,12 @@ import (
 // 				},
 // 				Scopes: BranchPolicyBuildValidationSettingsScopeArray{
 // 					&BranchPolicyBuildValidationSettingsScopeArgs{
-// 						RepositoryId:  git.ID(),
-// 						RepositoryRef: git.DefaultBranch,
+// 						RepositoryId:  exampleGit.ID(),
+// 						RepositoryRef: exampleGit.DefaultBranch,
 // 						MatchType:     pulumi.String("Exact"),
 // 					},
 // 					&BranchPolicyBuildValidationSettingsScopeArgs{
-// 						RepositoryId:  git.ID(),
+// 						RepositoryId:  exampleGit.ID(),
 // 						RepositoryRef: pulumi.String("refs/heads/releases"),
 // 						MatchType:     pulumi.String("Prefix"),
 // 					},
@@ -85,14 +85,14 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
 //
 // ## Import
 //
 // Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation p 00000000-0000-0000-0000-000000000000/0
+//  $ pulumi import azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation example 00000000-0000-0000-0000-000000000000/0
 // ```
 type BranchPolicyBuildValidation struct {
 	pulumi.CustomResourceState

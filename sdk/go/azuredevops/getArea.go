@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			WorkItemTemplate: pulumi.String("Agile"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			Visibility:       pulumi.String("private"),
@@ -39,7 +39,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification%20nodes/get%20classification%20nodes?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //
@@ -85,7 +85,11 @@ func GetAreaOutput(ctx *pulumi.Context, args GetAreaOutputArgs, opts ...pulumi.I
 		ApplyT(func(v interface{}) (GetAreaResult, error) {
 			args := v.(GetAreaArgs)
 			r, err := GetArea(ctx, &args, opts...)
-			return *r, err
+			var s GetAreaResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetAreaResultOutput)
 }
 

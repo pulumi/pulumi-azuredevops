@@ -204,34 +204,34 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
             name="Readers")
-        repository = azuredevops.Git("repository",
-            project_id=project.id,
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        build = azuredevops.BuildDefinition("build",
-            project_id=project.id,
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
             path="\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=True,
             ),
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
-                repo_id=repository.id,
-                branch_name=repository.default_branch,
+                repo_id=example_git.id,
+                branch_name=example_git.default_branch,
                 yml_path="azure-pipelines.yml",
             ))
-        permissions = azuredevops.BuildDefinitionPermissions("permissions",
-            project_id=project.id,
-            principal=project_readers.id,
-            build_definition_id=build.id,
+        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions",
+            project_id=example_project.id,
+            principal=example_readers.id,
+            build_definition_id=example_build_definition.id,
             permissions={
                 "ViewBuilds": "Allow",
                 "EditBuildQuality": "Deny",
@@ -241,7 +241,7 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -276,34 +276,34 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example_project = azuredevops.Project("exampleProject",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
             name="Readers")
-        repository = azuredevops.Git("repository",
-            project_id=project.id,
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        build = azuredevops.BuildDefinition("build",
-            project_id=project.id,
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
             path="\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
                 use_yaml=True,
             ),
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="TfsGit",
-                repo_id=repository.id,
-                branch_name=repository.default_branch,
+                repo_id=example_git.id,
+                branch_name=example_git.default_branch,
                 yml_path="azure-pipelines.yml",
             ))
-        permissions = azuredevops.BuildDefinitionPermissions("permissions",
-            project_id=project.id,
-            principal=project_readers.id,
-            build_definition_id=build.id,
+        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions",
+            project_id=example_project.id,
+            principal=example_readers.id,
+            build_definition_id=example_build_definition.id,
             permissions={
                 "ViewBuilds": "Allow",
                 "EditBuildQuality": "Deny",
@@ -313,7 +313,7 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 

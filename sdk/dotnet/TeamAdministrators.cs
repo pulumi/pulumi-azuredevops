@@ -22,30 +22,30 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             WorkItemTemplate = "Agile",
     ///             VersionControl = "Git",
     ///             Visibility = "private",
-    ///             Description = "My first project",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var builtinProjectContributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
+    ///         var example_project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Name = "Contributors",
     ///         });
-    ///         var team = new AzureDevOps.Team("team", new AzureDevOps.TeamArgs
+    ///         var exampleTeam = new AzureDevOps.Team("exampleTeam", new AzureDevOps.TeamArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///         });
-    ///         var teamAdministrators = new AzureDevOps.TeamAdministrators("teamAdministrators", new AzureDevOps.TeamAdministratorsArgs
+    ///         var example_team_administrators = new AzureDevOps.TeamAdministrators("example-team-administrators", new AzureDevOps.TeamAdministratorsArgs
     ///         {
-    ///             ProjectId = team.ProjectId,
-    ///             TeamId = team.Id,
+    ///             ProjectId = exampleTeam.ProjectId,
+    ///             TeamId = exampleTeam.Id,
     ///             Mode = "overwrite",
     ///             Administrators = 
     ///             {
-    ///                 builtinProjectContributors.Apply(builtinProjectContributors =&gt; builtinProjectContributors.Descriptor),
+    ///                 example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Descriptor),
     ///             },
     ///         });
     ///     }
@@ -54,7 +54,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-6.0)
     /// 
     /// ## PAT Permissions Required
     /// 

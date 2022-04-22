@@ -5,6 +5,29 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs } from "./types";
 import * as utilities from "./utilities";
 
+/**
+ * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getTeams({});
+ * export const projectId = [example.then(example => example.teams)].map(__item => __item?.projectId);
+ * export const name = [example.then(example => example.teams)].map(__item => __item?.name);
+ * export const alladministrators = [example.then(example => example.teams)].map(__item => __item?.administrators);
+ * export const administrators = [example.then(example => example.teams)].map(__item => __item?.members);
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+ *
+ * ## PAT Permissions Required
+ *
+ * - **vso.project**:	Grants the ability to read projects and teams.
+ */
 export function getTeams(args?: GetTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamsResult> {
     args = args || {};
     if (!opts) {
@@ -21,6 +44,9 @@ export function getTeams(args?: GetTeamsArgs, opts?: pulumi.InvokeOptions): Prom
  * A collection of arguments for invoking getTeams.
  */
 export interface GetTeamsArgs {
+    /**
+     * The Project ID. If no project ID all teams of the organization will be returned.
+     */
     projectId?: string;
 }
 
@@ -32,7 +58,14 @@ export interface GetTeamsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    /**
+     * Project identifier.
+     * - `id - Team identifier
+     */
     readonly projectId?: string;
+    /**
+     * A list of existing projects in your Azure DevOps Organization with details about every project which includes:
+     */
     readonly teams: outputs.GetTeamsTeam[];
 }
 
@@ -44,5 +77,8 @@ export function getTeamsOutput(args?: GetTeamsOutputArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getTeams.
  */
 export interface GetTeamsOutputArgs {
+    /**
+     * The Project ID. If no project ID all teams of the organization will be returned.
+     */
     projectId?: pulumi.Input<string>;
 }

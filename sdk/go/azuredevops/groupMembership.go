@@ -25,26 +25,26 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", nil)
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
 // 		if err != nil {
 // 			return err
 // 		}
-// 		user, err := azuredevops.NewUser(ctx, "user", &azuredevops.UserArgs{
+// 		exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
 // 			PrincipalName: pulumi.String("foo@contoso.com"),
 // 		})
 // 		if err != nil {
 // 			return err
 // 		}
-// 		group := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: project.ID(),
+// 		exampleGroup := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+// 			ProjectId: exampleProject.ID(),
 // 			Name:      pulumi.String("Build Administrators"),
 // 		}, nil)
-// 		_, err = azuredevops.NewGroupMembership(ctx, "membership", &azuredevops.GroupMembershipArgs{
-// 			Group: group.ApplyT(func(group GetGroupResult) (string, error) {
-// 				return group.Descriptor, nil
+// 		_, err = azuredevops.NewGroupMembership(ctx, "exampleGroupMembership", &azuredevops.GroupMembershipArgs{
+// 			Group: exampleGroup.ApplyT(func(exampleGroup GetGroupResult) (string, error) {
+// 				return exampleGroup.Descriptor, nil
 // 			}).(pulumi.StringOutput),
 // 			Members: pulumi.StringArray{
-// 				user.Descriptor,
+// 				exampleUser.Descriptor,
 // 			},
 // 		})
 // 		if err != nil {
@@ -56,7 +56,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-5.0)
+// - [Azure DevOps Service REST API 6.0 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //

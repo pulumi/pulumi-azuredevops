@@ -174,21 +174,21 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Managed by Terraform",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        git = azuredevops.Git("git",
-            project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("repositoryPolicyCheckCredentials",
-            project_id=project.id,
+        example_repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("exampleRepositoryPolicyCheckCredentials",
+            project_id=example_project.id,
             enabled=True,
             blocking=True,
-            repository_ids=[git.id])
+            repository_ids=[example_git.id])
         ```
 
         # Set project level repository policy
@@ -196,21 +196,26 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("repositoryPolicyCheckCredentials",
-            project_id=azuredevops_project["p"]["id"],
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("exampleRepositoryPolicyCheckCredentials",
+            project_id=example_project.id,
             enabled=True,
             blocking=True)
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID
 
         ```sh
-         $ pulumi import azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials p 00000000-0000-0000-0000-000000000000/0
+         $ pulumi import azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.
@@ -237,21 +242,21 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
-            description="Managed by Terraform",
+        example_project = azuredevops.Project("exampleProject",
             visibility="private",
             version_control="Git",
-            work_item_template="Agile")
-        git = azuredevops.Git("git",
-            project_id=project.id,
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
             initialization=azuredevops.GitInitializationArgs(
                 init_type="Clean",
             ))
-        repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("repositoryPolicyCheckCredentials",
-            project_id=project.id,
+        example_repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("exampleRepositoryPolicyCheckCredentials",
+            project_id=example_project.id,
             enabled=True,
             blocking=True,
-            repository_ids=[git.id])
+            repository_ids=[example_git.id])
         ```
 
         # Set project level repository policy
@@ -259,21 +264,26 @@ class RepositoryPolicyCheckCredentials(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("repositoryPolicyCheckCredentials",
-            project_id=azuredevops_project["p"]["id"],
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_repository_policy_check_credentials = azuredevops.RepositoryPolicyCheckCredentials("exampleRepositoryPolicyCheckCredentials",
+            project_id=example_project.id,
             enabled=True,
             blocking=True)
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
 
         ## Import
 
         Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID
 
         ```sh
-         $ pulumi import azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials p 00000000-0000-0000-0000-000000000000/0
+         $ pulumi import azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials example 00000000-0000-0000-0000-000000000000/0
         ```
 
         :param str resource_name: The name of the resource.

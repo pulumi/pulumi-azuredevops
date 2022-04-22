@@ -15,24 +15,24 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
- *     description: "Managed by Terraform",
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const git = new azuredevops.Git("git", {
- *     projectId: project.id,
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
  *     initialization: {
  *         initType: "Clean",
  *     },
  * });
- * const repositoryPolicyCaseEnforcement = new azuredevops.RepositoryPolicyCaseEnforcement("repositoryPolicyCaseEnforcement", {
- *     projectId: project.id,
+ * const exampleRepositoryPolicyCaseEnforcement = new azuredevops.RepositoryPolicyCaseEnforcement("exampleRepositoryPolicyCaseEnforcement", {
+ *     projectId: exampleProject.id,
  *     enabled: true,
  *     blocking: true,
  *     enforceConsistentCase: true,
- *     repositoryIds: [git.id],
+ *     repositoryIds: [exampleGit.id],
  * });
  * ```
  *
@@ -41,8 +41,14 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const repositoryPolicyCaseEnforcement = new azuredevops.RepositoryPolicyCaseEnforcement("repositoryPolicyCaseEnforcement", {
- *     projectId: azuredevops_project.p.id,
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleRepositoryPolicyCaseEnforcement = new azuredevops.RepositoryPolicyCaseEnforcement("exampleRepositoryPolicyCaseEnforcement", {
+ *     projectId: exampleProject.id,
  *     enabled: true,
  *     blocking: true,
  *     enforceConsistentCase: true,
@@ -50,14 +56,14 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID
  *
  * ```sh
- *  $ pulumi import azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement p 00000000-0000-0000-0000-000000000000/0
+ *  $ pulumi import azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement example 00000000-0000-0000-0000-000000000000/0
  * ```
  */
 export class RepositoryPolicyCaseEnforcement extends pulumi.CustomResource {

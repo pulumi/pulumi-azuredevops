@@ -22,20 +22,20 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///         });
-    ///         var git = new AzureDevOps.Git("git", new AzureDevOps.GitArgs
+    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///             {
     ///                 InitType = "Clean",
     ///             },
     ///         });
-    ///         var branchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers("branchPolicyMinReviewers", new AzureDevOps.BranchPolicyMinReviewersArgs
+    ///         var exampleBranchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers("exampleBranchPolicyMinReviewers", new AzureDevOps.BranchPolicyMinReviewersArgs
     ///         {
-    ///             ProjectId = project.Id,
+    ///             ProjectId = exampleProject.Id,
     ///             Enabled = true,
     ///             Blocking = true,
     ///             Settings = new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsArgs
@@ -50,8 +50,8 @@ namespace Pulumi.AzureDevOps
     ///                 {
     ///                     new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
     ///                     {
-    ///                         RepositoryId = git.Id,
-    ///                         RepositoryRef = git.DefaultBranch,
+    ///                         RepositoryId = exampleGit.Id,
+    ///                         RepositoryRef = exampleGit.DefaultBranch,
     ///                         MatchType = "Exact",
     ///                     },
     ///                     new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
@@ -69,14 +69,14 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
     /// 
     /// ## Import
     /// 
     /// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers p 00000000-0000-0000-0000-000000000000/0
+    ///  $ pulumi import azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers example 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers")]

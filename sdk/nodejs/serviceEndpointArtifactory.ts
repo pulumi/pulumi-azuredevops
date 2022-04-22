@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const serviceendpoint = new azuredevops.ServiceEndpointArtifactory("serviceendpoint", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample Artifactory",
+ * const exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example Artifactory",
  *     description: "Managed by Terraform",
  *     url: "https://artifactory.my.com",
  *     authenticationToken: {
@@ -35,14 +36,20 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const serviceendpoint = new azuredevops.ServiceEndpointArtifactory("serviceendpoint", {
- *     projectId: azuredevops_project.project.id,
- *     serviceEndpointName: "Sample Artifactory",
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example Artifactory",
  *     description: "Managed by Terraform",
  *     url: "https://artifactory.my.com",
  *     authenticationBasic: {
- *         username: "sampleuser",
- *         password: "0000000000000000000000000000000000000000",
+ *         username: "username",
+ *         password: "password",
  *     },
  * });
  * ```
@@ -56,7 +63,7 @@ import * as utilities from "./utilities";
  * Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointArtifactory extends pulumi.CustomResource {
@@ -95,7 +102,7 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -163,7 +170,7 @@ export interface ServiceEndpointArtifactoryState {
      */
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -188,7 +195,7 @@ export interface ServiceEndpointArtifactoryArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

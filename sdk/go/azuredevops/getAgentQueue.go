@@ -24,7 +24,7 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
 // 			WorkItemTemplate: pulumi.String("Agile"),
 // 			VersionControl:   pulumi.String("Git"),
 // 			Visibility:       pulumi.String("private"),
@@ -33,15 +33,15 @@ import (
 // 		if err != nil {
 // 			return err
 // 		}
-// 		queue := azuredevops.GetAgentQueueOutput(ctx, GetAgentQueueOutputArgs{
-// 			ProjectId: project.ID(),
-// 			Name:      pulumi.String("Sample Agent Queue"),
+// 		exampleAgentQueue := azuredevops.GetAgentQueueOutput(ctx, GetAgentQueueOutputArgs{
+// 			ProjectId: exampleProject.ID(),
+// 			Name:      pulumi.String("Example Agent Queue"),
 // 		}, nil)
-// 		ctx.Export("name", queue.ApplyT(func(queue GetAgentQueueResult) (string, error) {
-// 			return queue.Name, nil
+// 		ctx.Export("name", exampleAgentQueue.ApplyT(func(exampleAgentQueue GetAgentQueueResult) (string, error) {
+// 			return exampleAgentQueue.Name, nil
 // 		}).(pulumi.StringOutput))
-// 		ctx.Export("poolId", queue.ApplyT(func(queue GetAgentQueueResult) (int, error) {
-// 			return queue.AgentPoolId, nil
+// 		ctx.Export("poolId", exampleAgentQueue.ApplyT(func(exampleAgentQueue GetAgentQueueResult) (int, error) {
+// 			return exampleAgentQueue.AgentPoolId, nil
 // 		}).(pulumi.IntOutput))
 // 		return nil
 // 	})
@@ -49,7 +49,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
 func GetAgentQueue(ctx *pulumi.Context, args *GetAgentQueueArgs, opts ...pulumi.InvokeOption) (*GetAgentQueueResult, error) {
 	var rv GetAgentQueueResult
 	err := ctx.Invoke("azuredevops:index/getAgentQueue:getAgentQueue", args, &rv, opts...)
@@ -84,7 +84,11 @@ func GetAgentQueueOutput(ctx *pulumi.Context, args GetAgentQueueOutputArgs, opts
 		ApplyT(func(v interface{}) (GetAgentQueueResult, error) {
 			args := v.(GetAgentQueueArgs)
 			r, err := GetAgentQueue(ctx, &args, opts...)
-			return *r, err
+			var s GetAgentQueueResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetAgentQueueResultOutput)
 }
 

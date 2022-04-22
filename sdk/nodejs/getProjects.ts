@@ -14,18 +14,18 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const test = azuredevops.getProjects({
- *     name: "contoso",
+ * const example = azuredevops.getProjects({
+ *     name: "Example Project",
  *     state: "wellFormed",
  * });
- * export const projectId = [test.then(test => test.projects)].map(__item => __item?.projectId);
- * export const name = [test.then(test => test.projects)].map(__item => __item?.name);
- * export const projectUrl = [test.then(test => test.projects)].map(__item => __item?.projectUrl);
- * export const state = [test.then(test => test.projects)].map(__item => __item?.state);
+ * export const projectId = [example.then(example => example.projects)].map(__item => __item?.projectId);
+ * export const name = [example.then(example => example.projects)].map(__item => __item?.name);
+ * export const projectUrl = [example.then(example => example.projects)].map(__item => __item?.projectUrl);
+ * export const state = [example.then(example => example.projects)].map(__item => __item?.state);
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
  */
 export function getProjects(args?: GetProjectsArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectsResult> {
     args = args || {};

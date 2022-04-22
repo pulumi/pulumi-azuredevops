@@ -11,205 +11,20 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a Build Definition within Azure DevOps.
-//
-// ## Example Usage
-// ### Tfs
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		repository, err := azuredevops.NewGit(ctx, "repository", &azuredevops.GitArgs{
-// 			ProjectId: project.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		vars, err := azuredevops.NewVariableGroup(ctx, "vars", &azuredevops.VariableGroupArgs{
-// 			ProjectId:   project.ID(),
-// 			Description: pulumi.String("Managed by Terraform"),
-// 			AllowAccess: pulumi.Bool(true),
-// 			Variables: VariableGroupVariableArray{
-// 				&VariableGroupVariableArgs{
-// 					Name:  pulumi.String("FOO"),
-// 					Value: pulumi.String("BAR"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBuildDefinition(ctx, "build", &azuredevops.BuildDefinitionArgs{
-// 			ProjectId: project.ID(),
-// 			Path:      pulumi.String("\\ExampleFolder"),
-// 			CiTrigger: &BuildDefinitionCiTriggerArgs{
-// 				UseYaml: pulumi.Bool(true),
-// 			},
-// 			Schedules: BuildDefinitionScheduleArray{
-// 				&BuildDefinitionScheduleArgs{
-// 					BranchFilters: BuildDefinitionScheduleBranchFilterArray{
-// 						&BuildDefinitionScheduleBranchFilterArgs{
-// 							Includes: pulumi.StringArray{
-// 								pulumi.String("master"),
-// 							},
-// 							Excludes: pulumi.StringArray{
-// 								pulumi.String("test"),
-// 								pulumi.String("regression"),
-// 							},
-// 						},
-// 					},
-// 					DaysToBuilds: pulumi.StringArray{
-// 						pulumi.String("Wed"),
-// 						pulumi.String("Sun"),
-// 					},
-// 					ScheduleOnlyWithChanges: pulumi.Bool(true),
-// 					StartHours:              pulumi.Int(10),
-// 					StartMinutes:            pulumi.Int(59),
-// 					TimeZone:                pulumi.String("(UTC) Coordinated Universal Time"),
-// 				},
-// 			},
-// 			Repository: &BuildDefinitionRepositoryArgs{
-// 				RepoType:   pulumi.String("TfsGit"),
-// 				RepoId:     repository.ID(),
-// 				BranchName: repository.DefaultBranch,
-// 				YmlPath:    pulumi.String("azure-pipelines.yml"),
-// 			},
-// 			VariableGroups: pulumi.IntArray{
-// 				vars.ID(),
-// 			},
-// 			Variables: BuildDefinitionVariableArray{
-// 				&BuildDefinitionVariableArgs{
-// 					Name:  pulumi.String("PipelineVariable"),
-// 					Value: pulumi.String("Go Microsoft!"),
-// 				},
-// 				&BuildDefinitionVariableArgs{
-// 					Name:        pulumi.String("PipelineSecret"),
-// 					SecretValue: pulumi.String("ZGV2cw"),
-// 					IsSecret:    pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ### GitHub Enterprise
-// ```go
-// package main
-//
-// import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-// )
-//
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewBuildDefinition(ctx, "sampleDotnetcoreAppRelease", &azuredevops.BuildDefinitionArgs{
-// 			ProjectId: pulumi.Any(azuredevops_project.Project.Id),
-// 			Path:      pulumi.String("\\ExampleFolder"),
-// 			CiTrigger: &BuildDefinitionCiTriggerArgs{
-// 				UseYaml: pulumi.Bool(true),
-// 			},
-// 			Repository: &BuildDefinitionRepositoryArgs{
-// 				RepoType:            pulumi.String("GitHubEnterprise"),
-// 				RepoId:              pulumi.String("<GitHub Org>/<Repo Name>"),
-// 				GithubEnterpriseUrl: pulumi.String("https://github.company.com"),
-// 				BranchName:          pulumi.String("master"),
-// 				YmlPath:             pulumi.String("azure-pipelines.yml"),
-// 				ServiceConnectionId: pulumi.String("..."),
-// 			},
-// 			Schedules: BuildDefinitionScheduleArray{
-// 				&BuildDefinitionScheduleArgs{
-// 					BranchFilters: BuildDefinitionScheduleBranchFilterArray{
-// 						&BuildDefinitionScheduleBranchFilterArgs{
-// 							Includes: pulumi.StringArray{
-// 								pulumi.String("main"),
-// 							},
-// 							Excludes: pulumi.StringArray{
-// 								pulumi.String("test"),
-// 								pulumi.String("regression"),
-// 							},
-// 						},
-// 					},
-// 					DaysToBuilds: pulumi.StringArray{
-// 						pulumi.String("Wed"),
-// 						pulumi.String("Sun"),
-// 					},
-// 					ScheduleOnlyWithChanges: pulumi.Bool(true),
-// 					StartHours:              pulumi.Int(10),
-// 					StartMinutes:            pulumi.Int(59),
-// 					TimeZone:                pulumi.String("(UTC) Coordinated Universal Time"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
-// ```
-// ## Relevant Links
-//
-// - [Azure DevOps Service REST API 5.1 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-5.1)
-//
-// ## Import
-//
-// Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
-//
-// ```sh
-//  $ pulumi import azuredevops:index/buildDefinition:BuildDefinition build "Test Project"/10
-// ```
-//
-//  or
-//
-// ```sh
-//  $ pulumi import azuredevops:index/buildDefinition:BuildDefinition build 00000000-0000-0000-0000-000000000000/0
-// ```
 type BuildDefinition struct {
 	pulumi.CustomResourceState
 
-	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-	AgentPoolName pulumi.StringPtrOutput `pulumi:"agentPoolName"`
-	// Continuous Integration trigger.
-	CiTrigger BuildDefinitionCiTriggerPtrOutput `pulumi:"ciTrigger"`
-	// The name of the build definition.
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The folder path of the build definition.
-	Path pulumi.StringPtrOutput `pulumi:"path"`
-	// The project ID or project name.
-	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Pull Request Integration Integration trigger.
+	AgentPoolName      pulumi.StringPtrOutput                     `pulumi:"agentPoolName"`
+	CiTrigger          BuildDefinitionCiTriggerPtrOutput          `pulumi:"ciTrigger"`
+	Name               pulumi.StringOutput                        `pulumi:"name"`
+	Path               pulumi.StringPtrOutput                     `pulumi:"path"`
+	ProjectId          pulumi.StringOutput                        `pulumi:"projectId"`
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrOutput `pulumi:"pullRequestTrigger"`
-	// A `repository` block as documented below.
-	Repository BuildDefinitionRepositoryOutput `pulumi:"repository"`
-	// The revision of the build definition
-	Revision  pulumi.IntOutput                   `pulumi:"revision"`
-	Schedules BuildDefinitionScheduleArrayOutput `pulumi:"schedules"`
-	// A list of variable group IDs (integers) to link to the build definition.
-	VariableGroups pulumi.IntArrayOutput `pulumi:"variableGroups"`
-	// A list of `variable` blocks, as documented below.
-	Variables BuildDefinitionVariableArrayOutput `pulumi:"variables"`
+	Repository         BuildDefinitionRepositoryOutput            `pulumi:"repository"`
+	Revision           pulumi.IntOutput                           `pulumi:"revision"`
+	Schedules          BuildDefinitionScheduleArrayOutput         `pulumi:"schedules"`
+	VariableGroups     pulumi.IntArrayOutput                      `pulumi:"variableGroups"`
+	Variables          BuildDefinitionVariableArrayOutput         `pulumi:"variables"`
 }
 
 // NewBuildDefinition registers a new resource with the given unique name, arguments, and options.
@@ -253,51 +68,31 @@ func GetBuildDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BuildDefinition resources.
 type buildDefinitionState struct {
-	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// Continuous Integration trigger.
-	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
-	// The name of the build definition.
-	Name *string `pulumi:"name"`
-	// The folder path of the build definition.
-	Path *string `pulumi:"path"`
-	// The project ID or project name.
-	ProjectId *string `pulumi:"projectId"`
-	// Pull Request Integration Integration trigger.
+	AgentPoolName      *string                            `pulumi:"agentPoolName"`
+	CiTrigger          *BuildDefinitionCiTrigger          `pulumi:"ciTrigger"`
+	Name               *string                            `pulumi:"name"`
+	Path               *string                            `pulumi:"path"`
+	ProjectId          *string                            `pulumi:"projectId"`
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
-	// A `repository` block as documented below.
-	Repository *BuildDefinitionRepository `pulumi:"repository"`
-	// The revision of the build definition
-	Revision  *int                      `pulumi:"revision"`
-	Schedules []BuildDefinitionSchedule `pulumi:"schedules"`
-	// A list of variable group IDs (integers) to link to the build definition.
-	VariableGroups []int `pulumi:"variableGroups"`
-	// A list of `variable` blocks, as documented below.
-	Variables []BuildDefinitionVariable `pulumi:"variables"`
+	Repository         *BuildDefinitionRepository         `pulumi:"repository"`
+	Revision           *int                               `pulumi:"revision"`
+	Schedules          []BuildDefinitionSchedule          `pulumi:"schedules"`
+	VariableGroups     []int                              `pulumi:"variableGroups"`
+	Variables          []BuildDefinitionVariable          `pulumi:"variables"`
 }
 
 type BuildDefinitionState struct {
-	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-	AgentPoolName pulumi.StringPtrInput
-	// Continuous Integration trigger.
-	CiTrigger BuildDefinitionCiTriggerPtrInput
-	// The name of the build definition.
-	Name pulumi.StringPtrInput
-	// The folder path of the build definition.
-	Path pulumi.StringPtrInput
-	// The project ID or project name.
-	ProjectId pulumi.StringPtrInput
-	// Pull Request Integration Integration trigger.
+	AgentPoolName      pulumi.StringPtrInput
+	CiTrigger          BuildDefinitionCiTriggerPtrInput
+	Name               pulumi.StringPtrInput
+	Path               pulumi.StringPtrInput
+	ProjectId          pulumi.StringPtrInput
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
-	// A `repository` block as documented below.
-	Repository BuildDefinitionRepositoryPtrInput
-	// The revision of the build definition
-	Revision  pulumi.IntPtrInput
-	Schedules BuildDefinitionScheduleArrayInput
-	// A list of variable group IDs (integers) to link to the build definition.
-	VariableGroups pulumi.IntArrayInput
-	// A list of `variable` blocks, as documented below.
-	Variables BuildDefinitionVariableArrayInput
+	Repository         BuildDefinitionRepositoryPtrInput
+	Revision           pulumi.IntPtrInput
+	Schedules          BuildDefinitionScheduleArrayInput
+	VariableGroups     pulumi.IntArrayInput
+	Variables          BuildDefinitionVariableArrayInput
 }
 
 func (BuildDefinitionState) ElementType() reflect.Type {
@@ -305,48 +100,30 @@ func (BuildDefinitionState) ElementType() reflect.Type {
 }
 
 type buildDefinitionArgs struct {
-	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-	AgentPoolName *string `pulumi:"agentPoolName"`
-	// Continuous Integration trigger.
-	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
-	// The name of the build definition.
-	Name *string `pulumi:"name"`
-	// The folder path of the build definition.
-	Path *string `pulumi:"path"`
-	// The project ID or project name.
-	ProjectId string `pulumi:"projectId"`
-	// Pull Request Integration Integration trigger.
+	AgentPoolName      *string                            `pulumi:"agentPoolName"`
+	CiTrigger          *BuildDefinitionCiTrigger          `pulumi:"ciTrigger"`
+	Name               *string                            `pulumi:"name"`
+	Path               *string                            `pulumi:"path"`
+	ProjectId          string                             `pulumi:"projectId"`
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
-	// A `repository` block as documented below.
-	Repository BuildDefinitionRepository `pulumi:"repository"`
-	Schedules  []BuildDefinitionSchedule `pulumi:"schedules"`
-	// A list of variable group IDs (integers) to link to the build definition.
-	VariableGroups []int `pulumi:"variableGroups"`
-	// A list of `variable` blocks, as documented below.
-	Variables []BuildDefinitionVariable `pulumi:"variables"`
+	Repository         BuildDefinitionRepository          `pulumi:"repository"`
+	Schedules          []BuildDefinitionSchedule          `pulumi:"schedules"`
+	VariableGroups     []int                              `pulumi:"variableGroups"`
+	Variables          []BuildDefinitionVariable          `pulumi:"variables"`
 }
 
 // The set of arguments for constructing a BuildDefinition resource.
 type BuildDefinitionArgs struct {
-	// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
-	AgentPoolName pulumi.StringPtrInput
-	// Continuous Integration trigger.
-	CiTrigger BuildDefinitionCiTriggerPtrInput
-	// The name of the build definition.
-	Name pulumi.StringPtrInput
-	// The folder path of the build definition.
-	Path pulumi.StringPtrInput
-	// The project ID or project name.
-	ProjectId pulumi.StringInput
-	// Pull Request Integration Integration trigger.
+	AgentPoolName      pulumi.StringPtrInput
+	CiTrigger          BuildDefinitionCiTriggerPtrInput
+	Name               pulumi.StringPtrInput
+	Path               pulumi.StringPtrInput
+	ProjectId          pulumi.StringInput
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
-	// A `repository` block as documented below.
-	Repository BuildDefinitionRepositoryInput
-	Schedules  BuildDefinitionScheduleArrayInput
-	// A list of variable group IDs (integers) to link to the build definition.
-	VariableGroups pulumi.IntArrayInput
-	// A list of `variable` blocks, as documented below.
-	Variables BuildDefinitionVariableArrayInput
+	Repository         BuildDefinitionRepositoryInput
+	Schedules          BuildDefinitionScheduleArrayInput
+	VariableGroups     pulumi.IntArrayInput
+	Variables          BuildDefinitionVariableArrayInput
 }
 
 func (BuildDefinitionArgs) ElementType() reflect.Type {

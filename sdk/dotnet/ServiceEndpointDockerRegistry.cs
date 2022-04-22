@@ -22,27 +22,28 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
     ///         // dockerhub registry service connection
-    ///         var dockerhubregistry = new AzureDevOps.ServiceEndpointDockerRegistry("dockerhubregistry", new AzureDevOps.ServiceEndpointDockerRegistryArgs
+    ///         var exampleServiceEndpointDockerRegistry = new AzureDevOps.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", new AzureDevOps.ServiceEndpointDockerRegistryArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample Docker Hub",
-    ///             DockerUsername = "sample",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example Docker Hub",
+    ///             DockerUsername = "example",
     ///             DockerEmail = "email@example.com",
     ///             DockerPassword = "12345",
     ///             RegistryType = "DockerHub",
     ///         });
     ///         // other docker registry service connection
-    ///         var otherregistry = new AzureDevOps.ServiceEndpointDockerRegistry("otherregistry", new AzureDevOps.ServiceEndpointDockerRegistryArgs
+    ///         var example_other = new AzureDevOps.ServiceEndpointDockerRegistry("example-other", new AzureDevOps.ServiceEndpointDockerRegistryArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample Docker Registry",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example Docker Registry",
     ///             DockerRegistry = "https://sample.azurecr.io/v1",
     ///             DockerUsername = "sample",
     ///             DockerPassword = "12345",
@@ -54,7 +55,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// - [Docker Registry Service Connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&amp;tabs=yaml#sep-docreg)
     /// 
     /// ## Import
@@ -62,7 +63,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry")]
@@ -105,7 +106,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> DockerUsername { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -208,7 +209,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DockerUsername { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -274,7 +275,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? DockerUsername { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

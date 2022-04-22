@@ -125,7 +125,7 @@ class GitHubAuthPersonal(dict):
                  personal_access_token: str,
                  personal_access_token_hash: Optional[str] = None):
         """
-        :param str personal_access_token: The Personal Access Token for Github.
+        :param str personal_access_token: The Personal Access Token for GitHub.
         """
         pulumi.set(__self__, "personal_access_token", personal_access_token)
         if personal_access_token_hash is not None:
@@ -135,7 +135,7 @@ class GitHubAuthPersonal(dict):
     @pulumi.getter(name="personalAccessToken")
     def personal_access_token(self) -> str:
         """
-        The Personal Access Token for Github.
+        The Personal Access Token for GitHub.
         """
         return pulumi.get(self, "personal_access_token")
 

@@ -92,16 +92,16 @@ def get_projects(name: Optional[str] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    test = azuredevops.get_projects(name="contoso",
+    example = azuredevops.get_projects(name="Example Project",
         state="wellFormed")
-    pulumi.export("projectId", [__item.project_id for __item in [test.projects]])
-    pulumi.export("name", [__item.name for __item in [test.projects]])
-    pulumi.export("projectUrl", [__item.project_url for __item in [test.projects]])
-    pulumi.export("state", [__item.state for __item in [test.projects]])
+    pulumi.export("projectId", [__item.project_id for __item in [example.projects]])
+    pulumi.export("name", [__item.name for __item in [example.projects]])
+    pulumi.export("projectUrl", [__item.project_url for __item in [example.projects]])
+    pulumi.export("state", [__item.state for __item in [example.projects]])
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
 
 
     :param str name: Name of the Project, if not specified all projects will be returned.
@@ -136,16 +136,16 @@ def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     import pulumi
     import pulumi_azuredevops as azuredevops
 
-    test = azuredevops.get_projects(name="contoso",
+    example = azuredevops.get_projects(name="Example Project",
         state="wellFormed")
-    pulumi.export("projectId", [__item.project_id for __item in [test.projects]])
-    pulumi.export("name", [__item.name for __item in [test.projects]])
-    pulumi.export("projectUrl", [__item.project_url for __item in [test.projects]])
-    pulumi.export("state", [__item.state for __item in [test.projects]])
+    pulumi.export("projectId", [__item.project_id for __item in [example.projects]])
+    pulumi.export("name", [__item.name for __item in [example.projects]])
+    pulumi.export("projectUrl", [__item.project_url for __item in [example.projects]])
+    pulumi.export("state", [__item.state for __item in [example.projects]])
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 5.1 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-5.1)
+    - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
 
 
     :param str name: Name of the Project, if not specified all projects will be returned.

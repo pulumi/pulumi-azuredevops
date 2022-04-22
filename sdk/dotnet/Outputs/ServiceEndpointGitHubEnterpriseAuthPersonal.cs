@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointGitHubEnterpriseAuthPersonal
     {
         /// <summary>
-        /// The Personal Access Token for Github.
+        /// The Personal Access Token for GitHub.
         /// </summary>
         public readonly string PersonalAccessToken;
         public readonly string? PersonalAccessTokenHash;

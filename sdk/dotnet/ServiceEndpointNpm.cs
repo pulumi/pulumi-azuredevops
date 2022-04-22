@@ -22,16 +22,17 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
     ///             Visibility = "private",
     ///             VersionControl = "Git",
     ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var serviceendpoint = new AzureDevOps.ServiceEndpointNpm("serviceendpoint", new AzureDevOps.ServiceEndpointNpmArgs
+    ///         var exampleServiceEndpointNpm = new AzureDevOps.ServiceEndpointNpm("exampleServiceEndpointNpm", new AzureDevOps.ServiceEndpointNpmArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample npm",
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example npm",
     ///             Url = "https://registry.npmjs.org",
     ///             AccessToken = "00000000-0000-0000-0000-000000000000",
     ///             Description = "Managed by Terraform",
@@ -42,6 +43,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
+    /// - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
     /// - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&amp;tabs=yaml)
     /// - [npm User Token](https://docs.npmjs.com/about-access-tokens)
     /// 
@@ -50,7 +52,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps Service Endpoint npm can be imported using the **projectID/serviceEndpointID**, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm")]
@@ -78,7 +80,7 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -162,7 +164,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -213,7 +215,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

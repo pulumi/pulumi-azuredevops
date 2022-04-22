@@ -25,22 +25,22 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: pulumi.StringRef("contoso-project"),
+// 		example, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+// 			Name: pulumi.StringRef("Example Project"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
-// 			ProjectId:     pulumi.StringRef(project.Id),
+// 			ProjectId:     pulumi.StringRef(example.Id),
 // 			IncludeHidden: pulumi.BoolRef(true),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
 // 		}
 // 		_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
-// 			ProjectId: pulumi.StringRef(project.Id),
-// 			Name:      pulumi.StringRef("contoso-repo"),
+// 			ProjectId: pulumi.StringRef(example.Id),
+// 			Name:      pulumi.StringRef("Example Repository"),
 // 		}, nil)
 // 		if err != nil {
 // 			return err
@@ -51,7 +51,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
 //
 // Deprecated: azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories
 func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
@@ -90,7 +90,11 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 		ApplyT(func(v interface{}) (GetRepositoriesResult, error) {
 			args := v.(GetRepositoriesArgs)
 			r, err := GetRepositories(ctx, &args, opts...)
-			return *r, err
+			var s GetRepositoriesResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
 		}).(GetRepositoriesResultOutput)
 }
 

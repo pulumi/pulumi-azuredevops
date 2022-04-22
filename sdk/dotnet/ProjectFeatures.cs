@@ -22,13 +22,16 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var tf_project_test_001 = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
+    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
     ///         {
-    ///             Name = "Test Project",
-    ///         }));
-    ///         var my_project_features = new AzureDevOps.ProjectFeatures("my-project-features", new AzureDevOps.ProjectFeaturesArgs
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var example_features = new AzureDevOps.ProjectFeatures("example-features", new AzureDevOps.ProjectFeaturesArgs
     ///         {
-    ///             ProjectId = tf_project_test_001.Apply(tf_project_test_001 =&gt; tf_project_test_001.Id),
+    ///             ProjectId = example.Id,
     ///             Features = 
     ///             {
     ///                 { "testplans", "disabled" },
@@ -52,7 +55,7 @@ namespace Pulumi.AzureDevOps
     /// Azure DevOps feature settings can be imported using the project id, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures project_id 00000000-0000-0000-0000-000000000000
+    ///  $ pulumi import azuredevops:index/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/projectFeatures:ProjectFeatures")]

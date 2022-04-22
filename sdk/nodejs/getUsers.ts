@@ -15,31 +15,31 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * // Load single user by using it's principal name
- * const user = pulumi.output(azuredevops.getUsers({
+ * const example = pulumi.output(azuredevops.getUsers({
  *     principalName: "contoso-user@contoso.onmicrosoft.com",
  * }));
  * // Load all users know inside an organization
- * const all_users = pulumi.output(azuredevops.getUsers());
+ * const example_all_users = pulumi.output(azuredevops.getUsers());
  * // Load all users know inside an organization originating from a specific source (origin)
- * const all_from_origin = pulumi.output(azuredevops.getUsers({
+ * const example_all_from_origin = pulumi.output(azuredevops.getUsers({
  *     origin: "aad",
  * }));
  * // Load all users know inside an organization filtered by their subject types
- * const all_from_subject_types = pulumi.output(azuredevops.getUsers({
+ * const example_all_from_subject_types = pulumi.output(azuredevops.getUsers({
  *     subjectTypes: [
  *         "aad",
  *         "msa",
  *     ],
  * }));
  * // Load a single user by origin and origin ID
- * const all_from_origin_id = pulumi.output(azuredevops.getUsers({
+ * const example_all_from_origin_id = pulumi.output(azuredevops.getUsers({
  *     origin: "aad",
- *     originId: "a7ead982-8438-4cd2-b9e3-c3aa51a7b675",
+ *     originId: "00000000-0000-0000-0000-000000000000",
  * }));
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};

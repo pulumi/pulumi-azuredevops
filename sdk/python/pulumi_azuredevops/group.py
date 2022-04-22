@@ -335,23 +335,23 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        tf_project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
             name="Readers")
-        tf_project_contributors = azuredevops.get_group_output(project_id=project.id,
+        example_contributors = azuredevops.get_group_output(project_id=example_project.id,
             name="Contributors")
-        group = azuredevops.Group("group",
-            scope=project.id,
-            display_name="Test group",
-            description="Test description",
+        example_group = azuredevops.Group("exampleGroup",
+            scope=example_project.id,
+            display_name="Example group",
+            description="Example description",
             members=[
-                tf_project_readers.descriptor,
-                tf_project_contributors.descriptor,
+                example_readers.descriptor,
+                example_contributors.descriptor,
             ])
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -362,7 +362,7 @@ class Group(pulumi.CustomResource):
         Azure DevOps groups can be imported using the group identity descriptor, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+         $ pulumi import azuredevops:index/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
         ```
 
         :param str resource_name: The name of the resource.
@@ -389,23 +389,23 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project")
-        tf_project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_project = azuredevops.Project("exampleProject")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
             name="Readers")
-        tf_project_contributors = azuredevops.get_group_output(project_id=project.id,
+        example_contributors = azuredevops.get_group_output(project_id=example_project.id,
             name="Contributors")
-        group = azuredevops.Group("group",
-            scope=project.id,
-            display_name="Test group",
-            description="Test description",
+        example_group = azuredevops.Group("exampleGroup",
+            scope=example_project.id,
+            display_name="Example group",
+            description="Example description",
             members=[
-                tf_project_readers.descriptor,
-                tf_project_contributors.descriptor,
+                example_readers.descriptor,
+                example_contributors.descriptor,
             ])
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 5.1 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-5.1)
+        - [Azure DevOps Service REST API 6.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -416,7 +416,7 @@ class Group(pulumi.CustomResource):
         Azure DevOps groups can be imported using the group identity descriptor, e.g.
 
         ```sh
-         $ pulumi import azuredevops:index/group:Group id aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+         $ pulumi import azuredevops:index/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
         ```
 
         :param str resource_name: The name of the resource.

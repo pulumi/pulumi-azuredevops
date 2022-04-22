@@ -24,8 +24,8 @@ import (
 //
 // func main() {
 // 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			Description: pulumi.String("Test Project Description"),
+// 		_, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+// 			Description: pulumi.String("Managed by Terraform"),
 // 			Features: pulumi.StringMap{
 // 				"artifacts": pulumi.String("disabled"),
 // 				"testplans": pulumi.String("disabled"),
@@ -43,7 +43,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 5.1 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-5.1)
+// - [Azure DevOps Service REST API 6.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-6.0)
 //
 // ## PAT Permissions Required
 //
@@ -54,13 +54,13 @@ import (
 // Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:Core/project:Project project "Test Project"
+//  $ pulumi import azuredevops:Core/project:Project example "Example Project"
 // ```
 //
 //  or
 //
 // ```sh
-//  $ pulumi import azuredevops:Core/project:Project project 00000000-0000-0000-0000-000000000000
+//  $ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000
 // ```
 //
 // Deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project

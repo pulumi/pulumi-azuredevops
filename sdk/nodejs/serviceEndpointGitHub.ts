@@ -14,14 +14,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const serviceendpointGh1 = new azuredevops.ServiceEndpointGitHub("serviceendpointGh1", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample GithHub Personal Access Token",
+ * const exampleServiceEndpointGitHub = new azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example GitHub Personal Access Token",
  *     authPersonal: {
  *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
  *     },
@@ -32,9 +33,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const serviceendpointGh2 = new azuredevops.ServiceEndpointGitHub("serviceendpointGh2", {
- *     projectId: azuredevops_project.project.id,
- *     serviceEndpointName: "Sample GithHub Grant",
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointGitHub = new azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example GitHub",
  *     authOauth: {
  *         oauthConfigurationId: "00000000-0000-0000-0000-000000000000",
  *     },
@@ -45,22 +52,28 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const serviceendpointGh3 = new azuredevops.ServiceEndpointGitHub("serviceendpointGh3", {
- *     projectId: azuredevops_project.project.id,
- *     serviceEndpointName: "Sample GithHub Apps: Azure Pipelines",
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointGitHub = new azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example GitHub Apps: Azure Pipelines",
  *     description: "Managed by Terraform",
  * });
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointGitHub extends pulumi.CustomResource {
@@ -102,7 +115,7 @@ export class ServiceEndpointGitHub extends pulumi.CustomResource {
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -166,7 +179,7 @@ export interface ServiceEndpointGitHubState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -190,7 +203,7 @@ export interface ServiceEndpointGitHubArgs {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

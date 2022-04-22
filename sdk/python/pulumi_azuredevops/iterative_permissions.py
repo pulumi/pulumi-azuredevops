@@ -210,24 +210,24 @@ class IterativePermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example = azuredevops.Project("example",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        root_permissions = azuredevops.IterativePermissions("root-permissions",
-            project_id=project.id,
-            principal=azuredevops_group["project-readers"]["id"],
+        example_root_permissions = azuredevops.IterativePermissions("example-root-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "CREATE_CHILDREN": "Deny",
                 "GENERIC_READ": "NotSet",
                 "DELETE": "Deny",
             })
-        iteration_permissions = azuredevops.IterativePermissions("iteration-permissions",
-            project_id=project.id,
-            principal=azuredevops_group["project-readers"]["id"],
+        example_iteration_permissions = azuredevops.IterativePermissions("example-iteration-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
             path="Iteration 1",
             permissions={
                 "CREATE_CHILDREN": "Allow",
@@ -237,7 +237,7 @@ class IterativePermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 
@@ -277,24 +277,24 @@ class IterativePermissions(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        project = azuredevops.Project("project",
+        example = azuredevops.Project("example",
             work_item_template="Agile",
             version_control="Git",
             visibility="private",
             description="Managed by Terraform")
-        project_readers = azuredevops.get_group_output(project_id=project.id,
+        example_readers = azuredevops.get_group_output(project_id=example.id,
             name="Readers")
-        root_permissions = azuredevops.IterativePermissions("root-permissions",
-            project_id=project.id,
-            principal=azuredevops_group["project-readers"]["id"],
+        example_root_permissions = azuredevops.IterativePermissions("example-root-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
             permissions={
                 "CREATE_CHILDREN": "Deny",
                 "GENERIC_READ": "NotSet",
                 "DELETE": "Deny",
             })
-        iteration_permissions = azuredevops.IterativePermissions("iteration-permissions",
-            project_id=project.id,
-            principal=azuredevops_group["project-readers"]["id"],
+        example_iteration_permissions = azuredevops.IterativePermissions("example-iteration-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
             path="Iteration 1",
             permissions={
                 "CREATE_CHILDREN": "Allow",
@@ -304,7 +304,7 @@ class IterativePermissions(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        * [Azure DevOps Service REST API 5.1 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-5.1)
+        * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
 
         ## PAT Permissions Required
 

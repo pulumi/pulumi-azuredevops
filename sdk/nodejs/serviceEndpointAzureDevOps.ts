@@ -7,6 +7,8 @@ import * as utilities from "./utilities";
 /**
  * Manages an Azure DevOps service endpoint within Azure DevOps.
  *
+ * > **Note** This resource is duplicate with `azuredevops.ServiceEndpointPipeline`,  will be removed in the future, use `azuredevops.ServiceEndpointPipeline` instead.
+ *
  * > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
  *
  * ## Example Usage
@@ -15,14 +17,15 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const project = new azuredevops.Project("project", {
+ * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",
  *     versionControl: "Git",
  *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
  * });
- * const test = new azuredevops.ServiceEndpointAzureDevOps("test", {
- *     projectId: project.id,
- *     serviceEndpointName: "Sample Azure DevOps",
+ * const exampleServiceEndpointAzureDevOps = new azuredevops.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example Azure DevOps",
  *     orgUrl: "https://dev.azure.com/testorganization",
  *     releaseApiUrl: "https://vsrm.dev.azure.com/testorganization",
  *     personalAccessToken: "0000000000000000000000000000000000000000000000000000",
@@ -31,14 +34,14 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 5.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-5.1)
+ * - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
  *
  * ## Import
  *
  * Azure DevOps Service Endpoint Azure DevOps can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
  *
  * ```sh
- *  $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps serviceendpoint 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+ *  $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
@@ -84,7 +87,7 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
      */
     public /*out*/ readonly personalAccessTokenHash!: pulumi.Output<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
@@ -167,7 +170,7 @@ export interface ServiceEndpointAzureDevOpsState {
      */
     personalAccessTokenHash?: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
     /**
@@ -195,7 +198,7 @@ export interface ServiceEndpointAzureDevOpsArgs {
      */
     personalAccessToken: pulumi.Input<string>;
     /**
-     * The project ID or project name.
+     * The ID of the project.
      */
     projectId: pulumi.Input<string>;
     /**

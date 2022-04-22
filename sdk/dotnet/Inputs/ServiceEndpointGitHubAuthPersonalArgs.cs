@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class ServiceEndpointGitHubAuthPersonalArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Personal Access Token for Github.
+        /// The Personal Access Token for GitHub.
         /// </summary>
         [Input("personalAccessToken", required: true)]
         public Input<string> PersonalAccessToken { get; set; } = null!;

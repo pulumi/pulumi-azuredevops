@@ -24,21 +24,25 @@ namespace Pulumi.AzureDevOps
     /// {
     ///     public MyStack()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
     ///         {
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var bitbucketAccount = new AzureDevOps.ServiceEndpointBitBucket("bitbucketAccount", new AzureDevOps.ServiceEndpointBitBucketArgs
+    ///         var exampleServiceEndpointBitBucket = new AzureDevOps.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket", new AzureDevOps.ServiceEndpointBitBucketArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             Username = "xxxx",
-    ///             Password = "xxxx",
-    ///             ServiceEndpointName = "test-bitbucket",
-    ///             Description = "test",
+    ///             ProjectId = exampleProject.Id,
+    ///             Username = "username",
+    ///             Password = "password",
+    ///             ServiceEndpointName = "example-bitbucket",
+    ///             Description = "Managed by Terraform",
     ///         });
-    ///         var auth = new AzureDevOps.ResourceAuthorization("auth", new AzureDevOps.ResourceAuthorizationArgs
+    ///         var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("exampleResourceAuthorization", new AzureDevOps.ResourceAuthorizationArgs
     ///         {
-    ///             ProjectId = project.Id,
-    ///             ResourceId = bitbucketAccount.Id,
+    ///             ProjectId = exampleProject.Id,
+    ///             ResourceId = exampleServiceEndpointBitBucket.Id,
     ///             Authorized = true,
     ///         });
     ///     }
@@ -47,7 +51,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 5.1 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-5.1)
+    /// - [Azure DevOps Service REST API 6.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-6.0)
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/resourceAuthorization:ResourceAuthorization")]
     public partial class ResourceAuthorization : Pulumi.CustomResource
