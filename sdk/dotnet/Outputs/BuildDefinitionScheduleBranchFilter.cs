@@ -13,7 +13,13 @@ namespace Pulumi.AzureDevOps.Outputs
     [OutputType]
     public sealed class BuildDefinitionScheduleBranchFilter
     {
+        /// <summary>
+        /// List of branch patterns to exclude.
+        /// </summary>
         public readonly ImmutableArray<string> Excludes;
+        /// <summary>
+        /// List of branch patterns to include.
+        /// </summary>
         public readonly ImmutableArray<string> Includes;
 
         [OutputConstructor]

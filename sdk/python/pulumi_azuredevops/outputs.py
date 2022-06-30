@@ -1132,6 +1132,10 @@ class BuildDefinitionCiTrigger(dict):
     def __init__(__self__, *,
                  override: Optional['outputs.BuildDefinitionCiTriggerOverride'] = None,
                  use_yaml: Optional[bool] = None):
+        """
+        :param 'BuildDefinitionCiTriggerOverrideArgs' override: Override the azure-pipeline file and use a this configuration for all builds.
+        :param bool use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
+        """
         if override is not None:
             pulumi.set(__self__, "override", override)
         if use_yaml is not None:
@@ -1140,11 +1144,17 @@ class BuildDefinitionCiTrigger(dict):
     @property
     @pulumi.getter
     def override(self) -> Optional['outputs.BuildDefinitionCiTriggerOverride']:
+        """
+        Override the azure-pipeline file and use a this configuration for all builds.
+        """
         return pulumi.get(self, "override")
 
     @property
     @pulumi.getter(name="useYaml")
     def use_yaml(self) -> Optional[bool]:
+        """
+        Use the azure-pipeline file for the build configuration. Defaults to `false`.
+        """
         return pulumi.get(self, "use_yaml")
 
 
@@ -1182,6 +1192,14 @@ class BuildDefinitionCiTriggerOverride(dict):
                  path_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']] = None,
                  polling_interval: Optional[int] = None,
                  polling_job_id: Optional[str] = None):
+        """
+        :param bool batch: If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
+        :param Sequence['BuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
+        :param int max_concurrent_builds_per_branch: The number of max builds per branch. Defaults to `1`.
+        :param Sequence['BuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        :param int polling_interval: How often the external repository is polled. Defaults to `0`.
+        :param str polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
+        """
         if batch is not None:
             pulumi.set(__self__, "batch", batch)
         if branch_filters is not None:
@@ -1198,31 +1216,49 @@ class BuildDefinitionCiTriggerOverride(dict):
     @property
     @pulumi.getter
     def batch(self) -> Optional[bool]:
+        """
+        If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
+        """
         return pulumi.get(self, "batch")
 
     @property
     @pulumi.getter(name="branchFilters")
     def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']]:
+        """
+        The branches to include and exclude from the trigger.
+        """
         return pulumi.get(self, "branch_filters")
 
     @property
     @pulumi.getter(name="maxConcurrentBuildsPerBranch")
     def max_concurrent_builds_per_branch(self) -> Optional[int]:
+        """
+        The number of max builds per branch. Defaults to `1`.
+        """
         return pulumi.get(self, "max_concurrent_builds_per_branch")
 
     @property
     @pulumi.getter(name="pathFilters")
     def path_filters(self) -> Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']]:
+        """
+        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        """
         return pulumi.get(self, "path_filters")
 
     @property
     @pulumi.getter(name="pollingInterval")
     def polling_interval(self) -> Optional[int]:
+        """
+        How often the external repository is polled. Defaults to `0`.
+        """
         return pulumi.get(self, "polling_interval")
 
     @property
     @pulumi.getter(name="pollingJobId")
     def polling_job_id(self) -> Optional[str]:
+        """
+        This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
+        """
         return pulumi.get(self, "polling_job_id")
 
 
@@ -1231,6 +1267,10 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
     def __init__(__self__, *,
                  excludes: Optional[Sequence[str]] = None,
                  includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
+        """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
@@ -1239,11 +1279,17 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
     @property
     @pulumi.getter
     def excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to exclude.
+        """
         return pulumi.get(self, "excludes")
 
     @property
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to include.
+        """
         return pulumi.get(self, "includes")
 
 
@@ -1252,6 +1298,10 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
     def __init__(__self__, *,
                  excludes: Optional[Sequence[str]] = None,
                  includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
+        """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
@@ -1260,11 +1310,17 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
     @property
     @pulumi.getter
     def excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to exclude.
+        """
         return pulumi.get(self, "excludes")
 
     @property
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to include.
+        """
         return pulumi.get(self, "includes")
 
 
@@ -1297,6 +1353,11 @@ class BuildDefinitionPullRequestTrigger(dict):
                  initial_branch: Optional[str] = None,
                  override: Optional['outputs.BuildDefinitionPullRequestTriggerOverride'] = None,
                  use_yaml: Optional[bool] = None):
+        """
+        :param 'BuildDefinitionPullRequestTriggerForksArgs' forks: Set permissions for Forked repositories.
+        :param 'BuildDefinitionPullRequestTriggerOverrideArgs' override: Override the azure-pipeline file and use this configuration for all builds.
+        :param bool use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
+        """
         pulumi.set(__self__, "forks", forks)
         if comment_required is not None:
             pulumi.set(__self__, "comment_required", comment_required)
@@ -1310,6 +1371,9 @@ class BuildDefinitionPullRequestTrigger(dict):
     @property
     @pulumi.getter
     def forks(self) -> 'outputs.BuildDefinitionPullRequestTriggerForks':
+        """
+        Set permissions for Forked repositories.
+        """
         return pulumi.get(self, "forks")
 
     @property
@@ -1325,11 +1389,17 @@ class BuildDefinitionPullRequestTrigger(dict):
     @property
     @pulumi.getter
     def override(self) -> Optional['outputs.BuildDefinitionPullRequestTriggerOverride']:
+        """
+        Override the azure-pipeline file and use this configuration for all builds.
+        """
         return pulumi.get(self, "override")
 
     @property
     @pulumi.getter(name="useYaml")
     def use_yaml(self) -> Optional[bool]:
+        """
+        Use the azure-pipeline file for the build configuration. Defaults to `false`.
+        """
         return pulumi.get(self, "use_yaml")
 
 
@@ -1355,17 +1425,27 @@ class BuildDefinitionPullRequestTriggerForks(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  share_secrets: bool):
+        """
+        :param bool enabled: Build pull requests form forms of this repository.
+        :param bool share_secrets: Make secrets available to builds of forks.
+        """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "share_secrets", share_secrets)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
+        """
+        Build pull requests form forms of this repository.
+        """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter(name="shareSecrets")
     def share_secrets(self) -> bool:
+        """
+        Make secrets available to builds of forks.
+        """
         return pulumi.get(self, "share_secrets")
 
 
@@ -1396,6 +1476,11 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
                  auto_cancel: Optional[bool] = None,
                  branch_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
                  path_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']] = None):
+        """
+        :param bool auto_cancel: . Defaults to `true`.
+        :param Sequence['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
+        :param Sequence['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        """
         if auto_cancel is not None:
             pulumi.set(__self__, "auto_cancel", auto_cancel)
         if branch_filters is not None:
@@ -1406,16 +1491,25 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
     @property
     @pulumi.getter(name="autoCancel")
     def auto_cancel(self) -> Optional[bool]:
+        """
+        . Defaults to `true`.
+        """
         return pulumi.get(self, "auto_cancel")
 
     @property
     @pulumi.getter(name="branchFilters")
     def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']]:
+        """
+        The branches to include and exclude from the trigger.
+        """
         return pulumi.get(self, "branch_filters")
 
     @property
     @pulumi.getter(name="pathFilters")
     def path_filters(self) -> Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']]:
+        """
+        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        """
         return pulumi.get(self, "path_filters")
 
 
@@ -1424,6 +1518,10 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
     def __init__(__self__, *,
                  excludes: Optional[Sequence[str]] = None,
                  includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
+        """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
@@ -1432,11 +1530,17 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
     @property
     @pulumi.getter
     def excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to exclude.
+        """
         return pulumi.get(self, "excludes")
 
     @property
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to include.
+        """
         return pulumi.get(self, "includes")
 
 
@@ -1445,6 +1549,10 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
     def __init__(__self__, *,
                  excludes: Optional[Sequence[str]] = None,
                  includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
+        """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
@@ -1453,11 +1561,17 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
     @property
     @pulumi.getter
     def excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to exclude.
+        """
         return pulumi.get(self, "excludes")
 
     @property
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to include.
+        """
         return pulumi.get(self, "includes")
 
 
@@ -1500,6 +1614,15 @@ class BuildDefinitionRepository(dict):
                  github_enterprise_url: Optional[str] = None,
                  report_build_status: Optional[bool] = None,
                  service_connection_id: Optional[str] = None):
+        """
+        :param str repo_id: The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
+        :param str repo_type: The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        :param str yml_path: The path of the Yaml file describing the build definition.
+        :param str branch_name: The branch name for which builds are triggered. Defaults to `master`.
+        :param str github_enterprise_url: The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        :param bool report_build_status: Report build status. Default is true.
+        :param str service_connection_id: The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
+        """
         pulumi.set(__self__, "repo_id", repo_id)
         pulumi.set(__self__, "repo_type", repo_type)
         pulumi.set(__self__, "yml_path", yml_path)
@@ -1515,36 +1638,57 @@ class BuildDefinitionRepository(dict):
     @property
     @pulumi.getter(name="repoId")
     def repo_id(self) -> str:
+        """
+        The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
+        """
         return pulumi.get(self, "repo_id")
 
     @property
     @pulumi.getter(name="repoType")
     def repo_type(self) -> str:
+        """
+        The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+        """
         return pulumi.get(self, "repo_type")
 
     @property
     @pulumi.getter(name="ymlPath")
     def yml_path(self) -> str:
+        """
+        The path of the Yaml file describing the build definition.
+        """
         return pulumi.get(self, "yml_path")
 
     @property
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[str]:
+        """
+        The branch name for which builds are triggered. Defaults to `master`.
+        """
         return pulumi.get(self, "branch_name")
 
     @property
     @pulumi.getter(name="githubEnterpriseUrl")
     def github_enterprise_url(self) -> Optional[str]:
+        """
+        The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.
+        """
         return pulumi.get(self, "github_enterprise_url")
 
     @property
     @pulumi.getter(name="reportBuildStatus")
     def report_build_status(self) -> Optional[bool]:
+        """
+        Report build status. Default is true.
+        """
         return pulumi.get(self, "report_build_status")
 
     @property
     @pulumi.getter(name="serviceConnectionId")
     def service_connection_id(self) -> Optional[str]:
+        """
+        The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
+        """
         return pulumi.get(self, "service_connection_id")
 
 
@@ -1587,6 +1731,10 @@ class BuildDefinitionSchedule(dict):
                  start_hours: Optional[int] = None,
                  start_minutes: Optional[int] = None,
                  time_zone: Optional[str] = None):
+        """
+        :param Sequence['BuildDefinitionScheduleBranchFilterArgs'] branch_filters: block supports the following:
+        :param str schedule_job_id: The ID of the schedule job
+        """
         pulumi.set(__self__, "days_to_builds", days_to_builds)
         if branch_filters is not None:
             pulumi.set(__self__, "branch_filters", branch_filters)
@@ -1609,11 +1757,17 @@ class BuildDefinitionSchedule(dict):
     @property
     @pulumi.getter(name="branchFilters")
     def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']]:
+        """
+        block supports the following:
+        """
         return pulumi.get(self, "branch_filters")
 
     @property
     @pulumi.getter(name="scheduleJobId")
     def schedule_job_id(self) -> Optional[str]:
+        """
+        The ID of the schedule job
+        """
         return pulumi.get(self, "schedule_job_id")
 
     @property
@@ -1642,6 +1796,10 @@ class BuildDefinitionScheduleBranchFilter(dict):
     def __init__(__self__, *,
                  excludes: Optional[Sequence[str]] = None,
                  includes: Optional[Sequence[str]] = None):
+        """
+        :param Sequence[str] excludes: List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.
+        """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
@@ -1650,11 +1808,17 @@ class BuildDefinitionScheduleBranchFilter(dict):
     @property
     @pulumi.getter
     def excludes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to exclude.
+        """
         return pulumi.get(self, "excludes")
 
     @property
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
+        """
+        List of branch patterns to include.
+        """
         return pulumi.get(self, "includes")
 
 
@@ -1687,6 +1851,13 @@ class BuildDefinitionVariable(dict):
                  is_secret: Optional[bool] = None,
                  secret_value: Optional[str] = None,
                  value: Optional[str] = None):
+        """
+        :param str name: The name of the variable.
+        :param bool allow_override: True if the variable can be overridden. Defaults to `true`.
+        :param bool is_secret: True if the variable is a secret. Defaults to `false`.
+        :param str secret_value: The secret value of the variable. Used when `is_secret` set to `true`.
+        :param str value: The value of the variable.
+        """
         pulumi.set(__self__, "name", name)
         if allow_override is not None:
             pulumi.set(__self__, "allow_override", allow_override)
@@ -1700,26 +1871,41 @@ class BuildDefinitionVariable(dict):
     @property
     @pulumi.getter
     def name(self) -> str:
+        """
+        The name of the variable.
+        """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="allowOverride")
     def allow_override(self) -> Optional[bool]:
+        """
+        True if the variable can be overridden. Defaults to `true`.
+        """
         return pulumi.get(self, "allow_override")
 
     @property
     @pulumi.getter(name="isSecret")
     def is_secret(self) -> Optional[bool]:
+        """
+        True if the variable is a secret. Defaults to `false`.
+        """
         return pulumi.get(self, "is_secret")
 
     @property
     @pulumi.getter(name="secretValue")
     def secret_value(self) -> Optional[str]:
+        """
+        The secret value of the variable. Used when `is_secret` set to `true`.
+        """
         return pulumi.get(self, "secret_value")
 
     @property
     @pulumi.getter
     def value(self) -> Optional[str]:
+        """
+        The value of the variable.
+        """
         return pulumi.get(self, "value")
 
 

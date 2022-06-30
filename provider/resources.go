@@ -231,15 +231,7 @@ func Provider() tfbridge.ProviderInfo {
 		makeResource(mainMod, "BranchPolicyMinReviewers"), "Policy", mainMod, nil)
 	prov.RenameResourceWithAlias("azuredevops_build_definition",
 		makeResource("Build", "BuildDefinition"),
-		makeResource(mainMod, "BuildDefinition"), "Build", mainMod,
-		// Due to an error in codegen, the content of these docs result in an error in the Python SDK.
-		// When the following issue is resolved, we can restore the docs:
-		// https://github.com/pulumi/pulumi/issues/9441
-		&tfbridge.ResourceInfo{
-			Docs: &tfbridge.DocInfo{
-				Markdown: []byte(" "),
-			},
-		})
+		makeResource(mainMod, "BuildDefinition"), "Build", mainMod, nil)
 	prov.RenameResourceWithAlias("azuredevops_project",
 		makeResource("Core", "Project"),
 		makeResource(mainMod, "Project"), "Core", mainMod, nil)
