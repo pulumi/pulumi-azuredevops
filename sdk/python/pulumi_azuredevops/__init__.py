@@ -18,6 +18,7 @@ from .build_definition_permissions import *
 from .environment import *
 from .get_agent_queue import *
 from .get_area import *
+from .get_build_definition import *
 from .get_client_config import *
 from .get_git_repository import *
 from .get_group import *
@@ -71,6 +72,8 @@ from .service_endpoint_service_fabric import *
 from .service_endpoint_sonar_qube import *
 from .service_endpoint_ssh import *
 from .serviceendpoint_argocd import *
+from .serviceendpoint_incomingwebhook import *
+from .serviceendpoint_octopusdeploy import *
 from .serviceendpoint_permissions import *
 from .servicehook_permissions import *
 from .tagging_permissions import *
@@ -657,6 +660,22 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd": "ServiceendpointArgocd"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointIncomingwebhook",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook": "ServiceendpointIncomingwebhook"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointOctopusdeploy",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy": "ServiceendpointOctopusdeploy"
   }
  },
  {

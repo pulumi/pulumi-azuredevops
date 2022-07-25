@@ -73,7 +73,7 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
     /**
      * A `serviceAccount` block defined blow.
      */
-    public readonly serviceAccounts!: pulumi.Output<outputs.ServiceEndpointKubernetesServiceAccount[] | undefined>;
+    public readonly serviceAccount!: pulumi.Output<outputs.ServiceEndpointKubernetesServiceAccount | undefined>;
     /**
      * The Service Endpoint name.
      */
@@ -99,7 +99,7 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["kubeconfigs"] = state ? state.kubeconfigs : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
-            resourceInputs["serviceAccounts"] = state ? state.serviceAccounts : undefined;
+            resourceInputs["serviceAccount"] = state ? state.serviceAccount : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointKubernetesArgs | undefined;
@@ -122,7 +122,7 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["kubeconfigs"] = args ? args.kubeconfigs : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["serviceAccounts"] = args ? args.serviceAccounts : undefined;
+            resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -161,7 +161,7 @@ export interface ServiceEndpointKubernetesState {
     /**
      * A `serviceAccount` block defined blow.
      */
-    serviceAccounts?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount>[]>;
+    serviceAccount?: pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount>;
     /**
      * The Service Endpoint name.
      */
@@ -197,7 +197,7 @@ export interface ServiceEndpointKubernetesArgs {
     /**
      * A `serviceAccount` block defined blow.
      */
-    serviceAccounts?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount>[]>;
+    serviceAccount?: pulumi.Input<inputs.ServiceEndpointKubernetesServiceAccount>;
     /**
      * The Service Endpoint name.
      */

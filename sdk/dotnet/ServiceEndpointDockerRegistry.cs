@@ -44,7 +44,7 @@ namespace Pulumi.AzureDevOps
     ///         {
     ///             ProjectId = exampleProject.Id,
     ///             ServiceEndpointName = "Example Docker Registry",
-    ///             DockerRegistry = "https://sample.azurecr.io/v1",
+    ///             DockerRegistryUrl = "https://sample.azurecr.io/v1",
     ///             DockerUsername = "sample",
     ///             DockerPassword = "12345",
     ///             RegistryType = "Others",

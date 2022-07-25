@@ -67,6 +67,10 @@ namespace Pulumi.AzureDevOps
     ///                         RepositoryRef = exampleGit.DefaultBranch,
     ///                         MatchType = "Exact",
     ///                     },
+    ///                     new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsScopeArgs
+    ///                     {
+    ///                         MatchType = "DefaultBranch",
+    ///                     },
     ///                 },
     ///             },
     ///         });

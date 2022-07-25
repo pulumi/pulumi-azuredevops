@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  * For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
  *
  * ## Example Usage
- * ### Manual AzureRM Service Endpoint
+ * ### Manual AzureRM Service Endpoint (Subscription Scoped)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -38,6 +38,31 @@ import * as utilities from "../utilities";
  *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * ```
+ * ### Manual AzureRM Service Endpoint (ManagementGroup Scoped)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     description: "Managed by Terraform",
+ *     credentials: {
+ *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
+ *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *     },
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermManagementGroupId: "managementGroup",
+ *     azurermManagementGroupName: "managementGroup",
  * });
  * ```
  * ### Automatic AzureRM Service Endpoint
@@ -104,17 +129,25 @@ export class AzureRM extends pulumi.CustomResource {
 
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
+     * The management group Id of the Azure targets.
+     */
+    public readonly azurermManagementGroupId!: pulumi.Output<string | undefined>;
+    /**
+     * The management group Name of the targets.
+     */
+    public readonly azurermManagementGroupName!: pulumi.Output<string | undefined>;
+    /**
      * The tenant id if the service principal.
      */
     public readonly azurermSpnTenantid!: pulumi.Output<string>;
     /**
      * The subscription Id of the Azure targets.
      */
-    public readonly azurermSubscriptionId!: pulumi.Output<string>;
+    public readonly azurermSubscriptionId!: pulumi.Output<string | undefined>;
     /**
      * The subscription Name of the targets.
      */
-    public readonly azurermSubscriptionName!: pulumi.Output<string>;
+    public readonly azurermSubscriptionName!: pulumi.Output<string | undefined>;
     /**
      * A `credentials` block.
      */
@@ -153,6 +186,8 @@ export class AzureRM extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as AzureRMState | undefined;
             resourceInputs["authorization"] = state ? state.authorization : undefined;
+            resourceInputs["azurermManagementGroupId"] = state ? state.azurermManagementGroupId : undefined;
+            resourceInputs["azurermManagementGroupName"] = state ? state.azurermManagementGroupName : undefined;
             resourceInputs["azurermSpnTenantid"] = state ? state.azurermSpnTenantid : undefined;
             resourceInputs["azurermSubscriptionId"] = state ? state.azurermSubscriptionId : undefined;
             resourceInputs["azurermSubscriptionName"] = state ? state.azurermSubscriptionName : undefined;
@@ -166,12 +201,6 @@ export class AzureRM extends pulumi.CustomResource {
             if ((!args || args.azurermSpnTenantid === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'azurermSpnTenantid'");
             }
-            if ((!args || args.azurermSubscriptionId === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'azurermSubscriptionId'");
-            }
-            if ((!args || args.azurermSubscriptionName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'azurermSubscriptionName'");
-            }
             if ((!args || args.projectId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'projectId'");
             }
@@ -179,6 +208,8 @@ export class AzureRM extends pulumi.CustomResource {
                 throw new Error("Missing required property 'serviceEndpointName'");
             }
             resourceInputs["authorization"] = args ? args.authorization : undefined;
+            resourceInputs["azurermManagementGroupId"] = args ? args.azurermManagementGroupId : undefined;
+            resourceInputs["azurermManagementGroupName"] = args ? args.azurermManagementGroupName : undefined;
             resourceInputs["azurermSpnTenantid"] = args ? args.azurermSpnTenantid : undefined;
             resourceInputs["azurermSubscriptionId"] = args ? args.azurermSubscriptionId : undefined;
             resourceInputs["azurermSubscriptionName"] = args ? args.azurermSubscriptionName : undefined;
@@ -198,6 +229,14 @@ export class AzureRM extends pulumi.CustomResource {
  */
 export interface AzureRMState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The management group Id of the Azure targets.
+     */
+    azurermManagementGroupId?: pulumi.Input<string>;
+    /**
+     * The management group Name of the targets.
+     */
+    azurermManagementGroupName?: pulumi.Input<string>;
     /**
      * The tenant id if the service principal.
      */
@@ -238,17 +277,25 @@ export interface AzureRMState {
 export interface AzureRMArgs {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
+     * The management group Id of the Azure targets.
+     */
+    azurermManagementGroupId?: pulumi.Input<string>;
+    /**
+     * The management group Name of the targets.
+     */
+    azurermManagementGroupName?: pulumi.Input<string>;
+    /**
      * The tenant id if the service principal.
      */
     azurermSpnTenantid: pulumi.Input<string>;
     /**
      * The subscription Id of the Azure targets.
      */
-    azurermSubscriptionId: pulumi.Input<string>;
+    azurermSubscriptionId?: pulumi.Input<string>;
     /**
      * The subscription Name of the targets.
      */
-    azurermSubscriptionName: pulumi.Input<string>;
+    azurermSubscriptionName?: pulumi.Input<string>;
     /**
      * A `credentials` block.
      */

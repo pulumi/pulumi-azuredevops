@@ -29,15 +29,15 @@ export interface BranchPolicyAutoReviewersSettings {
 
 export interface BranchPolicyAutoReviewersSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: string;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: string;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: string;
 }
@@ -75,15 +75,15 @@ export interface BranchPolicyBuildValidationSettings {
 
 export interface BranchPolicyBuildValidationSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: string;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: string;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: string;
 }
@@ -97,15 +97,15 @@ export interface BranchPolicyCommentResolutionSettings {
 
 export interface BranchPolicyCommentResolutionSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: string;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: string;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: string;
 }
@@ -135,15 +135,15 @@ export interface BranchPolicyMergeTypesSettings {
 
 export interface BranchPolicyMergeTypesSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: string;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: string;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: string;
 }
@@ -185,15 +185,15 @@ export interface BranchPolicyMinReviewersSettings {
 
 export interface BranchPolicyMinReviewersSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: string;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: string;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: string;
 }
@@ -238,19 +238,15 @@ export interface BranchPolicyStatusCheckSettings {
 
 export interface BranchPolicyStatusCheckSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default)
-     * or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: string;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single
-     * repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: string;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a
-     * qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such
-     * as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: string;
 }
@@ -264,15 +260,15 @@ export interface BranchPolicyWorkItemLinkingSettings {
 
 export interface BranchPolicyWorkItemLinkingSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: string;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: string;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: string;
 }
@@ -384,6 +380,230 @@ export interface GetAreaChildren {
      * The project ID.
      */
     projectId: string;
+}
+
+export interface GetBuildDefinitionCiTrigger {
+    /**
+     * A `override` block as defined below.
+     */
+    overrides: outputs.GetBuildDefinitionCiTriggerOverride[];
+    /**
+     * Use the azure-pipeline file for the build configuration.
+     */
+    useYaml: boolean;
+}
+
+export interface GetBuildDefinitionCiTriggerOverride {
+    /**
+     * If batch is true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built.
+     */
+    batch: boolean;
+    /**
+     * A `branchFilter` block as defined above.
+     */
+    branchFilters: outputs.GetBuildDefinitionCiTriggerOverrideBranchFilter[];
+    /**
+     * The number of max builds per branch.
+     */
+    maxConcurrentBuildsPerBranch: number;
+    /**
+     * The file paths to include or exclude.
+     */
+    pathFilters: outputs.GetBuildDefinitionCiTriggerOverridePathFilter[];
+    /**
+     * How often the external repository is polled.
+     */
+    pollingInterval: number;
+    /**
+     * This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
+     */
+    pollingJobId: string;
+}
+
+export interface GetBuildDefinitionCiTriggerOverrideBranchFilter {
+    /**
+     * (Optional) List of path patterns to exclude.
+     */
+    excludes: string[];
+    /**
+     * (Optional) List of path patterns to include.
+     */
+    includes: string[];
+}
+
+export interface GetBuildDefinitionCiTriggerOverridePathFilter {
+    /**
+     * (Optional) List of path patterns to exclude.
+     */
+    excludes: string[];
+    /**
+     * (Optional) List of path patterns to include.
+     */
+    includes: string[];
+}
+
+export interface GetBuildDefinitionPullRequestTrigger {
+    /**
+     * Is a comment required on the PR?
+     */
+    commentRequired: string;
+    /**
+     * A `forks` block as defined above.
+     */
+    forks: outputs.GetBuildDefinitionPullRequestTriggerFork[];
+    /**
+     * When useYaml is true set this to the name of the branch that the azure-pipelines.yml exists on.
+     */
+    initialBranch: string;
+    /**
+     * A `override` block as defined below.
+     */
+    overrides: outputs.GetBuildDefinitionPullRequestTriggerOverride[];
+    /**
+     * Use the azure-pipeline file for the build configuration.
+     */
+    useYaml: boolean;
+}
+
+export interface GetBuildDefinitionPullRequestTriggerFork {
+    /**
+     * Build pull requests from forks of this repository.
+     */
+    enabled: boolean;
+    /**
+     * Make secrets available to builds of forks.
+     */
+    shareSecrets: boolean;
+}
+
+export interface GetBuildDefinitionPullRequestTriggerOverride {
+    autoCancel: boolean;
+    /**
+     * A `branchFilter` block as defined above.
+     */
+    branchFilters: outputs.GetBuildDefinitionPullRequestTriggerOverrideBranchFilter[];
+    /**
+     * The file paths to include or exclude.
+     */
+    pathFilters: outputs.GetBuildDefinitionPullRequestTriggerOverridePathFilter[];
+}
+
+export interface GetBuildDefinitionPullRequestTriggerOverrideBranchFilter {
+    /**
+     * (Optional) List of path patterns to exclude.
+     */
+    excludes: string[];
+    /**
+     * (Optional) List of path patterns to include.
+     */
+    includes: string[];
+}
+
+export interface GetBuildDefinitionPullRequestTriggerOverridePathFilter {
+    /**
+     * (Optional) List of path patterns to exclude.
+     */
+    excludes: string[];
+    /**
+     * (Optional) List of path patterns to include.
+     */
+    includes: string[];
+}
+
+export interface GetBuildDefinitionRepository {
+    /**
+     * The branch name for which builds are triggered.
+     */
+    branchName: string;
+    /**
+     * The Github Enterprise URL.
+     */
+    githubEnterpriseUrl: string;
+    /**
+     * The id of the repository.
+     */
+    repoId: string;
+    /**
+     * The repository type.
+     */
+    repoType: string;
+    /**
+     * Report build status.
+     */
+    reportBuildStatus: boolean;
+    /**
+     * The service connection ID.
+     */
+    serviceConnectionId: string;
+    /**
+     * The path of the Yaml file describing the build definition.
+     */
+    ymlPath: string;
+}
+
+export interface GetBuildDefinitionSchedule {
+    /**
+     * A `branchFilter` block as defined above.
+     */
+    branchFilters: outputs.GetBuildDefinitionScheduleBranchFilter[];
+    /**
+     * A list of days to build on.
+     */
+    daysToBuilds: string[];
+    /**
+     * The ID of the schedule job.
+     */
+    scheduleJobId: string;
+    /**
+     * Schedule builds if the source or pipeline has changed.
+     */
+    scheduleOnlyWithChanges: boolean;
+    /**
+     * Build start hour.
+     */
+    startHours: number;
+    /**
+     * Build start minute.
+     */
+    startMinutes: number;
+    /**
+     * Build time zone.
+     */
+    timeZone: string;
+}
+
+export interface GetBuildDefinitionScheduleBranchFilter {
+    /**
+     * (Optional) List of path patterns to exclude.
+     */
+    excludes: string[];
+    /**
+     * (Optional) List of path patterns to include.
+     */
+    includes: string[];
+}
+
+export interface GetBuildDefinitionVariable {
+    /**
+     * `true` if the variable can be overridden.
+     */
+    allowOverride: boolean;
+    /**
+     * `true` if the variable is a secret.
+     */
+    isSecret: boolean;
+    /**
+     * The name of this Build Definition.
+     */
+    name: string;
+    /**
+     * The secret value of the variable.
+     */
+    secretValue: string;
+    /**
+     * The value of the variable.
+     */
+    value: string;
 }
 
 export interface GetGroupsGroup {
@@ -760,7 +980,6 @@ export interface ServiceEndpointServiceFabricAzureActiveDirectory {
      * - Password for the Azure Active Directory account.
      */
     password: string;
-    passwordHash: string;
     /**
      * The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
      */
@@ -784,12 +1003,10 @@ export interface ServiceEndpointServiceFabricCertificate {
      * Base64 encoding of the cluster's client certificate file.
      */
     clientCertificate: string;
-    clientCertificateHash: string;
     /**
      * Password for the certificate.
      */
     clientCertificatePassword?: string;
-    clientCertificatePasswordHash: string;
     /**
      * The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
      */
@@ -1097,15 +1314,15 @@ export namespace Policy {
 
     export interface BranchPolicyBuildValidationSettingsScope {
         /**
-         * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+         * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
          */
         matchType?: string;
         /**
-         * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+         * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
          */
         repositoryId?: string;
         /**
-         * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+         * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
          */
         repositoryRef?: string;
     }
@@ -1147,15 +1364,15 @@ export namespace Policy {
 
     export interface BranchPolicyMinReviewersSettingsScope {
         /**
-         * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+         * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
          */
         matchType?: string;
         /**
-         * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+         * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
          */
         repositoryId?: string;
         /**
-         * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+         * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
          */
         repositoryRef?: string;
     }

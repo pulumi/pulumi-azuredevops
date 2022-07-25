@@ -18,6 +18,7 @@ export * from "./buildDefinitionPermissions";
 export * from "./environment";
 export * from "./getAgentQueue";
 export * from "./getArea";
+export * from "./getBuildDefinition";
 export * from "./getClientConfig";
 export * from "./getGitRepository";
 export * from "./getGroup";
@@ -71,6 +72,8 @@ export * from "./serviceEndpointServiceFabric";
 export * from "./serviceEndpointSonarQube";
 export * from "./serviceEndpointSsh";
 export * from "./serviceendpointArgocd";
+export * from "./serviceendpointIncomingwebhook";
+export * from "./serviceendpointOctopusdeploy";
 export * from "./serviceendpointPermissions";
 export * from "./servicehookPermissions";
 export * from "./taggingPermissions";
@@ -160,6 +163,8 @@ import { ServiceEndpointServiceFabric } from "./serviceEndpointServiceFabric";
 import { ServiceEndpointSonarQube } from "./serviceEndpointSonarQube";
 import { ServiceEndpointSsh } from "./serviceEndpointSsh";
 import { ServiceendpointArgocd } from "./serviceendpointArgocd";
+import { ServiceendpointIncomingwebhook } from "./serviceendpointIncomingwebhook";
+import { ServiceendpointOctopusdeploy } from "./serviceendpointOctopusdeploy";
 import { ServiceendpointPermissions } from "./serviceendpointPermissions";
 import { ServicehookPermissions } from "./servicehookPermissions";
 import { TaggingPermissions } from "./taggingPermissions";
@@ -272,6 +277,10 @@ const _module = {
                 return new ServiceEndpointSsh(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd":
                 return new ServiceendpointArgocd(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook":
+                return new ServiceendpointIncomingwebhook(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy":
+                return new ServiceendpointOctopusdeploy(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
                 return new ServiceendpointPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/servicehookPermissions:ServicehookPermissions":
@@ -344,6 +353,8 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointServi
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointArgocd", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointIncomingwebhook", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointOctopusdeploy", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/taggingPermissions", _module)

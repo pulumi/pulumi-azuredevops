@@ -19,7 +19,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
     /// 
     /// ## Example Usage
-    /// ### Manual AzureRM Service Endpoint
+    /// ### Manual AzureRM Service Endpoint (Subscription Scoped)
     /// 
     /// ```csharp
     /// using Pulumi;
@@ -49,6 +49,41 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
     ///             AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///             AzurermSubscriptionName = "Example Subscription Name",
+    ///         });
+    ///     }
+    /// 
+    /// }
+    /// ```
+    /// ### Manual AzureRM Service Endpoint (ManagementGroup Scoped)
+    /// 
+    /// ```csharp
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// class MyStack : Stack
+    /// {
+    ///     public MyStack()
+    ///     {
+    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+    ///         {
+    ///             Visibility = "private",
+    ///             VersionControl = "Git",
+    ///             WorkItemTemplate = "Agile",
+    ///             Description = "Managed by Terraform",
+    ///         });
+    ///         var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new AzureDevOps.ServiceEndpointAzureRMArgs
+    ///         {
+    ///             ProjectId = exampleProject.Id,
+    ///             ServiceEndpointName = "Example AzureRM",
+    ///             Description = "Managed by Terraform",
+    ///             Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
+    ///             {
+    ///                 Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
+    ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///             },
+    ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///             AzurermManagementGroupId = "managementGroup",
+    ///             AzurermManagementGroupName = "managementGroup",
     ///         });
     ///     }
     /// 
@@ -102,6 +137,18 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
         /// <summary>
+        /// The management group Id of the Azure targets.
+        /// </summary>
+        [Output("azurermManagementGroupId")]
+        public Output<string?> AzurermManagementGroupId { get; private set; } = null!;
+
+        /// <summary>
+        /// The management group Name of the targets.
+        /// </summary>
+        [Output("azurermManagementGroupName")]
+        public Output<string?> AzurermManagementGroupName { get; private set; } = null!;
+
+        /// <summary>
         /// The tenant id if the service principal.
         /// </summary>
         [Output("azurermSpnTenantid")]
@@ -111,13 +158,13 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         /// The subscription Id of the Azure targets.
         /// </summary>
         [Output("azurermSubscriptionId")]
-        public Output<string> AzurermSubscriptionId { get; private set; } = null!;
+        public Output<string?> AzurermSubscriptionId { get; private set; } = null!;
 
         /// <summary>
         /// The subscription Name of the targets.
         /// </summary>
         [Output("azurermSubscriptionName")]
-        public Output<string> AzurermSubscriptionName { get; private set; } = null!;
+        public Output<string?> AzurermSubscriptionName { get; private set; } = null!;
 
         /// <summary>
         /// A `credentials` block.
@@ -204,6 +251,18 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         }
 
         /// <summary>
+        /// The management group Id of the Azure targets.
+        /// </summary>
+        [Input("azurermManagementGroupId")]
+        public Input<string>? AzurermManagementGroupId { get; set; }
+
+        /// <summary>
+        /// The management group Name of the targets.
+        /// </summary>
+        [Input("azurermManagementGroupName")]
+        public Input<string>? AzurermManagementGroupName { get; set; }
+
+        /// <summary>
         /// The tenant id if the service principal.
         /// </summary>
         [Input("azurermSpnTenantid", required: true)]
@@ -212,14 +271,14 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         /// <summary>
         /// The subscription Id of the Azure targets.
         /// </summary>
-        [Input("azurermSubscriptionId", required: true)]
-        public Input<string> AzurermSubscriptionId { get; set; } = null!;
+        [Input("azurermSubscriptionId")]
+        public Input<string>? AzurermSubscriptionId { get; set; }
 
         /// <summary>
         /// The subscription Name of the targets.
         /// </summary>
-        [Input("azurermSubscriptionName", required: true)]
-        public Input<string> AzurermSubscriptionName { get; set; } = null!;
+        [Input("azurermSubscriptionName")]
+        public Input<string>? AzurermSubscriptionName { get; set; }
 
         /// <summary>
         /// A `credentials` block.
@@ -265,6 +324,18 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
             get => _authorization ?? (_authorization = new InputMap<string>());
             set => _authorization = value;
         }
+
+        /// <summary>
+        /// The management group Id of the Azure targets.
+        /// </summary>
+        [Input("azurermManagementGroupId")]
+        public Input<string>? AzurermManagementGroupId { get; set; }
+
+        /// <summary>
+        /// The management group Name of the targets.
+        /// </summary>
+        [Input("azurermManagementGroupName")]
+        public Input<string>? AzurermManagementGroupName { get; set; }
 
         /// <summary>
         /// The tenant id if the service principal.

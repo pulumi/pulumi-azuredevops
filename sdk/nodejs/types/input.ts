@@ -29,15 +29,15 @@ export interface BranchPolicyAutoReviewersSettings {
 
 export interface BranchPolicyAutoReviewersSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: pulumi.Input<string>;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: pulumi.Input<string>;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: pulumi.Input<string>;
 }
@@ -75,15 +75,15 @@ export interface BranchPolicyBuildValidationSettings {
 
 export interface BranchPolicyBuildValidationSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: pulumi.Input<string>;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: pulumi.Input<string>;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: pulumi.Input<string>;
 }
@@ -97,15 +97,15 @@ export interface BranchPolicyCommentResolutionSettings {
 
 export interface BranchPolicyCommentResolutionSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: pulumi.Input<string>;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: pulumi.Input<string>;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: pulumi.Input<string>;
 }
@@ -135,15 +135,15 @@ export interface BranchPolicyMergeTypesSettings {
 
 export interface BranchPolicyMergeTypesSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: pulumi.Input<string>;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: pulumi.Input<string>;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: pulumi.Input<string>;
 }
@@ -185,15 +185,15 @@ export interface BranchPolicyMinReviewersSettings {
 
 export interface BranchPolicyMinReviewersSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: pulumi.Input<string>;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: pulumi.Input<string>;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: pulumi.Input<string>;
 }
@@ -238,19 +238,15 @@ export interface BranchPolicyStatusCheckSettings {
 
 export interface BranchPolicyStatusCheckSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default)
-     * or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: pulumi.Input<string>;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single
-     * repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: pulumi.Input<string>;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a
-     * qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such
-     * as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: pulumi.Input<string>;
 }
@@ -264,15 +260,15 @@ export interface BranchPolicyWorkItemLinkingSettings {
 
 export interface BranchPolicyWorkItemLinkingSettingsScope {
     /**
-     * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+     * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
      */
     matchType?: pulumi.Input<string>;
     /**
-     * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+     * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
      */
     repositoryId?: pulumi.Input<string>;
     /**
-     * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+     * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
      */
     repositoryRef?: pulumi.Input<string>;
 }
@@ -513,7 +509,6 @@ export interface ServiceEndpointServiceFabricAzureActiveDirectory {
      * - Password for the Azure Active Directory account.
      */
     password: pulumi.Input<string>;
-    passwordHash?: pulumi.Input<string>;
     /**
      * The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
      */
@@ -537,12 +532,10 @@ export interface ServiceEndpointServiceFabricCertificate {
      * Base64 encoding of the cluster's client certificate file.
      */
     clientCertificate: pulumi.Input<string>;
-    clientCertificateHash?: pulumi.Input<string>;
     /**
      * Password for the certificate.
      */
     clientCertificatePassword?: pulumi.Input<string>;
-    clientCertificatePasswordHash?: pulumi.Input<string>;
     /**
      * The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
      */
@@ -618,6 +611,7 @@ export interface VariableGroupVariable {
      */
     value?: pulumi.Input<string>;
 }
+
 export namespace Agent {
 }
 
@@ -781,15 +775,15 @@ export namespace Policy {
 
     export interface BranchPolicyBuildValidationSettingsScope {
         /**
-         * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+         * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
          */
         matchType?: pulumi.Input<string>;
         /**
-         * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+         * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
          */
         repositoryId?: pulumi.Input<string>;
         /**
-         * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+         * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
          */
         repositoryRef?: pulumi.Input<string>;
     }
@@ -831,15 +825,15 @@ export namespace Policy {
 
     export interface BranchPolicyMinReviewersSettingsScope {
         /**
-         * The match type to use when applying the policy. Supported values are `Exact` (default) or `Prefix`.
+         * The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
          */
         matchType?: pulumi.Input<string>;
         /**
-         * The repository ID. Needed only if the scope of the policy will be limited to a single repository.
+         * The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `matchType` is `DefaultBranch`, this should not be defined.
          */
         repositoryId?: pulumi.Input<string>;
         /**
-         * The ref pattern to use for the match. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
+         * The ref pattern to use for the match when `matchType` other than `DefaultBranch`. If `matchType` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `matchType` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
          */
         repositoryRef?: pulumi.Input<string>;
     }
