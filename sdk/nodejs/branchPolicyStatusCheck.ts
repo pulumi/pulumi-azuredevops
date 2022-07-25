@@ -44,11 +44,16 @@ import * as utilities from "./utilities";
  *         invalidateOnUpdate: true,
  *         applicability: "conditional",
  *         displayName: "PreCheck",
- *         scopes: [{
- *             repositoryId: exampleGit.id,
- *             repositoryRef: exampleGit.defaultBranch,
- *             matchType: "Exact",
- *         }],
+ *         scopes: [
+ *             {
+ *                 repositoryId: exampleGit.id,
+ *                 repositoryRef: exampleGit.defaultBranch,
+ *                 matchType: "Exact",
+ *             },
+ *             {
+ *                 matchType: "DefaultBranch",
+ *             },
+ *         ],
  *     },
  * });
  * ```

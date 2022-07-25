@@ -73,6 +73,10 @@ namespace Pulumi.AzureDevOps
     ///                         RepositoryRef = "refs/heads/releases",
     ///                         MatchType = "Prefix",
     ///                     },
+    ///                     new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
+    ///                     {
+    ///                         MatchType = "DefaultBranch",
+    ///                     },
     ///                 },
     ///             },
     ///         });

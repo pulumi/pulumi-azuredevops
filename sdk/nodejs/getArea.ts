@@ -23,7 +23,7 @@ import * as utilities from "./utilities";
  * const exampleArea = exampleProject.id.apply(id => azuredevops.getAreaOutput({
  *     projectId: id,
  *     path: "/",
- *     fetchChildren: "false",
+ *     fetchChildren: false,
  * }));
  * ```
  * ## Relevant Links

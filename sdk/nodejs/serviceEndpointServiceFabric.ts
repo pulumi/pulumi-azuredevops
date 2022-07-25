@@ -14,7 +14,7 @@ import * as utilities from "./utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
- * import * from "fs";
+ * import * as fs from "fs";
  *
  * const exampleProject = new azuredevops.Project("exampleProject", {
  *     visibility: "private",

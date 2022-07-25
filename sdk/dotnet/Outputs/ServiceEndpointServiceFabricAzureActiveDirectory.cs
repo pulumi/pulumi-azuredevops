@@ -17,7 +17,6 @@ namespace Pulumi.AzureDevOps.Outputs
         /// - Password for the Azure Active Directory account.
         /// </summary>
         public readonly string Password;
-        public readonly string? PasswordHash;
         /// <summary>
         /// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         /// </summary>
@@ -39,8 +38,6 @@ namespace Pulumi.AzureDevOps.Outputs
         private ServiceEndpointServiceFabricAzureActiveDirectory(
             string password,
 
-            string? passwordHash,
-
             string? serverCertificateCommonName,
 
             string serverCertificateLookup,
@@ -50,7 +47,6 @@ namespace Pulumi.AzureDevOps.Outputs
             string username)
         {
             Password = password;
-            PasswordHash = passwordHash;
             ServerCertificateCommonName = serverCertificateCommonName;
             ServerCertificateLookup = serverCertificateLookup;
             ServerCertificateThumbprint = serverCertificateThumbprint;

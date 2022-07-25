@@ -17,12 +17,10 @@ namespace Pulumi.AzureDevOps.Outputs
         /// Base64 encoding of the cluster's client certificate file.
         /// </summary>
         public readonly string ClientCertificate;
-        public readonly string? ClientCertificateHash;
         /// <summary>
         /// Password for the certificate.
         /// </summary>
         public readonly string? ClientCertificatePassword;
-        public readonly string? ClientCertificatePasswordHash;
         /// <summary>
         /// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         /// </summary>
@@ -40,11 +38,7 @@ namespace Pulumi.AzureDevOps.Outputs
         private ServiceEndpointServiceFabricCertificate(
             string clientCertificate,
 
-            string? clientCertificateHash,
-
             string? clientCertificatePassword,
-
-            string? clientCertificatePasswordHash,
 
             string? serverCertificateCommonName,
 
@@ -53,9 +47,7 @@ namespace Pulumi.AzureDevOps.Outputs
             string? serverCertificateThumbprint)
         {
             ClientCertificate = clientCertificate;
-            ClientCertificateHash = clientCertificateHash;
             ClientCertificatePassword = clientCertificatePassword;
-            ClientCertificatePasswordHash = clientCertificatePasswordHash;
             ServerCertificateCommonName = serverCertificateCommonName;
             ServerCertificateLookup = serverCertificateLookup;
             ServerCertificateThumbprint = serverCertificateThumbprint;

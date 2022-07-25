@@ -67,8 +67,8 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         /// <summary>
         /// A `service_account` block defined blow.
         /// </summary>
-        [Output("serviceAccounts")]
-        public Output<ImmutableArray<Outputs.KubernetesServiceAccount>> ServiceAccounts { get; private set; } = null!;
+        [Output("serviceAccount")]
+        public Output<Outputs.KubernetesServiceAccount?> ServiceAccount { get; private set; } = null!;
 
         /// <summary>
         /// The Service Endpoint name.
@@ -175,17 +175,11 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
-        [Input("serviceAccounts")]
-        private InputList<Inputs.KubernetesServiceAccountArgs>? _serviceAccounts;
-
         /// <summary>
         /// A `service_account` block defined blow.
         /// </summary>
-        public InputList<Inputs.KubernetesServiceAccountArgs> ServiceAccounts
-        {
-            get => _serviceAccounts ?? (_serviceAccounts = new InputList<Inputs.KubernetesServiceAccountArgs>());
-            set => _serviceAccounts = value;
-        }
+        [Input("serviceAccount")]
+        public Input<Inputs.KubernetesServiceAccountArgs>? ServiceAccount { get; set; }
 
         /// <summary>
         /// The Service Endpoint name.
@@ -253,17 +247,11 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
-        [Input("serviceAccounts")]
-        private InputList<Inputs.KubernetesServiceAccountGetArgs>? _serviceAccounts;
-
         /// <summary>
         /// A `service_account` block defined blow.
         /// </summary>
-        public InputList<Inputs.KubernetesServiceAccountGetArgs> ServiceAccounts
-        {
-            get => _serviceAccounts ?? (_serviceAccounts = new InputList<Inputs.KubernetesServiceAccountGetArgs>());
-            set => _serviceAccounts = value;
-        }
+        [Input("serviceAccount")]
+        public Input<Inputs.KubernetesServiceAccountGetArgs>? ServiceAccount { get; set; }
 
         /// <summary>
         /// The Service Endpoint name.

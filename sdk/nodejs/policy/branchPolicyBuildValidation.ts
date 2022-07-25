@@ -53,6 +53,9 @@ import * as utilities from "../utilities";
  *                 repositoryRef: "refs/heads/releases",
  *                 matchType: "Prefix",
  *             },
+ *             {
+ *                 matchType: "DefaultBranch",
+ *             },
  *         ],
  *     },
  * });

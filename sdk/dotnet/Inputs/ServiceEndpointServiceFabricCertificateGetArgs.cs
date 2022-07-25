@@ -18,17 +18,11 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("clientCertificate", required: true)]
         public Input<string> ClientCertificate { get; set; } = null!;
 
-        [Input("clientCertificateHash")]
-        public Input<string>? ClientCertificateHash { get; set; }
-
         /// <summary>
         /// Password for the certificate.
         /// </summary>
         [Input("clientCertificatePassword")]
         public Input<string>? ClientCertificatePassword { get; set; }
-
-        [Input("clientCertificatePasswordHash")]
-        public Input<string>? ClientCertificatePasswordHash { get; set; }
 
         /// <summary>
         /// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
