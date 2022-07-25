@@ -274,71 +274,170 @@ export interface BranchPolicyWorkItemLinkingSettingsScope {
 }
 
 export interface BuildDefinitionCiTrigger {
+    /**
+     * Override the azure-pipeline file and use a this configuration for all builds.
+     */
     override?: pulumi.Input<inputs.BuildDefinitionCiTriggerOverride>;
+    /**
+     * Use the azure-pipeline file for the build configuration. Defaults to `false`.
+     */
     useYaml?: pulumi.Input<boolean>;
 }
 
 export interface BuildDefinitionCiTriggerOverride {
+    /**
+     * If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
+     */
     batch?: pulumi.Input<boolean>;
+    /**
+     * The branches to include and exclude from the trigger.
+     */
     branchFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionCiTriggerOverrideBranchFilter>[]>;
+    /**
+     * The number of max builds per branch. Defaults to `1`.
+     */
     maxConcurrentBuildsPerBranch?: pulumi.Input<number>;
+    /**
+     * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     */
     pathFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionCiTriggerOverridePathFilter>[]>;
+    /**
+     * How often the external repository is polled. Defaults to `0`.
+     */
     pollingInterval?: pulumi.Input<number>;
+    /**
+     * This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
+     */
     pollingJobId?: pulumi.Input<string>;
 }
 
 export interface BuildDefinitionCiTriggerOverrideBranchFilter {
+    /**
+     * List of branch patterns to exclude.
+     */
     excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of branch patterns to include.
+     */
     includes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface BuildDefinitionCiTriggerOverridePathFilter {
+    /**
+     * List of branch patterns to exclude.
+     */
     excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of branch patterns to include.
+     */
     includes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface BuildDefinitionPullRequestTrigger {
     commentRequired?: pulumi.Input<string>;
+    /**
+     * Set permissions for Forked repositories.
+     */
     forks: pulumi.Input<inputs.BuildDefinitionPullRequestTriggerForks>;
     initialBranch?: pulumi.Input<string>;
+    /**
+     * Override the azure-pipeline file and use this configuration for all builds.
+     */
     override?: pulumi.Input<inputs.BuildDefinitionPullRequestTriggerOverride>;
+    /**
+     * Use the azure-pipeline file for the build configuration. Defaults to `false`.
+     */
     useYaml?: pulumi.Input<boolean>;
 }
 
 export interface BuildDefinitionPullRequestTriggerForks {
+    /**
+     * Build pull requests form forms of this repository.
+     */
     enabled: pulumi.Input<boolean>;
+    /**
+     * Make secrets available to builds of forks.
+     */
     shareSecrets: pulumi.Input<boolean>;
 }
 
 export interface BuildDefinitionPullRequestTriggerOverride {
+    /**
+     * . Defaults to `true`.
+     */
     autoCancel?: pulumi.Input<boolean>;
+    /**
+     * The branches to include and exclude from the trigger.
+     */
     branchFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter>[]>;
+    /**
+     * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     */
     pathFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionPullRequestTriggerOverridePathFilter>[]>;
 }
 
 export interface BuildDefinitionPullRequestTriggerOverrideBranchFilter {
+    /**
+     * List of branch patterns to exclude.
+     */
     excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of branch patterns to include.
+     */
     includes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface BuildDefinitionPullRequestTriggerOverridePathFilter {
+    /**
+     * List of branch patterns to exclude.
+     */
     excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of branch patterns to include.
+     */
     includes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface BuildDefinitionRepository {
+    /**
+     * The branch name for which builds are triggered. Defaults to `master`.
+     */
     branchName?: pulumi.Input<string>;
+    /**
+     * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+     */
     githubEnterpriseUrl?: pulumi.Input<string>;
+    /**
+     * The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
+     */
     repoId: pulumi.Input<string>;
+    /**
+     * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+     */
     repoType: pulumi.Input<string>;
+    /**
+     * Report build status. Default is true.
+     */
     reportBuildStatus?: pulumi.Input<boolean>;
+    /**
+     * The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
+     */
     serviceConnectionId?: pulumi.Input<string>;
+    /**
+     * The path of the Yaml file describing the build definition.
+     */
     ymlPath: pulumi.Input<string>;
 }
 
 export interface BuildDefinitionSchedule {
+    /**
+     * block supports the following:
+     */
     branchFilters?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionScheduleBranchFilter>[]>;
     daysToBuilds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the schedule job
+     */
     scheduleJobId?: pulumi.Input<string>;
     scheduleOnlyWithChanges?: pulumi.Input<boolean>;
     startHours?: pulumi.Input<number>;
@@ -347,15 +446,36 @@ export interface BuildDefinitionSchedule {
 }
 
 export interface BuildDefinitionScheduleBranchFilter {
+    /**
+     * List of branch patterns to exclude.
+     */
     excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * List of branch patterns to include.
+     */
     includes?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface BuildDefinitionVariable {
+    /**
+     * True if the variable can be overridden. Defaults to `true`.
+     */
     allowOverride?: pulumi.Input<boolean>;
+    /**
+     * True if the variable is a secret. Defaults to `false`.
+     */
     isSecret?: pulumi.Input<boolean>;
+    /**
+     * The name of the variable.
+     */
     name: pulumi.Input<string>;
+    /**
+     * The secret value of the variable. Used when `isSecret` set to `true`.
+     */
     secretValue?: pulumi.Input<string>;
+    /**
+     * The value of the variable.
+     */
     value?: pulumi.Input<string>;
 }
 
@@ -617,71 +737,170 @@ export namespace Agent {
 
 export namespace Build {
     export interface BuildDefinitionCiTrigger {
+        /**
+         * Override the azure-pipeline file and use a this configuration for all builds.
+         */
         override?: pulumi.Input<inputs.Build.BuildDefinitionCiTriggerOverride>;
+        /**
+         * Use the azure-pipeline file for the build configuration. Defaults to `false`.
+         */
         useYaml?: pulumi.Input<boolean>;
     }
 
     export interface BuildDefinitionCiTriggerOverride {
+        /**
+         * If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
+         */
         batch?: pulumi.Input<boolean>;
+        /**
+         * The branches to include and exclude from the trigger.
+         */
         branchFilters?: pulumi.Input<pulumi.Input<inputs.Build.BuildDefinitionCiTriggerOverrideBranchFilter>[]>;
+        /**
+         * The number of max builds per branch. Defaults to `1`.
+         */
         maxConcurrentBuildsPerBranch?: pulumi.Input<number>;
+        /**
+         * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+         */
         pathFilters?: pulumi.Input<pulumi.Input<inputs.Build.BuildDefinitionCiTriggerOverridePathFilter>[]>;
+        /**
+         * How often the external repository is polled. Defaults to `0`.
+         */
         pollingInterval?: pulumi.Input<number>;
+        /**
+         * This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
+         */
         pollingJobId?: pulumi.Input<string>;
     }
 
     export interface BuildDefinitionCiTriggerOverrideBranchFilter {
+        /**
+         * List of branch patterns to exclude.
+         */
         excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of branch patterns to include.
+         */
         includes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BuildDefinitionCiTriggerOverridePathFilter {
+        /**
+         * List of branch patterns to exclude.
+         */
         excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of branch patterns to include.
+         */
         includes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BuildDefinitionPullRequestTrigger {
         commentRequired?: pulumi.Input<string>;
+        /**
+         * Set permissions for Forked repositories.
+         */
         forks: pulumi.Input<inputs.Build.BuildDefinitionPullRequestTriggerForks>;
         initialBranch?: pulumi.Input<string>;
+        /**
+         * Override the azure-pipeline file and use this configuration for all builds.
+         */
         override?: pulumi.Input<inputs.Build.BuildDefinitionPullRequestTriggerOverride>;
+        /**
+         * Use the azure-pipeline file for the build configuration. Defaults to `false`.
+         */
         useYaml?: pulumi.Input<boolean>;
     }
 
     export interface BuildDefinitionPullRequestTriggerForks {
+        /**
+         * Build pull requests form forms of this repository.
+         */
         enabled: pulumi.Input<boolean>;
+        /**
+         * Make secrets available to builds of forks.
+         */
         shareSecrets: pulumi.Input<boolean>;
     }
 
     export interface BuildDefinitionPullRequestTriggerOverride {
+        /**
+         * . Defaults to `true`.
+         */
         autoCancel?: pulumi.Input<boolean>;
+        /**
+         * The branches to include and exclude from the trigger.
+         */
         branchFilters?: pulumi.Input<pulumi.Input<inputs.Build.BuildDefinitionPullRequestTriggerOverrideBranchFilter>[]>;
+        /**
+         * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+         */
         pathFilters?: pulumi.Input<pulumi.Input<inputs.Build.BuildDefinitionPullRequestTriggerOverridePathFilter>[]>;
     }
 
     export interface BuildDefinitionPullRequestTriggerOverrideBranchFilter {
+        /**
+         * List of branch patterns to exclude.
+         */
         excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of branch patterns to include.
+         */
         includes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BuildDefinitionPullRequestTriggerOverridePathFilter {
+        /**
+         * List of branch patterns to exclude.
+         */
         excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of branch patterns to include.
+         */
         includes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BuildDefinitionRepository {
+        /**
+         * The branch name for which builds are triggered. Defaults to `master`.
+         */
         branchName?: pulumi.Input<string>;
+        /**
+         * The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
+         */
         githubEnterpriseUrl?: pulumi.Input<string>;
+        /**
+         * The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
+         */
         repoId: pulumi.Input<string>;
+        /**
+         * The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+         */
         repoType: pulumi.Input<string>;
+        /**
+         * Report build status. Default is true.
+         */
         reportBuildStatus?: pulumi.Input<boolean>;
+        /**
+         * The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
+         */
         serviceConnectionId?: pulumi.Input<string>;
+        /**
+         * The path of the Yaml file describing the build definition.
+         */
         ymlPath: pulumi.Input<string>;
     }
 
     export interface BuildDefinitionSchedule {
+        /**
+         * block supports the following:
+         */
         branchFilters?: pulumi.Input<pulumi.Input<inputs.Build.BuildDefinitionScheduleBranchFilter>[]>;
         daysToBuilds: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * The ID of the schedule job
+         */
         scheduleJobId?: pulumi.Input<string>;
         scheduleOnlyWithChanges?: pulumi.Input<boolean>;
         startHours?: pulumi.Input<number>;
@@ -690,15 +909,36 @@ export namespace Build {
     }
 
     export interface BuildDefinitionScheduleBranchFilter {
+        /**
+         * List of branch patterns to exclude.
+         */
         excludes?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * List of branch patterns to include.
+         */
         includes?: pulumi.Input<pulumi.Input<string>[]>;
     }
 
     export interface BuildDefinitionVariable {
+        /**
+         * True if the variable can be overridden. Defaults to `true`.
+         */
         allowOverride?: pulumi.Input<boolean>;
+        /**
+         * True if the variable is a secret. Defaults to `false`.
+         */
         isSecret?: pulumi.Input<boolean>;
+        /**
+         * The name of the variable.
+         */
         name: pulumi.Input<string>;
+        /**
+         * The secret value of the variable. Used when `isSecret` set to `true`.
+         */
         secretValue?: pulumi.Input<string>;
+        /**
+         * The value of the variable.
+         */
         value?: pulumi.Input<string>;
     }
 }

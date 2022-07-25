@@ -13,8 +13,14 @@ namespace Pulumi.AzureDevOps.Build.Outputs
     [OutputType]
     public sealed class BuildDefinitionSchedule
     {
+        /// <summary>
+        /// block supports the following:
+        /// </summary>
         public readonly ImmutableArray<Outputs.BuildDefinitionScheduleBranchFilter> BranchFilters;
         public readonly ImmutableArray<string> DaysToBuilds;
+        /// <summary>
+        /// The ID of the schedule job
+        /// </summary>
         public readonly string? ScheduleJobId;
         public readonly bool? ScheduleOnlyWithChanges;
         public readonly int? StartHours;

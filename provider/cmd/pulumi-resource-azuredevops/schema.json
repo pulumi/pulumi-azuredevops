@@ -123,6 +123,7 @@
             "properties": {
                 "override": {
                     "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTriggerOverride:BuildDefinitionCiTriggerOverride",
+                    "description": "Override the azure-pipeline file and use a this configuration for all builds.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -131,6 +132,7 @@
                 },
                 "useYaml": {
                     "type": "boolean",
+                    "description": "Use the azure-pipeline file for the build configuration. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -144,6 +146,7 @@
             "properties": {
                 "batch": {
                     "type": "boolean",
+                    "description": "If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -155,6 +158,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTriggerOverrideBranchFilter:BuildDefinitionCiTriggerOverrideBranchFilter"
                     },
+                    "description": "The branches to include and exclude from the trigger.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -163,6 +167,7 @@
                 },
                 "maxConcurrentBuildsPerBranch": {
                     "type": "integer",
+                    "description": "The number of max builds per branch. Defaults to `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -174,6 +179,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTriggerOverridePathFilter:BuildDefinitionCiTriggerOverridePathFilter"
                     },
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -182,6 +188,7 @@
                 },
                 "pollingInterval": {
                     "type": "integer",
+                    "description": "How often the external repository is polled. Defaults to `0`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -190,6 +197,7 @@
                 },
                 "pollingJobId": {
                     "type": "string",
+                    "description": "This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -213,6 +221,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -224,6 +233,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -240,6 +250,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -251,6 +262,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -272,6 +284,7 @@
                 },
                 "forks": {
                     "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTriggerForks:BuildDefinitionPullRequestTriggerForks",
+                    "description": "Set permissions for Forked repositories.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -288,6 +301,7 @@
                 },
                 "override": {
                     "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTriggerOverride:BuildDefinitionPullRequestTriggerOverride",
+                    "description": "Override the azure-pipeline file and use this configuration for all builds.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -296,6 +310,7 @@
                 },
                 "useYaml": {
                     "type": "boolean",
+                    "description": "Use the azure-pipeline file for the build configuration. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -312,6 +327,7 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
+                    "description": "Build pull requests form forms of this repository.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -320,6 +336,7 @@
                 },
                 "shareSecrets": {
                     "type": "boolean",
+                    "description": "Make secrets available to builds of forks.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -337,6 +354,7 @@
             "properties": {
                 "autoCancel": {
                     "type": "boolean",
+                    "description": ". Defaults to `true`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -348,6 +366,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTriggerOverrideBranchFilter:BuildDefinitionPullRequestTriggerOverrideBranchFilter"
                     },
+                    "description": "The branches to include and exclude from the trigger.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -359,6 +378,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTriggerOverridePathFilter:BuildDefinitionPullRequestTriggerOverridePathFilter"
                     },
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -375,6 +395,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -386,6 +407,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -402,6 +424,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -413,6 +436,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -426,6 +450,7 @@
             "properties": {
                 "branchName": {
                     "type": "string",
+                    "description": "The branch name for which builds are triggered. Defaults to `master`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -434,6 +459,7 @@
                 },
                 "githubEnterpriseUrl": {
                     "type": "string",
+                    "description": "The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -442,6 +468,7 @@
                 },
                 "repoId": {
                     "type": "string",
+                    "description": "The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `\u003cGitHub Org\u003e/\u003cRepo Name\u003e`. For `Bitbucket` repos, this will take the form of `\u003cWorkspace ID\u003e/\u003cRepo Name\u003e`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -450,6 +477,7 @@
                 },
                 "repoType": {
                     "type": "string",
+                    "description": "The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -458,6 +486,7 @@
                 },
                 "reportBuildStatus": {
                     "type": "boolean",
+                    "description": "Report build status. Default is true.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -466,6 +495,7 @@
                 },
                 "serviceConnectionId": {
                     "type": "string",
+                    "description": "The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -474,6 +504,7 @@
                 },
                 "ymlPath": {
                     "type": "string",
+                    "description": "The path of the Yaml file describing the build definition.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -495,6 +526,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionScheduleBranchFilter:BuildDefinitionScheduleBranchFilter"
                     },
+                    "description": "block supports the following:\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -514,6 +546,7 @@
                 },
                 "scheduleJobId": {
                     "type": "string",
+                    "description": "The ID of the schedule job\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -573,6 +606,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -584,6 +618,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -597,6 +632,7 @@
             "properties": {
                 "allowOverride": {
                     "type": "boolean",
+                    "description": "True if the variable can be overridden. Defaults to `true`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -605,6 +641,7 @@
                 },
                 "isSecret": {
                     "type": "boolean",
+                    "description": "True if the variable is a secret. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -613,6 +650,7 @@
                 },
                 "name": {
                     "type": "string",
+                    "description": "The name of the variable.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -621,6 +659,7 @@
                 },
                 "secretValue": {
                     "type": "string",
+                    "description": "The secret value of the variable. Used when `is_secret` set to `true`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -629,6 +668,7 @@
                 },
                 "value": {
                     "type": "string",
+                    "description": "The value of the variable.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2171,6 +2211,7 @@
             "properties": {
                 "override": {
                     "$ref": "#/types/azuredevops:index/BuildDefinitionCiTriggerOverride:BuildDefinitionCiTriggerOverride",
+                    "description": "Override the azure-pipeline file and use a this configuration for all builds.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2179,6 +2220,7 @@
                 },
                 "useYaml": {
                     "type": "boolean",
+                    "description": "Use the azure-pipeline file for the build configuration. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2192,6 +2234,7 @@
             "properties": {
                 "batch": {
                     "type": "boolean",
+                    "description": "If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2203,6 +2246,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionCiTriggerOverrideBranchFilter:BuildDefinitionCiTriggerOverrideBranchFilter"
                     },
+                    "description": "The branches to include and exclude from the trigger.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2211,6 +2255,7 @@
                 },
                 "maxConcurrentBuildsPerBranch": {
                     "type": "integer",
+                    "description": "The number of max builds per branch. Defaults to `1`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2222,6 +2267,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionCiTriggerOverridePathFilter:BuildDefinitionCiTriggerOverridePathFilter"
                     },
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2230,6 +2276,7 @@
                 },
                 "pollingInterval": {
                     "type": "integer",
+                    "description": "How often the external repository is polled. Defaults to `0`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2238,6 +2285,7 @@
                 },
                 "pollingJobId": {
                     "type": "string",
+                    "description": "This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2261,6 +2309,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2272,6 +2321,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2288,6 +2338,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2299,6 +2350,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2320,6 +2372,7 @@
                 },
                 "forks": {
                     "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerForks:BuildDefinitionPullRequestTriggerForks",
+                    "description": "Set permissions for Forked repositories.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2336,6 +2389,7 @@
                 },
                 "override": {
                     "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerOverride:BuildDefinitionPullRequestTriggerOverride",
+                    "description": "Override the azure-pipeline file and use this configuration for all builds.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2344,6 +2398,7 @@
                 },
                 "useYaml": {
                     "type": "boolean",
+                    "description": "Use the azure-pipeline file for the build configuration. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2360,6 +2415,7 @@
             "properties": {
                 "enabled": {
                     "type": "boolean",
+                    "description": "Build pull requests form forms of this repository.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2368,6 +2424,7 @@
                 },
                 "shareSecrets": {
                     "type": "boolean",
+                    "description": "Make secrets available to builds of forks.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2385,6 +2442,7 @@
             "properties": {
                 "autoCancel": {
                     "type": "boolean",
+                    "description": ". Defaults to `true`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2396,6 +2454,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerOverrideBranchFilter:BuildDefinitionPullRequestTriggerOverrideBranchFilter"
                     },
+                    "description": "The branches to include and exclude from the trigger.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2407,6 +2466,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerOverridePathFilter:BuildDefinitionPullRequestTriggerOverridePathFilter"
                     },
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2423,6 +2483,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2434,6 +2495,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2450,6 +2512,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2461,6 +2524,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2474,6 +2538,7 @@
             "properties": {
                 "branchName": {
                     "type": "string",
+                    "description": "The branch name for which builds are triggered. Defaults to `master`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2482,6 +2547,7 @@
                 },
                 "githubEnterpriseUrl": {
                     "type": "string",
+                    "description": "The Github Enterprise URL. Used if `repo_type` is `GithubEnterprise`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2490,6 +2556,7 @@
                 },
                 "repoId": {
                     "type": "string",
+                    "description": "The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `\u003cGitHub Org\u003e/\u003cRepo Name\u003e`. For `Bitbucket` repos, this will take the form of `\u003cWorkspace ID\u003e/\u003cRepo Name\u003e`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2498,6 +2565,7 @@
                 },
                 "repoType": {
                     "type": "string",
+                    "description": "The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repo_type` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2506,6 +2574,7 @@
                 },
                 "reportBuildStatus": {
                     "type": "boolean",
+                    "description": "Report build status. Default is true.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2514,6 +2583,7 @@
                 },
                 "serviceConnectionId": {
                     "type": "string",
+                    "description": "The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2522,6 +2592,7 @@
                 },
                 "ymlPath": {
                     "type": "string",
+                    "description": "The path of the Yaml file describing the build definition.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2543,6 +2614,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionScheduleBranchFilter:BuildDefinitionScheduleBranchFilter"
                     },
+                    "description": "block supports the following:\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2562,6 +2634,7 @@
                 },
                 "scheduleJobId": {
                     "type": "string",
+                    "description": "The ID of the schedule job\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2621,6 +2694,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to exclude.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2632,6 +2706,7 @@
                     "items": {
                         "type": "string"
                     },
+                    "description": "List of branch patterns to include.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2645,6 +2720,7 @@
             "properties": {
                 "allowOverride": {
                     "type": "boolean",
+                    "description": "True if the variable can be overridden. Defaults to `true`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2653,6 +2729,7 @@
                 },
                 "isSecret": {
                     "type": "boolean",
+                    "description": "True if the variable is a secret. Defaults to `false`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2661,6 +2738,7 @@
                 },
                 "name": {
                     "type": "string",
+                    "description": "The name of the variable.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2669,6 +2747,7 @@
                 },
                 "secretValue": {
                     "type": "string",
+                    "description": "The secret value of the variable. Used when `is_secret` set to `true`.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -2677,6 +2756,7 @@
                 },
                 "value": {
                     "type": "string",
+                    "description": "The value of the variable.\n",
                     "language": {
                         "python": {
                             "mapCase": false
@@ -5006,30 +5086,39 @@
             "deprecationMessage": "azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue"
         },
         "azuredevops:Build/buildDefinition:BuildDefinition": {
+            "description": "Manages a Build Definition within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Tfs\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"exampleProject\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst exampleGit = new azuredevops.Git(\"exampleGit\", {\n    projectId: exampleProject.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst exampleVariableGroup = new azuredevops.VariableGroup(\"exampleVariableGroup\", {\n    projectId: exampleProject.id,\n    description: \"Managed by Terraform\",\n    allowAccess: true,\n    variables: [{\n        name: \"FOO\",\n        value: \"BAR\",\n    }],\n});\nconst exampleBuildDefinition = new azuredevops.BuildDefinition(\"exampleBuildDefinition\", {\n    projectId: exampleProject.id,\n    path: \"\\\\ExampleFolder\",\n    ciTrigger: {\n        useYaml: true,\n    },\n    schedules: [{\n        branchFilters: [{\n            includes: [\"master\"],\n            excludes: [\n                \"test\",\n                \"regression\",\n            ],\n        }],\n        daysToBuilds: [\n            \"Wed\",\n            \"Sun\",\n        ],\n        scheduleOnlyWithChanges: true,\n        startHours: 10,\n        startMinutes: 59,\n        timeZone: \"(UTC) Coordinated Universal Time\",\n    }],\n    repository: {\n        repoType: \"TfsGit\",\n        repoId: exampleGit.id,\n        branchName: exampleGit.defaultBranch,\n        ymlPath: \"azure-pipelines.yml\",\n    },\n    variableGroups: [exampleVariableGroup.id],\n    variables: [\n        {\n            name: \"PipelineVariable\",\n            value: \"Go Microsoft!\",\n        },\n        {\n            name: \"PipelineSecret\",\n            secretValue: \"ZGV2cw\",\n            isSecret: true,\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"exampleProject\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nexample_git = azuredevops.Git(\"exampleGit\",\n    project_id=example_project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nexample_variable_group = azuredevops.VariableGroup(\"exampleVariableGroup\",\n    project_id=example_project.id,\n    description=\"Managed by Terraform\",\n    allow_access=True,\n    variables=[azuredevops.VariableGroupVariableArgs(\n        name=\"FOO\",\n        value=\"BAR\",\n    )])\nexample_build_definition = azuredevops.BuildDefinition(\"exampleBuildDefinition\",\n    project_id=example_project.id,\n    path=\"\\\\ExampleFolder\",\n    ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(\n        use_yaml=True,\n    ),\n    schedules=[azuredevops.BuildDefinitionScheduleArgs(\n        branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(\n            includes=[\"master\"],\n            excludes=[\n                \"test\",\n                \"regression\",\n            ],\n        )],\n        days_to_builds=[\n            \"Wed\",\n            \"Sun\",\n        ],\n        schedule_only_with_changes=True,\n        start_hours=10,\n        start_minutes=59,\n        time_zone=\"(UTC) Coordinated Universal Time\",\n    )],\n    repository=azuredevops.BuildDefinitionRepositoryArgs(\n        repo_type=\"TfsGit\",\n        repo_id=example_git.id,\n        branch_name=example_git.default_branch,\n        yml_path=\"azure-pipelines.yml\",\n    ),\n    variable_groups=[example_variable_group.id],\n    variables=[\n        azuredevops.BuildDefinitionVariableArgs(\n            name=\"PipelineVariable\",\n            value=\"Go Microsoft!\",\n        ),\n        azuredevops.BuildDefinitionVariableArgs(\n            name=\"PipelineSecret\",\n            secret_value=\"ZGV2cw\",\n            is_secret=True,\n        ),\n    ])\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleProject = new AzureDevOps.Project(\"exampleProject\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var exampleGit = new AzureDevOps.Git(\"exampleGit\", new AzureDevOps.GitArgs\n        {\n            ProjectId = exampleProject.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var exampleVariableGroup = new AzureDevOps.VariableGroup(\"exampleVariableGroup\", new AzureDevOps.VariableGroupArgs\n        {\n            ProjectId = exampleProject.Id,\n            Description = \"Managed by Terraform\",\n            AllowAccess = true,\n            Variables = \n            {\n                new AzureDevOps.Inputs.VariableGroupVariableArgs\n                {\n                    Name = \"FOO\",\n                    Value = \"BAR\",\n                },\n            },\n        });\n        var exampleBuildDefinition = new AzureDevOps.BuildDefinition(\"exampleBuildDefinition\", new AzureDevOps.BuildDefinitionArgs\n        {\n            ProjectId = exampleProject.Id,\n            Path = \"\\\\ExampleFolder\",\n            CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs\n            {\n                UseYaml = true,\n            },\n            Schedules = \n            {\n                new AzureDevOps.Inputs.BuildDefinitionScheduleArgs\n                {\n                    BranchFilters = \n                    {\n                        new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs\n                        {\n                            Includes = \n                            {\n                                \"master\",\n                            },\n                            Excludes = \n                            {\n                                \"test\",\n                                \"regression\",\n                            },\n                        },\n                    },\n                    DaysToBuilds = \n                    {\n                        \"Wed\",\n                        \"Sun\",\n                    },\n                    ScheduleOnlyWithChanges = true,\n                    StartHours = 10,\n                    StartMinutes = 59,\n                    TimeZone = \"(UTC) Coordinated Universal Time\",\n                },\n            },\n            Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs\n            {\n                RepoType = \"TfsGit\",\n                RepoId = exampleGit.Id,\n                BranchName = exampleGit.DefaultBranch,\n                YmlPath = \"azure-pipelines.yml\",\n            },\n            VariableGroups = \n            {\n                exampleVariableGroup.Id,\n            },\n            Variables = \n            {\n                new AzureDevOps.Inputs.BuildDefinitionVariableArgs\n                {\n                    Name = \"PipelineVariable\",\n                    Value = \"Go Microsoft!\",\n                },\n                new AzureDevOps.Inputs.BuildDefinitionVariableArgs\n                {\n                    Name = \"PipelineSecret\",\n                    SecretValue = \"ZGV2cw\",\n                    IsSecret = true,\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"exampleProject\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleGit, err := azuredevops.NewGit(ctx, \"exampleGit\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: exampleProject.ID(),\n\t\t\tInitialization: \u0026GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, \"exampleVariableGroup\", \u0026azuredevops.VariableGroupArgs{\n\t\t\tProjectId:   exampleProject.ID(),\n\t\t\tDescription: pulumi.String(\"Managed by Terraform\"),\n\t\t\tAllowAccess: pulumi.Bool(true),\n\t\t\tVariables: VariableGroupVariableArray{\n\t\t\t\t\u0026VariableGroupVariableArgs{\n\t\t\t\t\tName:  pulumi.String(\"FOO\"),\n\t\t\t\t\tValue: pulumi.String(\"BAR\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBuildDefinition(ctx, \"exampleBuildDefinition\", \u0026azuredevops.BuildDefinitionArgs{\n\t\t\tProjectId: exampleProject.ID(),\n\t\t\tPath:      pulumi.String(\"\\\\ExampleFolder\"),\n\t\t\tCiTrigger: \u0026BuildDefinitionCiTriggerArgs{\n\t\t\t\tUseYaml: pulumi.Bool(true),\n\t\t\t},\n\t\t\tSchedules: BuildDefinitionScheduleArray{\n\t\t\t\t\u0026BuildDefinitionScheduleArgs{\n\t\t\t\t\tBranchFilters: BuildDefinitionScheduleBranchFilterArray{\n\t\t\t\t\t\t\u0026BuildDefinitionScheduleBranchFilterArgs{\n\t\t\t\t\t\t\tIncludes: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"master\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tExcludes: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"test\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"regression\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tDaysToBuilds: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"Wed\"),\n\t\t\t\t\t\tpulumi.String(\"Sun\"),\n\t\t\t\t\t},\n\t\t\t\t\tScheduleOnlyWithChanges: pulumi.Bool(true),\n\t\t\t\t\tStartHours:              pulumi.Int(10),\n\t\t\t\t\tStartMinutes:            pulumi.Int(59),\n\t\t\t\t\tTimeZone:                pulumi.String(\"(UTC) Coordinated Universal Time\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRepository: \u0026BuildDefinitionRepositoryArgs{\n\t\t\t\tRepoType:   pulumi.String(\"TfsGit\"),\n\t\t\t\tRepoId:     exampleGit.ID(),\n\t\t\t\tBranchName: exampleGit.DefaultBranch,\n\t\t\t\tYmlPath:    pulumi.String(\"azure-pipelines.yml\"),\n\t\t\t},\n\t\t\tVariableGroups: pulumi.IntArray{\n\t\t\t\texampleVariableGroup.ID(),\n\t\t\t},\n\t\t\tVariables: BuildDefinitionVariableArray{\n\t\t\t\t\u0026BuildDefinitionVariableArgs{\n\t\t\t\t\tName:  pulumi.String(\"PipelineVariable\"),\n\t\t\t\t\tValue: pulumi.String(\"Go Microsoft!\"),\n\t\t\t\t},\n\t\t\t\t\u0026BuildDefinitionVariableArgs{\n\t\t\t\t\tName:        pulumi.String(\"PipelineSecret\"),\n\t\t\t\t\tSecretValue: pulumi.String(\"ZGV2cw\"),\n\t\t\t\t\tIsSecret:    pulumi.Bool(true),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Git;\nimport com.pulumi.azuredevops.GitArgs;\nimport com.pulumi.azuredevops.inputs.GitInitializationArgs;\nimport com.pulumi.azuredevops.VariableGroup;\nimport com.pulumi.azuredevops.VariableGroupArgs;\nimport com.pulumi.azuredevops.inputs.VariableGroupVariableArgs;\nimport com.pulumi.azuredevops.BuildDefinition;\nimport com.pulumi.azuredevops.BuildDefinitionArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionCiTriggerArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionScheduleArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionRepositoryArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionVariableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\", ProjectArgs.builder()        \n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .build());\n\n        var exampleGit = new Git(\"exampleGit\", GitArgs.builder()        \n            .projectId(exampleProject.id())\n            .initialization(GitInitializationArgs.builder()\n                .initType(\"Clean\")\n                .build())\n            .build());\n\n        var exampleVariableGroup = new VariableGroup(\"exampleVariableGroup\", VariableGroupArgs.builder()        \n            .projectId(exampleProject.id())\n            .description(\"Managed by Terraform\")\n            .allowAccess(true)\n            .variables(VariableGroupVariableArgs.builder()\n                .name(\"FOO\")\n                .value(\"BAR\")\n                .build())\n            .build());\n\n        var exampleBuildDefinition = new BuildDefinition(\"exampleBuildDefinition\", BuildDefinitionArgs.builder()        \n            .projectId(exampleProject.id())\n            .path(\"\\\\ExampleFolder\")\n            .ciTrigger(BuildDefinitionCiTriggerArgs.builder()\n                .useYaml(true)\n                .build())\n            .schedules(BuildDefinitionScheduleArgs.builder()\n                .branchFilters(BuildDefinitionScheduleBranchFilterArgs.builder()\n                    .includes(\"master\")\n                    .excludes(                    \n                        \"test\",\n                        \"regression\")\n                    .build())\n                .daysToBuilds(                \n                    \"Wed\",\n                    \"Sun\")\n                .scheduleOnlyWithChanges(true)\n                .startHours(10)\n                .startMinutes(59)\n                .timeZone(\"(UTC) Coordinated Universal Time\")\n                .build())\n            .repository(BuildDefinitionRepositoryArgs.builder()\n                .repoType(\"TfsGit\")\n                .repoId(exampleGit.id())\n                .branchName(exampleGit.defaultBranch())\n                .ymlPath(\"azure-pipelines.yml\")\n                .build())\n            .variableGroups(exampleVariableGroup.id())\n            .variables(            \n                BuildDefinitionVariableArgs.builder()\n                    .name(\"PipelineVariable\")\n                    .value(\"Go Microsoft!\")\n                    .build(),\n                BuildDefinitionVariableArgs.builder()\n                    .name(\"PipelineSecret\")\n                    .secretValue(\"ZGV2cw\")\n                    .isSecret(true)\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n    properties:\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n  exampleGit:\n    type: azuredevops:Git\n    properties:\n      projectId: ${exampleProject.id}\n      initialization:\n        initType: Clean\n  exampleVariableGroup:\n    type: azuredevops:VariableGroup\n    properties:\n      projectId: ${exampleProject.id}\n      description: Managed by Terraform\n      allowAccess: true\n      variables:\n        - name: FOO\n          value: BAR\n  exampleBuildDefinition:\n    type: azuredevops:BuildDefinition\n    properties:\n      projectId: ${exampleProject.id}\n      path: \\ExampleFolder\n      ciTrigger:\n        useYaml: true\n      schedules:\n        - branchFilters:\n            - includes:\n                - master\n              excludes:\n                - test\n                - regression\n          daysToBuilds:\n            - Wed\n            - Sun\n          scheduleOnlyWithChanges: true\n          startHours: 10\n          startMinutes: 59\n          timeZone: (UTC) Coordinated Universal Time\n      repository:\n        repoType: TfsGit\n        repoId: ${exampleGit.id}\n        branchName: ${exampleGit.defaultBranch}\n        ymlPath: azure-pipelines.yml\n      variableGroups:\n        - ${exampleVariableGroup.id}\n      variables:\n        - name: PipelineVariable\n          value: Go Microsoft!\n        - name: PipelineSecret\n          secretValue: ZGV2cw\n          isSecret: true\n```\n{{% /example %}}\n{{% example %}}\n### GitHub Enterprise\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"exampleProject\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst exampleServiceEndpointGitHubEnterprise = new azuredevops.ServiceEndpointGitHubEnterprise(\"exampleServiceEndpointGitHubEnterprise\", {\n    projectId: exampleProject.id,\n    serviceEndpointName: \"Example GitHub Enterprise\",\n    url: \"https://github.contoso.com\",\n    description: \"Managed by Terraform\",\n    authPersonal: {\n        personalAccessToken: \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    },\n});\nconst exampleBuildDefinition = new azuredevops.BuildDefinition(\"exampleBuildDefinition\", {\n    projectId: exampleProject.id,\n    path: \"\\\\ExampleFolder\",\n    ciTrigger: {\n        useYaml: true,\n    },\n    repository: {\n        repoType: \"GitHubEnterprise\",\n        repoId: \"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\",\n        githubEnterpriseUrl: \"https://github.company.com\",\n        branchName: \"master\",\n        ymlPath: \"azure-pipelines.yml\",\n        serviceConnectionId: exampleServiceEndpointGitHubEnterprise.id,\n    },\n    schedules: [{\n        branchFilters: [{\n            includes: [\"main\"],\n            excludes: [\n                \"test\",\n                \"regression\",\n            ],\n        }],\n        daysToBuilds: [\n            \"Wed\",\n            \"Sun\",\n        ],\n        scheduleOnlyWithChanges: true,\n        startHours: 10,\n        startMinutes: 59,\n        timeZone: \"(UTC) Coordinated Universal Time\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"exampleProject\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nexample_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise(\"exampleServiceEndpointGitHubEnterprise\",\n    project_id=example_project.id,\n    service_endpoint_name=\"Example GitHub Enterprise\",\n    url=\"https://github.contoso.com\",\n    description=\"Managed by Terraform\",\n    auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(\n        personal_access_token=\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    ))\nexample_build_definition = azuredevops.BuildDefinition(\"exampleBuildDefinition\",\n    project_id=example_project.id,\n    path=\"\\\\ExampleFolder\",\n    ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(\n        use_yaml=True,\n    ),\n    repository=azuredevops.BuildDefinitionRepositoryArgs(\n        repo_type=\"GitHubEnterprise\",\n        repo_id=\"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\",\n        github_enterprise_url=\"https://github.company.com\",\n        branch_name=\"master\",\n        yml_path=\"azure-pipelines.yml\",\n        service_connection_id=example_service_endpoint_git_hub_enterprise.id,\n    ),\n    schedules=[azuredevops.BuildDefinitionScheduleArgs(\n        branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(\n            includes=[\"main\"],\n            excludes=[\n                \"test\",\n                \"regression\",\n            ],\n        )],\n        days_to_builds=[\n            \"Wed\",\n            \"Sun\",\n        ],\n        schedule_only_with_changes=True,\n        start_hours=10,\n        start_minutes=59,\n        time_zone=\"(UTC) Coordinated Universal Time\",\n    )])\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleProject = new AzureDevOps.Project(\"exampleProject\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise(\"exampleServiceEndpointGitHubEnterprise\", new AzureDevOps.ServiceEndpointGitHubEnterpriseArgs\n        {\n            ProjectId = exampleProject.Id,\n            ServiceEndpointName = \"Example GitHub Enterprise\",\n            Url = \"https://github.contoso.com\",\n            Description = \"Managed by Terraform\",\n            AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs\n            {\n                PersonalAccessToken = \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n            },\n        });\n        var exampleBuildDefinition = new AzureDevOps.BuildDefinition(\"exampleBuildDefinition\", new AzureDevOps.BuildDefinitionArgs\n        {\n            ProjectId = exampleProject.Id,\n            Path = \"\\\\ExampleFolder\",\n            CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs\n            {\n                UseYaml = true,\n            },\n            Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs\n            {\n                RepoType = \"GitHubEnterprise\",\n                RepoId = \"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\",\n                GithubEnterpriseUrl = \"https://github.company.com\",\n                BranchName = \"master\",\n                YmlPath = \"azure-pipelines.yml\",\n                ServiceConnectionId = exampleServiceEndpointGitHubEnterprise.Id,\n            },\n            Schedules = \n            {\n                new AzureDevOps.Inputs.BuildDefinitionScheduleArgs\n                {\n                    BranchFilters = \n                    {\n                        new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs\n                        {\n                            Includes = \n                            {\n                                \"main\",\n                            },\n                            Excludes = \n                            {\n                                \"test\",\n                                \"regression\",\n                            },\n                        },\n                    },\n                    DaysToBuilds = \n                    {\n                        \"Wed\",\n                        \"Sun\",\n                    },\n                    ScheduleOnlyWithChanges = true,\n                    StartHours = 10,\n                    StartMinutes = 59,\n                    TimeZone = \"(UTC) Coordinated Universal Time\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"exampleProject\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleServiceEndpointGitHubEnterprise, err := azuredevops.NewServiceEndpointGitHubEnterprise(ctx, \"exampleServiceEndpointGitHubEnterprise\", \u0026azuredevops.ServiceEndpointGitHubEnterpriseArgs{\n\t\t\tProjectId:           exampleProject.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Example GitHub Enterprise\"),\n\t\t\tUrl:                 pulumi.String(\"https://github.contoso.com\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t\tAuthPersonal: \u0026ServiceEndpointGitHubEnterpriseAuthPersonalArgs{\n\t\t\t\tPersonalAccessToken: pulumi.String(\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBuildDefinition(ctx, \"exampleBuildDefinition\", \u0026azuredevops.BuildDefinitionArgs{\n\t\t\tProjectId: exampleProject.ID(),\n\t\t\tPath:      pulumi.String(\"\\\\ExampleFolder\"),\n\t\t\tCiTrigger: \u0026BuildDefinitionCiTriggerArgs{\n\t\t\t\tUseYaml: pulumi.Bool(true),\n\t\t\t},\n\t\t\tRepository: \u0026BuildDefinitionRepositoryArgs{\n\t\t\t\tRepoType:            pulumi.String(\"GitHubEnterprise\"),\n\t\t\t\tRepoId:              pulumi.String(\"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\"),\n\t\t\t\tGithubEnterpriseUrl: pulumi.String(\"https://github.company.com\"),\n\t\t\t\tBranchName:          pulumi.String(\"master\"),\n\t\t\t\tYmlPath:             pulumi.String(\"azure-pipelines.yml\"),\n\t\t\t\tServiceConnectionId: exampleServiceEndpointGitHubEnterprise.ID(),\n\t\t\t},\n\t\t\tSchedules: BuildDefinitionScheduleArray{\n\t\t\t\t\u0026BuildDefinitionScheduleArgs{\n\t\t\t\t\tBranchFilters: BuildDefinitionScheduleBranchFilterArray{\n\t\t\t\t\t\t\u0026BuildDefinitionScheduleBranchFilterArgs{\n\t\t\t\t\t\t\tIncludes: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"main\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tExcludes: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"test\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"regression\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tDaysToBuilds: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"Wed\"),\n\t\t\t\t\t\tpulumi.String(\"Sun\"),\n\t\t\t\t\t},\n\t\t\t\t\tScheduleOnlyWithChanges: pulumi.Bool(true),\n\t\t\t\t\tStartHours:              pulumi.Int(10),\n\t\t\t\t\tStartMinutes:            pulumi.Int(59),\n\t\t\t\t\tTimeZone:                pulumi.String(\"(UTC) Coordinated Universal Time\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.ServiceEndpointGitHubEnterprise;\nimport com.pulumi.azuredevops.ServiceEndpointGitHubEnterpriseArgs;\nimport com.pulumi.azuredevops.inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs;\nimport com.pulumi.azuredevops.BuildDefinition;\nimport com.pulumi.azuredevops.BuildDefinitionArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionCiTriggerArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionRepositoryArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionScheduleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\", ProjectArgs.builder()        \n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .build());\n\n        var exampleServiceEndpointGitHubEnterprise = new ServiceEndpointGitHubEnterprise(\"exampleServiceEndpointGitHubEnterprise\", ServiceEndpointGitHubEnterpriseArgs.builder()        \n            .projectId(exampleProject.id())\n            .serviceEndpointName(\"Example GitHub Enterprise\")\n            .url(\"https://github.contoso.com\")\n            .description(\"Managed by Terraform\")\n            .authPersonal(ServiceEndpointGitHubEnterpriseAuthPersonalArgs.builder()\n                .personalAccessToken(\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\")\n                .build())\n            .build());\n\n        var exampleBuildDefinition = new BuildDefinition(\"exampleBuildDefinition\", BuildDefinitionArgs.builder()        \n            .projectId(exampleProject.id())\n            .path(\"\\\\ExampleFolder\")\n            .ciTrigger(BuildDefinitionCiTriggerArgs.builder()\n                .useYaml(true)\n                .build())\n            .repository(BuildDefinitionRepositoryArgs.builder()\n                .repoType(\"GitHubEnterprise\")\n                .repoId(\"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\")\n                .githubEnterpriseUrl(\"https://github.company.com\")\n                .branchName(\"master\")\n                .ymlPath(\"azure-pipelines.yml\")\n                .serviceConnectionId(exampleServiceEndpointGitHubEnterprise.id())\n                .build())\n            .schedules(BuildDefinitionScheduleArgs.builder()\n                .branchFilters(BuildDefinitionScheduleBranchFilterArgs.builder()\n                    .includes(\"main\")\n                    .excludes(                    \n                        \"test\",\n                        \"regression\")\n                    .build())\n                .daysToBuilds(                \n                    \"Wed\",\n                    \"Sun\")\n                .scheduleOnlyWithChanges(true)\n                .startHours(10)\n                .startMinutes(59)\n                .timeZone(\"(UTC) Coordinated Universal Time\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n    properties:\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n  exampleServiceEndpointGitHubEnterprise:\n    type: azuredevops:ServiceEndpointGitHubEnterprise\n    properties:\n      projectId: ${exampleProject.id}\n      serviceEndpointName: Example GitHub Enterprise\n      url: https://github.contoso.com\n      description: Managed by Terraform\n      authPersonal:\n        personalAccessToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n  exampleBuildDefinition:\n    type: azuredevops:BuildDefinition\n    properties:\n      projectId: ${exampleProject.id}\n      path: \\ExampleFolder\n      ciTrigger:\n        useYaml: true\n      repository:\n        repoType: GitHubEnterprise\n        repoId: \u003cGitHub Org\u003e/\u003cRepo Name\u003e\n        githubEnterpriseUrl: https://github.company.com\n        branchName: master\n        ymlPath: azure-pipelines.yml\n        serviceConnectionId: ${exampleServiceEndpointGitHubEnterprise.id}\n      schedules:\n        - branchFilters:\n            - includes:\n                - main\n              excludes:\n                - test\n                - regression\n          daysToBuilds:\n            - Wed\n            - Sun\n          scheduleOnlyWithChanges: true\n          startHours: 10\n          startMinutes: 59\n          timeZone: (UTC) Coordinated Universal Time\n```\n{{% /example %}}\n{{% /examples %}}\n## Remarks\n\nThe path attribute can not end in `\\` unless the path is the root value of `\\`. \n\nValid path values (yaml encoded) include:\n- `\\\\`\n- `\\\\ExampleFolder`\n- `\\\\Nested\\\\Example Folder`\n\nThe value of `\\\\ExampleFolder\\\\` would be invalid.\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 6.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-6.0)\n\n\n## Import\n\nAzure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.\n\n```sh\n $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition example \"Example Project\"/10\n```\n\n or\n\n```sh\n $ pulumi import azuredevops:Build/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
             "properties": {
                 "agentPoolName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The agent pool that should execute the build. Defaults to `Azure Pipelines`.\n"
                 },
                 "ciTrigger": {
-                    "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger"
+                    "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
+                    "description": "Continuous Integration trigger.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the build definition.\n"
                 },
                 "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The folder path of the build definition.\n"
                 },
                 "projectId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
                 },
                 "pullRequestTrigger": {
-                    "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger"
+                    "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
+                    "description": "Pull Request Integration Integration trigger.\n"
                 },
                 "repository": {
-                    "$ref": "#/types/azuredevops:Build/BuildDefinitionRepository:BuildDefinitionRepository"
+                    "$ref": "#/types/azuredevops:Build/BuildDefinitionRepository:BuildDefinitionRepository",
+                    "description": "A `repository` block as documented below.\n"
                 },
                 "revision": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The revision of the build definition\n"
                 },
                 "schedules": {
                     "type": "array",
@@ -5041,13 +5130,15 @@
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "A list of variable group IDs (integers) to link to the build definition.\n"
                 },
                 "variables": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionVariable:BuildDefinitionVariable"
-                    }
+                    },
+                    "description": "A list of `variable` blocks, as documented below.\n"
                 }
             },
             "required": [
@@ -5058,26 +5149,33 @@
             ],
             "inputProperties": {
                 "agentPoolName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The agent pool that should execute the build. Defaults to `Azure Pipelines`.\n"
                 },
                 "ciTrigger": {
-                    "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger"
+                    "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
+                    "description": "Continuous Integration trigger.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the build definition.\n"
                 },
                 "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The folder path of the build definition.\n"
                 },
                 "projectId": {
                     "type": "string",
+                    "description": "The project ID or project name.\n",
                     "willReplaceOnChanges": true
                 },
                 "pullRequestTrigger": {
-                    "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger"
+                    "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
+                    "description": "Pull Request Integration Integration trigger.\n"
                 },
                 "repository": {
-                    "$ref": "#/types/azuredevops:Build/BuildDefinitionRepository:BuildDefinitionRepository"
+                    "$ref": "#/types/azuredevops:Build/BuildDefinitionRepository:BuildDefinitionRepository",
+                    "description": "A `repository` block as documented below.\n"
                 },
                 "schedules": {
                     "type": "array",
@@ -5089,13 +5187,15 @@
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "A list of variable group IDs (integers) to link to the build definition.\n"
                 },
                 "variables": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionVariable:BuildDefinitionVariable"
-                    }
+                    },
+                    "description": "A list of `variable` blocks, as documented below.\n"
                 }
             },
             "requiredInputs": [
@@ -5106,29 +5206,37 @@
                 "description": "Input properties used for looking up and filtering BuildDefinition resources.\n",
                 "properties": {
                     "agentPoolName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The agent pool that should execute the build. Defaults to `Azure Pipelines`.\n"
                     },
                     "ciTrigger": {
-                        "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger"
+                        "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
+                        "description": "Continuous Integration trigger.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the build definition.\n"
                     },
                     "path": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The folder path of the build definition.\n"
                     },
                     "projectId": {
                         "type": "string",
+                        "description": "The project ID or project name.\n",
                         "willReplaceOnChanges": true
                     },
                     "pullRequestTrigger": {
-                        "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger"
+                        "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
+                        "description": "Pull Request Integration Integration trigger.\n"
                     },
                     "repository": {
-                        "$ref": "#/types/azuredevops:Build/BuildDefinitionRepository:BuildDefinitionRepository"
+                        "$ref": "#/types/azuredevops:Build/BuildDefinitionRepository:BuildDefinitionRepository",
+                        "description": "A `repository` block as documented below.\n"
                     },
                     "revision": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The revision of the build definition\n"
                     },
                     "schedules": {
                         "type": "array",
@@ -5140,13 +5248,15 @@
                         "type": "array",
                         "items": {
                             "type": "integer"
-                        }
+                        },
+                        "description": "A list of variable group IDs (integers) to link to the build definition.\n"
                     },
                     "variables": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/azuredevops:Build/BuildDefinitionVariable:BuildDefinitionVariable"
-                        }
+                        },
+                        "description": "A list of `variable` blocks, as documented below.\n"
                     }
                 },
                 "type": "object"
@@ -7435,30 +7545,39 @@
             }
         },
         "azuredevops:index/buildDefinition:BuildDefinition": {
+            "description": "Manages a Build Definition within Azure DevOps.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Tfs\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"exampleProject\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst exampleGit = new azuredevops.Git(\"exampleGit\", {\n    projectId: exampleProject.id,\n    initialization: {\n        initType: \"Clean\",\n    },\n});\nconst exampleVariableGroup = new azuredevops.VariableGroup(\"exampleVariableGroup\", {\n    projectId: exampleProject.id,\n    description: \"Managed by Terraform\",\n    allowAccess: true,\n    variables: [{\n        name: \"FOO\",\n        value: \"BAR\",\n    }],\n});\nconst exampleBuildDefinition = new azuredevops.BuildDefinition(\"exampleBuildDefinition\", {\n    projectId: exampleProject.id,\n    path: \"\\\\ExampleFolder\",\n    ciTrigger: {\n        useYaml: true,\n    },\n    schedules: [{\n        branchFilters: [{\n            includes: [\"master\"],\n            excludes: [\n                \"test\",\n                \"regression\",\n            ],\n        }],\n        daysToBuilds: [\n            \"Wed\",\n            \"Sun\",\n        ],\n        scheduleOnlyWithChanges: true,\n        startHours: 10,\n        startMinutes: 59,\n        timeZone: \"(UTC) Coordinated Universal Time\",\n    }],\n    repository: {\n        repoType: \"TfsGit\",\n        repoId: exampleGit.id,\n        branchName: exampleGit.defaultBranch,\n        ymlPath: \"azure-pipelines.yml\",\n    },\n    variableGroups: [exampleVariableGroup.id],\n    variables: [\n        {\n            name: \"PipelineVariable\",\n            value: \"Go Microsoft!\",\n        },\n        {\n            name: \"PipelineSecret\",\n            secretValue: \"ZGV2cw\",\n            isSecret: true,\n        },\n    ],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"exampleProject\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nexample_git = azuredevops.Git(\"exampleGit\",\n    project_id=example_project.id,\n    initialization=azuredevops.GitInitializationArgs(\n        init_type=\"Clean\",\n    ))\nexample_variable_group = azuredevops.VariableGroup(\"exampleVariableGroup\",\n    project_id=example_project.id,\n    description=\"Managed by Terraform\",\n    allow_access=True,\n    variables=[azuredevops.VariableGroupVariableArgs(\n        name=\"FOO\",\n        value=\"BAR\",\n    )])\nexample_build_definition = azuredevops.BuildDefinition(\"exampleBuildDefinition\",\n    project_id=example_project.id,\n    path=\"\\\\ExampleFolder\",\n    ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(\n        use_yaml=True,\n    ),\n    schedules=[azuredevops.BuildDefinitionScheduleArgs(\n        branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(\n            includes=[\"master\"],\n            excludes=[\n                \"test\",\n                \"regression\",\n            ],\n        )],\n        days_to_builds=[\n            \"Wed\",\n            \"Sun\",\n        ],\n        schedule_only_with_changes=True,\n        start_hours=10,\n        start_minutes=59,\n        time_zone=\"(UTC) Coordinated Universal Time\",\n    )],\n    repository=azuredevops.BuildDefinitionRepositoryArgs(\n        repo_type=\"TfsGit\",\n        repo_id=example_git.id,\n        branch_name=example_git.default_branch,\n        yml_path=\"azure-pipelines.yml\",\n    ),\n    variable_groups=[example_variable_group.id],\n    variables=[\n        azuredevops.BuildDefinitionVariableArgs(\n            name=\"PipelineVariable\",\n            value=\"Go Microsoft!\",\n        ),\n        azuredevops.BuildDefinitionVariableArgs(\n            name=\"PipelineSecret\",\n            secret_value=\"ZGV2cw\",\n            is_secret=True,\n        ),\n    ])\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleProject = new AzureDevOps.Project(\"exampleProject\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var exampleGit = new AzureDevOps.Git(\"exampleGit\", new AzureDevOps.GitArgs\n        {\n            ProjectId = exampleProject.Id,\n            Initialization = new AzureDevOps.Inputs.GitInitializationArgs\n            {\n                InitType = \"Clean\",\n            },\n        });\n        var exampleVariableGroup = new AzureDevOps.VariableGroup(\"exampleVariableGroup\", new AzureDevOps.VariableGroupArgs\n        {\n            ProjectId = exampleProject.Id,\n            Description = \"Managed by Terraform\",\n            AllowAccess = true,\n            Variables = \n            {\n                new AzureDevOps.Inputs.VariableGroupVariableArgs\n                {\n                    Name = \"FOO\",\n                    Value = \"BAR\",\n                },\n            },\n        });\n        var exampleBuildDefinition = new AzureDevOps.BuildDefinition(\"exampleBuildDefinition\", new AzureDevOps.BuildDefinitionArgs\n        {\n            ProjectId = exampleProject.Id,\n            Path = \"\\\\ExampleFolder\",\n            CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs\n            {\n                UseYaml = true,\n            },\n            Schedules = \n            {\n                new AzureDevOps.Inputs.BuildDefinitionScheduleArgs\n                {\n                    BranchFilters = \n                    {\n                        new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs\n                        {\n                            Includes = \n                            {\n                                \"master\",\n                            },\n                            Excludes = \n                            {\n                                \"test\",\n                                \"regression\",\n                            },\n                        },\n                    },\n                    DaysToBuilds = \n                    {\n                        \"Wed\",\n                        \"Sun\",\n                    },\n                    ScheduleOnlyWithChanges = true,\n                    StartHours = 10,\n                    StartMinutes = 59,\n                    TimeZone = \"(UTC) Coordinated Universal Time\",\n                },\n            },\n            Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs\n            {\n                RepoType = \"TfsGit\",\n                RepoId = exampleGit.Id,\n                BranchName = exampleGit.DefaultBranch,\n                YmlPath = \"azure-pipelines.yml\",\n            },\n            VariableGroups = \n            {\n                exampleVariableGroup.Id,\n            },\n            Variables = \n            {\n                new AzureDevOps.Inputs.BuildDefinitionVariableArgs\n                {\n                    Name = \"PipelineVariable\",\n                    Value = \"Go Microsoft!\",\n                },\n                new AzureDevOps.Inputs.BuildDefinitionVariableArgs\n                {\n                    Name = \"PipelineSecret\",\n                    SecretValue = \"ZGV2cw\",\n                    IsSecret = true,\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"exampleProject\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleGit, err := azuredevops.NewGit(ctx, \"exampleGit\", \u0026azuredevops.GitArgs{\n\t\t\tProjectId: exampleProject.ID(),\n\t\t\tInitialization: \u0026GitInitializationArgs{\n\t\t\t\tInitType: pulumi.String(\"Clean\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, \"exampleVariableGroup\", \u0026azuredevops.VariableGroupArgs{\n\t\t\tProjectId:   exampleProject.ID(),\n\t\t\tDescription: pulumi.String(\"Managed by Terraform\"),\n\t\t\tAllowAccess: pulumi.Bool(true),\n\t\t\tVariables: VariableGroupVariableArray{\n\t\t\t\t\u0026VariableGroupVariableArgs{\n\t\t\t\t\tName:  pulumi.String(\"FOO\"),\n\t\t\t\t\tValue: pulumi.String(\"BAR\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBuildDefinition(ctx, \"exampleBuildDefinition\", \u0026azuredevops.BuildDefinitionArgs{\n\t\t\tProjectId: exampleProject.ID(),\n\t\t\tPath:      pulumi.String(\"\\\\ExampleFolder\"),\n\t\t\tCiTrigger: \u0026BuildDefinitionCiTriggerArgs{\n\t\t\t\tUseYaml: pulumi.Bool(true),\n\t\t\t},\n\t\t\tSchedules: BuildDefinitionScheduleArray{\n\t\t\t\t\u0026BuildDefinitionScheduleArgs{\n\t\t\t\t\tBranchFilters: BuildDefinitionScheduleBranchFilterArray{\n\t\t\t\t\t\t\u0026BuildDefinitionScheduleBranchFilterArgs{\n\t\t\t\t\t\t\tIncludes: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"master\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tExcludes: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"test\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"regression\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tDaysToBuilds: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"Wed\"),\n\t\t\t\t\t\tpulumi.String(\"Sun\"),\n\t\t\t\t\t},\n\t\t\t\t\tScheduleOnlyWithChanges: pulumi.Bool(true),\n\t\t\t\t\tStartHours:              pulumi.Int(10),\n\t\t\t\t\tStartMinutes:            pulumi.Int(59),\n\t\t\t\t\tTimeZone:                pulumi.String(\"(UTC) Coordinated Universal Time\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tRepository: \u0026BuildDefinitionRepositoryArgs{\n\t\t\t\tRepoType:   pulumi.String(\"TfsGit\"),\n\t\t\t\tRepoId:     exampleGit.ID(),\n\t\t\t\tBranchName: exampleGit.DefaultBranch,\n\t\t\t\tYmlPath:    pulumi.String(\"azure-pipelines.yml\"),\n\t\t\t},\n\t\t\tVariableGroups: pulumi.IntArray{\n\t\t\t\texampleVariableGroup.ID(),\n\t\t\t},\n\t\t\tVariables: BuildDefinitionVariableArray{\n\t\t\t\t\u0026BuildDefinitionVariableArgs{\n\t\t\t\t\tName:  pulumi.String(\"PipelineVariable\"),\n\t\t\t\t\tValue: pulumi.String(\"Go Microsoft!\"),\n\t\t\t\t},\n\t\t\t\t\u0026BuildDefinitionVariableArgs{\n\t\t\t\t\tName:        pulumi.String(\"PipelineSecret\"),\n\t\t\t\t\tSecretValue: pulumi.String(\"ZGV2cw\"),\n\t\t\t\t\tIsSecret:    pulumi.Bool(true),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.Git;\nimport com.pulumi.azuredevops.GitArgs;\nimport com.pulumi.azuredevops.inputs.GitInitializationArgs;\nimport com.pulumi.azuredevops.VariableGroup;\nimport com.pulumi.azuredevops.VariableGroupArgs;\nimport com.pulumi.azuredevops.inputs.VariableGroupVariableArgs;\nimport com.pulumi.azuredevops.BuildDefinition;\nimport com.pulumi.azuredevops.BuildDefinitionArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionCiTriggerArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionScheduleArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionRepositoryArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionVariableArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\", ProjectArgs.builder()        \n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .build());\n\n        var exampleGit = new Git(\"exampleGit\", GitArgs.builder()        \n            .projectId(exampleProject.id())\n            .initialization(GitInitializationArgs.builder()\n                .initType(\"Clean\")\n                .build())\n            .build());\n\n        var exampleVariableGroup = new VariableGroup(\"exampleVariableGroup\", VariableGroupArgs.builder()        \n            .projectId(exampleProject.id())\n            .description(\"Managed by Terraform\")\n            .allowAccess(true)\n            .variables(VariableGroupVariableArgs.builder()\n                .name(\"FOO\")\n                .value(\"BAR\")\n                .build())\n            .build());\n\n        var exampleBuildDefinition = new BuildDefinition(\"exampleBuildDefinition\", BuildDefinitionArgs.builder()        \n            .projectId(exampleProject.id())\n            .path(\"\\\\ExampleFolder\")\n            .ciTrigger(BuildDefinitionCiTriggerArgs.builder()\n                .useYaml(true)\n                .build())\n            .schedules(BuildDefinitionScheduleArgs.builder()\n                .branchFilters(BuildDefinitionScheduleBranchFilterArgs.builder()\n                    .includes(\"master\")\n                    .excludes(                    \n                        \"test\",\n                        \"regression\")\n                    .build())\n                .daysToBuilds(                \n                    \"Wed\",\n                    \"Sun\")\n                .scheduleOnlyWithChanges(true)\n                .startHours(10)\n                .startMinutes(59)\n                .timeZone(\"(UTC) Coordinated Universal Time\")\n                .build())\n            .repository(BuildDefinitionRepositoryArgs.builder()\n                .repoType(\"TfsGit\")\n                .repoId(exampleGit.id())\n                .branchName(exampleGit.defaultBranch())\n                .ymlPath(\"azure-pipelines.yml\")\n                .build())\n            .variableGroups(exampleVariableGroup.id())\n            .variables(            \n                BuildDefinitionVariableArgs.builder()\n                    .name(\"PipelineVariable\")\n                    .value(\"Go Microsoft!\")\n                    .build(),\n                BuildDefinitionVariableArgs.builder()\n                    .name(\"PipelineSecret\")\n                    .secretValue(\"ZGV2cw\")\n                    .isSecret(true)\n                    .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n    properties:\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n  exampleGit:\n    type: azuredevops:Git\n    properties:\n      projectId: ${exampleProject.id}\n      initialization:\n        initType: Clean\n  exampleVariableGroup:\n    type: azuredevops:VariableGroup\n    properties:\n      projectId: ${exampleProject.id}\n      description: Managed by Terraform\n      allowAccess: true\n      variables:\n        - name: FOO\n          value: BAR\n  exampleBuildDefinition:\n    type: azuredevops:BuildDefinition\n    properties:\n      projectId: ${exampleProject.id}\n      path: \\ExampleFolder\n      ciTrigger:\n        useYaml: true\n      schedules:\n        - branchFilters:\n            - includes:\n                - master\n              excludes:\n                - test\n                - regression\n          daysToBuilds:\n            - Wed\n            - Sun\n          scheduleOnlyWithChanges: true\n          startHours: 10\n          startMinutes: 59\n          timeZone: (UTC) Coordinated Universal Time\n      repository:\n        repoType: TfsGit\n        repoId: ${exampleGit.id}\n        branchName: ${exampleGit.defaultBranch}\n        ymlPath: azure-pipelines.yml\n      variableGroups:\n        - ${exampleVariableGroup.id}\n      variables:\n        - name: PipelineVariable\n          value: Go Microsoft!\n        - name: PipelineSecret\n          secretValue: ZGV2cw\n          isSecret: true\n```\n{{% /example %}}\n{{% example %}}\n### GitHub Enterprise\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"exampleProject\", {\n    visibility: \"private\",\n    versionControl: \"Git\",\n    workItemTemplate: \"Agile\",\n});\nconst exampleServiceEndpointGitHubEnterprise = new azuredevops.ServiceEndpointGitHubEnterprise(\"exampleServiceEndpointGitHubEnterprise\", {\n    projectId: exampleProject.id,\n    serviceEndpointName: \"Example GitHub Enterprise\",\n    url: \"https://github.contoso.com\",\n    description: \"Managed by Terraform\",\n    authPersonal: {\n        personalAccessToken: \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    },\n});\nconst exampleBuildDefinition = new azuredevops.BuildDefinition(\"exampleBuildDefinition\", {\n    projectId: exampleProject.id,\n    path: \"\\\\ExampleFolder\",\n    ciTrigger: {\n        useYaml: true,\n    },\n    repository: {\n        repoType: \"GitHubEnterprise\",\n        repoId: \"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\",\n        githubEnterpriseUrl: \"https://github.company.com\",\n        branchName: \"master\",\n        ymlPath: \"azure-pipelines.yml\",\n        serviceConnectionId: exampleServiceEndpointGitHubEnterprise.id,\n    },\n    schedules: [{\n        branchFilters: [{\n            includes: [\"main\"],\n            excludes: [\n                \"test\",\n                \"regression\",\n            ],\n        }],\n        daysToBuilds: [\n            \"Wed\",\n            \"Sun\",\n        ],\n        scheduleOnlyWithChanges: true,\n        startHours: 10,\n        startMinutes: 59,\n        timeZone: \"(UTC) Coordinated Universal Time\",\n    }],\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"exampleProject\",\n    visibility=\"private\",\n    version_control=\"Git\",\n    work_item_template=\"Agile\")\nexample_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise(\"exampleServiceEndpointGitHubEnterprise\",\n    project_id=example_project.id,\n    service_endpoint_name=\"Example GitHub Enterprise\",\n    url=\"https://github.contoso.com\",\n    description=\"Managed by Terraform\",\n    auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(\n        personal_access_token=\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n    ))\nexample_build_definition = azuredevops.BuildDefinition(\"exampleBuildDefinition\",\n    project_id=example_project.id,\n    path=\"\\\\ExampleFolder\",\n    ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(\n        use_yaml=True,\n    ),\n    repository=azuredevops.BuildDefinitionRepositoryArgs(\n        repo_type=\"GitHubEnterprise\",\n        repo_id=\"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\",\n        github_enterprise_url=\"https://github.company.com\",\n        branch_name=\"master\",\n        yml_path=\"azure-pipelines.yml\",\n        service_connection_id=example_service_endpoint_git_hub_enterprise.id,\n    ),\n    schedules=[azuredevops.BuildDefinitionScheduleArgs(\n        branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(\n            includes=[\"main\"],\n            excludes=[\n                \"test\",\n                \"regression\",\n            ],\n        )],\n        days_to_builds=[\n            \"Wed\",\n            \"Sun\",\n        ],\n        schedule_only_with_changes=True,\n        start_hours=10,\n        start_minutes=59,\n        time_zone=\"(UTC) Coordinated Universal Time\",\n    )])\n```\n```csharp\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nclass MyStack : Stack\n{\n    public MyStack()\n    {\n        var exampleProject = new AzureDevOps.Project(\"exampleProject\", new AzureDevOps.ProjectArgs\n        {\n            Visibility = \"private\",\n            VersionControl = \"Git\",\n            WorkItemTemplate = \"Agile\",\n        });\n        var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise(\"exampleServiceEndpointGitHubEnterprise\", new AzureDevOps.ServiceEndpointGitHubEnterpriseArgs\n        {\n            ProjectId = exampleProject.Id,\n            ServiceEndpointName = \"Example GitHub Enterprise\",\n            Url = \"https://github.contoso.com\",\n            Description = \"Managed by Terraform\",\n            AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs\n            {\n                PersonalAccessToken = \"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\",\n            },\n        });\n        var exampleBuildDefinition = new AzureDevOps.BuildDefinition(\"exampleBuildDefinition\", new AzureDevOps.BuildDefinitionArgs\n        {\n            ProjectId = exampleProject.Id,\n            Path = \"\\\\ExampleFolder\",\n            CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs\n            {\n                UseYaml = true,\n            },\n            Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs\n            {\n                RepoType = \"GitHubEnterprise\",\n                RepoId = \"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\",\n                GithubEnterpriseUrl = \"https://github.company.com\",\n                BranchName = \"master\",\n                YmlPath = \"azure-pipelines.yml\",\n                ServiceConnectionId = exampleServiceEndpointGitHubEnterprise.Id,\n            },\n            Schedules = \n            {\n                new AzureDevOps.Inputs.BuildDefinitionScheduleArgs\n                {\n                    BranchFilters = \n                    {\n                        new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs\n                        {\n                            Includes = \n                            {\n                                \"main\",\n                            },\n                            Excludes = \n                            {\n                                \"test\",\n                                \"regression\",\n                            },\n                        },\n                    },\n                    DaysToBuilds = \n                    {\n                        \"Wed\",\n                        \"Sun\",\n                    },\n                    ScheduleOnlyWithChanges = true,\n                    StartHours = 10,\n                    StartMinutes = 59,\n                    TimeZone = \"(UTC) Coordinated Universal Time\",\n                },\n            },\n        });\n    }\n\n}\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"exampleProject\", \u0026azuredevops.ProjectArgs{\n\t\t\tVisibility:       pulumi.String(\"private\"),\n\t\t\tVersionControl:   pulumi.String(\"Git\"),\n\t\t\tWorkItemTemplate: pulumi.String(\"Agile\"),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleServiceEndpointGitHubEnterprise, err := azuredevops.NewServiceEndpointGitHubEnterprise(ctx, \"exampleServiceEndpointGitHubEnterprise\", \u0026azuredevops.ServiceEndpointGitHubEnterpriseArgs{\n\t\t\tProjectId:           exampleProject.ID(),\n\t\t\tServiceEndpointName: pulumi.String(\"Example GitHub Enterprise\"),\n\t\t\tUrl:                 pulumi.String(\"https://github.contoso.com\"),\n\t\t\tDescription:         pulumi.String(\"Managed by Terraform\"),\n\t\t\tAuthPersonal: \u0026ServiceEndpointGitHubEnterpriseAuthPersonalArgs{\n\t\t\t\tPersonalAccessToken: pulumi.String(\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"),\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewBuildDefinition(ctx, \"exampleBuildDefinition\", \u0026azuredevops.BuildDefinitionArgs{\n\t\t\tProjectId: exampleProject.ID(),\n\t\t\tPath:      pulumi.String(\"\\\\ExampleFolder\"),\n\t\t\tCiTrigger: \u0026BuildDefinitionCiTriggerArgs{\n\t\t\t\tUseYaml: pulumi.Bool(true),\n\t\t\t},\n\t\t\tRepository: \u0026BuildDefinitionRepositoryArgs{\n\t\t\t\tRepoType:            pulumi.String(\"GitHubEnterprise\"),\n\t\t\t\tRepoId:              pulumi.String(\"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\"),\n\t\t\t\tGithubEnterpriseUrl: pulumi.String(\"https://github.company.com\"),\n\t\t\t\tBranchName:          pulumi.String(\"master\"),\n\t\t\t\tYmlPath:             pulumi.String(\"azure-pipelines.yml\"),\n\t\t\t\tServiceConnectionId: exampleServiceEndpointGitHubEnterprise.ID(),\n\t\t\t},\n\t\t\tSchedules: BuildDefinitionScheduleArray{\n\t\t\t\t\u0026BuildDefinitionScheduleArgs{\n\t\t\t\t\tBranchFilters: BuildDefinitionScheduleBranchFilterArray{\n\t\t\t\t\t\t\u0026BuildDefinitionScheduleBranchFilterArgs{\n\t\t\t\t\t\t\tIncludes: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"main\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tExcludes: pulumi.StringArray{\n\t\t\t\t\t\t\t\tpulumi.String(\"test\"),\n\t\t\t\t\t\t\t\tpulumi.String(\"regression\"),\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t},\n\t\t\t\t\t},\n\t\t\t\t\tDaysToBuilds: pulumi.StringArray{\n\t\t\t\t\t\tpulumi.String(\"Wed\"),\n\t\t\t\t\t\tpulumi.String(\"Sun\"),\n\t\t\t\t\t},\n\t\t\t\t\tScheduleOnlyWithChanges: pulumi.Bool(true),\n\t\t\t\t\tStartHours:              pulumi.Int(10),\n\t\t\t\t\tStartMinutes:            pulumi.Int(59),\n\t\t\t\t\tTimeZone:                pulumi.String(\"(UTC) Coordinated Universal Time\"),\n\t\t\t\t},\n\t\t\t},\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.ProjectArgs;\nimport com.pulumi.azuredevops.ServiceEndpointGitHubEnterprise;\nimport com.pulumi.azuredevops.ServiceEndpointGitHubEnterpriseArgs;\nimport com.pulumi.azuredevops.inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs;\nimport com.pulumi.azuredevops.BuildDefinition;\nimport com.pulumi.azuredevops.BuildDefinitionArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionCiTriggerArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionRepositoryArgs;\nimport com.pulumi.azuredevops.inputs.BuildDefinitionScheduleArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\", ProjectArgs.builder()        \n            .visibility(\"private\")\n            .versionControl(\"Git\")\n            .workItemTemplate(\"Agile\")\n            .build());\n\n        var exampleServiceEndpointGitHubEnterprise = new ServiceEndpointGitHubEnterprise(\"exampleServiceEndpointGitHubEnterprise\", ServiceEndpointGitHubEnterpriseArgs.builder()        \n            .projectId(exampleProject.id())\n            .serviceEndpointName(\"Example GitHub Enterprise\")\n            .url(\"https://github.contoso.com\")\n            .description(\"Managed by Terraform\")\n            .authPersonal(ServiceEndpointGitHubEnterpriseAuthPersonalArgs.builder()\n                .personalAccessToken(\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\")\n                .build())\n            .build());\n\n        var exampleBuildDefinition = new BuildDefinition(\"exampleBuildDefinition\", BuildDefinitionArgs.builder()        \n            .projectId(exampleProject.id())\n            .path(\"\\\\ExampleFolder\")\n            .ciTrigger(BuildDefinitionCiTriggerArgs.builder()\n                .useYaml(true)\n                .build())\n            .repository(BuildDefinitionRepositoryArgs.builder()\n                .repoType(\"GitHubEnterprise\")\n                .repoId(\"\u003cGitHub Org\u003e/\u003cRepo Name\u003e\")\n                .githubEnterpriseUrl(\"https://github.company.com\")\n                .branchName(\"master\")\n                .ymlPath(\"azure-pipelines.yml\")\n                .serviceConnectionId(exampleServiceEndpointGitHubEnterprise.id())\n                .build())\n            .schedules(BuildDefinitionScheduleArgs.builder()\n                .branchFilters(BuildDefinitionScheduleBranchFilterArgs.builder()\n                    .includes(\"main\")\n                    .excludes(                    \n                        \"test\",\n                        \"regression\")\n                    .build())\n                .daysToBuilds(                \n                    \"Wed\",\n                    \"Sun\")\n                .scheduleOnlyWithChanges(true)\n                .startHours(10)\n                .startMinutes(59)\n                .timeZone(\"(UTC) Coordinated Universal Time\")\n                .build())\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n    properties:\n      visibility: private\n      versionControl: Git\n      workItemTemplate: Agile\n  exampleServiceEndpointGitHubEnterprise:\n    type: azuredevops:ServiceEndpointGitHubEnterprise\n    properties:\n      projectId: ${exampleProject.id}\n      serviceEndpointName: Example GitHub Enterprise\n      url: https://github.contoso.com\n      description: Managed by Terraform\n      authPersonal:\n        personalAccessToken: xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\n  exampleBuildDefinition:\n    type: azuredevops:BuildDefinition\n    properties:\n      projectId: ${exampleProject.id}\n      path: \\ExampleFolder\n      ciTrigger:\n        useYaml: true\n      repository:\n        repoType: GitHubEnterprise\n        repoId: \u003cGitHub Org\u003e/\u003cRepo Name\u003e\n        githubEnterpriseUrl: https://github.company.com\n        branchName: master\n        ymlPath: azure-pipelines.yml\n        serviceConnectionId: ${exampleServiceEndpointGitHubEnterprise.id}\n      schedules:\n        - branchFilters:\n            - includes:\n                - main\n              excludes:\n                - test\n                - regression\n          daysToBuilds:\n            - Wed\n            - Sun\n          scheduleOnlyWithChanges: true\n          startHours: 10\n          startMinutes: 59\n          timeZone: (UTC) Coordinated Universal Time\n```\n{{% /example %}}\n{{% /examples %}}\n## Remarks\n\nThe path attribute can not end in `\\` unless the path is the root value of `\\`. \n\nValid path values (yaml encoded) include:\n- `\\\\`\n- `\\\\ExampleFolder`\n- `\\\\Nested\\\\Example Folder`\n\nThe value of `\\\\ExampleFolder\\\\` would be invalid.\n\n## Relevant Links\n\n- [Azure DevOps Service REST API 6.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-6.0)\n\n\n## Import\n\nAzure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.\n\n```sh\n $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example \"Example Project\"/10\n```\n\n or\n\n```sh\n $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
             "properties": {
                 "agentPoolName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The agent pool that should execute the build. Defaults to `Azure Pipelines`.\n"
                 },
                 "ciTrigger": {
-                    "$ref": "#/types/azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger"
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
+                    "description": "Continuous Integration trigger.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the build definition.\n"
                 },
                 "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The folder path of the build definition.\n"
                 },
                 "projectId": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The project ID or project name.\n"
                 },
                 "pullRequestTrigger": {
-                    "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger"
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
+                    "description": "Pull Request Integration Integration trigger.\n"
                 },
                 "repository": {
-                    "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository"
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository",
+                    "description": "A `repository` block as documented below.\n"
                 },
                 "revision": {
-                    "type": "integer"
+                    "type": "integer",
+                    "description": "The revision of the build definition\n"
                 },
                 "schedules": {
                     "type": "array",
@@ -7470,13 +7589,15 @@
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "A list of variable group IDs (integers) to link to the build definition.\n"
                 },
                 "variables": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionVariable:BuildDefinitionVariable"
-                    }
+                    },
+                    "description": "A list of `variable` blocks, as documented below.\n"
                 }
             },
             "required": [
@@ -7487,26 +7608,33 @@
             ],
             "inputProperties": {
                 "agentPoolName": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The agent pool that should execute the build. Defaults to `Azure Pipelines`.\n"
                 },
                 "ciTrigger": {
-                    "$ref": "#/types/azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger"
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
+                    "description": "Continuous Integration trigger.\n"
                 },
                 "name": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The name of the build definition.\n"
                 },
                 "path": {
-                    "type": "string"
+                    "type": "string",
+                    "description": "The folder path of the build definition.\n"
                 },
                 "projectId": {
                     "type": "string",
+                    "description": "The project ID or project name.\n",
                     "willReplaceOnChanges": true
                 },
                 "pullRequestTrigger": {
-                    "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger"
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
+                    "description": "Pull Request Integration Integration trigger.\n"
                 },
                 "repository": {
-                    "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository"
+                    "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository",
+                    "description": "A `repository` block as documented below.\n"
                 },
                 "schedules": {
                     "type": "array",
@@ -7518,13 +7646,15 @@
                     "type": "array",
                     "items": {
                         "type": "integer"
-                    }
+                    },
+                    "description": "A list of variable group IDs (integers) to link to the build definition.\n"
                 },
                 "variables": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionVariable:BuildDefinitionVariable"
-                    }
+                    },
+                    "description": "A list of `variable` blocks, as documented below.\n"
                 }
             },
             "requiredInputs": [
@@ -7535,29 +7665,37 @@
                 "description": "Input properties used for looking up and filtering BuildDefinition resources.\n",
                 "properties": {
                     "agentPoolName": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The agent pool that should execute the build. Defaults to `Azure Pipelines`.\n"
                     },
                     "ciTrigger": {
-                        "$ref": "#/types/azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger"
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionCiTrigger:BuildDefinitionCiTrigger",
+                        "description": "Continuous Integration trigger.\n"
                     },
                     "name": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The name of the build definition.\n"
                     },
                     "path": {
-                        "type": "string"
+                        "type": "string",
+                        "description": "The folder path of the build definition.\n"
                     },
                     "projectId": {
                         "type": "string",
+                        "description": "The project ID or project name.\n",
                         "willReplaceOnChanges": true
                     },
                     "pullRequestTrigger": {
-                        "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger"
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
+                        "description": "Pull Request Integration Integration trigger.\n"
                     },
                     "repository": {
-                        "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository"
+                        "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository",
+                        "description": "A `repository` block as documented below.\n"
                     },
                     "revision": {
-                        "type": "integer"
+                        "type": "integer",
+                        "description": "The revision of the build definition\n"
                     },
                     "schedules": {
                         "type": "array",
@@ -7569,13 +7707,15 @@
                         "type": "array",
                         "items": {
                             "type": "integer"
-                        }
+                        },
+                        "description": "A list of variable group IDs (integers) to link to the build definition.\n"
                     },
                     "variables": {
                         "type": "array",
                         "items": {
                             "$ref": "#/types/azuredevops:index/BuildDefinitionVariable:BuildDefinitionVariable"
-                        }
+                        },
+                        "description": "A list of `variable` blocks, as documented below.\n"
                     }
                 },
                 "type": "object"

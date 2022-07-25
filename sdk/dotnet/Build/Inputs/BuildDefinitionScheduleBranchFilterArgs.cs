@@ -14,6 +14,10 @@ namespace Pulumi.AzureDevOps.Build.Inputs
     {
         [Input("excludes")]
         private InputList<string>? _excludes;
+
+        /// <summary>
+        /// List of branch patterns to exclude.
+        /// </summary>
         public InputList<string> Excludes
         {
             get => _excludes ?? (_excludes = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.AzureDevOps.Build.Inputs
 
         [Input("includes")]
         private InputList<string>? _includes;
+
+        /// <summary>
+        /// List of branch patterns to include.
+        /// </summary>
         public InputList<string> Includes
         {
             get => _includes ?? (_includes = new InputList<string>());
