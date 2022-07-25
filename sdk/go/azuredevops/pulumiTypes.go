@@ -2325,8 +2325,10 @@ func (o BranchPolicyWorkItemLinkingSettingsScopeArrayOutput) Index(i pulumi.IntI
 }
 
 type BuildDefinitionCiTrigger struct {
+	// Override the azure-pipeline file and use a this configuration for all builds.
 	Override *BuildDefinitionCiTriggerOverride `pulumi:"override"`
-	UseYaml  *bool                             `pulumi:"useYaml"`
+	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
+	UseYaml *bool `pulumi:"useYaml"`
 }
 
 // BuildDefinitionCiTriggerInput is an input type that accepts BuildDefinitionCiTriggerArgs and BuildDefinitionCiTriggerOutput values.
@@ -2341,8 +2343,10 @@ type BuildDefinitionCiTriggerInput interface {
 }
 
 type BuildDefinitionCiTriggerArgs struct {
+	// Override the azure-pipeline file and use a this configuration for all builds.
 	Override BuildDefinitionCiTriggerOverridePtrInput `pulumi:"override"`
-	UseYaml  pulumi.BoolPtrInput                      `pulumi:"useYaml"`
+	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
+	UseYaml pulumi.BoolPtrInput `pulumi:"useYaml"`
 }
 
 func (BuildDefinitionCiTriggerArgs) ElementType() reflect.Type {
@@ -2422,10 +2426,12 @@ func (o BuildDefinitionCiTriggerOutput) ToBuildDefinitionCiTriggerPtrOutputWithC
 	}).(BuildDefinitionCiTriggerPtrOutput)
 }
 
+// Override the azure-pipeline file and use a this configuration for all builds.
 func (o BuildDefinitionCiTriggerOutput) Override() BuildDefinitionCiTriggerOverridePtrOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTrigger) *BuildDefinitionCiTriggerOverride { return v.Override }).(BuildDefinitionCiTriggerOverridePtrOutput)
 }
 
+// Use the azure-pipeline file for the build configuration. Defaults to `false`.
 func (o BuildDefinitionCiTriggerOutput) UseYaml() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTrigger) *bool { return v.UseYaml }).(pulumi.BoolPtrOutput)
 }
@@ -2454,6 +2460,7 @@ func (o BuildDefinitionCiTriggerPtrOutput) Elem() BuildDefinitionCiTriggerOutput
 	}).(BuildDefinitionCiTriggerOutput)
 }
 
+// Override the azure-pipeline file and use a this configuration for all builds.
 func (o BuildDefinitionCiTriggerPtrOutput) Override() BuildDefinitionCiTriggerOverridePtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTrigger) *BuildDefinitionCiTriggerOverride {
 		if v == nil {
@@ -2463,6 +2470,7 @@ func (o BuildDefinitionCiTriggerPtrOutput) Override() BuildDefinitionCiTriggerOv
 	}).(BuildDefinitionCiTriggerOverridePtrOutput)
 }
 
+// Use the azure-pipeline file for the build configuration. Defaults to `false`.
 func (o BuildDefinitionCiTriggerPtrOutput) UseYaml() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTrigger) *bool {
 		if v == nil {
@@ -2473,12 +2481,18 @@ func (o BuildDefinitionCiTriggerPtrOutput) UseYaml() pulumi.BoolPtrOutput {
 }
 
 type BuildDefinitionCiTriggerOverride struct {
-	Batch                        *bool                                          `pulumi:"batch"`
-	BranchFilters                []BuildDefinitionCiTriggerOverrideBranchFilter `pulumi:"branchFilters"`
-	MaxConcurrentBuildsPerBranch *int                                           `pulumi:"maxConcurrentBuildsPerBranch"`
-	PathFilters                  []BuildDefinitionCiTriggerOverridePathFilter   `pulumi:"pathFilters"`
-	PollingInterval              *int                                           `pulumi:"pollingInterval"`
-	PollingJobId                 *string                                        `pulumi:"pollingJobId"`
+	// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
+	Batch *bool `pulumi:"batch"`
+	// The branches to include and exclude from the trigger.
+	BranchFilters []BuildDefinitionCiTriggerOverrideBranchFilter `pulumi:"branchFilters"`
+	// The number of max builds per branch. Defaults to `1`.
+	MaxConcurrentBuildsPerBranch *int `pulumi:"maxConcurrentBuildsPerBranch"`
+	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+	PathFilters []BuildDefinitionCiTriggerOverridePathFilter `pulumi:"pathFilters"`
+	// How often the external repository is polled. Defaults to `0`.
+	PollingInterval *int `pulumi:"pollingInterval"`
+	// This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
+	PollingJobId *string `pulumi:"pollingJobId"`
 }
 
 // BuildDefinitionCiTriggerOverrideInput is an input type that accepts BuildDefinitionCiTriggerOverrideArgs and BuildDefinitionCiTriggerOverrideOutput values.
@@ -2493,12 +2507,18 @@ type BuildDefinitionCiTriggerOverrideInput interface {
 }
 
 type BuildDefinitionCiTriggerOverrideArgs struct {
-	Batch                        pulumi.BoolPtrInput                                    `pulumi:"batch"`
-	BranchFilters                BuildDefinitionCiTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
-	MaxConcurrentBuildsPerBranch pulumi.IntPtrInput                                     `pulumi:"maxConcurrentBuildsPerBranch"`
-	PathFilters                  BuildDefinitionCiTriggerOverridePathFilterArrayInput   `pulumi:"pathFilters"`
-	PollingInterval              pulumi.IntPtrInput                                     `pulumi:"pollingInterval"`
-	PollingJobId                 pulumi.StringPtrInput                                  `pulumi:"pollingJobId"`
+	// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
+	Batch pulumi.BoolPtrInput `pulumi:"batch"`
+	// The branches to include and exclude from the trigger.
+	BranchFilters BuildDefinitionCiTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
+	// The number of max builds per branch. Defaults to `1`.
+	MaxConcurrentBuildsPerBranch pulumi.IntPtrInput `pulumi:"maxConcurrentBuildsPerBranch"`
+	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+	PathFilters BuildDefinitionCiTriggerOverridePathFilterArrayInput `pulumi:"pathFilters"`
+	// How often the external repository is polled. Defaults to `0`.
+	PollingInterval pulumi.IntPtrInput `pulumi:"pollingInterval"`
+	// This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
+	PollingJobId pulumi.StringPtrInput `pulumi:"pollingJobId"`
 }
 
 func (BuildDefinitionCiTriggerOverrideArgs) ElementType() reflect.Type {
@@ -2578,30 +2598,36 @@ func (o BuildDefinitionCiTriggerOverrideOutput) ToBuildDefinitionCiTriggerOverri
 	}).(BuildDefinitionCiTriggerOverridePtrOutput)
 }
 
+// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
 func (o BuildDefinitionCiTriggerOverrideOutput) Batch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) *bool { return v.Batch }).(pulumi.BoolPtrOutput)
 }
 
+// The branches to include and exclude from the trigger.
 func (o BuildDefinitionCiTriggerOverrideOutput) BranchFilters() BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverrideBranchFilter {
 		return v.BranchFilters
 	}).(BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput)
 }
 
+// The number of max builds per branch. Defaults to `1`.
 func (o BuildDefinitionCiTriggerOverrideOutput) MaxConcurrentBuildsPerBranch() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) *int { return v.MaxConcurrentBuildsPerBranch }).(pulumi.IntPtrOutput)
 }
 
+// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 func (o BuildDefinitionCiTriggerOverrideOutput) PathFilters() BuildDefinitionCiTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverridePathFilter {
 		return v.PathFilters
 	}).(BuildDefinitionCiTriggerOverridePathFilterArrayOutput)
 }
 
+// How often the external repository is polled. Defaults to `0`.
 func (o BuildDefinitionCiTriggerOverrideOutput) PollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) *int { return v.PollingInterval }).(pulumi.IntPtrOutput)
 }
 
+// This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
 func (o BuildDefinitionCiTriggerOverrideOutput) PollingJobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) *string { return v.PollingJobId }).(pulumi.StringPtrOutput)
 }
@@ -2630,6 +2656,7 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) Elem() BuildDefinitionCiTrigg
 	}).(BuildDefinitionCiTriggerOverrideOutput)
 }
 
+// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
 func (o BuildDefinitionCiTriggerOverridePtrOutput) Batch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) *bool {
 		if v == nil {
@@ -2639,6 +2666,7 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) Batch() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The branches to include and exclude from the trigger.
 func (o BuildDefinitionCiTriggerOverridePtrOutput) BranchFilters() BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverrideBranchFilter {
 		if v == nil {
@@ -2648,6 +2676,7 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) BranchFilters() BuildDefiniti
 	}).(BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput)
 }
 
+// The number of max builds per branch. Defaults to `1`.
 func (o BuildDefinitionCiTriggerOverridePtrOutput) MaxConcurrentBuildsPerBranch() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) *int {
 		if v == nil {
@@ -2657,6 +2686,7 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) MaxConcurrentBuildsPerBranch(
 	}).(pulumi.IntPtrOutput)
 }
 
+// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 func (o BuildDefinitionCiTriggerOverridePtrOutput) PathFilters() BuildDefinitionCiTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverridePathFilter {
 		if v == nil {
@@ -2666,6 +2696,7 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) PathFilters() BuildDefinition
 	}).(BuildDefinitionCiTriggerOverridePathFilterArrayOutput)
 }
 
+// How often the external repository is polled. Defaults to `0`.
 func (o BuildDefinitionCiTriggerOverridePtrOutput) PollingInterval() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) *int {
 		if v == nil {
@@ -2675,6 +2706,7 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) PollingInterval() pulumi.IntP
 	}).(pulumi.IntPtrOutput)
 }
 
+// This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
 func (o BuildDefinitionCiTriggerOverridePtrOutput) PollingJobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) *string {
 		if v == nil {
@@ -2685,7 +2717,9 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) PollingJobId() pulumi.StringP
 }
 
 type BuildDefinitionCiTriggerOverrideBranchFilter struct {
+	// List of branch patterns to exclude.
 	Excludes []string `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -2701,7 +2735,9 @@ type BuildDefinitionCiTriggerOverrideBranchFilterInput interface {
 }
 
 type BuildDefinitionCiTriggerOverrideBranchFilterArgs struct {
+	// List of branch patterns to exclude.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -2756,10 +2792,12 @@ func (o BuildDefinitionCiTriggerOverrideBranchFilterOutput) ToBuildDefinitionCiT
 	return o
 }
 
+// List of branch patterns to exclude.
 func (o BuildDefinitionCiTriggerOverrideBranchFilterOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverrideBranchFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
+// List of branch patterns to include.
 func (o BuildDefinitionCiTriggerOverrideBranchFilterOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverrideBranchFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -2785,7 +2823,9 @@ func (o BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput) Index(i pulumi.
 }
 
 type BuildDefinitionCiTriggerOverridePathFilter struct {
+	// List of branch patterns to exclude.
 	Excludes []string `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -2801,7 +2841,9 @@ type BuildDefinitionCiTriggerOverridePathFilterInput interface {
 }
 
 type BuildDefinitionCiTriggerOverridePathFilterArgs struct {
+	// List of branch patterns to exclude.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -2856,10 +2898,12 @@ func (o BuildDefinitionCiTriggerOverridePathFilterOutput) ToBuildDefinitionCiTri
 	return o
 }
 
+// List of branch patterns to exclude.
 func (o BuildDefinitionCiTriggerOverridePathFilterOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverridePathFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
+// List of branch patterns to include.
 func (o BuildDefinitionCiTriggerOverridePathFilterOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverridePathFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -2885,11 +2929,14 @@ func (o BuildDefinitionCiTriggerOverridePathFilterArrayOutput) Index(i pulumi.In
 }
 
 type BuildDefinitionPullRequestTrigger struct {
-	CommentRequired *string                                    `pulumi:"commentRequired"`
-	Forks           BuildDefinitionPullRequestTriggerForks     `pulumi:"forks"`
-	InitialBranch   *string                                    `pulumi:"initialBranch"`
-	Override        *BuildDefinitionPullRequestTriggerOverride `pulumi:"override"`
-	UseYaml         *bool                                      `pulumi:"useYaml"`
+	CommentRequired *string `pulumi:"commentRequired"`
+	// Set permissions for Forked repositories.
+	Forks         BuildDefinitionPullRequestTriggerForks `pulumi:"forks"`
+	InitialBranch *string                                `pulumi:"initialBranch"`
+	// Override the azure-pipeline file and use this configuration for all builds.
+	Override *BuildDefinitionPullRequestTriggerOverride `pulumi:"override"`
+	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
+	UseYaml *bool `pulumi:"useYaml"`
 }
 
 // BuildDefinitionPullRequestTriggerInput is an input type that accepts BuildDefinitionPullRequestTriggerArgs and BuildDefinitionPullRequestTriggerOutput values.
@@ -2904,11 +2951,14 @@ type BuildDefinitionPullRequestTriggerInput interface {
 }
 
 type BuildDefinitionPullRequestTriggerArgs struct {
-	CommentRequired pulumi.StringPtrInput                             `pulumi:"commentRequired"`
-	Forks           BuildDefinitionPullRequestTriggerForksInput       `pulumi:"forks"`
-	InitialBranch   pulumi.StringPtrInput                             `pulumi:"initialBranch"`
-	Override        BuildDefinitionPullRequestTriggerOverridePtrInput `pulumi:"override"`
-	UseYaml         pulumi.BoolPtrInput                               `pulumi:"useYaml"`
+	CommentRequired pulumi.StringPtrInput `pulumi:"commentRequired"`
+	// Set permissions for Forked repositories.
+	Forks         BuildDefinitionPullRequestTriggerForksInput `pulumi:"forks"`
+	InitialBranch pulumi.StringPtrInput                       `pulumi:"initialBranch"`
+	// Override the azure-pipeline file and use this configuration for all builds.
+	Override BuildDefinitionPullRequestTriggerOverridePtrInput `pulumi:"override"`
+	// Use the azure-pipeline file for the build configuration. Defaults to `false`.
+	UseYaml pulumi.BoolPtrInput `pulumi:"useYaml"`
 }
 
 func (BuildDefinitionPullRequestTriggerArgs) ElementType() reflect.Type {
@@ -2992,6 +3042,7 @@ func (o BuildDefinitionPullRequestTriggerOutput) CommentRequired() pulumi.String
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *string { return v.CommentRequired }).(pulumi.StringPtrOutput)
 }
 
+// Set permissions for Forked repositories.
 func (o BuildDefinitionPullRequestTriggerOutput) Forks() BuildDefinitionPullRequestTriggerForksOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) BuildDefinitionPullRequestTriggerForks { return v.Forks }).(BuildDefinitionPullRequestTriggerForksOutput)
 }
@@ -3000,12 +3051,14 @@ func (o BuildDefinitionPullRequestTriggerOutput) InitialBranch() pulumi.StringPt
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *string { return v.InitialBranch }).(pulumi.StringPtrOutput)
 }
 
+// Override the azure-pipeline file and use this configuration for all builds.
 func (o BuildDefinitionPullRequestTriggerOutput) Override() BuildDefinitionPullRequestTriggerOverridePtrOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTriggerOverride {
 		return v.Override
 	}).(BuildDefinitionPullRequestTriggerOverridePtrOutput)
 }
 
+// Use the azure-pipeline file for the build configuration. Defaults to `false`.
 func (o BuildDefinitionPullRequestTriggerOutput) UseYaml() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTrigger) *bool { return v.UseYaml }).(pulumi.BoolPtrOutput)
 }
@@ -3043,6 +3096,7 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) CommentRequired() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set permissions for Forked repositories.
 func (o BuildDefinitionPullRequestTriggerPtrOutput) Forks() BuildDefinitionPullRequestTriggerForksPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTriggerForks {
 		if v == nil {
@@ -3061,6 +3115,7 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) InitialBranch() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
+// Override the azure-pipeline file and use this configuration for all builds.
 func (o BuildDefinitionPullRequestTriggerPtrOutput) Override() BuildDefinitionPullRequestTriggerOverridePtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTriggerOverride {
 		if v == nil {
@@ -3070,6 +3125,7 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) Override() BuildDefinitionPu
 	}).(BuildDefinitionPullRequestTriggerOverridePtrOutput)
 }
 
+// Use the azure-pipeline file for the build configuration. Defaults to `false`.
 func (o BuildDefinitionPullRequestTriggerPtrOutput) UseYaml() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTrigger) *bool {
 		if v == nil {
@@ -3080,7 +3136,9 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) UseYaml() pulumi.BoolPtrOutp
 }
 
 type BuildDefinitionPullRequestTriggerForks struct {
-	Enabled      bool `pulumi:"enabled"`
+	// Build pull requests form forms of this repository.
+	Enabled bool `pulumi:"enabled"`
+	// Make secrets available to builds of forks.
 	ShareSecrets bool `pulumi:"shareSecrets"`
 }
 
@@ -3096,7 +3154,9 @@ type BuildDefinitionPullRequestTriggerForksInput interface {
 }
 
 type BuildDefinitionPullRequestTriggerForksArgs struct {
-	Enabled      pulumi.BoolInput `pulumi:"enabled"`
+	// Build pull requests form forms of this repository.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// Make secrets available to builds of forks.
 	ShareSecrets pulumi.BoolInput `pulumi:"shareSecrets"`
 }
 
@@ -3177,10 +3237,12 @@ func (o BuildDefinitionPullRequestTriggerForksOutput) ToBuildDefinitionPullReque
 	}).(BuildDefinitionPullRequestTriggerForksPtrOutput)
 }
 
+// Build pull requests form forms of this repository.
 func (o BuildDefinitionPullRequestTriggerForksOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerForks) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// Make secrets available to builds of forks.
 func (o BuildDefinitionPullRequestTriggerForksOutput) ShareSecrets() pulumi.BoolOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerForks) bool { return v.ShareSecrets }).(pulumi.BoolOutput)
 }
@@ -3209,6 +3271,7 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Elem() BuildDefinitionP
 	}).(BuildDefinitionPullRequestTriggerForksOutput)
 }
 
+// Build pull requests form forms of this repository.
 func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerForks) *bool {
 		if v == nil {
@@ -3218,6 +3281,7 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Enabled() pulumi.BoolPt
 	}).(pulumi.BoolPtrOutput)
 }
 
+// Make secrets available to builds of forks.
 func (o BuildDefinitionPullRequestTriggerForksPtrOutput) ShareSecrets() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerForks) *bool {
 		if v == nil {
@@ -3228,9 +3292,12 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) ShareSecrets() pulumi.B
 }
 
 type BuildDefinitionPullRequestTriggerOverride struct {
-	AutoCancel    *bool                                                   `pulumi:"autoCancel"`
+	// . Defaults to `true`.
+	AutoCancel *bool `pulumi:"autoCancel"`
+	// The branches to include and exclude from the trigger.
 	BranchFilters []BuildDefinitionPullRequestTriggerOverrideBranchFilter `pulumi:"branchFilters"`
-	PathFilters   []BuildDefinitionPullRequestTriggerOverridePathFilter   `pulumi:"pathFilters"`
+	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+	PathFilters []BuildDefinitionPullRequestTriggerOverridePathFilter `pulumi:"pathFilters"`
 }
 
 // BuildDefinitionPullRequestTriggerOverrideInput is an input type that accepts BuildDefinitionPullRequestTriggerOverrideArgs and BuildDefinitionPullRequestTriggerOverrideOutput values.
@@ -3245,9 +3312,12 @@ type BuildDefinitionPullRequestTriggerOverrideInput interface {
 }
 
 type BuildDefinitionPullRequestTriggerOverrideArgs struct {
-	AutoCancel    pulumi.BoolPtrInput                                             `pulumi:"autoCancel"`
+	// . Defaults to `true`.
+	AutoCancel pulumi.BoolPtrInput `pulumi:"autoCancel"`
+	// The branches to include and exclude from the trigger.
 	BranchFilters BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
-	PathFilters   BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput   `pulumi:"pathFilters"`
+	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+	PathFilters BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput `pulumi:"pathFilters"`
 }
 
 func (BuildDefinitionPullRequestTriggerOverrideArgs) ElementType() reflect.Type {
@@ -3327,16 +3397,19 @@ func (o BuildDefinitionPullRequestTriggerOverrideOutput) ToBuildDefinitionPullRe
 	}).(BuildDefinitionPullRequestTriggerOverridePtrOutput)
 }
 
+// . Defaults to `true`.
 func (o BuildDefinitionPullRequestTriggerOverrideOutput) AutoCancel() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) *bool { return v.AutoCancel }).(pulumi.BoolPtrOutput)
 }
 
+// The branches to include and exclude from the trigger.
 func (o BuildDefinitionPullRequestTriggerOverrideOutput) BranchFilters() BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverrideBranchFilter {
 		return v.BranchFilters
 	}).(BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput)
 }
 
+// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 func (o BuildDefinitionPullRequestTriggerOverrideOutput) PathFilters() BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverridePathFilter {
 		return v.PathFilters
@@ -3367,6 +3440,7 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) Elem() BuildDefiniti
 	}).(BuildDefinitionPullRequestTriggerOverrideOutput)
 }
 
+// . Defaults to `true`.
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) AutoCancel() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerOverride) *bool {
 		if v == nil {
@@ -3376,6 +3450,7 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) AutoCancel() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The branches to include and exclude from the trigger.
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) BranchFilters() BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverrideBranchFilter {
 		if v == nil {
@@ -3385,6 +3460,7 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) BranchFilters() Buil
 	}).(BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput)
 }
 
+// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) PathFilters() BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverridePathFilter {
 		if v == nil {
@@ -3395,7 +3471,9 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) PathFilters() BuildD
 }
 
 type BuildDefinitionPullRequestTriggerOverrideBranchFilter struct {
+	// List of branch patterns to exclude.
 	Excludes []string `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -3411,7 +3489,9 @@ type BuildDefinitionPullRequestTriggerOverrideBranchFilterInput interface {
 }
 
 type BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs struct {
+	// List of branch patterns to exclude.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -3466,10 +3546,12 @@ func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) ToBuildDefi
 	return o
 }
 
+// List of branch patterns to exclude.
 func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverrideBranchFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
+// List of branch patterns to include.
 func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverrideBranchFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -3495,7 +3577,9 @@ func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput) Index(
 }
 
 type BuildDefinitionPullRequestTriggerOverridePathFilter struct {
+	// List of branch patterns to exclude.
 	Excludes []string `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -3511,7 +3595,9 @@ type BuildDefinitionPullRequestTriggerOverridePathFilterInput interface {
 }
 
 type BuildDefinitionPullRequestTriggerOverridePathFilterArgs struct {
+	// List of branch patterns to exclude.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -3566,10 +3652,12 @@ func (o BuildDefinitionPullRequestTriggerOverridePathFilterOutput) ToBuildDefini
 	return o
 }
 
+// List of branch patterns to exclude.
 func (o BuildDefinitionPullRequestTriggerOverridePathFilterOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverridePathFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
+// List of branch patterns to include.
 func (o BuildDefinitionPullRequestTriggerOverridePathFilterOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverridePathFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -3595,13 +3683,20 @@ func (o BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput) Index(i 
 }
 
 type BuildDefinitionRepository struct {
-	BranchName          *string `pulumi:"branchName"`
+	// The branch name for which builds are triggered. Defaults to `master`.
+	BranchName *string `pulumi:"branchName"`
+	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
 	GithubEnterpriseUrl *string `pulumi:"githubEnterpriseUrl"`
-	RepoId              string  `pulumi:"repoId"`
-	RepoType            string  `pulumi:"repoType"`
-	ReportBuildStatus   *bool   `pulumi:"reportBuildStatus"`
+	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
+	RepoId string `pulumi:"repoId"`
+	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+	RepoType string `pulumi:"repoType"`
+	// Report build status. Default is true.
+	ReportBuildStatus *bool `pulumi:"reportBuildStatus"`
+	// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 	ServiceConnectionId *string `pulumi:"serviceConnectionId"`
-	YmlPath             string  `pulumi:"ymlPath"`
+	// The path of the Yaml file describing the build definition.
+	YmlPath string `pulumi:"ymlPath"`
 }
 
 // BuildDefinitionRepositoryInput is an input type that accepts BuildDefinitionRepositoryArgs and BuildDefinitionRepositoryOutput values.
@@ -3616,13 +3711,20 @@ type BuildDefinitionRepositoryInput interface {
 }
 
 type BuildDefinitionRepositoryArgs struct {
-	BranchName          pulumi.StringPtrInput `pulumi:"branchName"`
+	// The branch name for which builds are triggered. Defaults to `master`.
+	BranchName pulumi.StringPtrInput `pulumi:"branchName"`
+	// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
 	GithubEnterpriseUrl pulumi.StringPtrInput `pulumi:"githubEnterpriseUrl"`
-	RepoId              pulumi.StringInput    `pulumi:"repoId"`
-	RepoType            pulumi.StringInput    `pulumi:"repoType"`
-	ReportBuildStatus   pulumi.BoolPtrInput   `pulumi:"reportBuildStatus"`
+	// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
+	RepoId pulumi.StringInput `pulumi:"repoId"`
+	// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
+	RepoType pulumi.StringInput `pulumi:"repoType"`
+	// Report build status. Default is true.
+	ReportBuildStatus pulumi.BoolPtrInput `pulumi:"reportBuildStatus"`
+	// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 	ServiceConnectionId pulumi.StringPtrInput `pulumi:"serviceConnectionId"`
-	YmlPath             pulumi.StringInput    `pulumi:"ymlPath"`
+	// The path of the Yaml file describing the build definition.
+	YmlPath pulumi.StringInput `pulumi:"ymlPath"`
 }
 
 func (BuildDefinitionRepositoryArgs) ElementType() reflect.Type {
@@ -3702,30 +3804,37 @@ func (o BuildDefinitionRepositoryOutput) ToBuildDefinitionRepositoryPtrOutputWit
 	}).(BuildDefinitionRepositoryPtrOutput)
 }
 
+// The branch name for which builds are triggered. Defaults to `master`.
 func (o BuildDefinitionRepositoryOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.BranchName }).(pulumi.StringPtrOutput)
 }
 
+// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
 func (o BuildDefinitionRepositoryOutput) GithubEnterpriseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.GithubEnterpriseUrl }).(pulumi.StringPtrOutput)
 }
 
+// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 func (o BuildDefinitionRepositoryOutput) RepoId() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoId }).(pulumi.StringOutput)
 }
 
+// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryOutput) RepoType() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.RepoType }).(pulumi.StringOutput)
 }
 
+// Report build status. Default is true.
 func (o BuildDefinitionRepositoryOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *bool { return v.ReportBuildStatus }).(pulumi.BoolPtrOutput)
 }
 
+// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 func (o BuildDefinitionRepositoryOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) *string { return v.ServiceConnectionId }).(pulumi.StringPtrOutput)
 }
 
+// The path of the Yaml file describing the build definition.
 func (o BuildDefinitionRepositoryOutput) YmlPath() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionRepository) string { return v.YmlPath }).(pulumi.StringOutput)
 }
@@ -3754,6 +3863,7 @@ func (o BuildDefinitionRepositoryPtrOutput) Elem() BuildDefinitionRepositoryOutp
 	}).(BuildDefinitionRepositoryOutput)
 }
 
+// The branch name for which builds are triggered. Defaults to `master`.
 func (o BuildDefinitionRepositoryPtrOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -3763,6 +3873,7 @@ func (o BuildDefinitionRepositoryPtrOutput) BranchName() pulumi.StringPtrOutput 
 	}).(pulumi.StringPtrOutput)
 }
 
+// The Github Enterprise URL. Used if `repoType` is `GithubEnterprise`.
 func (o BuildDefinitionRepositoryPtrOutput) GithubEnterpriseUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -3772,6 +3883,7 @@ func (o BuildDefinitionRepositoryPtrOutput) GithubEnterpriseUrl() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The id of the repository. For `TfsGit` repos, this is simply the ID of the repository. For `Github` repos, this will take the form of `<GitHub Org>/<Repo Name>`. For `Bitbucket` repos, this will take the form of `<Workspace ID>/<Repo Name>`.
 func (o BuildDefinitionRepositoryPtrOutput) RepoId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -3781,6 +3893,7 @@ func (o BuildDefinitionRepositoryPtrOutput) RepoId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The repository type. Valid values: `GitHub` or `TfsGit` or `Bitbucket` or `GitHub Enterprise`. Defaults to `GitHub`. If `repoType` is `GitHubEnterprise`, must use existing project and GitHub Enterprise service connection.
 func (o BuildDefinitionRepositoryPtrOutput) RepoType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -3790,6 +3903,7 @@ func (o BuildDefinitionRepositoryPtrOutput) RepoType() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Report build status. Default is true.
 func (o BuildDefinitionRepositoryPtrOutput) ReportBuildStatus() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *bool {
 		if v == nil {
@@ -3799,6 +3913,7 @@ func (o BuildDefinitionRepositoryPtrOutput) ReportBuildStatus() pulumi.BoolPtrOu
 	}).(pulumi.BoolPtrOutput)
 }
 
+// The service connection ID. Used if the `repoType` is `GitHub` or `GitHubEnterprise`.
 func (o BuildDefinitionRepositoryPtrOutput) ServiceConnectionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -3808,6 +3923,7 @@ func (o BuildDefinitionRepositoryPtrOutput) ServiceConnectionId() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The path of the Yaml file describing the build definition.
 func (o BuildDefinitionRepositoryPtrOutput) YmlPath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionRepository) *string {
 		if v == nil {
@@ -3818,13 +3934,15 @@ func (o BuildDefinitionRepositoryPtrOutput) YmlPath() pulumi.StringPtrOutput {
 }
 
 type BuildDefinitionSchedule struct {
-	BranchFilters           []BuildDefinitionScheduleBranchFilter `pulumi:"branchFilters"`
-	DaysToBuilds            []string                              `pulumi:"daysToBuilds"`
-	ScheduleJobId           *string                               `pulumi:"scheduleJobId"`
-	ScheduleOnlyWithChanges *bool                                 `pulumi:"scheduleOnlyWithChanges"`
-	StartHours              *int                                  `pulumi:"startHours"`
-	StartMinutes            *int                                  `pulumi:"startMinutes"`
-	TimeZone                *string                               `pulumi:"timeZone"`
+	// block supports the following:
+	BranchFilters []BuildDefinitionScheduleBranchFilter `pulumi:"branchFilters"`
+	DaysToBuilds  []string                              `pulumi:"daysToBuilds"`
+	// The ID of the schedule job
+	ScheduleJobId           *string `pulumi:"scheduleJobId"`
+	ScheduleOnlyWithChanges *bool   `pulumi:"scheduleOnlyWithChanges"`
+	StartHours              *int    `pulumi:"startHours"`
+	StartMinutes            *int    `pulumi:"startMinutes"`
+	TimeZone                *string `pulumi:"timeZone"`
 }
 
 // BuildDefinitionScheduleInput is an input type that accepts BuildDefinitionScheduleArgs and BuildDefinitionScheduleOutput values.
@@ -3839,13 +3957,15 @@ type BuildDefinitionScheduleInput interface {
 }
 
 type BuildDefinitionScheduleArgs struct {
-	BranchFilters           BuildDefinitionScheduleBranchFilterArrayInput `pulumi:"branchFilters"`
-	DaysToBuilds            pulumi.StringArrayInput                       `pulumi:"daysToBuilds"`
-	ScheduleJobId           pulumi.StringPtrInput                         `pulumi:"scheduleJobId"`
-	ScheduleOnlyWithChanges pulumi.BoolPtrInput                           `pulumi:"scheduleOnlyWithChanges"`
-	StartHours              pulumi.IntPtrInput                            `pulumi:"startHours"`
-	StartMinutes            pulumi.IntPtrInput                            `pulumi:"startMinutes"`
-	TimeZone                pulumi.StringPtrInput                         `pulumi:"timeZone"`
+	// block supports the following:
+	BranchFilters BuildDefinitionScheduleBranchFilterArrayInput `pulumi:"branchFilters"`
+	DaysToBuilds  pulumi.StringArrayInput                       `pulumi:"daysToBuilds"`
+	// The ID of the schedule job
+	ScheduleJobId           pulumi.StringPtrInput `pulumi:"scheduleJobId"`
+	ScheduleOnlyWithChanges pulumi.BoolPtrInput   `pulumi:"scheduleOnlyWithChanges"`
+	StartHours              pulumi.IntPtrInput    `pulumi:"startHours"`
+	StartMinutes            pulumi.IntPtrInput    `pulumi:"startMinutes"`
+	TimeZone                pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
 func (BuildDefinitionScheduleArgs) ElementType() reflect.Type {
@@ -3899,6 +4019,7 @@ func (o BuildDefinitionScheduleOutput) ToBuildDefinitionScheduleOutputWithContex
 	return o
 }
 
+// block supports the following:
 func (o BuildDefinitionScheduleOutput) BranchFilters() BuildDefinitionScheduleBranchFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) []BuildDefinitionScheduleBranchFilter { return v.BranchFilters }).(BuildDefinitionScheduleBranchFilterArrayOutput)
 }
@@ -3907,6 +4028,7 @@ func (o BuildDefinitionScheduleOutput) DaysToBuilds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) []string { return v.DaysToBuilds }).(pulumi.StringArrayOutput)
 }
 
+// The ID of the schedule job
 func (o BuildDefinitionScheduleOutput) ScheduleJobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) *string { return v.ScheduleJobId }).(pulumi.StringPtrOutput)
 }
@@ -3948,7 +4070,9 @@ func (o BuildDefinitionScheduleArrayOutput) Index(i pulumi.IntInput) BuildDefini
 }
 
 type BuildDefinitionScheduleBranchFilter struct {
+	// List of branch patterns to exclude.
 	Excludes []string `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -3964,7 +4088,9 @@ type BuildDefinitionScheduleBranchFilterInput interface {
 }
 
 type BuildDefinitionScheduleBranchFilterArgs struct {
+	// List of branch patterns to exclude.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
+	// List of branch patterns to include.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -4019,10 +4145,12 @@ func (o BuildDefinitionScheduleBranchFilterOutput) ToBuildDefinitionScheduleBran
 	return o
 }
 
+// List of branch patterns to exclude.
 func (o BuildDefinitionScheduleBranchFilterOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionScheduleBranchFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
+// List of branch patterns to include.
 func (o BuildDefinitionScheduleBranchFilterOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionScheduleBranchFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -4048,11 +4176,16 @@ func (o BuildDefinitionScheduleBranchFilterArrayOutput) Index(i pulumi.IntInput)
 }
 
 type BuildDefinitionVariable struct {
-	AllowOverride *bool   `pulumi:"allowOverride"`
-	IsSecret      *bool   `pulumi:"isSecret"`
-	Name          string  `pulumi:"name"`
-	SecretValue   *string `pulumi:"secretValue"`
-	Value         *string `pulumi:"value"`
+	// True if the variable can be overridden. Defaults to `true`.
+	AllowOverride *bool `pulumi:"allowOverride"`
+	// True if the variable is a secret. Defaults to `false`.
+	IsSecret *bool `pulumi:"isSecret"`
+	// The name of the variable.
+	Name string `pulumi:"name"`
+	// The secret value of the variable. Used when `isSecret` set to `true`.
+	SecretValue *string `pulumi:"secretValue"`
+	// The value of the variable.
+	Value *string `pulumi:"value"`
 }
 
 // BuildDefinitionVariableInput is an input type that accepts BuildDefinitionVariableArgs and BuildDefinitionVariableOutput values.
@@ -4067,11 +4200,16 @@ type BuildDefinitionVariableInput interface {
 }
 
 type BuildDefinitionVariableArgs struct {
-	AllowOverride pulumi.BoolPtrInput   `pulumi:"allowOverride"`
-	IsSecret      pulumi.BoolPtrInput   `pulumi:"isSecret"`
-	Name          pulumi.StringInput    `pulumi:"name"`
-	SecretValue   pulumi.StringPtrInput `pulumi:"secretValue"`
-	Value         pulumi.StringPtrInput `pulumi:"value"`
+	// True if the variable can be overridden. Defaults to `true`.
+	AllowOverride pulumi.BoolPtrInput `pulumi:"allowOverride"`
+	// True if the variable is a secret. Defaults to `false`.
+	IsSecret pulumi.BoolPtrInput `pulumi:"isSecret"`
+	// The name of the variable.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The secret value of the variable. Used when `isSecret` set to `true`.
+	SecretValue pulumi.StringPtrInput `pulumi:"secretValue"`
+	// The value of the variable.
+	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
 func (BuildDefinitionVariableArgs) ElementType() reflect.Type {
@@ -4125,22 +4263,27 @@ func (o BuildDefinitionVariableOutput) ToBuildDefinitionVariableOutputWithContex
 	return o
 }
 
+// True if the variable can be overridden. Defaults to `true`.
 func (o BuildDefinitionVariableOutput) AllowOverride() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionVariable) *bool { return v.AllowOverride }).(pulumi.BoolPtrOutput)
 }
 
+// True if the variable is a secret. Defaults to `false`.
 func (o BuildDefinitionVariableOutput) GetIsSecret() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionVariable) *bool { return v.IsSecret }).(pulumi.BoolPtrOutput)
 }
 
+// The name of the variable.
 func (o BuildDefinitionVariableOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v BuildDefinitionVariable) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The secret value of the variable. Used when `isSecret` set to `true`.
 func (o BuildDefinitionVariableOutput) SecretValue() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionVariable) *string { return v.SecretValue }).(pulumi.StringPtrOutput)
 }
 
+// The value of the variable.
 func (o BuildDefinitionVariableOutput) Value() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionVariable) *string { return v.Value }).(pulumi.StringPtrOutput)
 }

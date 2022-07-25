@@ -14,6 +14,10 @@ namespace Pulumi.AzureDevOps.Build.Inputs
     {
         [Input("branchFilters")]
         private InputList<Inputs.BuildDefinitionScheduleBranchFilterGetArgs>? _branchFilters;
+
+        /// <summary>
+        /// block supports the following:
+        /// </summary>
         public InputList<Inputs.BuildDefinitionScheduleBranchFilterGetArgs> BranchFilters
         {
             get => _branchFilters ?? (_branchFilters = new InputList<Inputs.BuildDefinitionScheduleBranchFilterGetArgs>());
@@ -28,6 +32,9 @@ namespace Pulumi.AzureDevOps.Build.Inputs
             set => _daysToBuilds = value;
         }
 
+        /// <summary>
+        /// The ID of the schedule job
+        /// </summary>
         [Input("scheduleJobId")]
         public Input<string>? ScheduleJobId { get; set; }
 
