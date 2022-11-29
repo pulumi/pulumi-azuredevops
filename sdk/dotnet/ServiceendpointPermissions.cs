@@ -22,64 +22,66 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var example_root_permissions = new AzureDevOps.ServiceendpointPermissions("example-root-permissions", new AzureDevOps.ServiceendpointPermissionsArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             Permissions = 
-    ///             {
-    ///                 { "Use", "allow" },
-    ///                 { "Administer", "allow" },
-    ///                 { "Create", "allow" },
-    ///                 { "ViewAuthorization", "allow" },
-    ///                 { "ViewEndpoint", "allow" },
-    ///             },
-    ///         });
-    ///         var exampleServiceEndpointDockerRegistry = new AzureDevOps.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", new AzureDevOps.ServiceEndpointDockerRegistryArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example Docker Hub",
-    ///             DockerUsername = "username",
-    ///             DockerEmail = "email@example.com",
-    ///             DockerPassword = "password",
-    ///             RegistryType = "DockerHub",
-    ///         });
-    ///         var example_permissions = new AzureDevOps.ServiceendpointPermissions("example-permissions", new AzureDevOps.ServiceendpointPermissionsArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             ServiceendpointId = exampleServiceEndpointDockerRegistry.Id,
-    ///             Permissions = 
-    ///             {
-    ///                 { "Use", "allow" },
-    ///                 { "Administer", "deny" },
-    ///                 { "Create", "deny" },
-    ///                 { "ViewAuthorization", "allow" },
-    ///                 { "ViewEndpoint", "allow" },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_root_permissions = new AzureDevOps.ServiceendpointPermissions("example-root-permissions", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "Use", "allow" },
+    ///             { "Administer", "allow" },
+    ///             { "Create", "allow" },
+    ///             { "ViewAuthorization", "allow" },
+    ///             { "ViewEndpoint", "allow" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointDockerRegistry = new AzureDevOps.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Docker Hub",
+    ///         DockerUsername = "username",
+    ///         DockerEmail = "email@example.com",
+    ///         DockerPassword = "password",
+    ///         RegistryType = "DockerHub",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.ServiceendpointPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         ServiceendpointId = exampleServiceEndpointDockerRegistry.Id,
+    ///         Permissions = 
+    ///         {
+    ///             { "Use", "allow" },
+    ///             { "Administer", "deny" },
+    ///             { "Create", "deny" },
+    ///             { "ViewAuthorization", "allow" },
+    ///             { "ViewEndpoint", "allow" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -94,7 +96,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions")]
-    public partial class ServiceendpointPermissions : Pulumi.CustomResource
+    public partial class ServiceendpointPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the permissions to assign. The following permissions are available.
@@ -170,7 +172,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceendpointPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class ServiceendpointPermissionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("permissions", required: true)]
         private InputMap<string>? _permissions;
@@ -211,9 +213,10 @@ namespace Pulumi.AzureDevOps
         public ServiceendpointPermissionsArgs()
         {
         }
+        public static new ServiceendpointPermissionsArgs Empty => new ServiceendpointPermissionsArgs();
     }
 
-    public sealed class ServiceendpointPermissionsState : Pulumi.ResourceArgs
+    public sealed class ServiceendpointPermissionsState : global::Pulumi.ResourceArgs
     {
         [Input("permissions")]
         private InputMap<string>? _permissions;
@@ -254,5 +257,6 @@ namespace Pulumi.AzureDevOps
         public ServiceendpointPermissionsState()
         {
         }
+        public static new ServiceendpointPermissionsState Empty => new ServiceendpointPermissionsState();
     }
 }

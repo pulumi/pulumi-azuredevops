@@ -15,74 +15,73 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new AzureDevOps.BuildDefinitionArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
-    ///             {
-    ///                 RepoType = "TfsGit",
-    ///                 RepoId = exampleGit.Id,
-    ///                 YmlPath = "azure-pipelines.yml",
-    ///             },
-    ///         });
-    ///         var exampleBranchPolicyBuildValidation = new AzureDevOps.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation", new AzureDevOps.BranchPolicyBuildValidationArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsArgs
-    ///             {
-    ///                 DisplayName = "Example build validation policy",
-    ///                 BuildDefinitionId = exampleBuildDefinition.Id,
-    ///                 ValidDuration = 720,
-    ///                 FilenamePatterns = 
-    ///                 {
-    ///                     "/WebApp/*",
-    ///                     "!/WebApp/Tests/*",
-    ///                     "*.cs",
-    ///                 },
-    ///                 Scopes = 
-    ///                 {
-    ///                     new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = exampleGit.DefaultBranch,
-    ///                         MatchType = "Exact",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = "refs/heads/releases",
-    ///                         MatchType = "Prefix",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
-    ///                     {
-    ///                         MatchType = "DefaultBranch",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
     /// 
-    /// }
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
+    ///         {
+    ///             RepoType = "TfsGit",
+    ///             RepoId = exampleGit.Id,
+    ///             YmlPath = "azure-pipelines.yml",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBranchPolicyBuildValidation = new AzureDevOps.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         Settings = new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsArgs
+    ///         {
+    ///             DisplayName = "Example build validation policy",
+    ///             BuildDefinitionId = exampleBuildDefinition.Id,
+    ///             ValidDuration = 720,
+    ///             FilenamePatterns = new[]
+    ///             {
+    ///                 "/WebApp/*",
+    ///                 "!/WebApp/Tests/*",
+    ///                 "*.cs",
+    ///             },
+    ///             Scopes = new[]
+    ///             {
+    ///                 new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = exampleGit.DefaultBranch,
+    ///                     MatchType = "Exact",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = "refs/heads/releases",
+    ///                     MatchType = "Prefix",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyBuildValidationSettingsScopeArgs
+    ///                 {
+    ///                     MatchType = "DefaultBranch",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -97,7 +96,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation")]
-    public partial class BranchPolicyBuildValidation : Pulumi.CustomResource
+    public partial class BranchPolicyBuildValidation : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -148,7 +147,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -171,7 +170,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class BranchPolicyBuildValidationArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyBuildValidationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -200,9 +199,10 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyBuildValidationArgs()
         {
         }
+        public static new BranchPolicyBuildValidationArgs Empty => new BranchPolicyBuildValidationArgs();
     }
 
-    public sealed class BranchPolicyBuildValidationState : Pulumi.ResourceArgs
+    public sealed class BranchPolicyBuildValidationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -231,5 +231,6 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyBuildValidationState()
         {
         }
+        public static new BranchPolicyBuildValidationState Empty => new BranchPolicyBuildValidationState();
     }
 }

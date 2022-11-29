@@ -15,43 +15,43 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         // dockerhub registry service connection
-    ///         var exampleServiceEndpointDockerRegistry = new AzureDevOps.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", new AzureDevOps.ServiceEndpointDockerRegistryArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example Docker Hub",
-    ///             DockerUsername = "example",
-    ///             DockerEmail = "email@example.com",
-    ///             DockerPassword = "12345",
-    ///             RegistryType = "DockerHub",
-    ///         });
-    ///         // other docker registry service connection
-    ///         var example_other = new AzureDevOps.ServiceEndpointDockerRegistry("example-other", new AzureDevOps.ServiceEndpointDockerRegistryArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example Docker Registry",
-    ///             DockerRegistryUrl = "https://sample.azurecr.io/v1",
-    ///             DockerUsername = "sample",
-    ///             DockerPassword = "12345",
-    ///             RegistryType = "Others",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     // dockerhub registry service connection
+    ///     var exampleServiceEndpointDockerRegistry = new AzureDevOps.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Docker Hub",
+    ///         DockerUsername = "example",
+    ///         DockerEmail = "email@example.com",
+    ///         DockerPassword = "12345",
+    ///         RegistryType = "DockerHub",
+    ///     });
+    /// 
+    ///     // other docker registry service connection
+    ///     var example_other = new AzureDevOps.ServiceEndpointDockerRegistry("example-other", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Docker Registry",
+    ///         DockerRegistryUrl = "https://sample.azurecr.io/v1",
+    ///         DockerUsername = "sample",
+    ///         DockerPassword = "12345",
+    ///         RegistryType = "Others",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -67,7 +67,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry")]
-    public partial class ServiceEndpointDockerRegistry : Pulumi.CustomResource
+    public partial class ServiceEndpointDockerRegistry : global::Pulumi.CustomResource
     {
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -148,7 +148,12 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry"},
+                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry"},
+                },
+                AdditionalSecretOutputs =
+                {
+                    "dockerPassword",
+                    "dockerPasswordHash",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -171,7 +176,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointDockerRegistryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointDockerRegistryArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -190,11 +195,21 @@ namespace Pulumi.AzureDevOps
         [Input("dockerEmail")]
         public Input<string>? DockerEmail { get; set; }
 
+        [Input("dockerPassword")]
+        private Input<string>? _dockerPassword;
+
         /// <summary>
         /// The password for the account user identified above.
         /// </summary>
-        [Input("dockerPassword")]
-        public Input<string>? DockerPassword { get; set; }
+        public Input<string>? DockerPassword
+        {
+            get => _dockerPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _dockerPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
@@ -229,9 +244,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointDockerRegistryArgs()
         {
         }
+        public static new ServiceEndpointDockerRegistryArgs Empty => new ServiceEndpointDockerRegistryArgs();
     }
 
-    public sealed class ServiceEndpointDockerRegistryState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointDockerRegistryState : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -250,17 +266,37 @@ namespace Pulumi.AzureDevOps
         [Input("dockerEmail")]
         public Input<string>? DockerEmail { get; set; }
 
+        [Input("dockerPassword")]
+        private Input<string>? _dockerPassword;
+
         /// <summary>
         /// The password for the account user identified above.
         /// </summary>
-        [Input("dockerPassword")]
-        public Input<string>? DockerPassword { get; set; }
+        public Input<string>? DockerPassword
+        {
+            get => _dockerPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _dockerPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("dockerPasswordHash")]
+        private Input<string>? _dockerPasswordHash;
 
         /// <summary>
         /// A bcrypted hash of the attribute 'docker_password'
         /// </summary>
-        [Input("dockerPasswordHash")]
-        public Input<string>? DockerPasswordHash { get; set; }
+        public Input<string>? DockerPasswordHash
+        {
+            get => _dockerPasswordHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _dockerPasswordHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
@@ -295,5 +331,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointDockerRegistryState()
         {
         }
+        public static new ServiceEndpointDockerRegistryState Empty => new ServiceEndpointDockerRegistryState();
     }
 }

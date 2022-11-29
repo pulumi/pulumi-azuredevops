@@ -18,34 +18,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_ = azuredevops.GetIterationOutput(ctx, GetIterationOutputArgs{
-// 			ProjectId:     example.ID(),
-// 			Path:          pulumi.String("/"),
-// 			FetchChildren: pulumi.Bool(true),
-// 		}, nil)
-// 		_ = azuredevops.GetIterationOutput(ctx, GetIterationOutputArgs{
-// 			ProjectId:     example.ID(),
-// 			Path:          pulumi.String("/Iteration 1"),
-// 			FetchChildren: pulumi.Bool(true),
-// 		}, nil)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = azuredevops.GetIterationOutput(ctx, GetIterationOutputArgs{
+//				ProjectId:     example.ID(),
+//				Path:          pulumi.String("/"),
+//				FetchChildren: pulumi.Bool(true),
+//			}, nil)
+//			_ = azuredevops.GetIterationOutput(ctx, GetIterationOutputArgs{
+//				ProjectId:     example.ID(),
+//				Path:          pulumi.String("/Iteration 1"),
+//				FetchChildren: pulumi.Bool(true),
+//			}, nil)
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //

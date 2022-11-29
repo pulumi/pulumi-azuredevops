@@ -19,59 +19,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBranchPolicyMinReviewers(ctx, "exampleBranchPolicyMinReviewers", &azuredevops.BranchPolicyMinReviewersArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			Settings: &BranchPolicyMinReviewersSettingsArgs{
-// 				ReviewerCount:                     pulumi.Int(7),
-// 				SubmitterCanVote:                  pulumi.Bool(false),
-// 				LastPusherCannotApprove:           pulumi.Bool(true),
-// 				AllowCompletionWithRejectsOrWaits: pulumi.Bool(false),
-// 				OnPushResetApprovedVotes:          pulumi.Bool(true),
-// 				OnLastIterationRequireVote:        pulumi.Bool(false),
-// 				Scopes: BranchPolicyMinReviewersSettingsScopeArray{
-// 					&BranchPolicyMinReviewersSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: exampleGit.DefaultBranch,
-// 						MatchType:     pulumi.String("Exact"),
-// 					},
-// 					&BranchPolicyMinReviewersSettingsScopeArgs{
-// 						RepositoryId:  nil,
-// 						RepositoryRef: pulumi.String("refs/heads/releases"),
-// 						MatchType:     pulumi.String("Prefix"),
-// 					},
-// 					&BranchPolicyMinReviewersSettingsScopeArgs{
-// 						MatchType: pulumi.String("DefaultBranch"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBranchPolicyMinReviewers(ctx, "exampleBranchPolicyMinReviewers", &azuredevops.BranchPolicyMinReviewersArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				Settings: &BranchPolicyMinReviewersSettingsArgs{
+//					ReviewerCount:                     pulumi.Int(7),
+//					SubmitterCanVote:                  pulumi.Bool(false),
+//					LastPusherCannotApprove:           pulumi.Bool(true),
+//					AllowCompletionWithRejectsOrWaits: pulumi.Bool(false),
+//					OnPushResetApprovedVotes:          pulumi.Bool(true),
+//					OnLastIterationRequireVote:        pulumi.Bool(false),
+//					Scopes: BranchPolicyMinReviewersSettingsScopeArray{
+//						&BranchPolicyMinReviewersSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: exampleGit.DefaultBranch,
+//							MatchType:     pulumi.String("Exact"),
+//						},
+//						&BranchPolicyMinReviewersSettingsScopeArgs{
+//							RepositoryId:  nil,
+//							RepositoryRef: pulumi.String("refs/heads/releases"),
+//							MatchType:     pulumi.String("Prefix"),
+//						},
+//						&BranchPolicyMinReviewersSettingsScopeArgs{
+//							MatchType: pulumi.String("DefaultBranch"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -79,10 +82,12 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+// # Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 //
 // Deprecated: azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers
@@ -208,7 +213,7 @@ func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersOutputWithContext(c
 // BranchPolicyMinReviewersArrayInput is an input type that accepts BranchPolicyMinReviewersArray and BranchPolicyMinReviewersArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyMinReviewersArrayInput` via:
 //
-//          BranchPolicyMinReviewersArray{ BranchPolicyMinReviewersArgs{...} }
+//	BranchPolicyMinReviewersArray{ BranchPolicyMinReviewersArgs{...} }
 type BranchPolicyMinReviewersArrayInput interface {
 	pulumi.Input
 
@@ -233,7 +238,7 @@ func (i BranchPolicyMinReviewersArray) ToBranchPolicyMinReviewersArrayOutputWith
 // BranchPolicyMinReviewersMapInput is an input type that accepts BranchPolicyMinReviewersMap and BranchPolicyMinReviewersMapOutput values.
 // You can construct a concrete instance of `BranchPolicyMinReviewersMapInput` via:
 //
-//          BranchPolicyMinReviewersMap{ "key": BranchPolicyMinReviewersArgs{...} }
+//	BranchPolicyMinReviewersMap{ "key": BranchPolicyMinReviewersArgs{...} }
 type BranchPolicyMinReviewersMapInput interface {
 	pulumi.Input
 

@@ -13,100 +13,99 @@ namespace Pulumi.AzureDevOps.Pipeline
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new AzureDevOps.VariableGroupArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Description = "Example Variable Group Description",
-    ///             AllowAccess = true,
-    ///             Variables = 
-    ///             {
-    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
-    ///                 {
-    ///                     Name = "key1",
-    ///                     Value = "val1",
-    ///                 },
-    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
-    ///                 {
-    ///                     Name = "key2",
-    ///                     SecretValue = "val2",
-    ///                     IsSecret = true,
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Description = "Example Variable Group Description",
+    ///         AllowAccess = true,
+    ///         Variables = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///             {
+    ///                 Name = "key1",
+    ///                 Value = "val1",
+    ///             },
+    ///             new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///             {
+    ///                 Name = "key2",
+    ///                 SecretValue = "val2",
+    ///                 IsSecret = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### With AzureRM Key Vault
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new AzureDevOps.ServiceEndpointAzureRMArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example AzureRM",
-    ///             Description = "Managed by Terraform",
-    ///             Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
-    ///             {
-    ///                 Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
-    ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    ///             },
-    ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
-    ///             AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
-    ///             AzurermSubscriptionName = "Example Subscription Name",
-    ///         });
-    ///         var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new AzureDevOps.VariableGroupArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Description = "Example Variable Group Description",
-    ///             AllowAccess = true,
-    ///             KeyVault = new AzureDevOps.Inputs.VariableGroupKeyVaultArgs
-    ///             {
-    ///                 Name = "example-kv",
-    ///                 ServiceEndpointId = exampleServiceEndpointAzureRM.Id,
-    ///             },
-    ///             Variables = 
-    ///             {
-    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
-    ///                 {
-    ///                     Name = "key1",
-    ///                 },
-    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
-    ///                 {
-    ///                     Name = "key2",
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example AzureRM",
+    ///         Description = "Managed by Terraform",
+    ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
+    ///         {
+    ///             Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
+    ///             Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///         },
+    ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionName = "Example Subscription Name",
+    ///     });
+    /// 
+    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Description = "Example Variable Group Description",
+    ///         AllowAccess = true,
+    ///         KeyVault = new AzureDevOps.Inputs.VariableGroupKeyVaultArgs
+    ///         {
+    ///             Name = "example-kv",
+    ///             ServiceEndpointId = exampleServiceEndpointAzureRM.Id,
+    ///         },
+    ///         Variables = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///             {
+    ///                 Name = "key1",
+    ///             },
+    ///             new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///             {
+    ///                 Name = "key2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -140,7 +139,7 @@ namespace Pulumi.AzureDevOps.Pipeline
     /// </summary>
     [Obsolete(@"azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup")]
     [AzureDevOpsResourceType("azuredevops:Pipeline/variableGroup:VariableGroup")]
-    public partial class VariableGroup : Pulumi.CustomResource
+    public partial class VariableGroup : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Boolean that indicate if this variable group is shared by all pipelines of this project.
@@ -154,6 +153,9 @@ namespace Pulumi.AzureDevOps.Pipeline
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// -(Optional) A list of `key_vault` blocks as documented below.
+        /// </summary>
         [Output("keyVault")]
         public Output<Outputs.VariableGroupKeyVault?> KeyVault { get; private set; } = null!;
 
@@ -219,7 +221,7 @@ namespace Pulumi.AzureDevOps.Pipeline
         }
     }
 
-    public sealed class VariableGroupArgs : Pulumi.ResourceArgs
+    public sealed class VariableGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean that indicate if this variable group is shared by all pipelines of this project.
@@ -233,6 +235,9 @@ namespace Pulumi.AzureDevOps.Pipeline
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// -(Optional) A list of `key_vault` blocks as documented below.
+        /// </summary>
         [Input("keyVault")]
         public Input<Inputs.VariableGroupKeyVaultArgs>? KeyVault { get; set; }
 
@@ -263,9 +268,10 @@ namespace Pulumi.AzureDevOps.Pipeline
         public VariableGroupArgs()
         {
         }
+        public static new VariableGroupArgs Empty => new VariableGroupArgs();
     }
 
-    public sealed class VariableGroupState : Pulumi.ResourceArgs
+    public sealed class VariableGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Boolean that indicate if this variable group is shared by all pipelines of this project.
@@ -279,6 +285,9 @@ namespace Pulumi.AzureDevOps.Pipeline
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// -(Optional) A list of `key_vault` blocks as documented below.
+        /// </summary>
         [Input("keyVault")]
         public Input<Inputs.VariableGroupKeyVaultGetArgs>? KeyVault { get; set; }
 
@@ -309,5 +318,6 @@ namespace Pulumi.AzureDevOps.Pipeline
         public VariableGroupState()
         {
         }
+        public static new VariableGroupState Empty => new VariableGroupState();
     }
 }

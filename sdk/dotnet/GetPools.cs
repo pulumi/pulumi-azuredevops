@@ -14,50 +14,12 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about existing Agent Pools within Azure DevOps.
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(AzureDevOps.GetPools.InvokeAsync());
-        ///         this.AgentPoolName = 
-        ///         {
-        ///             example.Apply(example =&gt; example.AgentPools),
-        ///         }.Select(__item =&gt; __item?.Name).ToList();
-        ///         this.AutoProvision = 
-        ///         {
-        ///             example.Apply(example =&gt; example.AgentPools),
-        ///         }.Select(__item =&gt; __item?.AutoProvision).ToList();
-        ///         this.PoolType = 
-        ///         {
-        ///             example.Apply(example =&gt; example.AgentPools),
-        ///         }.Select(__item =&gt; __item?.PoolType).ToList();
-        ///     }
-        /// 
-        ///     [Output("agentPoolName")]
-        ///     public Output&lt;string&gt; AgentPoolName { get; set; }
-        ///     [Output("autoProvision")]
-        ///     public Output&lt;string&gt; AutoProvision { get; set; }
-        ///     [Output("poolType")]
-        ///     public Output&lt;string&gt; PoolType { get; set; }
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetPoolsResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolsResult>("azuredevops:index/getPools:getPools", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolsResult>("azuredevops:index/getPools:getPools", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

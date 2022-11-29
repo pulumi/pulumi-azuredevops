@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Build.Inputs
 {
 
-    public sealed class BuildDefinitionPullRequestTriggerForksArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionPullRequestTriggerForksArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Build pull requests form forms of this repository.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureDevOps.Build.Inputs
         public BuildDefinitionPullRequestTriggerForksArgs()
         {
         }
+        public static new BuildDefinitionPullRequestTriggerForksArgs Empty => new BuildDefinitionPullRequestTriggerForksArgs();
     }
 }

@@ -15,59 +15,57 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBranchPolicyMergeTypes = new AzureDevOps.BranchPolicyMergeTypes("exampleBranchPolicyMergeTypes", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         Settings = new AzureDevOps.Inputs.BranchPolicyMergeTypesSettingsArgs
     ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             AllowSquash = true,
+    ///             AllowRebaseAndFastForward = true,
+    ///             AllowBasicNoFastForward = true,
+    ///             AllowRebaseWithMerge = true,
+    ///             Scopes = new[]
     ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleBranchPolicyMergeTypes = new AzureDevOps.BranchPolicyMergeTypes("exampleBranchPolicyMergeTypes", new AzureDevOps.BranchPolicyMergeTypesArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Inputs.BranchPolicyMergeTypesSettingsArgs
-    ///             {
-    ///                 AllowSquash = true,
-    ///                 AllowRebaseAndFastForward = true,
-    ///                 AllowBasicNoFastForward = true,
-    ///                 AllowRebaseWithMerge = true,
-    ///                 Scopes = 
+    ///                 new AzureDevOps.Inputs.BranchPolicyMergeTypesSettingsScopeArgs
     ///                 {
-    ///                     new AzureDevOps.Inputs.BranchPolicyMergeTypesSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = exampleGit.DefaultBranch,
-    ///                         MatchType = "Exact",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyMergeTypesSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = null,
-    ///                         RepositoryRef = "refs/heads/releases",
-    ///                         MatchType = "Prefix",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyMergeTypesSettingsScopeArgs
-    ///                     {
-    ///                         MatchType = "DefaultBranch",
-    ///                     },
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = exampleGit.DefaultBranch,
+    ///                     MatchType = "Exact",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyMergeTypesSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = null,
+    ///                     RepositoryRef = "refs/heads/releases",
+    ///                     MatchType = "Prefix",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyMergeTypesSettingsScopeArgs
+    ///                 {
+    ///                     MatchType = "DefaultBranch",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -82,7 +80,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes")]
-    public partial class BranchPolicyMergeTypes : Pulumi.CustomResource
+    public partial class BranchPolicyMergeTypes : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -152,7 +150,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class BranchPolicyMergeTypesArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyMergeTypesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -181,9 +179,10 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyMergeTypesArgs()
         {
         }
+        public static new BranchPolicyMergeTypesArgs Empty => new BranchPolicyMergeTypesArgs();
     }
 
-    public sealed class BranchPolicyMergeTypesState : Pulumi.ResourceArgs
+    public sealed class BranchPolicyMergeTypesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -212,5 +211,6 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyMergeTypesState()
         {
         }
+        public static new BranchPolicyMergeTypesState Empty => new BranchPolicyMergeTypesState();
     }
 }

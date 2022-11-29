@@ -20,41 +20,36 @@ namespace Pulumi.AzureDevOps.Identities
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var exampleProject = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var exampleGroup = exampleProject.Apply(exampleProject =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
-        ///         {
-        ///             ProjectId = exampleProject.Id,
-        ///             Name = "Example Group",
-        ///         })));
-        ///         this.GroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id);
-        ///         this.GroupDescriptor = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor);
-        ///         var example_collection_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
-        ///         {
-        ///             Name = "Project Collection Administrators",
-        ///         }));
-        ///         this.CollectionGroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id);
-        ///         this.CollectionGroupDescriptor = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor);
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        ///     [Output("groupId")]
-        ///     public Output&lt;string&gt; GroupId { get; set; }
-        ///     [Output("groupDescriptor")]
-        ///     public Output&lt;string&gt; GroupDescriptor { get; set; }
-        ///     [Output("collectionGroupId")]
-        ///     public Output&lt;string&gt; CollectionGroupId { get; set; }
-        ///     [Output("collectionGroupDescriptor")]
-        ///     public Output&lt;string&gt; CollectionGroupDescriptor { get; set; }
-        /// }
+        ///     var exampleGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Group",
+        ///     });
+        /// 
+        ///     var example_collection_group = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = "Project Collection Administrators",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["groupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["groupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///         ["collectionGroupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["collectionGroupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -63,7 +58,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetGroupResult> InvokeAsync(GetGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azuredevops:Identities/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupResult>("azuredevops:Identities/getGroup:getGroup", args ?? new GetGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Group within Azure DevOps
@@ -73,41 +68,36 @@ namespace Pulumi.AzureDevOps.Identities
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var exampleProject = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var exampleGroup = exampleProject.Apply(exampleProject =&gt; Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
-        ///         {
-        ///             ProjectId = exampleProject.Id,
-        ///             Name = "Example Group",
-        ///         })));
-        ///         this.GroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id);
-        ///         this.GroupDescriptor = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor);
-        ///         var example_collection_group = Output.Create(AzureDevOps.GetGroup.InvokeAsync(new AzureDevOps.GetGroupArgs
-        ///         {
-        ///             Name = "Project Collection Administrators",
-        ///         }));
-        ///         this.CollectionGroupId = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Id);
-        ///         this.CollectionGroupDescriptor = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor);
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        ///     [Output("groupId")]
-        ///     public Output&lt;string&gt; GroupId { get; set; }
-        ///     [Output("groupDescriptor")]
-        ///     public Output&lt;string&gt; GroupDescriptor { get; set; }
-        ///     [Output("collectionGroupId")]
-        ///     public Output&lt;string&gt; CollectionGroupId { get; set; }
-        ///     [Output("collectionGroupDescriptor")]
-        ///     public Output&lt;string&gt; CollectionGroupDescriptor { get; set; }
-        /// }
+        ///     var exampleGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Group",
+        ///     });
+        /// 
+        ///     var example_collection_group = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = "Project Collection Administrators",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["groupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["groupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///         ["collectionGroupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["collectionGroupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -116,11 +106,11 @@ namespace Pulumi.AzureDevOps.Identities
         /// - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetGroupResult> Invoke(GetGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azuredevops:Identities/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupResult>("azuredevops:Identities/getGroup:getGroup", args ?? new GetGroupInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Group Name.
@@ -137,9 +127,10 @@ namespace Pulumi.AzureDevOps.Identities
         public GetGroupArgs()
         {
         }
+        public static new GetGroupArgs Empty => new GetGroupArgs();
     }
 
-    public sealed class GetGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Group Name.
@@ -156,6 +147,7 @@ namespace Pulumi.AzureDevOps.Identities
         public GetGroupInvokeArgs()
         {
         }
+        public static new GetGroupInvokeArgs Empty => new GetGroupInvokeArgs();
     }
 
 

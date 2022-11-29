@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BuildDefinitionVariableArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionVariableArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// True if the variable can be overridden. Defaults to `true`.
@@ -30,11 +30,21 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("secretValue")]
+        private Input<string>? _secretValue;
+
         /// <summary>
         /// The secret value of the variable. Used when `is_secret` set to `true`.
         /// </summary>
-        [Input("secretValue")]
-        public Input<string>? SecretValue { get; set; }
+        public Input<string>? SecretValue
+        {
+            get => _secretValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The value of the variable.
@@ -45,5 +55,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BuildDefinitionVariableArgs()
         {
         }
+        public static new BuildDefinitionVariableArgs Empty => new BuildDefinitionVariableArgs();
     }
 }

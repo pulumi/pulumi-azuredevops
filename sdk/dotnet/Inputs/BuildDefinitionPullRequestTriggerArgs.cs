@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BuildDefinitionPullRequestTriggerArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionPullRequestTriggerArgs : global::Pulumi.ResourceArgs
     {
         [Input("commentRequired")]
         public Input<string>? CommentRequired { get; set; }
@@ -39,5 +39,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BuildDefinitionPullRequestTriggerArgs()
         {
         }
+        public static new BuildDefinitionPullRequestTriggerArgs Empty => new BuildDefinitionPullRequestTriggerArgs();
     }
 }

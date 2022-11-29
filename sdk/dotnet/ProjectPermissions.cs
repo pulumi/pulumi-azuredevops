@@ -17,40 +17,40 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var example_permission = new AzureDevOps.ProjectPermissions("example-permission", new AzureDevOps.ProjectPermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             Permissions = 
-    ///             {
-    ///                 { "DELETE", "Deny" },
-    ///                 { "EDIT_BUILD_STATUS", "NotSet" },
-    ///                 { "WORK_ITEM_MOVE", "Allow" },
-    ///                 { "DELETE_TEST_RESULTS", "Deny" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_permission = new AzureDevOps.ProjectPermissions("example-permission", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "DELETE", "Deny" },
+    ///             { "EDIT_BUILD_STATUS", "NotSet" },
+    ///             { "WORK_ITEM_MOVE", "Allow" },
+    ///             { "DELETE_TEST_RESULTS", "Deny" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -65,7 +65,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/projectPermissions:ProjectPermissions")]
-    public partial class ProjectPermissions : Pulumi.CustomResource
+    public partial class ProjectPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the permissions to assign. The following permissions are available
@@ -135,7 +135,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ProjectPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class ProjectPermissionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("permissions", required: true)]
         private InputMap<string>? _permissions;
@@ -170,9 +170,10 @@ namespace Pulumi.AzureDevOps
         public ProjectPermissionsArgs()
         {
         }
+        public static new ProjectPermissionsArgs Empty => new ProjectPermissionsArgs();
     }
 
-    public sealed class ProjectPermissionsState : Pulumi.ResourceArgs
+    public sealed class ProjectPermissionsState : global::Pulumi.ResourceArgs
     {
         [Input("permissions")]
         private InputMap<string>? _permissions;
@@ -207,5 +208,6 @@ namespace Pulumi.AzureDevOps
         public ProjectPermissionsState()
         {
         }
+        public static new ProjectPermissionsState Empty => new ProjectPermissionsState();
     }
 }

@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// </summary>
     [Obsolete(@"azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes")]
     [AzureDevOpsResourceType("azuredevops:ServiceEndpoint/kubernetes:Kubernetes")]
-    public partial class Kubernetes : Pulumi.CustomResource
+    public partial class Kubernetes : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The hostname (in form of URI) of the Kubernetes API.
@@ -55,8 +55,8 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         /// <summary>
         /// A `kubeconfig` block defined blow.
         /// </summary>
-        [Output("kubeconfigs")]
-        public Output<ImmutableArray<Outputs.KubernetesKubeconfig>> Kubeconfigs { get; private set; } = null!;
+        [Output("kubeconfig")]
+        public Output<Outputs.KubernetesKubeconfig?> Kubeconfig { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the project.
@@ -120,7 +120,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         }
     }
 
-    public sealed class KubernetesArgs : Pulumi.ResourceArgs
+    public sealed class KubernetesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname (in form of URI) of the Kubernetes API.
@@ -157,17 +157,11 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("kubeconfigs")]
-        private InputList<Inputs.KubernetesKubeconfigArgs>? _kubeconfigs;
-
         /// <summary>
         /// A `kubeconfig` block defined blow.
         /// </summary>
-        public InputList<Inputs.KubernetesKubeconfigArgs> Kubeconfigs
-        {
-            get => _kubeconfigs ?? (_kubeconfigs = new InputList<Inputs.KubernetesKubeconfigArgs>());
-            set => _kubeconfigs = value;
-        }
+        [Input("kubeconfig")]
+        public Input<Inputs.KubernetesKubeconfigArgs>? Kubeconfig { get; set; }
 
         /// <summary>
         /// The ID of the project.
@@ -190,9 +184,10 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public KubernetesArgs()
         {
         }
+        public static new KubernetesArgs Empty => new KubernetesArgs();
     }
 
-    public sealed class KubernetesState : Pulumi.ResourceArgs
+    public sealed class KubernetesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname (in form of URI) of the Kubernetes API.
@@ -229,17 +224,11 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("kubeconfigs")]
-        private InputList<Inputs.KubernetesKubeconfigGetArgs>? _kubeconfigs;
-
         /// <summary>
         /// A `kubeconfig` block defined blow.
         /// </summary>
-        public InputList<Inputs.KubernetesKubeconfigGetArgs> Kubeconfigs
-        {
-            get => _kubeconfigs ?? (_kubeconfigs = new InputList<Inputs.KubernetesKubeconfigGetArgs>());
-            set => _kubeconfigs = value;
-        }
+        [Input("kubeconfig")]
+        public Input<Inputs.KubernetesKubeconfigGetArgs>? Kubeconfig { get; set; }
 
         /// <summary>
         /// The ID of the project.
@@ -262,5 +251,6 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public KubernetesState()
         {
         }
+        public static new KubernetesState Empty => new KubernetesState();
     }
 }

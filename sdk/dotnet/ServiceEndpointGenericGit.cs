@@ -16,32 +16,31 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointGenericGit = new AzureDevOps.ServiceEndpointGenericGit("exampleServiceEndpointGenericGit", new AzureDevOps.ServiceEndpointGenericGitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             RepositoryUrl = "https://dev.azure.com/org/project/_git/repository",
-    ///             Username = "username",
-    ///             Password = "password",
-    ///             ServiceEndpointName = "Example Generic Git",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointGenericGit = new AzureDevOps.ServiceEndpointGenericGit("exampleServiceEndpointGenericGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         RepositoryUrl = "https://dev.azure.com/org/project/_git/repository",
+    ///         Username = "username",
+    ///         Password = "password",
+    ///         ServiceEndpointName = "Example Generic Git",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -56,7 +55,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit")]
-    public partial class ServiceEndpointGenericGit : Pulumi.CustomResource
+    public partial class ServiceEndpointGenericGit : global::Pulumi.CustomResource
     {
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -129,6 +128,11 @@ namespace Pulumi.AzureDevOps
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                    "passwordHash",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -150,7 +154,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointGenericGitArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointGenericGitArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -169,11 +173,21 @@ namespace Pulumi.AzureDevOps
         [Input("enablePipelinesAccess")]
         public Input<bool>? EnablePipelinesAccess { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The PAT or password used to authenticate to the git repository.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the project.
@@ -202,9 +216,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointGenericGitArgs()
         {
         }
+        public static new ServiceEndpointGenericGitArgs Empty => new ServiceEndpointGenericGitArgs();
     }
 
-    public sealed class ServiceEndpointGenericGitState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointGenericGitState : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -223,17 +238,37 @@ namespace Pulumi.AzureDevOps
         [Input("enablePipelinesAccess")]
         public Input<bool>? EnablePipelinesAccess { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// The PAT or password used to authenticate to the git repository.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("passwordHash")]
+        private Input<string>? _passwordHash;
 
         /// <summary>
         /// A bcrypted hash of the attribute 'password'
         /// </summary>
-        [Input("passwordHash")]
-        public Input<string>? PasswordHash { get; set; }
+        public Input<string>? PasswordHash
+        {
+            get => _passwordHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the project.
@@ -262,5 +297,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointGenericGitState()
         {
         }
+        public static new ServiceEndpointGenericGitState Empty => new ServiceEndpointGenericGitState();
     }
 }

@@ -46,9 +46,11 @@ export class Provider extends pulumi.ProviderResource {
         opts = opts || {};
         {
             resourceInputs["orgServiceUrl"] = (args ? args.orgServiceUrl : undefined) ?? utilities.getEnv("AZDO_ORG_SERVICE_URL");
-            resourceInputs["personalAccessToken"] = args ? args.personalAccessToken : undefined;
+            resourceInputs["personalAccessToken"] = args?.personalAccessToken ? pulumi.secret(args.personalAccessToken) : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["personalAccessToken"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -19,40 +19,43 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
-// 			PrincipalName: pulumi.String("foo@contoso.com"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGroup := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Name:      pulumi.String("Build Administrators"),
-// 		}, nil)
-// 		_, err = azuredevops.NewGroupMembership(ctx, "exampleGroupMembership", &azuredevops.GroupMembershipArgs{
-// 			Group: exampleGroup.ApplyT(func(exampleGroup GetGroupResult) (string, error) {
-// 				return exampleGroup.Descriptor, nil
-// 			}).(pulumi.StringOutput),
-// 			Members: pulumi.StringArray{
-// 				exampleUser.Descriptor,
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
+//				PrincipalName: pulumi.String("foo@contoso.com"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroup := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Build Administrators"),
+//			}, nil)
+//			_, err = azuredevops.NewGroupMembership(ctx, "exampleGroupMembership", &azuredevops.GroupMembershipArgs{
+//				Group: exampleGroup.ApplyT(func(exampleGroup GetGroupResult) (string, error) {
+//					return exampleGroup.Descriptor, nil
+//				}).(pulumi.StringOutput),
+//				Members: pulumi.StringArray{
+//					exampleUser.Descriptor,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -203,7 +206,7 @@ func (i *GroupMembership) ToGroupMembershipOutputWithContext(ctx context.Context
 // GroupMembershipArrayInput is an input type that accepts GroupMembershipArray and GroupMembershipArrayOutput values.
 // You can construct a concrete instance of `GroupMembershipArrayInput` via:
 //
-//          GroupMembershipArray{ GroupMembershipArgs{...} }
+//	GroupMembershipArray{ GroupMembershipArgs{...} }
 type GroupMembershipArrayInput interface {
 	pulumi.Input
 
@@ -228,7 +231,7 @@ func (i GroupMembershipArray) ToGroupMembershipArrayOutputWithContext(ctx contex
 // GroupMembershipMapInput is an input type that accepts GroupMembershipMap and GroupMembershipMapOutput values.
 // You can construct a concrete instance of `GroupMembershipMapInput` via:
 //
-//          GroupMembershipMap{ "key": GroupMembershipArgs{...} }
+//	GroupMembershipMap{ "key": GroupMembershipArgs{...} }
 type GroupMembershipMapInput interface {
 	pulumi.Input
 

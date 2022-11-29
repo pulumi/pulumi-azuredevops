@@ -30,7 +30,7 @@ namespace Pulumi.AzureDevOps
             }
         }
 
-        private static readonly Pulumi.Config __config = new Pulumi.Config("azuredevops");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("azuredevops");
 
         private static readonly __Value<string?> _orgServiceUrl = new __Value<string?>(() => __config.Get("orgServiceUrl") ?? Utilities.GetEnv("AZDO_ORG_SERVICE_URL"));
         /// <summary>

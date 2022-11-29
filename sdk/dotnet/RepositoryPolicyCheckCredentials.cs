@@ -17,68 +17,67 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleRepositoryPolicyCheckCredentials = new AzureDevOps.RepositoryPolicyCheckCredentials("exampleRepositoryPolicyCheckCredentials", new AzureDevOps.RepositoryPolicyCheckCredentialsArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             RepositoryIds = 
-    ///             {
-    ///                 exampleGit.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRepositoryPolicyCheckCredentials = new AzureDevOps.RepositoryPolicyCheckCredentials("exampleRepositoryPolicyCheckCredentials", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         RepositoryIds = new[]
+    ///         {
+    ///             exampleGit.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// # Set project level repository policy
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleRepositoryPolicyCheckCredentials = new AzureDevOps.RepositoryPolicyCheckCredentials("exampleRepositoryPolicyCheckCredentials", new AzureDevOps.RepositoryPolicyCheckCredentialsArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRepositoryPolicyCheckCredentials = new AzureDevOps.RepositoryPolicyCheckCredentials("exampleRepositoryPolicyCheckCredentials", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -93,7 +92,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/repositoryPolicyCheckCredentials:RepositoryPolicyCheckCredentials")]
-    public partial class RepositoryPolicyCheckCredentials : Pulumi.CustomResource
+    public partial class RepositoryPolicyCheckCredentials : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -163,7 +162,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class RepositoryPolicyCheckCredentialsArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyCheckCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -198,9 +197,10 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyCheckCredentialsArgs()
         {
         }
+        public static new RepositoryPolicyCheckCredentialsArgs Empty => new RepositoryPolicyCheckCredentialsArgs();
     }
 
-    public sealed class RepositoryPolicyCheckCredentialsState : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyCheckCredentialsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -235,5 +235,6 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyCheckCredentialsState()
         {
         }
+        public static new RepositoryPolicyCheckCredentialsState Empty => new RepositoryPolicyCheckCredentialsState();
     }
 }

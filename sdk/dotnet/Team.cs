@@ -15,45 +15,46 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Name = "Contributors",
-    ///         });
-    ///         var example_project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var exampleTeam = new AzureDevOps.Team("exampleTeam", new AzureDevOps.TeamArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Administrators = 
-    ///             {
-    ///                 example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Descriptor),
-    ///             },
-    ///             Members = 
-    ///             {
-    ///                 example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Descriptor),
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_project_contributors = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Contributors",
+    ///     });
+    /// 
+    ///     var example_project_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var exampleTeam = new AzureDevOps.Team("exampleTeam", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Administrators = new[]
+    ///         {
+    ///             example_project_contributors.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///         },
+    ///         Members = new[]
+    ///         {
+    ///             example_project_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -72,7 +73,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/team:Team")]
-    public partial class Team : Pulumi.CustomResource
+    public partial class Team : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of subject descriptors to define administrators of the team.
@@ -85,6 +86,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// The descriptor of the Team.
+        /// </summary>
+        [Output("descriptor")]
+        public Output<string> Descriptor { get; private set; } = null!;
 
         /// <summary>
         /// List of subject descriptors to define members of the team.
@@ -148,7 +155,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class TeamArgs : Pulumi.ResourceArgs
+    public sealed class TeamArgs : global::Pulumi.ResourceArgs
     {
         [Input("administrators")]
         private InputList<string>? _administrators;
@@ -195,9 +202,10 @@ namespace Pulumi.AzureDevOps
         public TeamArgs()
         {
         }
+        public static new TeamArgs Empty => new TeamArgs();
     }
 
-    public sealed class TeamState : Pulumi.ResourceArgs
+    public sealed class TeamState : global::Pulumi.ResourceArgs
     {
         [Input("administrators")]
         private InputList<string>? _administrators;
@@ -216,6 +224,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        /// <summary>
+        /// The descriptor of the Team.
+        /// </summary>
+        [Input("descriptor")]
+        public Input<string>? Descriptor { get; set; }
 
         [Input("members")]
         private InputList<string>? _members;
@@ -244,5 +258,6 @@ namespace Pulumi.AzureDevOps
         public TeamState()
         {
         }
+        public static new TeamState Empty => new TeamState();
     }
 }

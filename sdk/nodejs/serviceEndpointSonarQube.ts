@@ -133,11 +133,13 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["token"] = args ? args.token : undefined;
+            resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
             resourceInputs["tokenHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["token", "tokenHash"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointSonarQube.__pulumiType, name, resourceInputs, opts);
     }
 }

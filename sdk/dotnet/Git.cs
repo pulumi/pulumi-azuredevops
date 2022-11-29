@@ -73,7 +73,7 @@ namespace Pulumi.AzureDevOps
     ///  } }
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/git:Git")]
-    public partial class Git : Pulumi.CustomResource
+    public partial class Git : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ref of the default branch. Will be used as the branch name for initialized repositories.
@@ -166,7 +166,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:Repository/git:Git"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Repository/git:Git"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,7 +189,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class GitArgs : Pulumi.ResourceArgs
+    public sealed class GitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ref of the default branch. Will be used as the branch name for initialized repositories.
@@ -224,9 +224,10 @@ namespace Pulumi.AzureDevOps
         public GitArgs()
         {
         }
+        public static new GitArgs Empty => new GitArgs();
     }
 
-    public sealed class GitState : Pulumi.ResourceArgs
+    public sealed class GitState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ref of the default branch. Will be used as the branch name for initialized repositories.
@@ -297,5 +298,6 @@ namespace Pulumi.AzureDevOps
         public GitState()
         {
         }
+        public static new GitState Empty => new GitState();
     }
 }

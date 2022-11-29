@@ -472,7 +472,7 @@ class DockerRegistry(pulumi.CustomResource):
             __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             __props__.__dict__["docker_email"] = docker_email
-            __props__.__dict__["docker_password"] = docker_password
+            __props__.__dict__["docker_password"] = None if docker_password is None else pulumi.Output.secret(docker_password)
             if docker_registry is None and not opts.urn:
                 raise TypeError("Missing required property 'docker_registry'")
             __props__.__dict__["docker_registry"] = docker_registry
@@ -487,6 +487,8 @@ class DockerRegistry(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["docker_password_hash"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["dockerPassword", "dockerPasswordHash"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DockerRegistry, __self__).__init__(
             'azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry',
             resource_name,

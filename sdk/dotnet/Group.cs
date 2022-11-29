@@ -15,40 +15,39 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var example_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Name = "Contributors",
-    ///         });
-    ///         var exampleGroup = new AzureDevOps.Group("exampleGroup", new AzureDevOps.GroupArgs
-    ///         {
-    ///             Scope = exampleProject.Id,
-    ///             DisplayName = "Example group",
-    ///             Description = "Example description",
-    ///             Members = 
-    ///             {
-    ///                 example_readers.Apply(example_readers =&gt; example_readers.Descriptor),
-    ///                 example_contributors.Apply(example_contributors =&gt; example_contributors.Descriptor),
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_contributors = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Contributors",
+    ///     });
+    /// 
+    ///     var exampleGroup = new AzureDevOps.Group("exampleGroup", new()
+    ///     {
+    ///         Scope = exampleProject.Id,
+    ///         DisplayName = "Example group",
+    ///         Description = "Example description",
+    ///         Members = new[]
+    ///         {
+    ///             example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///             example_contributors.Apply(getGroupResult =&gt; getGroupResult).Apply(example_contributors =&gt; example_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -67,7 +66,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/group:Group")]
-    public partial class Group : Pulumi.CustomResource
+    public partial class Group : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Description of the Project.
@@ -166,7 +165,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:Identities/group:Group"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Identities/group:Group"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,7 +188,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class GroupArgs : Pulumi.ResourceArgs
+    public sealed class GroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Description of the Project.
@@ -236,9 +235,10 @@ namespace Pulumi.AzureDevOps
         public GroupArgs()
         {
         }
+        public static new GroupArgs Empty => new GroupArgs();
     }
 
-    public sealed class GroupState : Pulumi.ResourceArgs
+    public sealed class GroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Description of the Project.
@@ -321,5 +321,6 @@ namespace Pulumi.AzureDevOps
         public GroupState()
         {
         }
+        public static new GroupState Empty => new GroupState();
     }
 }

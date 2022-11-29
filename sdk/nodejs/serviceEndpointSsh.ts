@@ -147,9 +147,9 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
             resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["host"] = args ? args.host : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["privateKey"] = args ? args.privateKey : undefined;
+            resourceInputs["privateKey"] = args?.privateKey ? pulumi.secret(args.privateKey) : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
@@ -157,6 +157,8 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
             resourceInputs["privateKeyHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password", "passwordHash", "privateKey", "privateKeyHash"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointSsh.__pulumiType, name, resourceInputs, opts);
     }
 }

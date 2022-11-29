@@ -17,65 +17,67 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new AzureDevOps.BuildDefinitionArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Path = "\\ExampleFolder",
-    ///             CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
-    ///             {
-    ///                 UseYaml = true,
-    ///             },
-    ///             Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
-    ///             {
-    ///                 RepoType = "TfsGit",
-    ///                 RepoId = exampleGit.Id,
-    ///                 BranchName = exampleGit.DefaultBranch,
-    ///                 YmlPath = "azure-pipelines.yml",
-    ///             },
-    ///         });
-    ///         var exampleBuildDefinitionPermissions = new AzureDevOps.BuildDefinitionPermissions("exampleBuildDefinitionPermissions", new AzureDevOps.BuildDefinitionPermissionsArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             BuildDefinitionId = exampleBuildDefinition.Id,
-    ///             Permissions = 
-    ///             {
-    ///                 { "ViewBuilds", "Allow" },
-    ///                 { "EditBuildQuality", "Deny" },
-    ///                 { "DeleteBuilds", "Deny" },
-    ///                 { "StopBuilds", "Allow" },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Path = "\\ExampleFolder",
+    ///         CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
+    ///         {
+    ///             UseYaml = true,
+    ///         },
+    ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
+    ///         {
+    ///             RepoType = "TfsGit",
+    ///             RepoId = exampleGit.Id,
+    ///             BranchName = exampleGit.DefaultBranch,
+    ///             YmlPath = "azure-pipelines.yml",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBuildDefinitionPermissions = new AzureDevOps.BuildDefinitionPermissions("exampleBuildDefinitionPermissions", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         BuildDefinitionId = exampleBuildDefinition.Id,
+    ///         Permissions = 
+    ///         {
+    ///             { "ViewBuilds", "Allow" },
+    ///             { "EditBuildQuality", "Deny" },
+    ///             { "DeleteBuilds", "Deny" },
+    ///             { "StopBuilds", "Allow" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -90,7 +92,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions")]
-    public partial class BuildDefinitionPermissions : Pulumi.CustomResource
+    public partial class BuildDefinitionPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The id of the build definition to assign the permissions.
@@ -166,7 +168,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class BuildDefinitionPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the build definition to assign the permissions.
@@ -207,9 +209,10 @@ namespace Pulumi.AzureDevOps
         public BuildDefinitionPermissionsArgs()
         {
         }
+        public static new BuildDefinitionPermissionsArgs Empty => new BuildDefinitionPermissionsArgs();
     }
 
-    public sealed class BuildDefinitionPermissionsState : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The id of the build definition to assign the permissions.
@@ -250,5 +253,6 @@ namespace Pulumi.AzureDevOps
         public BuildDefinitionPermissionsState()
         {
         }
+        public static new BuildDefinitionPermissionsState Empty => new BuildDefinitionPermissionsState();
     }
 }

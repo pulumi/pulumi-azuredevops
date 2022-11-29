@@ -10,19 +10,29 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class VariableGroupKeyVaultArgs : Pulumi.ResourceArgs
+    public sealed class VariableGroupKeyVaultArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Variable Group.
+        /// The name of the Azure key vault to link secrets from as variables.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// Set the Azure Key Vault Secret search depth. Defaults to `20`.
+        /// </summary>
+        [Input("searchDepth")]
+        public Input<int>? SearchDepth { get; set; }
+
+        /// <summary>
+        /// The id of the Azure subscription endpoint to access the key vault.
+        /// </summary>
         [Input("serviceEndpointId", required: true)]
         public Input<string> ServiceEndpointId { get; set; } = null!;
 
         public VariableGroupKeyVaultArgs()
         {
         }
+        public static new VariableGroupKeyVaultArgs Empty => new VariableGroupKeyVaultArgs();
     }
 }

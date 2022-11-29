@@ -20,35 +20,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointGenericGit(ctx, "exampleServiceEndpointGenericGit", &azuredevops.ServiceEndpointGenericGitArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			RepositoryUrl:       pulumi.String("https://dev.azure.com/org/project/_git/repository"),
-// 			Username:            pulumi.String("username"),
-// 			Password:            pulumi.String("password"),
-// 			ServiceEndpointName: pulumi.String("Example Generic Git"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointGenericGit(ctx, "exampleServiceEndpointGenericGit", &azuredevops.ServiceEndpointGenericGitArgs{
+//				ProjectId:           exampleProject.ID(),
+//				RepositoryUrl:       pulumi.String("https://dev.azure.com/org/project/_git/repository"),
+//				Username:            pulumi.String("username"),
+//				Password:            pulumi.String("password"),
+//				ServiceEndpointName: pulumi.String("Example Generic Git"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -59,7 +62,9 @@ import (
 // Azure DevOps Service Endpoint Generic Git can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointGenericGit struct {
 	pulumi.CustomResourceState
@@ -98,6 +103,14 @@ func NewServiceEndpointGenericGit(ctx *pulumi.Context,
 	if args.ServiceEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
+	if args.Password != nil {
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"password",
+		"passwordHash",
+	})
+	opts = append(opts, secrets)
 	var resource ServiceEndpointGenericGit
 	err := ctx.RegisterResource("azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit", name, args, &resource, opts...)
 	if err != nil {
@@ -222,7 +235,7 @@ func (i *ServiceEndpointGenericGit) ToServiceEndpointGenericGitOutputWithContext
 // ServiceEndpointGenericGitArrayInput is an input type that accepts ServiceEndpointGenericGitArray and ServiceEndpointGenericGitArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointGenericGitArrayInput` via:
 //
-//          ServiceEndpointGenericGitArray{ ServiceEndpointGenericGitArgs{...} }
+//	ServiceEndpointGenericGitArray{ ServiceEndpointGenericGitArgs{...} }
 type ServiceEndpointGenericGitArrayInput interface {
 	pulumi.Input
 
@@ -247,7 +260,7 @@ func (i ServiceEndpointGenericGitArray) ToServiceEndpointGenericGitArrayOutputWi
 // ServiceEndpointGenericGitMapInput is an input type that accepts ServiceEndpointGenericGitMap and ServiceEndpointGenericGitMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointGenericGitMapInput` via:
 //
-//          ServiceEndpointGenericGitMap{ "key": ServiceEndpointGenericGitArgs{...} }
+//	ServiceEndpointGenericGitMap{ "key": ServiceEndpointGenericGitArgs{...} }
 type ServiceEndpointGenericGitMapInput interface {
 	pulumi.Input
 

@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -65,7 +66,7 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
     /**
      * A `kubeconfig` block defined blow.
      */
-    public readonly kubeconfigs!: pulumi.Output<outputs.ServiceEndpointKubernetesKubeconfig[] | undefined>;
+    public readonly kubeconfig!: pulumi.Output<outputs.ServiceEndpointKubernetesKubeconfig | undefined>;
     /**
      * The ID of the project.
      */
@@ -97,7 +98,7 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
             resourceInputs["authorizationType"] = state ? state.authorizationType : undefined;
             resourceInputs["azureSubscriptions"] = state ? state.azureSubscriptions : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
-            resourceInputs["kubeconfigs"] = state ? state.kubeconfigs : undefined;
+            resourceInputs["kubeconfig"] = state ? state.kubeconfig : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["serviceAccount"] = state ? state.serviceAccount : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
@@ -120,7 +121,7 @@ export class ServiceEndpointKubernetes extends pulumi.CustomResource {
             resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
             resourceInputs["azureSubscriptions"] = args ? args.azureSubscriptions : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["kubeconfigs"] = args ? args.kubeconfigs : undefined;
+            resourceInputs["kubeconfig"] = args ? args.kubeconfig : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceAccount"] = args ? args.serviceAccount : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
@@ -153,7 +154,7 @@ export interface ServiceEndpointKubernetesState {
     /**
      * A `kubeconfig` block defined blow.
      */
-    kubeconfigs?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig>[]>;
+    kubeconfig?: pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig>;
     /**
      * The ID of the project.
      */
@@ -189,7 +190,7 @@ export interface ServiceEndpointKubernetesArgs {
     /**
      * A `kubeconfig` block defined blow.
      */
-    kubeconfigs?: pulumi.Input<pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig>[]>;
+    kubeconfig?: pulumi.Input<inputs.ServiceEndpointKubernetesKubeconfig>;
     /**
      * The ID of the project.
      */

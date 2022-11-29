@@ -15,32 +15,31 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleProjectPipelineSettings = new AzureDevOps.ProjectPipelineSettings("exampleProjectPipelineSettings", new AzureDevOps.ProjectPipelineSettingsArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             EnforceJobScope = true,
-    ///             EnforceReferencedRepoScopedToken = false,
-    ///             EnforceSettableVar = true,
-    ///             PublishPipelineMetadata = false,
-    ///             StatusBadgesArePrivate = true,
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleProjectPipelineSettings = new AzureDevOps.ProjectPipelineSettings("exampleProjectPipelineSettings", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         EnforceJobScope = true,
+    ///         EnforceReferencedRepoScopedToken = false,
+    ///         EnforceSettableVar = true,
+    ///         PublishPipelineMetadata = false,
+    ///         StatusBadgesArePrivate = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -59,7 +58,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/projectPipelineSettings:ProjectPipelineSettings")]
-    public partial class ProjectPipelineSettings : Pulumi.CustomResource
+    public partial class ProjectPipelineSettings : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Limit job authorization scope to current project for non-release pipelines.
@@ -141,7 +140,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ProjectPipelineSettingsArgs : Pulumi.ResourceArgs
+    public sealed class ProjectPipelineSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Limit job authorization scope to current project for non-release pipelines.
@@ -182,9 +181,10 @@ namespace Pulumi.AzureDevOps
         public ProjectPipelineSettingsArgs()
         {
         }
+        public static new ProjectPipelineSettingsArgs Empty => new ProjectPipelineSettingsArgs();
     }
 
-    public sealed class ProjectPipelineSettingsState : Pulumi.ResourceArgs
+    public sealed class ProjectPipelineSettingsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Limit job authorization scope to current project for non-release pipelines.
@@ -225,5 +225,6 @@ namespace Pulumi.AzureDevOps
         public ProjectPipelineSettingsState()
         {
         }
+        public static new ProjectPipelineSettingsState Empty => new ProjectPipelineSettingsState();
     }
 }

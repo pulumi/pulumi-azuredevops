@@ -15,28 +15,26 @@ namespace Pulumi.AzureDevOps.Core
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
+    ///         Description = "Managed by Terraform",
+    ///         Features = 
     ///         {
-    ///             Description = "Managed by Terraform",
-    ///             Features = 
-    ///             {
-    ///                 { "artifacts", "disabled" },
-    ///                 { "testplans", "disabled" },
-    ///             },
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             WorkItemTemplate = "Agile",
-    ///         });
-    ///     }
+    ///             { "artifacts", "disabled" },
+    ///             { "testplans", "disabled" },
+    ///         },
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -62,7 +60,7 @@ namespace Pulumi.AzureDevOps.Core
     /// </summary>
     [Obsolete(@"azuredevops.core.Project has been deprecated in favor of azuredevops.Project")]
     [AzureDevOpsResourceType("azuredevops:Core/project:Project")]
-    public partial class Project : Pulumi.CustomResource
+    public partial class Project : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Description of the Project.
@@ -71,7 +69,7 @@ namespace Pulumi.AzureDevOps.Core
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Defines the status (`enabled`, `disabled`) of the project features.  
+        /// Defines the status (`enabled`, `disabled`) of the project features.
         /// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         /// </summary>
         [Output("features")]
@@ -102,7 +100,7 @@ namespace Pulumi.AzureDevOps.Core
         public Output<string?> Visibility { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
+        /// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         /// </summary>
         [Output("workItemTemplate")]
         public Output<string?> WorkItemTemplate { get; private set; } = null!;
@@ -151,7 +149,7 @@ namespace Pulumi.AzureDevOps.Core
         }
     }
 
-    public sealed class ProjectArgs : Pulumi.ResourceArgs
+    public sealed class ProjectArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Description of the Project.
@@ -163,7 +161,7 @@ namespace Pulumi.AzureDevOps.Core
         private InputMap<string>? _features;
 
         /// <summary>
-        /// Defines the status (`enabled`, `disabled`) of the project features.  
+        /// Defines the status (`enabled`, `disabled`) of the project features.
         /// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         /// </summary>
         public InputMap<string> Features
@@ -191,7 +189,7 @@ namespace Pulumi.AzureDevOps.Core
         public Input<string>? Visibility { get; set; }
 
         /// <summary>
-        /// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
+        /// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         /// </summary>
         [Input("workItemTemplate")]
         public Input<string>? WorkItemTemplate { get; set; }
@@ -199,9 +197,10 @@ namespace Pulumi.AzureDevOps.Core
         public ProjectArgs()
         {
         }
+        public static new ProjectArgs Empty => new ProjectArgs();
     }
 
-    public sealed class ProjectState : Pulumi.ResourceArgs
+    public sealed class ProjectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The Description of the Project.
@@ -213,7 +212,7 @@ namespace Pulumi.AzureDevOps.Core
         private InputMap<string>? _features;
 
         /// <summary>
-        /// Defines the status (`enabled`, `disabled`) of the project features.  
+        /// Defines the status (`enabled`, `disabled`) of the project features.
         /// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
         /// </summary>
         public InputMap<string> Features
@@ -247,7 +246,7 @@ namespace Pulumi.AzureDevOps.Core
         public Input<string>? Visibility { get; set; }
 
         /// <summary>
-        /// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
+        /// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         /// </summary>
         [Input("workItemTemplate")]
         public Input<string>? WorkItemTemplate { get; set; }
@@ -255,5 +254,6 @@ namespace Pulumi.AzureDevOps.Core
         public ProjectState()
         {
         }
+        public static new ProjectState Empty => new ProjectState();
     }
 }

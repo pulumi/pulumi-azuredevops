@@ -507,13 +507,15 @@ class ServiceEndpointAws(pulumi.CustomResource):
             __props__.__dict__["role_to_assume"] = role_to_assume
             if secret_access_key is None and not opts.urn:
                 raise TypeError("Missing required property 'secret_access_key'")
-            __props__.__dict__["secret_access_key"] = secret_access_key
+            __props__.__dict__["secret_access_key"] = None if secret_access_key is None else pulumi.Output.secret(secret_access_key)
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
-            __props__.__dict__["session_token"] = session_token
+            __props__.__dict__["session_token"] = None if session_token is None else pulumi.Output.secret(session_token)
             __props__.__dict__["secret_access_key_hash"] = None
             __props__.__dict__["session_token_hash"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretAccessKey", "secretAccessKeyHash", "sessionToken", "sessionTokenHash"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointAws, __self__).__init__(
             'azuredevops:index/serviceEndpointAws:ServiceEndpointAws',
             resource_name,

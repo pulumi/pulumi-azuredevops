@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface BranchPolicyAutoReviewersSettings {
     /**
@@ -600,7 +601,6 @@ export interface ServiceEndpointKubernetesKubeconfig {
      * The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
      */
     kubeConfig: pulumi.Input<string>;
-    kubeConfigHash?: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointKubernetesServiceAccount {
@@ -704,9 +704,16 @@ export interface ServiceendpointArgocdAuthenticationToken {
 
 export interface VariableGroupKeyVault {
     /**
-     * The name of the Variable Group.
+     * The name of the Azure key vault to link secrets from as variables.
      */
     name: pulumi.Input<string>;
+    /**
+     * Set the Azure Key Vault Secret search depth. Defaults to `20`.
+     */
+    searchDepth?: pulumi.Input<number>;
+    /**
+     * The id of the Azure subscription endpoint to access the key vault.
+     */
     serviceEndpointId: pulumi.Input<string>;
 }
 
@@ -731,7 +738,6 @@ export interface VariableGroupVariable {
      */
     value?: pulumi.Input<string>;
 }
-
 export namespace Agent {
 }
 
@@ -952,9 +958,16 @@ export namespace Identities {
 export namespace Pipeline {
     export interface VariableGroupKeyVault {
         /**
-         * The name of the Variable Group.
+         * The name of the Azure key vault to link secrets from as variables.
          */
         name: pulumi.Input<string>;
+        /**
+         * Set the Azure Key Vault Secret search depth. Defaults to `20`.
+         */
+        searchDepth?: pulumi.Input<number>;
+        /**
+         * The id of the Azure subscription endpoint to access the key vault.
+         */
         serviceEndpointId: pulumi.Input<string>;
     }
 
@@ -1173,7 +1186,6 @@ export namespace ServiceEndpoint {
          * The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
          */
         kubeConfig: pulumi.Input<string>;
-        kubeConfigHash?: pulumi.Input<string>;
     }
 
     export interface KubernetesServiceAccount {

@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "exampleRepositoryPolicyFilePathPattern", &azuredevops.RepositoryPolicyFilePathPatternArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			FilepathPatterns: pulumi.StringArray{
-// 				pulumi.String("*.go"),
-// 				pulumi.String("/home/test/*.ts"),
-// 			},
-// 			RepositoryIds: pulumi.StringArray{
-// 				exampleGit.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "exampleRepositoryPolicyFilePathPattern", &azuredevops.RepositoryPolicyFilePathPatternArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				FilepathPatterns: pulumi.StringArray{
+//					pulumi.String("*.go"),
+//					pulumi.String("/home/test/*.ts"),
+//				},
+//				RepositoryIds: pulumi.StringArray{
+//					exampleGit.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // # Set project level repository policy
@@ -68,36 +71,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "examplep", &azuredevops.RepositoryPolicyFilePathPatternArgs{
-// 			ProjectId: example.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			FilepathPatterns: pulumi.StringArray{
-// 				pulumi.String("*.go"),
-// 				pulumi.String("/home/test/*.ts"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewRepositoryPolicyFilePathPattern(ctx, "examplep", &azuredevops.RepositoryPolicyFilePathPatternArgs{
+//				ProjectId: example.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				FilepathPatterns: pulumi.StringArray{
+//					pulumi.String("*.go"),
+//					pulumi.String("/home/test/*.ts"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -108,7 +114,9 @@ import (
 // Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 type RepositoryPolicyFilePathPattern struct {
 	pulumi.CustomResourceState
@@ -242,7 +250,7 @@ func (i *RepositoryPolicyFilePathPattern) ToRepositoryPolicyFilePathPatternOutpu
 // RepositoryPolicyFilePathPatternArrayInput is an input type that accepts RepositoryPolicyFilePathPatternArray and RepositoryPolicyFilePathPatternArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyFilePathPatternArrayInput` via:
 //
-//          RepositoryPolicyFilePathPatternArray{ RepositoryPolicyFilePathPatternArgs{...} }
+//	RepositoryPolicyFilePathPatternArray{ RepositoryPolicyFilePathPatternArgs{...} }
 type RepositoryPolicyFilePathPatternArrayInput interface {
 	pulumi.Input
 
@@ -267,7 +275,7 @@ func (i RepositoryPolicyFilePathPatternArray) ToRepositoryPolicyFilePathPatternA
 // RepositoryPolicyFilePathPatternMapInput is an input type that accepts RepositoryPolicyFilePathPatternMap and RepositoryPolicyFilePathPatternMapOutput values.
 // You can construct a concrete instance of `RepositoryPolicyFilePathPatternMapInput` via:
 //
-//          RepositoryPolicyFilePathPatternMap{ "key": RepositoryPolicyFilePathPatternArgs{...} }
+//	RepositoryPolicyFilePathPatternMap{ "key": RepositoryPolicyFilePathPatternArgs{...} }
 type RepositoryPolicyFilePathPatternMapInput interface {
 	pulumi.Input
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Policy.Inputs
 {
 
-    public sealed class BranchPolicyMinReviewersSettingsArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyMinReviewersSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
@@ -69,5 +69,6 @@ namespace Pulumi.AzureDevOps.Policy.Inputs
         public BranchPolicyMinReviewersSettingsArgs()
         {
         }
+        public static new BranchPolicyMinReviewersSettingsArgs Empty => new BranchPolicyMinReviewersSettingsArgs();
     }
 }

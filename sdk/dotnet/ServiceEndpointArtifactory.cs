@@ -15,67 +15,65 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", new AzureDevOps.ServiceEndpointArtifactoryArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example Artifactory",
-    ///             Description = "Managed by Terraform",
-    ///             Url = "https://artifactory.my.com",
-    ///             AuthenticationToken = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationTokenArgs
-    ///             {
-    ///                 Token = "0000000000000000000000000000000000000000",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Artifactory",
+    ///         Description = "Managed by Terraform",
+    ///         Url = "https://artifactory.my.com",
+    ///         AuthenticationToken = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationTokenArgs
+    ///         {
+    ///             Token = "0000000000000000000000000000000000000000",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// Alternatively a username and password may be used.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", new AzureDevOps.ServiceEndpointArtifactoryArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example Artifactory",
-    ///             Description = "Managed by Terraform",
-    ///             Url = "https://artifactory.my.com",
-    ///             AuthenticationBasic = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs
-    ///             {
-    ///                 Username = "username",
-    ///                 Password = "password",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointArtifactory = new AzureDevOps.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Artifactory",
+    ///         Description = "Managed by Terraform",
+    ///         Url = "https://artifactory.my.com",
+    ///         AuthenticationBasic = new AzureDevOps.Inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs
+    ///         {
+    ///             Username = "username",
+    ///             Password = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -91,7 +89,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory")]
-    public partial class ServiceEndpointArtifactory : Pulumi.CustomResource
+    public partial class ServiceEndpointArtifactory : global::Pulumi.CustomResource
     {
         [Output("authenticationBasic")]
         public Output<Outputs.ServiceEndpointArtifactoryAuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
@@ -170,7 +168,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointArtifactoryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointArtifactoryArgs : global::Pulumi.ResourceArgs
     {
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationBasicArgs>? AuthenticationBasic { get; set; }
@@ -213,9 +211,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointArtifactoryArgs()
         {
         }
+        public static new ServiceEndpointArtifactoryArgs Empty => new ServiceEndpointArtifactoryArgs();
     }
 
-    public sealed class ServiceEndpointArtifactoryState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointArtifactoryState : global::Pulumi.ResourceArgs
     {
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceEndpointArtifactoryAuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }
@@ -258,5 +257,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointArtifactoryState()
         {
         }
+        public static new ServiceEndpointArtifactoryState Empty => new ServiceEndpointArtifactoryState();
     }
 }

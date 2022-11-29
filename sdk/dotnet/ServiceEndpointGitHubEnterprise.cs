@@ -15,34 +15,33 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", new AzureDevOps.ServiceEndpointGitHubEnterpriseArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example GitHub Enterprise",
-    ///             Url = "https://github.contoso.com",
-    ///             Description = "Managed by Terraform",
-    ///             AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs
-    ///             {
-    ///                 PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example GitHub Enterprise",
+    ///         Url = "https://github.contoso.com",
+    ///         Description = "Managed by Terraform",
+    ///         AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs
+    ///         {
+    ///             PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -57,7 +56,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise")]
-    public partial class ServiceEndpointGitHubEnterprise : Pulumi.CustomResource
+    public partial class ServiceEndpointGitHubEnterprise : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -133,7 +132,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointGitHubEnterpriseArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointGitHubEnterpriseArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -173,9 +172,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointGitHubEnterpriseArgs()
         {
         }
+        public static new ServiceEndpointGitHubEnterpriseArgs Empty => new ServiceEndpointGitHubEnterpriseArgs();
     }
 
-    public sealed class ServiceEndpointGitHubEnterpriseState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointGitHubEnterpriseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -215,5 +215,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointGitHubEnterpriseState()
         {
         }
+        public static new ServiceEndpointGitHubEnterpriseState Empty => new ServiceEndpointGitHubEnterpriseState();
     }
 }

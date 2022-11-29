@@ -17,108 +17,105 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ```csharp
     /// using System;
+    /// using System.Collections.Generic;
     /// using System.IO;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
-    /// {
     /// 	private static string ReadFileBase64(string path) {
     /// 		return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)))
     /// 	}
     /// 
-    ///     public MyStack()
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointServiceFabric = new AzureDevOps.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric", new AzureDevOps.ServiceEndpointServiceFabricArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example Service Fabric",
-    ///             Description = "Managed by Terraform",
-    ///             ClusterEndpoint = "tcp://test",
-    ///             Certificate = new AzureDevOps.Inputs.ServiceEndpointServiceFabricCertificateArgs
-    ///             {
-    ///                 ServerCertificateLookup = "Thumbprint",
-    ///                 ServerCertificateThumbprint = "0000000000000000000000000000000000000000",
-    ///                 ClientCertificate = ReadFileBase64("certificate.pfx"),
-    ///                 ClientCertificatePassword = "password",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointServiceFabric = new AzureDevOps.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Service Fabric",
+    ///         Description = "Managed by Terraform",
+    ///         ClusterEndpoint = "tcp://test",
+    ///         Certificate = new AzureDevOps.Inputs.ServiceEndpointServiceFabricCertificateArgs
+    ///         {
+    ///             ServerCertificateLookup = "Thumbprint",
+    ///             ServerCertificateThumbprint = "0000000000000000000000000000000000000000",
+    ///             ClientCertificate = ReadFileBase64("certificate.pfx"),
+    ///             ClientCertificatePassword = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Azure Active Directory Authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var project = new AzureDevOps.Project("project", new()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///         });
-    ///         var test = new AzureDevOps.ServiceEndpointServiceFabric("test", new AzureDevOps.ServiceEndpointServiceFabricArgs
-    ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample Service Fabric",
-    ///             Description = "Managed by Terraform",
-    ///             ClusterEndpoint = "tcp://test",
-    ///             AzureActiveDirectory = new AzureDevOps.Inputs.ServiceEndpointServiceFabricAzureActiveDirectoryArgs
-    ///             {
-    ///                 ServerCertificateLookup = "Thumbprint",
-    ///                 ServerCertificateThumbprint = "0000000000000000000000000000000000000000",
-    ///                 Username = "username",
-    ///                 Password = "password",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
     /// 
-    /// }
+    ///     var test = new AzureDevOps.ServiceEndpointServiceFabric("test", new()
+    ///     {
+    ///         ProjectId = project.Id,
+    ///         ServiceEndpointName = "Sample Service Fabric",
+    ///         Description = "Managed by Terraform",
+    ///         ClusterEndpoint = "tcp://test",
+    ///         AzureActiveDirectory = new AzureDevOps.Inputs.ServiceEndpointServiceFabricAzureActiveDirectoryArgs
+    ///         {
+    ///             ServerCertificateLookup = "Thumbprint",
+    ///             ServerCertificateThumbprint = "0000000000000000000000000000000000000000",
+    ///             Username = "username",
+    ///             Password = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Windows Authentication
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var project = new AzureDevOps.Project("project", new()
     ///     {
-    ///         var project = new AzureDevOps.Project("project", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///         });
-    ///         var test = new AzureDevOps.ServiceEndpointServiceFabric("test", new AzureDevOps.ServiceEndpointServiceFabricArgs
-    ///         {
-    ///             ProjectId = project.Id,
-    ///             ServiceEndpointName = "Sample Service Fabric",
-    ///             Description = "Managed by Terraform",
-    ///             ClusterEndpoint = "tcp://test",
-    ///             None = new AzureDevOps.Inputs.ServiceEndpointServiceFabricNoneArgs
-    ///             {
-    ///                 Unsecured = false,
-    ///                 ClusterSpn = "HTTP/www.contoso.com",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
     /// 
-    /// }
+    ///     var test = new AzureDevOps.ServiceEndpointServiceFabric("test", new()
+    ///     {
+    ///         ProjectId = project.Id,
+    ///         ServiceEndpointName = "Sample Service Fabric",
+    ///         Description = "Managed by Terraform",
+    ///         ClusterEndpoint = "tcp://test",
+    ///         None = new AzureDevOps.Inputs.ServiceEndpointServiceFabricNoneArgs
+    ///         {
+    ///             Unsecured = false,
+    ///             ClusterSpn = "HTTP/www.contoso.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -133,7 +130,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric")]
-    public partial class ServiceEndpointServiceFabric : Pulumi.CustomResource
+    public partial class ServiceEndpointServiceFabric : global::Pulumi.CustomResource
     {
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -212,7 +209,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointServiceFabricArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointServiceFabricArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -255,9 +252,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointServiceFabricArgs()
         {
         }
+        public static new ServiceEndpointServiceFabricArgs Empty => new ServiceEndpointServiceFabricArgs();
     }
 
-    public sealed class ServiceEndpointServiceFabricState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointServiceFabricState : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -300,5 +298,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointServiceFabricState()
         {
         }
+        public static new ServiceEndpointServiceFabricState Empty => new ServiceEndpointServiceFabricState();
     }
 }

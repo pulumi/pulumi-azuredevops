@@ -15,31 +15,30 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointAws = new AzureDevOps.ServiceEndpointAws("exampleServiceEndpointAws", new AzureDevOps.ServiceEndpointAwsArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example AWS",
-    ///             AccessKeyId = "00000000-0000-0000-0000-000000000000",
-    ///             SecretAccessKey = "accesskey",
-    ///             Description = "Managed by AzureDevOps",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointAws = new AzureDevOps.ServiceEndpointAws("exampleServiceEndpointAws", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example AWS",
+    ///         AccessKeyId = "00000000-0000-0000-0000-000000000000",
+    ///         SecretAccessKey = "accesskey",
+    ///         Description = "Managed by AzureDevOps",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -55,7 +54,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAws:ServiceEndpointAws")]
-    public partial class ServiceEndpointAws : Pulumi.CustomResource
+    public partial class ServiceEndpointAws : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The AWS access key ID for signing programmatic requests.
@@ -146,6 +145,13 @@ namespace Pulumi.AzureDevOps
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "secretAccessKey",
+                    "secretAccessKeyHash",
+                    "sessionToken",
+                    "sessionTokenHash",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -167,7 +173,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointAwsArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointAwsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS access key ID for signing programmatic requests.
@@ -210,11 +216,21 @@ namespace Pulumi.AzureDevOps
         [Input("roleToAssume")]
         public Input<string>? RoleToAssume { get; set; }
 
+        [Input("secretAccessKey", required: true)]
+        private Input<string>? _secretAccessKey;
+
         /// <summary>
         /// The AWS secret access key for signing programmatic requests.
         /// </summary>
-        [Input("secretAccessKey", required: true)]
-        public Input<string> SecretAccessKey { get; set; } = null!;
+        public Input<string>? SecretAccessKey
+        {
+            get => _secretAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Service Endpoint name.
@@ -222,18 +238,29 @@ namespace Pulumi.AzureDevOps
         [Input("serviceEndpointName", required: true)]
         public Input<string> ServiceEndpointName { get; set; } = null!;
 
+        [Input("sessionToken")]
+        private Input<string>? _sessionToken;
+
         /// <summary>
         /// The AWS session token for signing programmatic requests.
         /// </summary>
-        [Input("sessionToken")]
-        public Input<string>? SessionToken { get; set; }
+        public Input<string>? SessionToken
+        {
+            get => _sessionToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sessionToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ServiceEndpointAwsArgs()
         {
         }
+        public static new ServiceEndpointAwsArgs Empty => new ServiceEndpointAwsArgs();
     }
 
-    public sealed class ServiceEndpointAwsState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointAwsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The AWS access key ID for signing programmatic requests.
@@ -276,17 +303,37 @@ namespace Pulumi.AzureDevOps
         [Input("roleToAssume")]
         public Input<string>? RoleToAssume { get; set; }
 
+        [Input("secretAccessKey")]
+        private Input<string>? _secretAccessKey;
+
         /// <summary>
         /// The AWS secret access key for signing programmatic requests.
         /// </summary>
-        [Input("secretAccessKey")]
-        public Input<string>? SecretAccessKey { get; set; }
+        public Input<string>? SecretAccessKey
+        {
+            get => _secretAccessKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretAccessKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("secretAccessKeyHash")]
+        private Input<string>? _secretAccessKeyHash;
 
         /// <summary>
         /// A bcrypted hash of the attribute 'secret_access_key'
         /// </summary>
-        [Input("secretAccessKeyHash")]
-        public Input<string>? SecretAccessKeyHash { get; set; }
+        public Input<string>? SecretAccessKeyHash
+        {
+            get => _secretAccessKeyHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretAccessKeyHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The Service Endpoint name.
@@ -294,20 +341,41 @@ namespace Pulumi.AzureDevOps
         [Input("serviceEndpointName")]
         public Input<string>? ServiceEndpointName { get; set; }
 
+        [Input("sessionToken")]
+        private Input<string>? _sessionToken;
+
         /// <summary>
         /// The AWS session token for signing programmatic requests.
         /// </summary>
-        [Input("sessionToken")]
-        public Input<string>? SessionToken { get; set; }
+        public Input<string>? SessionToken
+        {
+            get => _sessionToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sessionToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("sessionTokenHash")]
+        private Input<string>? _sessionTokenHash;
 
         /// <summary>
         /// A bcrypted hash of the attribute 'session_token'
         /// </summary>
-        [Input("sessionTokenHash")]
-        public Input<string>? SessionTokenHash { get; set; }
+        public Input<string>? SessionTokenHash
+        {
+            get => _sessionTokenHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _sessionTokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ServiceEndpointAwsState()
         {
         }
+        public static new ServiceEndpointAwsState Empty => new ServiceEndpointAwsState();
     }
 }

@@ -15,186 +15,187 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// ### Tfs
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Description = "Managed by Terraform",
+    ///         AllowAccess = true,
+    ///         Variables = new[]
     ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             new AzureDevOps.Inputs.VariableGroupVariableArgs
     ///             {
-    ///                 InitType = "Clean",
+    ///                 Name = "FOO",
+    ///                 Value = "BAR",
     ///             },
-    ///         });
-    ///         var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new AzureDevOps.VariableGroupArgs
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Path = "\\ExampleFolder",
+    ///         CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
     ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Description = "Managed by Terraform",
-    ///             AllowAccess = true,
-    ///             Variables = 
+    ///             UseYaml = true,
+    ///         },
+    ///         Schedules = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.BuildDefinitionScheduleArgs
     ///             {
-    ///                 new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///                 BranchFilters = new[]
     ///                 {
-    ///                     Name = "FOO",
-    ///                     Value = "BAR",
-    ///                 },
-    ///             },
-    ///         });
-    ///         var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new AzureDevOps.BuildDefinitionArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Path = "\\ExampleFolder",
-    ///             CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
-    ///             {
-    ///                 UseYaml = true,
-    ///             },
-    ///             Schedules = 
-    ///             {
-    ///                 new AzureDevOps.Inputs.BuildDefinitionScheduleArgs
-    ///                 {
-    ///                     BranchFilters = 
+    ///                     new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs
     ///                     {
-    ///                         new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs
+    ///                         Includes = new[]
     ///                         {
-    ///                             Includes = 
-    ///                             {
-    ///                                 "master",
-    ///                             },
-    ///                             Excludes = 
-    ///                             {
-    ///                                 "test",
-    ///                                 "regression",
-    ///                             },
+    ///                             "master",
+    ///                         },
+    ///                         Excludes = new[]
+    ///                         {
+    ///                             "test",
+    ///                             "regression",
     ///                         },
     ///                     },
-    ///                     DaysToBuilds = 
-    ///                     {
-    ///                         "Wed",
-    ///                         "Sun",
-    ///                     },
-    ///                     ScheduleOnlyWithChanges = true,
-    ///                     StartHours = 10,
-    ///                     StartMinutes = 59,
-    ///                     TimeZone = "(UTC) Coordinated Universal Time",
     ///                 },
-    ///             },
-    ///             Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
-    ///             {
-    ///                 RepoType = "TfsGit",
-    ///                 RepoId = exampleGit.Id,
-    ///                 BranchName = exampleGit.DefaultBranch,
-    ///                 YmlPath = "azure-pipelines.yml",
-    ///             },
-    ///             VariableGroups = 
-    ///             {
-    ///                 exampleVariableGroup.Id,
-    ///             },
-    ///             Variables = 
-    ///             {
-    ///                 new AzureDevOps.Inputs.BuildDefinitionVariableArgs
+    ///                 DaysToBuilds = new[]
     ///                 {
-    ///                     Name = "PipelineVariable",
-    ///                     Value = "Go Microsoft!",
+    ///                     "Wed",
+    ///                     "Sun",
     ///                 },
-    ///                 new AzureDevOps.Inputs.BuildDefinitionVariableArgs
-    ///                 {
-    ///                     Name = "PipelineSecret",
-    ///                     SecretValue = "ZGV2cw",
-    ///                     IsSecret = true,
-    ///                 },
+    ///                 ScheduleOnlyWithChanges = true,
+    ///                 StartHours = 10,
+    ///                 StartMinutes = 59,
+    ///                 TimeZone = "(UTC) Coordinated Universal Time",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
+    ///         {
+    ///             RepoType = "TfsGit",
+    ///             RepoId = exampleGit.Id,
+    ///             BranchName = exampleGit.DefaultBranch,
+    ///             YmlPath = "azure-pipelines.yml",
+    ///         },
+    ///         VariableGroups = new[]
+    ///         {
+    ///             exampleVariableGroup.Id,
+    ///         },
+    ///         Variables = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.BuildDefinitionVariableArgs
+    ///             {
+    ///                 Name = "PipelineVariable",
+    ///                 Value = "Go Microsoft!",
+    ///             },
+    ///             new AzureDevOps.Inputs.BuildDefinitionVariableArgs
+    ///             {
+    ///                 Name = "PipelineSecret",
+    ///                 SecretValue = "ZGV2cw",
+    ///                 IsSecret = true,
+    ///             },
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ### GitHub Enterprise
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example GitHub Enterprise",
+    ///         Url = "https://github.contoso.com",
+    ///         Description = "Managed by Terraform",
+    ///         AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs
     ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///         });
-    ///         var exampleServiceEndpointGitHubEnterprise = new AzureDevOps.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", new AzureDevOps.ServiceEndpointGitHubEnterpriseArgs
+    ///             PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Path = "\\ExampleFolder",
+    ///         CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
     ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example GitHub Enterprise",
-    ///             Url = "https://github.contoso.com",
-    ///             Description = "Managed by Terraform",
-    ///             AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointGitHubEnterpriseAuthPersonalArgs
-    ///             {
-    ///                 PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    ///             },
-    ///         });
-    ///         var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new AzureDevOps.BuildDefinitionArgs
+    ///             UseYaml = true,
+    ///         },
+    ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
     ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Path = "\\ExampleFolder",
-    ///             CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
+    ///             RepoType = "GitHubEnterprise",
+    ///             RepoId = "&lt;GitHub Org&gt;/&lt;Repo Name&gt;",
+    ///             GithubEnterpriseUrl = "https://github.company.com",
+    ///             BranchName = "master",
+    ///             YmlPath = "azure-pipelines.yml",
+    ///             ServiceConnectionId = exampleServiceEndpointGitHubEnterprise.Id,
+    ///         },
+    ///         Schedules = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.BuildDefinitionScheduleArgs
     ///             {
-    ///                 UseYaml = true,
-    ///             },
-    ///             Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
-    ///             {
-    ///                 RepoType = "GitHubEnterprise",
-    ///                 RepoId = "&lt;GitHub Org&gt;/&lt;Repo Name&gt;",
-    ///                 GithubEnterpriseUrl = "https://github.company.com",
-    ///                 BranchName = "master",
-    ///                 YmlPath = "azure-pipelines.yml",
-    ///                 ServiceConnectionId = exampleServiceEndpointGitHubEnterprise.Id,
-    ///             },
-    ///             Schedules = 
-    ///             {
-    ///                 new AzureDevOps.Inputs.BuildDefinitionScheduleArgs
+    ///                 BranchFilters = new[]
     ///                 {
-    ///                     BranchFilters = 
+    ///                     new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs
     ///                     {
-    ///                         new AzureDevOps.Inputs.BuildDefinitionScheduleBranchFilterArgs
+    ///                         Includes = new[]
     ///                         {
-    ///                             Includes = 
-    ///                             {
-    ///                                 "main",
-    ///                             },
-    ///                             Excludes = 
-    ///                             {
-    ///                                 "test",
-    ///                                 "regression",
-    ///                             },
+    ///                             "main",
+    ///                         },
+    ///                         Excludes = new[]
+    ///                         {
+    ///                             "test",
+    ///                             "regression",
     ///                         },
     ///                     },
-    ///                     DaysToBuilds = 
-    ///                     {
-    ///                         "Wed",
-    ///                         "Sun",
-    ///                     },
-    ///                     ScheduleOnlyWithChanges = true,
-    ///                     StartHours = 10,
-    ///                     StartMinutes = 59,
-    ///                     TimeZone = "(UTC) Coordinated Universal Time",
     ///                 },
+    ///                 DaysToBuilds = new[]
+    ///                 {
+    ///                     "Wed",
+    ///                     "Sun",
+    ///                 },
+    ///                 ScheduleOnlyWithChanges = true,
+    ///                 StartHours = 10,
+    ///                 StartMinutes = 59,
+    ///                 TimeZone = "(UTC) Coordinated Universal Time",
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Remarks
     /// 
@@ -226,7 +227,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/buildDefinition:BuildDefinition")]
-    public partial class BuildDefinition : Pulumi.CustomResource
+    public partial class BuildDefinition : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
@@ -316,7 +317,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:Build/buildDefinition:BuildDefinition"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Build/buildDefinition:BuildDefinition"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -339,7 +340,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class BuildDefinitionArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
@@ -418,9 +419,10 @@ namespace Pulumi.AzureDevOps
         public BuildDefinitionArgs()
         {
         }
+        public static new BuildDefinitionArgs Empty => new BuildDefinitionArgs();
     }
 
-    public sealed class BuildDefinitionState : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The agent pool that should execute the build. Defaults to `Azure Pipelines`.
@@ -505,5 +507,6 @@ namespace Pulumi.AzureDevOps
         public BuildDefinitionState()
         {
         }
+        public static new BuildDefinitionState Empty => new BuildDefinitionState();
     }
 }

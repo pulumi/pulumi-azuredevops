@@ -15,6 +15,8 @@ from .branch_policy_status_check import *
 from .branch_policy_work_item_linking import *
 from .build_definition import *
 from .build_definition_permissions import *
+from .build_folder import *
+from .build_folder_permissions import *
 from .environment import *
 from .get_agent_queue import *
 from .get_area import *
@@ -29,6 +31,8 @@ from .get_pools import *
 from .get_project import *
 from .get_projects import *
 from .get_repositories import *
+from .get_service_endpoint_azure_rm import *
+from .get_service_endpoint_github import *
 from .get_team import *
 from .get_teams import *
 from .get_users import *
@@ -69,6 +73,7 @@ from .service_endpoint_kubernetes import *
 from .service_endpoint_npm import *
 from .service_endpoint_pipeline import *
 from .service_endpoint_service_fabric import *
+from .service_endpoint_sonar_cloud import *
 from .service_endpoint_sonar_qube import *
 from .service_endpoint_ssh import *
 from .serviceendpoint_argocd import *
@@ -348,6 +353,22 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions": "BuildDefinitionPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/buildFolder",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/buildFolder:BuildFolder": "BuildFolder"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/buildFolderPermissions",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/buildFolderPermissions:BuildFolderPermissions": "BuildFolderPermissions"
   }
  },
  {
@@ -636,6 +657,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric": "ServiceEndpointServiceFabric"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceEndpointSonarCloud",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud": "ServiceEndpointSonarCloud"
   }
  },
  {

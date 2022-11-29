@@ -378,7 +378,7 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
 
             __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
@@ -390,6 +390,8 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["username"] = username
             __props__.__dict__["password_hash"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "passwordHash"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointGeneric, __self__).__init__(
             'azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric',
             resource_name,

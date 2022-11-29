@@ -5,84 +5,419 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export * from "./areaPermissions";
-export * from "./branchPolicyAutoReviewers";
-export * from "./branchPolicyBuildValidation";
-export * from "./branchPolicyCommentResolution";
-export * from "./branchPolicyMergeTypes";
-export * from "./branchPolicyMinReviewers";
-export * from "./branchPolicyStatusCheck";
-export * from "./branchPolicyWorkItemLinking";
-export * from "./buildDefinition";
-export * from "./buildDefinitionPermissions";
-export * from "./environment";
-export * from "./getAgentQueue";
-export * from "./getArea";
-export * from "./getBuildDefinition";
-export * from "./getClientConfig";
-export * from "./getGitRepository";
-export * from "./getGroup";
-export * from "./getGroups";
-export * from "./getIteration";
-export * from "./getPool";
-export * from "./getPools";
-export * from "./getProject";
-export * from "./getProjects";
-export * from "./getRepositories";
-export * from "./getTeam";
-export * from "./getTeams";
-export * from "./getUsers";
-export * from "./getVariableGroup";
-export * from "./git";
-export * from "./gitPermissions";
-export * from "./gitRepositoryFile";
-export * from "./group";
-export * from "./groupMembership";
-export * from "./iterativePermissions";
-export * from "./pool";
-export * from "./project";
-export * from "./projectFeatures";
-export * from "./projectPermissions";
-export * from "./projectPipelineSettings";
-export * from "./provider";
-export * from "./queue";
-export * from "./repositoryPolicyAuthorEmailPattern";
-export * from "./repositoryPolicyCaseEnforcement";
-export * from "./repositoryPolicyCheckCredentials";
-export * from "./repositoryPolicyFilePathPattern";
-export * from "./repositoryPolicyMaxFileSize";
-export * from "./repositoryPolicyMaxPathLength";
-export * from "./repositoryPolicyReservedNames";
-export * from "./resourceAuthorization";
-export * from "./serviceEndpointArtifactory";
-export * from "./serviceEndpointAws";
-export * from "./serviceEndpointAzureDevOps";
-export * from "./serviceEndpointAzureEcr";
-export * from "./serviceEndpointAzureRM";
-export * from "./serviceEndpointBitBucket";
-export * from "./serviceEndpointDockerRegistry";
-export * from "./serviceEndpointGeneric";
-export * from "./serviceEndpointGenericGit";
-export * from "./serviceEndpointGitHub";
-export * from "./serviceEndpointGitHubEnterprise";
-export * from "./serviceEndpointKubernetes";
-export * from "./serviceEndpointNpm";
-export * from "./serviceEndpointPipeline";
-export * from "./serviceEndpointServiceFabric";
-export * from "./serviceEndpointSonarQube";
-export * from "./serviceEndpointSsh";
-export * from "./serviceendpointArgocd";
-export * from "./serviceendpointIncomingwebhook";
-export * from "./serviceendpointOctopusdeploy";
-export * from "./serviceendpointPermissions";
-export * from "./servicehookPermissions";
-export * from "./taggingPermissions";
-export * from "./team";
-export * from "./teamAdministrators";
-export * from "./teamMembers";
-export * from "./user";
-export * from "./variableGroup";
-export * from "./workItemQueryPermissions";
+export { AreaPermissionsArgs, AreaPermissionsState } from "./areaPermissions";
+export type AreaPermissions = import("./areaPermissions").AreaPermissions;
+export const AreaPermissions: typeof import("./areaPermissions").AreaPermissions = null as any;
+utilities.lazyLoad(exports, ["AreaPermissions"], () => require("./areaPermissions"));
+
+export { BranchPolicyAutoReviewersArgs, BranchPolicyAutoReviewersState } from "./branchPolicyAutoReviewers";
+export type BranchPolicyAutoReviewers = import("./branchPolicyAutoReviewers").BranchPolicyAutoReviewers;
+export const BranchPolicyAutoReviewers: typeof import("./branchPolicyAutoReviewers").BranchPolicyAutoReviewers = null as any;
+utilities.lazyLoad(exports, ["BranchPolicyAutoReviewers"], () => require("./branchPolicyAutoReviewers"));
+
+export { BranchPolicyBuildValidationArgs, BranchPolicyBuildValidationState } from "./branchPolicyBuildValidation";
+export type BranchPolicyBuildValidation = import("./branchPolicyBuildValidation").BranchPolicyBuildValidation;
+export const BranchPolicyBuildValidation: typeof import("./branchPolicyBuildValidation").BranchPolicyBuildValidation = null as any;
+utilities.lazyLoad(exports, ["BranchPolicyBuildValidation"], () => require("./branchPolicyBuildValidation"));
+
+export { BranchPolicyCommentResolutionArgs, BranchPolicyCommentResolutionState } from "./branchPolicyCommentResolution";
+export type BranchPolicyCommentResolution = import("./branchPolicyCommentResolution").BranchPolicyCommentResolution;
+export const BranchPolicyCommentResolution: typeof import("./branchPolicyCommentResolution").BranchPolicyCommentResolution = null as any;
+utilities.lazyLoad(exports, ["BranchPolicyCommentResolution"], () => require("./branchPolicyCommentResolution"));
+
+export { BranchPolicyMergeTypesArgs, BranchPolicyMergeTypesState } from "./branchPolicyMergeTypes";
+export type BranchPolicyMergeTypes = import("./branchPolicyMergeTypes").BranchPolicyMergeTypes;
+export const BranchPolicyMergeTypes: typeof import("./branchPolicyMergeTypes").BranchPolicyMergeTypes = null as any;
+utilities.lazyLoad(exports, ["BranchPolicyMergeTypes"], () => require("./branchPolicyMergeTypes"));
+
+export { BranchPolicyMinReviewersArgs, BranchPolicyMinReviewersState } from "./branchPolicyMinReviewers";
+export type BranchPolicyMinReviewers = import("./branchPolicyMinReviewers").BranchPolicyMinReviewers;
+export const BranchPolicyMinReviewers: typeof import("./branchPolicyMinReviewers").BranchPolicyMinReviewers = null as any;
+utilities.lazyLoad(exports, ["BranchPolicyMinReviewers"], () => require("./branchPolicyMinReviewers"));
+
+export { BranchPolicyStatusCheckArgs, BranchPolicyStatusCheckState } from "./branchPolicyStatusCheck";
+export type BranchPolicyStatusCheck = import("./branchPolicyStatusCheck").BranchPolicyStatusCheck;
+export const BranchPolicyStatusCheck: typeof import("./branchPolicyStatusCheck").BranchPolicyStatusCheck = null as any;
+utilities.lazyLoad(exports, ["BranchPolicyStatusCheck"], () => require("./branchPolicyStatusCheck"));
+
+export { BranchPolicyWorkItemLinkingArgs, BranchPolicyWorkItemLinkingState } from "./branchPolicyWorkItemLinking";
+export type BranchPolicyWorkItemLinking = import("./branchPolicyWorkItemLinking").BranchPolicyWorkItemLinking;
+export const BranchPolicyWorkItemLinking: typeof import("./branchPolicyWorkItemLinking").BranchPolicyWorkItemLinking = null as any;
+utilities.lazyLoad(exports, ["BranchPolicyWorkItemLinking"], () => require("./branchPolicyWorkItemLinking"));
+
+export { BuildDefinitionArgs, BuildDefinitionState } from "./buildDefinition";
+export type BuildDefinition = import("./buildDefinition").BuildDefinition;
+export const BuildDefinition: typeof import("./buildDefinition").BuildDefinition = null as any;
+utilities.lazyLoad(exports, ["BuildDefinition"], () => require("./buildDefinition"));
+
+export { BuildDefinitionPermissionsArgs, BuildDefinitionPermissionsState } from "./buildDefinitionPermissions";
+export type BuildDefinitionPermissions = import("./buildDefinitionPermissions").BuildDefinitionPermissions;
+export const BuildDefinitionPermissions: typeof import("./buildDefinitionPermissions").BuildDefinitionPermissions = null as any;
+utilities.lazyLoad(exports, ["BuildDefinitionPermissions"], () => require("./buildDefinitionPermissions"));
+
+export { BuildFolderArgs, BuildFolderState } from "./buildFolder";
+export type BuildFolder = import("./buildFolder").BuildFolder;
+export const BuildFolder: typeof import("./buildFolder").BuildFolder = null as any;
+utilities.lazyLoad(exports, ["BuildFolder"], () => require("./buildFolder"));
+
+export { BuildFolderPermissionsArgs, BuildFolderPermissionsState } from "./buildFolderPermissions";
+export type BuildFolderPermissions = import("./buildFolderPermissions").BuildFolderPermissions;
+export const BuildFolderPermissions: typeof import("./buildFolderPermissions").BuildFolderPermissions = null as any;
+utilities.lazyLoad(exports, ["BuildFolderPermissions"], () => require("./buildFolderPermissions"));
+
+export { EnvironmentArgs, EnvironmentState } from "./environment";
+export type Environment = import("./environment").Environment;
+export const Environment: typeof import("./environment").Environment = null as any;
+utilities.lazyLoad(exports, ["Environment"], () => require("./environment"));
+
+export { GetAgentQueueArgs, GetAgentQueueResult, GetAgentQueueOutputArgs } from "./getAgentQueue";
+export const getAgentQueue: typeof import("./getAgentQueue").getAgentQueue = null as any;
+export const getAgentQueueOutput: typeof import("./getAgentQueue").getAgentQueueOutput = null as any;
+utilities.lazyLoad(exports, ["getAgentQueue","getAgentQueueOutput"], () => require("./getAgentQueue"));
+
+export { GetAreaArgs, GetAreaResult, GetAreaOutputArgs } from "./getArea";
+export const getArea: typeof import("./getArea").getArea = null as any;
+export const getAreaOutput: typeof import("./getArea").getAreaOutput = null as any;
+utilities.lazyLoad(exports, ["getArea","getAreaOutput"], () => require("./getArea"));
+
+export { GetBuildDefinitionArgs, GetBuildDefinitionResult, GetBuildDefinitionOutputArgs } from "./getBuildDefinition";
+export const getBuildDefinition: typeof import("./getBuildDefinition").getBuildDefinition = null as any;
+export const getBuildDefinitionOutput: typeof import("./getBuildDefinition").getBuildDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getBuildDefinition","getBuildDefinitionOutput"], () => require("./getBuildDefinition"));
+
+export { GetClientConfigResult } from "./getClientConfig";
+export const getClientConfig: typeof import("./getClientConfig").getClientConfig = null as any;
+utilities.lazyLoad(exports, ["getClientConfig"], () => require("./getClientConfig"));
+
+export { GetGitRepositoryArgs, GetGitRepositoryResult, GetGitRepositoryOutputArgs } from "./getGitRepository";
+export const getGitRepository: typeof import("./getGitRepository").getGitRepository = null as any;
+export const getGitRepositoryOutput: typeof import("./getGitRepository").getGitRepositoryOutput = null as any;
+utilities.lazyLoad(exports, ["getGitRepository","getGitRepositoryOutput"], () => require("./getGitRepository"));
+
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
+
+export { GetGroupsArgs, GetGroupsResult, GetGroupsOutputArgs } from "./getGroups";
+export const getGroups: typeof import("./getGroups").getGroups = null as any;
+export const getGroupsOutput: typeof import("./getGroups").getGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getGroups","getGroupsOutput"], () => require("./getGroups"));
+
+export { GetIterationArgs, GetIterationResult, GetIterationOutputArgs } from "./getIteration";
+export const getIteration: typeof import("./getIteration").getIteration = null as any;
+export const getIterationOutput: typeof import("./getIteration").getIterationOutput = null as any;
+utilities.lazyLoad(exports, ["getIteration","getIterationOutput"], () => require("./getIteration"));
+
+export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
+export const getPool: typeof import("./getPool").getPool = null as any;
+export const getPoolOutput: typeof import("./getPool").getPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
+
+export { GetPoolsResult } from "./getPools";
+export const getPools: typeof import("./getPools").getPools = null as any;
+utilities.lazyLoad(exports, ["getPools"], () => require("./getPools"));
+
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+
+export { GetProjectsArgs, GetProjectsResult, GetProjectsOutputArgs } from "./getProjects";
+export const getProjects: typeof import("./getProjects").getProjects = null as any;
+export const getProjectsOutput: typeof import("./getProjects").getProjectsOutput = null as any;
+utilities.lazyLoad(exports, ["getProjects","getProjectsOutput"], () => require("./getProjects"));
+
+export { GetRepositoriesArgs, GetRepositoriesResult, GetRepositoriesOutputArgs } from "./getRepositories";
+export const getRepositories: typeof import("./getRepositories").getRepositories = null as any;
+export const getRepositoriesOutput: typeof import("./getRepositories").getRepositoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositories","getRepositoriesOutput"], () => require("./getRepositories"));
+
+export { GetServiceEndpointAzureRMArgs, GetServiceEndpointAzureRMResult, GetServiceEndpointAzureRMOutputArgs } from "./getServiceEndpointAzureRM";
+export const getServiceEndpointAzureRM: typeof import("./getServiceEndpointAzureRM").getServiceEndpointAzureRM = null as any;
+export const getServiceEndpointAzureRMOutput: typeof import("./getServiceEndpointAzureRM").getServiceEndpointAzureRMOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceEndpointAzureRM","getServiceEndpointAzureRMOutput"], () => require("./getServiceEndpointAzureRM"));
+
+export { GetServiceEndpointGithubArgs, GetServiceEndpointGithubResult, GetServiceEndpointGithubOutputArgs } from "./getServiceEndpointGithub";
+export const getServiceEndpointGithub: typeof import("./getServiceEndpointGithub").getServiceEndpointGithub = null as any;
+export const getServiceEndpointGithubOutput: typeof import("./getServiceEndpointGithub").getServiceEndpointGithubOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceEndpointGithub","getServiceEndpointGithubOutput"], () => require("./getServiceEndpointGithub"));
+
+export { GetTeamArgs, GetTeamResult, GetTeamOutputArgs } from "./getTeam";
+export const getTeam: typeof import("./getTeam").getTeam = null as any;
+export const getTeamOutput: typeof import("./getTeam").getTeamOutput = null as any;
+utilities.lazyLoad(exports, ["getTeam","getTeamOutput"], () => require("./getTeam"));
+
+export { GetTeamsArgs, GetTeamsResult, GetTeamsOutputArgs } from "./getTeams";
+export const getTeams: typeof import("./getTeams").getTeams = null as any;
+export const getTeamsOutput: typeof import("./getTeams").getTeamsOutput = null as any;
+utilities.lazyLoad(exports, ["getTeams","getTeamsOutput"], () => require("./getTeams"));
+
+export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
+export const getUsers: typeof import("./getUsers").getUsers = null as any;
+export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
+
+export { GetVariableGroupArgs, GetVariableGroupResult, GetVariableGroupOutputArgs } from "./getVariableGroup";
+export const getVariableGroup: typeof import("./getVariableGroup").getVariableGroup = null as any;
+export const getVariableGroupOutput: typeof import("./getVariableGroup").getVariableGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getVariableGroup","getVariableGroupOutput"], () => require("./getVariableGroup"));
+
+export { GitArgs, GitState } from "./git";
+export type Git = import("./git").Git;
+export const Git: typeof import("./git").Git = null as any;
+utilities.lazyLoad(exports, ["Git"], () => require("./git"));
+
+export { GitPermissionsArgs, GitPermissionsState } from "./gitPermissions";
+export type GitPermissions = import("./gitPermissions").GitPermissions;
+export const GitPermissions: typeof import("./gitPermissions").GitPermissions = null as any;
+utilities.lazyLoad(exports, ["GitPermissions"], () => require("./gitPermissions"));
+
+export { GitRepositoryFileArgs, GitRepositoryFileState } from "./gitRepositoryFile";
+export type GitRepositoryFile = import("./gitRepositoryFile").GitRepositoryFile;
+export const GitRepositoryFile: typeof import("./gitRepositoryFile").GitRepositoryFile = null as any;
+utilities.lazyLoad(exports, ["GitRepositoryFile"], () => require("./gitRepositoryFile"));
+
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { GroupMembershipArgs, GroupMembershipState } from "./groupMembership";
+export type GroupMembership = import("./groupMembership").GroupMembership;
+export const GroupMembership: typeof import("./groupMembership").GroupMembership = null as any;
+utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
+
+export { IterativePermissionsArgs, IterativePermissionsState } from "./iterativePermissions";
+export type IterativePermissions = import("./iterativePermissions").IterativePermissions;
+export const IterativePermissions: typeof import("./iterativePermissions").IterativePermissions = null as any;
+utilities.lazyLoad(exports, ["IterativePermissions"], () => require("./iterativePermissions"));
+
+export { PoolArgs, PoolState } from "./pool";
+export type Pool = import("./pool").Pool;
+export const Pool: typeof import("./pool").Pool = null as any;
+utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
+
+export { ProjectArgs, ProjectState } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+
+export { ProjectFeaturesArgs, ProjectFeaturesState } from "./projectFeatures";
+export type ProjectFeatures = import("./projectFeatures").ProjectFeatures;
+export const ProjectFeatures: typeof import("./projectFeatures").ProjectFeatures = null as any;
+utilities.lazyLoad(exports, ["ProjectFeatures"], () => require("./projectFeatures"));
+
+export { ProjectPermissionsArgs, ProjectPermissionsState } from "./projectPermissions";
+export type ProjectPermissions = import("./projectPermissions").ProjectPermissions;
+export const ProjectPermissions: typeof import("./projectPermissions").ProjectPermissions = null as any;
+utilities.lazyLoad(exports, ["ProjectPermissions"], () => require("./projectPermissions"));
+
+export { ProjectPipelineSettingsArgs, ProjectPipelineSettingsState } from "./projectPipelineSettings";
+export type ProjectPipelineSettings = import("./projectPipelineSettings").ProjectPipelineSettings;
+export const ProjectPipelineSettings: typeof import("./projectPipelineSettings").ProjectPipelineSettings = null as any;
+utilities.lazyLoad(exports, ["ProjectPipelineSettings"], () => require("./projectPipelineSettings"));
+
+export { ProviderArgs } from "./provider";
+export type Provider = import("./provider").Provider;
+export const Provider: typeof import("./provider").Provider = null as any;
+utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
+
+export { QueueArgs, QueueState } from "./queue";
+export type Queue = import("./queue").Queue;
+export const Queue: typeof import("./queue").Queue = null as any;
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
+
+export { RepositoryPolicyAuthorEmailPatternArgs, RepositoryPolicyAuthorEmailPatternState } from "./repositoryPolicyAuthorEmailPattern";
+export type RepositoryPolicyAuthorEmailPattern = import("./repositoryPolicyAuthorEmailPattern").RepositoryPolicyAuthorEmailPattern;
+export const RepositoryPolicyAuthorEmailPattern: typeof import("./repositoryPolicyAuthorEmailPattern").RepositoryPolicyAuthorEmailPattern = null as any;
+utilities.lazyLoad(exports, ["RepositoryPolicyAuthorEmailPattern"], () => require("./repositoryPolicyAuthorEmailPattern"));
+
+export { RepositoryPolicyCaseEnforcementArgs, RepositoryPolicyCaseEnforcementState } from "./repositoryPolicyCaseEnforcement";
+export type RepositoryPolicyCaseEnforcement = import("./repositoryPolicyCaseEnforcement").RepositoryPolicyCaseEnforcement;
+export const RepositoryPolicyCaseEnforcement: typeof import("./repositoryPolicyCaseEnforcement").RepositoryPolicyCaseEnforcement = null as any;
+utilities.lazyLoad(exports, ["RepositoryPolicyCaseEnforcement"], () => require("./repositoryPolicyCaseEnforcement"));
+
+export { RepositoryPolicyCheckCredentialsArgs, RepositoryPolicyCheckCredentialsState } from "./repositoryPolicyCheckCredentials";
+export type RepositoryPolicyCheckCredentials = import("./repositoryPolicyCheckCredentials").RepositoryPolicyCheckCredentials;
+export const RepositoryPolicyCheckCredentials: typeof import("./repositoryPolicyCheckCredentials").RepositoryPolicyCheckCredentials = null as any;
+utilities.lazyLoad(exports, ["RepositoryPolicyCheckCredentials"], () => require("./repositoryPolicyCheckCredentials"));
+
+export { RepositoryPolicyFilePathPatternArgs, RepositoryPolicyFilePathPatternState } from "./repositoryPolicyFilePathPattern";
+export type RepositoryPolicyFilePathPattern = import("./repositoryPolicyFilePathPattern").RepositoryPolicyFilePathPattern;
+export const RepositoryPolicyFilePathPattern: typeof import("./repositoryPolicyFilePathPattern").RepositoryPolicyFilePathPattern = null as any;
+utilities.lazyLoad(exports, ["RepositoryPolicyFilePathPattern"], () => require("./repositoryPolicyFilePathPattern"));
+
+export { RepositoryPolicyMaxFileSizeArgs, RepositoryPolicyMaxFileSizeState } from "./repositoryPolicyMaxFileSize";
+export type RepositoryPolicyMaxFileSize = import("./repositoryPolicyMaxFileSize").RepositoryPolicyMaxFileSize;
+export const RepositoryPolicyMaxFileSize: typeof import("./repositoryPolicyMaxFileSize").RepositoryPolicyMaxFileSize = null as any;
+utilities.lazyLoad(exports, ["RepositoryPolicyMaxFileSize"], () => require("./repositoryPolicyMaxFileSize"));
+
+export { RepositoryPolicyMaxPathLengthArgs, RepositoryPolicyMaxPathLengthState } from "./repositoryPolicyMaxPathLength";
+export type RepositoryPolicyMaxPathLength = import("./repositoryPolicyMaxPathLength").RepositoryPolicyMaxPathLength;
+export const RepositoryPolicyMaxPathLength: typeof import("./repositoryPolicyMaxPathLength").RepositoryPolicyMaxPathLength = null as any;
+utilities.lazyLoad(exports, ["RepositoryPolicyMaxPathLength"], () => require("./repositoryPolicyMaxPathLength"));
+
+export { RepositoryPolicyReservedNamesArgs, RepositoryPolicyReservedNamesState } from "./repositoryPolicyReservedNames";
+export type RepositoryPolicyReservedNames = import("./repositoryPolicyReservedNames").RepositoryPolicyReservedNames;
+export const RepositoryPolicyReservedNames: typeof import("./repositoryPolicyReservedNames").RepositoryPolicyReservedNames = null as any;
+utilities.lazyLoad(exports, ["RepositoryPolicyReservedNames"], () => require("./repositoryPolicyReservedNames"));
+
+export { ResourceAuthorizationArgs, ResourceAuthorizationState } from "./resourceAuthorization";
+export type ResourceAuthorization = import("./resourceAuthorization").ResourceAuthorization;
+export const ResourceAuthorization: typeof import("./resourceAuthorization").ResourceAuthorization = null as any;
+utilities.lazyLoad(exports, ["ResourceAuthorization"], () => require("./resourceAuthorization"));
+
+export { ServiceEndpointArtifactoryArgs, ServiceEndpointArtifactoryState } from "./serviceEndpointArtifactory";
+export type ServiceEndpointArtifactory = import("./serviceEndpointArtifactory").ServiceEndpointArtifactory;
+export const ServiceEndpointArtifactory: typeof import("./serviceEndpointArtifactory").ServiceEndpointArtifactory = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointArtifactory"], () => require("./serviceEndpointArtifactory"));
+
+export { ServiceEndpointAwsArgs, ServiceEndpointAwsState } from "./serviceEndpointAws";
+export type ServiceEndpointAws = import("./serviceEndpointAws").ServiceEndpointAws;
+export const ServiceEndpointAws: typeof import("./serviceEndpointAws").ServiceEndpointAws = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointAws"], () => require("./serviceEndpointAws"));
+
+export { ServiceEndpointAzureDevOpsArgs, ServiceEndpointAzureDevOpsState } from "./serviceEndpointAzureDevOps";
+export type ServiceEndpointAzureDevOps = import("./serviceEndpointAzureDevOps").ServiceEndpointAzureDevOps;
+export const ServiceEndpointAzureDevOps: typeof import("./serviceEndpointAzureDevOps").ServiceEndpointAzureDevOps = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointAzureDevOps"], () => require("./serviceEndpointAzureDevOps"));
+
+export { ServiceEndpointAzureEcrArgs, ServiceEndpointAzureEcrState } from "./serviceEndpointAzureEcr";
+export type ServiceEndpointAzureEcr = import("./serviceEndpointAzureEcr").ServiceEndpointAzureEcr;
+export const ServiceEndpointAzureEcr: typeof import("./serviceEndpointAzureEcr").ServiceEndpointAzureEcr = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointAzureEcr"], () => require("./serviceEndpointAzureEcr"));
+
+export { ServiceEndpointAzureRMArgs, ServiceEndpointAzureRMState } from "./serviceEndpointAzureRM";
+export type ServiceEndpointAzureRM = import("./serviceEndpointAzureRM").ServiceEndpointAzureRM;
+export const ServiceEndpointAzureRM: typeof import("./serviceEndpointAzureRM").ServiceEndpointAzureRM = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointAzureRM"], () => require("./serviceEndpointAzureRM"));
+
+export { ServiceEndpointBitBucketArgs, ServiceEndpointBitBucketState } from "./serviceEndpointBitBucket";
+export type ServiceEndpointBitBucket = import("./serviceEndpointBitBucket").ServiceEndpointBitBucket;
+export const ServiceEndpointBitBucket: typeof import("./serviceEndpointBitBucket").ServiceEndpointBitBucket = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointBitBucket"], () => require("./serviceEndpointBitBucket"));
+
+export { ServiceEndpointDockerRegistryArgs, ServiceEndpointDockerRegistryState } from "./serviceEndpointDockerRegistry";
+export type ServiceEndpointDockerRegistry = import("./serviceEndpointDockerRegistry").ServiceEndpointDockerRegistry;
+export const ServiceEndpointDockerRegistry: typeof import("./serviceEndpointDockerRegistry").ServiceEndpointDockerRegistry = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointDockerRegistry"], () => require("./serviceEndpointDockerRegistry"));
+
+export { ServiceEndpointGenericArgs, ServiceEndpointGenericState } from "./serviceEndpointGeneric";
+export type ServiceEndpointGeneric = import("./serviceEndpointGeneric").ServiceEndpointGeneric;
+export const ServiceEndpointGeneric: typeof import("./serviceEndpointGeneric").ServiceEndpointGeneric = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointGeneric"], () => require("./serviceEndpointGeneric"));
+
+export { ServiceEndpointGenericGitArgs, ServiceEndpointGenericGitState } from "./serviceEndpointGenericGit";
+export type ServiceEndpointGenericGit = import("./serviceEndpointGenericGit").ServiceEndpointGenericGit;
+export const ServiceEndpointGenericGit: typeof import("./serviceEndpointGenericGit").ServiceEndpointGenericGit = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointGenericGit"], () => require("./serviceEndpointGenericGit"));
+
+export { ServiceEndpointGitHubArgs, ServiceEndpointGitHubState } from "./serviceEndpointGitHub";
+export type ServiceEndpointGitHub = import("./serviceEndpointGitHub").ServiceEndpointGitHub;
+export const ServiceEndpointGitHub: typeof import("./serviceEndpointGitHub").ServiceEndpointGitHub = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointGitHub"], () => require("./serviceEndpointGitHub"));
+
+export { ServiceEndpointGitHubEnterpriseArgs, ServiceEndpointGitHubEnterpriseState } from "./serviceEndpointGitHubEnterprise";
+export type ServiceEndpointGitHubEnterprise = import("./serviceEndpointGitHubEnterprise").ServiceEndpointGitHubEnterprise;
+export const ServiceEndpointGitHubEnterprise: typeof import("./serviceEndpointGitHubEnterprise").ServiceEndpointGitHubEnterprise = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointGitHubEnterprise"], () => require("./serviceEndpointGitHubEnterprise"));
+
+export { ServiceEndpointKubernetesArgs, ServiceEndpointKubernetesState } from "./serviceEndpointKubernetes";
+export type ServiceEndpointKubernetes = import("./serviceEndpointKubernetes").ServiceEndpointKubernetes;
+export const ServiceEndpointKubernetes: typeof import("./serviceEndpointKubernetes").ServiceEndpointKubernetes = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointKubernetes"], () => require("./serviceEndpointKubernetes"));
+
+export { ServiceEndpointNpmArgs, ServiceEndpointNpmState } from "./serviceEndpointNpm";
+export type ServiceEndpointNpm = import("./serviceEndpointNpm").ServiceEndpointNpm;
+export const ServiceEndpointNpm: typeof import("./serviceEndpointNpm").ServiceEndpointNpm = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointNpm"], () => require("./serviceEndpointNpm"));
+
+export { ServiceEndpointPipelineArgs, ServiceEndpointPipelineState } from "./serviceEndpointPipeline";
+export type ServiceEndpointPipeline = import("./serviceEndpointPipeline").ServiceEndpointPipeline;
+export const ServiceEndpointPipeline: typeof import("./serviceEndpointPipeline").ServiceEndpointPipeline = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointPipeline"], () => require("./serviceEndpointPipeline"));
+
+export { ServiceEndpointServiceFabricArgs, ServiceEndpointServiceFabricState } from "./serviceEndpointServiceFabric";
+export type ServiceEndpointServiceFabric = import("./serviceEndpointServiceFabric").ServiceEndpointServiceFabric;
+export const ServiceEndpointServiceFabric: typeof import("./serviceEndpointServiceFabric").ServiceEndpointServiceFabric = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointServiceFabric"], () => require("./serviceEndpointServiceFabric"));
+
+export { ServiceEndpointSonarCloudArgs, ServiceEndpointSonarCloudState } from "./serviceEndpointSonarCloud";
+export type ServiceEndpointSonarCloud = import("./serviceEndpointSonarCloud").ServiceEndpointSonarCloud;
+export const ServiceEndpointSonarCloud: typeof import("./serviceEndpointSonarCloud").ServiceEndpointSonarCloud = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointSonarCloud"], () => require("./serviceEndpointSonarCloud"));
+
+export { ServiceEndpointSonarQubeArgs, ServiceEndpointSonarQubeState } from "./serviceEndpointSonarQube";
+export type ServiceEndpointSonarQube = import("./serviceEndpointSonarQube").ServiceEndpointSonarQube;
+export const ServiceEndpointSonarQube: typeof import("./serviceEndpointSonarQube").ServiceEndpointSonarQube = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointSonarQube"], () => require("./serviceEndpointSonarQube"));
+
+export { ServiceEndpointSshArgs, ServiceEndpointSshState } from "./serviceEndpointSsh";
+export type ServiceEndpointSsh = import("./serviceEndpointSsh").ServiceEndpointSsh;
+export const ServiceEndpointSsh: typeof import("./serviceEndpointSsh").ServiceEndpointSsh = null as any;
+utilities.lazyLoad(exports, ["ServiceEndpointSsh"], () => require("./serviceEndpointSsh"));
+
+export { ServiceendpointArgocdArgs, ServiceendpointArgocdState } from "./serviceendpointArgocd";
+export type ServiceendpointArgocd = import("./serviceendpointArgocd").ServiceendpointArgocd;
+export const ServiceendpointArgocd: typeof import("./serviceendpointArgocd").ServiceendpointArgocd = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointArgocd"], () => require("./serviceendpointArgocd"));
+
+export { ServiceendpointIncomingwebhookArgs, ServiceendpointIncomingwebhookState } from "./serviceendpointIncomingwebhook";
+export type ServiceendpointIncomingwebhook = import("./serviceendpointIncomingwebhook").ServiceendpointIncomingwebhook;
+export const ServiceendpointIncomingwebhook: typeof import("./serviceendpointIncomingwebhook").ServiceendpointIncomingwebhook = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointIncomingwebhook"], () => require("./serviceendpointIncomingwebhook"));
+
+export { ServiceendpointOctopusdeployArgs, ServiceendpointOctopusdeployState } from "./serviceendpointOctopusdeploy";
+export type ServiceendpointOctopusdeploy = import("./serviceendpointOctopusdeploy").ServiceendpointOctopusdeploy;
+export const ServiceendpointOctopusdeploy: typeof import("./serviceendpointOctopusdeploy").ServiceendpointOctopusdeploy = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointOctopusdeploy"], () => require("./serviceendpointOctopusdeploy"));
+
+export { ServiceendpointPermissionsArgs, ServiceendpointPermissionsState } from "./serviceendpointPermissions";
+export type ServiceendpointPermissions = import("./serviceendpointPermissions").ServiceendpointPermissions;
+export const ServiceendpointPermissions: typeof import("./serviceendpointPermissions").ServiceendpointPermissions = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointPermissions"], () => require("./serviceendpointPermissions"));
+
+export { ServicehookPermissionsArgs, ServicehookPermissionsState } from "./servicehookPermissions";
+export type ServicehookPermissions = import("./servicehookPermissions").ServicehookPermissions;
+export const ServicehookPermissions: typeof import("./servicehookPermissions").ServicehookPermissions = null as any;
+utilities.lazyLoad(exports, ["ServicehookPermissions"], () => require("./servicehookPermissions"));
+
+export { TaggingPermissionsArgs, TaggingPermissionsState } from "./taggingPermissions";
+export type TaggingPermissions = import("./taggingPermissions").TaggingPermissions;
+export const TaggingPermissions: typeof import("./taggingPermissions").TaggingPermissions = null as any;
+utilities.lazyLoad(exports, ["TaggingPermissions"], () => require("./taggingPermissions"));
+
+export { TeamArgs, TeamState } from "./team";
+export type Team = import("./team").Team;
+export const Team: typeof import("./team").Team = null as any;
+utilities.lazyLoad(exports, ["Team"], () => require("./team"));
+
+export { TeamAdministratorsArgs, TeamAdministratorsState } from "./teamAdministrators";
+export type TeamAdministrators = import("./teamAdministrators").TeamAdministrators;
+export const TeamAdministrators: typeof import("./teamAdministrators").TeamAdministrators = null as any;
+utilities.lazyLoad(exports, ["TeamAdministrators"], () => require("./teamAdministrators"));
+
+export { TeamMembersArgs, TeamMembersState } from "./teamMembers";
+export type TeamMembers = import("./teamMembers").TeamMembers;
+export const TeamMembers: typeof import("./teamMembers").TeamMembers = null as any;
+utilities.lazyLoad(exports, ["TeamMembers"], () => require("./teamMembers"));
+
+export { UserArgs, UserState } from "./user";
+export type User = import("./user").User;
+export const User: typeof import("./user").User = null as any;
+utilities.lazyLoad(exports, ["User"], () => require("./user"));
+
+export { VariableGroupArgs, VariableGroupState } from "./variableGroup";
+export type VariableGroup = import("./variableGroup").VariableGroup;
+export const VariableGroup: typeof import("./variableGroup").VariableGroup = null as any;
+utilities.lazyLoad(exports, ["VariableGroup"], () => require("./variableGroup"));
+
+export { WorkItemQueryPermissionsArgs, WorkItemQueryPermissionsState } from "./workItemQueryPermissions";
+export type WorkItemQueryPermissions = import("./workItemQueryPermissions").WorkItemQueryPermissions;
+export const WorkItemQueryPermissions: typeof import("./workItemQueryPermissions").WorkItemQueryPermissions = null as any;
+utilities.lazyLoad(exports, ["WorkItemQueryPermissions"], () => require("./workItemQueryPermissions"));
+
 
 // Export sub-modules:
 import * as agent from "./agent";
@@ -113,68 +448,6 @@ export {
     types,
 };
 
-// Import resources to register:
-import { AreaPermissions } from "./areaPermissions";
-import { BranchPolicyAutoReviewers } from "./branchPolicyAutoReviewers";
-import { BranchPolicyBuildValidation } from "./branchPolicyBuildValidation";
-import { BranchPolicyCommentResolution } from "./branchPolicyCommentResolution";
-import { BranchPolicyMergeTypes } from "./branchPolicyMergeTypes";
-import { BranchPolicyMinReviewers } from "./branchPolicyMinReviewers";
-import { BranchPolicyStatusCheck } from "./branchPolicyStatusCheck";
-import { BranchPolicyWorkItemLinking } from "./branchPolicyWorkItemLinking";
-import { BuildDefinition } from "./buildDefinition";
-import { BuildDefinitionPermissions } from "./buildDefinitionPermissions";
-import { Environment } from "./environment";
-import { Git } from "./git";
-import { GitPermissions } from "./gitPermissions";
-import { GitRepositoryFile } from "./gitRepositoryFile";
-import { Group } from "./group";
-import { GroupMembership } from "./groupMembership";
-import { IterativePermissions } from "./iterativePermissions";
-import { Pool } from "./pool";
-import { Project } from "./project";
-import { ProjectFeatures } from "./projectFeatures";
-import { ProjectPermissions } from "./projectPermissions";
-import { ProjectPipelineSettings } from "./projectPipelineSettings";
-import { Queue } from "./queue";
-import { RepositoryPolicyAuthorEmailPattern } from "./repositoryPolicyAuthorEmailPattern";
-import { RepositoryPolicyCaseEnforcement } from "./repositoryPolicyCaseEnforcement";
-import { RepositoryPolicyCheckCredentials } from "./repositoryPolicyCheckCredentials";
-import { RepositoryPolicyFilePathPattern } from "./repositoryPolicyFilePathPattern";
-import { RepositoryPolicyMaxFileSize } from "./repositoryPolicyMaxFileSize";
-import { RepositoryPolicyMaxPathLength } from "./repositoryPolicyMaxPathLength";
-import { RepositoryPolicyReservedNames } from "./repositoryPolicyReservedNames";
-import { ResourceAuthorization } from "./resourceAuthorization";
-import { ServiceEndpointArtifactory } from "./serviceEndpointArtifactory";
-import { ServiceEndpointAws } from "./serviceEndpointAws";
-import { ServiceEndpointAzureDevOps } from "./serviceEndpointAzureDevOps";
-import { ServiceEndpointAzureEcr } from "./serviceEndpointAzureEcr";
-import { ServiceEndpointAzureRM } from "./serviceEndpointAzureRM";
-import { ServiceEndpointBitBucket } from "./serviceEndpointBitBucket";
-import { ServiceEndpointDockerRegistry } from "./serviceEndpointDockerRegistry";
-import { ServiceEndpointGeneric } from "./serviceEndpointGeneric";
-import { ServiceEndpointGenericGit } from "./serviceEndpointGenericGit";
-import { ServiceEndpointGitHub } from "./serviceEndpointGitHub";
-import { ServiceEndpointGitHubEnterprise } from "./serviceEndpointGitHubEnterprise";
-import { ServiceEndpointKubernetes } from "./serviceEndpointKubernetes";
-import { ServiceEndpointNpm } from "./serviceEndpointNpm";
-import { ServiceEndpointPipeline } from "./serviceEndpointPipeline";
-import { ServiceEndpointServiceFabric } from "./serviceEndpointServiceFabric";
-import { ServiceEndpointSonarQube } from "./serviceEndpointSonarQube";
-import { ServiceEndpointSsh } from "./serviceEndpointSsh";
-import { ServiceendpointArgocd } from "./serviceendpointArgocd";
-import { ServiceendpointIncomingwebhook } from "./serviceendpointIncomingwebhook";
-import { ServiceendpointOctopusdeploy } from "./serviceendpointOctopusdeploy";
-import { ServiceendpointPermissions } from "./serviceendpointPermissions";
-import { ServicehookPermissions } from "./servicehookPermissions";
-import { TaggingPermissions } from "./taggingPermissions";
-import { Team } from "./team";
-import { TeamAdministrators } from "./teamAdministrators";
-import { TeamMembers } from "./teamMembers";
-import { User } from "./user";
-import { VariableGroup } from "./variableGroup";
-import { WorkItemQueryPermissions } from "./workItemQueryPermissions";
-
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
@@ -199,6 +472,10 @@ const _module = {
                 return new BuildDefinition(name, <any>undefined, { urn })
             case "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions":
                 return new BuildDefinitionPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/buildFolder:BuildFolder":
+                return new BuildFolder(name, <any>undefined, { urn })
+            case "azuredevops:index/buildFolderPermissions:BuildFolderPermissions":
+                return new BuildFolderPermissions(name, <any>undefined, { urn })
             case "azuredevops:index/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
             case "azuredevops:index/git:Git":
@@ -271,6 +548,8 @@ const _module = {
                 return new ServiceEndpointPipeline(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric":
                 return new ServiceEndpointServiceFabric(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud":
+                return new ServiceEndpointSonarCloud(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
                 return new ServiceEndpointSonarQube(name, <any>undefined, { urn })
             case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
@@ -314,6 +593,8 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyStatusCh
 pulumi.runtime.registerResourceModule("azuredevops", "index/branchPolicyWorkItemLinking", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinition", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinitionPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/buildFolder", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/buildFolderPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/git", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitPermissions", _module)
@@ -350,6 +631,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointKuber
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointNpm", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointPipeline", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointServiceFabric", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarCloud", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointArgocd", _module)
@@ -364,9 +646,6 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/teamMembers", _modul
 pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroup", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)
-
-import { Provider } from "./provider";
-
 pulumi.runtime.registerResourcePackage("azuredevops", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

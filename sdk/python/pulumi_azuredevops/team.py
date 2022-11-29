@@ -103,6 +103,7 @@ class _TeamState:
     def __init__(__self__, *,
                  administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
+                 descriptor: Optional[pulumi.Input[str]] = None,
                  members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None):
@@ -110,6 +111,7 @@ class _TeamState:
         Input properties used for looking up and filtering Team resources.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
         :param pulumi.Input[str] description: The description of the Team.
+        :param pulumi.Input[str] descriptor: The descriptor of the Team.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
         :param pulumi.Input[str] name: The name of the Team.
         :param pulumi.Input[str] project_id: The Project ID.
@@ -118,6 +120,8 @@ class _TeamState:
             pulumi.set(__self__, "administrators", administrators)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if descriptor is not None:
+            pulumi.set(__self__, "descriptor", descriptor)
         if members is not None:
             pulumi.set(__self__, "members", members)
         if name is not None:
@@ -148,6 +152,18 @@ class _TeamState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def descriptor(self) -> Optional[pulumi.Input[str]]:
+        """
+        The descriptor of the Team.
+        """
+        return pulumi.get(self, "descriptor")
+
+    @descriptor.setter
+    def descriptor(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "descriptor", value)
 
     @property
     @pulumi.getter
@@ -325,6 +341,7 @@ class Team(pulumi.CustomResource):
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
+            __props__.__dict__["descriptor"] = None
         super(Team, __self__).__init__(
             'azuredevops:index/team:Team',
             resource_name,
@@ -337,6 +354,7 @@ class Team(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
+            descriptor: Optional[pulumi.Input[str]] = None,
             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             name: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None) -> 'Team':
@@ -349,6 +367,7 @@ class Team(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
         :param pulumi.Input[str] description: The description of the Team.
+        :param pulumi.Input[str] descriptor: The descriptor of the Team.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
         :param pulumi.Input[str] name: The name of the Team.
         :param pulumi.Input[str] project_id: The Project ID.
@@ -359,6 +378,7 @@ class Team(pulumi.CustomResource):
 
         __props__.__dict__["administrators"] = administrators
         __props__.__dict__["description"] = description
+        __props__.__dict__["descriptor"] = descriptor
         __props__.__dict__["members"] = members
         __props__.__dict__["name"] = name
         __props__.__dict__["project_id"] = project_id
@@ -379,6 +399,14 @@ class Team(pulumi.CustomResource):
         The description of the Team.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def descriptor(self) -> pulumi.Output[str]:
+        """
+        The descriptor of the Team.
+        """
+        return pulumi.get(self, "descriptor")
 
     @property
     @pulumi.getter

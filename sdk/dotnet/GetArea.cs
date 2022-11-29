@@ -19,29 +19,28 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
         ///     {
-        ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-        ///         {
-        ///             WorkItemTemplate = "Agile",
-        ///             VersionControl = "Git",
-        ///             Visibility = "private",
-        ///             Description = "Managed by Terraform",
-        ///         });
-        ///         var exampleArea = exampleProject.Id.Apply(id =&gt; AzureDevOps.GetArea.Invoke(new AzureDevOps.GetAreaInvokeArgs
-        ///         {
-        ///             ProjectId = id,
-        ///             Path = "/",
-        ///             FetchChildren = false,
-        ///         }));
-        ///     }
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Terraform",
+        ///     });
         /// 
-        /// }
+        ///     var exampleArea = AzureDevOps.GetArea.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Path = "/",
+        ///         FetchChildren = false,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -54,7 +53,7 @@ namespace Pulumi.AzureDevOps
         /// - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
         /// </summary>
         public static Task<GetAreaResult> InvokeAsync(GetAreaArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Area (Component) within Azure DevOps.
@@ -64,29 +63,28 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
         ///     {
-        ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-        ///         {
-        ///             WorkItemTemplate = "Agile",
-        ///             VersionControl = "Git",
-        ///             Visibility = "private",
-        ///             Description = "Managed by Terraform",
-        ///         });
-        ///         var exampleArea = exampleProject.Id.Apply(id =&gt; AzureDevOps.GetArea.Invoke(new AzureDevOps.GetAreaInvokeArgs
-        ///         {
-        ///             ProjectId = id,
-        ///             Path = "/",
-        ///             FetchChildren = false,
-        ///         }));
-        ///     }
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Terraform",
+        ///     });
         /// 
-        /// }
+        ///     var exampleArea = AzureDevOps.GetArea.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Path = "/",
+        ///         FetchChildren = false,
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -99,11 +97,11 @@ namespace Pulumi.AzureDevOps
         /// - **Project &amp; Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
         /// </summary>
         public static Output<GetAreaResult> Invoke(GetAreaInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAreaResult>("azuredevops:index/getArea:getArea", args ?? new GetAreaInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetAreaArgs : Pulumi.InvokeArgs
+    public sealed class GetAreaArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Read children nodes, _Depth_: 1, _Default_: `true`
@@ -126,9 +124,10 @@ namespace Pulumi.AzureDevOps
         public GetAreaArgs()
         {
         }
+        public static new GetAreaArgs Empty => new GetAreaArgs();
     }
 
-    public sealed class GetAreaInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAreaInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Read children nodes, _Depth_: 1, _Default_: `true`
@@ -151,6 +150,7 @@ namespace Pulumi.AzureDevOps
         public GetAreaInvokeArgs()
         {
         }
+        public static new GetAreaInvokeArgs Empty => new GetAreaInvokeArgs();
     }
 
 

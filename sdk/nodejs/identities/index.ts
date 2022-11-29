@@ -5,14 +5,26 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getGroup";
-export * from "./getUsers";
-export * from "./group";
-export * from "./groupMembership";
+export { GetGroupArgs, GetGroupResult, GetGroupOutputArgs } from "./getGroup";
+export const getGroup: typeof import("./getGroup").getGroup = null as any;
+export const getGroupOutput: typeof import("./getGroup").getGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getGroup","getGroupOutput"], () => require("./getGroup"));
 
-// Import resources to register:
-import { Group } from "./group";
-import { GroupMembership } from "./groupMembership";
+export { GetUsersArgs, GetUsersResult, GetUsersOutputArgs } from "./getUsers";
+export const getUsers: typeof import("./getUsers").getUsers = null as any;
+export const getUsersOutput: typeof import("./getUsers").getUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getUsers","getUsersOutput"], () => require("./getUsers"));
+
+export { GroupArgs, GroupState } from "./group";
+export type Group = import("./group").Group;
+export const Group: typeof import("./group").Group = null as any;
+utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { GroupMembershipArgs, GroupMembershipState } from "./groupMembership";
+export type GroupMembership = import("./groupMembership").GroupMembership;
+export const GroupMembership: typeof import("./groupMembership").GroupMembership = null as any;
+utilities.lazyLoad(exports, ["GroupMembership"], () => require("./groupMembership"));
+
 
 const _module = {
     version: utilities.getVersion(),

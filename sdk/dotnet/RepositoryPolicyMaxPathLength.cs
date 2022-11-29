@@ -17,70 +17,69 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleRepositoryPolicyMaxPathLength = new AzureDevOps.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength", new AzureDevOps.RepositoryPolicyMaxPathLengthArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             MaxPathLength = 500,
-    ///             RepositoryIds = 
-    ///             {
-    ///                 exampleGit.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRepositoryPolicyMaxPathLength = new AzureDevOps.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         MaxPathLength = 500,
+    ///         RepositoryIds = new[]
+    ///         {
+    ///             exampleGit.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// # Set project level repository policy
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleRepositoryPolicyMaxPathLength = new AzureDevOps.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength", new AzureDevOps.RepositoryPolicyMaxPathLengthArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             MaxPathLength = 1000,
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRepositoryPolicyMaxPathLength = new AzureDevOps.RepositoryPolicyMaxPathLength("exampleRepositoryPolicyMaxPathLength", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         MaxPathLength = 1000,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -95,7 +94,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/repositoryPolicyMaxPathLength:RepositoryPolicyMaxPathLength")]
-    public partial class RepositoryPolicyMaxPathLength : Pulumi.CustomResource
+    public partial class RepositoryPolicyMaxPathLength : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -171,7 +170,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class RepositoryPolicyMaxPathLengthArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyMaxPathLengthArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -212,9 +211,10 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyMaxPathLengthArgs()
         {
         }
+        public static new RepositoryPolicyMaxPathLengthArgs Empty => new RepositoryPolicyMaxPathLengthArgs();
     }
 
-    public sealed class RepositoryPolicyMaxPathLengthState : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyMaxPathLengthState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -255,5 +255,6 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyMaxPathLengthState()
         {
         }
+        public static new RepositoryPolicyMaxPathLengthState Empty => new RepositoryPolicyMaxPathLengthState();
     }
 }

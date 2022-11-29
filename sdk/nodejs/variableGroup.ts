@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
@@ -143,6 +144,9 @@ export class VariableGroup extends pulumi.CustomResource {
      * The description of the Variable Group.
      */
     public readonly description!: pulumi.Output<string | undefined>;
+    /**
+     * -(Optional) A list of `keyVault` blocks as documented below.
+     */
     public readonly keyVault!: pulumi.Output<outputs.VariableGroupKeyVault | undefined>;
     /**
      * The name of the Variable Group.
@@ -210,6 +214,9 @@ export interface VariableGroupState {
      * The description of the Variable Group.
      */
     description?: pulumi.Input<string>;
+    /**
+     * -(Optional) A list of `keyVault` blocks as documented below.
+     */
     keyVault?: pulumi.Input<inputs.VariableGroupKeyVault>;
     /**
      * The name of the Variable Group.
@@ -237,6 +244,9 @@ export interface VariableGroupArgs {
      * The description of the Variable Group.
      */
     description?: pulumi.Input<string>;
+    /**
+     * -(Optional) A list of `keyVault` blocks as documented below.
+     */
     keyVault?: pulumi.Input<inputs.VariableGroupKeyVault>;
     /**
      * The name of the Variable Group.

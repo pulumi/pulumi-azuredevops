@@ -351,7 +351,7 @@ class ServiceEndpointNpm(pulumi.CustomResource):
 
             if access_token is None and not opts.urn:
                 raise TypeError("Missing required property 'access_token'")
-            __props__.__dict__["access_token"] = access_token
+            __props__.__dict__["access_token"] = None if access_token is None else pulumi.Output.secret(access_token)
             __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description
             if project_id is None and not opts.urn:
@@ -364,6 +364,8 @@ class ServiceEndpointNpm(pulumi.CustomResource):
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["access_token_hash"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "accessTokenHash"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointNpm, __self__).__init__(
             'azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm',
             resource_name,

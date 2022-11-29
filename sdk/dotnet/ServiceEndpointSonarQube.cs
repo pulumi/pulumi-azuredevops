@@ -15,31 +15,30 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointSonarQube = new AzureDevOps.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube", new AzureDevOps.ServiceEndpointSonarQubeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example SonarQube",
-    ///             Url = "https://sonarqube.my.com",
-    ///             Token = "0000000000000000000000000000000000000000",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointSonarQube = new AzureDevOps.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example SonarQube",
+    ///         Url = "https://sonarqube.my.com",
+    ///         Token = "0000000000000000000000000000000000000000",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -56,7 +55,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube")]
-    public partial class ServiceEndpointSonarQube : Pulumi.CustomResource
+    public partial class ServiceEndpointSonarQube : global::Pulumi.CustomResource
     {
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -120,6 +119,11 @@ namespace Pulumi.AzureDevOps
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "token",
+                    "tokenHash",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -141,7 +145,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointSonarQubeArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointSonarQubeArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -169,11 +173,21 @@ namespace Pulumi.AzureDevOps
         [Input("serviceEndpointName", required: true)]
         public Input<string> ServiceEndpointName { get; set; } = null!;
 
+        [Input("token", required: true)]
+        private Input<string>? _token;
+
         /// <summary>
         /// Authentication Token generated through SonarQube (go to My Account &gt; Security &gt; Generate Tokens).
         /// </summary>
-        [Input("token", required: true)]
-        public Input<string> Token { get; set; } = null!;
+        public Input<string>? Token
+        {
+            get => _token;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// URL of the SonarQube server to connect with.
@@ -184,9 +198,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointSonarQubeArgs()
         {
         }
+        public static new ServiceEndpointSonarQubeArgs Empty => new ServiceEndpointSonarQubeArgs();
     }
 
-    public sealed class ServiceEndpointSonarQubeState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointSonarQubeState : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -214,17 +229,37 @@ namespace Pulumi.AzureDevOps
         [Input("serviceEndpointName")]
         public Input<string>? ServiceEndpointName { get; set; }
 
+        [Input("token")]
+        private Input<string>? _token;
+
         /// <summary>
         /// Authentication Token generated through SonarQube (go to My Account &gt; Security &gt; Generate Tokens).
         /// </summary>
-        [Input("token")]
-        public Input<string>? Token { get; set; }
+        public Input<string>? Token
+        {
+            get => _token;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("tokenHash")]
+        private Input<string>? _tokenHash;
 
         /// <summary>
         /// A bcrypted hash of the attribute 'token'
         /// </summary>
-        [Input("tokenHash")]
-        public Input<string>? TokenHash { get; set; }
+        public Input<string>? TokenHash
+        {
+            get => _tokenHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _tokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// URL of the SonarQube server to connect with.
@@ -235,5 +270,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointSonarQubeState()
         {
         }
+        public static new ServiceEndpointSonarQubeState Empty => new ServiceEndpointSonarQubeState();
     }
 }

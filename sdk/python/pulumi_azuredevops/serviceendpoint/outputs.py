@@ -284,8 +284,6 @@ class KubernetesKubeconfig(dict):
             suggest = "accept_untrusted_certs"
         elif key == "clusterContext":
             suggest = "cluster_context"
-        elif key == "kubeConfigHash":
-            suggest = "kube_config_hash"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesKubeconfig. Access the value via the '{suggest}' property getter instead.")
@@ -301,8 +299,7 @@ class KubernetesKubeconfig(dict):
     def __init__(__self__, *,
                  kube_config: str,
                  accept_untrusted_certs: Optional[bool] = None,
-                 cluster_context: Optional[str] = None,
-                 kube_config_hash: Optional[str] = None):
+                 cluster_context: Optional[str] = None):
         """
         :param str kube_config: The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
         :param bool accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate.
@@ -313,8 +310,6 @@ class KubernetesKubeconfig(dict):
             pulumi.set(__self__, "accept_untrusted_certs", accept_untrusted_certs)
         if cluster_context is not None:
             pulumi.set(__self__, "cluster_context", cluster_context)
-        if kube_config_hash is not None:
-            pulumi.set(__self__, "kube_config_hash", kube_config_hash)
 
     @property
     @pulumi.getter(name="kubeConfig")
@@ -339,11 +334,6 @@ class KubernetesKubeconfig(dict):
         Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
         """
         return pulumi.get(self, "cluster_context")
-
-    @property
-    @pulumi.getter(name="kubeConfigHash")
-    def kube_config_hash(self) -> Optional[str]:
-        return pulumi.get(self, "kube_config_hash")
 
 
 @pulumi.output_type

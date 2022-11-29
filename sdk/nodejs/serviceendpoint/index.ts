@@ -5,18 +5,31 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./azureRM";
-export * from "./bitBucket";
-export * from "./dockerRegistry";
-export * from "./gitHub";
-export * from "./kubernetes";
+export { AzureRMArgs, AzureRMState } from "./azureRM";
+export type AzureRM = import("./azureRM").AzureRM;
+export const AzureRM: typeof import("./azureRM").AzureRM = null as any;
+utilities.lazyLoad(exports, ["AzureRM"], () => require("./azureRM"));
 
-// Import resources to register:
-import { AzureRM } from "./azureRM";
-import { BitBucket } from "./bitBucket";
-import { DockerRegistry } from "./dockerRegistry";
-import { GitHub } from "./gitHub";
-import { Kubernetes } from "./kubernetes";
+export { BitBucketArgs, BitBucketState } from "./bitBucket";
+export type BitBucket = import("./bitBucket").BitBucket;
+export const BitBucket: typeof import("./bitBucket").BitBucket = null as any;
+utilities.lazyLoad(exports, ["BitBucket"], () => require("./bitBucket"));
+
+export { DockerRegistryArgs, DockerRegistryState } from "./dockerRegistry";
+export type DockerRegistry = import("./dockerRegistry").DockerRegistry;
+export const DockerRegistry: typeof import("./dockerRegistry").DockerRegistry = null as any;
+utilities.lazyLoad(exports, ["DockerRegistry"], () => require("./dockerRegistry"));
+
+export { GitHubArgs, GitHubState } from "./gitHub";
+export type GitHub = import("./gitHub").GitHub;
+export const GitHub: typeof import("./gitHub").GitHub = null as any;
+utilities.lazyLoad(exports, ["GitHub"], () => require("./gitHub"));
+
+export { KubernetesArgs, KubernetesState } from "./kubernetes";
+export type Kubernetes = import("./kubernetes").Kubernetes;
+export const Kubernetes: typeof import("./kubernetes").Kubernetes = null as any;
+utilities.lazyLoad(exports, ["Kubernetes"], () => require("./kubernetes"));
+
 
 const _module = {
     version: utilities.getVersion(),

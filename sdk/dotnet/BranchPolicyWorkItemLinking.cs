@@ -15,55 +15,53 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBranchPolicyWorkItemLinking = new AzureDevOps.BranchPolicyWorkItemLinking("exampleBranchPolicyWorkItemLinking", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         Settings = new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsArgs
     ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             Scopes = new[]
     ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleBranchPolicyWorkItemLinking = new AzureDevOps.BranchPolicyWorkItemLinking("exampleBranchPolicyWorkItemLinking", new AzureDevOps.BranchPolicyWorkItemLinkingArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsArgs
-    ///             {
-    ///                 Scopes = 
+    ///                 new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs
     ///                 {
-    ///                     new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = exampleGit.DefaultBranch,
-    ///                         MatchType = "Exact",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = "refs/heads/releases",
-    ///                         MatchType = "Prefix",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs
-    ///                     {
-    ///                         MatchType = "DefaultBranch",
-    ///                     },
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = exampleGit.DefaultBranch,
+    ///                     MatchType = "Exact",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = "refs/heads/releases",
+    ///                     MatchType = "Prefix",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs
+    ///                 {
+    ///                     MatchType = "DefaultBranch",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -78,7 +76,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking")]
-    public partial class BranchPolicyWorkItemLinking : Pulumi.CustomResource
+    public partial class BranchPolicyWorkItemLinking : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -148,7 +146,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class BranchPolicyWorkItemLinkingArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyWorkItemLinkingArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -177,9 +175,10 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyWorkItemLinkingArgs()
         {
         }
+        public static new BranchPolicyWorkItemLinkingArgs Empty => new BranchPolicyWorkItemLinkingArgs();
     }
 
-    public sealed class BranchPolicyWorkItemLinkingState : Pulumi.ResourceArgs
+    public sealed class BranchPolicyWorkItemLinkingState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -208,5 +207,6 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyWorkItemLinkingState()
         {
         }
+        public static new BranchPolicyWorkItemLinkingState Empty => new BranchPolicyWorkItemLinkingState();
     }
 }

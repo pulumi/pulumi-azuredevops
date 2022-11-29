@@ -40,6 +40,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BuildDefinition{}
 	case "azuredevops:index/buildDefinitionPermissions:BuildDefinitionPermissions":
 		r = &BuildDefinitionPermissions{}
+	case "azuredevops:index/buildFolder:BuildFolder":
+		r = &BuildFolder{}
+	case "azuredevops:index/buildFolderPermissions:BuildFolderPermissions":
+		r = &BuildFolderPermissions{}
 	case "azuredevops:index/environment:Environment":
 		r = &Environment{}
 	case "azuredevops:index/git:Git":
@@ -112,6 +116,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointPipeline{}
 	case "azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric":
 		r = &ServiceEndpointServiceFabric{}
+	case "azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud":
+		r = &ServiceEndpointSonarCloud{}
 	case "azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube":
 		r = &ServiceEndpointSonarQube{}
 	case "azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh":
@@ -216,6 +222,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/buildDefinitionPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/buildFolder",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/buildFolderPermissions",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -396,6 +412,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceEndpointServiceFabric",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceEndpointSonarCloud",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

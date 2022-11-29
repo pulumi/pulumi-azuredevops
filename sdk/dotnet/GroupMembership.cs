@@ -15,36 +15,35 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///         });
-    ///         var exampleUser = new AzureDevOps.User("exampleUser", new AzureDevOps.UserArgs
-    ///         {
-    ///             PrincipalName = "foo@contoso.com",
-    ///         });
-    ///         var exampleGroup = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Name = "Build Administrators",
-    ///         });
-    ///         var exampleGroupMembership = new AzureDevOps.GroupMembership("exampleGroupMembership", new AzureDevOps.GroupMembershipArgs
-    ///         {
-    ///             Group = exampleGroup.Apply(exampleGroup =&gt; exampleGroup.Descriptor),
-    ///             Members = 
-    ///             {
-    ///                 exampleUser.Descriptor,
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
     /// 
-    /// }
+    ///     var exampleUser = new AzureDevOps.User("exampleUser", new()
+    ///     {
+    ///         PrincipalName = "foo@contoso.com",
+    ///     });
+    /// 
+    ///     var exampleGroup = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Build Administrators",
+    ///     });
+    /// 
+    ///     var exampleGroupMembership = new AzureDevOps.GroupMembership("exampleGroupMembership", new()
+    ///     {
+    ///         Group = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+    ///         Members = new[]
+    ///         {
+    ///             exampleUser.Descriptor,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -59,7 +58,7 @@ namespace Pulumi.AzureDevOps
     /// Not supported.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/groupMembership:GroupMembership")]
-    public partial class GroupMembership : Pulumi.CustomResource
+    public partial class GroupMembership : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The descriptor of the group being managed.
@@ -108,7 +107,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:Identities/groupMembership:GroupMembership"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Identities/groupMembership:GroupMembership"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -131,7 +130,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class GroupMembershipArgs : Pulumi.ResourceArgs
+    public sealed class GroupMembershipArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The descriptor of the group being managed.
@@ -164,9 +163,10 @@ namespace Pulumi.AzureDevOps
         public GroupMembershipArgs()
         {
         }
+        public static new GroupMembershipArgs Empty => new GroupMembershipArgs();
     }
 
-    public sealed class GroupMembershipState : Pulumi.ResourceArgs
+    public sealed class GroupMembershipState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The descriptor of the group being managed.
@@ -199,5 +199,6 @@ namespace Pulumi.AzureDevOps
         public GroupMembershipState()
         {
         }
+        public static new GroupMembershipState Empty => new GroupMembershipState();
     }
 }

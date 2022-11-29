@@ -21,69 +21,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Name:      pulumi.String("Readers"),
-// 		}, nil)
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Path:      pulumi.String("\\ExampleFolder"),
-// 			CiTrigger: &BuildDefinitionCiTriggerArgs{
-// 				UseYaml: pulumi.Bool(true),
-// 			},
-// 			Repository: &BuildDefinitionRepositoryArgs{
-// 				RepoType:   pulumi.String("TfsGit"),
-// 				RepoId:     exampleGit.ID(),
-// 				BranchName: exampleGit.DefaultBranch,
-// 				YmlPath:    pulumi.String("azure-pipelines.yml"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "exampleBuildDefinitionPermissions", &azuredevops.BuildDefinitionPermissionsArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-// 				return example_readers.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			BuildDefinitionId: exampleBuildDefinition.ID(),
-// 			Permissions: pulumi.StringMap{
-// 				"ViewBuilds":       pulumi.String("Allow"),
-// 				"EditBuildQuality": pulumi.String("Deny"),
-// 				"DeleteBuilds":     pulumi.String("Deny"),
-// 				"StopBuilds":       pulumi.String("Allow"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
+//				ProjectId: exampleProject.ID(),
+//				Path:      pulumi.String("\\ExampleFolder"),
+//				CiTrigger: &BuildDefinitionCiTriggerArgs{
+//					UseYaml: pulumi.Bool(true),
+//				},
+//				Repository: &BuildDefinitionRepositoryArgs{
+//					RepoType:   pulumi.String("TfsGit"),
+//					RepoId:     exampleGit.ID(),
+//					BranchName: exampleGit.DefaultBranch,
+//					YmlPath:    pulumi.String("azure-pipelines.yml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "exampleBuildDefinitionPermissions", &azuredevops.BuildDefinitionPermissionsArgs{
+//				ProjectId: exampleProject.ID(),
+//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+//					return example_readers.Id, nil
+//				}).(pulumi.StringOutput),
+//				BuildDefinitionId: exampleBuildDefinition.ID(),
+//				Permissions: pulumi.StringMap{
+//					"ViewBuilds":       pulumi.String("Allow"),
+//					"EditBuildQuality": pulumi.String("Deny"),
+//					"DeleteBuilds":     pulumi.String("Deny"),
+//					"StopBuilds":       pulumi.String("Allow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -234,7 +237,7 @@ func (i *BuildDefinitionPermissions) ToBuildDefinitionPermissionsOutputWithConte
 // BuildDefinitionPermissionsArrayInput is an input type that accepts BuildDefinitionPermissionsArray and BuildDefinitionPermissionsArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionPermissionsArrayInput` via:
 //
-//          BuildDefinitionPermissionsArray{ BuildDefinitionPermissionsArgs{...} }
+//	BuildDefinitionPermissionsArray{ BuildDefinitionPermissionsArgs{...} }
 type BuildDefinitionPermissionsArrayInput interface {
 	pulumi.Input
 
@@ -259,7 +262,7 @@ func (i BuildDefinitionPermissionsArray) ToBuildDefinitionPermissionsArrayOutput
 // BuildDefinitionPermissionsMapInput is an input type that accepts BuildDefinitionPermissionsMap and BuildDefinitionPermissionsMapOutput values.
 // You can construct a concrete instance of `BuildDefinitionPermissionsMapInput` via:
 //
-//          BuildDefinitionPermissionsMap{ "key": BuildDefinitionPermissionsArgs{...} }
+//	BuildDefinitionPermissionsMap{ "key": BuildDefinitionPermissionsArgs{...} }
 type BuildDefinitionPermissionsMapInput interface {
 	pulumi.Input
 

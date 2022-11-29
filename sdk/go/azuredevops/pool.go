@@ -18,21 +18,24 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewPool(ctx, "example", &azuredevops.PoolArgs{
-// 			AutoProvision: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azuredevops.NewPool(ctx, "example", &azuredevops.PoolArgs{
+//				AutoProvision: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -43,7 +46,9 @@ import (
 // Azure DevOps Agent Pools can be imported using the agent pool ID, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/pool:Pool example 0
+//
+//	$ pulumi import azuredevops:index/pool:Pool example 0
+//
 // ```
 type Pool struct {
 	pulumi.CustomResourceState
@@ -157,7 +162,7 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 // PoolArrayInput is an input type that accepts PoolArray and PoolArrayOutput values.
 // You can construct a concrete instance of `PoolArrayInput` via:
 //
-//          PoolArray{ PoolArgs{...} }
+//	PoolArray{ PoolArgs{...} }
 type PoolArrayInput interface {
 	pulumi.Input
 
@@ -182,7 +187,7 @@ func (i PoolArray) ToPoolArrayOutputWithContext(ctx context.Context) PoolArrayOu
 // PoolMapInput is an input type that accepts PoolMap and PoolMapOutput values.
 // You can construct a concrete instance of `PoolMapInput` via:
 //
-//          PoolMap{ "key": PoolArgs{...} }
+//	PoolMap{ "key": PoolArgs{...} }
 type PoolMapInput interface {
 	pulumi.Input
 

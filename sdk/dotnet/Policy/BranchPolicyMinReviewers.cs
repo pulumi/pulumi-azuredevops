@@ -15,61 +15,59 @@ namespace Pulumi.AzureDevOps.Policy
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBranchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers("exampleBranchPolicyMinReviewers", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         Settings = new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsArgs
     ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             ReviewerCount = 7,
+    ///             SubmitterCanVote = false,
+    ///             LastPusherCannotApprove = true,
+    ///             AllowCompletionWithRejectsOrWaits = false,
+    ///             OnPushResetApprovedVotes = true,
+    ///             OnLastIterationRequireVote = false,
+    ///             Scopes = new[]
     ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleBranchPolicyMinReviewers = new AzureDevOps.BranchPolicyMinReviewers("exampleBranchPolicyMinReviewers", new AzureDevOps.BranchPolicyMinReviewersArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsArgs
-    ///             {
-    ///                 ReviewerCount = 7,
-    ///                 SubmitterCanVote = false,
-    ///                 LastPusherCannotApprove = true,
-    ///                 AllowCompletionWithRejectsOrWaits = false,
-    ///                 OnPushResetApprovedVotes = true,
-    ///                 OnLastIterationRequireVote = false,
-    ///                 Scopes = 
+    ///                 new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
     ///                 {
-    ///                     new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = exampleGit.DefaultBranch,
-    ///                         MatchType = "Exact",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = null,
-    ///                         RepositoryRef = "refs/heads/releases",
-    ///                         MatchType = "Prefix",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
-    ///                     {
-    ///                         MatchType = "DefaultBranch",
-    ///                     },
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = exampleGit.DefaultBranch,
+    ///                     MatchType = "Exact",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = null,
+    ///                     RepositoryRef = "refs/heads/releases",
+    ///                     MatchType = "Prefix",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyMinReviewersSettingsScopeArgs
+    ///                 {
+    ///                     MatchType = "DefaultBranch",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -85,7 +83,7 @@ namespace Pulumi.AzureDevOps.Policy
     /// </summary>
     [Obsolete(@"azuredevops.policy.BranchPolicyMinReviewers has been deprecated in favor of azuredevops.BranchPolicyMinReviewers")]
     [AzureDevOpsResourceType("azuredevops:Policy/branchPolicyMinReviewers:BranchPolicyMinReviewers")]
-    public partial class BranchPolicyMinReviewers : Pulumi.CustomResource
+    public partial class BranchPolicyMinReviewers : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -155,7 +153,7 @@ namespace Pulumi.AzureDevOps.Policy
         }
     }
 
-    public sealed class BranchPolicyMinReviewersArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyMinReviewersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -184,9 +182,10 @@ namespace Pulumi.AzureDevOps.Policy
         public BranchPolicyMinReviewersArgs()
         {
         }
+        public static new BranchPolicyMinReviewersArgs Empty => new BranchPolicyMinReviewersArgs();
     }
 
-    public sealed class BranchPolicyMinReviewersState : Pulumi.ResourceArgs
+    public sealed class BranchPolicyMinReviewersState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -215,5 +214,6 @@ namespace Pulumi.AzureDevOps.Policy
         public BranchPolicyMinReviewersState()
         {
         }
+        public static new BranchPolicyMinReviewersState Empty => new BranchPolicyMinReviewersState();
     }
 }

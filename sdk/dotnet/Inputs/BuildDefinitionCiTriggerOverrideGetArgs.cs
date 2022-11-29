@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BuildDefinitionCiTriggerOverrideGetArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionCiTriggerOverrideGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
@@ -63,5 +63,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BuildDefinitionCiTriggerOverrideGetArgs()
         {
         }
+        public static new BuildDefinitionCiTriggerOverrideGetArgs Empty => new BuildDefinitionCiTriggerOverrideGetArgs();
     }
 }

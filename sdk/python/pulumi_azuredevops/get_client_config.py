@@ -55,16 +55,6 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
 def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientConfigResult:
     """
     Use this data source to access information about the Azure DevOps organization configured for the provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_client_config()
-    pulumi.export("orgUrl", example.organization_url)
-    ```
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)

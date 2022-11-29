@@ -19,29 +19,24 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = AzureDevOps.GetPool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(AzureDevOps.GetPool.InvokeAsync(new AzureDevOps.GetPoolArgs
-        ///         {
-        ///             Name = "Example Agent Pool",
-        ///         }));
-        ///         this.Name = example.Apply(example =&gt; example.Name);
-        ///         this.PoolType = example.Apply(example =&gt; example.PoolType);
-        ///         this.AutoProvision = example.Apply(example =&gt; example.AutoProvision);
-        ///     }
+        ///         Name = "Example Agent Pool",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("poolType")]
-        ///     public Output&lt;string&gt; PoolType { get; set; }
-        ///     [Output("autoProvision")]
-        ///     public Output&lt;string&gt; AutoProvision { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = example.Apply(getPoolResult =&gt; getPoolResult.Name),
+        ///         ["poolType"] = example.Apply(getPoolResult =&gt; getPoolResult.PoolType),
+        ///         ["autoProvision"] = example.Apply(getPoolResult =&gt; getPoolResult.AutoProvision),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -50,7 +45,7 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetPoolResult> InvokeAsync(GetPoolArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azuredevops:index/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolResult>("azuredevops:index/getPool:getPool", args ?? new GetPoolArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Agent Pool within Azure DevOps.
@@ -60,29 +55,24 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = AzureDevOps.GetPool.Invoke(new()
         ///     {
-        ///         var example = Output.Create(AzureDevOps.GetPool.InvokeAsync(new AzureDevOps.GetPoolArgs
-        ///         {
-        ///             Name = "Example Agent Pool",
-        ///         }));
-        ///         this.Name = example.Apply(example =&gt; example.Name);
-        ///         this.PoolType = example.Apply(example =&gt; example.PoolType);
-        ///         this.AutoProvision = example.Apply(example =&gt; example.AutoProvision);
-        ///     }
+        ///         Name = "Example Agent Pool",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("poolType")]
-        ///     public Output&lt;string&gt; PoolType { get; set; }
-        ///     [Output("autoProvision")]
-        ///     public Output&lt;string&gt; AutoProvision { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = example.Apply(getPoolResult =&gt; getPoolResult.Name),
+        ///         ["poolType"] = example.Apply(getPoolResult =&gt; getPoolResult.PoolType),
+        ///         ["autoProvision"] = example.Apply(getPoolResult =&gt; getPoolResult.AutoProvision),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -91,11 +81,11 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetPoolResult> Invoke(GetPoolInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azuredevops:index/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolResult>("azuredevops:index/getPool:getPool", args ?? new GetPoolInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetPoolArgs : Pulumi.InvokeArgs
+    public sealed class GetPoolArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Agent Pool.
@@ -106,9 +96,10 @@ namespace Pulumi.AzureDevOps
         public GetPoolArgs()
         {
         }
+        public static new GetPoolArgs Empty => new GetPoolArgs();
     }
 
-    public sealed class GetPoolInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetPoolInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Agent Pool.
@@ -119,6 +110,7 @@ namespace Pulumi.AzureDevOps
         public GetPoolInvokeArgs()
         {
         }
+        public static new GetPoolInvokeArgs Empty => new GetPoolInvokeArgs();
     }
 
 

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class ServiceEndpointGitHubAuthOauthGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointGitHubAuthOauthGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("oauthConfigurationId", required: true)]
         public Input<string> OauthConfigurationId { get; set; } = null!;
@@ -18,5 +18,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public ServiceEndpointGitHubAuthOauthGetArgs()
         {
         }
+        public static new ServiceEndpointGitHubAuthOauthGetArgs Empty => new ServiceEndpointGitHubAuthOauthGetArgs();
     }
 }

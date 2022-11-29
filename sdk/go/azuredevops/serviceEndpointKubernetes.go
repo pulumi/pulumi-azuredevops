@@ -22,7 +22,9 @@ import (
 // Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointKubernetes struct {
 	pulumi.CustomResourceState
@@ -36,7 +38,7 @@ type ServiceEndpointKubernetes struct {
 	AzureSubscriptions ServiceEndpointKubernetesAzureSubscriptionArrayOutput `pulumi:"azureSubscriptions"`
 	Description        pulumi.StringPtrOutput                                `pulumi:"description"`
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs ServiceEndpointKubernetesKubeconfigArrayOutput `pulumi:"kubeconfigs"`
+	Kubeconfig ServiceEndpointKubernetesKubeconfigPtrOutput `pulumi:"kubeconfig"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// A `serviceAccount` block defined blow.
@@ -101,7 +103,7 @@ type serviceEndpointKubernetesState struct {
 	AzureSubscriptions []ServiceEndpointKubernetesAzureSubscription `pulumi:"azureSubscriptions"`
 	Description        *string                                      `pulumi:"description"`
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs []ServiceEndpointKubernetesKubeconfig `pulumi:"kubeconfigs"`
+	Kubeconfig *ServiceEndpointKubernetesKubeconfig `pulumi:"kubeconfig"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// A `serviceAccount` block defined blow.
@@ -120,7 +122,7 @@ type ServiceEndpointKubernetesState struct {
 	AzureSubscriptions ServiceEndpointKubernetesAzureSubscriptionArrayInput
 	Description        pulumi.StringPtrInput
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs ServiceEndpointKubernetesKubeconfigArrayInput
+	Kubeconfig ServiceEndpointKubernetesKubeconfigPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// A `serviceAccount` block defined blow.
@@ -143,7 +145,7 @@ type serviceEndpointKubernetesArgs struct {
 	AzureSubscriptions []ServiceEndpointKubernetesAzureSubscription `pulumi:"azureSubscriptions"`
 	Description        *string                                      `pulumi:"description"`
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs []ServiceEndpointKubernetesKubeconfig `pulumi:"kubeconfigs"`
+	Kubeconfig *ServiceEndpointKubernetesKubeconfig `pulumi:"kubeconfig"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// A `serviceAccount` block defined blow.
@@ -163,7 +165,7 @@ type ServiceEndpointKubernetesArgs struct {
 	AzureSubscriptions ServiceEndpointKubernetesAzureSubscriptionArrayInput
 	Description        pulumi.StringPtrInput
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs ServiceEndpointKubernetesKubeconfigArrayInput
+	Kubeconfig ServiceEndpointKubernetesKubeconfigPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// A `serviceAccount` block defined blow.
@@ -198,7 +200,7 @@ func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutputWithContext
 // ServiceEndpointKubernetesArrayInput is an input type that accepts ServiceEndpointKubernetesArray and ServiceEndpointKubernetesArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointKubernetesArrayInput` via:
 //
-//          ServiceEndpointKubernetesArray{ ServiceEndpointKubernetesArgs{...} }
+//	ServiceEndpointKubernetesArray{ ServiceEndpointKubernetesArgs{...} }
 type ServiceEndpointKubernetesArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +225,7 @@ func (i ServiceEndpointKubernetesArray) ToServiceEndpointKubernetesArrayOutputWi
 // ServiceEndpointKubernetesMapInput is an input type that accepts ServiceEndpointKubernetesMap and ServiceEndpointKubernetesMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointKubernetesMapInput` via:
 //
-//          ServiceEndpointKubernetesMap{ "key": ServiceEndpointKubernetesArgs{...} }
+//	ServiceEndpointKubernetesMap{ "key": ServiceEndpointKubernetesArgs{...} }
 type ServiceEndpointKubernetesMapInput interface {
 	pulumi.Input
 
@@ -285,10 +287,8 @@ func (o ServiceEndpointKubernetesOutput) Description() pulumi.StringPtrOutput {
 }
 
 // A `kubeconfig` block defined blow.
-func (o ServiceEndpointKubernetesOutput) Kubeconfigs() ServiceEndpointKubernetesKubeconfigArrayOutput {
-	return o.ApplyT(func(v *ServiceEndpointKubernetes) ServiceEndpointKubernetesKubeconfigArrayOutput {
-		return v.Kubeconfigs
-	}).(ServiceEndpointKubernetesKubeconfigArrayOutput)
+func (o ServiceEndpointKubernetesOutput) Kubeconfig() ServiceEndpointKubernetesKubeconfigPtrOutput {
+	return o.ApplyT(func(v *ServiceEndpointKubernetes) ServiceEndpointKubernetesKubeconfigPtrOutput { return v.Kubeconfig }).(ServiceEndpointKubernetesKubeconfigPtrOutput)
 }
 
 // The ID of the project.

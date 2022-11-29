@@ -19,25 +19,25 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var example = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var example_all_groups = Output.Create(AzureDevOps.GetGroups.InvokeAsync());
-        ///         var example_project_groups = example.Apply(example =&gt; Output.Create(AzureDevOps.GetGroups.InvokeAsync(new AzureDevOps.GetGroupsArgs
-        ///         {
-        ///             ProjectId = example.Id,
-        ///         })));
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        /// }
+        ///     var example_all_groups = AzureDevOps.GetGroups.Invoke();
+        /// 
+        ///     var example_project_groups = AzureDevOps.GetGroups.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -46,7 +46,7 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetGroupsResult> InvokeAsync(GetGroupsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetGroupsResult>("azuredevops:index/getGroups:getGroups", args ?? new GetGroupsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetGroupsResult>("azuredevops:index/getGroups:getGroups", args ?? new GetGroupsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about existing Groups within Azure DevOps
@@ -56,25 +56,25 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var example = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var example_all_groups = Output.Create(AzureDevOps.GetGroups.InvokeAsync());
-        ///         var example_project_groups = example.Apply(example =&gt; Output.Create(AzureDevOps.GetGroups.InvokeAsync(new AzureDevOps.GetGroupsArgs
-        ///         {
-        ///             ProjectId = example.Id,
-        ///         })));
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        /// }
+        ///     var example_all_groups = AzureDevOps.GetGroups.Invoke();
+        /// 
+        ///     var example_project_groups = AzureDevOps.GetGroups.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -83,11 +83,11 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetGroupsResult> Invoke(GetGroupsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetGroupsResult>("azuredevops:index/getGroups:getGroups", args ?? new GetGroupsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetGroupsResult>("azuredevops:index/getGroups:getGroups", args ?? new GetGroupsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetGroupsArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Project ID. If no project ID is specified all groups of an organization will be returned
@@ -98,9 +98,10 @@ namespace Pulumi.AzureDevOps
         public GetGroupsArgs()
         {
         }
+        public static new GetGroupsArgs Empty => new GetGroupsArgs();
     }
 
-    public sealed class GetGroupsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetGroupsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Project ID. If no project ID is specified all groups of an organization will be returned
@@ -111,6 +112,7 @@ namespace Pulumi.AzureDevOps
         public GetGroupsInvokeArgs()
         {
         }
+        public static new GetGroupsInvokeArgs Empty => new GetGroupsInvokeArgs();
     }
 
 

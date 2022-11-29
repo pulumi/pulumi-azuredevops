@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceendpointIncomingwebhook(ctx, "exampleServiceendpointIncomingwebhook", &azuredevops.ServiceendpointIncomingwebhookArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			WebhookName:         pulumi.String("example_webhook"),
-// 			Secret:              pulumi.String("secret"),
-// 			HttpHeader:          pulumi.String("X-Hub-Signature"),
-// 			ServiceEndpointName: pulumi.String("Example IncomingWebhook"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceendpointIncomingwebhook(ctx, "exampleServiceendpointIncomingwebhook", &azuredevops.ServiceendpointIncomingwebhookArgs{
+//				ProjectId:           exampleProject.ID(),
+//				WebhookName:         pulumi.String("example_webhook"),
+//				Secret:              pulumi.String("secret"),
+//				HttpHeader:          pulumi.String("X-Hub-Signature"),
+//				ServiceEndpointName: pulumi.String("Example IncomingWebhook"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Import
@@ -55,7 +58,9 @@ import (
 // Azure DevOps Service Endpoint Incoming WebHook can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceendpointIncomingwebhook struct {
 	pulumi.CustomResourceState
@@ -90,6 +95,13 @@ func NewServiceendpointIncomingwebhook(ctx *pulumi.Context,
 	if args.WebhookName == nil {
 		return nil, errors.New("invalid value for required argument 'WebhookName'")
 	}
+	if args.Secret != nil {
+		args.Secret = pulumi.ToSecret(args.Secret).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"secret",
+	})
+	opts = append(opts, secrets)
 	var resource ServiceendpointIncomingwebhook
 	err := ctx.RegisterResource("azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook", name, args, &resource, opts...)
 	if err != nil {
@@ -202,7 +214,7 @@ func (i *ServiceendpointIncomingwebhook) ToServiceendpointIncomingwebhookOutputW
 // ServiceendpointIncomingwebhookArrayInput is an input type that accepts ServiceendpointIncomingwebhookArray and ServiceendpointIncomingwebhookArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointIncomingwebhookArrayInput` via:
 //
-//          ServiceendpointIncomingwebhookArray{ ServiceendpointIncomingwebhookArgs{...} }
+//	ServiceendpointIncomingwebhookArray{ ServiceendpointIncomingwebhookArgs{...} }
 type ServiceendpointIncomingwebhookArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +239,7 @@ func (i ServiceendpointIncomingwebhookArray) ToServiceendpointIncomingwebhookArr
 // ServiceendpointIncomingwebhookMapInput is an input type that accepts ServiceendpointIncomingwebhookMap and ServiceendpointIncomingwebhookMapOutput values.
 // You can construct a concrete instance of `ServiceendpointIncomingwebhookMapInput` via:
 //
-//          ServiceendpointIncomingwebhookMap{ "key": ServiceendpointIncomingwebhookArgs{...} }
+//	ServiceendpointIncomingwebhookMap{ "key": ServiceendpointIncomingwebhookArgs{...} }
 type ServiceendpointIncomingwebhookMapInput interface {
 	pulumi.Input
 

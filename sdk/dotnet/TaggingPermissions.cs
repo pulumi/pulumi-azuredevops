@@ -20,40 +20,40 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var example_permissions = new AzureDevOps.TaggingPermissions("example-permissions", new AzureDevOps.TaggingPermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             Permissions = 
-    ///             {
-    ///                 { "Enumerate", "allow" },
-    ///                 { "Create", "allow" },
-    ///                 { "Update", "allow" },
-    ///                 { "Delete", "allow" },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.TaggingPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "Enumerate", "allow" },
+    ///             { "Create", "allow" },
+    ///             { "Update", "allow" },
+    ///             { "Delete", "allow" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -68,7 +68,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/taggingPermissions:TaggingPermissions")]
-    public partial class TaggingPermissions : Pulumi.CustomResource
+    public partial class TaggingPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the permissions to assign. The following permissions are available.
@@ -138,7 +138,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class TaggingPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class TaggingPermissionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("permissions", required: true)]
         private InputMap<string>? _permissions;
@@ -173,9 +173,10 @@ namespace Pulumi.AzureDevOps
         public TaggingPermissionsArgs()
         {
         }
+        public static new TaggingPermissionsArgs Empty => new TaggingPermissionsArgs();
     }
 
-    public sealed class TaggingPermissionsState : Pulumi.ResourceArgs
+    public sealed class TaggingPermissionsState : global::Pulumi.ResourceArgs
     {
         [Input("permissions")]
         private InputMap<string>? _permissions;
@@ -210,5 +211,6 @@ namespace Pulumi.AzureDevOps
         public TaggingPermissionsState()
         {
         }
+        public static new TaggingPermissionsState Empty => new TaggingPermissionsState();
     }
 }

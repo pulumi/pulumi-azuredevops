@@ -15,32 +15,31 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceendpointIncomingwebhook = new AzureDevOps.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook", new AzureDevOps.ServiceendpointIncomingwebhookArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             WebhookName = "example_webhook",
-    ///             Secret = "secret",
-    ///             HttpHeader = "X-Hub-Signature",
-    ///             ServiceEndpointName = "Example IncomingWebhook",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceendpointIncomingwebhook = new AzureDevOps.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         WebhookName = "example_webhook",
+    ///         Secret = "secret",
+    ///         HttpHeader = "X-Hub-Signature",
+    ///         ServiceEndpointName = "Example IncomingWebhook",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Import
@@ -52,7 +51,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook")]
-    public partial class ServiceendpointIncomingwebhook : Pulumi.CustomResource
+    public partial class ServiceendpointIncomingwebhook : global::Pulumi.CustomResource
     {
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -113,6 +112,10 @@ namespace Pulumi.AzureDevOps
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "secret",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -134,7 +137,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceendpointIncomingwebhookArgs : Pulumi.ResourceArgs
+    public sealed class ServiceendpointIncomingwebhookArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -159,11 +162,21 @@ namespace Pulumi.AzureDevOps
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
 
+        [Input("secret")]
+        private Input<string>? _secret;
+
         /// <summary>
         /// Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
         /// </summary>
-        [Input("secret")]
-        public Input<string>? Secret { get; set; }
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the service endpoint. Changing this forces a new Service Connection Incoming WebHook to be created.
@@ -180,9 +193,10 @@ namespace Pulumi.AzureDevOps
         public ServiceendpointIncomingwebhookArgs()
         {
         }
+        public static new ServiceendpointIncomingwebhookArgs Empty => new ServiceendpointIncomingwebhookArgs();
     }
 
-    public sealed class ServiceendpointIncomingwebhookState : Pulumi.ResourceArgs
+    public sealed class ServiceendpointIncomingwebhookState : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -207,11 +221,21 @@ namespace Pulumi.AzureDevOps
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
 
+        [Input("secret")]
+        private Input<string>? _secret;
+
         /// <summary>
         /// Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
         /// </summary>
-        [Input("secret")]
-        public Input<string>? Secret { get; set; }
+        public Input<string>? Secret
+        {
+            get => _secret;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secret = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The name of the service endpoint. Changing this forces a new Service Connection Incoming WebHook to be created.
@@ -228,5 +252,6 @@ namespace Pulumi.AzureDevOps
         public ServiceendpointIncomingwebhookState()
         {
         }
+        public static new ServiceendpointIncomingwebhookState Empty => new ServiceendpointIncomingwebhookState();
     }
 }

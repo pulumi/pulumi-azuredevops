@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
     [AzureDevOpsResourceType("pulumi:providers:azuredevops")]
-    public partial class Provider : Pulumi.ProviderResource
+    public partial class Provider : global::Pulumi.ProviderResource
     {
         /// <summary>
         /// The url of the Azure DevOps instance which should be used.
@@ -48,6 +48,10 @@ namespace Pulumi.AzureDevOps
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "personalAccessToken",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -56,7 +60,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ProviderArgs : Pulumi.ResourceArgs
+    public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The url of the Azure DevOps instance which should be used.
@@ -64,15 +68,26 @@ namespace Pulumi.AzureDevOps
         [Input("orgServiceUrl")]
         public Input<string>? OrgServiceUrl { get; set; }
 
+        [Input("personalAccessToken")]
+        private Input<string>? _personalAccessToken;
+
         /// <summary>
         /// The personal access token which should be used.
         /// </summary>
-        [Input("personalAccessToken")]
-        public Input<string>? PersonalAccessToken { get; set; }
+        public Input<string>? PersonalAccessToken
+        {
+            get => _personalAccessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _personalAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ProviderArgs()
         {
             OrgServiceUrl = Utilities.GetEnv("AZDO_ORG_SERVICE_URL");
         }
+        public static new ProviderArgs Empty => new ProviderArgs();
     }
 }

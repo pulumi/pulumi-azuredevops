@@ -15,60 +15,59 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleUser = new AzureDevOps.User("exampleUser", new AzureDevOps.UserArgs
-    ///         {
-    ///             PrincipalName = "mail@email.com",
-    ///             AccountLicenseType = "basic",
-    ///         });
-    ///         var exampleBranchPolicyAutoReviewers = new AzureDevOps.BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers", new AzureDevOps.BranchPolicyAutoReviewersArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Inputs.BranchPolicyAutoReviewersSettingsArgs
-    ///             {
-    ///                 AutoReviewerIds = 
-    ///                 {
-    ///                     exampleUser.Id,
-    ///                 },
-    ///                 SubmitterCanVote = false,
-    ///                 Message = "Auto reviewer",
-    ///                 PathFilters = 
-    ///                 {
-    ///                     "*/src/*.ts",
-    ///                 },
-    ///                 Scopes = 
-    ///                 {
-    ///                     new AzureDevOps.Inputs.BranchPolicyAutoReviewersSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = exampleGit.DefaultBranch,
-    ///                         MatchType = "Exact",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         });
-    ///     }
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
     /// 
-    /// }
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleUser = new AzureDevOps.User("exampleUser", new()
+    ///     {
+    ///         PrincipalName = "mail@email.com",
+    ///         AccountLicenseType = "basic",
+    ///     });
+    /// 
+    ///     var exampleBranchPolicyAutoReviewers = new AzureDevOps.BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         Settings = new AzureDevOps.Inputs.BranchPolicyAutoReviewersSettingsArgs
+    ///         {
+    ///             AutoReviewerIds = new[]
+    ///             {
+    ///                 exampleUser.Id,
+    ///             },
+    ///             SubmitterCanVote = false,
+    ///             Message = "Auto reviewer",
+    ///             PathFilters = new[]
+    ///             {
+    ///                 "*/src/*.ts",
+    ///             },
+    ///             Scopes = new[]
+    ///             {
+    ///                 new AzureDevOps.Inputs.BranchPolicyAutoReviewersSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = exampleGit.DefaultBranch,
+    ///                     MatchType = "Exact",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -83,7 +82,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers")]
-    public partial class BranchPolicyAutoReviewers : Pulumi.CustomResource
+    public partial class BranchPolicyAutoReviewers : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
@@ -153,7 +152,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class BranchPolicyAutoReviewersArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyAutoReviewersArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
@@ -182,9 +181,10 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyAutoReviewersArgs()
         {
         }
+        public static new BranchPolicyAutoReviewersArgs Empty => new BranchPolicyAutoReviewersArgs();
     }
 
-    public sealed class BranchPolicyAutoReviewersState : Pulumi.ResourceArgs
+    public sealed class BranchPolicyAutoReviewersState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
@@ -213,5 +213,6 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyAutoReviewersState()
         {
         }
+        public static new BranchPolicyAutoReviewersState Empty => new BranchPolicyAutoReviewersState();
     }
 }

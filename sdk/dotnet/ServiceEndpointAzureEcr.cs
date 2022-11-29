@@ -15,34 +15,33 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         // azure container registry service connection
-    ///         var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr", new AzureDevOps.ServiceEndpointAzureEcrArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example AzureCR",
-    ///             ResourceGroup = "example-rg",
-    ///             AzurecrSpnTenantid = "00000000-0000-0000-0000-000000000000",
-    ///             AzurecrName = "ExampleAcr",
-    ///             AzurecrSubscriptionId = "00000000-0000-0000-0000-000000000000",
-    ///             AzurecrSubscriptionName = "subscription name",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     // azure container registry service connection
+    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example AzureCR",
+    ///         ResourceGroup = "example-rg",
+    ///         AzurecrSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurecrName = "ExampleAcr",
+    ///         AzurecrSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         AzurecrSubscriptionName = "subscription name",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -58,7 +57,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr")]
-    public partial class ServiceEndpointAzureEcr : Pulumi.CustomResource
+    public partial class ServiceEndpointAzureEcr : global::Pulumi.CustomResource
     {
         [Output("appObjectId")]
         public Output<string> AppObjectId { get; private set; } = null!;
@@ -170,7 +169,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointAzureEcrArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointAzureEcrArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -228,9 +227,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointAzureEcrArgs()
         {
         }
+        public static new ServiceEndpointAzureEcrArgs Empty => new ServiceEndpointAzureEcrArgs();
     }
 
-    public sealed class ServiceEndpointAzureEcrState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointAzureEcrState : global::Pulumi.ResourceArgs
     {
         [Input("appObjectId")]
         public Input<string>? AppObjectId { get; set; }
@@ -306,5 +306,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointAzureEcrState()
         {
         }
+        public static new ServiceEndpointAzureEcrState Empty => new ServiceEndpointAzureEcrState();
     }
 }

@@ -19,34 +19,32 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
         ///     {
-        ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-        ///         {
-        ///             WorkItemTemplate = "Agile",
-        ///             VersionControl = "Git",
-        ///             Visibility = "private",
-        ///             Description = "Managed by Terraform",
-        ///         });
-        ///         var exampleAgentQueue = AzureDevOps.GetAgentQueue.Invoke(new AzureDevOps.GetAgentQueueInvokeArgs
-        ///         {
-        ///             ProjectId = exampleProject.Id,
-        ///             Name = "Example Agent Queue",
-        ///         });
-        ///         this.Name = exampleAgentQueue.Apply(exampleAgentQueue =&gt; exampleAgentQueue.Name);
-        ///         this.PoolId = exampleAgentQueue.Apply(exampleAgentQueue =&gt; exampleAgentQueue.AgentPoolId);
-        ///     }
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Terraform",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("poolId")]
-        ///     public Output&lt;string&gt; PoolId { get; set; }
-        /// }
+        ///     var exampleAgentQueue = AzureDevOps.GetAgentQueue.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Name = "Example Agent Queue",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = exampleAgentQueue.Apply(getAgentQueueResult =&gt; getAgentQueueResult.Name),
+        ///         ["poolId"] = exampleAgentQueue.Apply(getAgentQueueResult =&gt; getAgentQueueResult.AgentPoolId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -55,7 +53,7 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetAgentQueueResult> InvokeAsync(GetAgentQueueArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetAgentQueueResult>("azuredevops:index/getAgentQueue:getAgentQueue", args ?? new GetAgentQueueArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetAgentQueueResult>("azuredevops:index/getAgentQueue:getAgentQueue", args ?? new GetAgentQueueArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Agent Queue within Azure DevOps.
@@ -65,34 +63,32 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
         ///     {
-        ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-        ///         {
-        ///             WorkItemTemplate = "Agile",
-        ///             VersionControl = "Git",
-        ///             Visibility = "private",
-        ///             Description = "Managed by Terraform",
-        ///         });
-        ///         var exampleAgentQueue = AzureDevOps.GetAgentQueue.Invoke(new AzureDevOps.GetAgentQueueInvokeArgs
-        ///         {
-        ///             ProjectId = exampleProject.Id,
-        ///             Name = "Example Agent Queue",
-        ///         });
-        ///         this.Name = exampleAgentQueue.Apply(exampleAgentQueue =&gt; exampleAgentQueue.Name);
-        ///         this.PoolId = exampleAgentQueue.Apply(exampleAgentQueue =&gt; exampleAgentQueue.AgentPoolId);
-        ///     }
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Terraform",
+        ///     });
         /// 
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("poolId")]
-        ///     public Output&lt;string&gt; PoolId { get; set; }
-        /// }
+        ///     var exampleAgentQueue = AzureDevOps.GetAgentQueue.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Name = "Example Agent Queue",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["name"] = exampleAgentQueue.Apply(getAgentQueueResult =&gt; getAgentQueueResult.Name),
+        ///         ["poolId"] = exampleAgentQueue.Apply(getAgentQueueResult =&gt; getAgentQueueResult.AgentPoolId),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -101,11 +97,11 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetAgentQueueResult> Invoke(GetAgentQueueInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetAgentQueueResult>("azuredevops:index/getAgentQueue:getAgentQueue", args ?? new GetAgentQueueInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetAgentQueueResult>("azuredevops:index/getAgentQueue:getAgentQueue", args ?? new GetAgentQueueInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetAgentQueueArgs : Pulumi.InvokeArgs
+    public sealed class GetAgentQueueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Agent Queue.
@@ -122,9 +118,10 @@ namespace Pulumi.AzureDevOps
         public GetAgentQueueArgs()
         {
         }
+        public static new GetAgentQueueArgs Empty => new GetAgentQueueArgs();
     }
 
-    public sealed class GetAgentQueueInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetAgentQueueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// Name of the Agent Queue.
@@ -141,6 +138,7 @@ namespace Pulumi.AzureDevOps
         public GetAgentQueueInvokeArgs()
         {
         }
+        public static new GetAgentQueueInvokeArgs Empty => new GetAgentQueueInvokeArgs();
     }
 
 

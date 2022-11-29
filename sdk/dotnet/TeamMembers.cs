@@ -15,42 +15,43 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var exampleTeam = new AzureDevOps.Team("exampleTeam", new AzureDevOps.TeamArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///         });
-    ///         var example_team_members = new AzureDevOps.TeamMembers("example-team-members", new AzureDevOps.TeamMembersArgs
-    ///         {
-    ///             ProjectId = exampleTeam.ProjectId,
-    ///             TeamId = exampleTeam.Id,
-    ///             Mode = "overwrite",
-    ///             Members = 
-    ///             {
-    ///                 example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Descriptor),
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_project_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var exampleTeam = new AzureDevOps.Team("exampleTeam", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///     });
+    /// 
+    ///     var example_team_members = new AzureDevOps.TeamMembers("example-team-members", new()
+    ///     {
+    ///         ProjectId = exampleTeam.ProjectId,
+    ///         TeamId = exampleTeam.Id,
+    ///         Mode = "overwrite",
+    ///         Members = new[]
+    ///         {
+    ///             example_project_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -65,7 +66,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/teamMembers:TeamMembers")]
-    public partial class TeamMembers : Pulumi.CustomResource
+    public partial class TeamMembers : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of subject descriptors to define members of the team.
@@ -137,7 +138,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class TeamMembersArgs : Pulumi.ResourceArgs
+    public sealed class TeamMembersArgs : global::Pulumi.ResourceArgs
     {
         [Input("members", required: true)]
         private InputList<string>? _members;
@@ -174,9 +175,10 @@ namespace Pulumi.AzureDevOps
         public TeamMembersArgs()
         {
         }
+        public static new TeamMembersArgs Empty => new TeamMembersArgs();
     }
 
-    public sealed class TeamMembersState : Pulumi.ResourceArgs
+    public sealed class TeamMembersState : global::Pulumi.ResourceArgs
     {
         [Input("members")]
         private InputList<string>? _members;
@@ -213,5 +215,6 @@ namespace Pulumi.AzureDevOps
         public TeamMembersState()
         {
         }
+        public static new TeamMembersState Empty => new TeamMembersState();
     }
 }

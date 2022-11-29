@@ -15,31 +15,30 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceendpointOctopusdeploy = new AzureDevOps.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy", new AzureDevOps.ServiceendpointOctopusdeployArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Url = "https://octopus.com",
-    ///             ApiKey = "000000000000000000000000000000000000",
-    ///             ServiceEndpointName = "Example Octopus Deploy",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceendpointOctopusdeploy = new AzureDevOps.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Url = "https://octopus.com",
+    ///         ApiKey = "000000000000000000000000000000000000",
+    ///         ServiceEndpointName = "Example Octopus Deploy",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -54,7 +53,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy")]
-    public partial class ServiceendpointOctopusdeploy : Pulumi.CustomResource
+    public partial class ServiceendpointOctopusdeploy : global::Pulumi.CustomResource
     {
         /// <summary>
         /// API key to connect to Octopus Deploy.
@@ -136,7 +135,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceendpointOctopusdeployArgs : Pulumi.ResourceArgs
+    public sealed class ServiceendpointOctopusdeployArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API key to connect to Octopus Deploy.
@@ -182,9 +181,10 @@ namespace Pulumi.AzureDevOps
         public ServiceendpointOctopusdeployArgs()
         {
         }
+        public static new ServiceendpointOctopusdeployArgs Empty => new ServiceendpointOctopusdeployArgs();
     }
 
-    public sealed class ServiceendpointOctopusdeployState : Pulumi.ResourceArgs
+    public sealed class ServiceendpointOctopusdeployState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// API key to connect to Octopus Deploy.
@@ -230,5 +230,6 @@ namespace Pulumi.AzureDevOps
         public ServiceendpointOctopusdeployState()
         {
         }
+        public static new ServiceendpointOctopusdeployState Empty => new ServiceendpointOctopusdeployState();
     }
 }

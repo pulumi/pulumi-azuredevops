@@ -18,34 +18,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleAgentQueue := azuredevops.GetAgentQueueOutput(ctx, GetAgentQueueOutputArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Name:      pulumi.String("Example Agent Queue"),
-// 		}, nil)
-// 		ctx.Export("name", exampleAgentQueue.ApplyT(func(exampleAgentQueue GetAgentQueueResult) (string, error) {
-// 			return exampleAgentQueue.Name, nil
-// 		}).(pulumi.StringOutput))
-// 		ctx.Export("poolId", exampleAgentQueue.ApplyT(func(exampleAgentQueue GetAgentQueueResult) (int, error) {
-// 			return exampleAgentQueue.AgentPoolId, nil
-// 		}).(pulumi.IntOutput))
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAgentQueue := azuredevops.GetAgentQueueOutput(ctx, GetAgentQueueOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Example Agent Queue"),
+//			}, nil)
+//			ctx.Export("name", exampleAgentQueue.ApplyT(func(exampleAgentQueue GetAgentQueueResult) (string, error) {
+//				return exampleAgentQueue.Name, nil
+//			}).(pulumi.StringOutput))
+//			ctx.Export("poolId", exampleAgentQueue.ApplyT(func(exampleAgentQueue GetAgentQueueResult) (int, error) {
+//				return exampleAgentQueue.AgentPoolId, nil
+//			}).(pulumi.IntOutput))
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //

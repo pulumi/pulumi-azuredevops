@@ -15,31 +15,30 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointSsh = new AzureDevOps.ServiceEndpointSsh("exampleServiceEndpointSsh", new AzureDevOps.ServiceEndpointSshArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example SSH",
-    ///             Host = "1.2.3.4",
-    ///             Username = "username",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointSsh = new AzureDevOps.ServiceEndpointSsh("exampleServiceEndpointSsh", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example SSH",
+    ///         Host = "1.2.3.4",
+    ///         Username = "username",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -54,7 +53,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh")]
-    public partial class ServiceEndpointSsh : Pulumi.CustomResource
+    public partial class ServiceEndpointSsh : global::Pulumi.CustomResource
     {
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -139,6 +138,13 @@ namespace Pulumi.AzureDevOps
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                    "passwordHash",
+                    "privateKey",
+                    "privateKeyHash",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -160,7 +166,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointSshArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointSshArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -179,11 +185,21 @@ namespace Pulumi.AzureDevOps
         [Input("host", required: true)]
         public Input<string> Host { get; set; } = null!;
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Password for connecting to the endpoint.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Port number on the remote machine to use for connecting. Defaults to `22`.
@@ -191,11 +207,21 @@ namespace Pulumi.AzureDevOps
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// Private Key for connecting to the endpoint.
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the project.
@@ -218,9 +244,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointSshArgs()
         {
         }
+        public static new ServiceEndpointSshArgs Empty => new ServiceEndpointSshArgs();
     }
 
-    public sealed class ServiceEndpointSshState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointSshState : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -239,17 +266,37 @@ namespace Pulumi.AzureDevOps
         [Input("host")]
         public Input<string>? Host { get; set; }
 
+        [Input("password")]
+        private Input<string>? _password;
+
         /// <summary>
         /// Password for connecting to the endpoint.
         /// </summary>
-        [Input("password")]
-        public Input<string>? Password { get; set; }
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("passwordHash")]
+        private Input<string>? _passwordHash;
 
         /// <summary>
         /// A bcrypted hash of the attribute 'password'
         /// </summary>
-        [Input("passwordHash")]
-        public Input<string>? PasswordHash { get; set; }
+        public Input<string>? PasswordHash
+        {
+            get => _passwordHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// Port number on the remote machine to use for connecting. Defaults to `22`.
@@ -257,17 +304,37 @@ namespace Pulumi.AzureDevOps
         [Input("port")]
         public Input<int>? Port { get; set; }
 
+        [Input("privateKey")]
+        private Input<string>? _privateKey;
+
         /// <summary>
         /// Private Key for connecting to the endpoint.
         /// </summary>
-        [Input("privateKey")]
-        public Input<string>? PrivateKey { get; set; }
+        public Input<string>? PrivateKey
+        {
+            get => _privateKey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("privateKeyHash")]
+        private Input<string>? _privateKeyHash;
 
         /// <summary>
         /// A bcrypted hash of the attribute 'private_key'
         /// </summary>
-        [Input("privateKeyHash")]
-        public Input<string>? PrivateKeyHash { get; set; }
+        public Input<string>? PrivateKeyHash
+        {
+            get => _privateKeyHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _privateKeyHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the project.
@@ -290,5 +357,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointSshState()
         {
         }
+        public static new ServiceEndpointSshState Empty => new ServiceEndpointSshState();
     }
 }

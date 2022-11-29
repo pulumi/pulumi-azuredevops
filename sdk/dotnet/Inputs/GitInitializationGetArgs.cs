@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class GitInitializationGetArgs : Pulumi.ResourceArgs
+    public sealed class GitInitializationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
@@ -39,5 +39,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public GitInitializationGetArgs()
         {
         }
+        public static new GitInitializationGetArgs Empty => new GitInitializationGetArgs();
     }
 }

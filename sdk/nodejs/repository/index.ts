@@ -5,11 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getRepositories";
-export * from "./git";
+export { GetRepositoriesArgs, GetRepositoriesResult, GetRepositoriesOutputArgs } from "./getRepositories";
+export const getRepositories: typeof import("./getRepositories").getRepositories = null as any;
+export const getRepositoriesOutput: typeof import("./getRepositories").getRepositoriesOutput = null as any;
+utilities.lazyLoad(exports, ["getRepositories","getRepositoriesOutput"], () => require("./getRepositories"));
 
-// Import resources to register:
-import { Git } from "./git";
+export { GitArgs, GitState } from "./git";
+export type Git = import("./git").Git;
+export const Git: typeof import("./git").Git = null as any;
+utilities.lazyLoad(exports, ["Git"], () => require("./git"));
+
 
 const _module = {
     version: utilities.getVersion(),

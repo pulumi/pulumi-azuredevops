@@ -15,78 +15,77 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleRepositoryPolicyFilePathPattern = new AzureDevOps.RepositoryPolicyFilePathPattern("exampleRepositoryPolicyFilePathPattern", new AzureDevOps.RepositoryPolicyFilePathPatternArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             FilepathPatterns = 
-    ///             {
-    ///                 "*.go",
-    ///                 "/home/test/*.ts",
-    ///             },
-    ///             RepositoryIds = 
-    ///             {
-    ///                 exampleGit.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRepositoryPolicyFilePathPattern = new AzureDevOps.RepositoryPolicyFilePathPattern("exampleRepositoryPolicyFilePathPattern", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         FilepathPatterns = new[]
+    ///         {
+    ///             "*.go",
+    ///             "/home/test/*.ts",
+    ///         },
+    ///         RepositoryIds = new[]
+    ///         {
+    ///             exampleGit.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// # Set project level repository policy
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var examplep = new AzureDevOps.RepositoryPolicyFilePathPattern("examplep", new AzureDevOps.RepositoryPolicyFilePathPatternArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             FilepathPatterns = 
-    ///             {
-    ///                 "*.go",
-    ///                 "/home/test/*.ts",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var examplep = new AzureDevOps.RepositoryPolicyFilePathPattern("examplep", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         FilepathPatterns = new[]
+    ///         {
+    ///             "*.go",
+    ///             "/home/test/*.ts",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -101,7 +100,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern")]
-    public partial class RepositoryPolicyFilePathPattern : Pulumi.CustomResource
+    public partial class RepositoryPolicyFilePathPattern : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -177,7 +176,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class RepositoryPolicyFilePathPatternArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyFilePathPatternArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -224,9 +223,10 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyFilePathPatternArgs()
         {
         }
+        public static new RepositoryPolicyFilePathPatternArgs Empty => new RepositoryPolicyFilePathPatternArgs();
     }
 
-    public sealed class RepositoryPolicyFilePathPatternState : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyFilePathPatternState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -273,5 +273,6 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyFilePathPatternState()
         {
         }
+        public static new RepositoryPolicyFilePathPatternState Empty => new RepositoryPolicyFilePathPatternState();
     }
 }

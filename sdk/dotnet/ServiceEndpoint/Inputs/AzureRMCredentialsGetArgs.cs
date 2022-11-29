@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.ServiceEndpoint.Inputs
 {
 
-    public sealed class AzureRMCredentialsGetArgs : Pulumi.ResourceArgs
+    public sealed class AzureRMCredentialsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The service principal application Id
@@ -18,17 +18,37 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint.Inputs
         [Input("serviceprincipalid", required: true)]
         public Input<string> Serviceprincipalid { get; set; } = null!;
 
+        [Input("serviceprincipalkey", required: true)]
+        private Input<string>? _serviceprincipalkey;
+
         /// <summary>
         /// The service principal secret.
         /// </summary>
-        [Input("serviceprincipalkey", required: true)]
-        public Input<string> Serviceprincipalkey { get; set; } = null!;
+        public Input<string>? Serviceprincipalkey
+        {
+            get => _serviceprincipalkey;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceprincipalkey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("serviceprincipalkeyHash")]
-        public Input<string>? ServiceprincipalkeyHash { get; set; }
+        private Input<string>? _serviceprincipalkeyHash;
+        public Input<string>? ServiceprincipalkeyHash
+        {
+            get => _serviceprincipalkeyHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _serviceprincipalkeyHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public AzureRMCredentialsGetArgs()
         {
         }
+        public static new AzureRMCredentialsGetArgs Empty => new AzureRMCredentialsGetArgs();
     }
 }
