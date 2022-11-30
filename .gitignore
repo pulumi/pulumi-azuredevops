@@ -16,3 +16,9 @@ yarn.lock
 **/schema.go
 **/version.txt
 **/ci-scripts
+nuget/
+sdk/java/build
+sdk/java/.gradle
+sdk/java/gradle
+sdk/java/gradlew
+sdk/java/gradlew.bat
