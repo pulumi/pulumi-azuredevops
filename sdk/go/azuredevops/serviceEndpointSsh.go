@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointSsh(ctx, "exampleServiceEndpointSsh", &azuredevops.ServiceEndpointSshArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example SSH"),
-// 			Host:                pulumi.String("1.2.3.4"),
-// 			Username:            pulumi.String("username"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointSsh(ctx, "exampleServiceEndpointSsh", &azuredevops.ServiceEndpointSshArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example SSH"),
+//				Host:                pulumi.String("1.2.3.4"),
+//				Username:            pulumi.String("username"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -57,7 +60,9 @@ import (
 // Azure DevOps Service Endpoint SSH can be imported using **projectID/serviceEndpointID** or ** projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointSsh struct {
 	pulumi.CustomResourceState
@@ -239,7 +244,7 @@ func (i *ServiceEndpointSsh) ToServiceEndpointSshOutputWithContext(ctx context.C
 // ServiceEndpointSshArrayInput is an input type that accepts ServiceEndpointSshArray and ServiceEndpointSshArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointSshArrayInput` via:
 //
-//          ServiceEndpointSshArray{ ServiceEndpointSshArgs{...} }
+//	ServiceEndpointSshArray{ ServiceEndpointSshArgs{...} }
 type ServiceEndpointSshArrayInput interface {
 	pulumi.Input
 
@@ -264,7 +269,7 @@ func (i ServiceEndpointSshArray) ToServiceEndpointSshArrayOutputWithContext(ctx 
 // ServiceEndpointSshMapInput is an input type that accepts ServiceEndpointSshMap and ServiceEndpointSshMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointSshMapInput` via:
 //
-//          ServiceEndpointSshMap{ "key": ServiceEndpointSshArgs{...} }
+//	ServiceEndpointSshMap{ "key": ServiceEndpointSshArgs{...} }
 type ServiceEndpointSshMapInput interface {
 	pulumi.Input
 

@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceendpointArgocd(ctx, "exampleServiceendpointArgocd", &azuredevops.ServiceendpointArgocdArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example ArgoCD"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			Url:                 pulumi.String("https://argocd.my.com"),
-// 			AuthenticationToken: &ServiceendpointArgocdAuthenticationTokenArgs{
-// 				Token: pulumi.String("0000000000000000000000000000000000000000"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceendpointArgocd(ctx, "exampleServiceendpointArgocd", &azuredevops.ServiceendpointArgocdArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example ArgoCD"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				Url:                 pulumi.String("https://argocd.my.com"),
+//				AuthenticationToken: &ServiceendpointArgocdAuthenticationTokenArgs{
+//					Token: pulumi.String("0000000000000000000000000000000000000000"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // Alternatively a username and password may be used.
 //
@@ -55,37 +58,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceendpointArgocd(ctx, "exampleServiceendpointArgocd", &azuredevops.ServiceendpointArgocdArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example ArgoCD"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			Url:                 pulumi.String("https://argocd.my.com"),
-// 			AuthenticationBasic: &ServiceendpointArgocdAuthenticationBasicArgs{
-// 				Username: pulumi.String("username"),
-// 				Password: pulumi.String("password"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceendpointArgocd(ctx, "exampleServiceendpointArgocd", &azuredevops.ServiceendpointArgocdArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example ArgoCD"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				Url:                 pulumi.String("https://argocd.my.com"),
+//				AuthenticationBasic: &ServiceendpointArgocdAuthenticationBasicArgs{
+//					Username: pulumi.String("username"),
+//					Password: pulumi.String("password"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -98,7 +104,9 @@ import (
 // Azure DevOps Service Endpoint ArgoCD can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceendpointArgocd struct {
 	pulumi.CustomResourceState
@@ -250,7 +258,7 @@ func (i *ServiceendpointArgocd) ToServiceendpointArgocdOutputWithContext(ctx con
 // ServiceendpointArgocdArrayInput is an input type that accepts ServiceendpointArgocdArray and ServiceendpointArgocdArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointArgocdArrayInput` via:
 //
-//          ServiceendpointArgocdArray{ ServiceendpointArgocdArgs{...} }
+//	ServiceendpointArgocdArray{ ServiceendpointArgocdArgs{...} }
 type ServiceendpointArgocdArrayInput interface {
 	pulumi.Input
 
@@ -275,7 +283,7 @@ func (i ServiceendpointArgocdArray) ToServiceendpointArgocdArrayOutputWithContex
 // ServiceendpointArgocdMapInput is an input type that accepts ServiceendpointArgocdMap and ServiceendpointArgocdMapOutput values.
 // You can construct a concrete instance of `ServiceendpointArgocdMapInput` via:
 //
-//          ServiceendpointArgocdMap{ "key": ServiceendpointArgocdArgs{...} }
+//	ServiceendpointArgocdMap{ "key": ServiceendpointArgocdArgs{...} }
 type ServiceendpointArgocdMapInput interface {
 	pulumi.Input
 

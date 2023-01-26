@@ -20,35 +20,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointGeneric(ctx, "exampleServiceEndpointGeneric", &azuredevops.ServiceEndpointGenericArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServerUrl:           pulumi.String("https://some-server.example.com"),
-// 			Username:            pulumi.String("username"),
-// 			Password:            pulumi.String("password"),
-// 			ServiceEndpointName: pulumi.String("Example Generic"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointGeneric(ctx, "exampleServiceEndpointGeneric", &azuredevops.ServiceEndpointGenericArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServerUrl:           pulumi.String("https://some-server.example.com"),
+//				Username:            pulumi.String("username"),
+//				Password:            pulumi.String("password"),
+//				ServiceEndpointName: pulumi.String("Example Generic"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -59,7 +62,9 @@ import (
 // Azure DevOps Service Endpoint Generic can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointGeneric struct {
 	pulumi.CustomResourceState
@@ -212,7 +217,7 @@ func (i *ServiceEndpointGeneric) ToServiceEndpointGenericOutputWithContext(ctx c
 // ServiceEndpointGenericArrayInput is an input type that accepts ServiceEndpointGenericArray and ServiceEndpointGenericArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointGenericArrayInput` via:
 //
-//          ServiceEndpointGenericArray{ ServiceEndpointGenericArgs{...} }
+//	ServiceEndpointGenericArray{ ServiceEndpointGenericArgs{...} }
 type ServiceEndpointGenericArrayInput interface {
 	pulumi.Input
 
@@ -237,7 +242,7 @@ func (i ServiceEndpointGenericArray) ToServiceEndpointGenericArrayOutputWithCont
 // ServiceEndpointGenericMapInput is an input type that accepts ServiceEndpointGenericMap and ServiceEndpointGenericMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointGenericMapInput` via:
 //
-//          ServiceEndpointGenericMap{ "key": ServiceEndpointGenericArgs{...} }
+//	ServiceEndpointGenericMap{ "key": ServiceEndpointGenericArgs{...} }
 type ServiceEndpointGenericMapInput interface {
 	pulumi.Input
 

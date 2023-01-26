@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceendpointOctopusdeploy(ctx, "exampleServiceendpointOctopusdeploy", &azuredevops.ServiceendpointOctopusdeployArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			Url:                 pulumi.String("https://octopus.com"),
-// 			ApiKey:              pulumi.String("000000000000000000000000000000000000"),
-// 			ServiceEndpointName: pulumi.String("Example Octopus Deploy"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceendpointOctopusdeploy(ctx, "exampleServiceendpointOctopusdeploy", &azuredevops.ServiceendpointOctopusdeployArgs{
+//				ProjectId:           exampleProject.ID(),
+//				Url:                 pulumi.String("https://octopus.com"),
+//				ApiKey:              pulumi.String("000000000000000000000000000000000000"),
+//				ServiceEndpointName: pulumi.String("Example Octopus Deploy"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -57,7 +60,9 @@ import (
 // Azure DevOps Service Endpoint Octopus Deploy can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceendpointOctopusdeploy struct {
 	pulumi.CustomResourceState
@@ -207,7 +212,7 @@ func (i *ServiceendpointOctopusdeploy) ToServiceendpointOctopusdeployOutputWithC
 // ServiceendpointOctopusdeployArrayInput is an input type that accepts ServiceendpointOctopusdeployArray and ServiceendpointOctopusdeployArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointOctopusdeployArrayInput` via:
 //
-//          ServiceendpointOctopusdeployArray{ ServiceendpointOctopusdeployArgs{...} }
+//	ServiceendpointOctopusdeployArray{ ServiceendpointOctopusdeployArgs{...} }
 type ServiceendpointOctopusdeployArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +237,7 @@ func (i ServiceendpointOctopusdeployArray) ToServiceendpointOctopusdeployArrayOu
 // ServiceendpointOctopusdeployMapInput is an input type that accepts ServiceendpointOctopusdeployMap and ServiceendpointOctopusdeployMapOutput values.
 // You can construct a concrete instance of `ServiceendpointOctopusdeployMapInput` via:
 //
-//          ServiceendpointOctopusdeployMap{ "key": ServiceendpointOctopusdeployArgs{...} }
+//	ServiceendpointOctopusdeployMap{ "key": ServiceendpointOctopusdeployArgs{...} }
 type ServiceendpointOctopusdeployMapInput interface {
 	pulumi.Input
 

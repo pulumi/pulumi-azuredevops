@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBranchPolicyCommentResolution(ctx, "exampleBranchPolicyCommentResolution", &azuredevops.BranchPolicyCommentResolutionArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			Settings: &BranchPolicyCommentResolutionSettingsArgs{
-// 				Scopes: BranchPolicyCommentResolutionSettingsScopeArray{
-// 					&BranchPolicyCommentResolutionSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: exampleGit.DefaultBranch,
-// 						MatchType:     pulumi.String("Exact"),
-// 					},
-// 					&BranchPolicyCommentResolutionSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: pulumi.String("refs/heads/releases"),
-// 						MatchType:     pulumi.String("Prefix"),
-// 					},
-// 					&BranchPolicyCommentResolutionSettingsScopeArgs{
-// 						MatchType: pulumi.String("DefaultBranch"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBranchPolicyCommentResolution(ctx, "exampleBranchPolicyCommentResolution", &azuredevops.BranchPolicyCommentResolutionArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				Settings: &BranchPolicyCommentResolutionSettingsArgs{
+//					Scopes: BranchPolicyCommentResolutionSettingsScopeArray{
+//						&BranchPolicyCommentResolutionSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: exampleGit.DefaultBranch,
+//							MatchType:     pulumi.String("Exact"),
+//						},
+//						&BranchPolicyCommentResolutionSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: pulumi.String("refs/heads/releases"),
+//							MatchType:     pulumi.String("Prefix"),
+//						},
+//						&BranchPolicyCommentResolutionSettingsScopeArgs{
+//							MatchType: pulumi.String("DefaultBranch"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -73,10 +76,12 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+// # Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 type BranchPolicyCommentResolution struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutputWit
 // BranchPolicyCommentResolutionArrayInput is an input type that accepts BranchPolicyCommentResolutionArray and BranchPolicyCommentResolutionArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyCommentResolutionArrayInput` via:
 //
-//          BranchPolicyCommentResolutionArray{ BranchPolicyCommentResolutionArgs{...} }
+//	BranchPolicyCommentResolutionArray{ BranchPolicyCommentResolutionArgs{...} }
 type BranchPolicyCommentResolutionArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i BranchPolicyCommentResolutionArray) ToBranchPolicyCommentResolutionArray
 // BranchPolicyCommentResolutionMapInput is an input type that accepts BranchPolicyCommentResolutionMap and BranchPolicyCommentResolutionMapOutput values.
 // You can construct a concrete instance of `BranchPolicyCommentResolutionMapInput` via:
 //
-//          BranchPolicyCommentResolutionMap{ "key": BranchPolicyCommentResolutionArgs{...} }
+//	BranchPolicyCommentResolutionMap{ "key": BranchPolicyCommentResolutionArgs{...} }
 type BranchPolicyCommentResolutionMapInput interface {
 	pulumi.Input
 

@@ -23,41 +23,44 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		examplePool, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
-// 			Name: "example-pool",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleQueue, err := azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
-// 			ProjectId:   exampleProject.ID(),
-// 			AgentPoolId: pulumi.String(examplePool.Id),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewResourceAuthorization(ctx, "exampleResourceAuthorization", &azuredevops.ResourceAuthorizationArgs{
-// 			ProjectId:  exampleProject.ID(),
-// 			ResourceId: exampleQueue.ID(),
-// 			Type:       pulumi.String("queue"),
-// 			Authorized: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePool, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
+//				Name: "example-pool",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleQueue, err := azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
+//				ProjectId:   exampleProject.ID(),
+//				AgentPoolId: pulumi.String(examplePool.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewResourceAuthorization(ctx, "exampleResourceAuthorization", &azuredevops.ResourceAuthorizationArgs{
+//				ProjectId:  exampleProject.ID(),
+//				ResourceId: exampleQueue.ID(),
+//				Type:       pulumi.String("queue"),
+//				Authorized: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -68,7 +71,9 @@ import (
 // Azure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:Agent/queue:Queue example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:Agent/queue:Queue example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 //
 // Deprecated: azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue
@@ -174,7 +179,7 @@ func (i *Queue) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 // QueueArrayInput is an input type that accepts QueueArray and QueueArrayOutput values.
 // You can construct a concrete instance of `QueueArrayInput` via:
 //
-//          QueueArray{ QueueArgs{...} }
+//	QueueArray{ QueueArgs{...} }
 type QueueArrayInput interface {
 	pulumi.Input
 
@@ -199,7 +204,7 @@ func (i QueueArray) ToQueueArrayOutputWithContext(ctx context.Context) QueueArra
 // QueueMapInput is an input type that accepts QueueMap and QueueMapOutput values.
 // You can construct a concrete instance of `QueueMapInput` via:
 //
-//          QueueMap{ "key": QueueArgs{...} }
+//	QueueMap{ "key": QueueArgs{...} }
 type QueueMapInput interface {
 	pulumi.Input
 

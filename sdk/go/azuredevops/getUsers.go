@@ -18,47 +18,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.GetUsers(ctx, &GetUsersArgs{
-// 			PrincipalName: pulumi.StringRef("contoso-user@contoso.onmicrosoft.com"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.GetUsers(ctx, nil, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
-// 			Origin: pulumi.StringRef("aad"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
-// 			SubjectTypes: []string{
-// 				"aad",
-// 				"msa",
-// 			},
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
-// 			Origin:   pulumi.StringRef("aad"),
-// 			OriginId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azuredevops.GetUsers(ctx, &GetUsersArgs{
+//				PrincipalName: pulumi.StringRef("contoso-user@contoso.onmicrosoft.com"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.GetUsers(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
+//				Origin: pulumi.StringRef("aad"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
+//				SubjectTypes: []string{
+//					"aad",
+//					"msa",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.GetUsers(ctx, &GetUsersArgs{
+//				Origin:   pulumi.StringRef("aad"),
+//				OriginId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //

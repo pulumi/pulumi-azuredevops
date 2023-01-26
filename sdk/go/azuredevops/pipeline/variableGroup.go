@@ -17,43 +17,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewVariableGroup(ctx, "exampleVariableGroup", &azuredevops.VariableGroupArgs{
-// 			ProjectId:   exampleProject.ID(),
-// 			Description: pulumi.String("Example Variable Group Description"),
-// 			AllowAccess: pulumi.Bool(true),
-// 			Variables: VariableGroupVariableArray{
-// 				&VariableGroupVariableArgs{
-// 					Name:  pulumi.String("key1"),
-// 					Value: pulumi.String("val1"),
-// 				},
-// 				&VariableGroupVariableArgs{
-// 					Name:        pulumi.String("key2"),
-// 					SecretValue: pulumi.String("val2"),
-// 					IsSecret:    pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewVariableGroup(ctx, "exampleVariableGroup", &azuredevops.VariableGroupArgs{
+//				ProjectId:   exampleProject.ID(),
+//				Description: pulumi.String("Example Variable Group Description"),
+//				AllowAccess: pulumi.Bool(true),
+//				Variables: VariableGroupVariableArray{
+//					&VariableGroupVariableArgs{
+//						Name:  pulumi.String("key1"),
+//						Value: pulumi.String("val1"),
+//					},
+//					&VariableGroupVariableArgs{
+//						Name:        pulumi.String("key2"),
+//						SecretValue: pulumi.String("val2"),
+//						IsSecret:    pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### With AzureRM Key Vault
 //
@@ -61,59 +64,62 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example AzureRM"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			Credentials: &ServiceEndpointAzureRMCredentialsArgs{
-// 				Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
-// 			},
-// 			AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurermSubscriptionName: pulumi.String("Example Subscription Name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewVariableGroup(ctx, "exampleVariableGroup", &azuredevops.VariableGroupArgs{
-// 			ProjectId:   exampleProject.ID(),
-// 			Description: pulumi.String("Example Variable Group Description"),
-// 			AllowAccess: pulumi.Bool(true),
-// 			KeyVault: &VariableGroupKeyVaultArgs{
-// 				Name:              pulumi.String("example-kv"),
-// 				ServiceEndpointId: exampleServiceEndpointAzureRM.ID(),
-// 			},
-// 			Variables: VariableGroupVariableArray{
-// 				&VariableGroupVariableArgs{
-// 					Name: pulumi.String("key1"),
-// 				},
-// 				&VariableGroupVariableArgs{
-// 					Name: pulumi.String("key2"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example AzureRM"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				Credentials: &ServiceEndpointAzureRMCredentialsArgs{
+//					Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
+//					Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+//				},
+//				AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurermSubscriptionName: pulumi.String("Example Subscription Name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewVariableGroup(ctx, "exampleVariableGroup", &azuredevops.VariableGroupArgs{
+//				ProjectId:   exampleProject.ID(),
+//				Description: pulumi.String("Example Variable Group Description"),
+//				AllowAccess: pulumi.Bool(true),
+//				KeyVault: &VariableGroupKeyVaultArgs{
+//					Name:              pulumi.String("example-kv"),
+//					ServiceEndpointId: exampleServiceEndpointAzureRM.ID(),
+//				},
+//				Variables: VariableGroupVariableArray{
+//					&VariableGroupVariableArgs{
+//						Name: pulumi.String("key1"),
+//					},
+//					&VariableGroupVariableArgs{
+//						Name: pulumi.String("key2"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -134,16 +140,20 @@ import (
 // **Variable groups containing secret values cannot be imported.** Azure DevOps Variable groups can be imported using the project name/variable group ID or by the project Guid/variable group ID, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example "Example Project/10"
+//
+//	$ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example "Example Project/10"
+//
 // ```
 //
-//  or
+//	or
 //
 // ```sh
-//  $ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:Pipeline/variableGroup:VariableGroup example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 //
-//  _Note that for secret variables, the import command retrieve blank value in the tfstate._
+//	_Note that for secret variables, the import command retrieve blank value in the tfstate._
 //
 // Deprecated: azuredevops.pipeline.VariableGroup has been deprecated in favor of azuredevops.VariableGroup
 type VariableGroup struct {
@@ -283,7 +293,7 @@ func (i *VariableGroup) ToVariableGroupOutputWithContext(ctx context.Context) Va
 // VariableGroupArrayInput is an input type that accepts VariableGroupArray and VariableGroupArrayOutput values.
 // You can construct a concrete instance of `VariableGroupArrayInput` via:
 //
-//          VariableGroupArray{ VariableGroupArgs{...} }
+//	VariableGroupArray{ VariableGroupArgs{...} }
 type VariableGroupArrayInput interface {
 	pulumi.Input
 
@@ -308,7 +318,7 @@ func (i VariableGroupArray) ToVariableGroupArrayOutputWithContext(ctx context.Co
 // VariableGroupMapInput is an input type that accepts VariableGroupMap and VariableGroupMapOutput values.
 // You can construct a concrete instance of `VariableGroupMapInput` via:
 //
-//          VariableGroupMap{ "key": VariableGroupArgs{...} }
+//	VariableGroupMap{ "key": VariableGroupArgs{...} }
 type VariableGroupMapInput interface {
 	pulumi.Input
 

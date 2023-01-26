@@ -19,72 +19,75 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Repository: &BuildDefinitionRepositoryArgs{
-// 				RepoType: pulumi.String("TfsGit"),
-// 				RepoId:   exampleGit.ID(),
-// 				YmlPath:  pulumi.String("azure-pipelines.yml"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBranchPolicyBuildValidation(ctx, "exampleBranchPolicyBuildValidation", &azuredevops.BranchPolicyBuildValidationArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			Settings: &BranchPolicyBuildValidationSettingsArgs{
-// 				DisplayName:       pulumi.String("Example build validation policy"),
-// 				BuildDefinitionId: exampleBuildDefinition.ID(),
-// 				ValidDuration:     pulumi.Int(720),
-// 				FilenamePatterns: pulumi.StringArray{
-// 					pulumi.String("/WebApp/*"),
-// 					pulumi.String("!/WebApp/Tests/*"),
-// 					pulumi.String("*.cs"),
-// 				},
-// 				Scopes: BranchPolicyBuildValidationSettingsScopeArray{
-// 					&BranchPolicyBuildValidationSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: exampleGit.DefaultBranch,
-// 						MatchType:     pulumi.String("Exact"),
-// 					},
-// 					&BranchPolicyBuildValidationSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: pulumi.String("refs/heads/releases"),
-// 						MatchType:     pulumi.String("Prefix"),
-// 					},
-// 					&BranchPolicyBuildValidationSettingsScopeArgs{
-// 						MatchType: pulumi.String("DefaultBranch"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
+//				ProjectId: exampleProject.ID(),
+//				Repository: &BuildDefinitionRepositoryArgs{
+//					RepoType: pulumi.String("TfsGit"),
+//					RepoId:   exampleGit.ID(),
+//					YmlPath:  pulumi.String("azure-pipelines.yml"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBranchPolicyBuildValidation(ctx, "exampleBranchPolicyBuildValidation", &azuredevops.BranchPolicyBuildValidationArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				Settings: &BranchPolicyBuildValidationSettingsArgs{
+//					DisplayName:       pulumi.String("Example build validation policy"),
+//					BuildDefinitionId: exampleBuildDefinition.ID(),
+//					ValidDuration:     pulumi.Int(720),
+//					FilenamePatterns: pulumi.StringArray{
+//						pulumi.String("/WebApp/*"),
+//						pulumi.String("!/WebApp/Tests/*"),
+//						pulumi.String("*.cs"),
+//					},
+//					Scopes: BranchPolicyBuildValidationSettingsScopeArray{
+//						&BranchPolicyBuildValidationSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: exampleGit.DefaultBranch,
+//							MatchType:     pulumi.String("Exact"),
+//						},
+//						&BranchPolicyBuildValidationSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: pulumi.String("refs/heads/releases"),
+//							MatchType:     pulumi.String("Prefix"),
+//						},
+//						&BranchPolicyBuildValidationSettingsScopeArgs{
+//							MatchType: pulumi.String("DefaultBranch"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -92,10 +95,12 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+// # Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 //
 // Deprecated: azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation
@@ -221,7 +226,7 @@ func (i *BranchPolicyBuildValidation) ToBranchPolicyBuildValidationOutputWithCon
 // BranchPolicyBuildValidationArrayInput is an input type that accepts BranchPolicyBuildValidationArray and BranchPolicyBuildValidationArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyBuildValidationArrayInput` via:
 //
-//          BranchPolicyBuildValidationArray{ BranchPolicyBuildValidationArgs{...} }
+//	BranchPolicyBuildValidationArray{ BranchPolicyBuildValidationArgs{...} }
 type BranchPolicyBuildValidationArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +251,7 @@ func (i BranchPolicyBuildValidationArray) ToBranchPolicyBuildValidationArrayOutp
 // BranchPolicyBuildValidationMapInput is an input type that accepts BranchPolicyBuildValidationMap and BranchPolicyBuildValidationMapOutput values.
 // You can construct a concrete instance of `BranchPolicyBuildValidationMapInput` via:
 //
-//          BranchPolicyBuildValidationMap{ "key": BranchPolicyBuildValidationArgs{...} }
+//	BranchPolicyBuildValidationMap{ "key": BranchPolicyBuildValidationArgs{...} }
 type BranchPolicyBuildValidationMapInput interface {
 	pulumi.Input
 

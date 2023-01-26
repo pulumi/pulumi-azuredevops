@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointAzureEcr(ctx, "exampleServiceEndpointAzureEcr", &azuredevops.ServiceEndpointAzureEcrArgs{
-// 			ProjectId:               exampleProject.ID(),
-// 			ServiceEndpointName:     pulumi.String("Example AzureCR"),
-// 			ResourceGroup:           pulumi.String("example-rg"),
-// 			AzurecrSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurecrName:             pulumi.String("ExampleAcr"),
-// 			AzurecrSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurecrSubscriptionName: pulumi.String("subscription name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointAzureEcr(ctx, "exampleServiceEndpointAzureEcr", &azuredevops.ServiceEndpointAzureEcrArgs{
+//				ProjectId:               exampleProject.ID(),
+//				ServiceEndpointName:     pulumi.String("Example AzureCR"),
+//				ResourceGroup:           pulumi.String("example-rg"),
+//				AzurecrSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurecrName:             pulumi.String("ExampleAcr"),
+//				AzurecrSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurecrSubscriptionName: pulumi.String("subscription name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -60,7 +63,9 @@ import (
 // Azure DevOps Service Endpoint Azure Container Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointAzureEcr struct {
 	pulumi.CustomResourceState
@@ -257,7 +262,7 @@ func (i *ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutputWithContext(ctx
 // ServiceEndpointAzureEcrArrayInput is an input type that accepts ServiceEndpointAzureEcrArray and ServiceEndpointAzureEcrArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointAzureEcrArrayInput` via:
 //
-//          ServiceEndpointAzureEcrArray{ ServiceEndpointAzureEcrArgs{...} }
+//	ServiceEndpointAzureEcrArray{ ServiceEndpointAzureEcrArgs{...} }
 type ServiceEndpointAzureEcrArrayInput interface {
 	pulumi.Input
 
@@ -282,7 +287,7 @@ func (i ServiceEndpointAzureEcrArray) ToServiceEndpointAzureEcrArrayOutputWithCo
 // ServiceEndpointAzureEcrMapInput is an input type that accepts ServiceEndpointAzureEcrMap and ServiceEndpointAzureEcrMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointAzureEcrMapInput` via:
 //
-//          ServiceEndpointAzureEcrMap{ "key": ServiceEndpointAzureEcrArgs{...} }
+//	ServiceEndpointAzureEcrMap{ "key": ServiceEndpointAzureEcrArgs{...} }
 type ServiceEndpointAzureEcrMapInput interface {
 	pulumi.Input
 

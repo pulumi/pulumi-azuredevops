@@ -22,7 +22,9 @@ import (
 // Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointKubernetes struct {
 	pulumi.CustomResourceState
@@ -198,7 +200,7 @@ func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutputWithContext
 // ServiceEndpointKubernetesArrayInput is an input type that accepts ServiceEndpointKubernetesArray and ServiceEndpointKubernetesArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointKubernetesArrayInput` via:
 //
-//          ServiceEndpointKubernetesArray{ ServiceEndpointKubernetesArgs{...} }
+//	ServiceEndpointKubernetesArray{ ServiceEndpointKubernetesArgs{...} }
 type ServiceEndpointKubernetesArrayInput interface {
 	pulumi.Input
 
@@ -223,7 +225,7 @@ func (i ServiceEndpointKubernetesArray) ToServiceEndpointKubernetesArrayOutputWi
 // ServiceEndpointKubernetesMapInput is an input type that accepts ServiceEndpointKubernetesMap and ServiceEndpointKubernetesMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointKubernetesMapInput` via:
 //
-//          ServiceEndpointKubernetesMap{ "key": ServiceEndpointKubernetesArgs{...} }
+//	ServiceEndpointKubernetesMap{ "key": ServiceEndpointKubernetesArgs{...} }
 type ServiceEndpointKubernetesMapInput interface {
 	pulumi.Input
 

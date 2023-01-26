@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointBitBucket(ctx, "exampleServiceEndpointBitBucket", &azuredevops.ServiceEndpointBitBucketArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			Username:            pulumi.String("username"),
-// 			Password:            pulumi.String("password"),
-// 			ServiceEndpointName: pulumi.String("Example Bitbucket"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointBitBucket(ctx, "exampleServiceEndpointBitBucket", &azuredevops.ServiceEndpointBitBucketArgs{
+//				ProjectId:           exampleProject.ID(),
+//				Username:            pulumi.String("username"),
+//				Password:            pulumi.String("password"),
+//				ServiceEndpointName: pulumi.String("Example Bitbucket"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -57,7 +60,9 @@ import (
 // Azure DevOps Service Endpoint Bitbucket can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:ServiceEndpoint/bitBucket:BitBucket example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 //
 // Deprecated: azuredevops.serviceendpoint.BitBucket has been deprecated in favor of azuredevops.ServiceEndpointBitBucket
@@ -205,7 +210,7 @@ func (i *BitBucket) ToBitBucketOutputWithContext(ctx context.Context) BitBucketO
 // BitBucketArrayInput is an input type that accepts BitBucketArray and BitBucketArrayOutput values.
 // You can construct a concrete instance of `BitBucketArrayInput` via:
 //
-//          BitBucketArray{ BitBucketArgs{...} }
+//	BitBucketArray{ BitBucketArgs{...} }
 type BitBucketArrayInput interface {
 	pulumi.Input
 
@@ -230,7 +235,7 @@ func (i BitBucketArray) ToBitBucketArrayOutputWithContext(ctx context.Context) B
 // BitBucketMapInput is an input type that accepts BitBucketMap and BitBucketMapOutput values.
 // You can construct a concrete instance of `BitBucketMapInput` via:
 //
-//          BitBucketMap{ "key": BitBucketArgs{...} }
+//	BitBucketMap{ "key": BitBucketArgs{...} }
 type BitBucketMapInput interface {
 	pulumi.Input
 

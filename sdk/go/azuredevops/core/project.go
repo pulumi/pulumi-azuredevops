@@ -18,28 +18,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
-// 			Description: pulumi.String("Managed by Terraform"),
-// 			Features: pulumi.StringMap{
-// 				"artifacts": pulumi.String("disabled"),
-// 				"testplans": pulumi.String("disabled"),
-// 			},
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Description: pulumi.String("Managed by Terraform"),
+//				Features: pulumi.StringMap{
+//					"artifacts": pulumi.String("disabled"),
+//					"testplans": pulumi.String("disabled"),
+//				},
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -54,13 +57,17 @@ import (
 // Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:Core/project:Project example "Example Project"
+//
+//	$ pulumi import azuredevops:Core/project:Project example "Example Project"
+//
 // ```
 //
-//  or
+//	or
 //
 // ```sh
-//  $ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:Core/project:Project example 00000000-0000-0000-0000-000000000000
+//
 // ```
 //
 // Deprecated: azuredevops.core.Project has been deprecated in favor of azuredevops.Project
@@ -211,7 +218,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 // ProjectArrayInput is an input type that accepts ProjectArray and ProjectArrayOutput values.
 // You can construct a concrete instance of `ProjectArrayInput` via:
 //
-//          ProjectArray{ ProjectArgs{...} }
+//	ProjectArray{ ProjectArgs{...} }
 type ProjectArrayInput interface {
 	pulumi.Input
 
@@ -236,7 +243,7 @@ func (i ProjectArray) ToProjectArrayOutputWithContext(ctx context.Context) Proje
 // ProjectMapInput is an input type that accepts ProjectMap and ProjectMapOutput values.
 // You can construct a concrete instance of `ProjectMapInput` via:
 //
-//          ProjectMap{ "key": ProjectArgs{...} }
+//	ProjectMap{ "key": ProjectArgs{...} }
 type ProjectMapInput interface {
 	pulumi.Input
 

@@ -19,38 +19,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewProjectFeatures(ctx, "example-features", &azuredevops.ProjectFeaturesArgs{
-// 			ProjectId: example.ID(),
-// 			Features: pulumi.StringMap{
-// 				"testplans": pulumi.String("disabled"),
-// 				"artifacts": pulumi.String("enabled"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewProjectFeatures(ctx, "example-features", &azuredevops.ProjectFeaturesArgs{
+//				ProjectId: example.ID(),
+//				Features: pulumi.StringMap{
+//					"testplans": pulumi.String("disabled"),
+//					"artifacts": pulumi.String("enabled"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
-// No official documentation available
+// # No official documentation available
 //
 // ## PAT Permissions Required
 //
@@ -61,7 +64,9 @@ import (
 // Azure DevOps feature settings can be imported using the project id, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:Core/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:Core/projectFeatures:ProjectFeatures example 00000000-0000-0000-0000-000000000000
+//
 // ```
 //
 // Deprecated: azuredevops.core.ProjectFeatures has been deprecated in favor of azuredevops.ProjectFeatures
@@ -167,7 +172,7 @@ func (i *ProjectFeatures) ToProjectFeaturesOutputWithContext(ctx context.Context
 // ProjectFeaturesArrayInput is an input type that accepts ProjectFeaturesArray and ProjectFeaturesArrayOutput values.
 // You can construct a concrete instance of `ProjectFeaturesArrayInput` via:
 //
-//          ProjectFeaturesArray{ ProjectFeaturesArgs{...} }
+//	ProjectFeaturesArray{ ProjectFeaturesArgs{...} }
 type ProjectFeaturesArrayInput interface {
 	pulumi.Input
 
@@ -192,7 +197,7 @@ func (i ProjectFeaturesArray) ToProjectFeaturesArrayOutputWithContext(ctx contex
 // ProjectFeaturesMapInput is an input type that accepts ProjectFeaturesMap and ProjectFeaturesMapOutput values.
 // You can construct a concrete instance of `ProjectFeaturesMapInput` via:
 //
-//          ProjectFeaturesMap{ "key": ProjectFeaturesArgs{...} }
+//	ProjectFeaturesMap{ "key": ProjectFeaturesArgs{...} }
 type ProjectFeaturesMapInput interface {
 	pulumi.Input
 

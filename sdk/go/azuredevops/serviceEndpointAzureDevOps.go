@@ -23,35 +23,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointAzureDevOps(ctx, "exampleServiceEndpointAzureDevOps", &azuredevops.ServiceEndpointAzureDevOpsArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example Azure DevOps"),
-// 			OrgUrl:              pulumi.String("https://dev.azure.com/testorganization"),
-// 			ReleaseApiUrl:       pulumi.String("https://vsrm.dev.azure.com/testorganization"),
-// 			PersonalAccessToken: pulumi.String("0000000000000000000000000000000000000000000000000000"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointAzureDevOps(ctx, "exampleServiceEndpointAzureDevOps", &azuredevops.ServiceEndpointAzureDevOpsArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example Azure DevOps"),
+//				OrgUrl:              pulumi.String("https://dev.azure.com/testorganization"),
+//				ReleaseApiUrl:       pulumi.String("https://vsrm.dev.azure.com/testorganization"),
+//				PersonalAccessToken: pulumi.String("0000000000000000000000000000000000000000000000000000"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -62,7 +65,9 @@ import (
 // Azure DevOps Service Endpoint Azure DevOps can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointAzureDevOps struct {
 	pulumi.CustomResourceState
@@ -221,7 +226,7 @@ func (i *ServiceEndpointAzureDevOps) ToServiceEndpointAzureDevOpsOutputWithConte
 // ServiceEndpointAzureDevOpsArrayInput is an input type that accepts ServiceEndpointAzureDevOpsArray and ServiceEndpointAzureDevOpsArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointAzureDevOpsArrayInput` via:
 //
-//          ServiceEndpointAzureDevOpsArray{ ServiceEndpointAzureDevOpsArgs{...} }
+//	ServiceEndpointAzureDevOpsArray{ ServiceEndpointAzureDevOpsArgs{...} }
 type ServiceEndpointAzureDevOpsArrayInput interface {
 	pulumi.Input
 
@@ -246,7 +251,7 @@ func (i ServiceEndpointAzureDevOpsArray) ToServiceEndpointAzureDevOpsArrayOutput
 // ServiceEndpointAzureDevOpsMapInput is an input type that accepts ServiceEndpointAzureDevOpsMap and ServiceEndpointAzureDevOpsMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointAzureDevOpsMapInput` via:
 //
-//          ServiceEndpointAzureDevOpsMap{ "key": ServiceEndpointAzureDevOpsArgs{...} }
+//	ServiceEndpointAzureDevOpsMap{ "key": ServiceEndpointAzureDevOpsArgs{...} }
 type ServiceEndpointAzureDevOpsMapInput interface {
 	pulumi.Input
 

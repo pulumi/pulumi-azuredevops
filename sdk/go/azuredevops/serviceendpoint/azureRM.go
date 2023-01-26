@@ -26,39 +26,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example AzureRM"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			Credentials: &ServiceEndpointAzureRMCredentialsArgs{
-// 				Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
-// 			},
-// 			AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurermSubscriptionName: pulumi.String("Example Subscription Name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example AzureRM"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				Credentials: &ServiceEndpointAzureRMCredentialsArgs{
+//					Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
+//					Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+//				},
+//				AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurermSubscriptionName: pulumi.String("Example Subscription Name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Manual AzureRM Service Endpoint (ManagementGroup Scoped)
 //
@@ -66,39 +69,42 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example AzureRM"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			Credentials: &ServiceEndpointAzureRMCredentialsArgs{
-// 				Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 				Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
-// 			},
-// 			AzurermSpnTenantid:         pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurermManagementGroupId:   pulumi.String("managementGroup"),
-// 			AzurermManagementGroupName: pulumi.String("managementGroup"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example AzureRM"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				Credentials: &ServiceEndpointAzureRMCredentialsArgs{
+//					Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
+//					Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+//				},
+//				AzurermSpnTenantid:         pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurermManagementGroupId:   pulumi.String("managementGroup"),
+//				AzurermManagementGroupName: pulumi.String("managementGroup"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Automatic AzureRM Service Endpoint
 //
@@ -106,33 +112,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
-// 			ProjectId:               exampleProject.ID(),
-// 			ServiceEndpointName:     pulumi.String("Example AzureRM"),
-// 			AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			AzurermSubscriptionName: pulumi.String("Example Subscription Name"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
+//				ProjectId:               exampleProject.ID(),
+//				ServiceEndpointName:     pulumi.String("Example AzureRM"),
+//				AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurermSubscriptionName: pulumi.String("Example Subscription Name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -143,7 +152,9 @@ import (
 // Azure DevOps Service Endpoint Azure Resource Manage can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:ServiceEndpoint/azureRM:AzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:ServiceEndpoint/azureRM:AzureRM example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 //
 // Deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM
@@ -337,7 +348,7 @@ func (i *AzureRM) ToAzureRMOutputWithContext(ctx context.Context) AzureRMOutput 
 // AzureRMArrayInput is an input type that accepts AzureRMArray and AzureRMArrayOutput values.
 // You can construct a concrete instance of `AzureRMArrayInput` via:
 //
-//          AzureRMArray{ AzureRMArgs{...} }
+//	AzureRMArray{ AzureRMArgs{...} }
 type AzureRMArrayInput interface {
 	pulumi.Input
 
@@ -362,7 +373,7 @@ func (i AzureRMArray) ToAzureRMArrayOutputWithContext(ctx context.Context) Azure
 // AzureRMMapInput is an input type that accepts AzureRMMap and AzureRMMapOutput values.
 // You can construct a concrete instance of `AzureRMMapInput` via:
 //
-//          AzureRMMap{ "key": AzureRMArgs{...} }
+//	AzureRMMap{ "key": AzureRMArgs{...} }
 type AzureRMMapInput interface {
 	pulumi.Input
 

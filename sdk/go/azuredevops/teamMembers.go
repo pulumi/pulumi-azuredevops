@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Name:      pulumi.String("Readers"),
-// 		}, nil)
-// 		exampleTeam, err := azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
-// 			ProjectId: exampleProject.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewTeamMembers(ctx, "example-team-members", &azuredevops.TeamMembersArgs{
-// 			ProjectId: exampleTeam.ProjectId,
-// 			TeamId:    exampleTeam.ID(),
-// 			Mode:      pulumi.String("overwrite"),
-// 			Members: pulumi.StringArray{
-// 				example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
-// 					return example_project_readers.Descriptor, nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			exampleTeam, err := azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
+//				ProjectId: exampleProject.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewTeamMembers(ctx, "example-team-members", &azuredevops.TeamMembersArgs{
+//				ProjectId: exampleTeam.ProjectId,
+//				TeamId:    exampleTeam.ID(),
+//				Mode:      pulumi.String("overwrite"),
+//				Members: pulumi.StringArray{
+//					example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
+//						return example_project_readers.Descriptor, nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -207,7 +210,7 @@ func (i *TeamMembers) ToTeamMembersOutputWithContext(ctx context.Context) TeamMe
 // TeamMembersArrayInput is an input type that accepts TeamMembersArray and TeamMembersArrayOutput values.
 // You can construct a concrete instance of `TeamMembersArrayInput` via:
 //
-//          TeamMembersArray{ TeamMembersArgs{...} }
+//	TeamMembersArray{ TeamMembersArgs{...} }
 type TeamMembersArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +235,7 @@ func (i TeamMembersArray) ToTeamMembersArrayOutputWithContext(ctx context.Contex
 // TeamMembersMapInput is an input type that accepts TeamMembersMap and TeamMembersMapOutput values.
 // You can construct a concrete instance of `TeamMembersMapInput` via:
 //
-//          TeamMembersMap{ "key": TeamMembersArgs{...} }
+//	TeamMembersMap{ "key": TeamMembersArgs{...} }
 type TeamMembersMapInput interface {
 	pulumi.Input
 

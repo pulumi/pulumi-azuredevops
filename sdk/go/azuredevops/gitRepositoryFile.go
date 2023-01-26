@@ -19,43 +19,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewGitRepositoryFile(ctx, "exampleGitRepositoryFile", &azuredevops.GitRepositoryFileArgs{
-// 			RepositoryId:      exampleGit.ID(),
-// 			File:              pulumi.String(".gitignore"),
-// 			Content:           pulumi.String("**/*.tfstate"),
-// 			Branch:            pulumi.String("refs/heads/master"),
-// 			CommitMessage:     pulumi.String("First commit"),
-// 			OverwriteOnCreate: pulumi.Bool(false),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewGitRepositoryFile(ctx, "exampleGitRepositoryFile", &azuredevops.GitRepositoryFileArgs{
+//				RepositoryId:      exampleGit.ID(),
+//				File:              pulumi.String(".gitignore"),
+//				Content:           pulumi.String("**/*.tfstate"),
+//				Branch:            pulumi.String("refs/heads/master"),
+//				CommitMessage:     pulumi.String("First commit"),
+//				OverwriteOnCreate: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -66,13 +69,17 @@ import (
 // Repository files can be imported using a combination of the `repositroy ID` and `file`, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore
+//
+//	$ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore
+//
 // ```
 //
-//  To import a file from a branch other than `master`, append `:` and the branch name, e.g.
+//	To import a file from a branch other than `master`, append `:` and the branch name, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore:refs/heads/master
+//
+//	$ pulumi import azuredevops:index/gitRepositoryFile:GitRepositoryFile example 00000000-0000-0000-0000-000000000000/.gitignore:refs/heads/master
+//
 // ```
 type GitRepositoryFile struct {
 	pulumi.CustomResourceState
@@ -224,7 +231,7 @@ func (i *GitRepositoryFile) ToGitRepositoryFileOutputWithContext(ctx context.Con
 // GitRepositoryFileArrayInput is an input type that accepts GitRepositoryFileArray and GitRepositoryFileArrayOutput values.
 // You can construct a concrete instance of `GitRepositoryFileArrayInput` via:
 //
-//          GitRepositoryFileArray{ GitRepositoryFileArgs{...} }
+//	GitRepositoryFileArray{ GitRepositoryFileArgs{...} }
 type GitRepositoryFileArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +256,7 @@ func (i GitRepositoryFileArray) ToGitRepositoryFileArrayOutputWithContext(ctx co
 // GitRepositoryFileMapInput is an input type that accepts GitRepositoryFileMap and GitRepositoryFileMapOutput values.
 // You can construct a concrete instance of `GitRepositoryFileMapInput` via:
 //
-//          GitRepositoryFileMap{ "key": GitRepositoryFileArgs{...} }
+//	GitRepositoryFileMap{ "key": GitRepositoryFileArgs{...} }
 type GitRepositoryFileMapInput interface {
 	pulumi.Input
 

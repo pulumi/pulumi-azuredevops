@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointNpm(ctx, "exampleServiceEndpointNpm", &azuredevops.ServiceEndpointNpmArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example npm"),
-// 			Url:                 pulumi.String("https://registry.npmjs.org"),
-// 			AccessToken:         pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointNpm(ctx, "exampleServiceEndpointNpm", &azuredevops.ServiceEndpointNpmArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example npm"),
+//				Url:                 pulumi.String("https://registry.npmjs.org"),
+//				AccessToken:         pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -59,7 +62,9 @@ import (
 // Azure DevOps Service Endpoint npm can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointNpm struct {
 	pulumi.CustomResourceState
@@ -210,7 +215,7 @@ func (i *ServiceEndpointNpm) ToServiceEndpointNpmOutputWithContext(ctx context.C
 // ServiceEndpointNpmArrayInput is an input type that accepts ServiceEndpointNpmArray and ServiceEndpointNpmArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointNpmArrayInput` via:
 //
-//          ServiceEndpointNpmArray{ ServiceEndpointNpmArgs{...} }
+//	ServiceEndpointNpmArray{ ServiceEndpointNpmArgs{...} }
 type ServiceEndpointNpmArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +240,7 @@ func (i ServiceEndpointNpmArray) ToServiceEndpointNpmArrayOutputWithContext(ctx 
 // ServiceEndpointNpmMapInput is an input type that accepts ServiceEndpointNpmMap and ServiceEndpointNpmMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointNpmMapInput` via:
 //
-//          ServiceEndpointNpmMap{ "key": ServiceEndpointNpmArgs{...} }
+//	ServiceEndpointNpmMap{ "key": ServiceEndpointNpmArgs{...} }
 type ServiceEndpointNpmMapInput interface {
 	pulumi.Input
 

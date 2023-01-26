@@ -18,24 +18,27 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
-// 			Name: "Example Agent Pool",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("name", example.Name)
-// 		ctx.Export("poolType", example.PoolType)
-// 		ctx.Export("autoProvision", example.AutoProvision)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
+//				Name: "Example Agent Pool",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("name", example.Name)
+//			ctx.Export("poolType", example.PoolType)
+//			ctx.Export("autoProvision", example.AutoProvision)
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //

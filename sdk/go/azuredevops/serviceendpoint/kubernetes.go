@@ -22,7 +22,9 @@ import (
 // Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:ServiceEndpoint/kubernetes:Kubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:ServiceEndpoint/kubernetes:Kubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 //
 // Deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes
@@ -194,7 +196,7 @@ func (i *Kubernetes) ToKubernetesOutputWithContext(ctx context.Context) Kubernet
 // KubernetesArrayInput is an input type that accepts KubernetesArray and KubernetesArrayOutput values.
 // You can construct a concrete instance of `KubernetesArrayInput` via:
 //
-//          KubernetesArray{ KubernetesArgs{...} }
+//	KubernetesArray{ KubernetesArgs{...} }
 type KubernetesArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +221,7 @@ func (i KubernetesArray) ToKubernetesArrayOutputWithContext(ctx context.Context)
 // KubernetesMapInput is an input type that accepts KubernetesMap and KubernetesMapOutput values.
 // You can construct a concrete instance of `KubernetesMapInput` via:
 //
-//          KubernetesMap{ "key": KubernetesArgs{...} }
+//	KubernetesMap{ "key": KubernetesArgs{...} }
 type KubernetesMapInput interface {
 	pulumi.Input
 

@@ -19,53 +19,56 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBranchPolicyWorkItemLinking(ctx, "exampleBranchPolicyWorkItemLinking", &azuredevops.BranchPolicyWorkItemLinkingArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			Settings: &BranchPolicyWorkItemLinkingSettingsArgs{
-// 				Scopes: BranchPolicyWorkItemLinkingSettingsScopeArray{
-// 					&BranchPolicyWorkItemLinkingSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: exampleGit.DefaultBranch,
-// 						MatchType:     pulumi.String("Exact"),
-// 					},
-// 					&BranchPolicyWorkItemLinkingSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: pulumi.String("refs/heads/releases"),
-// 						MatchType:     pulumi.String("Prefix"),
-// 					},
-// 					&BranchPolicyWorkItemLinkingSettingsScopeArgs{
-// 						MatchType: pulumi.String("DefaultBranch"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBranchPolicyWorkItemLinking(ctx, "exampleBranchPolicyWorkItemLinking", &azuredevops.BranchPolicyWorkItemLinkingArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				Settings: &BranchPolicyWorkItemLinkingSettingsArgs{
+//					Scopes: BranchPolicyWorkItemLinkingSettingsScopeArray{
+//						&BranchPolicyWorkItemLinkingSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: exampleGit.DefaultBranch,
+//							MatchType:     pulumi.String("Exact"),
+//						},
+//						&BranchPolicyWorkItemLinkingSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: pulumi.String("refs/heads/releases"),
+//							MatchType:     pulumi.String("Prefix"),
+//						},
+//						&BranchPolicyWorkItemLinkingSettingsScopeArgs{
+//							MatchType: pulumi.String("DefaultBranch"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -73,10 +76,12 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+// # Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:index/branchPolicyWorkItemLinking:BranchPolicyWorkItemLinking example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 type BranchPolicyWorkItemLinking struct {
 	pulumi.CustomResourceState
@@ -200,7 +205,7 @@ func (i *BranchPolicyWorkItemLinking) ToBranchPolicyWorkItemLinkingOutputWithCon
 // BranchPolicyWorkItemLinkingArrayInput is an input type that accepts BranchPolicyWorkItemLinkingArray and BranchPolicyWorkItemLinkingArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyWorkItemLinkingArrayInput` via:
 //
-//          BranchPolicyWorkItemLinkingArray{ BranchPolicyWorkItemLinkingArgs{...} }
+//	BranchPolicyWorkItemLinkingArray{ BranchPolicyWorkItemLinkingArgs{...} }
 type BranchPolicyWorkItemLinkingArrayInput interface {
 	pulumi.Input
 
@@ -225,7 +230,7 @@ func (i BranchPolicyWorkItemLinkingArray) ToBranchPolicyWorkItemLinkingArrayOutp
 // BranchPolicyWorkItemLinkingMapInput is an input type that accepts BranchPolicyWorkItemLinkingMap and BranchPolicyWorkItemLinkingMapOutput values.
 // You can construct a concrete instance of `BranchPolicyWorkItemLinkingMapInput` via:
 //
-//          BranchPolicyWorkItemLinkingMap{ "key": BranchPolicyWorkItemLinkingArgs{...} }
+//	BranchPolicyWorkItemLinkingMap{ "key": BranchPolicyWorkItemLinkingArgs{...} }
 type BranchPolicyWorkItemLinkingMapInput interface {
 	pulumi.Input
 

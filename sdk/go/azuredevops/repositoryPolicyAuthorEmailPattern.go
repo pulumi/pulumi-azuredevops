@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewRepositoryPolicyAuthorEmailPattern(ctx, "exampleRepositoryPolicyAuthorEmailPattern", &azuredevops.RepositoryPolicyAuthorEmailPatternArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			AuthorEmailPatterns: pulumi.StringArray{
-// 				pulumi.String("user1@test.com"),
-// 				pulumi.String("user2@test.com"),
-// 			},
-// 			RepositoryIds: pulumi.StringArray{
-// 				exampleGit.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewRepositoryPolicyAuthorEmailPattern(ctx, "exampleRepositoryPolicyAuthorEmailPattern", &azuredevops.RepositoryPolicyAuthorEmailPatternArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				AuthorEmailPatterns: pulumi.StringArray{
+//					pulumi.String("user1@test.com"),
+//					pulumi.String("user2@test.com"),
+//				},
+//				RepositoryIds: pulumi.StringArray{
+//					exampleGit.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Set project level repository policy
 //
@@ -68,36 +71,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewRepositoryPolicyAuthorEmailPattern(ctx, "exampleRepositoryPolicyAuthorEmailPattern", &azuredevops.RepositoryPolicyAuthorEmailPatternArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			AuthorEmailPatterns: pulumi.StringArray{
-// 				pulumi.String("user1@test.com"),
-// 				pulumi.String("user2@test.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewRepositoryPolicyAuthorEmailPattern(ctx, "exampleRepositoryPolicyAuthorEmailPattern", &azuredevops.RepositoryPolicyAuthorEmailPatternArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				AuthorEmailPatterns: pulumi.StringArray{
+//					pulumi.String("user1@test.com"),
+//					pulumi.String("user2@test.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ## Relevant Links
@@ -106,10 +112,12 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+// # Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 type RepositoryPolicyAuthorEmailPattern struct {
 	pulumi.CustomResourceState
@@ -248,7 +256,7 @@ func (i *RepositoryPolicyAuthorEmailPattern) ToRepositoryPolicyAuthorEmailPatter
 // RepositoryPolicyAuthorEmailPatternArrayInput is an input type that accepts RepositoryPolicyAuthorEmailPatternArray and RepositoryPolicyAuthorEmailPatternArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternArrayInput` via:
 //
-//          RepositoryPolicyAuthorEmailPatternArray{ RepositoryPolicyAuthorEmailPatternArgs{...} }
+//	RepositoryPolicyAuthorEmailPatternArray{ RepositoryPolicyAuthorEmailPatternArgs{...} }
 type RepositoryPolicyAuthorEmailPatternArrayInput interface {
 	pulumi.Input
 
@@ -273,7 +281,7 @@ func (i RepositoryPolicyAuthorEmailPatternArray) ToRepositoryPolicyAuthorEmailPa
 // RepositoryPolicyAuthorEmailPatternMapInput is an input type that accepts RepositoryPolicyAuthorEmailPatternMap and RepositoryPolicyAuthorEmailPatternMapOutput values.
 // You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternMapInput` via:
 //
-//          RepositoryPolicyAuthorEmailPatternMap{ "key": RepositoryPolicyAuthorEmailPatternArgs{...} }
+//	RepositoryPolicyAuthorEmailPatternMap{ "key": RepositoryPolicyAuthorEmailPatternArgs{...} }
 type RepositoryPolicyAuthorEmailPatternMapInput interface {
 	pulumi.Input
 

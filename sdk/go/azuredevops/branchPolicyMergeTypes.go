@@ -19,57 +19,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBranchPolicyMergeTypes(ctx, "exampleBranchPolicyMergeTypes", &azuredevops.BranchPolicyMergeTypesArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			Settings: &BranchPolicyMergeTypesSettingsArgs{
-// 				AllowSquash:               pulumi.Bool(true),
-// 				AllowRebaseAndFastForward: pulumi.Bool(true),
-// 				AllowBasicNoFastForward:   pulumi.Bool(true),
-// 				AllowRebaseWithMerge:      pulumi.Bool(true),
-// 				Scopes: BranchPolicyMergeTypesSettingsScopeArray{
-// 					&BranchPolicyMergeTypesSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: exampleGit.DefaultBranch,
-// 						MatchType:     pulumi.String("Exact"),
-// 					},
-// 					&BranchPolicyMergeTypesSettingsScopeArgs{
-// 						RepositoryId:  nil,
-// 						RepositoryRef: pulumi.String("refs/heads/releases"),
-// 						MatchType:     pulumi.String("Prefix"),
-// 					},
-// 					&BranchPolicyMergeTypesSettingsScopeArgs{
-// 						MatchType: pulumi.String("DefaultBranch"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBranchPolicyMergeTypes(ctx, "exampleBranchPolicyMergeTypes", &azuredevops.BranchPolicyMergeTypesArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				Settings: &BranchPolicyMergeTypesSettingsArgs{
+//					AllowSquash:               pulumi.Bool(true),
+//					AllowRebaseAndFastForward: pulumi.Bool(true),
+//					AllowBasicNoFastForward:   pulumi.Bool(true),
+//					AllowRebaseWithMerge:      pulumi.Bool(true),
+//					Scopes: BranchPolicyMergeTypesSettingsScopeArray{
+//						&BranchPolicyMergeTypesSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: exampleGit.DefaultBranch,
+//							MatchType:     pulumi.String("Exact"),
+//						},
+//						&BranchPolicyMergeTypesSettingsScopeArgs{
+//							RepositoryId:  nil,
+//							RepositoryRef: pulumi.String("refs/heads/releases"),
+//							MatchType:     pulumi.String("Prefix"),
+//						},
+//						&BranchPolicyMergeTypesSettingsScopeArgs{
+//							MatchType: pulumi.String("DefaultBranch"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -77,10 +80,12 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+// # Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:index/branchPolicyMergeTypes:BranchPolicyMergeTypes example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 type BranchPolicyMergeTypes struct {
 	pulumi.CustomResourceState
@@ -204,7 +209,7 @@ func (i *BranchPolicyMergeTypes) ToBranchPolicyMergeTypesOutputWithContext(ctx c
 // BranchPolicyMergeTypesArrayInput is an input type that accepts BranchPolicyMergeTypesArray and BranchPolicyMergeTypesArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyMergeTypesArrayInput` via:
 //
-//          BranchPolicyMergeTypesArray{ BranchPolicyMergeTypesArgs{...} }
+//	BranchPolicyMergeTypesArray{ BranchPolicyMergeTypesArgs{...} }
 type BranchPolicyMergeTypesArrayInput interface {
 	pulumi.Input
 
@@ -229,7 +234,7 @@ func (i BranchPolicyMergeTypesArray) ToBranchPolicyMergeTypesArrayOutputWithCont
 // BranchPolicyMergeTypesMapInput is an input type that accepts BranchPolicyMergeTypesMap and BranchPolicyMergeTypesMapOutput values.
 // You can construct a concrete instance of `BranchPolicyMergeTypesMapInput` via:
 //
-//          BranchPolicyMergeTypesMap{ "key": BranchPolicyMergeTypesArgs{...} }
+//	BranchPolicyMergeTypesMap{ "key": BranchPolicyMergeTypesArgs{...} }
 type BranchPolicyMergeTypesMapInput interface {
 	pulumi.Input
 

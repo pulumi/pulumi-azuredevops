@@ -19,35 +19,38 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: pulumi.StringRef("Example Project"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
-// 			ProjectId:     pulumi.StringRef(example.Id),
-// 			IncludeHidden: pulumi.BoolRef(true),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
-// 			ProjectId: pulumi.StringRef(example.Id),
-// 			Name:      pulumi.StringRef("Example Repository"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+//				Name: pulumi.StringRef("Example Project"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
+//				ProjectId:     pulumi.StringRef(example.Id),
+//				IncludeHidden: pulumi.BoolRef(true),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.GetRepositories(ctx, &GetRepositoriesArgs{
+//				ProjectId: pulumi.StringRef(example.Id),
+//				Name:      pulumi.StringRef("Example Repository"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //

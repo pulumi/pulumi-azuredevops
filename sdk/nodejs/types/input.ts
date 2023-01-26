@@ -731,7 +731,6 @@ export interface VariableGroupVariable {
      */
     value?: pulumi.Input<string>;
 }
-
 export namespace Agent {
 }
 

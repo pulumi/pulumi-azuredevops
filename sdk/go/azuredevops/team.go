@@ -19,48 +19,51 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example_project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Name:      pulumi.String("Contributors"),
-// 		}, nil)
-// 		example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Name:      pulumi.String("Readers"),
-// 		}, nil)
-// 		_, err = azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Administrators: pulumi.StringArray{
-// 				example_project_contributors.ApplyT(func(example_project_contributors GetGroupResult) (string, error) {
-// 					return example_project_contributors.Descriptor, nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 			Members: pulumi.StringArray{
-// 				example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
-// 					return example_project_readers.Descriptor, nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Contributors"),
+//			}, nil)
+//			example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			_, err = azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
+//				ProjectId: exampleProject.ID(),
+//				Administrators: pulumi.StringArray{
+//					example_project_contributors.ApplyT(func(example_project_contributors GetGroupResult) (string, error) {
+//						return example_project_contributors.Descriptor, nil
+//					}).(pulumi.StringOutput),
+//				},
+//				Members: pulumi.StringArray{
+//					example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
+//						return example_project_readers.Descriptor, nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -75,7 +78,9 @@ import (
 // Azure DevOps teams can be imported using the complete resource id `<project_id>/<team_id>` e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/team:Team example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type Team struct {
 	pulumi.CustomResourceState
@@ -206,7 +211,7 @@ func (i *Team) ToTeamOutputWithContext(ctx context.Context) TeamOutput {
 // TeamArrayInput is an input type that accepts TeamArray and TeamArrayOutput values.
 // You can construct a concrete instance of `TeamArrayInput` via:
 //
-//          TeamArray{ TeamArgs{...} }
+//	TeamArray{ TeamArgs{...} }
 type TeamArrayInput interface {
 	pulumi.Input
 
@@ -231,7 +236,7 @@ func (i TeamArray) ToTeamArrayOutputWithContext(ctx context.Context) TeamArrayOu
 // TeamMapInput is an input type that accepts TeamMap and TeamMapOutput values.
 // You can construct a concrete instance of `TeamMapInput` via:
 //
-//          TeamMap{ "key": TeamArgs{...} }
+//	TeamMap{ "key": TeamArgs{...} }
 type TeamMapInput interface {
 	pulumi.Input
 
