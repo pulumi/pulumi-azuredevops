@@ -25,7 +25,6 @@ namespace Pulumi.AzureDevOps.Outputs
         /// The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
         /// </summary>
         public readonly string KubeConfig;
-        public readonly string? KubeConfigHash;
 
         [OutputConstructor]
         private ServiceEndpointKubernetesKubeconfig(
@@ -33,14 +32,11 @@ namespace Pulumi.AzureDevOps.Outputs
 
             string? clusterContext,
 
-            string kubeConfig,
-
-            string? kubeConfigHash)
+            string kubeConfig)
         {
             AcceptUntrustedCerts = acceptUntrustedCerts;
             ClusterContext = clusterContext;
             KubeConfig = kubeConfig;
-            KubeConfigHash = kubeConfigHash;
         }
     }
 }

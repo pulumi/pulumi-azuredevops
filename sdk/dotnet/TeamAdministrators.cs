@@ -15,42 +15,43 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_project_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Name = "Contributors",
-    ///         });
-    ///         var exampleTeam = new AzureDevOps.Team("exampleTeam", new AzureDevOps.TeamArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///         });
-    ///         var example_team_administrators = new AzureDevOps.TeamAdministrators("example-team-administrators", new AzureDevOps.TeamAdministratorsArgs
-    ///         {
-    ///             ProjectId = exampleTeam.ProjectId,
-    ///             TeamId = exampleTeam.Id,
-    ///             Mode = "overwrite",
-    ///             Administrators = 
-    ///             {
-    ///                 example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Descriptor),
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_project_contributors = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Contributors",
+    ///     });
+    /// 
+    ///     var exampleTeam = new AzureDevOps.Team("exampleTeam", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///     });
+    /// 
+    ///     var example_team_administrators = new AzureDevOps.TeamAdministrators("example-team-administrators", new()
+    ///     {
+    ///         ProjectId = exampleTeam.ProjectId,
+    ///         TeamId = exampleTeam.Id,
+    ///         Mode = "overwrite",
+    ///         Administrators = new[]
+    ///         {
+    ///             example_project_contributors.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -65,7 +66,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/teamAdministrators:TeamAdministrators")]
-    public partial class TeamAdministrators : Pulumi.CustomResource
+    public partial class TeamAdministrators : global::Pulumi.CustomResource
     {
         /// <summary>
         /// List of subject descriptors to define adminitrators of the team.
@@ -137,7 +138,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class TeamAdministratorsArgs : Pulumi.ResourceArgs
+    public sealed class TeamAdministratorsArgs : global::Pulumi.ResourceArgs
     {
         [Input("administrators", required: true)]
         private InputList<string>? _administrators;
@@ -174,9 +175,10 @@ namespace Pulumi.AzureDevOps
         public TeamAdministratorsArgs()
         {
         }
+        public static new TeamAdministratorsArgs Empty => new TeamAdministratorsArgs();
     }
 
-    public sealed class TeamAdministratorsState : Pulumi.ResourceArgs
+    public sealed class TeamAdministratorsState : global::Pulumi.ResourceArgs
     {
         [Input("administrators")]
         private InputList<string>? _administrators;
@@ -213,5 +215,6 @@ namespace Pulumi.AzureDevOps
         public TeamAdministratorsState()
         {
         }
+        public static new TeamAdministratorsState Empty => new TeamAdministratorsState();
     }
 }

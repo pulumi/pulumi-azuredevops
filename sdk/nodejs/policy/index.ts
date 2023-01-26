@@ -5,12 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./branchPolicyBuildValidation";
-export * from "./branchPolicyMinReviewers";
+export { BranchPolicyBuildValidationArgs, BranchPolicyBuildValidationState } from "./branchPolicyBuildValidation";
+export type BranchPolicyBuildValidation = import("./branchPolicyBuildValidation").BranchPolicyBuildValidation;
+export const BranchPolicyBuildValidation: typeof import("./branchPolicyBuildValidation").BranchPolicyBuildValidation = null as any;
+utilities.lazyLoad(exports, ["BranchPolicyBuildValidation"], () => require("./branchPolicyBuildValidation"));
 
-// Import resources to register:
-import { BranchPolicyBuildValidation } from "./branchPolicyBuildValidation";
-import { BranchPolicyMinReviewers } from "./branchPolicyMinReviewers";
+export { BranchPolicyMinReviewersArgs, BranchPolicyMinReviewersState } from "./branchPolicyMinReviewers";
+export type BranchPolicyMinReviewers = import("./branchPolicyMinReviewers").BranchPolicyMinReviewers;
+export const BranchPolicyMinReviewers: typeof import("./branchPolicyMinReviewers").BranchPolicyMinReviewers = null as any;
+utilities.lazyLoad(exports, ["BranchPolicyMinReviewers"], () => require("./branchPolicyMinReviewers"));
+
 
 const _module = {
     version: utilities.getVersion(),

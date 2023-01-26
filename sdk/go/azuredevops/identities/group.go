@@ -18,43 +18,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Name:      pulumi.String("Readers"),
-// 		}, nil)
-// 		example_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Name:      pulumi.String("Contributors"),
-// 		}, nil)
-// 		_, err = azuredevops.NewGroup(ctx, "exampleGroup", &azuredevops.GroupArgs{
-// 			Scope:       exampleProject.ID(),
-// 			DisplayName: pulumi.String("Example group"),
-// 			Description: pulumi.String("Example description"),
-// 			Members: pulumi.StringArray{
-// 				example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-// 					return example_readers.Descriptor, nil
-// 				}).(pulumi.StringOutput),
-// 				example_contributors.ApplyT(func(example_contributors GetGroupResult) (string, error) {
-// 					return example_contributors.Descriptor, nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			example_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Contributors"),
+//			}, nil)
+//			_, err = azuredevops.NewGroup(ctx, "exampleGroup", &azuredevops.GroupArgs{
+//				Scope:       exampleProject.ID(),
+//				DisplayName: pulumi.String("Example group"),
+//				Description: pulumi.String("Example description"),
+//				Members: pulumi.StringArray{
+//					example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+//						return example_readers.Descriptor, nil
+//					}).(pulumi.StringOutput),
+//					example_contributors.ApplyT(func(example_contributors GetGroupResult) (string, error) {
+//						return example_contributors.Descriptor, nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -69,7 +72,9 @@ import (
 // Azure DevOps groups can be imported using the group identity descriptor, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:Identities/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+//
+//	$ pulumi import azuredevops:Identities/group:Group example aadgp.Uy0xLTktMTU1MTM3NDI0NS0xMjA0NDAwOTY5LTI0MDI5ODY0MTMtMjE3OTQwODYxNi0zLTIxNjc2NjQyNTMtMzI1Nzg0NDI4OS0yMjU4MjcwOTc0LTI2MDYxODY2NDU
+//
 // ```
 //
 // Deprecated: azuredevops.identities.Group has been deprecated in favor of azuredevops.Group
@@ -245,7 +250,7 @@ func (i *Group) ToGroupOutputWithContext(ctx context.Context) GroupOutput {
 // GroupArrayInput is an input type that accepts GroupArray and GroupArrayOutput values.
 // You can construct a concrete instance of `GroupArrayInput` via:
 //
-//          GroupArray{ GroupArgs{...} }
+//	GroupArray{ GroupArgs{...} }
 type GroupArrayInput interface {
 	pulumi.Input
 
@@ -270,7 +275,7 @@ func (i GroupArray) ToGroupArrayOutputWithContext(ctx context.Context) GroupArra
 // GroupMapInput is an input type that accepts GroupMap and GroupMapOutput values.
 // You can construct a concrete instance of `GroupMapInput` via:
 //
-//          GroupMap{ "key": GroupArgs{...} }
+//	GroupMap{ "key": GroupArgs{...} }
 type GroupMapInput interface {
 	pulumi.Input
 

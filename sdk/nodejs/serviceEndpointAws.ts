@@ -157,13 +157,15 @@ export class ServiceEndpointAws extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["roleSessionName"] = args ? args.roleSessionName : undefined;
             resourceInputs["roleToAssume"] = args ? args.roleToAssume : undefined;
-            resourceInputs["secretAccessKey"] = args ? args.secretAccessKey : undefined;
+            resourceInputs["secretAccessKey"] = args?.secretAccessKey ? pulumi.secret(args.secretAccessKey) : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["sessionToken"] = args ? args.sessionToken : undefined;
+            resourceInputs["sessionToken"] = args?.sessionToken ? pulumi.secret(args.sessionToken) : undefined;
             resourceInputs["secretAccessKeyHash"] = undefined /*out*/;
             resourceInputs["sessionTokenHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["secretAccessKey", "secretAccessKeyHash", "sessionToken", "sessionTokenHash"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointAws.__pulumiType, name, resourceInputs, opts);
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Build.Inputs
 {
 
-    public sealed class BuildDefinitionPullRequestTriggerOverridePathFilterArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionPullRequestTriggerOverridePathFilterArgs : global::Pulumi.ResourceArgs
     {
         [Input("excludes")]
         private InputList<string>? _excludes;
@@ -39,5 +39,6 @@ namespace Pulumi.AzureDevOps.Build.Inputs
         public BuildDefinitionPullRequestTriggerOverridePathFilterArgs()
         {
         }
+        public static new BuildDefinitionPullRequestTriggerOverridePathFilterArgs Empty => new BuildDefinitionPullRequestTriggerOverridePathFilterArgs();
     }
 }

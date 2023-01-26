@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class ServiceEndpointServiceFabricNoneGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointServiceFabricNoneGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public ServiceEndpointServiceFabricNoneGetArgs()
         {
         }
+        public static new ServiceEndpointServiceFabricNoneGetArgs Empty => new ServiceEndpointServiceFabricNoneGetArgs();
     }
 }

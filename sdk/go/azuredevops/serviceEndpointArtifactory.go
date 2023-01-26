@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointArtifactory(ctx, "exampleServiceEndpointArtifactory", &azuredevops.ServiceEndpointArtifactoryArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example Artifactory"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			Url:                 pulumi.String("https://artifactory.my.com"),
-// 			AuthenticationToken: &ServiceEndpointArtifactoryAuthenticationTokenArgs{
-// 				Token: pulumi.String("0000000000000000000000000000000000000000"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointArtifactory(ctx, "exampleServiceEndpointArtifactory", &azuredevops.ServiceEndpointArtifactoryArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example Artifactory"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				Url:                 pulumi.String("https://artifactory.my.com"),
+//				AuthenticationToken: &ServiceEndpointArtifactoryAuthenticationTokenArgs{
+//					Token: pulumi.String("0000000000000000000000000000000000000000"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // Alternatively a username and password may be used.
 //
@@ -56,37 +59,40 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointArtifactory(ctx, "exampleServiceEndpointArtifactory", &azuredevops.ServiceEndpointArtifactoryArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example Artifactory"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			Url:                 pulumi.String("https://artifactory.my.com"),
-// 			AuthenticationBasic: &ServiceEndpointArtifactoryAuthenticationBasicArgs{
-// 				Username: pulumi.String("username"),
-// 				Password: pulumi.String("password"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointArtifactory(ctx, "exampleServiceEndpointArtifactory", &azuredevops.ServiceEndpointArtifactoryArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example Artifactory"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				Url:                 pulumi.String("https://artifactory.my.com"),
+//				AuthenticationBasic: &ServiceEndpointArtifactoryAuthenticationBasicArgs{
+//					Username: pulumi.String("username"),
+//					Password: pulumi.String("password"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -98,7 +104,9 @@ import (
 // Azure DevOps Service Endpoint Artifactory can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointArtifactory struct {
 	pulumi.CustomResourceState
@@ -240,7 +248,7 @@ func (i *ServiceEndpointArtifactory) ToServiceEndpointArtifactoryOutputWithConte
 // ServiceEndpointArtifactoryArrayInput is an input type that accepts ServiceEndpointArtifactoryArray and ServiceEndpointArtifactoryArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointArtifactoryArrayInput` via:
 //
-//          ServiceEndpointArtifactoryArray{ ServiceEndpointArtifactoryArgs{...} }
+//	ServiceEndpointArtifactoryArray{ ServiceEndpointArtifactoryArgs{...} }
 type ServiceEndpointArtifactoryArrayInput interface {
 	pulumi.Input
 
@@ -265,7 +273,7 @@ func (i ServiceEndpointArtifactoryArray) ToServiceEndpointArtifactoryArrayOutput
 // ServiceEndpointArtifactoryMapInput is an input type that accepts ServiceEndpointArtifactoryMap and ServiceEndpointArtifactoryMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointArtifactoryMapInput` via:
 //
-//          ServiceEndpointArtifactoryMap{ "key": ServiceEndpointArtifactoryArgs{...} }
+//	ServiceEndpointArtifactoryMap{ "key": ServiceEndpointArtifactoryArgs{...} }
 type ServiceEndpointArtifactoryMapInput interface {
 	pulumi.Input
 

@@ -340,7 +340,7 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             if password is None and not opts.urn:
                 raise TypeError("Missing required property 'password'")
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
@@ -353,6 +353,8 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             __props__.__dict__["password_hash"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/bitBucket:BitBucket")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "passwordHash"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointBitBucket, __self__).__init__(
             'azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket',
             resource_name,

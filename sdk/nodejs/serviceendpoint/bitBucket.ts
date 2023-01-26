@@ -132,13 +132,15 @@ export class BitBucket extends pulumi.CustomResource {
             }
             resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
             resourceInputs["passwordHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password", "passwordHash"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(BitBucket.__pulumiType, name, resourceInputs, opts);
     }
 }

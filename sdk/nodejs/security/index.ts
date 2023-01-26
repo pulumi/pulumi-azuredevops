@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./resourceAuthorization";
+export { ResourceAuthorizationArgs, ResourceAuthorizationState } from "./resourceAuthorization";
+export type ResourceAuthorization = import("./resourceAuthorization").ResourceAuthorization;
+export const ResourceAuthorization: typeof import("./resourceAuthorization").ResourceAuthorization = null as any;
+utilities.lazyLoad(exports, ["ResourceAuthorization"], () => require("./resourceAuthorization"));
 
-// Import resources to register:
-import { ResourceAuthorization } from "./resourceAuthorization";
 
 const _module = {
     version: utilities.getVersion(),

@@ -20,40 +20,40 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var example_permissions = new AzureDevOps.ServicehookPermissions("example-permissions", new AzureDevOps.ServicehookPermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             Permissions = 
-    ///             {
-    ///                 { "ViewSubscriptions", "allow" },
-    ///                 { "EditSubscriptions", "allow" },
-    ///                 { "DeleteSubscriptions", "allow" },
-    ///                 { "PublishEvents", "allow" },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.ServicehookPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "ViewSubscriptions", "allow" },
+    ///             { "EditSubscriptions", "allow" },
+    ///             { "DeleteSubscriptions", "allow" },
+    ///             { "PublishEvents", "allow" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -68,7 +68,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/servicehookPermissions:ServicehookPermissions")]
-    public partial class ServicehookPermissions : Pulumi.CustomResource
+    public partial class ServicehookPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// the permissions to assign. The following permissions are available.
@@ -138,7 +138,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServicehookPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class ServicehookPermissionsArgs : global::Pulumi.ResourceArgs
     {
         [Input("permissions", required: true)]
         private InputMap<string>? _permissions;
@@ -173,9 +173,10 @@ namespace Pulumi.AzureDevOps
         public ServicehookPermissionsArgs()
         {
         }
+        public static new ServicehookPermissionsArgs Empty => new ServicehookPermissionsArgs();
     }
 
-    public sealed class ServicehookPermissionsState : Pulumi.ResourceArgs
+    public sealed class ServicehookPermissionsState : global::Pulumi.ResourceArgs
     {
         [Input("permissions")]
         private InputMap<string>? _permissions;
@@ -210,5 +211,6 @@ namespace Pulumi.AzureDevOps
         public ServicehookPermissionsState()
         {
         }
+        public static new ServicehookPermissionsState Empty => new ServicehookPermissionsState();
     }
 }

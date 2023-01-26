@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Build.Inputs
 {
 
-    public sealed class BuildDefinitionPullRequestTriggerOverrideGetArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionPullRequestTriggerOverrideGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// . Defaults to `true`.
@@ -45,5 +45,6 @@ namespace Pulumi.AzureDevOps.Build.Inputs
         public BuildDefinitionPullRequestTriggerOverrideGetArgs()
         {
         }
+        public static new BuildDefinitionPullRequestTriggerOverrideGetArgs Empty => new BuildDefinitionPullRequestTriggerOverrideGetArgs();
     }
 }

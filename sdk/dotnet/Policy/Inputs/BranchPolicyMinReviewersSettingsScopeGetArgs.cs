@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Policy.Inputs
 {
 
-    public sealed class BranchPolicyMinReviewersSettingsScopeGetArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyMinReviewersSettingsScopeGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureDevOps.Policy.Inputs
         public BranchPolicyMinReviewersSettingsScopeGetArgs()
         {
         }
+        public static new BranchPolicyMinReviewersSettingsScopeGetArgs Empty => new BranchPolicyMinReviewersSettingsScopeGetArgs();
     }
 }

@@ -123,11 +123,13 @@ export class ServiceendpointIncomingwebhook extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["httpHeader"] = args ? args.httpHeader : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
-            resourceInputs["secret"] = args ? args.secret : undefined;
+            resourceInputs["secret"] = args?.secret ? pulumi.secret(args.secret) : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["webhookName"] = args ? args.webhookName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["secret"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceendpointIncomingwebhook.__pulumiType, name, resourceInputs, opts);
     }
 }

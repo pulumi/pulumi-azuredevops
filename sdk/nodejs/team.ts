@@ -86,6 +86,10 @@ export class Team extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The descriptor of the Team.
+     */
+    public /*out*/ readonly descriptor!: pulumi.Output<string>;
+    /**
      * List of subject descriptors to define members of the team.
      */
     public readonly members!: pulumi.Output<string[]>;
@@ -113,6 +117,7 @@ export class Team extends pulumi.CustomResource {
             const state = argsOrState as TeamState | undefined;
             resourceInputs["administrators"] = state ? state.administrators : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["descriptor"] = state ? state.descriptor : undefined;
             resourceInputs["members"] = state ? state.members : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
@@ -126,6 +131,7 @@ export class Team extends pulumi.CustomResource {
             resourceInputs["members"] = args ? args.members : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
+            resourceInputs["descriptor"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Team.__pulumiType, name, resourceInputs, opts);
@@ -144,6 +150,10 @@ export interface TeamState {
      * The description of the Team.
      */
     description?: pulumi.Input<string>;
+    /**
+     * The descriptor of the Team.
+     */
+    descriptor?: pulumi.Input<string>;
     /**
      * List of subject descriptors to define members of the team.
      */

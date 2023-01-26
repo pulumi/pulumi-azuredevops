@@ -14,32 +14,9 @@ namespace Pulumi.AzureDevOps.Core
     {
         /// <summary>
         /// Use this data source to access information about the Azure DevOps organization configured for the provider.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// class MyStack : Stack
-        /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(AzureDevOps.GetClientConfig.InvokeAsync());
-        ///         this.OrgUrl = example.Apply(example =&gt; example.OrganizationUrl);
-        ///     }
-        /// 
-        ///     [Output("orgUrl")]
-        ///     public Output&lt;string&gt; OrgUrl { get; set; }
-        /// }
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetClientConfigResult> InvokeAsync(InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetClientConfigResult>("azuredevops:Core/getClientConfig:getClientConfig", InvokeArgs.Empty, options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetClientConfigResult>("azuredevops:Core/getClientConfig:getClientConfig", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

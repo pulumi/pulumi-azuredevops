@@ -113,7 +113,9 @@ class Provider(pulumi.ProviderResource):
             if org_service_url is None:
                 org_service_url = _utilities.get_env('AZDO_ORG_SERVICE_URL')
             __props__.__dict__["org_service_url"] = org_service_url
-            __props__.__dict__["personal_access_token"] = personal_access_token
+            __props__.__dict__["personal_access_token"] = None if personal_access_token is None else pulumi.Output.secret(personal_access_token)
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["personalAccessToken"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(Provider, __self__).__init__(
             'azuredevops',
             resource_name,

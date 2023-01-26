@@ -2288,8 +2288,7 @@ class ServiceEndpointKubernetesKubeconfigArgs:
     def __init__(__self__, *,
                  kube_config: pulumi.Input[str],
                  accept_untrusted_certs: Optional[pulumi.Input[bool]] = None,
-                 cluster_context: Optional[pulumi.Input[str]] = None,
-                 kube_config_hash: Optional[pulumi.Input[str]] = None):
+                 cluster_context: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] kube_config: The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
         :param pulumi.Input[bool] accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate.
@@ -2300,8 +2299,6 @@ class ServiceEndpointKubernetesKubeconfigArgs:
             pulumi.set(__self__, "accept_untrusted_certs", accept_untrusted_certs)
         if cluster_context is not None:
             pulumi.set(__self__, "cluster_context", cluster_context)
-        if kube_config_hash is not None:
-            pulumi.set(__self__, "kube_config_hash", kube_config_hash)
 
     @property
     @pulumi.getter(name="kubeConfig")
@@ -2338,15 +2335,6 @@ class ServiceEndpointKubernetesKubeconfigArgs:
     @cluster_context.setter
     def cluster_context(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_context", value)
-
-    @property
-    @pulumi.getter(name="kubeConfigHash")
-    def kube_config_hash(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "kube_config_hash")
-
-    @kube_config_hash.setter
-    def kube_config_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kube_config_hash", value)
 
 
 @pulumi.input_type
@@ -2751,18 +2739,23 @@ class ServiceendpointArgocdAuthenticationTokenArgs:
 class VariableGroupKeyVaultArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 service_endpoint_id: pulumi.Input[str]):
+                 service_endpoint_id: pulumi.Input[str],
+                 search_depth: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] name: The name of the Variable Group.
+        :param pulumi.Input[str] name: The name of the Azure key vault to link secrets from as variables.
+        :param pulumi.Input[str] service_endpoint_id: The id of the Azure subscription endpoint to access the key vault.
+        :param pulumi.Input[int] search_depth: Set the Azure Key Vault Secret search depth. Defaults to `20`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_endpoint_id", service_endpoint_id)
+        if search_depth is not None:
+            pulumi.set(__self__, "search_depth", search_depth)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Variable Group.
+        The name of the Azure key vault to link secrets from as variables.
         """
         return pulumi.get(self, "name")
 
@@ -2773,11 +2766,26 @@ class VariableGroupKeyVaultArgs:
     @property
     @pulumi.getter(name="serviceEndpointId")
     def service_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The id of the Azure subscription endpoint to access the key vault.
+        """
         return pulumi.get(self, "service_endpoint_id")
 
     @service_endpoint_id.setter
     def service_endpoint_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="searchDepth")
+    def search_depth(self) -> Optional[pulumi.Input[int]]:
+        """
+        Set the Azure Key Vault Secret search depth. Defaults to `20`.
+        """
+        return pulumi.get(self, "search_depth")
+
+    @search_depth.setter
+    def search_depth(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "search_depth", value)
 
 
 @pulumi.input_type

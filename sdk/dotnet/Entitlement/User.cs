@@ -15,20 +15,18 @@ namespace Pulumi.AzureDevOps.Entitlement
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.User("example", new()
     ///     {
-    ///         var example = new AzureDevOps.User("example", new AzureDevOps.UserArgs
-    ///         {
-    ///             PrincipalName = "foo@contoso.com",
-    ///         });
-    ///     }
+    ///         PrincipalName = "foo@contoso.com",
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -45,7 +43,7 @@ namespace Pulumi.AzureDevOps.Entitlement
     /// </summary>
     [Obsolete(@"azuredevops.entitlement.User has been deprecated in favor of azuredevops.User")]
     [AzureDevOpsResourceType("azuredevops:Entitlement/user:User")]
-    public partial class User : Pulumi.CustomResource
+    public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
@@ -127,7 +125,7 @@ namespace Pulumi.AzureDevOps.Entitlement
         }
     }
 
-    public sealed class UserArgs : Pulumi.ResourceArgs
+    public sealed class UserArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
@@ -162,9 +160,10 @@ namespace Pulumi.AzureDevOps.Entitlement
         public UserArgs()
         {
         }
+        public static new UserArgs Empty => new UserArgs();
     }
 
-    public sealed class UserState : Pulumi.ResourceArgs
+    public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
@@ -205,5 +204,6 @@ namespace Pulumi.AzureDevOps.Entitlement
         public UserState()
         {
         }
+        public static new UserState Empty => new UserState();
     }
 }

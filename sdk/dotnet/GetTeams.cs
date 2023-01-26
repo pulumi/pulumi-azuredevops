@@ -19,42 +19,35 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(AzureDevOps.GetTeams.InvokeAsync());
-        ///         this.ProjectId = 
-        ///         {
-        ///             example.Apply(example =&gt; example.Teams),
-        ///         }.Select(__item =&gt; __item?.ProjectId).ToList();
-        ///         this.Name = 
-        ///         {
-        ///             example.Apply(example =&gt; example.Teams),
-        ///         }.Select(__item =&gt; __item?.Name).ToList();
-        ///         this.Alladministrators = 
-        ///         {
-        ///             example.Apply(example =&gt; example.Teams),
-        ///         }.Select(__item =&gt; __item?.Administrators).ToList();
-        ///         this.Administrators = 
-        ///         {
-        ///             example.Apply(example =&gt; example.Teams),
-        ///         }.Select(__item =&gt; __item?.Members).ToList();
-        ///     }
+        ///     var example = AzureDevOps.GetTeams.Invoke();
         /// 
-        ///     [Output("projectId")]
-        ///     public Output&lt;string&gt; ProjectId { get; set; }
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("alladministrators")]
-        ///     public Output&lt;string&gt; Alladministrators { get; set; }
-        ///     [Output("administrators")]
-        ///     public Output&lt;string&gt; Administrators { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["projectId"] = new[]
+        ///         {
+        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
+        ///         }.Select(__item =&gt; __item?.ProjectId).ToList(),
+        ///         ["name"] = new[]
+        ///         {
+        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
+        ///         }.Select(__item =&gt; __item?.Name).ToList(),
+        ///         ["alladministrators"] = new[]
+        ///         {
+        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
+        ///         }.Select(__item =&gt; __item?.Administrators).ToList(),
+        ///         ["administrators"] = new[]
+        ///         {
+        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
+        ///         }.Select(__item =&gt; __item?.Members).ToList(),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -67,7 +60,7 @@ namespace Pulumi.AzureDevOps
         /// - **vso.project**:	Grants the ability to read projects and teams.
         /// </summary>
         public static Task<GetTeamsResult> InvokeAsync(GetTeamsArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
@@ -77,42 +70,35 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using System.Linq;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
-        ///     {
-        ///         var example = Output.Create(AzureDevOps.GetTeams.InvokeAsync());
-        ///         this.ProjectId = 
-        ///         {
-        ///             example.Apply(example =&gt; example.Teams),
-        ///         }.Select(__item =&gt; __item?.ProjectId).ToList();
-        ///         this.Name = 
-        ///         {
-        ///             example.Apply(example =&gt; example.Teams),
-        ///         }.Select(__item =&gt; __item?.Name).ToList();
-        ///         this.Alladministrators = 
-        ///         {
-        ///             example.Apply(example =&gt; example.Teams),
-        ///         }.Select(__item =&gt; __item?.Administrators).ToList();
-        ///         this.Administrators = 
-        ///         {
-        ///             example.Apply(example =&gt; example.Teams),
-        ///         }.Select(__item =&gt; __item?.Members).ToList();
-        ///     }
+        ///     var example = AzureDevOps.GetTeams.Invoke();
         /// 
-        ///     [Output("projectId")]
-        ///     public Output&lt;string&gt; ProjectId { get; set; }
-        ///     [Output("name")]
-        ///     public Output&lt;string&gt; Name { get; set; }
-        ///     [Output("alladministrators")]
-        ///     public Output&lt;string&gt; Alladministrators { get; set; }
-        ///     [Output("administrators")]
-        ///     public Output&lt;string&gt; Administrators { get; set; }
-        /// }
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["projectId"] = new[]
+        ///         {
+        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
+        ///         }.Select(__item =&gt; __item?.ProjectId).ToList(),
+        ///         ["name"] = new[]
+        ///         {
+        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
+        ///         }.Select(__item =&gt; __item?.Name).ToList(),
+        ///         ["alladministrators"] = new[]
+        ///         {
+        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
+        ///         }.Select(__item =&gt; __item?.Administrators).ToList(),
+        ///         ["administrators"] = new[]
+        ///         {
+        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
+        ///         }.Select(__item =&gt; __item?.Members).ToList(),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -125,11 +111,11 @@ namespace Pulumi.AzureDevOps
         /// - **vso.project**:	Grants the ability to read projects and teams.
         /// </summary>
         public static Output<GetTeamsResult> Invoke(GetTeamsInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetTeamsResult>("azuredevops:index/getTeams:getTeams", args ?? new GetTeamsInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetTeamsArgs : Pulumi.InvokeArgs
+    public sealed class GetTeamsArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Project ID. If no project ID all teams of the organization will be returned.
@@ -140,9 +126,10 @@ namespace Pulumi.AzureDevOps
         public GetTeamsArgs()
         {
         }
+        public static new GetTeamsArgs Empty => new GetTeamsArgs();
     }
 
-    public sealed class GetTeamsInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetTeamsInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The Project ID. If no project ID all teams of the organization will be returned.
@@ -153,6 +140,7 @@ namespace Pulumi.AzureDevOps
         public GetTeamsInvokeArgs()
         {
         }
+        public static new GetTeamsInvokeArgs Empty => new GetTeamsInvokeArgs();
     }
 
 

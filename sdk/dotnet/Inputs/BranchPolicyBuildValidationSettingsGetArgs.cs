@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BranchPolicyBuildValidationSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyBuildValidationSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the build to monitor for the policy.
@@ -69,5 +69,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BranchPolicyBuildValidationSettingsGetArgs()
         {
         }
+        public static new BranchPolicyBuildValidationSettingsGetArgs Empty => new BranchPolicyBuildValidationSettingsGetArgs();
     }
 }

@@ -19,69 +19,72 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Features: pulumi.StringMap{
-// 				"testplans": pulumi.String("disabled"),
-// 				"artifacts": pulumi.String("disabled"),
-// 			},
-// 			Description: pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
-// 			PrincipalName:      pulumi.String("mail@email.com"),
-// 			AccountLicenseType: pulumi.String("basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBranchPolicyStatusCheck(ctx, "exampleBranchPolicyStatusCheck", &azuredevops.BranchPolicyStatusCheckArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			Settings: &BranchPolicyStatusCheckSettingsArgs{
-// 				Name:               pulumi.String("Release"),
-// 				AuthorId:           exampleUser.ID(),
-// 				InvalidateOnUpdate: pulumi.Bool(true),
-// 				Applicability:      pulumi.String("conditional"),
-// 				DisplayName:        pulumi.String("PreCheck"),
-// 				Scopes: BranchPolicyStatusCheckSettingsScopeArray{
-// 					&BranchPolicyStatusCheckSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: exampleGit.DefaultBranch,
-// 						MatchType:     pulumi.String("Exact"),
-// 					},
-// 					&BranchPolicyStatusCheckSettingsScopeArgs{
-// 						MatchType: pulumi.String("DefaultBranch"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Features: pulumi.StringMap{
+//					"testplans": pulumi.String("disabled"),
+//					"artifacts": pulumi.String("disabled"),
+//				},
+//				Description: pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
+//				PrincipalName:      pulumi.String("mail@email.com"),
+//				AccountLicenseType: pulumi.String("basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBranchPolicyStatusCheck(ctx, "exampleBranchPolicyStatusCheck", &azuredevops.BranchPolicyStatusCheckArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				Settings: &BranchPolicyStatusCheckSettingsArgs{
+//					Name:               pulumi.String("Release"),
+//					AuthorId:           exampleUser.ID(),
+//					InvalidateOnUpdate: pulumi.Bool(true),
+//					Applicability:      pulumi.String("conditional"),
+//					DisplayName:        pulumi.String("PreCheck"),
+//					Scopes: BranchPolicyStatusCheckSettingsScopeArray{
+//						&BranchPolicyStatusCheckSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: exampleGit.DefaultBranch,
+//							MatchType:     pulumi.String("Exact"),
+//						},
+//						&BranchPolicyStatusCheckSettingsScopeArgs{
+//							MatchType: pulumi.String("DefaultBranch"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -89,10 +92,12 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+// # Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 type BranchPolicyStatusCheck struct {
 	pulumi.CustomResourceState
@@ -216,7 +221,7 @@ func (i *BranchPolicyStatusCheck) ToBranchPolicyStatusCheckOutputWithContext(ctx
 // BranchPolicyStatusCheckArrayInput is an input type that accepts BranchPolicyStatusCheckArray and BranchPolicyStatusCheckArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyStatusCheckArrayInput` via:
 //
-//          BranchPolicyStatusCheckArray{ BranchPolicyStatusCheckArgs{...} }
+//	BranchPolicyStatusCheckArray{ BranchPolicyStatusCheckArgs{...} }
 type BranchPolicyStatusCheckArrayInput interface {
 	pulumi.Input
 
@@ -241,7 +246,7 @@ func (i BranchPolicyStatusCheckArray) ToBranchPolicyStatusCheckArrayOutputWithCo
 // BranchPolicyStatusCheckMapInput is an input type that accepts BranchPolicyStatusCheckMap and BranchPolicyStatusCheckMapOutput values.
 // You can construct a concrete instance of `BranchPolicyStatusCheckMapInput` via:
 //
-//          BranchPolicyStatusCheckMap{ "key": BranchPolicyStatusCheckArgs{...} }
+//	BranchPolicyStatusCheckMap{ "key": BranchPolicyStatusCheckArgs{...} }
 type BranchPolicyStatusCheckMapInput interface {
 	pulumi.Input
 

@@ -15,39 +15,39 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleGitRepositoryFile = new AzureDevOps.GitRepositoryFile("exampleGitRepositoryFile", new AzureDevOps.GitRepositoryFileArgs
-    ///         {
-    ///             RepositoryId = exampleGit.Id,
-    ///             File = ".gitignore",
-    ///             Content = "**/*.tfstate",
-    ///             Branch = "refs/heads/master",
-    ///             CommitMessage = "First commit",
-    ///             OverwriteOnCreate = false,
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleGitRepositoryFile = new AzureDevOps.GitRepositoryFile("exampleGitRepositoryFile", new()
+    ///     {
+    ///         RepositoryId = exampleGit.Id,
+    ///         File = ".gitignore",
+    ///         Content = "**/*.tfstate",
+    ///         Branch = "refs/heads/master",
+    ///         CommitMessage = "First commit",
+    ///         OverwriteOnCreate = false,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -68,7 +68,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/gitRepositoryFile:GitRepositoryFile")]
-    public partial class GitRepositoryFile : Pulumi.CustomResource
+    public partial class GitRepositoryFile : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
@@ -151,7 +151,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class GitRepositoryFileArgs : Pulumi.ResourceArgs
+    public sealed class GitRepositoryFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
@@ -193,9 +193,10 @@ namespace Pulumi.AzureDevOps
         public GitRepositoryFileArgs()
         {
         }
+        public static new GitRepositoryFileArgs Empty => new GitRepositoryFileArgs();
     }
 
-    public sealed class GitRepositoryFileState : Pulumi.ResourceArgs
+    public sealed class GitRepositoryFileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
@@ -237,5 +238,6 @@ namespace Pulumi.AzureDevOps
         public GitRepositoryFileState()
         {
         }
+        public static new GitRepositoryFileState Empty => new GitRepositoryFileState();
     }
 }

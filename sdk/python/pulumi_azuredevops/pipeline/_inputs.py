@@ -18,18 +18,23 @@ __all__ = [
 class VariableGroupKeyVaultArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
-                 service_endpoint_id: pulumi.Input[str]):
+                 service_endpoint_id: pulumi.Input[str],
+                 search_depth: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input[str] name: The name of the Variable Group.
+        :param pulumi.Input[str] name: The name of the Azure key vault to link secrets from as variables.
+        :param pulumi.Input[str] service_endpoint_id: The id of the Azure subscription endpoint to access the key vault.
+        :param pulumi.Input[int] search_depth: Set the Azure Key Vault Secret search depth. Defaults to `20`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_endpoint_id", service_endpoint_id)
+        if search_depth is not None:
+            pulumi.set(__self__, "search_depth", search_depth)
 
     @property
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the Variable Group.
+        The name of the Azure key vault to link secrets from as variables.
         """
         return pulumi.get(self, "name")
 
@@ -40,11 +45,26 @@ class VariableGroupKeyVaultArgs:
     @property
     @pulumi.getter(name="serviceEndpointId")
     def service_endpoint_id(self) -> pulumi.Input[str]:
+        """
+        The id of the Azure subscription endpoint to access the key vault.
+        """
         return pulumi.get(self, "service_endpoint_id")
 
     @service_endpoint_id.setter
     def service_endpoint_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "service_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="searchDepth")
+    def search_depth(self) -> Optional[pulumi.Input[int]]:
+        """
+        Set the Azure Key Vault Secret search depth. Defaults to `20`.
+        """
+        return pulumi.get(self, "search_depth")
+
+    @search_depth.setter
+    def search_depth(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "search_depth", value)
 
 
 @pulumi.input_type

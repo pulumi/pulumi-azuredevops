@@ -19,46 +19,49 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "exampleServiceEndpointDockerRegistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example Docker Hub"),
-// 			DockerUsername:      pulumi.String("example"),
-// 			DockerEmail:         pulumi.String("email@example.com"),
-// 			DockerPassword:      pulumi.String("12345"),
-// 			RegistryType:        pulumi.String("DockerHub"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "example-other", &azuredevops.ServiceEndpointDockerRegistryArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example Docker Registry"),
-// 			DockerRegistry:      pulumi.String("https://sample.azurecr.io/v1"),
-// 			DockerUsername:      pulumi.String("sample"),
-// 			DockerPassword:      pulumi.String("12345"),
-// 			RegistryType:        pulumi.String("Others"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "exampleServiceEndpointDockerRegistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example Docker Hub"),
+//				DockerUsername:      pulumi.String("example"),
+//				DockerEmail:         pulumi.String("email@example.com"),
+//				DockerPassword:      pulumi.String("12345"),
+//				RegistryType:        pulumi.String("DockerHub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointDockerRegistry(ctx, "example-other", &azuredevops.ServiceEndpointDockerRegistryArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example Docker Registry"),
+//				DockerRegistry:      pulumi.String("https://sample.azurecr.io/v1"),
+//				DockerUsername:      pulumi.String("sample"),
+//				DockerPassword:      pulumi.String("12345"),
+//				RegistryType:        pulumi.String("Others"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -70,7 +73,9 @@ import (
 // Azure DevOps Service Endpoint Docker Registry can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointDockerRegistry struct {
 	pulumi.CustomResourceState
@@ -120,6 +125,14 @@ func NewServiceEndpointDockerRegistry(ctx *pulumi.Context,
 		},
 	})
 	opts = append(opts, aliases)
+	if args.DockerPassword != nil {
+		args.DockerPassword = pulumi.ToSecret(args.DockerPassword).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"dockerPassword",
+		"dockerPasswordHash",
+	})
+	opts = append(opts, secrets)
 	var resource ServiceEndpointDockerRegistry
 	err := ctx.RegisterResource("azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry", name, args, &resource, opts...)
 	if err != nil {
@@ -252,7 +265,7 @@ func (i *ServiceEndpointDockerRegistry) ToServiceEndpointDockerRegistryOutputWit
 // ServiceEndpointDockerRegistryArrayInput is an input type that accepts ServiceEndpointDockerRegistryArray and ServiceEndpointDockerRegistryArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointDockerRegistryArrayInput` via:
 //
-//          ServiceEndpointDockerRegistryArray{ ServiceEndpointDockerRegistryArgs{...} }
+//	ServiceEndpointDockerRegistryArray{ ServiceEndpointDockerRegistryArgs{...} }
 type ServiceEndpointDockerRegistryArrayInput interface {
 	pulumi.Input
 
@@ -277,7 +290,7 @@ func (i ServiceEndpointDockerRegistryArray) ToServiceEndpointDockerRegistryArray
 // ServiceEndpointDockerRegistryMapInput is an input type that accepts ServiceEndpointDockerRegistryMap and ServiceEndpointDockerRegistryMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointDockerRegistryMapInput` via:
 //
-//          ServiceEndpointDockerRegistryMap{ "key": ServiceEndpointDockerRegistryArgs{...} }
+//	ServiceEndpointDockerRegistryMap{ "key": ServiceEndpointDockerRegistryArgs{...} }
 type ServiceEndpointDockerRegistryMapInput interface {
 	pulumi.Input
 

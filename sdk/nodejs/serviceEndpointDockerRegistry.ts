@@ -154,7 +154,7 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
             resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["dockerEmail"] = args ? args.dockerEmail : undefined;
-            resourceInputs["dockerPassword"] = args ? args.dockerPassword : undefined;
+            resourceInputs["dockerPassword"] = args?.dockerPassword ? pulumi.secret(args.dockerPassword) : undefined;
             resourceInputs["dockerRegistry"] = args ? args.dockerRegistry : undefined;
             resourceInputs["dockerUsername"] = args ? args.dockerUsername : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
@@ -165,6 +165,8 @@ export class ServiceEndpointDockerRegistry extends pulumi.CustomResource {
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
+        const secretOpts = { additionalSecretOutputs: ["dockerPassword", "dockerPasswordHash"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointDockerRegistry.__pulumiType, name, resourceInputs, opts);
     }
 }

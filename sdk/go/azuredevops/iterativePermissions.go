@@ -26,57 +26,60 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: example.ID(),
-// 			Name:      pulumi.String("Readers"),
-// 		}, nil)
-// 		_, err = azuredevops.NewIterativePermissions(ctx, "example-root-permissions", &azuredevops.IterativePermissionsArgs{
-// 			ProjectId: example.ID(),
-// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-// 				return example_readers.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			Permissions: pulumi.StringMap{
-// 				"CREATE_CHILDREN": pulumi.String("Deny"),
-// 				"GENERIC_READ":    pulumi.String("NotSet"),
-// 				"DELETE":          pulumi.String("Deny"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewIterativePermissions(ctx, "example-iteration-permissions", &azuredevops.IterativePermissionsArgs{
-// 			ProjectId: example.ID(),
-// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-// 				return example_readers.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			Path: pulumi.String("Iteration 1"),
-// 			Permissions: pulumi.StringMap{
-// 				"CREATE_CHILDREN": pulumi.String("Allow"),
-// 				"GENERIC_READ":    pulumi.String("NotSet"),
-// 				"DELETE":          pulumi.String("Allow"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			_, err = azuredevops.NewIterativePermissions(ctx, "example-root-permissions", &azuredevops.IterativePermissionsArgs{
+//				ProjectId: example.ID(),
+//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+//					return example_readers.Id, nil
+//				}).(pulumi.StringOutput),
+//				Permissions: pulumi.StringMap{
+//					"CREATE_CHILDREN": pulumi.String("Deny"),
+//					"GENERIC_READ":    pulumi.String("NotSet"),
+//					"DELETE":          pulumi.String("Deny"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewIterativePermissions(ctx, "example-iteration-permissions", &azuredevops.IterativePermissionsArgs{
+//				ProjectId: example.ID(),
+//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+//					return example_readers.Id, nil
+//				}).(pulumi.StringOutput),
+//				Path: pulumi.String("Iteration 1"),
+//				Permissions: pulumi.StringMap{
+//					"CREATE_CHILDREN": pulumi.String("Allow"),
+//					"GENERIC_READ":    pulumi.String("NotSet"),
+//					"DELETE":          pulumi.String("Allow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -224,7 +227,7 @@ func (i *IterativePermissions) ToIterativePermissionsOutputWithContext(ctx conte
 // IterativePermissionsArrayInput is an input type that accepts IterativePermissionsArray and IterativePermissionsArrayOutput values.
 // You can construct a concrete instance of `IterativePermissionsArrayInput` via:
 //
-//          IterativePermissionsArray{ IterativePermissionsArgs{...} }
+//	IterativePermissionsArray{ IterativePermissionsArgs{...} }
 type IterativePermissionsArrayInput interface {
 	pulumi.Input
 
@@ -249,7 +252,7 @@ func (i IterativePermissionsArray) ToIterativePermissionsArrayOutputWithContext(
 // IterativePermissionsMapInput is an input type that accepts IterativePermissionsMap and IterativePermissionsMapOutput values.
 // You can construct a concrete instance of `IterativePermissionsMapInput` via:
 //
-//          IterativePermissionsMap{ "key": IterativePermissionsArgs{...} }
+//	IterativePermissionsMap{ "key": IterativePermissionsArgs{...} }
 type IterativePermissionsMapInput interface {
 	pulumi.Input
 

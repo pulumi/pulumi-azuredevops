@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class ServiceEndpointKubernetesAzureSubscriptionArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointKubernetesAzureSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
@@ -63,5 +63,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public ServiceEndpointKubernetesAzureSubscriptionArgs()
         {
         }
+        public static new ServiceEndpointKubernetesAzureSubscriptionArgs Empty => new ServiceEndpointKubernetesAzureSubscriptionArgs();
     }
 }

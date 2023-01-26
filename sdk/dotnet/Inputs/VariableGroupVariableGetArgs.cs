@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class VariableGroupVariableGetArgs : Pulumi.ResourceArgs
+    public sealed class VariableGroupVariableGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("contentType")]
         public Input<string>? ContentType { get; set; }
@@ -33,11 +33,21 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        [Input("secretValue")]
+        private Input<string>? _secretValue;
+
         /// <summary>
         /// The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
         /// </summary>
-        [Input("secretValue")]
-        public Input<string>? SecretValue { get; set; }
+        public Input<string>? SecretValue
+        {
+            get => _secretValue;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _secretValue = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The value of the variable. If omitted, it will default to empty string.
@@ -48,5 +58,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public VariableGroupVariableGetArgs()
         {
         }
+        public static new VariableGroupVariableGetArgs Empty => new VariableGroupVariableGetArgs();
     }
 }

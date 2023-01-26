@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BranchPolicyMergeTypesSettingsScopeArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyMergeTypesSettingsScopeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
@@ -33,5 +33,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BranchPolicyMergeTypesSettingsScopeArgs()
         {
         }
+        public static new BranchPolicyMergeTypesSettingsScopeArgs Empty => new BranchPolicyMergeTypesSettingsScopeArgs();
     }
 }

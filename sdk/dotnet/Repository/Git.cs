@@ -74,7 +74,7 @@ namespace Pulumi.AzureDevOps.Repository
     /// </summary>
     [Obsolete(@"azuredevops.repository.Git has been deprecated in favor of azuredevops.Git")]
     [AzureDevOpsResourceType("azuredevops:Repository/git:Git")]
-    public partial class Git : Pulumi.CustomResource
+    public partial class Git : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ref of the default branch. Will be used as the branch name for initialized repositories.
@@ -186,7 +186,7 @@ namespace Pulumi.AzureDevOps.Repository
         }
     }
 
-    public sealed class GitArgs : Pulumi.ResourceArgs
+    public sealed class GitArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ref of the default branch. Will be used as the branch name for initialized repositories.
@@ -221,9 +221,10 @@ namespace Pulumi.AzureDevOps.Repository
         public GitArgs()
         {
         }
+        public static new GitArgs Empty => new GitArgs();
     }
 
-    public sealed class GitState : Pulumi.ResourceArgs
+    public sealed class GitState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ref of the default branch. Will be used as the branch name for initialized repositories.
@@ -294,5 +295,6 @@ namespace Pulumi.AzureDevOps.Repository
         public GitState()
         {
         }
+        public static new GitState Empty => new GitState();
     }
 }

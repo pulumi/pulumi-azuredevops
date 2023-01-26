@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Build.Inputs
 {
 
-    public sealed class BuildDefinitionCiTriggerGetArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionCiTriggerGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Override the azure-pipeline file and use a this configuration for all builds.
@@ -27,5 +27,6 @@ namespace Pulumi.AzureDevOps.Build.Inputs
         public BuildDefinitionCiTriggerGetArgs()
         {
         }
+        public static new BuildDefinitionCiTriggerGetArgs Empty => new BuildDefinitionCiTriggerGetArgs();
     }
 }

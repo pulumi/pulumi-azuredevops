@@ -20,50 +20,53 @@ import (
 // package main
 //
 // import (
-// 	"encoding/base64"
-// 	"io/ioutil"
 //
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//	"encoding/base64"
+//	"io/ioutil"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func filebase64OrPanic(path string) pulumi.StringPtrInput {
-// 	if fileData, err := ioutil.ReadFile(path); err == nil {
-// 		return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
-// 	} else {
-// 		panic(err.Error())
-// 	}
-// }
+//	func filebase64OrPanic(path string) pulumi.StringPtrInput {
+//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
+//		} else {
+//			panic(err.Error())
+//		}
+//	}
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "exampleServiceEndpointServiceFabric", &azuredevops.ServiceEndpointServiceFabricArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example Service Fabric"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			ClusterEndpoint:     pulumi.String("tcp://test"),
-// 			Certificate: &ServiceEndpointServiceFabricCertificateArgs{
-// 				ServerCertificateLookup:     pulumi.String("Thumbprint"),
-// 				ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
-// 				ClientCertificate:           filebase64OrPanic("certificate.pfx"),
-// 				ClientCertificatePassword:   pulumi.String("password"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "exampleServiceEndpointServiceFabric", &azuredevops.ServiceEndpointServiceFabricArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example Service Fabric"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				ClusterEndpoint:     pulumi.String("tcp://test"),
+//				Certificate: &ServiceEndpointServiceFabricCertificateArgs{
+//					ServerCertificateLookup:     pulumi.String("Thumbprint"),
+//					ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
+//					ClientCertificate:           filebase64OrPanic("certificate.pfx"),
+//					ClientCertificatePassword:   pulumi.String("password"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Azure Active Directory Authentication
 //
@@ -71,38 +74,41 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample Service Fabric"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			ClusterEndpoint:     pulumi.String("tcp://test"),
-// 			AzureActiveDirectory: &ServiceEndpointServiceFabricAzureActiveDirectoryArgs{
-// 				ServerCertificateLookup:     pulumi.String("Thumbprint"),
-// 				ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
-// 				Username:                    pulumi.String("username"),
-// 				Password:                    pulumi.String("password"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
+//				ProjectId:           project.ID(),
+//				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				ClusterEndpoint:     pulumi.String("tcp://test"),
+//				AzureActiveDirectory: &ServiceEndpointServiceFabricAzureActiveDirectoryArgs{
+//					ServerCertificateLookup:     pulumi.String("Thumbprint"),
+//					ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
+//					Username:                    pulumi.String("username"),
+//					Password:                    pulumi.String("password"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### Windows Authentication
 //
@@ -110,36 +116,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
-// 			ProjectId:           project.ID(),
-// 			ServiceEndpointName: pulumi.String("Sample Service Fabric"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			ClusterEndpoint:     pulumi.String("tcp://test"),
-// 			None: &ServiceEndpointServiceFabricNoneArgs{
-// 				Unsecured:  pulumi.Bool(false),
-// 				ClusterSpn: pulumi.String("HTTP/www.contoso.com"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			project, err := azuredevops.NewProject(ctx, "project", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointServiceFabric(ctx, "test", &azuredevops.ServiceEndpointServiceFabricArgs{
+//				ProjectId:           project.ID(),
+//				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				ClusterEndpoint:     pulumi.String("tcp://test"),
+//				None: &ServiceEndpointServiceFabricNoneArgs{
+//					Unsecured:  pulumi.Bool(false),
+//					ClusterSpn: pulumi.String("HTTP/www.contoso.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -150,7 +159,9 @@ import (
 // Azure DevOps Service Endpoint Service Fabric can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointServiceFabric struct {
 	pulumi.CustomResourceState
@@ -292,7 +303,7 @@ func (i *ServiceEndpointServiceFabric) ToServiceEndpointServiceFabricOutputWithC
 // ServiceEndpointServiceFabricArrayInput is an input type that accepts ServiceEndpointServiceFabricArray and ServiceEndpointServiceFabricArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointServiceFabricArrayInput` via:
 //
-//          ServiceEndpointServiceFabricArray{ ServiceEndpointServiceFabricArgs{...} }
+//	ServiceEndpointServiceFabricArray{ ServiceEndpointServiceFabricArgs{...} }
 type ServiceEndpointServiceFabricArrayInput interface {
 	pulumi.Input
 
@@ -317,7 +328,7 @@ func (i ServiceEndpointServiceFabricArray) ToServiceEndpointServiceFabricArrayOu
 // ServiceEndpointServiceFabricMapInput is an input type that accepts ServiceEndpointServiceFabricMap and ServiceEndpointServiceFabricMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointServiceFabricMapInput` via:
 //
-//          ServiceEndpointServiceFabricMap{ "key": ServiceEndpointServiceFabricArgs{...} }
+//	ServiceEndpointServiceFabricMap{ "key": ServiceEndpointServiceFabricArgs{...} }
 type ServiceEndpointServiceFabricMapInput interface {
 	pulumi.Input
 

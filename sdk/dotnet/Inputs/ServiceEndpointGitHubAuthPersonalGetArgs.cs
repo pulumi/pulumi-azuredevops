@@ -10,19 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class ServiceEndpointGitHubAuthPersonalGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointGitHubAuthPersonalGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("personalAccessToken", required: true)]
+        private Input<string>? _personalAccessToken;
+
         /// <summary>
         /// The Personal Access Token for GitHub.
         /// </summary>
-        [Input("personalAccessToken", required: true)]
-        public Input<string> PersonalAccessToken { get; set; } = null!;
+        public Input<string>? PersonalAccessToken
+        {
+            get => _personalAccessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _personalAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("personalAccessTokenHash")]
-        public Input<string>? PersonalAccessTokenHash { get; set; }
+        private Input<string>? _personalAccessTokenHash;
+        public Input<string>? PersonalAccessTokenHash
+        {
+            get => _personalAccessTokenHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _personalAccessTokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ServiceEndpointGitHubAuthPersonalGetArgs()
         {
         }
+        public static new ServiceEndpointGitHubAuthPersonalGetArgs Empty => new ServiceEndpointGitHubAuthPersonalGetArgs();
     }
 }

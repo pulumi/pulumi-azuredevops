@@ -18,29 +18,32 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: pulumi.StringRef("Example Project"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleBuildDefinition, err := azuredevops.LookupBuildDefinition(ctx, &GetBuildDefinitionArgs{
-// 			ProjectId: exampleProject.Id,
-// 			Name:      "existing",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", exampleBuildDefinition.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+//				Name: pulumi.StringRef("Example Project"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBuildDefinition, err := azuredevops.LookupBuildDefinition(ctx, &GetBuildDefinitionArgs{
+//				ProjectId: exampleProject.Id,
+//				Name:      "existing",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", exampleBuildDefinition.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 func LookupBuildDefinition(ctx *pulumi.Context, args *LookupBuildDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupBuildDefinitionResult, error) {
 	var rv LookupBuildDefinitionResult

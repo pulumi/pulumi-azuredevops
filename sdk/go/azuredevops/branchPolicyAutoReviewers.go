@@ -19,60 +19,63 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
-// 			PrincipalName:      pulumi.String("mail@email.com"),
-// 			AccountLicenseType: pulumi.String("basic"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBranchPolicyAutoReviewers(ctx, "exampleBranchPolicyAutoReviewers", &azuredevops.BranchPolicyAutoReviewersArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Enabled:   pulumi.Bool(true),
-// 			Blocking:  pulumi.Bool(true),
-// 			Settings: &BranchPolicyAutoReviewersSettingsArgs{
-// 				AutoReviewerIds: pulumi.StringArray{
-// 					exampleUser.ID(),
-// 				},
-// 				SubmitterCanVote: pulumi.Bool(false),
-// 				Message:          pulumi.String("Auto reviewer"),
-// 				PathFilters: pulumi.StringArray{
-// 					pulumi.String("*/src/*.ts"),
-// 				},
-// 				Scopes: BranchPolicyAutoReviewersSettingsScopeArray{
-// 					&BranchPolicyAutoReviewersSettingsScopeArgs{
-// 						RepositoryId:  exampleGit.ID(),
-// 						RepositoryRef: exampleGit.DefaultBranch,
-// 						MatchType:     pulumi.String("Exact"),
-// 					},
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
+//				PrincipalName:      pulumi.String("mail@email.com"),
+//				AccountLicenseType: pulumi.String("basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBranchPolicyAutoReviewers(ctx, "exampleBranchPolicyAutoReviewers", &azuredevops.BranchPolicyAutoReviewersArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				Settings: &BranchPolicyAutoReviewersSettingsArgs{
+//					AutoReviewerIds: pulumi.StringArray{
+//						exampleUser.ID(),
+//					},
+//					SubmitterCanVote: pulumi.Bool(false),
+//					Message:          pulumi.String("Auto reviewer"),
+//					PathFilters: pulumi.StringArray{
+//						pulumi.String("*/src/*.ts"),
+//					},
+//					Scopes: BranchPolicyAutoReviewersSettingsScopeArray{
+//						&BranchPolicyAutoReviewersSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: exampleGit.DefaultBranch,
+//							MatchType:     pulumi.String("Exact"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -80,10 +83,12 @@ import (
 //
 // ## Import
 //
-// Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
+// # Azure DevOps Branch Policies can be imported using the project ID and policy configuration ID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:index/branchPolicyAutoReviewers:BranchPolicyAutoReviewers example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 type BranchPolicyAutoReviewers struct {
 	pulumi.CustomResourceState
@@ -207,7 +212,7 @@ func (i *BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersOutputWithContext
 // BranchPolicyAutoReviewersArrayInput is an input type that accepts BranchPolicyAutoReviewersArray and BranchPolicyAutoReviewersArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyAutoReviewersArrayInput` via:
 //
-//          BranchPolicyAutoReviewersArray{ BranchPolicyAutoReviewersArgs{...} }
+//	BranchPolicyAutoReviewersArray{ BranchPolicyAutoReviewersArgs{...} }
 type BranchPolicyAutoReviewersArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +237,7 @@ func (i BranchPolicyAutoReviewersArray) ToBranchPolicyAutoReviewersArrayOutputWi
 // BranchPolicyAutoReviewersMapInput is an input type that accepts BranchPolicyAutoReviewersMap and BranchPolicyAutoReviewersMapOutput values.
 // You can construct a concrete instance of `BranchPolicyAutoReviewersMapInput` via:
 //
-//          BranchPolicyAutoReviewersMap{ "key": BranchPolicyAutoReviewersArgs{...} }
+//	BranchPolicyAutoReviewersMap{ "key": BranchPolicyAutoReviewersArgs{...} }
 type BranchPolicyAutoReviewersMapInput interface {
 	pulumi.Input
 

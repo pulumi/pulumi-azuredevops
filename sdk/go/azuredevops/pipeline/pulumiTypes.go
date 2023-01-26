@@ -11,15 +11,18 @@ import (
 )
 
 type VariableGroupKeyVault struct {
-	// The name of the Variable Group.
-	Name              string `pulumi:"name"`
+	// The name of the Azure key vault to link secrets from as variables.
+	Name string `pulumi:"name"`
+	// Set the Azure Key Vault Secret search depth. Defaults to `20`.
+	SearchDepth *int `pulumi:"searchDepth"`
+	// The id of the Azure subscription endpoint to access the key vault.
 	ServiceEndpointId string `pulumi:"serviceEndpointId"`
 }
 
 // VariableGroupKeyVaultInput is an input type that accepts VariableGroupKeyVaultArgs and VariableGroupKeyVaultOutput values.
 // You can construct a concrete instance of `VariableGroupKeyVaultInput` via:
 //
-//          VariableGroupKeyVaultArgs{...}
+//	VariableGroupKeyVaultArgs{...}
 type VariableGroupKeyVaultInput interface {
 	pulumi.Input
 
@@ -28,8 +31,11 @@ type VariableGroupKeyVaultInput interface {
 }
 
 type VariableGroupKeyVaultArgs struct {
-	// The name of the Variable Group.
-	Name              pulumi.StringInput `pulumi:"name"`
+	// The name of the Azure key vault to link secrets from as variables.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set the Azure Key Vault Secret search depth. Defaults to `20`.
+	SearchDepth pulumi.IntPtrInput `pulumi:"searchDepth"`
+	// The id of the Azure subscription endpoint to access the key vault.
 	ServiceEndpointId pulumi.StringInput `pulumi:"serviceEndpointId"`
 }
 
@@ -56,11 +62,11 @@ func (i VariableGroupKeyVaultArgs) ToVariableGroupKeyVaultPtrOutputWithContext(c
 // VariableGroupKeyVaultPtrInput is an input type that accepts VariableGroupKeyVaultArgs, VariableGroupKeyVaultPtr and VariableGroupKeyVaultPtrOutput values.
 // You can construct a concrete instance of `VariableGroupKeyVaultPtrInput` via:
 //
-//          VariableGroupKeyVaultArgs{...}
+//	        VariableGroupKeyVaultArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type VariableGroupKeyVaultPtrInput interface {
 	pulumi.Input
 
@@ -110,11 +116,17 @@ func (o VariableGroupKeyVaultOutput) ToVariableGroupKeyVaultPtrOutputWithContext
 	}).(VariableGroupKeyVaultPtrOutput)
 }
 
-// The name of the Variable Group.
+// The name of the Azure key vault to link secrets from as variables.
 func (o VariableGroupKeyVaultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v VariableGroupKeyVault) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set the Azure Key Vault Secret search depth. Defaults to `20`.
+func (o VariableGroupKeyVaultOutput) SearchDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v VariableGroupKeyVault) *int { return v.SearchDepth }).(pulumi.IntPtrOutput)
+}
+
+// The id of the Azure subscription endpoint to access the key vault.
 func (o VariableGroupKeyVaultOutput) ServiceEndpointId() pulumi.StringOutput {
 	return o.ApplyT(func(v VariableGroupKeyVault) string { return v.ServiceEndpointId }).(pulumi.StringOutput)
 }
@@ -143,7 +155,7 @@ func (o VariableGroupKeyVaultPtrOutput) Elem() VariableGroupKeyVaultOutput {
 	}).(VariableGroupKeyVaultOutput)
 }
 
-// The name of the Variable Group.
+// The name of the Azure key vault to link secrets from as variables.
 func (o VariableGroupKeyVaultPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VariableGroupKeyVault) *string {
 		if v == nil {
@@ -153,6 +165,17 @@ func (o VariableGroupKeyVaultPtrOutput) Name() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// Set the Azure Key Vault Secret search depth. Defaults to `20`.
+func (o VariableGroupKeyVaultPtrOutput) SearchDepth() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *VariableGroupKeyVault) *int {
+		if v == nil {
+			return nil
+		}
+		return v.SearchDepth
+	}).(pulumi.IntPtrOutput)
+}
+
+// The id of the Azure subscription endpoint to access the key vault.
 func (o VariableGroupKeyVaultPtrOutput) ServiceEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VariableGroupKeyVault) *string {
 		if v == nil {
@@ -179,7 +202,7 @@ type VariableGroupVariable struct {
 // VariableGroupVariableInput is an input type that accepts VariableGroupVariableArgs and VariableGroupVariableOutput values.
 // You can construct a concrete instance of `VariableGroupVariableInput` via:
 //
-//          VariableGroupVariableArgs{...}
+//	VariableGroupVariableArgs{...}
 type VariableGroupVariableInput interface {
 	pulumi.Input
 
@@ -216,7 +239,7 @@ func (i VariableGroupVariableArgs) ToVariableGroupVariableOutputWithContext(ctx 
 // VariableGroupVariableArrayInput is an input type that accepts VariableGroupVariableArray and VariableGroupVariableArrayOutput values.
 // You can construct a concrete instance of `VariableGroupVariableArrayInput` via:
 //
-//          VariableGroupVariableArray{ VariableGroupVariableArgs{...} }
+//	VariableGroupVariableArray{ VariableGroupVariableArgs{...} }
 type VariableGroupVariableArrayInput interface {
 	pulumi.Input
 

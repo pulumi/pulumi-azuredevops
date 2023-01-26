@@ -22,100 +22,97 @@ namespace Pulumi.AzureDevOps
     /// ### Manual AzureRM Service Endpoint (Subscription Scoped)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new AzureDevOps.ServiceEndpointAzureRMArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example AzureRM",
-    ///             Description = "Managed by Terraform",
-    ///             Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
-    ///             {
-    ///                 Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
-    ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    ///             },
-    ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
-    ///             AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
-    ///             AzurermSubscriptionName = "Example Subscription Name",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example AzureRM",
+    ///         Description = "Managed by Terraform",
+    ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
+    ///         {
+    ///             Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
+    ///             Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///         },
+    ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionName = "Example Subscription Name",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Manual AzureRM Service Endpoint (ManagementGroup Scoped)
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new AzureDevOps.ServiceEndpointAzureRMArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example AzureRM",
-    ///             Description = "Managed by Terraform",
-    ///             Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
-    ///             {
-    ///                 Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
-    ///                 Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    ///             },
-    ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
-    ///             AzurermManagementGroupId = "managementGroup",
-    ///             AzurermManagementGroupName = "managementGroup",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example AzureRM",
+    ///         Description = "Managed by Terraform",
+    ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
+    ///         {
+    ///             Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
+    ///             Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///         },
+    ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermManagementGroupId = "managementGroup",
+    ///         AzurermManagementGroupName = "managementGroup",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ### Automatic AzureRM Service Endpoint
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///         });
-    ///         var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new AzureDevOps.ServiceEndpointAzureRMArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example AzureRM",
-    ///             AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
-    ///             AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
-    ///             AzurermSubscriptionName = "Example Subscription Name",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example AzureRM",
+    ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionName = "Example Subscription Name",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -130,7 +127,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM")]
-    public partial class ServiceEndpointAzureRM : Pulumi.CustomResource
+    public partial class ServiceEndpointAzureRM : global::Pulumi.CustomResource
     {
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -220,7 +217,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/azureRM:AzureRM"},
+                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/azureRM:AzureRM"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -243,7 +240,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointAzureRMArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointAzureRMArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -316,9 +313,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointAzureRMArgs()
         {
         }
+        public static new ServiceEndpointAzureRMArgs Empty => new ServiceEndpointAzureRMArgs();
     }
 
-    public sealed class ServiceEndpointAzureRMState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointAzureRMState : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -391,5 +389,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointAzureRMState()
         {
         }
+        public static new ServiceEndpointAzureRMState Empty => new ServiceEndpointAzureRMState();
     }
 }

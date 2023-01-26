@@ -15,32 +15,31 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_features = new AzureDevOps.ProjectFeatures("example-features", new AzureDevOps.ProjectFeaturesArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Features = 
-    ///             {
-    ///                 { "testplans", "disabled" },
-    ///                 { "artifacts", "enabled" },
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_features = new AzureDevOps.ProjectFeatures("example-features", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Features = 
+    ///         {
+    ///             { "testplans", "disabled" },
+    ///             { "artifacts", "enabled" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -59,7 +58,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/projectFeatures:ProjectFeatures")]
-    public partial class ProjectFeatures : Pulumi.CustomResource
+    public partial class ProjectFeatures : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Defines the status (`enabled`, `disabled`) of the project features.  
@@ -96,7 +95,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:Core/projectFeatures:ProjectFeatures"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Core/projectFeatures:ProjectFeatures"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -119,7 +118,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ProjectFeaturesArgs : Pulumi.ResourceArgs
+    public sealed class ProjectFeaturesArgs : global::Pulumi.ResourceArgs
     {
         [Input("features", required: true)]
         private InputMap<string>? _features;
@@ -140,9 +139,10 @@ namespace Pulumi.AzureDevOps
         public ProjectFeaturesArgs()
         {
         }
+        public static new ProjectFeaturesArgs Empty => new ProjectFeaturesArgs();
     }
 
-    public sealed class ProjectFeaturesState : Pulumi.ResourceArgs
+    public sealed class ProjectFeaturesState : global::Pulumi.ResourceArgs
     {
         [Input("features")]
         private InputMap<string>? _features;
@@ -163,5 +163,6 @@ namespace Pulumi.AzureDevOps
         public ProjectFeaturesState()
         {
         }
+        public static new ProjectFeaturesState Empty => new ProjectFeaturesState();
     }
 }

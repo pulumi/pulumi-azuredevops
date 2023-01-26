@@ -10,13 +10,23 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class ServiceEndpointServiceFabricAzureActiveDirectoryArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointServiceFabricAzureActiveDirectoryArgs : global::Pulumi.ResourceArgs
     {
+        [Input("password", required: true)]
+        private Input<string>? _password;
+
         /// <summary>
         /// - Password for the Azure Active Directory account.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
@@ -45,5 +55,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public ServiceEndpointServiceFabricAzureActiveDirectoryArgs()
         {
         }
+        public static new ServiceEndpointServiceFabricAzureActiveDirectoryArgs Empty => new ServiceEndpointServiceFabricAzureActiveDirectoryArgs();
     }
 }

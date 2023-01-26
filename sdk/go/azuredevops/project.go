@@ -18,28 +18,31 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		_, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
-// 			Description: pulumi.String("Managed by Terraform"),
-// 			Features: pulumi.StringMap{
-// 				"artifacts": pulumi.String("disabled"),
-// 				"testplans": pulumi.String("disabled"),
-// 			},
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Description: pulumi.String("Managed by Terraform"),
+//				Features: pulumi.StringMap{
+//					"artifacts": pulumi.String("disabled"),
+//					"testplans": pulumi.String("disabled"),
+//				},
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -54,20 +57,24 @@ import (
 // Azure DevOps Projects can be imported using the project name or by the project Guid, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/project:Project example "Example Project"
+//
+//	$ pulumi import azuredevops:index/project:Project example "Example Project"
+//
 // ```
 //
-//  or
+//	or
 //
 // ```sh
-//  $ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/project:Project example 00000000-0000-0000-0000-000000000000
+//
 // ```
 type Project struct {
 	pulumi.CustomResourceState
 
 	// The Description of the Project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// Defines the status (`enabled`, `disabled`) of the project features.\
+	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapOutput `pulumi:"features"`
 	// The Project Name.
@@ -78,7 +85,7 @@ type Project struct {
 	VersionControl pulumi.StringPtrOutput `pulumi:"versionControl"`
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility pulumi.StringPtrOutput `pulumi:"visibility"`
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate pulumi.StringPtrOutput `pulumi:"workItemTemplate"`
 }
 
@@ -119,7 +126,7 @@ func GetProject(ctx *pulumi.Context,
 type projectState struct {
 	// The Description of the Project.
 	Description *string `pulumi:"description"`
-	// Defines the status (`enabled`, `disabled`) of the project features.\
+	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features map[string]string `pulumi:"features"`
 	// The Project Name.
@@ -130,14 +137,14 @@ type projectState struct {
 	VersionControl *string `pulumi:"versionControl"`
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility *string `pulumi:"visibility"`
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate *string `pulumi:"workItemTemplate"`
 }
 
 type ProjectState struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrInput
-	// Defines the status (`enabled`, `disabled`) of the project features.\
+	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapInput
 	// The Project Name.
@@ -148,7 +155,7 @@ type ProjectState struct {
 	VersionControl pulumi.StringPtrInput
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility pulumi.StringPtrInput
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate pulumi.StringPtrInput
 }
 
@@ -159,7 +166,7 @@ func (ProjectState) ElementType() reflect.Type {
 type projectArgs struct {
 	// The Description of the Project.
 	Description *string `pulumi:"description"`
-	// Defines the status (`enabled`, `disabled`) of the project features.\
+	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features map[string]string `pulumi:"features"`
 	// The Project Name.
@@ -168,7 +175,7 @@ type projectArgs struct {
 	VersionControl *string `pulumi:"versionControl"`
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility *string `pulumi:"visibility"`
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate *string `pulumi:"workItemTemplate"`
 }
 
@@ -176,7 +183,7 @@ type projectArgs struct {
 type ProjectArgs struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrInput
-	// Defines the status (`enabled`, `disabled`) of the project features.\
+	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 	Features pulumi.StringMapInput
 	// The Project Name.
@@ -185,7 +192,7 @@ type ProjectArgs struct {
 	VersionControl pulumi.StringPtrInput
 	// Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
 	Visibility pulumi.StringPtrInput
-	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
+	// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 	WorkItemTemplate pulumi.StringPtrInput
 }
 
@@ -215,7 +222,7 @@ func (i *Project) ToProjectOutputWithContext(ctx context.Context) ProjectOutput 
 // ProjectArrayInput is an input type that accepts ProjectArray and ProjectArrayOutput values.
 // You can construct a concrete instance of `ProjectArrayInput` via:
 //
-//          ProjectArray{ ProjectArgs{...} }
+//	ProjectArray{ ProjectArgs{...} }
 type ProjectArrayInput interface {
 	pulumi.Input
 
@@ -240,7 +247,7 @@ func (i ProjectArray) ToProjectArrayOutputWithContext(ctx context.Context) Proje
 // ProjectMapInput is an input type that accepts ProjectMap and ProjectMapOutput values.
 // You can construct a concrete instance of `ProjectMapInput` via:
 //
-//          ProjectMap{ "key": ProjectArgs{...} }
+//	ProjectMap{ "key": ProjectArgs{...} }
 type ProjectMapInput interface {
 	pulumi.Input
 
@@ -281,7 +288,7 @@ func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// Defines the status (`enabled`, `disabled`) of the project features.\
+// Defines the status (`enabled`, `disabled`) of the project features.
 // Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
 func (o ProjectOutput) Features() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Features }).(pulumi.StringMapOutput)
@@ -307,7 +314,7 @@ func (o ProjectOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.Visibility }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI` or `Scrum`. Defaults to `Agile`.
+// Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
 func (o ProjectOutput) WorkItemTemplate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringPtrOutput { return v.WorkItemTemplate }).(pulumi.StringPtrOutput)
 }

@@ -22,41 +22,41 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_project_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var example_root_permissions = new AzureDevOps.AreaPermissions("example-root-permissions", new AzureDevOps.AreaPermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Principal = example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Id),
-    ///             Path = "/",
-    ///             Permissions = 
-    ///             {
-    ///                 { "CREATE_CHILDREN", "Deny" },
-    ///                 { "GENERIC_READ", "Allow" },
-    ///                 { "DELETE", "Deny" },
-    ///                 { "WORK_ITEM_READ", "Allow" },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_project_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_root_permissions = new AzureDevOps.AreaPermissions("example-root-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_project_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Path = "/",
+    ///         Permissions = 
+    ///         {
+    ///             { "CREATE_CHILDREN", "Deny" },
+    ///             { "GENERIC_READ", "Allow" },
+    ///             { "DELETE", "Deny" },
+    ///             { "WORK_ITEM_READ", "Allow" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -71,7 +71,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/areaPermissions:AreaPermissions")]
-    public partial class AreaPermissions : Pulumi.CustomResource
+    public partial class AreaPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the branch to assign the permissions.
@@ -147,7 +147,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class AreaPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class AreaPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the branch to assign the permissions.
@@ -188,9 +188,10 @@ namespace Pulumi.AzureDevOps
         public AreaPermissionsArgs()
         {
         }
+        public static new AreaPermissionsArgs Empty => new AreaPermissionsArgs();
     }
 
-    public sealed class AreaPermissionsState : Pulumi.ResourceArgs
+    public sealed class AreaPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the branch to assign the permissions.
@@ -231,5 +232,6 @@ namespace Pulumi.AzureDevOps
         public AreaPermissionsState()
         {
         }
+        public static new AreaPermissionsState Empty => new AreaPermissionsState();
     }
 }

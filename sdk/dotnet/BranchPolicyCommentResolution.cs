@@ -15,55 +15,53 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
     ///         {
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBranchPolicyCommentResolution = new AzureDevOps.BranchPolicyCommentResolution("exampleBranchPolicyCommentResolution", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         Settings = new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsArgs
     ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///             Scopes = new[]
     ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleBranchPolicyCommentResolution = new AzureDevOps.BranchPolicyCommentResolution("exampleBranchPolicyCommentResolution", new AzureDevOps.BranchPolicyCommentResolutionArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsArgs
-    ///             {
-    ///                 Scopes = 
+    ///                 new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsScopeArgs
     ///                 {
-    ///                     new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = exampleGit.DefaultBranch,
-    ///                         MatchType = "Exact",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = "refs/heads/releases",
-    ///                         MatchType = "Prefix",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsScopeArgs
-    ///                     {
-    ///                         MatchType = "DefaultBranch",
-    ///                     },
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = exampleGit.DefaultBranch,
+    ///                     MatchType = "Exact",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = "refs/heads/releases",
+    ///                     MatchType = "Prefix",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsScopeArgs
+    ///                 {
+    ///                     MatchType = "DefaultBranch",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -78,7 +76,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution")]
-    public partial class BranchPolicyCommentResolution : Pulumi.CustomResource
+    public partial class BranchPolicyCommentResolution : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -148,7 +146,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class BranchPolicyCommentResolutionArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyCommentResolutionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -177,9 +175,10 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyCommentResolutionArgs()
         {
         }
+        public static new BranchPolicyCommentResolutionArgs Empty => new BranchPolicyCommentResolutionArgs();
     }
 
-    public sealed class BranchPolicyCommentResolutionState : Pulumi.ResourceArgs
+    public sealed class BranchPolicyCommentResolutionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -208,5 +207,6 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyCommentResolutionState()
         {
         }
+        public static new BranchPolicyCommentResolutionState Empty => new BranchPolicyCommentResolutionState();
     }
 }

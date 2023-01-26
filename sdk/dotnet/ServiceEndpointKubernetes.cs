@@ -25,7 +25,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointKubernetes:ServiceEndpointKubernetes")]
-    public partial class ServiceEndpointKubernetes : Pulumi.CustomResource
+    public partial class ServiceEndpointKubernetes : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The hostname (in form of URI) of the Kubernetes API.
@@ -54,8 +54,8 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// A `kubeconfig` block defined blow.
         /// </summary>
-        [Output("kubeconfigs")]
-        public Output<ImmutableArray<Outputs.ServiceEndpointKubernetesKubeconfig>> Kubeconfigs { get; private set; } = null!;
+        [Output("kubeconfig")]
+        public Output<Outputs.ServiceEndpointKubernetesKubeconfig?> Kubeconfig { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the project.
@@ -100,7 +100,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/kubernetes:Kubernetes"},
+                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/kubernetes:Kubernetes"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -123,7 +123,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointKubernetesArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointKubernetesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname (in form of URI) of the Kubernetes API.
@@ -160,17 +160,11 @@ namespace Pulumi.AzureDevOps
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("kubeconfigs")]
-        private InputList<Inputs.ServiceEndpointKubernetesKubeconfigArgs>? _kubeconfigs;
-
         /// <summary>
         /// A `kubeconfig` block defined blow.
         /// </summary>
-        public InputList<Inputs.ServiceEndpointKubernetesKubeconfigArgs> Kubeconfigs
-        {
-            get => _kubeconfigs ?? (_kubeconfigs = new InputList<Inputs.ServiceEndpointKubernetesKubeconfigArgs>());
-            set => _kubeconfigs = value;
-        }
+        [Input("kubeconfig")]
+        public Input<Inputs.ServiceEndpointKubernetesKubeconfigArgs>? Kubeconfig { get; set; }
 
         /// <summary>
         /// The ID of the project.
@@ -193,9 +187,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointKubernetesArgs()
         {
         }
+        public static new ServiceEndpointKubernetesArgs Empty => new ServiceEndpointKubernetesArgs();
     }
 
-    public sealed class ServiceEndpointKubernetesState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointKubernetesState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The hostname (in form of URI) of the Kubernetes API.
@@ -232,17 +227,11 @@ namespace Pulumi.AzureDevOps
         [Input("description")]
         public Input<string>? Description { get; set; }
 
-        [Input("kubeconfigs")]
-        private InputList<Inputs.ServiceEndpointKubernetesKubeconfigGetArgs>? _kubeconfigs;
-
         /// <summary>
         /// A `kubeconfig` block defined blow.
         /// </summary>
-        public InputList<Inputs.ServiceEndpointKubernetesKubeconfigGetArgs> Kubeconfigs
-        {
-            get => _kubeconfigs ?? (_kubeconfigs = new InputList<Inputs.ServiceEndpointKubernetesKubeconfigGetArgs>());
-            set => _kubeconfigs = value;
-        }
+        [Input("kubeconfig")]
+        public Input<Inputs.ServiceEndpointKubernetesKubeconfigGetArgs>? Kubeconfig { get; set; }
 
         /// <summary>
         /// The ID of the project.
@@ -265,5 +254,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointKubernetesState()
         {
         }
+        public static new ServiceEndpointKubernetesState Empty => new ServiceEndpointKubernetesState();
     }
 }

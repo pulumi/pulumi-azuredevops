@@ -15,78 +15,77 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleRepositoryPolicyAuthorEmailPattern = new AzureDevOps.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern", new AzureDevOps.RepositoryPolicyAuthorEmailPatternArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             AuthorEmailPatterns = 
-    ///             {
-    ///                 "user1@test.com",
-    ///                 "user2@test.com",
-    ///             },
-    ///             RepositoryIds = 
-    ///             {
-    ///                 exampleGit.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRepositoryPolicyAuthorEmailPattern = new AzureDevOps.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         AuthorEmailPatterns = new[]
+    ///         {
+    ///             "user1@test.com",
+    ///             "user2@test.com",
+    ///         },
+    ///         RepositoryIds = new[]
+    ///         {
+    ///             exampleGit.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Set project level repository policy
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleRepositoryPolicyAuthorEmailPattern = new AzureDevOps.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern", new AzureDevOps.RepositoryPolicyAuthorEmailPatternArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             AuthorEmailPatterns = 
-    ///             {
-    ///                 "user1@test.com",
-    ///                 "user2@test.com",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRepositoryPolicyAuthorEmailPattern = new AzureDevOps.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         AuthorEmailPatterns = new[]
+    ///         {
+    ///             "user1@test.com",
+    ///             "user2@test.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Relevant Links
@@ -102,7 +101,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/repositoryPolicyAuthorEmailPattern:RepositoryPolicyAuthorEmailPattern")]
-    public partial class RepositoryPolicyAuthorEmailPattern : Pulumi.CustomResource
+    public partial class RepositoryPolicyAuthorEmailPattern : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards. 
@@ -179,7 +178,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class RepositoryPolicyAuthorEmailPatternArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyAuthorEmailPatternArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorEmailPatterns", required: true)]
         private InputList<string>? _authorEmailPatterns;
@@ -227,9 +226,10 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyAuthorEmailPatternArgs()
         {
         }
+        public static new RepositoryPolicyAuthorEmailPatternArgs Empty => new RepositoryPolicyAuthorEmailPatternArgs();
     }
 
-    public sealed class RepositoryPolicyAuthorEmailPatternState : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyAuthorEmailPatternState : global::Pulumi.ResourceArgs
     {
         [Input("authorEmailPatterns")]
         private InputList<string>? _authorEmailPatterns;
@@ -277,5 +277,6 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyAuthorEmailPatternState()
         {
         }
+        public static new RepositoryPolicyAuthorEmailPatternState Empty => new RepositoryPolicyAuthorEmailPatternState();
     }
 }

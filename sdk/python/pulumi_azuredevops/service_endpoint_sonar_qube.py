@@ -359,11 +359,13 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             if token is None and not opts.urn:
                 raise TypeError("Missing required property 'token'")
-            __props__.__dict__["token"] = token
+            __props__.__dict__["token"] = None if token is None else pulumi.Output.secret(token)
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             __props__.__dict__["token_hash"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token", "tokenHash"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointSonarQube, __self__).__init__(
             'azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube',
             resource_name,

@@ -94,6 +94,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_branch_policy_work_item_linking": {
 				Tok: makeResource(mainMod, "BranchPolicyWorkItemLinking"),
 			},
+			"azuredevops_build_folder":             {Tok: makeResource(mainMod, "BuildFolder")},
+			"azuredevops_build_folder_permissions": {Tok: makeResource(mainMod, "BuildFolderPermissions")},
 			"azuredevops_git_permissions": {
 				Tok: makeResource(mainMod, "GitPermissions"),
 			},
@@ -112,21 +114,22 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_workitemquery_permissions": {
 				Tok: makeResource(mainMod, "WorkItemQueryPermissions"),
 			},
-			"azuredevops_build_definition_permissions":  {Tok: makeResource(mainMod, "BuildDefinitionPermissions")},
-			"azuredevops_serviceendpoint_runpipeline":   {Tok: makeResource(mainMod, "ServiceEndpointPipeline")},
-			"azuredevops_serviceendpoint_artifactory":   {Tok: makeResource(mainMod, "ServiceEndpointArtifactory")},
-			"azuredevops_serviceendpoint_sonarqube":     {Tok: makeResource(mainMod, "ServiceEndpointSonarQube")},
-			"azuredevops_serviceendpoint_ssh":           {Tok: makeResource(mainMod, "ServiceEndpointSsh")},
-			"azuredevops_serviceendpoint_npm":           {Tok: makeResource(mainMod, "ServiceEndpointNpm")},
-			"azuredevops_serviceendpoint_azuredevops":   {Tok: makeResource(mainMod, "ServiceEndpointAzureDevOps")},
-			"azuredevops_serviceendpoint_generic":       {Tok: makeResource(mainMod, "ServiceEndpointGeneric")},
-			"azuredevops_serviceendpoint_generic_git":   {Tok: makeResource(mainMod, "ServiceEndpointGenericGit")},
-			"azuredevops_serviceendpoint_servicefabric": {Tok: makeResource(mainMod, "ServiceEndpointServiceFabric")},
+			"azuredevops_build_definition_permissions": {Tok: makeResource(mainMod, "BuildDefinitionPermissions")},
+			"azuredevops_serviceendpoint_runpipeline":  {Tok: makeResource(mainMod, "ServiceEndpointPipeline")},
+			"azuredevops_serviceendpoint_artifactory":  {Tok: makeResource(mainMod, "ServiceEndpointArtifactory")},
+			"azuredevops_serviceendpoint_sonarqube":    {Tok: makeResource(mainMod, "ServiceEndpointSonarQube")},
+			"azuredevops_serviceendpoint_ssh":          {Tok: makeResource(mainMod, "ServiceEndpointSsh")},
+			"azuredevops_serviceendpoint_npm":          {Tok: makeResource(mainMod, "ServiceEndpointNpm")},
+			"azuredevops_serviceendpoint_azuredevops":  {Tok: makeResource(mainMod, "ServiceEndpointAzureDevOps")},
+			"azuredevops_serviceendpoint_generic":      {Tok: makeResource(mainMod, "ServiceEndpointGeneric")},
+			"azuredevops_serviceendpoint_generic_git":  {Tok: makeResource(mainMod, "ServiceEndpointGenericGit")},
 			"azuredevops_serviceendpoint_github_enterprise": {
 				Tok: makeResource(mainMod, "ServiceEndpointGitHubEnterprise"),
 			},
-			"azuredevops_branch_policy_merge_types":  {Tok: makeResource(mainMod, "BranchPolicyMergeTypes")},
-			"azuredevops_branch_policy_status_check": {Tok: makeResource(mainMod, "BranchPolicyStatusCheck")},
+			"azuredevops_serviceendpoint_servicefabric": {Tok: makeResource(mainMod, "ServiceEndpointServiceFabric")},
+			"azuredevops_serviceendpoint_sonarcloud":    {Tok: makeResource(mainMod, "ServiceEndpointSonarCloud")},
+			"azuredevops_branch_policy_merge_types":     {Tok: makeResource(mainMod, "BranchPolicyMergeTypes")},
+			"azuredevops_branch_policy_status_check":    {Tok: makeResource(mainMod, "BranchPolicyStatusCheck")},
 			"azuredevops_repository_policy_author_email_pattern": {
 				Tok: makeResource(mainMod, "RepositoryPolicyAuthorEmailPattern"),
 			},
@@ -174,6 +177,8 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_agent_queue": {
 				Tok: makeDataSource(mainMod, "getAgentQueue"),
 			},
+			"azuredevops_serviceendpoint_azurerm": {Tok: makeDataSource(mainMod, "getServiceEndpointAzureRM")},
+			"azuredevops_serviceendpoint_github":  {Tok: makeDataSource(mainMod, "getServiceEndpointGithub")},
 			"azuredevops_team": {
 				Tok: makeDataSource(mainMod, "getTeam"),
 				Docs: &tfbridge.DocInfo{

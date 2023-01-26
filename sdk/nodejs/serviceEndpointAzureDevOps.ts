@@ -140,13 +140,15 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
             resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["orgUrl"] = args ? args.orgUrl : undefined;
-            resourceInputs["personalAccessToken"] = args ? args.personalAccessToken : undefined;
+            resourceInputs["personalAccessToken"] = args?.personalAccessToken ? pulumi.secret(args.personalAccessToken) : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["releaseApiUrl"] = args ? args.releaseApiUrl : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["personalAccessTokenHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["personalAccessToken", "personalAccessTokenHash"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointAzureDevOps.__pulumiType, name, resourceInputs, opts);
     }
 }

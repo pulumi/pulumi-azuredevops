@@ -19,100 +19,109 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example GitHub Personal Access Token"),
-// 			AuthPersonal: &ServiceEndpointGitHubAuthPersonalArgs{
-// 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example GitHub Personal Access Token"),
+//				AuthPersonal: &ServiceEndpointGitHubAuthPersonalArgs{
+//					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example GitHub"),
-// 			AuthOauth: &ServiceEndpointGitHubAuthOauthArgs{
-// 				OauthConfigurationId: pulumi.String("00000000-0000-0000-0000-000000000000"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example GitHub"),
+//				AuthOauth: &ServiceEndpointGitHubAuthOauthArgs{
+//					OauthConfigurationId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example GitHub Apps: Azure Pipelines"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example GitHub Apps: Azure Pipelines"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -123,7 +132,9 @@ import (
 // Azure DevOps Service Endpoint GitHub can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointGitHub struct {
 	pulumi.CustomResourceState
@@ -263,7 +274,7 @@ func (i *ServiceEndpointGitHub) ToServiceEndpointGitHubOutputWithContext(ctx con
 // ServiceEndpointGitHubArrayInput is an input type that accepts ServiceEndpointGitHubArray and ServiceEndpointGitHubArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointGitHubArrayInput` via:
 //
-//          ServiceEndpointGitHubArray{ ServiceEndpointGitHubArgs{...} }
+//	ServiceEndpointGitHubArray{ ServiceEndpointGitHubArgs{...} }
 type ServiceEndpointGitHubArrayInput interface {
 	pulumi.Input
 
@@ -288,7 +299,7 @@ func (i ServiceEndpointGitHubArray) ToServiceEndpointGitHubArrayOutputWithContex
 // ServiceEndpointGitHubMapInput is an input type that accepts ServiceEndpointGitHubMap and ServiceEndpointGitHubMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointGitHubMapInput` via:
 //
-//          ServiceEndpointGitHubMap{ "key": ServiceEndpointGitHubArgs{...} }
+//	ServiceEndpointGitHubMap{ "key": ServiceEndpointGitHubArgs{...} }
 type ServiceEndpointGitHubMapInput interface {
 	pulumi.Input
 

@@ -19,175 +19,181 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "exampleVariableGroup", &azuredevops.VariableGroupArgs{
-// 			ProjectId:   exampleProject.ID(),
-// 			Description: pulumi.String("Managed by Terraform"),
-// 			AllowAccess: pulumi.Bool(true),
-// 			Variables: VariableGroupVariableArray{
-// 				&VariableGroupVariableArgs{
-// 					Name:  pulumi.String("FOO"),
-// 					Value: pulumi.String("BAR"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Path:      pulumi.String("\\ExampleFolder"),
-// 			CiTrigger: &BuildDefinitionCiTriggerArgs{
-// 				UseYaml: pulumi.Bool(true),
-// 			},
-// 			Schedules: BuildDefinitionScheduleArray{
-// 				&BuildDefinitionScheduleArgs{
-// 					BranchFilters: BuildDefinitionScheduleBranchFilterArray{
-// 						&BuildDefinitionScheduleBranchFilterArgs{
-// 							Includes: pulumi.StringArray{
-// 								pulumi.String("master"),
-// 							},
-// 							Excludes: pulumi.StringArray{
-// 								pulumi.String("test"),
-// 								pulumi.String("regression"),
-// 							},
-// 						},
-// 					},
-// 					DaysToBuilds: pulumi.StringArray{
-// 						pulumi.String("Wed"),
-// 						pulumi.String("Sun"),
-// 					},
-// 					ScheduleOnlyWithChanges: pulumi.Bool(true),
-// 					StartHours:              pulumi.Int(10),
-// 					StartMinutes:            pulumi.Int(59),
-// 					TimeZone:                pulumi.String("(UTC) Coordinated Universal Time"),
-// 				},
-// 			},
-// 			Repository: &BuildDefinitionRepositoryArgs{
-// 				RepoType:   pulumi.String("TfsGit"),
-// 				RepoId:     exampleGit.ID(),
-// 				BranchName: exampleGit.DefaultBranch,
-// 				YmlPath:    pulumi.String("azure-pipelines.yml"),
-// 			},
-// 			VariableGroups: pulumi.IntArray{
-// 				exampleVariableGroup.ID(),
-// 			},
-// 			Variables: BuildDefinitionVariableArray{
-// 				&BuildDefinitionVariableArgs{
-// 					Name:  pulumi.String("PipelineVariable"),
-// 					Value: pulumi.String("Go Microsoft!"),
-// 				},
-// 				&BuildDefinitionVariableArgs{
-// 					Name:        pulumi.String("PipelineSecret"),
-// 					SecretValue: pulumi.String("ZGV2cw"),
-// 					IsSecret:    pulumi.Bool(true),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVariableGroup, err := azuredevops.NewVariableGroup(ctx, "exampleVariableGroup", &azuredevops.VariableGroupArgs{
+//				ProjectId:   exampleProject.ID(),
+//				Description: pulumi.String("Managed by Terraform"),
+//				AllowAccess: pulumi.Bool(true),
+//				Variables: VariableGroupVariableArray{
+//					&VariableGroupVariableArgs{
+//						Name:  pulumi.String("FOO"),
+//						Value: pulumi.String("BAR"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
+//				ProjectId: exampleProject.ID(),
+//				Path:      pulumi.String("\\ExampleFolder"),
+//				CiTrigger: &BuildDefinitionCiTriggerArgs{
+//					UseYaml: pulumi.Bool(true),
+//				},
+//				Schedules: BuildDefinitionScheduleArray{
+//					&BuildDefinitionScheduleArgs{
+//						BranchFilters: BuildDefinitionScheduleBranchFilterArray{
+//							&BuildDefinitionScheduleBranchFilterArgs{
+//								Includes: pulumi.StringArray{
+//									pulumi.String("master"),
+//								},
+//								Excludes: pulumi.StringArray{
+//									pulumi.String("test"),
+//									pulumi.String("regression"),
+//								},
+//							},
+//						},
+//						DaysToBuilds: pulumi.StringArray{
+//							pulumi.String("Wed"),
+//							pulumi.String("Sun"),
+//						},
+//						ScheduleOnlyWithChanges: pulumi.Bool(true),
+//						StartHours:              pulumi.Int(10),
+//						StartMinutes:            pulumi.Int(59),
+//						TimeZone:                pulumi.String("(UTC) Coordinated Universal Time"),
+//					},
+//				},
+//				Repository: &BuildDefinitionRepositoryArgs{
+//					RepoType:   pulumi.String("TfsGit"),
+//					RepoId:     exampleGit.ID(),
+//					BranchName: exampleGit.DefaultBranch,
+//					YmlPath:    pulumi.String("azure-pipelines.yml"),
+//				},
+//				VariableGroups: pulumi.IntArray{
+//					exampleVariableGroup.ID(),
+//				},
+//				Variables: BuildDefinitionVariableArray{
+//					&BuildDefinitionVariableArgs{
+//						Name:  pulumi.String("PipelineVariable"),
+//						Value: pulumi.String("Go Microsoft!"),
+//					},
+//					&BuildDefinitionVariableArgs{
+//						Name:        pulumi.String("PipelineSecret"),
+//						SecretValue: pulumi.String("ZGV2cw"),
+//						IsSecret:    pulumi.Bool(true),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ### GitHub Enterprise
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServiceEndpointGitHubEnterprise, err := azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "exampleServiceEndpointGitHubEnterprise", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
-// 			Url:                 pulumi.String("https://github.contoso.com"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			AuthPersonal: &ServiceEndpointGitHubEnterpriseAuthPersonalArgs{
-// 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Path:      pulumi.String("\\ExampleFolder"),
-// 			CiTrigger: &BuildDefinitionCiTriggerArgs{
-// 				UseYaml: pulumi.Bool(true),
-// 			},
-// 			Repository: &BuildDefinitionRepositoryArgs{
-// 				RepoType:            pulumi.String("GitHubEnterprise"),
-// 				RepoId:              pulumi.String("<GitHub Org>/<Repo Name>"),
-// 				GithubEnterpriseUrl: pulumi.String("https://github.company.com"),
-// 				BranchName:          pulumi.String("master"),
-// 				YmlPath:             pulumi.String("azure-pipelines.yml"),
-// 				ServiceConnectionId: exampleServiceEndpointGitHubEnterprise.ID(),
-// 			},
-// 			Schedules: BuildDefinitionScheduleArray{
-// 				&BuildDefinitionScheduleArgs{
-// 					BranchFilters: BuildDefinitionScheduleBranchFilterArray{
-// 						&BuildDefinitionScheduleBranchFilterArgs{
-// 							Includes: pulumi.StringArray{
-// 								pulumi.String("main"),
-// 							},
-// 							Excludes: pulumi.StringArray{
-// 								pulumi.String("test"),
-// 								pulumi.String("regression"),
-// 							},
-// 						},
-// 					},
-// 					DaysToBuilds: pulumi.StringArray{
-// 						pulumi.String("Wed"),
-// 						pulumi.String("Sun"),
-// 					},
-// 					ScheduleOnlyWithChanges: pulumi.Bool(true),
-// 					StartHours:              pulumi.Int(10),
-// 					StartMinutes:            pulumi.Int(59),
-// 					TimeZone:                pulumi.String("(UTC) Coordinated Universal Time"),
-// 				},
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceEndpointGitHubEnterprise, err := azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "exampleServiceEndpointGitHubEnterprise", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
+//				Url:                 pulumi.String("https://github.contoso.com"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				AuthPersonal: &ServiceEndpointGitHubEnterpriseAuthPersonalArgs{
+//					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
+//				ProjectId: exampleProject.ID(),
+//				Path:      pulumi.String("\\ExampleFolder"),
+//				CiTrigger: &BuildDefinitionCiTriggerArgs{
+//					UseYaml: pulumi.Bool(true),
+//				},
+//				Repository: &BuildDefinitionRepositoryArgs{
+//					RepoType:            pulumi.String("GitHubEnterprise"),
+//					RepoId:              pulumi.String("<GitHub Org>/<Repo Name>"),
+//					GithubEnterpriseUrl: pulumi.String("https://github.company.com"),
+//					BranchName:          pulumi.String("master"),
+//					YmlPath:             pulumi.String("azure-pipelines.yml"),
+//					ServiceConnectionId: exampleServiceEndpointGitHubEnterprise.ID(),
+//				},
+//				Schedules: BuildDefinitionScheduleArray{
+//					&BuildDefinitionScheduleArgs{
+//						BranchFilters: BuildDefinitionScheduleBranchFilterArray{
+//							&BuildDefinitionScheduleBranchFilterArgs{
+//								Includes: pulumi.StringArray{
+//									pulumi.String("main"),
+//								},
+//								Excludes: pulumi.StringArray{
+//									pulumi.String("test"),
+//									pulumi.String("regression"),
+//								},
+//							},
+//						},
+//						DaysToBuilds: pulumi.StringArray{
+//							pulumi.String("Wed"),
+//							pulumi.String("Sun"),
+//						},
+//						ScheduleOnlyWithChanges: pulumi.Bool(true),
+//						StartHours:              pulumi.Int(10),
+//						StartMinutes:            pulumi.Int(59),
+//						TimeZone:                pulumi.String("(UTC) Coordinated Universal Time"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Remarks
 //
@@ -209,13 +215,17 @@ import (
 // Azure DevOps Build Definitions can be imported using the project name/definitions Id or by the project Guid/definitions Id, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example "Example Project"/10
+//
+//	$ pulumi import azuredevops:index/buildDefinition:BuildDefinition example "Example Project"/10
+//
 // ```
 //
-//  or
+//	or
 //
 // ```sh
-//  $ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:index/buildDefinition:BuildDefinition example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 type BuildDefinition struct {
 	pulumi.CustomResourceState
@@ -406,7 +416,7 @@ func (i *BuildDefinition) ToBuildDefinitionOutputWithContext(ctx context.Context
 // BuildDefinitionArrayInput is an input type that accepts BuildDefinitionArray and BuildDefinitionArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionArrayInput` via:
 //
-//          BuildDefinitionArray{ BuildDefinitionArgs{...} }
+//	BuildDefinitionArray{ BuildDefinitionArgs{...} }
 type BuildDefinitionArrayInput interface {
 	pulumi.Input
 
@@ -431,7 +441,7 @@ func (i BuildDefinitionArray) ToBuildDefinitionArrayOutputWithContext(ctx contex
 // BuildDefinitionMapInput is an input type that accepts BuildDefinitionMap and BuildDefinitionMapOutput values.
 // You can construct a concrete instance of `BuildDefinitionMapInput` via:
 //
-//          BuildDefinitionMap{ "key": BuildDefinitionArgs{...} }
+//	BuildDefinitionMap{ "key": BuildDefinitionArgs{...} }
 type BuildDefinitionMapInput interface {
 	pulumi.Input
 

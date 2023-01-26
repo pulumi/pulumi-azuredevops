@@ -2,23 +2,13 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "./types";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about existing Agent Pools within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = azuredevops.getPools({});
- * export const agentPoolName = [example.then(example => example.agentPools)].map(__item => __item?.name);
- * export const autoProvision = [example.then(example => example.agentPools)].map(__item => __item?.autoProvision);
- * export const poolType = [example.then(example => example.agentPools)].map(__item => __item?.poolType);
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BranchPolicyCommentResolutionSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyCommentResolutionSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("scopes", required: true)]
         private InputList<Inputs.BranchPolicyCommentResolutionSettingsScopeGetArgs>? _scopes;
@@ -27,5 +27,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BranchPolicyCommentResolutionSettingsGetArgs()
         {
         }
+        public static new BranchPolicyCommentResolutionSettingsGetArgs Empty => new BranchPolicyCommentResolutionSettingsGetArgs();
     }
 }

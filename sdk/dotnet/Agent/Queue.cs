@@ -19,36 +19,35 @@ namespace Pulumi.AzureDevOps.Agent
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
-    ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///         });
-    ///         var examplePool = Output.Create(AzureDevOps.GetPool.InvokeAsync(new AzureDevOps.GetPoolArgs
-    ///         {
-    ///             Name = "example-pool",
-    ///         }));
-    ///         var exampleQueue = new AzureDevOps.Queue("exampleQueue", new AzureDevOps.QueueArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             AgentPoolId = examplePool.Apply(examplePool =&gt; examplePool.Id),
-    ///         });
-    ///         // Grant access to queue to all pipelines in the project
-    ///         var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("exampleResourceAuthorization", new AzureDevOps.ResourceAuthorizationArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ResourceId = exampleQueue.Id,
-    ///             Type = "queue",
-    ///             Authorized = true,
-    ///         });
-    ///     }
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
     /// 
-    /// }
+    ///     var examplePool = AzureDevOps.GetPool.Invoke(new()
+    ///     {
+    ///         Name = "example-pool",
+    ///     });
+    /// 
+    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         AgentPoolId = examplePool.Apply(getPoolResult =&gt; getPoolResult.Id),
+    ///     });
+    /// 
+    ///     // Grant access to queue to all pipelines in the project
+    ///     var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("exampleResourceAuthorization", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ResourceId = exampleQueue.Id,
+    ///         Type = "queue",
+    ///         Authorized = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -64,7 +63,7 @@ namespace Pulumi.AzureDevOps.Agent
     /// </summary>
     [Obsolete(@"azuredevops.agent.Queue has been deprecated in favor of azuredevops.Queue")]
     [AzureDevOpsResourceType("azuredevops:Agent/queue:Queue")]
-    public partial class Queue : Pulumi.CustomResource
+    public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The ID of the organization agent pool.
@@ -122,7 +121,7 @@ namespace Pulumi.AzureDevOps.Agent
         }
     }
 
-    public sealed class QueueArgs : Pulumi.ResourceArgs
+    public sealed class QueueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the organization agent pool.
@@ -139,9 +138,10 @@ namespace Pulumi.AzureDevOps.Agent
         public QueueArgs()
         {
         }
+        public static new QueueArgs Empty => new QueueArgs();
     }
 
-    public sealed class QueueState : Pulumi.ResourceArgs
+    public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The ID of the organization agent pool.
@@ -158,5 +158,6 @@ namespace Pulumi.AzureDevOps.Agent
         public QueueState()
         {
         }
+        public static new QueueState Empty => new QueueState();
     }
 }

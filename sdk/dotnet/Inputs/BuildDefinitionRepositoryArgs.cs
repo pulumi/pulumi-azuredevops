@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BuildDefinitionRepositoryArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionRepositoryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The branch name for which builds are triggered. Defaults to `master`.
@@ -57,5 +57,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BuildDefinitionRepositoryArgs()
         {
         }
+        public static new BuildDefinitionRepositoryArgs Empty => new BuildDefinitionRepositoryArgs();
     }
 }

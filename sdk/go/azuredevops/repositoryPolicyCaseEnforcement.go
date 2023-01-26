@@ -21,45 +21,48 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Initialization: &GitInitializationArgs{
-// 				InitType: pulumi.String("Clean"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewRepositoryPolicyCaseEnforcement(ctx, "exampleRepositoryPolicyCaseEnforcement", &azuredevops.RepositoryPolicyCaseEnforcementArgs{
-// 			ProjectId:             exampleProject.ID(),
-// 			Enabled:               pulumi.Bool(true),
-// 			Blocking:              pulumi.Bool(true),
-// 			EnforceConsistentCase: pulumi.Bool(true),
-// 			RepositoryIds: pulumi.StringArray{
-// 				exampleGit.ID(),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewRepositoryPolicyCaseEnforcement(ctx, "exampleRepositoryPolicyCaseEnforcement", &azuredevops.RepositoryPolicyCaseEnforcementArgs{
+//				ProjectId:             exampleProject.ID(),
+//				Enabled:               pulumi.Bool(true),
+//				Blocking:              pulumi.Bool(true),
+//				EnforceConsistentCase: pulumi.Bool(true),
+//				RepositoryIds: pulumi.StringArray{
+//					exampleGit.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 //
 // # Set project level repository policy
@@ -67,33 +70,36 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewRepositoryPolicyCaseEnforcement(ctx, "exampleRepositoryPolicyCaseEnforcement", &azuredevops.RepositoryPolicyCaseEnforcementArgs{
-// 			ProjectId:             exampleProject.ID(),
-// 			Enabled:               pulumi.Bool(true),
-// 			Blocking:              pulumi.Bool(true),
-// 			EnforceConsistentCase: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewRepositoryPolicyCaseEnforcement(ctx, "exampleRepositoryPolicyCaseEnforcement", &azuredevops.RepositoryPolicyCaseEnforcementArgs{
+//				ProjectId:             exampleProject.ID(),
+//				Enabled:               pulumi.Bool(true),
+//				Blocking:              pulumi.Bool(true),
+//				EnforceConsistentCase: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -104,7 +110,9 @@ import (
 // Azure DevOps repository policies can be imported using the projectID/policyID or projectName/policyID
 //
 // ```sh
-//  $ pulumi import azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement example 00000000-0000-0000-0000-000000000000/0
+//
+//	$ pulumi import azuredevops:index/repositoryPolicyCaseEnforcement:RepositoryPolicyCaseEnforcement example 00000000-0000-0000-0000-000000000000/0
+//
 // ```
 type RepositoryPolicyCaseEnforcement struct {
 	pulumi.CustomResourceState
@@ -238,7 +246,7 @@ func (i *RepositoryPolicyCaseEnforcement) ToRepositoryPolicyCaseEnforcementOutpu
 // RepositoryPolicyCaseEnforcementArrayInput is an input type that accepts RepositoryPolicyCaseEnforcementArray and RepositoryPolicyCaseEnforcementArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyCaseEnforcementArrayInput` via:
 //
-//          RepositoryPolicyCaseEnforcementArray{ RepositoryPolicyCaseEnforcementArgs{...} }
+//	RepositoryPolicyCaseEnforcementArray{ RepositoryPolicyCaseEnforcementArgs{...} }
 type RepositoryPolicyCaseEnforcementArrayInput interface {
 	pulumi.Input
 
@@ -263,7 +271,7 @@ func (i RepositoryPolicyCaseEnforcementArray) ToRepositoryPolicyCaseEnforcementA
 // RepositoryPolicyCaseEnforcementMapInput is an input type that accepts RepositoryPolicyCaseEnforcementMap and RepositoryPolicyCaseEnforcementMapOutput values.
 // You can construct a concrete instance of `RepositoryPolicyCaseEnforcementMapInput` via:
 //
-//          RepositoryPolicyCaseEnforcementMap{ "key": RepositoryPolicyCaseEnforcementArgs{...} }
+//	RepositoryPolicyCaseEnforcementMap{ "key": RepositoryPolicyCaseEnforcementArgs{...} }
 type RepositoryPolicyCaseEnforcementMapInput interface {
 	pulumi.Input
 

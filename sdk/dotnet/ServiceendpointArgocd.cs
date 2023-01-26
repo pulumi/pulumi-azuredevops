@@ -15,66 +15,64 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///         });
-    ///         var exampleServiceendpointArgocd = new AzureDevOps.ServiceendpointArgocd("exampleServiceendpointArgocd", new AzureDevOps.ServiceendpointArgocdArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example ArgoCD",
-    ///             Description = "Managed by Terraform",
-    ///             Url = "https://argocd.my.com",
-    ///             AuthenticationToken = new AzureDevOps.Inputs.ServiceendpointArgocdAuthenticationTokenArgs
-    ///             {
-    ///                 Token = "0000000000000000000000000000000000000000",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceendpointArgocd = new AzureDevOps.ServiceendpointArgocd("exampleServiceendpointArgocd", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example ArgoCD",
+    ///         Description = "Managed by Terraform",
+    ///         Url = "https://argocd.my.com",
+    ///         AuthenticationToken = new AzureDevOps.Inputs.ServiceendpointArgocdAuthenticationTokenArgs
+    ///         {
+    ///             Token = "0000000000000000000000000000000000000000",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// Alternatively a username and password may be used.
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceendpointArgocd = new AzureDevOps.ServiceendpointArgocd("exampleServiceendpointArgocd", new AzureDevOps.ServiceendpointArgocdArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example ArgoCD",
-    ///             Description = "Managed by Terraform",
-    ///             Url = "https://argocd.my.com",
-    ///             AuthenticationBasic = new AzureDevOps.Inputs.ServiceendpointArgocdAuthenticationBasicArgs
-    ///             {
-    ///                 Username = "username",
-    ///                 Password = "password",
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceendpointArgocd = new AzureDevOps.ServiceendpointArgocd("exampleServiceendpointArgocd", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example ArgoCD",
+    ///         Description = "Managed by Terraform",
+    ///         Url = "https://argocd.my.com",
+    ///         AuthenticationBasic = new AzureDevOps.Inputs.ServiceendpointArgocdAuthenticationBasicArgs
+    ///         {
+    ///             Username = "username",
+    ///             Password = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -91,7 +89,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd")]
-    public partial class ServiceendpointArgocd : Pulumi.CustomResource
+    public partial class ServiceendpointArgocd : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `authentication_basic` block for the ArgoCD as documented below.
@@ -176,7 +174,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceendpointArgocdArgs : Pulumi.ResourceArgs
+    public sealed class ServiceendpointArgocdArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `authentication_basic` block for the ArgoCD as documented below.
@@ -225,9 +223,10 @@ namespace Pulumi.AzureDevOps
         public ServiceendpointArgocdArgs()
         {
         }
+        public static new ServiceendpointArgocdArgs Empty => new ServiceendpointArgocdArgs();
     }
 
-    public sealed class ServiceendpointArgocdState : Pulumi.ResourceArgs
+    public sealed class ServiceendpointArgocdState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `authentication_basic` block for the ArgoCD as documented below.
@@ -276,5 +275,6 @@ namespace Pulumi.AzureDevOps
         public ServiceendpointArgocdState()
         {
         }
+        public static new ServiceendpointArgocdState Empty => new ServiceendpointArgocdState();
     }
 }

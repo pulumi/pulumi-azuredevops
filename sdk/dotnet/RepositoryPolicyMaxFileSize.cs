@@ -17,70 +17,69 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleRepositoryPolicyMaxFileSize = new AzureDevOps.RepositoryPolicyMaxFileSize("exampleRepositoryPolicyMaxFileSize", new AzureDevOps.RepositoryPolicyMaxFileSizeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             MaxFileSize = 1,
-    ///             RepositoryIds = 
-    ///             {
-    ///                 exampleGit.Id,
-    ///             },
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRepositoryPolicyMaxFileSize = new AzureDevOps.RepositoryPolicyMaxFileSize("exampleRepositoryPolicyMaxFileSize", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         MaxFileSize = 1,
+    ///         RepositoryIds = new[]
+    ///         {
+    ///             exampleGit.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// # Set project level repository policy
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleRepositoryPolicyMaxFileSize = new AzureDevOps.RepositoryPolicyMaxFileSize("exampleRepositoryPolicyMaxFileSize", new AzureDevOps.RepositoryPolicyMaxFileSizeArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             MaxFileSize = 1,
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleRepositoryPolicyMaxFileSize = new AzureDevOps.RepositoryPolicyMaxFileSize("exampleRepositoryPolicyMaxFileSize", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         MaxFileSize = 1,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -95,7 +94,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/repositoryPolicyMaxFileSize:RepositoryPolicyMaxFileSize")]
-    public partial class RepositoryPolicyMaxFileSize : Pulumi.CustomResource
+    public partial class RepositoryPolicyMaxFileSize : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -171,7 +170,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class RepositoryPolicyMaxFileSizeArgs : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyMaxFileSizeArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -212,9 +211,10 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyMaxFileSizeArgs()
         {
         }
+        public static new RepositoryPolicyMaxFileSizeArgs Empty => new RepositoryPolicyMaxFileSizeArgs();
     }
 
-    public sealed class RepositoryPolicyMaxFileSizeState : Pulumi.ResourceArgs
+    public sealed class RepositoryPolicyMaxFileSizeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -255,5 +255,6 @@ namespace Pulumi.AzureDevOps
         public RepositoryPolicyMaxFileSizeState()
         {
         }
+        public static new RepositoryPolicyMaxFileSizeState Empty => new RepositoryPolicyMaxFileSizeState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BranchPolicyAutoReviewersSettingsArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyAutoReviewersSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("autoReviewerIds", required: true)]
         private InputList<string>? _autoReviewerIds;
@@ -63,5 +63,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BranchPolicyAutoReviewersSettingsArgs()
         {
         }
+        public static new BranchPolicyAutoReviewersSettingsArgs Empty => new BranchPolicyAutoReviewersSettingsArgs();
     }
 }

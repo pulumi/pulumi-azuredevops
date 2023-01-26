@@ -21,43 +21,46 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: example.ID(),
-// 			Name:      pulumi.String("Readers"),
-// 		}, nil)
-// 		_, err = azuredevops.NewProjectPermissions(ctx, "example-permission", &azuredevops.ProjectPermissionsArgs{
-// 			ProjectId: example.ID(),
-// 			Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-// 				return example_readers.Id, nil
-// 			}).(pulumi.StringOutput),
-// 			Permissions: pulumi.StringMap{
-// 				"DELETE":              pulumi.String("Deny"),
-// 				"EDIT_BUILD_STATUS":   pulumi.String("NotSet"),
-// 				"WORK_ITEM_MOVE":      pulumi.String("Allow"),
-// 				"DELETE_TEST_RESULTS": pulumi.String("Deny"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			_, err = azuredevops.NewProjectPermissions(ctx, "example-permission", &azuredevops.ProjectPermissionsArgs{
+//				ProjectId: example.ID(),
+//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
+//					return example_readers.Id, nil
+//				}).(pulumi.StringOutput),
+//				Permissions: pulumi.StringMap{
+//					"DELETE":              pulumi.String("Deny"),
+//					"EDIT_BUILD_STATUS":   pulumi.String("NotSet"),
+//					"WORK_ITEM_MOVE":      pulumi.String("Allow"),
+//					"DELETE_TEST_RESULTS": pulumi.String("Deny"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -195,7 +198,7 @@ func (i *ProjectPermissions) ToProjectPermissionsOutputWithContext(ctx context.C
 // ProjectPermissionsArrayInput is an input type that accepts ProjectPermissionsArray and ProjectPermissionsArrayOutput values.
 // You can construct a concrete instance of `ProjectPermissionsArrayInput` via:
 //
-//          ProjectPermissionsArray{ ProjectPermissionsArgs{...} }
+//	ProjectPermissionsArray{ ProjectPermissionsArgs{...} }
 type ProjectPermissionsArrayInput interface {
 	pulumi.Input
 
@@ -220,7 +223,7 @@ func (i ProjectPermissionsArray) ToProjectPermissionsArrayOutputWithContext(ctx 
 // ProjectPermissionsMapInput is an input type that accepts ProjectPermissionsMap and ProjectPermissionsMapOutput values.
 // You can construct a concrete instance of `ProjectPermissionsMapInput` via:
 //
-//          ProjectPermissionsMap{ "key": ProjectPermissionsArgs{...} }
+//	ProjectPermissionsMap{ "key": ProjectPermissionsArgs{...} }
 type ProjectPermissionsMapInput interface {
 	pulumi.Input
 

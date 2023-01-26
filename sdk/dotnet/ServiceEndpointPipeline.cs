@@ -15,34 +15,33 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointPipeline = new AzureDevOps.ServiceEndpointPipeline("exampleServiceEndpointPipeline", new AzureDevOps.ServiceEndpointPipelineArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example Pipeline Runner",
-    ///             OrganizationName = "Organization Name",
-    ///             AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointPipelineAuthPersonalArgs
-    ///             {
-    ///                 PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-    ///             },
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointPipeline = new AzureDevOps.ServiceEndpointPipeline("exampleServiceEndpointPipeline", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Pipeline Runner",
+    ///         OrganizationName = "Organization Name",
+    ///         AuthPersonal = new AzureDevOps.Inputs.ServiceEndpointPipelineAuthPersonalArgs
+    ///         {
+    ///             PersonalAccessToken = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///         },
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -57,7 +56,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline")]
-    public partial class ServiceEndpointPipeline : Pulumi.CustomResource
+    public partial class ServiceEndpointPipeline : global::Pulumi.CustomResource
     {
         /// <summary>
         /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -133,7 +132,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointPipelineArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointPipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -173,9 +172,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointPipelineArgs()
         {
         }
+        public static new ServiceEndpointPipelineArgs Empty => new ServiceEndpointPipelineArgs();
     }
 
-    public sealed class ServiceEndpointPipelineState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointPipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// An `auth_personal` block as documented below. Allows connecting using a personal access token.
@@ -215,5 +215,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointPipelineState()
         {
         }
+        public static new ServiceEndpointPipelineState Empty => new ServiceEndpointPipelineState();
     }
 }

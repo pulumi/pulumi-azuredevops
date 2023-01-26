@@ -129,7 +129,7 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
             if ((!args || args.url === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            resourceInputs["accessToken"] = args ? args.accessToken : undefined;
+            resourceInputs["accessToken"] = args?.accessToken ? pulumi.secret(args.accessToken) : undefined;
             resourceInputs["authorization"] = args ? args.authorization : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
@@ -138,6 +138,8 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
             resourceInputs["accessTokenHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["accessToken", "accessTokenHash"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointNpm.__pulumiType, name, resourceInputs, opts);
     }
 }

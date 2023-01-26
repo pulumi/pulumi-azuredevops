@@ -15,68 +15,69 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Features = 
     ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Features = 
+    ///             { "testplans", "disabled" },
+    ///             { "artifacts", "disabled" },
+    ///         },
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleUser = new AzureDevOps.User("exampleUser", new()
+    ///     {
+    ///         PrincipalName = "mail@email.com",
+    ///         AccountLicenseType = "basic",
+    ///     });
+    /// 
+    ///     var exampleBranchPolicyStatusCheck = new AzureDevOps.BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         Settings = new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsArgs
+    ///         {
+    ///             Name = "Release",
+    ///             AuthorId = exampleUser.Id,
+    ///             InvalidateOnUpdate = true,
+    ///             Applicability = "conditional",
+    ///             DisplayName = "PreCheck",
+    ///             Scopes = new[]
     ///             {
-    ///                 { "testplans", "disabled" },
-    ///                 { "artifacts", "disabled" },
-    ///             },
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleGit = new AzureDevOps.Git("exampleGit", new AzureDevOps.GitArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///             {
-    ///                 InitType = "Clean",
-    ///             },
-    ///         });
-    ///         var exampleUser = new AzureDevOps.User("exampleUser", new AzureDevOps.UserArgs
-    ///         {
-    ///             PrincipalName = "mail@email.com",
-    ///             AccountLicenseType = "basic",
-    ///         });
-    ///         var exampleBranchPolicyStatusCheck = new AzureDevOps.BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck", new AzureDevOps.BranchPolicyStatusCheckArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Enabled = true,
-    ///             Blocking = true,
-    ///             Settings = new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsArgs
-    ///             {
-    ///                 Name = "Release",
-    ///                 AuthorId = exampleUser.Id,
-    ///                 InvalidateOnUpdate = true,
-    ///                 Applicability = "conditional",
-    ///                 DisplayName = "PreCheck",
-    ///                 Scopes = 
+    ///                 new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsScopeArgs
     ///                 {
-    ///                     new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsScopeArgs
-    ///                     {
-    ///                         RepositoryId = exampleGit.Id,
-    ///                         RepositoryRef = exampleGit.DefaultBranch,
-    ///                         MatchType = "Exact",
-    ///                     },
-    ///                     new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsScopeArgs
-    ///                     {
-    ///                         MatchType = "DefaultBranch",
-    ///                     },
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = exampleGit.DefaultBranch,
+    ///                     MatchType = "Exact",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyStatusCheckSettingsScopeArgs
+    ///                 {
+    ///                     MatchType = "DefaultBranch",
     ///                 },
     ///             },
-    ///         });
-    ///     }
+    ///         },
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -91,7 +92,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/branchPolicyStatusCheck:BranchPolicyStatusCheck")]
-    public partial class BranchPolicyStatusCheck : Pulumi.CustomResource
+    public partial class BranchPolicyStatusCheck : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -161,7 +162,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class BranchPolicyStatusCheckArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyStatusCheckArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -190,9 +191,10 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyStatusCheckArgs()
         {
         }
+        public static new BranchPolicyStatusCheckArgs Empty => new BranchPolicyStatusCheckArgs();
     }
 
-    public sealed class BranchPolicyStatusCheckState : Pulumi.ResourceArgs
+    public sealed class BranchPolicyStatusCheckState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -221,5 +223,6 @@ namespace Pulumi.AzureDevOps
         public BranchPolicyStatusCheckState()
         {
         }
+        public static new BranchPolicyStatusCheckState Empty => new BranchPolicyStatusCheckState();
     }
 }

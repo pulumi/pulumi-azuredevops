@@ -5,15 +5,30 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getClientConfig";
-export * from "./getProject";
-export * from "./getProjects";
-export * from "./project";
-export * from "./projectFeatures";
+export { GetClientConfigResult } from "./getClientConfig";
+export const getClientConfig: typeof import("./getClientConfig").getClientConfig = null as any;
+utilities.lazyLoad(exports, ["getClientConfig"], () => require("./getClientConfig"));
 
-// Import resources to register:
-import { Project } from "./project";
-import { ProjectFeatures } from "./projectFeatures";
+export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
+export const getProject: typeof import("./getProject").getProject = null as any;
+export const getProjectOutput: typeof import("./getProject").getProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getProject","getProjectOutput"], () => require("./getProject"));
+
+export { GetProjectsArgs, GetProjectsResult, GetProjectsOutputArgs } from "./getProjects";
+export const getProjects: typeof import("./getProjects").getProjects = null as any;
+export const getProjectsOutput: typeof import("./getProjects").getProjectsOutput = null as any;
+utilities.lazyLoad(exports, ["getProjects","getProjectsOutput"], () => require("./getProjects"));
+
+export { ProjectArgs, ProjectState } from "./project";
+export type Project = import("./project").Project;
+export const Project: typeof import("./project").Project = null as any;
+utilities.lazyLoad(exports, ["Project"], () => require("./project"));
+
+export { ProjectFeaturesArgs, ProjectFeaturesState } from "./projectFeatures";
+export type ProjectFeatures = import("./projectFeatures").ProjectFeatures;
+export const ProjectFeatures: typeof import("./projectFeatures").ProjectFeatures = null as any;
+utilities.lazyLoad(exports, ["ProjectFeatures"], () => require("./projectFeatures"));
+
 
 const _module = {
     version: utilities.getVersion(),

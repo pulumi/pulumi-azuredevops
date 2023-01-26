@@ -16,50 +16,54 @@ import (
 // Azure DevOps Repositories can be imported using the repo name or by the repo Guid e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/git:Git example projectName/repoName
+//
+//	$ pulumi import azuredevops:index/git:Git example projectName/repoName
+//
 // ```
 //
-//  or
+//	or
 //
 // ```sh
-//  $ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/git:Git example projectName/00000000-0000-0000-0000-000000000000
+//
 // ```
 //
-//  hcl resource "azuredevops_project" "example" {
+//	hcl resource "azuredevops_project" "example" {
 //
-//  name
+//	name
 //
-//  = "Example Project"
+//	= "Example Project"
 //
-//  visibility
+//	visibility
 //
-//  = "private"
+//	= "private"
 //
-//  version_control
+//	version_control
 //
 // = "Git"
 //
-//  work_item_template = "Agile" } resource "azuredevops_git_repository" "example" {
+//	work_item_template = "Agile" } resource "azuredevops_git_repository" "example" {
 //
-//  project_id
+//	project_id
 //
-//  = azuredevops_project.example.id
+//	= azuredevops_project.example.id
 //
-//  name
+//	name
 //
-//  = "Example Git Repository"
+//	= "Example Git Repository"
 //
-//  default_branch = "refs/heads/main"
+//	default_branch = "refs/heads/main"
 //
-//  initialization {
+//	initialization {
 //
-//  init_type = "Clean"
+//	init_type = "Clean"
 //
-//  }
+//	}
 //
-//  lifecycle {
+//	lifecycle {
 //
-//  ignore_changes = [
+//	ignore_changes = [
 //
 // # Ignore changes to initialization to support importing existing repositories
 //
@@ -67,11 +71,11 @@ import (
 //
 // # we don't care for the configuration of initialization against the existing resource
 //
-//  initialization,
+//	initialization,
 //
-//  ]
+//	]
 //
-//  } }
+//	} }
 type Git struct {
 	pulumi.CustomResourceState
 
@@ -246,7 +250,7 @@ func (i *Git) ToGitOutputWithContext(ctx context.Context) GitOutput {
 // GitArrayInput is an input type that accepts GitArray and GitArrayOutput values.
 // You can construct a concrete instance of `GitArrayInput` via:
 //
-//          GitArray{ GitArgs{...} }
+//	GitArray{ GitArgs{...} }
 type GitArrayInput interface {
 	pulumi.Input
 
@@ -271,7 +275,7 @@ func (i GitArray) ToGitArrayOutputWithContext(ctx context.Context) GitArrayOutpu
 // GitMapInput is an input type that accepts GitMap and GitMapOutput values.
 // You can construct a concrete instance of `GitMapInput` via:
 //
-//          GitMap{ "key": GitArgs{...} }
+//	GitMap{ "key": GitArgs{...} }
 type GitMapInput interface {
 	pulumi.Input
 

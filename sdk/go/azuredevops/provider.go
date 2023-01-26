@@ -33,6 +33,13 @@ func NewProvider(ctx *pulumi.Context,
 	if isZero(args.OrgServiceUrl) {
 		args.OrgServiceUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "AZDO_ORG_SERVICE_URL").(string))
 	}
+	if args.PersonalAccessToken != nil {
+		args.PersonalAccessToken = pulumi.ToSecret(args.PersonalAccessToken).(pulumi.StringPtrOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"personalAccessToken",
+	})
+	opts = append(opts, secrets)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:azuredevops", name, args, &resource, opts...)
 	if err != nil {

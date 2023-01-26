@@ -26,39 +26,39 @@ namespace Pulumi.AzureDevOps
     /// #### Example usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var project_wiq_root_permissions = new AzureDevOps.WorkItemQueryPermissions("project-wiq-root-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             Permissions = 
-    ///             {
-    ///                 { "CreateRepository", "Deny" },
-    ///                 { "DeleteRepository", "Deny" },
-    ///                 { "RenameRepository", "NotSet" },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var project_wiq_root_permissions = new AzureDevOps.WorkItemQueryPermissions("project-wiq-root-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "CreateRepository", "Deny" },
+    ///             { "DeleteRepository", "Deny" },
+    ///             { "RenameRepository", "NotSet" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ### Shared Queries folder level
@@ -70,95 +70,97 @@ namespace Pulumi.AzureDevOps
     /// #### Example usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var example_permissions = new AzureDevOps.WorkItemQueryPermissions("example-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Path = "/Team",
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             Permissions = 
-    ///             {
-    ///                 { "Contribute", "Allow" },
-    ///                 { "Delete", "Deny" },
-    ///                 { "Read", "NotSet" },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.WorkItemQueryPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Path = "/Team",
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "Contribute", "Allow" },
+    ///             { "Delete", "Deny" },
+    ///             { "Read", "NotSet" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// 
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var example_contributors = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Name = "Contributors",
-    ///         });
-    ///         var example_project_permissions = new AzureDevOps.WorkItemQueryPermissions("example-project-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             Permissions = 
-    ///             {
-    ///                 { "Read", "Allow" },
-    ///                 { "Delete", "Deny" },
-    ///                 { "Contribute", "Deny" },
-    ///                 { "ManagePermissions", "Deny" },
-    ///             },
-    ///         });
-    ///         var example_sharedqueries_permissions = new AzureDevOps.WorkItemQueryPermissions("example-sharedqueries-permissions", new AzureDevOps.WorkItemQueryPermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Path = "/",
-    ///             Principal = example_contributors.Apply(example_contributors =&gt; example_contributors.Id),
-    ///             Permissions = 
-    ///             {
-    ///                 { "Read", "Allow" },
-    ///                 { "Delete", "Deny" },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_contributors = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Contributors",
+    ///     });
+    /// 
+    ///     var example_project_permissions = new AzureDevOps.WorkItemQueryPermissions("example-project-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "Read", "Allow" },
+    ///             { "Delete", "Deny" },
+    ///             { "Contribute", "Deny" },
+    ///             { "ManagePermissions", "Deny" },
+    ///         },
+    ///     });
+    /// 
+    ///     var example_sharedqueries_permissions = new AzureDevOps.WorkItemQueryPermissions("example-sharedqueries-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Path = "/",
+    ///         Principal = example_contributors.Apply(getGroupResult =&gt; getGroupResult).Apply(example_contributors =&gt; example_contributors.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "Read", "Allow" },
+    ///             { "Delete", "Deny" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -173,7 +175,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions")]
-    public partial class WorkItemQueryPermissions : Pulumi.CustomResource
+    public partial class WorkItemQueryPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Path to a query or folder beneath `Shared Queries`
@@ -249,7 +251,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class WorkItemQueryPermissionsArgs : Pulumi.ResourceArgs
+    public sealed class WorkItemQueryPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path to a query or folder beneath `Shared Queries`
@@ -290,9 +292,10 @@ namespace Pulumi.AzureDevOps
         public WorkItemQueryPermissionsArgs()
         {
         }
+        public static new WorkItemQueryPermissionsArgs Empty => new WorkItemQueryPermissionsArgs();
     }
 
-    public sealed class WorkItemQueryPermissionsState : Pulumi.ResourceArgs
+    public sealed class WorkItemQueryPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Path to a query or folder beneath `Shared Queries`
@@ -333,5 +336,6 @@ namespace Pulumi.AzureDevOps
         public WorkItemQueryPermissionsState()
         {
         }
+        public static new WorkItemQueryPermissionsState Empty => new WorkItemQueryPermissionsState();
     }
 }

@@ -21,7 +21,7 @@ type AzureRMCredentials struct {
 // AzureRMCredentialsInput is an input type that accepts AzureRMCredentialsArgs and AzureRMCredentialsOutput values.
 // You can construct a concrete instance of `AzureRMCredentialsInput` via:
 //
-//          AzureRMCredentialsArgs{...}
+//	AzureRMCredentialsArgs{...}
 type AzureRMCredentialsInput interface {
 	pulumi.Input
 
@@ -60,11 +60,11 @@ func (i AzureRMCredentialsArgs) ToAzureRMCredentialsPtrOutputWithContext(ctx con
 // AzureRMCredentialsPtrInput is an input type that accepts AzureRMCredentialsArgs, AzureRMCredentialsPtr and AzureRMCredentialsPtrOutput values.
 // You can construct a concrete instance of `AzureRMCredentialsPtrInput` via:
 //
-//          AzureRMCredentialsArgs{...}
+//	        AzureRMCredentialsArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type AzureRMCredentialsPtrInput interface {
 	pulumi.Input
 
@@ -188,7 +188,7 @@ type GitHubAuthOauth struct {
 // GitHubAuthOauthInput is an input type that accepts GitHubAuthOauthArgs and GitHubAuthOauthOutput values.
 // You can construct a concrete instance of `GitHubAuthOauthInput` via:
 //
-//          GitHubAuthOauthArgs{...}
+//	GitHubAuthOauthArgs{...}
 type GitHubAuthOauthInput interface {
 	pulumi.Input
 
@@ -223,11 +223,11 @@ func (i GitHubAuthOauthArgs) ToGitHubAuthOauthPtrOutputWithContext(ctx context.C
 // GitHubAuthOauthPtrInput is an input type that accepts GitHubAuthOauthArgs, GitHubAuthOauthPtr and GitHubAuthOauthPtrOutput values.
 // You can construct a concrete instance of `GitHubAuthOauthPtrInput` via:
 //
-//          GitHubAuthOauthArgs{...}
+//	        GitHubAuthOauthArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GitHubAuthOauthPtrInput interface {
 	pulumi.Input
 
@@ -323,7 +323,7 @@ type GitHubAuthPersonal struct {
 // GitHubAuthPersonalInput is an input type that accepts GitHubAuthPersonalArgs and GitHubAuthPersonalOutput values.
 // You can construct a concrete instance of `GitHubAuthPersonalInput` via:
 //
-//          GitHubAuthPersonalArgs{...}
+//	GitHubAuthPersonalArgs{...}
 type GitHubAuthPersonalInput interface {
 	pulumi.Input
 
@@ -360,11 +360,11 @@ func (i GitHubAuthPersonalArgs) ToGitHubAuthPersonalPtrOutputWithContext(ctx con
 // GitHubAuthPersonalPtrInput is an input type that accepts GitHubAuthPersonalArgs, GitHubAuthPersonalPtr and GitHubAuthPersonalPtrOutput values.
 // You can construct a concrete instance of `GitHubAuthPersonalPtrInput` via:
 //
-//          GitHubAuthPersonalArgs{...}
+//	        GitHubAuthPersonalArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type GitHubAuthPersonalPtrInput interface {
 	pulumi.Input
 
@@ -488,7 +488,7 @@ type KubernetesAzureSubscription struct {
 // KubernetesAzureSubscriptionInput is an input type that accepts KubernetesAzureSubscriptionArgs and KubernetesAzureSubscriptionOutput values.
 // You can construct a concrete instance of `KubernetesAzureSubscriptionInput` via:
 //
-//          KubernetesAzureSubscriptionArgs{...}
+//	KubernetesAzureSubscriptionArgs{...}
 type KubernetesAzureSubscriptionInput interface {
 	pulumi.Input
 
@@ -530,7 +530,7 @@ func (i KubernetesAzureSubscriptionArgs) ToKubernetesAzureSubscriptionOutputWith
 // KubernetesAzureSubscriptionArrayInput is an input type that accepts KubernetesAzureSubscriptionArray and KubernetesAzureSubscriptionArrayOutput values.
 // You can construct a concrete instance of `KubernetesAzureSubscriptionArrayInput` via:
 //
-//          KubernetesAzureSubscriptionArray{ KubernetesAzureSubscriptionArgs{...} }
+//	KubernetesAzureSubscriptionArray{ KubernetesAzureSubscriptionArgs{...} }
 type KubernetesAzureSubscriptionArrayInput interface {
 	pulumi.Input
 
@@ -632,14 +632,13 @@ type KubernetesKubeconfig struct {
 	// Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
 	ClusterContext *string `pulumi:"clusterContext"`
 	// The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
-	KubeConfig     string  `pulumi:"kubeConfig"`
-	KubeConfigHash *string `pulumi:"kubeConfigHash"`
+	KubeConfig string `pulumi:"kubeConfig"`
 }
 
 // KubernetesKubeconfigInput is an input type that accepts KubernetesKubeconfigArgs and KubernetesKubeconfigOutput values.
 // You can construct a concrete instance of `KubernetesKubeconfigInput` via:
 //
-//          KubernetesKubeconfigArgs{...}
+//	KubernetesKubeconfigArgs{...}
 type KubernetesKubeconfigInput interface {
 	pulumi.Input
 
@@ -653,8 +652,7 @@ type KubernetesKubeconfigArgs struct {
 	// Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
 	ClusterContext pulumi.StringPtrInput `pulumi:"clusterContext"`
 	// The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
-	KubeConfig     pulumi.StringInput    `pulumi:"kubeConfig"`
-	KubeConfigHash pulumi.StringPtrInput `pulumi:"kubeConfigHash"`
+	KubeConfig pulumi.StringInput `pulumi:"kubeConfig"`
 }
 
 func (KubernetesKubeconfigArgs) ElementType() reflect.Type {
@@ -669,29 +667,45 @@ func (i KubernetesKubeconfigArgs) ToKubernetesKubeconfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesKubeconfigOutput)
 }
 
-// KubernetesKubeconfigArrayInput is an input type that accepts KubernetesKubeconfigArray and KubernetesKubeconfigArrayOutput values.
-// You can construct a concrete instance of `KubernetesKubeconfigArrayInput` via:
+func (i KubernetesKubeconfigArgs) ToKubernetesKubeconfigPtrOutput() KubernetesKubeconfigPtrOutput {
+	return i.ToKubernetesKubeconfigPtrOutputWithContext(context.Background())
+}
+
+func (i KubernetesKubeconfigArgs) ToKubernetesKubeconfigPtrOutputWithContext(ctx context.Context) KubernetesKubeconfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesKubeconfigOutput).ToKubernetesKubeconfigPtrOutputWithContext(ctx)
+}
+
+// KubernetesKubeconfigPtrInput is an input type that accepts KubernetesKubeconfigArgs, KubernetesKubeconfigPtr and KubernetesKubeconfigPtrOutput values.
+// You can construct a concrete instance of `KubernetesKubeconfigPtrInput` via:
 //
-//          KubernetesKubeconfigArray{ KubernetesKubeconfigArgs{...} }
-type KubernetesKubeconfigArrayInput interface {
+//	        KubernetesKubeconfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type KubernetesKubeconfigPtrInput interface {
 	pulumi.Input
 
-	ToKubernetesKubeconfigArrayOutput() KubernetesKubeconfigArrayOutput
-	ToKubernetesKubeconfigArrayOutputWithContext(context.Context) KubernetesKubeconfigArrayOutput
+	ToKubernetesKubeconfigPtrOutput() KubernetesKubeconfigPtrOutput
+	ToKubernetesKubeconfigPtrOutputWithContext(context.Context) KubernetesKubeconfigPtrOutput
 }
 
-type KubernetesKubeconfigArray []KubernetesKubeconfigInput
+type kubernetesKubeconfigPtrType KubernetesKubeconfigArgs
 
-func (KubernetesKubeconfigArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesKubeconfig)(nil)).Elem()
+func KubernetesKubeconfigPtr(v *KubernetesKubeconfigArgs) KubernetesKubeconfigPtrInput {
+	return (*kubernetesKubeconfigPtrType)(v)
 }
 
-func (i KubernetesKubeconfigArray) ToKubernetesKubeconfigArrayOutput() KubernetesKubeconfigArrayOutput {
-	return i.ToKubernetesKubeconfigArrayOutputWithContext(context.Background())
+func (*kubernetesKubeconfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesKubeconfig)(nil)).Elem()
 }
 
-func (i KubernetesKubeconfigArray) ToKubernetesKubeconfigArrayOutputWithContext(ctx context.Context) KubernetesKubeconfigArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(KubernetesKubeconfigArrayOutput)
+func (i *kubernetesKubeconfigPtrType) ToKubernetesKubeconfigPtrOutput() KubernetesKubeconfigPtrOutput {
+	return i.ToKubernetesKubeconfigPtrOutputWithContext(context.Background())
+}
+
+func (i *kubernetesKubeconfigPtrType) ToKubernetesKubeconfigPtrOutputWithContext(ctx context.Context) KubernetesKubeconfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesKubeconfigPtrOutput)
 }
 
 type KubernetesKubeconfigOutput struct{ *pulumi.OutputState }
@@ -706,6 +720,16 @@ func (o KubernetesKubeconfigOutput) ToKubernetesKubeconfigOutput() KubernetesKub
 
 func (o KubernetesKubeconfigOutput) ToKubernetesKubeconfigOutputWithContext(ctx context.Context) KubernetesKubeconfigOutput {
 	return o
+}
+
+func (o KubernetesKubeconfigOutput) ToKubernetesKubeconfigPtrOutput() KubernetesKubeconfigPtrOutput {
+	return o.ToKubernetesKubeconfigPtrOutputWithContext(context.Background())
+}
+
+func (o KubernetesKubeconfigOutput) ToKubernetesKubeconfigPtrOutputWithContext(ctx context.Context) KubernetesKubeconfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesKubeconfig) *KubernetesKubeconfig {
+		return &v
+	}).(KubernetesKubeconfigPtrOutput)
 }
 
 // Set this option to allow clients to accept a self-signed certificate.
@@ -723,28 +747,58 @@ func (o KubernetesKubeconfigOutput) KubeConfig() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesKubeconfig) string { return v.KubeConfig }).(pulumi.StringOutput)
 }
 
-func (o KubernetesKubeconfigOutput) KubeConfigHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesKubeconfig) *string { return v.KubeConfigHash }).(pulumi.StringPtrOutput)
+type KubernetesKubeconfigPtrOutput struct{ *pulumi.OutputState }
+
+func (KubernetesKubeconfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KubernetesKubeconfig)(nil)).Elem()
 }
 
-type KubernetesKubeconfigArrayOutput struct{ *pulumi.OutputState }
-
-func (KubernetesKubeconfigArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]KubernetesKubeconfig)(nil)).Elem()
-}
-
-func (o KubernetesKubeconfigArrayOutput) ToKubernetesKubeconfigArrayOutput() KubernetesKubeconfigArrayOutput {
+func (o KubernetesKubeconfigPtrOutput) ToKubernetesKubeconfigPtrOutput() KubernetesKubeconfigPtrOutput {
 	return o
 }
 
-func (o KubernetesKubeconfigArrayOutput) ToKubernetesKubeconfigArrayOutputWithContext(ctx context.Context) KubernetesKubeconfigArrayOutput {
+func (o KubernetesKubeconfigPtrOutput) ToKubernetesKubeconfigPtrOutputWithContext(ctx context.Context) KubernetesKubeconfigPtrOutput {
 	return o
 }
 
-func (o KubernetesKubeconfigArrayOutput) Index(i pulumi.IntInput) KubernetesKubeconfigOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesKubeconfig {
-		return vs[0].([]KubernetesKubeconfig)[vs[1].(int)]
+func (o KubernetesKubeconfigPtrOutput) Elem() KubernetesKubeconfigOutput {
+	return o.ApplyT(func(v *KubernetesKubeconfig) KubernetesKubeconfig {
+		if v != nil {
+			return *v
+		}
+		var ret KubernetesKubeconfig
+		return ret
 	}).(KubernetesKubeconfigOutput)
+}
+
+// Set this option to allow clients to accept a self-signed certificate.
+func (o KubernetesKubeconfigPtrOutput) AcceptUntrustedCerts() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KubernetesKubeconfig) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AcceptUntrustedCerts
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
+func (o KubernetesKubeconfigPtrOutput) ClusterContext() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesKubeconfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ClusterContext
+	}).(pulumi.StringPtrOutput)
+}
+
+// The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
+func (o KubernetesKubeconfigPtrOutput) KubeConfig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KubernetesKubeconfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.KubeConfig
+	}).(pulumi.StringPtrOutput)
 }
 
 type KubernetesServiceAccount struct {
@@ -759,7 +813,7 @@ type KubernetesServiceAccount struct {
 // KubernetesServiceAccountInput is an input type that accepts KubernetesServiceAccountArgs and KubernetesServiceAccountOutput values.
 // You can construct a concrete instance of `KubernetesServiceAccountInput` via:
 //
-//          KubernetesServiceAccountArgs{...}
+//	KubernetesServiceAccountArgs{...}
 type KubernetesServiceAccountInput interface {
 	pulumi.Input
 
@@ -799,11 +853,11 @@ func (i KubernetesServiceAccountArgs) ToKubernetesServiceAccountPtrOutputWithCon
 // KubernetesServiceAccountPtrInput is an input type that accepts KubernetesServiceAccountArgs, KubernetesServiceAccountPtr and KubernetesServiceAccountPtrOutput values.
 // You can construct a concrete instance of `KubernetesServiceAccountPtrInput` via:
 //
-//          KubernetesServiceAccountArgs{...}
+//	        KubernetesServiceAccountArgs{...}
 //
-//  or:
+//	or:
 //
-//          nil
+//	        nil
 type KubernetesServiceAccountPtrInput interface {
 	pulumi.Input
 
@@ -943,7 +997,7 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesAzureSubscriptionInput)(nil)).Elem(), KubernetesAzureSubscriptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesAzureSubscriptionArrayInput)(nil)).Elem(), KubernetesAzureSubscriptionArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesKubeconfigInput)(nil)).Elem(), KubernetesKubeconfigArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesKubeconfigArrayInput)(nil)).Elem(), KubernetesKubeconfigArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesKubeconfigPtrInput)(nil)).Elem(), KubernetesKubeconfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesServiceAccountInput)(nil)).Elem(), KubernetesServiceAccountArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesServiceAccountPtrInput)(nil)).Elem(), KubernetesServiceAccountArgs{})
 	pulumi.RegisterOutputType(AzureRMCredentialsOutput{})
@@ -955,7 +1009,7 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesAzureSubscriptionOutput{})
 	pulumi.RegisterOutputType(KubernetesAzureSubscriptionArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesKubeconfigOutput{})
-	pulumi.RegisterOutputType(KubernetesKubeconfigArrayOutput{})
+	pulumi.RegisterOutputType(KubernetesKubeconfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesServiceAccountOutput{})
 	pulumi.RegisterOutputType(KubernetesServiceAccountPtrOutput{})
 }

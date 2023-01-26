@@ -19,47 +19,50 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			Visibility:       pulumi.String("private"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		example_project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
-// 			ProjectId: exampleProject.ID(),
-// 			Name:      pulumi.String("Contributors"),
-// 		}, nil)
-// 		exampleTeam, err := azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
-// 			ProjectId: exampleProject.ID(),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewTeamAdministrators(ctx, "example-team-administrators", &azuredevops.TeamAdministratorsArgs{
-// 			ProjectId: exampleTeam.ProjectId,
-// 			TeamId:    exampleTeam.ID(),
-// 			Mode:      pulumi.String("overwrite"),
-// 			Administrators: pulumi.StringArray{
-// 				example_project_contributors.ApplyT(func(example_project_contributors GetGroupResult) (string, error) {
-// 					return example_project_contributors.Descriptor, nil
-// 				}).(pulumi.StringOutput),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Contributors"),
+//			}, nil)
+//			exampleTeam, err := azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
+//				ProjectId: exampleProject.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewTeamAdministrators(ctx, "example-team-administrators", &azuredevops.TeamAdministratorsArgs{
+//				ProjectId: exampleTeam.ProjectId,
+//				TeamId:    exampleTeam.ID(),
+//				Mode:      pulumi.String("overwrite"),
+//				Administrators: pulumi.StringArray{
+//					example_project_contributors.ApplyT(func(example_project_contributors GetGroupResult) (string, error) {
+//						return example_project_contributors.Descriptor, nil
+//					}).(pulumi.StringOutput),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -207,7 +210,7 @@ func (i *TeamAdministrators) ToTeamAdministratorsOutputWithContext(ctx context.C
 // TeamAdministratorsArrayInput is an input type that accepts TeamAdministratorsArray and TeamAdministratorsArrayOutput values.
 // You can construct a concrete instance of `TeamAdministratorsArrayInput` via:
 //
-//          TeamAdministratorsArray{ TeamAdministratorsArgs{...} }
+//	TeamAdministratorsArray{ TeamAdministratorsArgs{...} }
 type TeamAdministratorsArrayInput interface {
 	pulumi.Input
 
@@ -232,7 +235,7 @@ func (i TeamAdministratorsArray) ToTeamAdministratorsArrayOutputWithContext(ctx 
 // TeamAdministratorsMapInput is an input type that accepts TeamAdministratorsMap and TeamAdministratorsMapOutput values.
 // You can construct a concrete instance of `TeamAdministratorsMapInput` via:
 //
-//          TeamAdministratorsMap{ "key": TeamAdministratorsArgs{...} }
+//	TeamAdministratorsMap{ "key": TeamAdministratorsArgs{...} }
 type TeamAdministratorsMapInput interface {
 	pulumi.Input
 

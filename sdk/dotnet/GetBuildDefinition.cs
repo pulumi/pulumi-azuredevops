@@ -19,34 +19,34 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var exampleProject = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var exampleBuildDefinition = exampleProject.Apply(exampleProject =&gt; Output.Create(AzureDevOps.GetBuildDefinition.InvokeAsync(new AzureDevOps.GetBuildDefinitionArgs
-        ///         {
-        ///             ProjectId = exampleProject.Id,
-        ///             Name = "existing",
-        ///         })));
-        ///         this.Id = exampleBuildDefinition.Apply(exampleBuildDefinition =&gt; exampleBuildDefinition.Id);
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleBuildDefinition.Apply(getBuildDefinitionResult =&gt; getBuildDefinitionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetBuildDefinitionResult> InvokeAsync(GetBuildDefinitionArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetBuildDefinitionResult>("azuredevops:index/getBuildDefinition:getBuildDefinition", args ?? new GetBuildDefinitionArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetBuildDefinitionResult>("azuredevops:index/getBuildDefinition:getBuildDefinition", args ?? new GetBuildDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Build Definition.
@@ -56,38 +56,38 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var exampleProject = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var exampleBuildDefinition = exampleProject.Apply(exampleProject =&gt; Output.Create(AzureDevOps.GetBuildDefinition.InvokeAsync(new AzureDevOps.GetBuildDefinitionArgs
-        ///         {
-        ///             ProjectId = exampleProject.Id,
-        ///             Name = "existing",
-        ///         })));
-        ///         this.Id = exampleBuildDefinition.Apply(exampleBuildDefinition =&gt; exampleBuildDefinition.Id);
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleBuildDefinition = AzureDevOps.GetBuildDefinition.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleBuildDefinition.Apply(getBuildDefinitionResult =&gt; getBuildDefinitionResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetBuildDefinitionResult> Invoke(GetBuildDefinitionInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetBuildDefinitionResult>("azuredevops:index/getBuildDefinition:getBuildDefinition", args ?? new GetBuildDefinitionInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetBuildDefinitionResult>("azuredevops:index/getBuildDefinition:getBuildDefinition", args ?? new GetBuildDefinitionInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetBuildDefinitionArgs : Pulumi.InvokeArgs
+    public sealed class GetBuildDefinitionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Build Definition.
@@ -110,9 +110,10 @@ namespace Pulumi.AzureDevOps
         public GetBuildDefinitionArgs()
         {
         }
+        public static new GetBuildDefinitionArgs Empty => new GetBuildDefinitionArgs();
     }
 
-    public sealed class GetBuildDefinitionInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetBuildDefinitionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of this Build Definition.
@@ -135,6 +136,7 @@ namespace Pulumi.AzureDevOps
         public GetBuildDefinitionInvokeArgs()
         {
         }
+        public static new GetBuildDefinitionInvokeArgs Empty => new GetBuildDefinitionInvokeArgs();
     }
 
 

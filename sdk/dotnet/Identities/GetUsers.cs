@@ -20,38 +20,40 @@ namespace Pulumi.AzureDevOps.Identities
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = AzureDevOps.GetUsers.Invoke(new()
         ///     {
-        ///         var example = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
-        ///         {
-        ///             PrincipalName = "contoso-user@contoso.onmicrosoft.com",
-        ///         }));
-        ///         var example_all_users = Output.Create(AzureDevOps.GetUsers.InvokeAsync());
-        ///         var example_all_from_origin = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
-        ///         {
-        ///             Origin = "aad",
-        ///         }));
-        ///         var example_all_from_subjectTypes = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
-        ///         {
-        ///             SubjectTypes = 
-        ///             {
-        ///                 "aad",
-        ///                 "msa",
-        ///             },
-        ///         }));
-        ///         var example_all_from_origin_id = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
-        ///         {
-        ///             Origin = "aad",
-        ///             OriginId = "00000000-0000-0000-0000-000000000000",
-        ///         }));
-        ///     }
+        ///         PrincipalName = "contoso-user@contoso.onmicrosoft.com",
+        ///     });
         /// 
-        /// }
+        ///     var example_all_users = AzureDevOps.GetUsers.Invoke();
+        /// 
+        ///     var example_all_from_origin = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Origin = "aad",
+        ///     });
+        /// 
+        ///     var example_all_from_subjectTypes = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         SubjectTypes = new[]
+        ///         {
+        ///             "aad",
+        ///             "msa",
+        ///         },
+        ///     });
+        /// 
+        ///     var example_all_from_origin_id = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Origin = "aad",
+        ///         OriginId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -60,7 +62,7 @@ namespace Pulumi.AzureDevOps.Identities
         /// - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetUsersResult> InvokeAsync(GetUsersArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
@@ -70,38 +72,40 @@ namespace Pulumi.AzureDevOps.Identities
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = AzureDevOps.GetUsers.Invoke(new()
         ///     {
-        ///         var example = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
-        ///         {
-        ///             PrincipalName = "contoso-user@contoso.onmicrosoft.com",
-        ///         }));
-        ///         var example_all_users = Output.Create(AzureDevOps.GetUsers.InvokeAsync());
-        ///         var example_all_from_origin = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
-        ///         {
-        ///             Origin = "aad",
-        ///         }));
-        ///         var example_all_from_subjectTypes = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
-        ///         {
-        ///             SubjectTypes = 
-        ///             {
-        ///                 "aad",
-        ///                 "msa",
-        ///             },
-        ///         }));
-        ///         var example_all_from_origin_id = Output.Create(AzureDevOps.GetUsers.InvokeAsync(new AzureDevOps.GetUsersArgs
-        ///         {
-        ///             Origin = "aad",
-        ///             OriginId = "00000000-0000-0000-0000-000000000000",
-        ///         }));
-        ///     }
+        ///         PrincipalName = "contoso-user@contoso.onmicrosoft.com",
+        ///     });
         /// 
-        /// }
+        ///     var example_all_users = AzureDevOps.GetUsers.Invoke();
+        /// 
+        ///     var example_all_from_origin = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Origin = "aad",
+        ///     });
+        /// 
+        ///     var example_all_from_subjectTypes = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         SubjectTypes = new[]
+        ///         {
+        ///             "aad",
+        ///             "msa",
+        ///         },
+        ///     });
+        /// 
+        ///     var example_all_from_origin_id = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Origin = "aad",
+        ///         OriginId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -110,11 +114,11 @@ namespace Pulumi.AzureDevOps.Identities
         /// - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetUsersResult> Invoke(GetUsersInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetUsersResult>("azuredevops:Identities/getUsers:getUsers", args ?? new GetUsersInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetUsersArgs : Pulumi.InvokeArgs
+    public sealed class GetUsersArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
@@ -149,9 +153,10 @@ namespace Pulumi.AzureDevOps.Identities
         public GetUsersArgs()
         {
         }
+        public static new GetUsersArgs Empty => new GetUsersArgs();
     }
 
-    public sealed class GetUsersInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetUsersInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
@@ -186,6 +191,7 @@ namespace Pulumi.AzureDevOps.Identities
         public GetUsersInvokeArgs()
         {
         }
+        public static new GetUsersInvokeArgs Empty => new GetUsersInvokeArgs();
     }
 
 

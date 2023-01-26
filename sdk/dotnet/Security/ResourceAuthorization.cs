@@ -17,37 +17,37 @@ namespace Pulumi.AzureDevOps.Security
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointBitBucket = new AzureDevOps.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket", new AzureDevOps.ServiceEndpointBitBucketArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             Username = "username",
-    ///             Password = "password",
-    ///             ServiceEndpointName = "example-bitbucket",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("exampleResourceAuthorization", new AzureDevOps.ResourceAuthorizationArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ResourceId = exampleServiceEndpointBitBucket.Id,
-    ///             Authorized = true,
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointBitBucket = new AzureDevOps.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Username = "username",
+    ///         Password = "password",
+    ///         ServiceEndpointName = "example-bitbucket",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("exampleResourceAuthorization", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ResourceId = exampleServiceEndpointBitBucket.Id,
+    ///         Authorized = true,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -55,7 +55,7 @@ namespace Pulumi.AzureDevOps.Security
     /// </summary>
     [Obsolete(@"azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization")]
     [AzureDevOpsResourceType("azuredevops:Security/resourceAuthorization:ResourceAuthorization")]
-    public partial class ResourceAuthorization : Pulumi.CustomResource
+    public partial class ResourceAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Set to true to allow public access in the project. Type: boolean.
@@ -131,7 +131,7 @@ namespace Pulumi.AzureDevOps.Security
         }
     }
 
-    public sealed class ResourceAuthorizationArgs : Pulumi.ResourceArgs
+    public sealed class ResourceAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to true to allow public access in the project. Type: boolean.
@@ -166,9 +166,10 @@ namespace Pulumi.AzureDevOps.Security
         public ResourceAuthorizationArgs()
         {
         }
+        public static new ResourceAuthorizationArgs Empty => new ResourceAuthorizationArgs();
     }
 
-    public sealed class ResourceAuthorizationState : Pulumi.ResourceArgs
+    public sealed class ResourceAuthorizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set to true to allow public access in the project. Type: boolean.
@@ -203,5 +204,6 @@ namespace Pulumi.AzureDevOps.Security
         public ResourceAuthorizationState()
         {
         }
+        public static new ResourceAuthorizationState Empty => new ResourceAuthorizationState();
     }
 }

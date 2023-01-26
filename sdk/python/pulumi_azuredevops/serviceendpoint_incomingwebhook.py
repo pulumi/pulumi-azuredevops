@@ -358,13 +358,15 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
-            __props__.__dict__["secret"] = secret
+            __props__.__dict__["secret"] = None if secret is None else pulumi.Output.secret(secret)
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             if webhook_name is None and not opts.urn:
                 raise TypeError("Missing required property 'webhook_name'")
             __props__.__dict__["webhook_name"] = webhook_name
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secret"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceendpointIncomingwebhook, __self__).__init__(
             'azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook',
             resource_name,

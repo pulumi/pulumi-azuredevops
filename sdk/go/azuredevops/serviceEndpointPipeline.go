@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointPipeline(ctx, "exampleServiceEndpointPipeline", &azuredevops.ServiceEndpointPipelineArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example Pipeline Runner"),
-// 			OrganizationName:    pulumi.String("Organization Name"),
-// 			AuthPersonal: &ServiceEndpointPipelineAuthPersonalArgs{
-// 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
-// 			},
-// 			Description: pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointPipeline(ctx, "exampleServiceEndpointPipeline", &azuredevops.ServiceEndpointPipelineArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example Pipeline Runner"),
+//				OrganizationName:    pulumi.String("Organization Name"),
+//				AuthPersonal: &ServiceEndpointPipelineAuthPersonalArgs{
+//					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+//				},
+//				Description: pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -59,7 +62,9 @@ import (
 // Azure DevOps Service Endpoint can be imported using the `project id`, `service connection id`, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointPipeline:ServiceEndpointPipeline example projectID/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointPipeline struct {
 	pulumi.CustomResourceState
@@ -199,7 +204,7 @@ func (i *ServiceEndpointPipeline) ToServiceEndpointPipelineOutputWithContext(ctx
 // ServiceEndpointPipelineArrayInput is an input type that accepts ServiceEndpointPipelineArray and ServiceEndpointPipelineArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointPipelineArrayInput` via:
 //
-//          ServiceEndpointPipelineArray{ ServiceEndpointPipelineArgs{...} }
+//	ServiceEndpointPipelineArray{ ServiceEndpointPipelineArgs{...} }
 type ServiceEndpointPipelineArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +229,7 @@ func (i ServiceEndpointPipelineArray) ToServiceEndpointPipelineArrayOutputWithCo
 // ServiceEndpointPipelineMapInput is an input type that accepts ServiceEndpointPipelineMap and ServiceEndpointPipelineMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointPipelineMapInput` via:
 //
-//          ServiceEndpointPipelineMap{ "key": ServiceEndpointPipelineArgs{...} }
+//	ServiceEndpointPipelineMap{ "key": ServiceEndpointPipelineArgs{...} }
 type ServiceEndpointPipelineMapInput interface {
 	pulumi.Input
 

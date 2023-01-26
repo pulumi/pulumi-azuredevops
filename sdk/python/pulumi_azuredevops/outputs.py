@@ -2412,8 +2412,6 @@ class ServiceEndpointKubernetesKubeconfig(dict):
             suggest = "accept_untrusted_certs"
         elif key == "clusterContext":
             suggest = "cluster_context"
-        elif key == "kubeConfigHash":
-            suggest = "kube_config_hash"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointKubernetesKubeconfig. Access the value via the '{suggest}' property getter instead.")
@@ -2429,8 +2427,7 @@ class ServiceEndpointKubernetesKubeconfig(dict):
     def __init__(__self__, *,
                  kube_config: str,
                  accept_untrusted_certs: Optional[bool] = None,
-                 cluster_context: Optional[str] = None,
-                 kube_config_hash: Optional[str] = None):
+                 cluster_context: Optional[str] = None):
         """
         :param str kube_config: The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
         :param bool accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate.
@@ -2441,8 +2438,6 @@ class ServiceEndpointKubernetesKubeconfig(dict):
             pulumi.set(__self__, "accept_untrusted_certs", accept_untrusted_certs)
         if cluster_context is not None:
             pulumi.set(__self__, "cluster_context", cluster_context)
-        if kube_config_hash is not None:
-            pulumi.set(__self__, "kube_config_hash", kube_config_hash)
 
     @property
     @pulumi.getter(name="kubeConfig")
@@ -2467,11 +2462,6 @@ class ServiceEndpointKubernetesKubeconfig(dict):
         Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
         """
         return pulumi.get(self, "cluster_context")
-
-    @property
-    @pulumi.getter(name="kubeConfigHash")
-    def kube_config_hash(self) -> Optional[str]:
-        return pulumi.get(self, "kube_config_hash")
 
 
 @pulumi.output_type
@@ -2922,6 +2912,8 @@ class VariableGroupKeyVault(dict):
         suggest = None
         if key == "serviceEndpointId":
             suggest = "service_endpoint_id"
+        elif key == "searchDepth":
+            suggest = "search_depth"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in VariableGroupKeyVault. Access the value via the '{suggest}' property getter instead.")
@@ -2936,25 +2928,41 @@ class VariableGroupKeyVault(dict):
 
     def __init__(__self__, *,
                  name: str,
-                 service_endpoint_id: str):
+                 service_endpoint_id: str,
+                 search_depth: Optional[int] = None):
         """
-        :param str name: The name of the Variable Group.
+        :param str name: The name of the Azure key vault to link secrets from as variables.
+        :param str service_endpoint_id: The id of the Azure subscription endpoint to access the key vault.
+        :param int search_depth: Set the Azure Key Vault Secret search depth. Defaults to `20`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "service_endpoint_id", service_endpoint_id)
+        if search_depth is not None:
+            pulumi.set(__self__, "search_depth", search_depth)
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the Variable Group.
+        The name of the Azure key vault to link secrets from as variables.
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="serviceEndpointId")
     def service_endpoint_id(self) -> str:
+        """
+        The id of the Azure subscription endpoint to access the key vault.
+        """
         return pulumi.get(self, "service_endpoint_id")
+
+    @property
+    @pulumi.getter(name="searchDepth")
+    def search_depth(self) -> Optional[int]:
+        """
+        Set the Azure Key Vault Secret search depth. Defaults to `20`.
+        """
+        return pulumi.get(self, "search_depth")
 
 
 @pulumi.output_type

@@ -5,14 +5,25 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getPool";
-export * from "./getPools";
-export * from "./pool";
-export * from "./queue";
+export { GetPoolArgs, GetPoolResult, GetPoolOutputArgs } from "./getPool";
+export const getPool: typeof import("./getPool").getPool = null as any;
+export const getPoolOutput: typeof import("./getPool").getPoolOutput = null as any;
+utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPool"));
 
-// Import resources to register:
-import { Pool } from "./pool";
-import { Queue } from "./queue";
+export { GetPoolsResult } from "./getPools";
+export const getPools: typeof import("./getPools").getPools = null as any;
+utilities.lazyLoad(exports, ["getPools"], () => require("./getPools"));
+
+export { PoolArgs, PoolState } from "./pool";
+export type Pool = import("./pool").Pool;
+export const Pool: typeof import("./pool").Pool = null as any;
+utilities.lazyLoad(exports, ["Pool"], () => require("./pool"));
+
+export { QueueArgs, QueueState } from "./queue";
+export type Queue = import("./queue").Queue;
+export const Queue: typeof import("./queue").Queue = null as any;
+utilities.lazyLoad(exports, ["Queue"], () => require("./queue"));
+
 
 const _module = {
     version: utilities.getVersion(),

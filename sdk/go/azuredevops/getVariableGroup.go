@@ -12,35 +12,40 @@ import (
 
 // Use this data source to access information about existing Variable Groups within Azure DevOps.
 //
+// > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
+//
 // ## Example Usage
 //
 // ```go
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
-// 			Name: pulumi.StringRef("Example Project"),
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleVariableGroup, err := azuredevops.LookupVariableGroup(ctx, &GetVariableGroupArgs{
-// 			ProjectId: exampleProject.Id,
-// 			Name:      "Example Variable Group",
-// 		}, nil)
-// 		if err != nil {
-// 			return err
-// 		}
-// 		ctx.Export("id", exampleVariableGroup.Id)
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+//				Name: pulumi.StringRef("Example Project"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleVariableGroup, err := azuredevops.LookupVariableGroup(ctx, &GetVariableGroupArgs{
+//				ProjectId: exampleProject.Id,
+//				Name:      "Example Variable Group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", exampleVariableGroup.Id)
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //

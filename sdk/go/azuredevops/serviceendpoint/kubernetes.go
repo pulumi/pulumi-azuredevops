@@ -22,7 +22,9 @@ import (
 // Azure DevOps Service Endpoint Kubernetes can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:ServiceEndpoint/kubernetes:Kubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:ServiceEndpoint/kubernetes:Kubernetes example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 //
 // Deprecated: azuredevops.serviceendpoint.Kubernetes has been deprecated in favor of azuredevops.ServiceEndpointKubernetes
@@ -38,7 +40,7 @@ type Kubernetes struct {
 	AzureSubscriptions KubernetesAzureSubscriptionArrayOutput `pulumi:"azureSubscriptions"`
 	Description        pulumi.StringPtrOutput                 `pulumi:"description"`
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs KubernetesKubeconfigArrayOutput `pulumi:"kubeconfigs"`
+	Kubeconfig KubernetesKubeconfigPtrOutput `pulumi:"kubeconfig"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// A `serviceAccount` block defined blow.
@@ -97,7 +99,7 @@ type kubernetesState struct {
 	AzureSubscriptions []KubernetesAzureSubscription `pulumi:"azureSubscriptions"`
 	Description        *string                       `pulumi:"description"`
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs []KubernetesKubeconfig `pulumi:"kubeconfigs"`
+	Kubeconfig *KubernetesKubeconfig `pulumi:"kubeconfig"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// A `serviceAccount` block defined blow.
@@ -116,7 +118,7 @@ type KubernetesState struct {
 	AzureSubscriptions KubernetesAzureSubscriptionArrayInput
 	Description        pulumi.StringPtrInput
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs KubernetesKubeconfigArrayInput
+	Kubeconfig KubernetesKubeconfigPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// A `serviceAccount` block defined blow.
@@ -139,7 +141,7 @@ type kubernetesArgs struct {
 	AzureSubscriptions []KubernetesAzureSubscription `pulumi:"azureSubscriptions"`
 	Description        *string                       `pulumi:"description"`
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs []KubernetesKubeconfig `pulumi:"kubeconfigs"`
+	Kubeconfig *KubernetesKubeconfig `pulumi:"kubeconfig"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// A `serviceAccount` block defined blow.
@@ -159,7 +161,7 @@ type KubernetesArgs struct {
 	AzureSubscriptions KubernetesAzureSubscriptionArrayInput
 	Description        pulumi.StringPtrInput
 	// A `kubeconfig` block defined blow.
-	Kubeconfigs KubernetesKubeconfigArrayInput
+	Kubeconfig KubernetesKubeconfigPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// A `serviceAccount` block defined blow.
@@ -194,7 +196,7 @@ func (i *Kubernetes) ToKubernetesOutputWithContext(ctx context.Context) Kubernet
 // KubernetesArrayInput is an input type that accepts KubernetesArray and KubernetesArrayOutput values.
 // You can construct a concrete instance of `KubernetesArrayInput` via:
 //
-//          KubernetesArray{ KubernetesArgs{...} }
+//	KubernetesArray{ KubernetesArgs{...} }
 type KubernetesArrayInput interface {
 	pulumi.Input
 
@@ -219,7 +221,7 @@ func (i KubernetesArray) ToKubernetesArrayOutputWithContext(ctx context.Context)
 // KubernetesMapInput is an input type that accepts KubernetesMap and KubernetesMapOutput values.
 // You can construct a concrete instance of `KubernetesMapInput` via:
 //
-//          KubernetesMap{ "key": KubernetesArgs{...} }
+//	KubernetesMap{ "key": KubernetesArgs{...} }
 type KubernetesMapInput interface {
 	pulumi.Input
 
@@ -279,8 +281,8 @@ func (o KubernetesOutput) Description() pulumi.StringPtrOutput {
 }
 
 // A `kubeconfig` block defined blow.
-func (o KubernetesOutput) Kubeconfigs() KubernetesKubeconfigArrayOutput {
-	return o.ApplyT(func(v *Kubernetes) KubernetesKubeconfigArrayOutput { return v.Kubeconfigs }).(KubernetesKubeconfigArrayOutput)
+func (o KubernetesOutput) Kubeconfig() KubernetesKubeconfigPtrOutput {
+	return o.ApplyT(func(v *Kubernetes) KubernetesKubeconfigPtrOutput { return v.Kubeconfig }).(KubernetesKubeconfigPtrOutput)
 }
 
 // The ID of the project.

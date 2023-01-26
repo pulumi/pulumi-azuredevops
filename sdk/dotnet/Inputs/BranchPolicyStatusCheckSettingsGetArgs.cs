@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BranchPolicyStatusCheckSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyStatusCheckSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
@@ -78,5 +78,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BranchPolicyStatusCheckSettingsGetArgs()
         {
         }
+        public static new BranchPolicyStatusCheckSettingsGetArgs Empty => new BranchPolicyStatusCheckSettingsGetArgs();
     }
 }

@@ -20,30 +20,30 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var example = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var example_all_repos = example.Apply(example =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
-        ///         {
-        ///             ProjectId = example.Id,
-        ///             IncludeHidden = true,
-        ///         })));
-        ///         var example_single_repo = example.Apply(example =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
-        ///         {
-        ///             ProjectId = example.Id,
-        ///             Name = "Example Repository",
-        ///         })));
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        /// }
+        ///     var example_all_repos = AzureDevOps.GetRepositories.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         IncludeHidden = true,
+        ///     });
+        /// 
+        ///     var example_single_repo = AzureDevOps.GetRepositories.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Repository",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -52,7 +52,7 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetRepositoriesResult> InvokeAsync(GetRepositoriesArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("azuredevops:index/getRepositories:getRepositories", args ?? new GetRepositoriesArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("azuredevops:index/getRepositories:getRepositories", args ?? new GetRepositoriesArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
@@ -63,30 +63,30 @@ namespace Pulumi.AzureDevOps
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var example = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var example_all_repos = example.Apply(example =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
-        ///         {
-        ///             ProjectId = example.Id,
-        ///             IncludeHidden = true,
-        ///         })));
-        ///         var example_single_repo = example.Apply(example =&gt; Output.Create(AzureDevOps.GetRepositories.InvokeAsync(new AzureDevOps.GetRepositoriesArgs
-        ///         {
-        ///             ProjectId = example.Id,
-        ///             Name = "Example Repository",
-        ///         })));
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        /// }
+        ///     var example_all_repos = AzureDevOps.GetRepositories.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         IncludeHidden = true,
+        ///     });
+        /// 
+        ///     var example_single_repo = AzureDevOps.GetRepositories.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Repository",
+        ///     });
+        /// 
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -95,11 +95,11 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetRepositoriesResult> Invoke(GetRepositoriesInvokeArgs? args = null, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("azuredevops:index/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("azuredevops:index/getRepositories:getRepositories", args ?? new GetRepositoriesInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetRepositoriesArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
     {
         [Input("includeHidden")]
         public bool? IncludeHidden { get; set; }
@@ -119,9 +119,10 @@ namespace Pulumi.AzureDevOps
         public GetRepositoriesArgs()
         {
         }
+        public static new GetRepositoriesArgs Empty => new GetRepositoriesArgs();
     }
 
-    public sealed class GetRepositoriesInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
         [Input("includeHidden")]
         public Input<bool>? IncludeHidden { get; set; }
@@ -141,6 +142,7 @@ namespace Pulumi.AzureDevOps
         public GetRepositoriesInvokeArgs()
         {
         }
+        public static new GetRepositoriesInvokeArgs Empty => new GetRepositoriesInvokeArgs();
     }
 
 

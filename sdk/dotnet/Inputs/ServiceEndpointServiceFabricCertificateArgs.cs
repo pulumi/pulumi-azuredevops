@@ -10,19 +10,39 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class ServiceEndpointServiceFabricCertificateArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointServiceFabricCertificateArgs : global::Pulumi.ResourceArgs
     {
+        [Input("clientCertificate", required: true)]
+        private Input<string>? _clientCertificate;
+
         /// <summary>
         /// Base64 encoding of the cluster's client certificate file.
         /// </summary>
-        [Input("clientCertificate", required: true)]
-        public Input<string> ClientCertificate { get; set; } = null!;
+        public Input<string>? ClientCertificate
+        {
+            get => _clientCertificate;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificate = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("clientCertificatePassword")]
+        private Input<string>? _clientCertificatePassword;
 
         /// <summary>
         /// Password for the certificate.
         /// </summary>
-        [Input("clientCertificatePassword")]
-        public Input<string>? ClientCertificatePassword { get; set; }
+        public Input<string>? ClientCertificatePassword
+        {
+            get => _clientCertificatePassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _clientCertificatePassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
@@ -45,5 +65,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public ServiceEndpointServiceFabricCertificateArgs()
         {
         }
+        public static new ServiceEndpointServiceFabricCertificateArgs Empty => new ServiceEndpointServiceFabricCertificateArgs();
     }
 }

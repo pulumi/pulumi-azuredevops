@@ -387,7 +387,7 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
             __props__.__dict__["org_url"] = org_url
             if personal_access_token is None and not opts.urn:
                 raise TypeError("Missing required property 'personal_access_token'")
-            __props__.__dict__["personal_access_token"] = personal_access_token
+            __props__.__dict__["personal_access_token"] = None if personal_access_token is None else pulumi.Output.secret(personal_access_token)
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
@@ -398,6 +398,8 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["personal_access_token_hash"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["personalAccessToken", "personalAccessTokenHash"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointAzureDevOps, __self__).__init__(
             'azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps',
             resource_name,

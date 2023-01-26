@@ -19,32 +19,31 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointAzureDevOps = new AzureDevOps.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", new AzureDevOps.ServiceEndpointAzureDevOpsArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example Azure DevOps",
-    ///             OrgUrl = "https://dev.azure.com/testorganization",
-    ///             ReleaseApiUrl = "https://vsrm.dev.azure.com/testorganization",
-    ///             PersonalAccessToken = "0000000000000000000000000000000000000000000000000000",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointAzureDevOps = new AzureDevOps.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Azure DevOps",
+    ///         OrgUrl = "https://dev.azure.com/testorganization",
+    ///         ReleaseApiUrl = "https://vsrm.dev.azure.com/testorganization",
+    ///         PersonalAccessToken = "0000000000000000000000000000000000000000000000000000",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -59,7 +58,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps")]
-    public partial class ServiceEndpointAzureDevOps : Pulumi.CustomResource
+    public partial class ServiceEndpointAzureDevOps : global::Pulumi.CustomResource
     {
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
@@ -126,6 +125,11 @@ namespace Pulumi.AzureDevOps
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "personalAccessToken",
+                    "personalAccessTokenHash",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -147,7 +151,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointAzureDevOpsArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointAzureDevOpsArgs : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -166,11 +170,21 @@ namespace Pulumi.AzureDevOps
         [Input("orgUrl", required: true)]
         public Input<string> OrgUrl { get; set; } = null!;
 
+        [Input("personalAccessToken", required: true)]
+        private Input<string>? _personalAccessToken;
+
         /// <summary>
         /// The Azure DevOps personal access token.
         /// </summary>
-        [Input("personalAccessToken", required: true)]
-        public Input<string> PersonalAccessToken { get; set; } = null!;
+        public Input<string>? PersonalAccessToken
+        {
+            get => _personalAccessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _personalAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the project.
@@ -193,9 +207,10 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointAzureDevOpsArgs()
         {
         }
+        public static new ServiceEndpointAzureDevOpsArgs Empty => new ServiceEndpointAzureDevOpsArgs();
     }
 
-    public sealed class ServiceEndpointAzureDevOpsState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointAzureDevOpsState : global::Pulumi.ResourceArgs
     {
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -214,17 +229,37 @@ namespace Pulumi.AzureDevOps
         [Input("orgUrl")]
         public Input<string>? OrgUrl { get; set; }
 
+        [Input("personalAccessToken")]
+        private Input<string>? _personalAccessToken;
+
         /// <summary>
         /// The Azure DevOps personal access token.
         /// </summary>
-        [Input("personalAccessToken")]
-        public Input<string>? PersonalAccessToken { get; set; }
+        public Input<string>? PersonalAccessToken
+        {
+            get => _personalAccessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _personalAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("personalAccessTokenHash")]
+        private Input<string>? _personalAccessTokenHash;
 
         /// <summary>
         /// A bcrypted hash of the attribute 'personal_access_token'
         /// </summary>
-        [Input("personalAccessTokenHash")]
-        public Input<string>? PersonalAccessTokenHash { get; set; }
+        public Input<string>? PersonalAccessTokenHash
+        {
+            get => _personalAccessTokenHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _personalAccessTokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         /// <summary>
         /// The ID of the project.
@@ -247,5 +282,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointAzureDevOpsState()
         {
         }
+        public static new ServiceEndpointAzureDevOpsState Empty => new ServiceEndpointAzureDevOpsState();
     }
 }

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BranchPolicyMergeTypesSettingsArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyMergeTypesSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Allow basic merge with no fast forward. Defaults to `false`.
@@ -51,5 +51,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BranchPolicyMergeTypesSettingsArgs()
         {
         }
+        public static new BranchPolicyMergeTypesSettingsArgs Empty => new BranchPolicyMergeTypesSettingsArgs();
     }
 }

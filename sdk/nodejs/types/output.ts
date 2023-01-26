@@ -2,7 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs } from "../types";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
 
 export interface BranchPolicyAutoReviewersSettings {
     /**
@@ -1066,12 +1067,11 @@ export interface ServiceEndpointKubernetesKubeconfig {
     /**
      * Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
      */
-    clusterContext?: string;
+    clusterContext: string;
     /**
      * The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
      */
     kubeConfig: string;
-    kubeConfigHash: string;
 }
 
 export interface ServiceEndpointKubernetesServiceAccount {
@@ -1175,9 +1175,16 @@ export interface ServiceendpointArgocdAuthenticationToken {
 
 export interface VariableGroupKeyVault {
     /**
-     * The name of the Variable Group.
+     * The name of the Azure key vault to link secrets from as variables.
      */
     name: string;
+    /**
+     * Set the Azure Key Vault Secret search depth. Defaults to `20`.
+     */
+    searchDepth?: number;
+    /**
+     * The id of the Azure subscription endpoint to access the key vault.
+     */
     serviceEndpointId: string;
 }
 
@@ -1490,9 +1497,16 @@ export namespace Identities {
 export namespace Pipeline {
     export interface VariableGroupKeyVault {
         /**
-         * The name of the Variable Group.
+         * The name of the Azure key vault to link secrets from as variables.
          */
         name: string;
+        /**
+         * Set the Azure Key Vault Secret search depth. Defaults to `20`.
+         */
+        searchDepth?: number;
+        /**
+         * The id of the Azure subscription endpoint to access the key vault.
+         */
         serviceEndpointId: string;
     }
 
@@ -1748,12 +1762,11 @@ export namespace ServiceEndpoint {
         /**
          * Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
          */
-        clusterContext?: string;
+        clusterContext: string;
         /**
          * The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
          */
         kubeConfig: string;
-        kubeConfigHash: string;
     }
 
     export interface KubernetesServiceAccount {

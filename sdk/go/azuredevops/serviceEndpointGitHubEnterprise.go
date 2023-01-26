@@ -19,36 +19,39 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "exampleServiceEndpointGitHubEnterprise", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
-// 			Url:                 pulumi.String("https://github.contoso.com"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 			AuthPersonal: &ServiceEndpointGitHubEnterpriseAuthPersonalArgs{
-// 				PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
-// 			},
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointGitHubEnterprise(ctx, "exampleServiceEndpointGitHubEnterprise", &azuredevops.ServiceEndpointGitHubEnterpriseArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example GitHub Enterprise"),
+//				Url:                 pulumi.String("https://github.contoso.com"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//				AuthPersonal: &ServiceEndpointGitHubEnterpriseAuthPersonalArgs{
+//					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -59,7 +62,9 @@ import (
 // Azure DevOps Service Endpoint GitHub Enterprise Server can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointGitHubEnterprise struct {
 	pulumi.CustomResourceState
@@ -199,7 +204,7 @@ func (i *ServiceEndpointGitHubEnterprise) ToServiceEndpointGitHubEnterpriseOutpu
 // ServiceEndpointGitHubEnterpriseArrayInput is an input type that accepts ServiceEndpointGitHubEnterpriseArray and ServiceEndpointGitHubEnterpriseArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointGitHubEnterpriseArrayInput` via:
 //
-//          ServiceEndpointGitHubEnterpriseArray{ ServiceEndpointGitHubEnterpriseArgs{...} }
+//	ServiceEndpointGitHubEnterpriseArray{ ServiceEndpointGitHubEnterpriseArgs{...} }
 type ServiceEndpointGitHubEnterpriseArrayInput interface {
 	pulumi.Input
 
@@ -224,7 +229,7 @@ func (i ServiceEndpointGitHubEnterpriseArray) ToServiceEndpointGitHubEnterpriseA
 // ServiceEndpointGitHubEnterpriseMapInput is an input type that accepts ServiceEndpointGitHubEnterpriseMap and ServiceEndpointGitHubEnterpriseMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointGitHubEnterpriseMapInput` via:
 //
-//          ServiceEndpointGitHubEnterpriseMap{ "key": ServiceEndpointGitHubEnterpriseArgs{...} }
+//	ServiceEndpointGitHubEnterpriseMap{ "key": ServiceEndpointGitHubEnterpriseArgs{...} }
 type ServiceEndpointGitHubEnterpriseMapInput interface {
 	pulumi.Input
 

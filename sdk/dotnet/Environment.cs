@@ -15,27 +15,26 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new AzureDevOps.EnvironmentArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -50,7 +49,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/environment:Environment")]
-    public partial class Environment : Pulumi.CustomResource
+    public partial class Environment : global::Pulumi.CustomResource
     {
         /// <summary>
         /// A description for the Environment.
@@ -114,7 +113,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class EnvironmentArgs : Pulumi.ResourceArgs
+    public sealed class EnvironmentArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Environment.
@@ -137,9 +136,10 @@ namespace Pulumi.AzureDevOps
         public EnvironmentArgs()
         {
         }
+        public static new EnvironmentArgs Empty => new EnvironmentArgs();
     }
 
-    public sealed class EnvironmentState : Pulumi.ResourceArgs
+    public sealed class EnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// A description for the Environment.
@@ -162,5 +162,6 @@ namespace Pulumi.AzureDevOps
         public EnvironmentState()
         {
         }
+        public static new EnvironmentState Empty => new EnvironmentState();
     }
 }

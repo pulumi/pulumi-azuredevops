@@ -5,10 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./buildDefinition";
+export { BuildDefinitionArgs, BuildDefinitionState } from "./buildDefinition";
+export type BuildDefinition = import("./buildDefinition").BuildDefinition;
+export const BuildDefinition: typeof import("./buildDefinition").BuildDefinition = null as any;
+utilities.lazyLoad(exports, ["BuildDefinition"], () => require("./buildDefinition"));
 
-// Import resources to register:
-import { BuildDefinition } from "./buildDefinition";
 
 const _module = {
     version: utilities.getVersion(),

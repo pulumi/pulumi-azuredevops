@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class BranchPolicyWorkItemLinkingSettingsGetArgs : Pulumi.ResourceArgs
+    public sealed class BranchPolicyWorkItemLinkingSettingsGetArgs : global::Pulumi.ResourceArgs
     {
         [Input("scopes", required: true)]
         private InputList<Inputs.BranchPolicyWorkItemLinkingSettingsScopeGetArgs>? _scopes;
@@ -27,5 +27,6 @@ namespace Pulumi.AzureDevOps.Inputs
         public BranchPolicyWorkItemLinkingSettingsGetArgs()
         {
         }
+        public static new BranchPolicyWorkItemLinkingSettingsGetArgs Empty => new BranchPolicyWorkItemLinkingSettingsGetArgs();
     }
 }

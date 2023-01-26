@@ -21,42 +21,45 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		exampleServiceEndpointBitBucket, err := azuredevops.NewServiceEndpointBitBucket(ctx, "exampleServiceEndpointBitBucket", &azuredevops.ServiceEndpointBitBucketArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			Username:            pulumi.String("username"),
-// 			Password:            pulumi.String("password"),
-// 			ServiceEndpointName: pulumi.String("example-bitbucket"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewResourceAuthorization(ctx, "exampleResourceAuthorization", &azuredevops.ResourceAuthorizationArgs{
-// 			ProjectId:  exampleProject.ID(),
-// 			ResourceId: exampleServiceEndpointBitBucket.ID(),
-// 			Authorized: pulumi.Bool(true),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceEndpointBitBucket, err := azuredevops.NewServiceEndpointBitBucket(ctx, "exampleServiceEndpointBitBucket", &azuredevops.ServiceEndpointBitBucketArgs{
+//				ProjectId:           exampleProject.ID(),
+//				Username:            pulumi.String("username"),
+//				Password:            pulumi.String("password"),
+//				ServiceEndpointName: pulumi.String("example-bitbucket"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewResourceAuthorization(ctx, "exampleResourceAuthorization", &azuredevops.ResourceAuthorizationArgs{
+//				ProjectId:  exampleProject.ID(),
+//				ResourceId: exampleServiceEndpointBitBucket.ID(),
+//				Authorized: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -202,7 +205,7 @@ func (i *ResourceAuthorization) ToResourceAuthorizationOutputWithContext(ctx con
 // ResourceAuthorizationArrayInput is an input type that accepts ResourceAuthorizationArray and ResourceAuthorizationArrayOutput values.
 // You can construct a concrete instance of `ResourceAuthorizationArrayInput` via:
 //
-//          ResourceAuthorizationArray{ ResourceAuthorizationArgs{...} }
+//	ResourceAuthorizationArray{ ResourceAuthorizationArgs{...} }
 type ResourceAuthorizationArrayInput interface {
 	pulumi.Input
 
@@ -227,7 +230,7 @@ func (i ResourceAuthorizationArray) ToResourceAuthorizationArrayOutputWithContex
 // ResourceAuthorizationMapInput is an input type that accepts ResourceAuthorizationMap and ResourceAuthorizationMapOutput values.
 // You can construct a concrete instance of `ResourceAuthorizationMapInput` via:
 //
-//          ResourceAuthorizationMap{ "key": ResourceAuthorizationArgs{...} }
+//	ResourceAuthorizationMap{ "key": ResourceAuthorizationArgs{...} }
 type ResourceAuthorizationMapInput interface {
 	pulumi.Input
 

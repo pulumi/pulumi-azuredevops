@@ -252,8 +252,7 @@ class KubernetesKubeconfigArgs:
     def __init__(__self__, *,
                  kube_config: pulumi.Input[str],
                  accept_untrusted_certs: Optional[pulumi.Input[bool]] = None,
-                 cluster_context: Optional[pulumi.Input[str]] = None,
-                 kube_config_hash: Optional[pulumi.Input[str]] = None):
+                 cluster_context: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] kube_config: The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
         :param pulumi.Input[bool] accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate.
@@ -264,8 +263,6 @@ class KubernetesKubeconfigArgs:
             pulumi.set(__self__, "accept_untrusted_certs", accept_untrusted_certs)
         if cluster_context is not None:
             pulumi.set(__self__, "cluster_context", cluster_context)
-        if kube_config_hash is not None:
-            pulumi.set(__self__, "kube_config_hash", kube_config_hash)
 
     @property
     @pulumi.getter(name="kubeConfig")
@@ -302,15 +299,6 @@ class KubernetesKubeconfigArgs:
     @cluster_context.setter
     def cluster_context(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "cluster_context", value)
-
-    @property
-    @pulumi.getter(name="kubeConfigHash")
-    def kube_config_hash(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "kube_config_hash")
-
-    @kube_config_hash.setter
-    def kube_config_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "kube_config_hash", value)
 
 
 @pulumi.input_type

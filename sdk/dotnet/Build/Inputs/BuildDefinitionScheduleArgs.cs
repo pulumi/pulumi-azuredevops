@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Build.Inputs
 {
 
-    public sealed class BuildDefinitionScheduleArgs : Pulumi.ResourceArgs
+    public sealed class BuildDefinitionScheduleArgs : global::Pulumi.ResourceArgs
     {
         [Input("branchFilters")]
         private InputList<Inputs.BuildDefinitionScheduleBranchFilterArgs>? _branchFilters;
@@ -53,5 +53,6 @@ namespace Pulumi.AzureDevOps.Build.Inputs
         public BuildDefinitionScheduleArgs()
         {
         }
+        public static new BuildDefinitionScheduleArgs Empty => new BuildDefinitionScheduleArgs();
     }
 }

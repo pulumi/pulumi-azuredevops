@@ -19,34 +19,37 @@ import (
 // package main
 //
 // import (
-// 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
 // )
 //
-// func main() {
-// 	pulumi.Run(func(ctx *pulumi.Context) error {
-// 		exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-// 			Visibility:       pulumi.String("private"),
-// 			VersionControl:   pulumi.String("Git"),
-// 			WorkItemTemplate: pulumi.String("Agile"),
-// 			Description:      pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		_, err = azuredevops.NewServiceEndpointSonarQube(ctx, "exampleServiceEndpointSonarQube", &azuredevops.ServiceEndpointSonarQubeArgs{
-// 			ProjectId:           exampleProject.ID(),
-// 			ServiceEndpointName: pulumi.String("Example SonarQube"),
-// 			Url:                 pulumi.String("https://sonarqube.my.com"),
-// 			Token:               pulumi.String("0000000000000000000000000000000000000000"),
-// 			Description:         pulumi.String("Managed by Terraform"),
-// 		})
-// 		if err != nil {
-// 			return err
-// 		}
-// 		return nil
-// 	})
-// }
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointSonarQube(ctx, "exampleServiceEndpointSonarQube", &azuredevops.ServiceEndpointSonarQubeArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example SonarQube"),
+//				Url:                 pulumi.String("https://sonarqube.my.com"),
+//				Token:               pulumi.String("0000000000000000000000000000000000000000"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
 // ```
 // ## Relevant Links
 //
@@ -59,7 +62,9 @@ import (
 // Azure DevOps Service Endpoint SonarQube can be imported using the **projectID/serviceEndpointID**, e.g.
 //
 // ```sh
-//  $ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
+//	$ pulumi import azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube example 00000000-0000-0000-0000-000000000000/00000000-0000-0000-0000-000000000000
+//
 // ```
 type ServiceEndpointSonarQube struct {
 	pulumi.CustomResourceState
@@ -98,6 +103,14 @@ func NewServiceEndpointSonarQube(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
+	if args.Token != nil {
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringOutput)
+	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"token",
+		"tokenHash",
+	})
+	opts = append(opts, secrets)
 	var resource ServiceEndpointSonarQube
 	err := ctx.RegisterResource("azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube", name, args, &resource, opts...)
 	if err != nil {
@@ -210,7 +223,7 @@ func (i *ServiceEndpointSonarQube) ToServiceEndpointSonarQubeOutputWithContext(c
 // ServiceEndpointSonarQubeArrayInput is an input type that accepts ServiceEndpointSonarQubeArray and ServiceEndpointSonarQubeArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointSonarQubeArrayInput` via:
 //
-//          ServiceEndpointSonarQubeArray{ ServiceEndpointSonarQubeArgs{...} }
+//	ServiceEndpointSonarQubeArray{ ServiceEndpointSonarQubeArgs{...} }
 type ServiceEndpointSonarQubeArrayInput interface {
 	pulumi.Input
 
@@ -235,7 +248,7 @@ func (i ServiceEndpointSonarQubeArray) ToServiceEndpointSonarQubeArrayOutputWith
 // ServiceEndpointSonarQubeMapInput is an input type that accepts ServiceEndpointSonarQubeMap and ServiceEndpointSonarQubeMapOutput values.
 // You can construct a concrete instance of `ServiceEndpointSonarQubeMapInput` via:
 //
-//          ServiceEndpointSonarQubeMap{ "key": ServiceEndpointSonarQubeArgs{...} }
+//	ServiceEndpointSonarQubeMap{ "key": ServiceEndpointSonarQubeArgs{...} }
 type ServiceEndpointSonarQubeMapInput interface {
 	pulumi.Input
 

@@ -462,9 +462,9 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             if host is None and not opts.urn:
                 raise TypeError("Missing required property 'host'")
             __props__.__dict__["host"] = host
-            __props__.__dict__["password"] = password
+            __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["port"] = port
-            __props__.__dict__["private_key"] = private_key
+            __props__.__dict__["private_key"] = None if private_key is None else pulumi.Output.secret(private_key)
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
@@ -476,6 +476,8 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             __props__.__dict__["username"] = username
             __props__.__dict__["password_hash"] = None
             __props__.__dict__["private_key_hash"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "passwordHash", "privateKey", "privateKeyHash"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointSsh, __self__).__init__(
             'azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh',
             resource_name,

@@ -15,20 +15,18 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Pool("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Pool("example", new AzureDevOps.PoolArgs
-    ///         {
-    ///             AutoProvision = false,
-    ///         });
-    ///     }
+    ///         AutoProvision = false,
+    ///     });
     /// 
-    /// }
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -43,7 +41,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/pool:Pool")]
-    public partial class Pool : Pulumi.CustomResource
+    public partial class Pool : global::Pulumi.CustomResource
     {
         /// <summary>
         /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
@@ -88,7 +86,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new Pulumi.Alias { Type = "azuredevops:Agent/pool:Pool"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Agent/pool:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -111,7 +109,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class PoolArgs : Pulumi.ResourceArgs
+    public sealed class PoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
@@ -134,9 +132,10 @@ namespace Pulumi.AzureDevOps
         public PoolArgs()
         {
         }
+        public static new PoolArgs Empty => new PoolArgs();
     }
 
-    public sealed class PoolState : Pulumi.ResourceArgs
+    public sealed class PoolState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
@@ -159,5 +158,6 @@ namespace Pulumi.AzureDevOps
         public PoolState()
         {
         }
+        public static new PoolState Empty => new PoolState();
     }
 }

@@ -14,33 +14,35 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about existing Variable Groups within Azure DevOps.
         /// 
+        /// &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
+        /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var exampleProject = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var exampleVariableGroup = exampleProject.Apply(exampleProject =&gt; Output.Create(AzureDevOps.GetVariableGroup.InvokeAsync(new AzureDevOps.GetVariableGroupArgs
-        ///         {
-        ///             ProjectId = exampleProject.Id,
-        ///             Name = "Example Variable Group",
-        ///         })));
-        ///         this.Id = exampleVariableGroup.Apply(exampleVariableGroup =&gt; exampleVariableGroup.Id);
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Variable Group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleVariableGroup.Apply(getVariableGroupResult =&gt; getVariableGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -49,38 +51,40 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
         /// </summary>
         public static Task<GetVariableGroupResult> InvokeAsync(GetVariableGroupArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.InvokeAsync<GetVariableGroupResult>("azuredevops:index/getVariableGroup:getVariableGroup", args ?? new GetVariableGroupArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.InvokeAsync<GetVariableGroupResult>("azuredevops:index/getVariableGroup:getVariableGroup", args ?? new GetVariableGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about existing Variable Groups within Azure DevOps.
+        /// 
+        /// &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
         /// 
         /// {{% examples %}}
         /// ## Example Usage
         /// {{% example %}}
         /// 
         /// ```csharp
+        /// using System.Collections.Generic;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
-        /// class MyStack : Stack
+        /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     public MyStack()
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
         ///     {
-        ///         var exampleProject = Output.Create(AzureDevOps.GetProject.InvokeAsync(new AzureDevOps.GetProjectArgs
-        ///         {
-        ///             Name = "Example Project",
-        ///         }));
-        ///         var exampleVariableGroup = exampleProject.Apply(exampleProject =&gt; Output.Create(AzureDevOps.GetVariableGroup.InvokeAsync(new AzureDevOps.GetVariableGroupArgs
-        ///         {
-        ///             ProjectId = exampleProject.Id,
-        ///             Name = "Example Variable Group",
-        ///         })));
-        ///         this.Id = exampleVariableGroup.Apply(exampleVariableGroup =&gt; exampleVariableGroup.Id);
-        ///     }
+        ///         Name = "Example Project",
+        ///     });
         /// 
-        ///     [Output("id")]
-        ///     public Output&lt;string&gt; Id { get; set; }
-        /// }
+        ///     var exampleVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Variable Group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleVariableGroup.Apply(getVariableGroupResult =&gt; getVariableGroupResult.Id),
+        ///     };
+        /// });
         /// ```
         /// {{% /example %}}
         /// {{% /examples %}}
@@ -89,11 +93,11 @@ namespace Pulumi.AzureDevOps
         /// - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
         /// </summary>
         public static Output<GetVariableGroupResult> Invoke(GetVariableGroupInvokeArgs args, InvokeOptions? options = null)
-            => Pulumi.Deployment.Instance.Invoke<GetVariableGroupResult>("azuredevops:index/getVariableGroup:getVariableGroup", args ?? new GetVariableGroupInvokeArgs(), options.WithDefaults());
+            => global::Pulumi.Deployment.Instance.Invoke<GetVariableGroupResult>("azuredevops:index/getVariableGroup:getVariableGroup", args ?? new GetVariableGroupInvokeArgs(), options.WithDefaults());
     }
 
 
-    public sealed class GetVariableGroupArgs : Pulumi.InvokeArgs
+    public sealed class GetVariableGroupArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Variable Group to retrieve.
@@ -110,9 +114,10 @@ namespace Pulumi.AzureDevOps
         public GetVariableGroupArgs()
         {
         }
+        public static new GetVariableGroupArgs Empty => new GetVariableGroupArgs();
     }
 
-    public sealed class GetVariableGroupInvokeArgs : Pulumi.InvokeArgs
+    public sealed class GetVariableGroupInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
         /// The name of the Variable Group to retrieve.
@@ -129,6 +134,7 @@ namespace Pulumi.AzureDevOps
         public GetVariableGroupInvokeArgs()
         {
         }
+        public static new GetVariableGroupInvokeArgs Empty => new GetVariableGroupInvokeArgs();
     }
 
 

@@ -10,28 +10,67 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class ServiceEndpointArtifactoryAuthenticationBasicArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointArtifactoryAuthenticationBasicArgs : global::Pulumi.ResourceArgs
     {
+        [Input("password", required: true)]
+        private Input<string>? _password;
+
         /// <summary>
         /// Artifactory Password.
         /// </summary>
-        [Input("password", required: true)]
-        public Input<string> Password { get; set; } = null!;
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("passwordHash")]
-        public Input<string>? PasswordHash { get; set; }
+        private Input<string>? _passwordHash;
+        public Input<string>? PasswordHash
+        {
+            get => _passwordHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _passwordHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("username", required: true)]
+        private Input<string>? _username;
 
         /// <summary>
         /// Artifactory Username.
         /// </summary>
-        [Input("username", required: true)]
-        public Input<string> Username { get; set; } = null!;
+        public Input<string>? Username
+        {
+            get => _username;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _username = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("usernameHash")]
-        public Input<string>? UsernameHash { get; set; }
+        private Input<string>? _usernameHash;
+        public Input<string>? UsernameHash
+        {
+            get => _usernameHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _usernameHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ServiceEndpointArtifactoryAuthenticationBasicArgs()
         {
         }
+        public static new ServiceEndpointArtifactoryAuthenticationBasicArgs Empty => new ServiceEndpointArtifactoryAuthenticationBasicArgs();
     }
 }

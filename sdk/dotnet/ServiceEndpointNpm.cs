@@ -15,31 +15,30 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
     ///     {
-    ///         var exampleProject = new AzureDevOps.Project("exampleProject", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             Visibility = "private",
-    ///             VersionControl = "Git",
-    ///             WorkItemTemplate = "Agile",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var exampleServiceEndpointNpm = new AzureDevOps.ServiceEndpointNpm("exampleServiceEndpointNpm", new AzureDevOps.ServiceEndpointNpmArgs
-    ///         {
-    ///             ProjectId = exampleProject.Id,
-    ///             ServiceEndpointName = "Example npm",
-    ///             Url = "https://registry.npmjs.org",
-    ///             AccessToken = "00000000-0000-0000-0000-000000000000",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///     }
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var exampleServiceEndpointNpm = new AzureDevOps.ServiceEndpointNpm("exampleServiceEndpointNpm", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example npm",
+    ///         Url = "https://registry.npmjs.org",
+    ///         AccessToken = "00000000-0000-0000-0000-000000000000",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -56,7 +55,7 @@ namespace Pulumi.AzureDevOps
     /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm")]
-    public partial class ServiceEndpointNpm : Pulumi.CustomResource
+    public partial class ServiceEndpointNpm : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The access token for npm registry.
@@ -120,6 +119,11 @@ namespace Pulumi.AzureDevOps
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "accessToken",
+                    "accessTokenHash",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -141,13 +145,23 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class ServiceEndpointNpmArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointNpmArgs : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken", required: true)]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// The access token for npm registry.
         /// </summary>
-        [Input("accessToken", required: true)]
-        public Input<string> AccessToken { get; set; } = null!;
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -184,21 +198,42 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointNpmArgs()
         {
         }
+        public static new ServiceEndpointNpmArgs Empty => new ServiceEndpointNpmArgs();
     }
 
-    public sealed class ServiceEndpointNpmState : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointNpmState : global::Pulumi.ResourceArgs
     {
+        [Input("accessToken")]
+        private Input<string>? _accessToken;
+
         /// <summary>
         /// The access token for npm registry.
         /// </summary>
-        [Input("accessToken")]
-        public Input<string>? AccessToken { get; set; }
+        public Input<string>? AccessToken
+        {
+            get => _accessToken;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        [Input("accessTokenHash")]
+        private Input<string>? _accessTokenHash;
 
         /// <summary>
         /// A bcrypted hash of the attribute 'access_token'
         /// </summary>
-        [Input("accessTokenHash")]
-        public Input<string>? AccessTokenHash { get; set; }
+        public Input<string>? AccessTokenHash
+        {
+            get => _accessTokenHash;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _accessTokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("authorization")]
         private InputMap<string>? _authorization;
@@ -235,5 +270,6 @@ namespace Pulumi.AzureDevOps
         public ServiceEndpointNpmState()
         {
         }
+        public static new ServiceEndpointNpmState Empty => new ServiceEndpointNpmState();
     }
 }

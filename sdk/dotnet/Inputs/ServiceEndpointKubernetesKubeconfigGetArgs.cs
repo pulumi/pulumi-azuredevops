@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps.Inputs
 {
 
-    public sealed class ServiceEndpointKubernetesKubeconfigGetArgs : Pulumi.ResourceArgs
+    public sealed class ServiceEndpointKubernetesKubeconfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// Set this option to allow clients to accept a self-signed certificate.
@@ -24,17 +24,25 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("clusterContext")]
         public Input<string>? ClusterContext { get; set; }
 
+        [Input("kubeConfig", required: true)]
+        private Input<string>? _kubeConfig;
+
         /// <summary>
         /// The content of the kubeconfig in yaml notation to be used to communicate with the API-Server of Kubernetes.
         /// </summary>
-        [Input("kubeConfig", required: true)]
-        public Input<string> KubeConfig { get; set; } = null!;
-
-        [Input("kubeConfigHash")]
-        public Input<string>? KubeConfigHash { get; set; }
+        public Input<string>? KubeConfig
+        {
+            get => _kubeConfig;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kubeConfig = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         public ServiceEndpointKubernetesKubeconfigGetArgs()
         {
         }
+        public static new ServiceEndpointKubernetesKubeconfigGetArgs Empty => new ServiceEndpointKubernetesKubeconfigGetArgs();
     }
 }

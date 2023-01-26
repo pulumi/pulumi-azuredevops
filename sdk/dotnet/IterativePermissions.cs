@@ -22,51 +22,52 @@ namespace Pulumi.AzureDevOps
     /// ## Example Usage
     /// 
     /// ```csharp
+    /// using System.Collections.Generic;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
-    /// class MyStack : Stack
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     public MyStack()
+    ///     var example = new AzureDevOps.Project("example", new()
     ///     {
-    ///         var example = new AzureDevOps.Project("example", new AzureDevOps.ProjectArgs
-    ///         {
-    ///             WorkItemTemplate = "Agile",
-    ///             VersionControl = "Git",
-    ///             Visibility = "private",
-    ///             Description = "Managed by Terraform",
-    ///         });
-    ///         var example_readers = AzureDevOps.GetGroup.Invoke(new AzureDevOps.GetGroupInvokeArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Name = "Readers",
-    ///         });
-    ///         var example_root_permissions = new AzureDevOps.IterativePermissions("example-root-permissions", new AzureDevOps.IterativePermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             Permissions = 
-    ///             {
-    ///                 { "CREATE_CHILDREN", "Deny" },
-    ///                 { "GENERIC_READ", "NotSet" },
-    ///                 { "DELETE", "Deny" },
-    ///             },
-    ///         });
-    ///         var example_iteration_permissions = new AzureDevOps.IterativePermissions("example-iteration-permissions", new AzureDevOps.IterativePermissionsArgs
-    ///         {
-    ///             ProjectId = example.Id,
-    ///             Principal = example_readers.Apply(example_readers =&gt; example_readers.Id),
-    ///             Path = "Iteration 1",
-    ///             Permissions = 
-    ///             {
-    ///                 { "CREATE_CHILDREN", "Allow" },
-    ///                 { "GENERIC_READ", "NotSet" },
-    ///                 { "DELETE", "Allow" },
-    ///             },
-    ///         });
-    ///     }
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
     /// 
-    /// }
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_root_permissions = new AzureDevOps.IterativePermissions("example-root-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "CREATE_CHILDREN", "Deny" },
+    ///             { "GENERIC_READ", "NotSet" },
+    ///             { "DELETE", "Deny" },
+    ///         },
+    ///     });
+    /// 
+    ///     var example_iteration_permissions = new AzureDevOps.IterativePermissions("example-iteration-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Path = "Iteration 1",
+    ///         Permissions = 
+    ///         {
+    ///             { "CREATE_CHILDREN", "Allow" },
+    ///             { "GENERIC_READ", "NotSet" },
+    ///             { "DELETE", "Allow" },
+    ///         },
+    ///     });
+    /// 
+    /// });
     /// ```
     /// ## Relevant Links
     /// 
@@ -81,7 +82,7 @@ namespace Pulumi.AzureDevOps
     /// The resource does not support import.
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/iterativePermissions:IterativePermissions")]
-    public partial class IterativePermissions : Pulumi.CustomResource
+    public partial class IterativePermissions : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The name of the branch to assign the permissions.
@@ -157,7 +158,7 @@ namespace Pulumi.AzureDevOps
         }
     }
 
-    public sealed class IterativePermissionsArgs : Pulumi.ResourceArgs
+    public sealed class IterativePermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the branch to assign the permissions.
@@ -198,9 +199,10 @@ namespace Pulumi.AzureDevOps
         public IterativePermissionsArgs()
         {
         }
+        public static new IterativePermissionsArgs Empty => new IterativePermissionsArgs();
     }
 
-    public sealed class IterativePermissionsState : Pulumi.ResourceArgs
+    public sealed class IterativePermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The name of the branch to assign the permissions.
@@ -241,5 +243,6 @@ namespace Pulumi.AzureDevOps
         public IterativePermissionsState()
         {
         }
+        public static new IterativePermissionsState Empty => new IterativePermissionsState();
     }
 }
