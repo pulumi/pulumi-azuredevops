@@ -48,7 +48,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = exampleProject.Id,
     ///         Path = "\\ExampleFolder",
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "ViewBuilds", "Allow" },

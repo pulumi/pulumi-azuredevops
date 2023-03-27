@@ -46,11 +46,11 @@ namespace Pulumi.AzureDevOps
     ///         ProjectId = exampleProject.Id,
     ///         Administrators = new[]
     ///         {
-    ///             example_project_contributors.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///             example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
     ///         },
     ///         Members = new[]
     ///         {
-    ///             example_project_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///             example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
     ///         },
     ///     });
     /// 

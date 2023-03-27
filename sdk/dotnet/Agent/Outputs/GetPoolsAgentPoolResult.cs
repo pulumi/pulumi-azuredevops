@@ -17,6 +17,10 @@ namespace Pulumi.AzureDevOps.Agent.Outputs
         /// Specifies whether or not a queue should be automatically provisioned for each project collection.
         /// </summary>
         public readonly bool AutoProvision;
+        /// <summary>
+        /// Specifies whether or not agents within the pool should be automatically updated.
+        /// </summary>
+        public readonly bool AutoUpdate;
         public readonly int Id;
         /// <summary>
         /// The name of the agent pool
@@ -31,6 +35,8 @@ namespace Pulumi.AzureDevOps.Agent.Outputs
         private GetPoolsAgentPoolResult(
             bool autoProvision,
 
+            bool autoUpdate,
+
             int id,
 
             string name,
@@ -38,6 +44,7 @@ namespace Pulumi.AzureDevOps.Agent.Outputs
             string poolType)
         {
             AutoProvision = autoProvision;
+            AutoUpdate = autoUpdate;
             Id = id;
             Name = name;
             PoolType = poolType;

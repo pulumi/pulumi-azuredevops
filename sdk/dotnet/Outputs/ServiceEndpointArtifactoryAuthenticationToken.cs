@@ -15,7 +15,6 @@ namespace Pulumi.AzureDevOps.Outputs
     {
         /// <summary>
         /// Authentication Token generated through Artifactory.
-        /// * `authentication_basic`
         /// </summary>
         public readonly string Token;
         public readonly string? TokenHash;

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -107,7 +107,7 @@ func NewServiceEndpointBitBucket(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringOutput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",

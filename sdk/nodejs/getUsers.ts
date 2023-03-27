@@ -15,28 +15,23 @@ import * as utilities from "./utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * // Load single user by using it's principal name
- * const example = pulumi.output(azuredevops.getUsers({
+ * const example = azuredevops.getUsers({
  *     principalName: "contoso-user@contoso.onmicrosoft.com",
- * }));
- * // Load all users know inside an organization
- * const example_all_users = pulumi.output(azuredevops.getUsers());
- * // Load all users know inside an organization originating from a specific source (origin)
- * const example_all_from_origin = pulumi.output(azuredevops.getUsers({
+ * });
+ * const example-all-users = azuredevops.getUsers({});
+ * const example-all-from-origin = azuredevops.getUsers({
  *     origin: "aad",
- * }));
- * // Load all users know inside an organization filtered by their subject types
- * const example_all_from_subject_types = pulumi.output(azuredevops.getUsers({
+ * });
+ * const example-all-from-subjectTypes = azuredevops.getUsers({
  *     subjectTypes: [
  *         "aad",
  *         "msa",
  *     ],
- * }));
- * // Load a single user by origin and origin ID
- * const example_all_from_origin_id = pulumi.output(azuredevops.getUsers({
+ * });
+ * const example-all-from-origin-id = azuredevops.getUsers({
  *     origin: "aad",
  *     originId: "00000000-0000-0000-0000-000000000000",
- * }));
+ * });
  * ```
  * ## Relevant Links
  *
@@ -44,11 +39,8 @@ import * as utilities from "./utilities";
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getUsers:getUsers", {
         "origin": args.origin,
         "originId": args.originId,
@@ -105,9 +97,39 @@ export interface GetUsersResult {
      */
     readonly users: outputs.GetUsersUser[];
 }
-
+/**
+ * Use this data source to access information about an existing users within Azure DevOps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getUsers({
+ *     principalName: "contoso-user@contoso.onmicrosoft.com",
+ * });
+ * const example-all-users = azuredevops.getUsers({});
+ * const example-all-from-origin = azuredevops.getUsers({
+ *     origin: "aad",
+ * });
+ * const example-all-from-subjectTypes = azuredevops.getUsers({
+ *     subjectTypes: [
+ *         "aad",
+ *         "msa",
+ *     ],
+ * });
+ * const example-all-from-origin-id = azuredevops.getUsers({
+ *     origin: "aad",
+ *     originId: "00000000-0000-0000-0000-000000000000",
+ * });
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
+ */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
-    return pulumi.output(args).apply(a => getUsers(a, opts))
+    return pulumi.output(args).apply((a: any) => getUsers(a, opts))
 }
 
 /**

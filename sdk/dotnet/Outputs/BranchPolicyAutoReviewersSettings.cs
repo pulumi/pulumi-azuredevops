@@ -22,6 +22,10 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string? Message;
         /// <summary>
+        /// Minimum number of required reviewers. Defaults to `1`.
+        /// </summary>
+        public readonly int? MinimumNumberOfReviewers;
+        /// <summary>
         /// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
         /// </summary>
         public readonly ImmutableArray<string> PathFilters;
@@ -40,6 +44,8 @@ namespace Pulumi.AzureDevOps.Outputs
 
             string? message,
 
+            int? minimumNumberOfReviewers,
+
             ImmutableArray<string> pathFilters,
 
             ImmutableArray<Outputs.BranchPolicyAutoReviewersSettingsScope> scopes,
@@ -48,6 +54,7 @@ namespace Pulumi.AzureDevOps.Outputs
         {
             AutoReviewerIds = autoReviewerIds;
             Message = message;
+            MinimumNumberOfReviewers = minimumNumberOfReviewers;
             PathFilters = pathFilters;
             Scopes = scopes;
             SubmitterCanVote = submitterCanVote;

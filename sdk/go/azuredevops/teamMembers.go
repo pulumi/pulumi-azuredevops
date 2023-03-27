@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_project_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
@@ -51,9 +51,9 @@ import (
 //				TeamId:    exampleTeam.ID(),
 //				Mode:      pulumi.String("overwrite"),
 //				Members: pulumi.StringArray{
-//					example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
-//						return example_project_readers.Descriptor, nil
-//					}).(pulumi.StringOutput),
+//					example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
+//						return &example_project_readers.Descriptor, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {

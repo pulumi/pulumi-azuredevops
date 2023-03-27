@@ -24,6 +24,7 @@ namespace Pulumi.AzureDevOps
     ///     var example = new AzureDevOps.Pool("example", new()
     ///     {
     ///         AutoProvision = false,
+    ///         AutoUpdate = false,
     ///     });
     /// 
     /// });
@@ -48,6 +49,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("autoProvision")]
         public Output<bool?> AutoProvision { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        /// </summary>
+        [Output("autoUpdate")]
+        public Output<bool?> AutoUpdate { get; private set; } = null!;
 
         /// <summary>
         /// The name of the agent pool.
@@ -118,6 +125,12 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? AutoProvision { get; set; }
 
         /// <summary>
+        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        /// </summary>
+        [Input("autoUpdate")]
+        public Input<bool>? AutoUpdate { get; set; }
+
+        /// <summary>
         /// The name of the agent pool.
         /// </summary>
         [Input("name")]
@@ -142,6 +155,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("autoProvision")]
         public Input<bool>? AutoProvision { get; set; }
+
+        /// <summary>
+        /// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        /// </summary>
+        [Input("autoUpdate")]
+        public Input<bool>? AutoUpdate { get; set; }
 
         /// <summary>
         /// The name of the agent pool.

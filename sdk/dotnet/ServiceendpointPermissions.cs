@@ -45,7 +45,7 @@ namespace Pulumi.AzureDevOps
     ///     var example_root_permissions = new AzureDevOps.ServiceendpointPermissions("example-root-permissions", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "Use", "allow" },
@@ -69,7 +69,7 @@ namespace Pulumi.AzureDevOps
     ///     var example_permissions = new AzureDevOps.ServiceendpointPermissions("example-permissions", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         ServiceendpointId = exampleServiceEndpointDockerRegistry.Id,
     ///         Permissions = 
     ///         {

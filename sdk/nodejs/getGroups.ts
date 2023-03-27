@@ -29,11 +29,8 @@ import * as utilities from "./utilities";
  */
 export function getGroups(args?: GetGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getGroups:getGroups", {
         "projectId": args.projectId,
     }, opts);
@@ -63,9 +60,29 @@ export interface GetGroupsResult {
     readonly id: string;
     readonly projectId?: string;
 }
-
+/**
+ * Use this data source to access information about existing Groups within Azure DevOps
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const example-all-groups = azuredevops.getGroups({});
+ * const example-project-groups = example.then(example => azuredevops.getGroups({
+ *     projectId: example.id,
+ * }));
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0)
+ */
 export function getGroupsOutput(args?: GetGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupsResult> {
-    return pulumi.output(args).apply(a => getGroups(a, opts))
+    return pulumi.output(args).apply((a: any) => getGroups(a, opts))
 }
 
 /**

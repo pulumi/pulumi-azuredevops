@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ServiceEndpointServiceFabricAzureActiveDirectory {
     /**
-     * @return - Password for the Azure Active Directory account.
+     * @return Password for the Azure Active Directory account.
      * 
      */
     private String password;
@@ -32,14 +32,14 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectory {
      */
     private @Nullable String serverCertificateThumbprint;
     /**
-     * @return - Specify an Azure Active Directory account.
+     * @return Specify an Azure Active Directory account.
      * 
      */
     private String username;
 
     private ServiceEndpointServiceFabricAzureActiveDirectory() {}
     /**
-     * @return - Password for the Azure Active Directory account.
+     * @return Password for the Azure Active Directory account.
      * 
      */
     public String password() {
@@ -67,7 +67,7 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectory {
         return Optional.ofNullable(this.serverCertificateThumbprint);
     }
     /**
-     * @return - Specify an Azure Active Directory account.
+     * @return Specify an Azure Active Directory account.
      * 
      */
     public String username() {

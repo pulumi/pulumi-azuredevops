@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -39,7 +39,7 @@ import (
 //			_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
 //				ProjectId:           exampleProject.ID(),
 //				ServiceEndpointName: pulumi.String("Example GitHub Personal Access Token"),
-//				AuthPersonal: &ServiceEndpointGitHubAuthPersonalArgs{
+//				AuthPersonal: &azuredevops.ServiceEndpointGitHubAuthPersonalArgs{
 //					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 //				},
 //			})
@@ -76,7 +76,7 @@ import (
 //			_, err = azuredevops.NewServiceEndpointGitHub(ctx, "exampleServiceEndpointGitHub", &azuredevops.ServiceEndpointGitHubArgs{
 //				ProjectId:           exampleProject.ID(),
 //				ServiceEndpointName: pulumi.String("Example GitHub"),
-//				AuthOauth: &ServiceEndpointGitHubAuthOauthArgs{
+//				AuthOauth: &azuredevops.ServiceEndpointGitHubAuthOauthArgs{
 //					OauthConfigurationId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				},
 //			})

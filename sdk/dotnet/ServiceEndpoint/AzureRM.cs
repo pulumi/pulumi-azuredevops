@@ -134,31 +134,31 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
         /// <summary>
-        /// The management group Id of the Azure targets.
+        /// The Management group ID of the Azure targets.
         /// </summary>
         [Output("azurermManagementGroupId")]
         public Output<string?> AzurermManagementGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// The management group Name of the targets.
+        /// The Management group Name of the targets.
         /// </summary>
         [Output("azurermManagementGroupName")]
         public Output<string?> AzurermManagementGroupName { get; private set; } = null!;
 
         /// <summary>
-        /// The tenant id if the service principal.
+        /// The Tenant ID if the service principal.
         /// </summary>
         [Output("azurermSpnTenantid")]
         public Output<string> AzurermSpnTenantid { get; private set; } = null!;
 
         /// <summary>
-        /// The subscription Id of the Azure targets.
+        /// The Subscription ID of the Azure targets.
         /// </summary>
         [Output("azurermSubscriptionId")]
         public Output<string?> AzurermSubscriptionId { get; private set; } = null!;
 
         /// <summary>
-        /// The subscription Name of the targets.
+        /// The Subscription Name of the targets.
         /// </summary>
         [Output("azurermSubscriptionName")]
         public Output<string?> AzurermSubscriptionName { get; private set; } = null!;
@@ -176,6 +176,12 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Output("environment")]
+        public Output<string?> Environment { get; private set; } = null!;
+
+        /// <summary>
         /// The ID of the project.
         /// </summary>
         [Output("projectId")]
@@ -188,7 +194,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Output<string?> ResourceGroup { get; private set; } = null!;
 
         /// <summary>
-        /// The Service Endpoint name.
+        /// The Service Endpoint Name.
         /// </summary>
         [Output("serviceEndpointName")]
         public Output<string> ServiceEndpointName { get; private set; } = null!;
@@ -248,31 +254,31 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         }
 
         /// <summary>
-        /// The management group Id of the Azure targets.
+        /// The Management group ID of the Azure targets.
         /// </summary>
         [Input("azurermManagementGroupId")]
         public Input<string>? AzurermManagementGroupId { get; set; }
 
         /// <summary>
-        /// The management group Name of the targets.
+        /// The Management group Name of the targets.
         /// </summary>
         [Input("azurermManagementGroupName")]
         public Input<string>? AzurermManagementGroupName { get; set; }
 
         /// <summary>
-        /// The tenant id if the service principal.
+        /// The Tenant ID if the service principal.
         /// </summary>
         [Input("azurermSpnTenantid", required: true)]
         public Input<string> AzurermSpnTenantid { get; set; } = null!;
 
         /// <summary>
-        /// The subscription Id of the Azure targets.
+        /// The Subscription ID of the Azure targets.
         /// </summary>
         [Input("azurermSubscriptionId")]
         public Input<string>? AzurermSubscriptionId { get; set; }
 
         /// <summary>
-        /// The subscription Name of the targets.
+        /// The Subscription Name of the targets.
         /// </summary>
         [Input("azurermSubscriptionName")]
         public Input<string>? AzurermSubscriptionName { get; set; }
@@ -290,6 +296,12 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("environment")]
+        public Input<string>? Environment { get; set; }
+
+        /// <summary>
         /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
@@ -302,7 +314,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Input<string>? ResourceGroup { get; set; }
 
         /// <summary>
-        /// The Service Endpoint name.
+        /// The Service Endpoint Name.
         /// </summary>
         [Input("serviceEndpointName", required: true)]
         public Input<string> ServiceEndpointName { get; set; } = null!;
@@ -324,31 +336,31 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         }
 
         /// <summary>
-        /// The management group Id of the Azure targets.
+        /// The Management group ID of the Azure targets.
         /// </summary>
         [Input("azurermManagementGroupId")]
         public Input<string>? AzurermManagementGroupId { get; set; }
 
         /// <summary>
-        /// The management group Name of the targets.
+        /// The Management group Name of the targets.
         /// </summary>
         [Input("azurermManagementGroupName")]
         public Input<string>? AzurermManagementGroupName { get; set; }
 
         /// <summary>
-        /// The tenant id if the service principal.
+        /// The Tenant ID if the service principal.
         /// </summary>
         [Input("azurermSpnTenantid")]
         public Input<string>? AzurermSpnTenantid { get; set; }
 
         /// <summary>
-        /// The subscription Id of the Azure targets.
+        /// The Subscription ID of the Azure targets.
         /// </summary>
         [Input("azurermSubscriptionId")]
         public Input<string>? AzurermSubscriptionId { get; set; }
 
         /// <summary>
-        /// The subscription Name of the targets.
+        /// The Subscription Name of the targets.
         /// </summary>
         [Input("azurermSubscriptionName")]
         public Input<string>? AzurermSubscriptionName { get; set; }
@@ -366,6 +378,12 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+        /// </summary>
+        [Input("environment")]
+        public Input<string>? Environment { get; set; }
+
+        /// <summary>
         /// The ID of the project.
         /// </summary>
         [Input("projectId")]
@@ -378,7 +396,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         public Input<string>? ResourceGroup { get; set; }
 
         /// <summary>
-        /// The Service Endpoint name.
+        /// The Service Endpoint Name.
         /// </summary>
         [Input("serviceEndpointName")]
         public Input<string>? ServiceEndpointName { get; set; }

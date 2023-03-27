@@ -53,6 +53,7 @@ __all__ = [
     'ServiceEndpointServiceFabricNoneArgs',
     'ServiceendpointArgocdAuthenticationBasicArgs',
     'ServiceendpointArgocdAuthenticationTokenArgs',
+    'ServiceendpointExternaltfsAuthPersonalArgs',
     'VariableGroupKeyVaultArgs',
     'VariableGroupVariableArgs',
 ]
@@ -63,12 +64,14 @@ class BranchPolicyAutoReviewersSettingsArgs:
                  auto_reviewer_ids: pulumi.Input[Sequence[pulumi.Input[str]]],
                  scopes: pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]],
                  message: Optional[pulumi.Input[str]] = None,
+                 minimum_number_of_reviewers: Optional[pulumi.Input[int]] = None,
                  path_filters: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  submitter_can_vote: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input[str]]] auto_reviewer_ids: Required reviewers ids. Supports multiples user Ids.
         :param pulumi.Input[Sequence[pulumi.Input['BranchPolicyAutoReviewersSettingsScopeArgs']]] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param pulumi.Input[str] message: Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
+        :param pulumi.Input[int] minimum_number_of_reviewers: Minimum number of required reviewers. Defaults to `1`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] path_filters: Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
         :param pulumi.Input[bool] submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
@@ -76,6 +79,8 @@ class BranchPolicyAutoReviewersSettingsArgs:
         pulumi.set(__self__, "scopes", scopes)
         if message is not None:
             pulumi.set(__self__, "message", message)
+        if minimum_number_of_reviewers is not None:
+            pulumi.set(__self__, "minimum_number_of_reviewers", minimum_number_of_reviewers)
         if path_filters is not None:
             pulumi.set(__self__, "path_filters", path_filters)
         if submitter_can_vote is not None:
@@ -116,6 +121,18 @@ class BranchPolicyAutoReviewersSettingsArgs:
     @message.setter
     def message(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "message", value)
+
+    @property
+    @pulumi.getter(name="minimumNumberOfReviewers")
+    def minimum_number_of_reviewers(self) -> Optional[pulumi.Input[int]]:
+        """
+        Minimum number of required reviewers. Defaults to `1`.
+        """
+        return pulumi.get(self, "minimum_number_of_reviewers")
+
+    @minimum_number_of_reviewers.setter
+    def minimum_number_of_reviewers(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "minimum_number_of_reviewers", value)
 
     @property
     @pulumi.getter(name="pathFilters")
@@ -1641,8 +1658,154 @@ class BuildDefinitionScheduleArgs:
                  start_minutes: Optional[pulumi.Input[int]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_to_builds: When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleBranchFilterArgs']]] branch_filters: block supports the following:
         :param pulumi.Input[str] schedule_job_id: The ID of the schedule job
+        :param pulumi.Input[bool] schedule_only_with_changes: Schedule builds if the source or pipeline has changed. Defaults to `true`.
+        :param pulumi.Input[int] start_hours: Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+        :param pulumi.Input[int] start_minutes: Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+        :param pulumi.Input[str] time_zone: Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+               `(UTC-12:00) International Date Line West`,
+               `(UTC-11:00) Coordinated Universal Time-11`,
+               `(UTC-10:00) Aleutian Islands`,
+               `(UTC-10:00) Hawaii`,
+               `(UTC-09:30) Marquesas Islands`,
+               `(UTC-09:00) Alaska`,
+               `(UTC-09:00) Coordinated Universal Time-09`,
+               `(UTC-08:00) Baja California`,
+               `(UTC-08:00) Coordinated Universal Time-08`,
+               `(UTC-08:00) Pacific Time (US &Canada)`,
+               `(UTC-07:00) Arizona`,
+               `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
+               `(UTC-07:00) Mountain Time (US &Canada)`,
+               `(UTC-07:00) Yukon`,
+               `(UTC-06:00) Central America`,
+               `(UTC-06:00) Central Time (US &Canada)`,
+               `(UTC-06:00) Easter Island`,
+               `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
+               `(UTC-06:00) Saskatchewan`,
+               `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
+               `(UTC-05:00) Chetumal`,
+               `(UTC-05:00) Eastern Time (US &Canada)`,
+               `(UTC-05:00) Haiti`,
+               `(UTC-05:00) Havana`,
+               `(UTC-05:00) Indiana (East)`,
+               `(UTC-05:00) Turks and Caicos`,
+               `(UTC-04:00) Asuncion`,
+               `(UTC-04:00) Atlantic Time (Canada)`,
+               `(UTC-04:00) Caracas`,
+               `(UTC-04:00) Cuiaba`,
+               `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
+               `(UTC-04:00) Santiago`,
+               `(UTC-03:30) Newfoundland`,
+               `(UTC-03:00) Araguaina`,
+               `(UTC-03:00) Brasilia`,
+               `(UTC-03:00) Cayenne, Fortaleza`,
+               `(UTC-03:00) City of Buenos Aires`,
+               `(UTC-03:00) Greenland`,
+               `(UTC-03:00) Montevideo`,
+               `(UTC-03:00) Punta Arenas`,
+               `(UTC-03:00) Saint Pierre and Miquelon`,
+               `(UTC-03:00) Salvador`,
+               `(UTC-02:00) Coordinated Universal Time-02`,
+               `(UTC-02:00) Mid-Atlantic - Old`,
+               `(UTC-01:00) Azores`,
+               `(UTC-01:00) Cabo Verde Is.`,
+               `(UTC) Coordinated Universal Time`,
+               `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
+               `(UTC+00:00) Monrovia, Reykjavik`,
+               `(UTC+00:00) Sao Tome`,
+               `(UTC+01:00) Casablanca`,
+               `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
+               `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
+               `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
+               `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
+               `(UTC+01:00) West Central Africa`,
+               `(UTC+02:00) Amman`,
+               `(UTC+02:00) Athens, Bucharest`,
+               `(UTC+02:00) Beirut`,
+               `(UTC+02:00) Cairo`,
+               `(UTC+02:00) Chisinau`,
+               `(UTC+02:00) Damascus`,
+               `(UTC+02:00) Gaza, Hebron`,
+               `(UTC+02:00) Harare, Pretoria`,
+               `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
+               `(UTC+02:00) Jerusalem`,
+               `(UTC+02:00) Juba`,
+               `(UTC+02:00) Kaliningrad`,
+               `(UTC+02:00) Khartoum`,
+               `(UTC+02:00) Tripoli`,
+               `(UTC+02:00) Windhoek`,
+               `(UTC+03:00) Baghdad`,
+               `(UTC+03:00) Istanbul`,
+               `(UTC+03:00) Kuwait, Riyadh`,
+               `(UTC+03:00) Minsk`,
+               `(UTC+03:00) Moscow, St. Petersburg`,
+               `(UTC+03:00) Nairobi`,
+               `(UTC+03:00) Volgograd`,
+               `(UTC+03:30) Tehran`,
+               `(UTC+04:00) Abu Dhabi, Muscat`,
+               `(UTC+04:00) Astrakhan, Ulyanovsk`,
+               `(UTC+04:00) Baku`,
+               `(UTC+04:00) Izhevsk, Samara`,
+               `(UTC+04:00) Port Louis`,
+               `(UTC+04:00) Saratov`,
+               `(UTC+04:00) Tbilisi`,
+               `(UTC+04:00) Yerevan`,
+               `(UTC+04:30) Kabul`,
+               `(UTC+05:00) Ashgabat, Tashkent`,
+               `(UTC+05:00) Ekaterinburg`,
+               `(UTC+05:00) Islamabad, Karachi`,
+               `(UTC+05:00) Qyzylorda`,
+               `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
+               `(UTC+05:30) Sri Jayawardenepura`,
+               `(UTC+05:45) Kathmandu`,
+               `(UTC+06:00) Astana`,
+               `(UTC+06:00) Dhaka`,
+               `(UTC+06:00) Omsk`,
+               `(UTC+06:30) Yangon (Rangoon)`,
+               `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
+               `(UTC+07:00) Barnaul, Gorno-Altaysk`,
+               `(UTC+07:00) Hovd`,
+               `(UTC+07:00) Krasnoyarsk`,
+               `(UTC+07:00) Novosibirsk`,
+               `(UTC+07:00) Tomsk`,
+               `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
+               `(UTC+08:00) Irkutsk`,
+               `(UTC+08:00) Kuala Lumpur, Singapore`,
+               `(UTC+08:00) Perth`,
+               `(UTC+08:00) Taipei`,
+               `(UTC+08:00) Ulaanbaatar`,
+               `(UTC+08:45) Eucla`,
+               `(UTC+09:00) Chita`,
+               `(UTC+09:00) Osaka, Sapporo, Tokyo`,
+               `(UTC+09:00) Pyongyang`,
+               `(UTC+09:00) Seoul`,
+               `(UTC+09:00) Yakutsk`,
+               `(UTC+09:30) Adelaide`,
+               `(UTC+09:30) Darwin`,
+               `(UTC+10:00) Brisbane`,
+               `(UTC+10:00) Canberra, Melbourne, Sydney`,
+               `(UTC+10:00) Guam, Port Moresby`,
+               `(UTC+10:00) Hobart`,
+               `(UTC+10:00) Vladivostok`,
+               `(UTC+10:30) Lord Howe Island`,
+               `(UTC+11:00) Bougainville Island`,
+               `(UTC+11:00) Chokurdakh`,
+               `(UTC+11:00) Magadan`,
+               `(UTC+11:00) Norfolk Island`,
+               `(UTC+11:00) Sakhalin`,
+               `(UTC+11:00) Solomon Is., New Caledonia`,
+               `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
+               `(UTC+12:00) Auckland, Wellington`,
+               `(UTC+12:00) Coordinated Universal Time+12`,
+               `(UTC+12:00) Fiji`,
+               `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
+               `(UTC+12:45) Chatham Islands`,
+               `(UTC+13:00) Coordinated Universal Time+13`,
+               `(UTC+13:00) Nuku'alofa`,
+               `(UTC+13:00) Samoa`,
+               `(UTC+14:00) Kiritimati Island`.
         """
         pulumi.set(__self__, "days_to_builds", days_to_builds)
         if branch_filters is not None:
@@ -1661,6 +1824,9 @@ class BuildDefinitionScheduleArgs:
     @property
     @pulumi.getter(name="daysToBuilds")
     def days_to_builds(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+        """
         return pulumi.get(self, "days_to_builds")
 
     @days_to_builds.setter
@@ -1694,6 +1860,9 @@ class BuildDefinitionScheduleArgs:
     @property
     @pulumi.getter(name="scheduleOnlyWithChanges")
     def schedule_only_with_changes(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Schedule builds if the source or pipeline has changed. Defaults to `true`.
+        """
         return pulumi.get(self, "schedule_only_with_changes")
 
     @schedule_only_with_changes.setter
@@ -1703,6 +1872,9 @@ class BuildDefinitionScheduleArgs:
     @property
     @pulumi.getter(name="startHours")
     def start_hours(self) -> Optional[pulumi.Input[int]]:
+        """
+        Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+        """
         return pulumi.get(self, "start_hours")
 
     @start_hours.setter
@@ -1712,6 +1884,9 @@ class BuildDefinitionScheduleArgs:
     @property
     @pulumi.getter(name="startMinutes")
     def start_minutes(self) -> Optional[pulumi.Input[int]]:
+        """
+        Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+        """
         return pulumi.get(self, "start_minutes")
 
     @start_minutes.setter
@@ -1721,6 +1896,150 @@ class BuildDefinitionScheduleArgs:
     @property
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[str]]:
+        """
+        Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
+        `(UTC-12:00) International Date Line West`,
+        `(UTC-11:00) Coordinated Universal Time-11`,
+        `(UTC-10:00) Aleutian Islands`,
+        `(UTC-10:00) Hawaii`,
+        `(UTC-09:30) Marquesas Islands`,
+        `(UTC-09:00) Alaska`,
+        `(UTC-09:00) Coordinated Universal Time-09`,
+        `(UTC-08:00) Baja California`,
+        `(UTC-08:00) Coordinated Universal Time-08`,
+        `(UTC-08:00) Pacific Time (US &Canada)`,
+        `(UTC-07:00) Arizona`,
+        `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
+        `(UTC-07:00) Mountain Time (US &Canada)`,
+        `(UTC-07:00) Yukon`,
+        `(UTC-06:00) Central America`,
+        `(UTC-06:00) Central Time (US &Canada)`,
+        `(UTC-06:00) Easter Island`,
+        `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
+        `(UTC-06:00) Saskatchewan`,
+        `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
+        `(UTC-05:00) Chetumal`,
+        `(UTC-05:00) Eastern Time (US &Canada)`,
+        `(UTC-05:00) Haiti`,
+        `(UTC-05:00) Havana`,
+        `(UTC-05:00) Indiana (East)`,
+        `(UTC-05:00) Turks and Caicos`,
+        `(UTC-04:00) Asuncion`,
+        `(UTC-04:00) Atlantic Time (Canada)`,
+        `(UTC-04:00) Caracas`,
+        `(UTC-04:00) Cuiaba`,
+        `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
+        `(UTC-04:00) Santiago`,
+        `(UTC-03:30) Newfoundland`,
+        `(UTC-03:00) Araguaina`,
+        `(UTC-03:00) Brasilia`,
+        `(UTC-03:00) Cayenne, Fortaleza`,
+        `(UTC-03:00) City of Buenos Aires`,
+        `(UTC-03:00) Greenland`,
+        `(UTC-03:00) Montevideo`,
+        `(UTC-03:00) Punta Arenas`,
+        `(UTC-03:00) Saint Pierre and Miquelon`,
+        `(UTC-03:00) Salvador`,
+        `(UTC-02:00) Coordinated Universal Time-02`,
+        `(UTC-02:00) Mid-Atlantic - Old`,
+        `(UTC-01:00) Azores`,
+        `(UTC-01:00) Cabo Verde Is.`,
+        `(UTC) Coordinated Universal Time`,
+        `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
+        `(UTC+00:00) Monrovia, Reykjavik`,
+        `(UTC+00:00) Sao Tome`,
+        `(UTC+01:00) Casablanca`,
+        `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
+        `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
+        `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
+        `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
+        `(UTC+01:00) West Central Africa`,
+        `(UTC+02:00) Amman`,
+        `(UTC+02:00) Athens, Bucharest`,
+        `(UTC+02:00) Beirut`,
+        `(UTC+02:00) Cairo`,
+        `(UTC+02:00) Chisinau`,
+        `(UTC+02:00) Damascus`,
+        `(UTC+02:00) Gaza, Hebron`,
+        `(UTC+02:00) Harare, Pretoria`,
+        `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
+        `(UTC+02:00) Jerusalem`,
+        `(UTC+02:00) Juba`,
+        `(UTC+02:00) Kaliningrad`,
+        `(UTC+02:00) Khartoum`,
+        `(UTC+02:00) Tripoli`,
+        `(UTC+02:00) Windhoek`,
+        `(UTC+03:00) Baghdad`,
+        `(UTC+03:00) Istanbul`,
+        `(UTC+03:00) Kuwait, Riyadh`,
+        `(UTC+03:00) Minsk`,
+        `(UTC+03:00) Moscow, St. Petersburg`,
+        `(UTC+03:00) Nairobi`,
+        `(UTC+03:00) Volgograd`,
+        `(UTC+03:30) Tehran`,
+        `(UTC+04:00) Abu Dhabi, Muscat`,
+        `(UTC+04:00) Astrakhan, Ulyanovsk`,
+        `(UTC+04:00) Baku`,
+        `(UTC+04:00) Izhevsk, Samara`,
+        `(UTC+04:00) Port Louis`,
+        `(UTC+04:00) Saratov`,
+        `(UTC+04:00) Tbilisi`,
+        `(UTC+04:00) Yerevan`,
+        `(UTC+04:30) Kabul`,
+        `(UTC+05:00) Ashgabat, Tashkent`,
+        `(UTC+05:00) Ekaterinburg`,
+        `(UTC+05:00) Islamabad, Karachi`,
+        `(UTC+05:00) Qyzylorda`,
+        `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
+        `(UTC+05:30) Sri Jayawardenepura`,
+        `(UTC+05:45) Kathmandu`,
+        `(UTC+06:00) Astana`,
+        `(UTC+06:00) Dhaka`,
+        `(UTC+06:00) Omsk`,
+        `(UTC+06:30) Yangon (Rangoon)`,
+        `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
+        `(UTC+07:00) Barnaul, Gorno-Altaysk`,
+        `(UTC+07:00) Hovd`,
+        `(UTC+07:00) Krasnoyarsk`,
+        `(UTC+07:00) Novosibirsk`,
+        `(UTC+07:00) Tomsk`,
+        `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
+        `(UTC+08:00) Irkutsk`,
+        `(UTC+08:00) Kuala Lumpur, Singapore`,
+        `(UTC+08:00) Perth`,
+        `(UTC+08:00) Taipei`,
+        `(UTC+08:00) Ulaanbaatar`,
+        `(UTC+08:45) Eucla`,
+        `(UTC+09:00) Chita`,
+        `(UTC+09:00) Osaka, Sapporo, Tokyo`,
+        `(UTC+09:00) Pyongyang`,
+        `(UTC+09:00) Seoul`,
+        `(UTC+09:00) Yakutsk`,
+        `(UTC+09:30) Adelaide`,
+        `(UTC+09:30) Darwin`,
+        `(UTC+10:00) Brisbane`,
+        `(UTC+10:00) Canberra, Melbourne, Sydney`,
+        `(UTC+10:00) Guam, Port Moresby`,
+        `(UTC+10:00) Hobart`,
+        `(UTC+10:00) Vladivostok`,
+        `(UTC+10:30) Lord Howe Island`,
+        `(UTC+11:00) Bougainville Island`,
+        `(UTC+11:00) Chokurdakh`,
+        `(UTC+11:00) Magadan`,
+        `(UTC+11:00) Norfolk Island`,
+        `(UTC+11:00) Sakhalin`,
+        `(UTC+11:00) Solomon Is., New Caledonia`,
+        `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
+        `(UTC+12:00) Auckland, Wellington`,
+        `(UTC+12:00) Coordinated Universal Time+12`,
+        `(UTC+12:00) Fiji`,
+        `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
+        `(UTC+12:45) Chatham Islands`,
+        `(UTC+13:00) Coordinated Universal Time+13`,
+        `(UTC+13:00) Nuku'alofa`,
+        `(UTC+13:00) Samoa`,
+        `(UTC+14:00) Kiritimati Island`.
+        """
         return pulumi.get(self, "time_zone")
 
     @time_zone.setter
@@ -1991,7 +2310,6 @@ class ServiceEndpointArtifactoryAuthenticationTokenArgs:
                  token_hash: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] token: Authentication Token generated through Artifactory.
-               * `authentication_basic`
         """
         pulumi.set(__self__, "token", token)
         if token_hash is not None:
@@ -2002,7 +2320,6 @@ class ServiceEndpointArtifactoryAuthenticationTokenArgs:
     def token(self) -> pulumi.Input[str]:
         """
         Authentication Token generated through Artifactory.
-        * `authentication_basic`
         """
         return pulumi.get(self, "token")
 
@@ -2441,9 +2758,9 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
                  server_certificate_common_name: Optional[pulumi.Input[str]] = None,
                  server_certificate_thumbprint: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] password: - Password for the Azure Active Directory account.
+        :param pulumi.Input[str] password: Password for the Azure Active Directory account.
         :param pulumi.Input[str] server_certificate_lookup: Verification mode for the cluster. Possible values include `Thumbprint` or `CommonName`.
-        :param pulumi.Input[str] username: - Specify an Azure Active Directory account.
+        :param pulumi.Input[str] username: Specify an Azure Active Directory account.
         :param pulumi.Input[str] server_certificate_common_name: The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         :param pulumi.Input[str] server_certificate_thumbprint: The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
         """
@@ -2459,7 +2776,7 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
     @pulumi.getter
     def password(self) -> pulumi.Input[str]:
         """
-        - Password for the Azure Active Directory account.
+        Password for the Azure Active Directory account.
         """
         return pulumi.get(self, "password")
 
@@ -2483,7 +2800,7 @@ class ServiceEndpointServiceFabricAzureActiveDirectoryArgs:
     @pulumi.getter
     def username(self) -> pulumi.Input[str]:
         """
-        - Specify an Azure Active Directory account.
+        Specify an Azure Active Directory account.
         """
         return pulumi.get(self, "username")
 
@@ -2733,6 +3050,28 @@ class ServiceendpointArgocdAuthenticationTokenArgs:
     @token_hash.setter
     def token_hash(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "token_hash", value)
+
+
+@pulumi.input_type
+class ServiceendpointExternaltfsAuthPersonalArgs:
+    def __init__(__self__, *,
+                 personal_access_token: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] personal_access_token: The Personal Access Token for Azure DevOps Organization.
+        """
+        pulumi.set(__self__, "personal_access_token", personal_access_token)
+
+    @property
+    @pulumi.getter(name="personalAccessToken")
+    def personal_access_token(self) -> pulumi.Input[str]:
+        """
+        The Personal Access Token for Azure DevOps Organization.
+        """
+        return pulumi.get(self, "personal_access_token")
+
+    @personal_access_token.setter
+    def personal_access_token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "personal_access_token", value)
 
 
 @pulumi.input_type

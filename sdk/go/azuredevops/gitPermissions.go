@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,15 +47,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewGitPermissions(ctx, "example-permissions", &azuredevops.GitPermissionsArgs{
 //				ProjectId: example.ID(),
-//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"CreateRepository": pulumi.String("Deny"),
 //					"DeleteRepository": pulumi.String("Deny"),
@@ -98,7 +98,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_group, err := azuredevops.LookupGroup(ctx, &GetGroupArgs{
+//			example_group, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
 //				Name: "Project Collection Administrators",
 //			}, nil)
 //			if err != nil {
@@ -106,7 +106,7 @@ import (
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -116,7 +116,7 @@ import (
 //			_, err = azuredevops.NewGitPermissions(ctx, "example-permissions", &azuredevops.GitPermissionsArgs{
 //				ProjectId:    exampleGit.ProjectId,
 //				RepositoryId: exampleGit.ID(),
-//				Principal:    pulumi.String(example_group.Id),
+//				Principal:    *pulumi.String(example_group.Id),
 //				Permissions: pulumi.StringMap{
 //					"RemoveOthersLocks": pulumi.String("Allow"),
 //					"ManagePermissions": pulumi.String("Deny"),
@@ -162,14 +162,14 @@ import (
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			example_group, err := azuredevops.LookupGroup(ctx, &GetGroupArgs{
+//			example_group, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
 //				Name: "Project Collection Administrators",
 //			}, nil)
 //			if err != nil {
@@ -179,7 +179,7 @@ import (
 //				ProjectId:    exampleGit.ProjectId,
 //				RepositoryId: exampleGit.ID(),
 //				BranchName:   pulumi.String("refs/heads/master"),
-//				Principal:    pulumi.String(example_group.Id),
+//				Principal:    *pulumi.String(example_group.Id),
 //				Permissions: pulumi.StringMap{
 //					"RemoveOthersLocks": pulumi.String("Allow"),
 //					"ForcePush":         pulumi.String("Deny"),
@@ -217,23 +217,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_project_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
-//			example_project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_project_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
-//			example_project_administrators := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_project_administrators := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Project administrators"),
 //			}, nil)
 //			_, err = azuredevops.NewGitPermissions(ctx, "example-permissions", &azuredevops.GitPermissionsArgs{
 //				ProjectId: exampleProject.ID(),
-//				Principal: example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
-//					return example_project_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_project_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"CreateRepository": pulumi.String("Deny"),
 //					"DeleteRepository": pulumi.String("Deny"),
@@ -246,7 +246,7 @@ import (
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId:     exampleProject.ID(),
 //				DefaultBranch: pulumi.String("refs/heads/master"),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -256,9 +256,9 @@ import (
 //			_, err = azuredevops.NewGitPermissions(ctx, "example-repo-permissions", &azuredevops.GitPermissionsArgs{
 //				ProjectId:    exampleGit.ProjectId,
 //				RepositoryId: exampleGit.ID(),
-//				Principal: example_project_administrators.ApplyT(func(example_project_administrators GetGroupResult) (string, error) {
-//					return example_project_administrators.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_project_administrators.ApplyT(func(example_project_administrators azuredevops.GetGroupResult) (*string, error) {
+//					return &example_project_administrators.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"RemoveOthersLocks": pulumi.String("Allow"),
 //					"ManagePermissions": pulumi.String("Deny"),
@@ -273,9 +273,9 @@ import (
 //				ProjectId:    exampleGit.ProjectId,
 //				RepositoryId: exampleGit.ID(),
 //				BranchName:   pulumi.String("master"),
-//				Principal: example_project_contributors.ApplyT(func(example_project_contributors GetGroupResult) (string, error) {
-//					return example_project_contributors.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_project_contributors.ApplyT(func(example_project_contributors azuredevops.GetGroupResult) (*string, error) {
+//					return &example_project_contributors.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"RemoveOthersLocks": pulumi.String("Allow"),
 //					"ForcePush":         pulumi.String("Deny"),

@@ -31,11 +31,8 @@ import * as utilities from "./utilities";
  * - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
  */
 export function getVariableGroup(args: GetVariableGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetVariableGroupResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getVariableGroup:getVariableGroup", {
         "name": args.name,
         "projectId": args.projectId,
@@ -86,9 +83,32 @@ export interface GetVariableGroupResult {
      */
     readonly variables: outputs.GetVariableGroupVariable[];
 }
-
+/**
+ * Use this data source to access information about existing Variable Groups within Azure DevOps.
+ *
+ * > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const exampleVariableGroup = exampleProject.then(exampleProject => azuredevops.getVariableGroup({
+ *     projectId: exampleProject.id,
+ *     name: "Example Variable Group",
+ * }));
+ * export const id = exampleVariableGroup.then(exampleVariableGroup => exampleVariableGroup.id);
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+ */
 export function getVariableGroupOutput(args: GetVariableGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariableGroupResult> {
-    return pulumi.output(args).apply(a => getVariableGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getVariableGroup(a, opts))
 }
 
 /**

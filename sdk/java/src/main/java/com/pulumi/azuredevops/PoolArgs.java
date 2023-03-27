@@ -32,6 +32,21 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+     * 
+     */
+    @Import(name="autoUpdate")
+    private @Nullable Output<Boolean> autoUpdate;
+
+    /**
+     * @return Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> autoUpdate() {
+        return Optional.ofNullable(this.autoUpdate);
+    }
+
+    /**
      * The name of the agent pool.
      * 
      */
@@ -65,6 +80,7 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
 
     private PoolArgs(PoolArgs $) {
         this.autoProvision = $.autoProvision;
+        this.autoUpdate = $.autoUpdate;
         this.name = $.name;
         this.poolType = $.poolType;
     }
@@ -106,6 +122,27 @@ public final class PoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder autoProvision(Boolean autoProvision) {
             return autoProvision(Output.of(autoProvision));
+        }
+
+        /**
+         * @param autoUpdate Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoUpdate(@Nullable Output<Boolean> autoUpdate) {
+            $.autoUpdate = autoUpdate;
+            return this;
+        }
+
+        /**
+         * @param autoUpdate Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoUpdate(Boolean autoUpdate) {
+            return autoUpdate(Output.of(autoUpdate));
         }
 
         /**

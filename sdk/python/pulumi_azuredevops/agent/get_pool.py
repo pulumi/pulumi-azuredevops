@@ -23,10 +23,13 @@ class GetPoolResult:
     """
     A collection of values returned by getPool.
     """
-    def __init__(__self__, auto_provision=None, id=None, name=None, pool_type=None):
+    def __init__(__self__, auto_provision=None, auto_update=None, id=None, name=None, pool_type=None):
         if auto_provision and not isinstance(auto_provision, bool):
             raise TypeError("Expected argument 'auto_provision' to be a bool")
         pulumi.set(__self__, "auto_provision", auto_provision)
+        if auto_update and not isinstance(auto_update, bool):
+            raise TypeError("Expected argument 'auto_update' to be a bool")
+        pulumi.set(__self__, "auto_update", auto_update)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -41,6 +44,11 @@ class GetPoolResult:
     @pulumi.getter(name="autoProvision")
     def auto_provision(self) -> bool:
         return pulumi.get(self, "auto_provision")
+
+    @property
+    @pulumi.getter(name="autoUpdate")
+    def auto_update(self) -> bool:
+        return pulumi.get(self, "auto_update")
 
     @property
     @pulumi.getter
@@ -68,6 +76,7 @@ class AwaitableGetPoolResult(GetPoolResult):
             yield self
         return GetPoolResult(
             auto_provision=self.auto_provision,
+            auto_update=self.auto_update,
             id=self.id,
             name=self.name,
             pool_type=self.pool_type)
@@ -88,6 +97,7 @@ def get_pool(name: Optional[str] = None,
     pulumi.export("name", example.name)
     pulumi.export("poolType", example.pool_type)
     pulumi.export("autoProvision", example.auto_provision)
+    pulumi.export("autoUpdate", example.auto_update)
     ```
     ## Relevant Links
 
@@ -104,6 +114,7 @@ def get_pool(name: Optional[str] = None,
 
     return AwaitableGetPoolResult(
         auto_provision=__ret__.auto_provision,
+        auto_update=__ret__.auto_update,
         id=__ret__.id,
         name=__ret__.name,
         pool_type=__ret__.pool_type)
@@ -125,6 +136,7 @@ def get_pool_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("name", example.name)
     pulumi.export("poolType", example.pool_type)
     pulumi.export("autoProvision", example.auto_provision)
+    pulumi.export("autoUpdate", example.auto_update)
     ```
     ## Relevant Links
 

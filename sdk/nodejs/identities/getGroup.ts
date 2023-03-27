@@ -35,11 +35,8 @@ import * as utilities from "../utilities";
 /** @deprecated azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
     pulumi.log.warn("getGroup is deprecated: azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:Identities/getGroup:getGroup", {
         "name": args.name,
         "projectId": args.projectId,
@@ -83,9 +80,37 @@ export interface GetGroupResult {
     readonly originId: string;
     readonly projectId?: string;
 }
-
+/**
+ * Use this data source to access information about an existing Group within Azure DevOps
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const exampleGroup = exampleProject.then(exampleProject => azuredevops.getGroup({
+ *     projectId: exampleProject.id,
+ *     name: "Example Group",
+ * }));
+ * export const groupId = exampleGroup.then(exampleGroup => exampleGroup.id);
+ * export const groupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * const example-collection-group = azuredevops.getGroup({
+ *     name: "Project Collection Administrators",
+ * });
+ * export const collectionGroupId = exampleGroup.then(exampleGroup => exampleGroup.id);
+ * export const collectionGroupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
+ */
+/** @deprecated azuredevops.identities.getGroup has been deprecated in favor of azuredevops.getGroup */
 export function getGroupOutput(args: GetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupResult> {
-    return pulumi.output(args).apply(a => getGroup(a, opts))
+    return pulumi.output(args).apply((a: any) => getGroup(a, opts))
 }
 
 /**

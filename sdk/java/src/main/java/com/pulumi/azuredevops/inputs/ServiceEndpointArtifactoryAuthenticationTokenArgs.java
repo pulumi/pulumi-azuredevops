@@ -17,7 +17,6 @@ public final class ServiceEndpointArtifactoryAuthenticationTokenArgs extends com
 
     /**
      * Authentication Token generated through Artifactory.
-     * * `authentication_basic`
      * 
      */
     @Import(name="token", required=true)
@@ -25,7 +24,6 @@ public final class ServiceEndpointArtifactoryAuthenticationTokenArgs extends com
 
     /**
      * @return Authentication Token generated through Artifactory.
-     * * `authentication_basic`
      * 
      */
     public Output<String> token() {
@@ -66,7 +64,6 @@ public final class ServiceEndpointArtifactoryAuthenticationTokenArgs extends com
 
         /**
          * @param token Authentication Token generated through Artifactory.
-         * * `authentication_basic`
          * 
          * @return builder
          * 
@@ -78,7 +75,6 @@ public final class ServiceEndpointArtifactoryAuthenticationTokenArgs extends com
 
         /**
          * @param token Authentication Token generated through Artifactory.
-         * * `authentication_basic`
          * 
          * @return builder
          * 

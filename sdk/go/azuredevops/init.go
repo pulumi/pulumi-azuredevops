@@ -44,12 +44,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BuildFolder{}
 	case "azuredevops:index/buildFolderPermissions:BuildFolderPermissions":
 		r = &BuildFolderPermissions{}
+	case "azuredevops:index/checkBranchControl:CheckBranchControl":
+		r = &CheckBranchControl{}
+	case "azuredevops:index/checkBusinessHours:CheckBusinessHours":
+		r = &CheckBusinessHours{}
 	case "azuredevops:index/environment:Environment":
 		r = &Environment{}
 	case "azuredevops:index/git:Git":
 		r = &Git{}
 	case "azuredevops:index/gitPermissions:GitPermissions":
 		r = &GitPermissions{}
+	case "azuredevops:index/gitRepositoryBranch:GitRepositoryBranch":
+		r = &GitRepositoryBranch{}
 	case "azuredevops:index/gitRepositoryFile:GitRepositoryFile":
 		r = &GitRepositoryFile{}
 	case "azuredevops:index/group:Group":
@@ -124,6 +130,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceEndpointSsh{}
 	case "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd":
 		r = &ServiceendpointArgocd{}
+	case "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs":
+		r = &ServiceendpointExternaltfs{}
 	case "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook":
 		r = &ServiceendpointIncomingwebhook{}
 	case "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy":
@@ -146,6 +154,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &VariableGroup{}
 	case "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions":
 		r = &WorkItemQueryPermissions{}
+	case "azuredevops:index/workitem:Workitem":
+		r = &Workitem{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -236,6 +246,16 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/checkBranchControl",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/checkBusinessHours",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/environment",
 		&module{version},
 	)
@@ -247,6 +267,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/gitPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/gitRepositoryBranch",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -436,6 +461,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/serviceendpointExternaltfs",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/serviceendpointIncomingwebhook",
 		&module{version},
 	)
@@ -487,6 +517,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/workItemQueryPermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/workitem",
 		&module{version},
 	)
 	pulumi.RegisterResourcePackage(

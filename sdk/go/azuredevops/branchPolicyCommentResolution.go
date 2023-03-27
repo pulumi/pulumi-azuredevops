@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,7 +33,7 @@ import (
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -44,19 +44,19 @@ import (
 //				ProjectId: exampleProject.ID(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
-//				Settings: &BranchPolicyCommentResolutionSettingsArgs{
-//					Scopes: BranchPolicyCommentResolutionSettingsScopeArray{
-//						&BranchPolicyCommentResolutionSettingsScopeArgs{
+//				Settings: &azuredevops.BranchPolicyCommentResolutionSettingsArgs{
+//					Scopes: azuredevops.BranchPolicyCommentResolutionSettingsScopeArray{
+//						&azuredevops.BranchPolicyCommentResolutionSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},
-//						&BranchPolicyCommentResolutionSettingsScopeArgs{
+//						&azuredevops.BranchPolicyCommentResolutionSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: pulumi.String("refs/heads/releases"),
 //							MatchType:     pulumi.String("Prefix"),
 //						},
-//						&BranchPolicyCommentResolutionSettingsScopeArgs{
+//						&azuredevops.BranchPolicyCommentResolutionSettingsScopeArgs{
 //							MatchType: pulumi.String("DefaultBranch"),
 //						},
 //					},

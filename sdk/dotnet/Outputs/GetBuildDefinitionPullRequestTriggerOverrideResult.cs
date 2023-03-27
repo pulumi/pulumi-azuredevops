@@ -13,13 +13,16 @@ namespace Pulumi.AzureDevOps.Outputs
     [OutputType]
     public sealed class GetBuildDefinitionPullRequestTriggerOverrideResult
     {
+        /// <summary>
+        /// Should further updates to a PR cancel an in progress validation?
+        /// </summary>
         public readonly bool AutoCancel;
         /// <summary>
         /// A `branch_filter` block as defined above.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerOverrideBranchFilterResult> BranchFilters;
         /// <summary>
-        /// The file paths to include or exclude.
+        /// block supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionPullRequestTriggerOverridePathFilterResult> PathFilters;
 

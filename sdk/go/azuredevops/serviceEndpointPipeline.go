@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,7 +40,7 @@ import (
 //				ProjectId:           exampleProject.ID(),
 //				ServiceEndpointName: pulumi.String("Example Pipeline Runner"),
 //				OrganizationName:    pulumi.String("Organization Name"),
-//				AuthPersonal: &ServiceEndpointPipelineAuthPersonalArgs{
+//				AuthPersonal: &azuredevops.ServiceEndpointPipelineAuthPersonalArgs{
 //					PersonalAccessToken: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 //				},
 //				Description: pulumi.String("Managed by Terraform"),

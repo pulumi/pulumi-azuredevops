@@ -27,7 +27,7 @@ public final class AgentFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Agent.inputs.GetPoolArgs;
+     * import com.pulumi.azuredevops.inputs.GetPoolArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -48,6 +48,7 @@ public final class AgentFunctions {
      *         ctx.export(&#34;name&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.name()));
      *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.poolType()));
      *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoProvision()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoUpdate()));
      *     }
      * }
      * ```
@@ -74,7 +75,7 @@ public final class AgentFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Agent.inputs.GetPoolArgs;
+     * import com.pulumi.azuredevops.inputs.GetPoolArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -95,6 +96,7 @@ public final class AgentFunctions {
      *         ctx.export(&#34;name&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.name()));
      *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.poolType()));
      *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoProvision()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoUpdate()));
      *     }
      * }
      * ```
@@ -121,7 +123,7 @@ public final class AgentFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Agent.inputs.GetPoolArgs;
+     * import com.pulumi.azuredevops.inputs.GetPoolArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -142,6 +144,7 @@ public final class AgentFunctions {
      *         ctx.export(&#34;name&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.name()));
      *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.poolType()));
      *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoProvision()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoUpdate()));
      *     }
      * }
      * ```
@@ -168,7 +171,7 @@ public final class AgentFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Agent.inputs.GetPoolArgs;
+     * import com.pulumi.azuredevops.inputs.GetPoolArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -189,6 +192,7 @@ public final class AgentFunctions {
      *         ctx.export(&#34;name&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.name()));
      *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.poolType()));
      *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoProvision()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolResult -&gt; getPoolResult.autoUpdate()));
      *     }
      * }
      * ```
@@ -207,6 +211,36 @@ public final class AgentFunctions {
     /**
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getPools();
+     * 
+     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
+     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
+     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *     }
+     * }
+     * ```
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
@@ -222,6 +256,36 @@ public final class AgentFunctions {
     /**
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getPools();
+     * 
+     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
+     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
+     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *     }
+     * }
+     * ```
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
@@ -237,6 +301,36 @@ public final class AgentFunctions {
     /**
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getPools();
+     * 
+     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
+     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
+     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *     }
+     * }
+     * ```
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
@@ -252,6 +346,36 @@ public final class AgentFunctions {
     /**
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getPools();
+     * 
+     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
+     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
+     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *     }
+     * }
+     * ```
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
@@ -267,6 +391,36 @@ public final class AgentFunctions {
     /**
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getPools();
+     * 
+     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
+     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
+     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *     }
+     * }
+     * ```
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
@@ -282,6 +436,36 @@ public final class AgentFunctions {
     /**
      * Use this data source to access information about existing Agent Pools within Azure DevOps.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getPools();
+     * 
+     *         ctx.export(&#34;agentPoolName&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.name()).collect(toList()));
+     *         ctx.export(&#34;autoProvision&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoProvision()).collect(toList()));
+     *         ctx.export(&#34;autoUpdate&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.autoUpdate()).collect(toList()));
+     *         ctx.export(&#34;poolType&#34;, example.applyValue(getPoolsResult -&gt; getPoolsResult.agentPools()).stream().map(element -&gt; element.poolType()).collect(toList()));
+     *     }
+     * }
+     * ```
      * ## Relevant Links
      * 
      * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)

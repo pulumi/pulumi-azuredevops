@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -22,7 +22,7 @@ import (
 // import (
 //
 //	"encoding/base64"
-//	"io/ioutil"
+//	"os"
 //
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -30,7 +30,7 @@ import (
 // )
 //
 //	func filebase64OrPanic(path string) pulumi.StringPtrInput {
-//		if fileData, err := ioutil.ReadFile(path); err == nil {
+//		if fileData, err := os.ReadFile(path); err == nil {
 //			return pulumi.String(base64.StdEncoding.EncodeToString(fileData[:]))
 //		} else {
 //			panic(err.Error())
@@ -53,7 +53,7 @@ import (
 //				ServiceEndpointName: pulumi.String("Example Service Fabric"),
 //				Description:         pulumi.String("Managed by Terraform"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),
-//				Certificate: &ServiceEndpointServiceFabricCertificateArgs{
+//				Certificate: &azuredevops.ServiceEndpointServiceFabricCertificateArgs{
 //					ServerCertificateLookup:     pulumi.String("Thumbprint"),
 //					ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
 //					ClientCertificate:           filebase64OrPanic("certificate.pfx"),
@@ -95,7 +95,7 @@ import (
 //				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
 //				Description:         pulumi.String("Managed by Terraform"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),
-//				AzureActiveDirectory: &ServiceEndpointServiceFabricAzureActiveDirectoryArgs{
+//				AzureActiveDirectory: &azuredevops.ServiceEndpointServiceFabricAzureActiveDirectoryArgs{
 //					ServerCertificateLookup:     pulumi.String("Thumbprint"),
 //					ServerCertificateThumbprint: pulumi.String("0000000000000000000000000000000000000000"),
 //					Username:                    pulumi.String("username"),
@@ -137,7 +137,7 @@ import (
 //				ServiceEndpointName: pulumi.String("Sample Service Fabric"),
 //				Description:         pulumi.String("Managed by Terraform"),
 //				ClusterEndpoint:     pulumi.String("tcp://test"),
-//				None: &ServiceEndpointServiceFabricNoneArgs{
+//				None: &azuredevops.ServiceEndpointServiceFabricNoneArgs{
 //					Unsecured:  pulumi.Bool(false),
 //					ClusterSpn: pulumi.String("HTTP/www.contoso.com"),
 //				},

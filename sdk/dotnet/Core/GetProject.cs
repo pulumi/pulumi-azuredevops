@@ -33,7 +33,7 @@ namespace Pulumi.AzureDevOps.Core
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["project"] = example.Apply(getProjectResult =&gt; getProjectResult),
+        ///         ["project"] = example,
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.AzureDevOps.Core
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["project"] = example.Apply(getProjectResult =&gt; getProjectResult),
+        ///         ["project"] = example,
         ///     };
         /// });
         /// ```

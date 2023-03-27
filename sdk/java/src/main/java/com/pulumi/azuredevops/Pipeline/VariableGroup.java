@@ -205,14 +205,14 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * -(Optional) A list of `key_vault` blocks as documented below.
+     * A list of `key_vault` blocks as documented below.
      * 
      */
     @Export(name="keyVault", type=VariableGroupKeyVault.class, parameters={})
     private Output</* @Nullable */ VariableGroupKeyVault> keyVault;
 
     /**
-     * @return -(Optional) A list of `key_vault` blocks as documented below.
+     * @return A list of `key_vault` blocks as documented below.
      * 
      */
     public Output<Optional<VariableGroupKeyVault>> keyVault() {

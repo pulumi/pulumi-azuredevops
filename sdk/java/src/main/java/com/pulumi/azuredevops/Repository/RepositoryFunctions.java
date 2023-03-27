@@ -26,8 +26,8 @@ public final class RepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Repository.inputs.GetRepositoriesArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -82,8 +82,8 @@ public final class RepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Repository.inputs.GetRepositoriesArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -138,8 +138,8 @@ public final class RepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Repository.inputs.GetRepositoriesArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -194,8 +194,8 @@ public final class RepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Repository.inputs.GetRepositoriesArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -250,8 +250,8 @@ public final class RepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Repository.inputs.GetRepositoriesArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -306,8 +306,8 @@ public final class RepositoryFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Repository.inputs.GetRepositoriesArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetRepositoriesArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

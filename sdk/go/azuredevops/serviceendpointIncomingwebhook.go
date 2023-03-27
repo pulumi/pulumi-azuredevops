@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -96,7 +96,7 @@ func NewServiceendpointIncomingwebhook(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'WebhookName'")
 	}
 	if args.Secret != nil {
-		args.Secret = pulumi.ToSecret(args.Secret).(pulumi.StringPtrOutput)
+		args.Secret = pulumi.ToSecret(args.Secret).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"secret",

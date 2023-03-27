@@ -15,6 +15,7 @@ import * as utilities from "./utilities";
  *
  * const example = new azuredevops.Pool("example", {
  *     autoProvision: false,
+ *     autoUpdate: false,
  * });
  * ```
  * ## Relevant Links
@@ -62,6 +63,10 @@ export class Pool extends pulumi.CustomResource {
      */
     public readonly autoProvision!: pulumi.Output<boolean | undefined>;
     /**
+     * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+     */
+    public readonly autoUpdate!: pulumi.Output<boolean | undefined>;
+    /**
      * The name of the agent pool.
      */
     public readonly name!: pulumi.Output<string>;
@@ -84,11 +89,13 @@ export class Pool extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as PoolState | undefined;
             resourceInputs["autoProvision"] = state ? state.autoProvision : undefined;
+            resourceInputs["autoUpdate"] = state ? state.autoUpdate : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["poolType"] = state ? state.poolType : undefined;
         } else {
             const args = argsOrState as PoolArgs | undefined;
             resourceInputs["autoProvision"] = args ? args.autoProvision : undefined;
+            resourceInputs["autoUpdate"] = args ? args.autoUpdate : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["poolType"] = args ? args.poolType : undefined;
         }
@@ -108,6 +115,10 @@ export interface PoolState {
      */
     autoProvision?: pulumi.Input<boolean>;
     /**
+     * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+     */
+    autoUpdate?: pulumi.Input<boolean>;
+    /**
      * The name of the agent pool.
      */
     name?: pulumi.Input<string>;
@@ -125,6 +136,10 @@ export interface PoolArgs {
      * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      */
     autoProvision?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+     */
+    autoUpdate?: pulumi.Input<boolean>;
     /**
      * The name of the agent pool.
      */

@@ -401,7 +401,7 @@ class BuildDefinition(pulumi.CustomResource):
             project_id=example_project.id,
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=True,
+                use_yaml=False,
             ),
             schedules=[azuredevops.BuildDefinitionScheduleArgs(
                 branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
@@ -460,7 +460,7 @@ class BuildDefinition(pulumi.CustomResource):
             project_id=example_project.id,
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=True,
+                use_yaml=False,
             ),
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="GitHubEnterprise",
@@ -565,7 +565,7 @@ class BuildDefinition(pulumi.CustomResource):
             project_id=example_project.id,
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=True,
+                use_yaml=False,
             ),
             schedules=[azuredevops.BuildDefinitionScheduleArgs(
                 branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
@@ -624,7 +624,7 @@ class BuildDefinition(pulumi.CustomResource):
             project_id=example_project.id,
             path="\\\\ExampleFolder",
             ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=True,
+                use_yaml=False,
             ),
             repository=azuredevops.BuildDefinitionRepositoryArgs(
                 repo_type="GitHubEnterprise",

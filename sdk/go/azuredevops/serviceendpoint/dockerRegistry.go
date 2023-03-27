@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -122,7 +122,7 @@ func NewDockerRegistry(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	if args.DockerPassword != nil {
-		args.DockerPassword = pulumi.ToSecret(args.DockerPassword).(pulumi.StringPtrOutput)
+		args.DockerPassword = pulumi.ToSecret(args.DockerPassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"dockerPassword",

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,7 +33,7 @@ import (
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -42,7 +42,7 @@ import (
 //			}
 //			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
 //				ProjectId: exampleProject.ID(),
-//				Repository: &BuildDefinitionRepositoryArgs{
+//				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType: pulumi.String("TfsGit"),
 //					RepoId:   exampleGit.ID(),
 //					YmlPath:  pulumi.String("azure-pipelines.yml"),
@@ -55,7 +55,7 @@ import (
 //				ProjectId: exampleProject.ID(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
-//				Settings: &BranchPolicyBuildValidationSettingsArgs{
+//				Settings: &azuredevops.BranchPolicyBuildValidationSettingsArgs{
 //					DisplayName:       pulumi.String("Example build validation policy"),
 //					BuildDefinitionId: exampleBuildDefinition.ID(),
 //					ValidDuration:     pulumi.Int(720),
@@ -64,18 +64,18 @@ import (
 //						pulumi.String("!/WebApp/Tests/*"),
 //						pulumi.String("*.cs"),
 //					},
-//					Scopes: BranchPolicyBuildValidationSettingsScopeArray{
-//						&BranchPolicyBuildValidationSettingsScopeArgs{
+//					Scopes: azuredevops.BranchPolicyBuildValidationSettingsScopeArray{
+//						&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},
-//						&BranchPolicyBuildValidationSettingsScopeArgs{
+//						&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: pulumi.String("refs/heads/releases"),
 //							MatchType:     pulumi.String("Prefix"),
 //						},
-//						&BranchPolicyBuildValidationSettingsScopeArgs{
+//						&azuredevops.BranchPolicyBuildValidationSettingsScopeArgs{
 //							MatchType: pulumi.String("DefaultBranch"),
 //						},
 //					},

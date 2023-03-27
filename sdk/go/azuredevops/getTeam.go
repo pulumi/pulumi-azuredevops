@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_ = azuredevops.LookupTeamOutput(ctx, GetTeamOutputArgs{
+//			_ = azuredevops.LookupTeamOutput(ctx, azuredevops.GetTeamOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Example Project Team"),
 //			}, nil)

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,13 +38,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -54,10 +54,10 @@ import (
 //			exampleBuildDefinition, err := azuredevops.NewBuildDefinition(ctx, "exampleBuildDefinition", &azuredevops.BuildDefinitionArgs{
 //				ProjectId: exampleProject.ID(),
 //				Path:      pulumi.String("\\ExampleFolder"),
-//				CiTrigger: &BuildDefinitionCiTriggerArgs{
+//				CiTrigger: &azuredevops.BuildDefinitionCiTriggerArgs{
 //					UseYaml: pulumi.Bool(true),
 //				},
-//				Repository: &BuildDefinitionRepositoryArgs{
+//				Repository: &azuredevops.BuildDefinitionRepositoryArgs{
 //					RepoType:   pulumi.String("TfsGit"),
 //					RepoId:     exampleGit.ID(),
 //					BranchName: exampleGit.DefaultBranch,
@@ -69,9 +69,9 @@ import (
 //			}
 //			_, err = azuredevops.NewBuildDefinitionPermissions(ctx, "exampleBuildDefinitionPermissions", &azuredevops.BuildDefinitionPermissionsArgs{
 //				ProjectId: exampleProject.ID(),
-//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				BuildDefinitionId: exampleBuildDefinition.ID(),
 //				Permissions: pulumi.StringMap{
 //					"ViewBuilds":       pulumi.String("Allow"),

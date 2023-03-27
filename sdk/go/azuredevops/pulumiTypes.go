@@ -15,6 +15,8 @@ type BranchPolicyAutoReviewersSettings struct {
 	AutoReviewerIds []string `pulumi:"autoReviewerIds"`
 	// Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
 	Message *string `pulumi:"message"`
+	// Minimum number of required reviewers. Defaults to `1`.
+	MinimumNumberOfReviewers *int `pulumi:"minimumNumberOfReviewers"`
 	// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
 	PathFilters []string `pulumi:"pathFilters"`
 	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
@@ -39,6 +41,8 @@ type BranchPolicyAutoReviewersSettingsArgs struct {
 	AutoReviewerIds pulumi.StringArrayInput `pulumi:"autoReviewerIds"`
 	// Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
 	Message pulumi.StringPtrInput `pulumi:"message"`
+	// Minimum number of required reviewers. Defaults to `1`.
+	MinimumNumberOfReviewers pulumi.IntPtrInput `pulumi:"minimumNumberOfReviewers"`
 	// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
 	PathFilters pulumi.StringArrayInput `pulumi:"pathFilters"`
 	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
@@ -134,6 +138,11 @@ func (o BranchPolicyAutoReviewersSettingsOutput) Message() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) *string { return v.Message }).(pulumi.StringPtrOutput)
 }
 
+// Minimum number of required reviewers. Defaults to `1`.
+func (o BranchPolicyAutoReviewersSettingsOutput) MinimumNumberOfReviewers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) *int { return v.MinimumNumberOfReviewers }).(pulumi.IntPtrOutput)
+}
+
 // Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
 func (o BranchPolicyAutoReviewersSettingsOutput) PathFilters() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) []string { return v.PathFilters }).(pulumi.StringArrayOutput)
@@ -191,6 +200,16 @@ func (o BranchPolicyAutoReviewersSettingsPtrOutput) Message() pulumi.StringPtrOu
 		}
 		return v.Message
 	}).(pulumi.StringPtrOutput)
+}
+
+// Minimum number of required reviewers. Defaults to `1`.
+func (o BranchPolicyAutoReviewersSettingsPtrOutput) MinimumNumberOfReviewers() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MinimumNumberOfReviewers
+	}).(pulumi.IntPtrOutput)
 }
 
 // Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
@@ -3936,13 +3955,159 @@ func (o BuildDefinitionRepositoryPtrOutput) YmlPath() pulumi.StringPtrOutput {
 type BuildDefinitionSchedule struct {
 	// block supports the following:
 	BranchFilters []BuildDefinitionScheduleBranchFilter `pulumi:"branchFilters"`
-	DaysToBuilds  []string                              `pulumi:"daysToBuilds"`
+	// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+	DaysToBuilds []string `pulumi:"daysToBuilds"`
 	// The ID of the schedule job
-	ScheduleJobId           *string `pulumi:"scheduleJobId"`
-	ScheduleOnlyWithChanges *bool   `pulumi:"scheduleOnlyWithChanges"`
-	StartHours              *int    `pulumi:"startHours"`
-	StartMinutes            *int    `pulumi:"startMinutes"`
-	TimeZone                *string `pulumi:"timeZone"`
+	ScheduleJobId *string `pulumi:"scheduleJobId"`
+	// Schedule builds if the source or pipeline has changed. Defaults to `true`.
+	ScheduleOnlyWithChanges *bool `pulumi:"scheduleOnlyWithChanges"`
+	// Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+	StartHours *int `pulumi:"startHours"`
+	// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+	StartMinutes *int `pulumi:"startMinutes"`
+	// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+	// `(UTC-12:00) International Date Line West`,
+	// `(UTC-11:00) Coordinated Universal Time-11`,
+	// `(UTC-10:00) Aleutian Islands`,
+	// `(UTC-10:00) Hawaii`,
+	// `(UTC-09:30) Marquesas Islands`,
+	// `(UTC-09:00) Alaska`,
+	// `(UTC-09:00) Coordinated Universal Time-09`,
+	// `(UTC-08:00) Baja California`,
+	// `(UTC-08:00) Coordinated Universal Time-08`,
+	// `(UTC-08:00) Pacific Time (US &Canada)`,
+	// `(UTC-07:00) Arizona`,
+	// `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
+	// `(UTC-07:00) Mountain Time (US &Canada)`,
+	// `(UTC-07:00) Yukon`,
+	// `(UTC-06:00) Central America`,
+	// `(UTC-06:00) Central Time (US &Canada)`,
+	// `(UTC-06:00) Easter Island`,
+	// `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
+	// `(UTC-06:00) Saskatchewan`,
+	// `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
+	// `(UTC-05:00) Chetumal`,
+	// `(UTC-05:00) Eastern Time (US &Canada)`,
+	// `(UTC-05:00) Haiti`,
+	// `(UTC-05:00) Havana`,
+	// `(UTC-05:00) Indiana (East)`,
+	// `(UTC-05:00) Turks and Caicos`,
+	// `(UTC-04:00) Asuncion`,
+	// `(UTC-04:00) Atlantic Time (Canada)`,
+	// `(UTC-04:00) Caracas`,
+	// `(UTC-04:00) Cuiaba`,
+	// `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
+	// `(UTC-04:00) Santiago`,
+	// `(UTC-03:30) Newfoundland`,
+	// `(UTC-03:00) Araguaina`,
+	// `(UTC-03:00) Brasilia`,
+	// `(UTC-03:00) Cayenne, Fortaleza`,
+	// `(UTC-03:00) City of Buenos Aires`,
+	// `(UTC-03:00) Greenland`,
+	// `(UTC-03:00) Montevideo`,
+	// `(UTC-03:00) Punta Arenas`,
+	// `(UTC-03:00) Saint Pierre and Miquelon`,
+	// `(UTC-03:00) Salvador`,
+	// `(UTC-02:00) Coordinated Universal Time-02`,
+	// `(UTC-02:00) Mid-Atlantic - Old`,
+	// `(UTC-01:00) Azores`,
+	// `(UTC-01:00) Cabo Verde Is.`,
+	// `(UTC) Coordinated Universal Time`,
+	// `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
+	// `(UTC+00:00) Monrovia, Reykjavik`,
+	// `(UTC+00:00) Sao Tome`,
+	// `(UTC+01:00) Casablanca`,
+	// `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
+	// `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
+	// `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
+	// `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
+	// `(UTC+01:00) West Central Africa`,
+	// `(UTC+02:00) Amman`,
+	// `(UTC+02:00) Athens, Bucharest`,
+	// `(UTC+02:00) Beirut`,
+	// `(UTC+02:00) Cairo`,
+	// `(UTC+02:00) Chisinau`,
+	// `(UTC+02:00) Damascus`,
+	// `(UTC+02:00) Gaza, Hebron`,
+	// `(UTC+02:00) Harare, Pretoria`,
+	// `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
+	// `(UTC+02:00) Jerusalem`,
+	// `(UTC+02:00) Juba`,
+	// `(UTC+02:00) Kaliningrad`,
+	// `(UTC+02:00) Khartoum`,
+	// `(UTC+02:00) Tripoli`,
+	// `(UTC+02:00) Windhoek`,
+	// `(UTC+03:00) Baghdad`,
+	// `(UTC+03:00) Istanbul`,
+	// `(UTC+03:00) Kuwait, Riyadh`,
+	// `(UTC+03:00) Minsk`,
+	// `(UTC+03:00) Moscow, St. Petersburg`,
+	// `(UTC+03:00) Nairobi`,
+	// `(UTC+03:00) Volgograd`,
+	// `(UTC+03:30) Tehran`,
+	// `(UTC+04:00) Abu Dhabi, Muscat`,
+	// `(UTC+04:00) Astrakhan, Ulyanovsk`,
+	// `(UTC+04:00) Baku`,
+	// `(UTC+04:00) Izhevsk, Samara`,
+	// `(UTC+04:00) Port Louis`,
+	// `(UTC+04:00) Saratov`,
+	// `(UTC+04:00) Tbilisi`,
+	// `(UTC+04:00) Yerevan`,
+	// `(UTC+04:30) Kabul`,
+	// `(UTC+05:00) Ashgabat, Tashkent`,
+	// `(UTC+05:00) Ekaterinburg`,
+	// `(UTC+05:00) Islamabad, Karachi`,
+	// `(UTC+05:00) Qyzylorda`,
+	// `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
+	// `(UTC+05:30) Sri Jayawardenepura`,
+	// `(UTC+05:45) Kathmandu`,
+	// `(UTC+06:00) Astana`,
+	// `(UTC+06:00) Dhaka`,
+	// `(UTC+06:00) Omsk`,
+	// `(UTC+06:30) Yangon (Rangoon)`,
+	// `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
+	// `(UTC+07:00) Barnaul, Gorno-Altaysk`,
+	// `(UTC+07:00) Hovd`,
+	// `(UTC+07:00) Krasnoyarsk`,
+	// `(UTC+07:00) Novosibirsk`,
+	// `(UTC+07:00) Tomsk`,
+	// `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
+	// `(UTC+08:00) Irkutsk`,
+	// `(UTC+08:00) Kuala Lumpur, Singapore`,
+	// `(UTC+08:00) Perth`,
+	// `(UTC+08:00) Taipei`,
+	// `(UTC+08:00) Ulaanbaatar`,
+	// `(UTC+08:45) Eucla`,
+	// `(UTC+09:00) Chita`,
+	// `(UTC+09:00) Osaka, Sapporo, Tokyo`,
+	// `(UTC+09:00) Pyongyang`,
+	// `(UTC+09:00) Seoul`,
+	// `(UTC+09:00) Yakutsk`,
+	// `(UTC+09:30) Adelaide`,
+	// `(UTC+09:30) Darwin`,
+	// `(UTC+10:00) Brisbane`,
+	// `(UTC+10:00) Canberra, Melbourne, Sydney`,
+	// `(UTC+10:00) Guam, Port Moresby`,
+	// `(UTC+10:00) Hobart`,
+	// `(UTC+10:00) Vladivostok`,
+	// `(UTC+10:30) Lord Howe Island`,
+	// `(UTC+11:00) Bougainville Island`,
+	// `(UTC+11:00) Chokurdakh`,
+	// `(UTC+11:00) Magadan`,
+	// `(UTC+11:00) Norfolk Island`,
+	// `(UTC+11:00) Sakhalin`,
+	// `(UTC+11:00) Solomon Is., New Caledonia`,
+	// `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
+	// `(UTC+12:00) Auckland, Wellington`,
+	// `(UTC+12:00) Coordinated Universal Time+12`,
+	// `(UTC+12:00) Fiji`,
+	// `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
+	// `(UTC+12:45) Chatham Islands`,
+	// `(UTC+13:00) Coordinated Universal Time+13`,
+	// `(UTC+13:00) Nuku'alofa`,
+	// `(UTC+13:00) Samoa`,
+	// `(UTC+14:00) Kiritimati Island`.
+	TimeZone *string `pulumi:"timeZone"`
 }
 
 // BuildDefinitionScheduleInput is an input type that accepts BuildDefinitionScheduleArgs and BuildDefinitionScheduleOutput values.
@@ -3959,13 +4124,159 @@ type BuildDefinitionScheduleInput interface {
 type BuildDefinitionScheduleArgs struct {
 	// block supports the following:
 	BranchFilters BuildDefinitionScheduleBranchFilterArrayInput `pulumi:"branchFilters"`
-	DaysToBuilds  pulumi.StringArrayInput                       `pulumi:"daysToBuilds"`
+	// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
+	DaysToBuilds pulumi.StringArrayInput `pulumi:"daysToBuilds"`
 	// The ID of the schedule job
-	ScheduleJobId           pulumi.StringPtrInput `pulumi:"scheduleJobId"`
-	ScheduleOnlyWithChanges pulumi.BoolPtrInput   `pulumi:"scheduleOnlyWithChanges"`
-	StartHours              pulumi.IntPtrInput    `pulumi:"startHours"`
-	StartMinutes            pulumi.IntPtrInput    `pulumi:"startMinutes"`
-	TimeZone                pulumi.StringPtrInput `pulumi:"timeZone"`
+	ScheduleJobId pulumi.StringPtrInput `pulumi:"scheduleJobId"`
+	// Schedule builds if the source or pipeline has changed. Defaults to `true`.
+	ScheduleOnlyWithChanges pulumi.BoolPtrInput `pulumi:"scheduleOnlyWithChanges"`
+	// Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
+	StartHours pulumi.IntPtrInput `pulumi:"startHours"`
+	// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
+	StartMinutes pulumi.IntPtrInput `pulumi:"startMinutes"`
+	// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+	// `(UTC-12:00) International Date Line West`,
+	// `(UTC-11:00) Coordinated Universal Time-11`,
+	// `(UTC-10:00) Aleutian Islands`,
+	// `(UTC-10:00) Hawaii`,
+	// `(UTC-09:30) Marquesas Islands`,
+	// `(UTC-09:00) Alaska`,
+	// `(UTC-09:00) Coordinated Universal Time-09`,
+	// `(UTC-08:00) Baja California`,
+	// `(UTC-08:00) Coordinated Universal Time-08`,
+	// `(UTC-08:00) Pacific Time (US &Canada)`,
+	// `(UTC-07:00) Arizona`,
+	// `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
+	// `(UTC-07:00) Mountain Time (US &Canada)`,
+	// `(UTC-07:00) Yukon`,
+	// `(UTC-06:00) Central America`,
+	// `(UTC-06:00) Central Time (US &Canada)`,
+	// `(UTC-06:00) Easter Island`,
+	// `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
+	// `(UTC-06:00) Saskatchewan`,
+	// `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
+	// `(UTC-05:00) Chetumal`,
+	// `(UTC-05:00) Eastern Time (US &Canada)`,
+	// `(UTC-05:00) Haiti`,
+	// `(UTC-05:00) Havana`,
+	// `(UTC-05:00) Indiana (East)`,
+	// `(UTC-05:00) Turks and Caicos`,
+	// `(UTC-04:00) Asuncion`,
+	// `(UTC-04:00) Atlantic Time (Canada)`,
+	// `(UTC-04:00) Caracas`,
+	// `(UTC-04:00) Cuiaba`,
+	// `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
+	// `(UTC-04:00) Santiago`,
+	// `(UTC-03:30) Newfoundland`,
+	// `(UTC-03:00) Araguaina`,
+	// `(UTC-03:00) Brasilia`,
+	// `(UTC-03:00) Cayenne, Fortaleza`,
+	// `(UTC-03:00) City of Buenos Aires`,
+	// `(UTC-03:00) Greenland`,
+	// `(UTC-03:00) Montevideo`,
+	// `(UTC-03:00) Punta Arenas`,
+	// `(UTC-03:00) Saint Pierre and Miquelon`,
+	// `(UTC-03:00) Salvador`,
+	// `(UTC-02:00) Coordinated Universal Time-02`,
+	// `(UTC-02:00) Mid-Atlantic - Old`,
+	// `(UTC-01:00) Azores`,
+	// `(UTC-01:00) Cabo Verde Is.`,
+	// `(UTC) Coordinated Universal Time`,
+	// `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
+	// `(UTC+00:00) Monrovia, Reykjavik`,
+	// `(UTC+00:00) Sao Tome`,
+	// `(UTC+01:00) Casablanca`,
+	// `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
+	// `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
+	// `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
+	// `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
+	// `(UTC+01:00) West Central Africa`,
+	// `(UTC+02:00) Amman`,
+	// `(UTC+02:00) Athens, Bucharest`,
+	// `(UTC+02:00) Beirut`,
+	// `(UTC+02:00) Cairo`,
+	// `(UTC+02:00) Chisinau`,
+	// `(UTC+02:00) Damascus`,
+	// `(UTC+02:00) Gaza, Hebron`,
+	// `(UTC+02:00) Harare, Pretoria`,
+	// `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
+	// `(UTC+02:00) Jerusalem`,
+	// `(UTC+02:00) Juba`,
+	// `(UTC+02:00) Kaliningrad`,
+	// `(UTC+02:00) Khartoum`,
+	// `(UTC+02:00) Tripoli`,
+	// `(UTC+02:00) Windhoek`,
+	// `(UTC+03:00) Baghdad`,
+	// `(UTC+03:00) Istanbul`,
+	// `(UTC+03:00) Kuwait, Riyadh`,
+	// `(UTC+03:00) Minsk`,
+	// `(UTC+03:00) Moscow, St. Petersburg`,
+	// `(UTC+03:00) Nairobi`,
+	// `(UTC+03:00) Volgograd`,
+	// `(UTC+03:30) Tehran`,
+	// `(UTC+04:00) Abu Dhabi, Muscat`,
+	// `(UTC+04:00) Astrakhan, Ulyanovsk`,
+	// `(UTC+04:00) Baku`,
+	// `(UTC+04:00) Izhevsk, Samara`,
+	// `(UTC+04:00) Port Louis`,
+	// `(UTC+04:00) Saratov`,
+	// `(UTC+04:00) Tbilisi`,
+	// `(UTC+04:00) Yerevan`,
+	// `(UTC+04:30) Kabul`,
+	// `(UTC+05:00) Ashgabat, Tashkent`,
+	// `(UTC+05:00) Ekaterinburg`,
+	// `(UTC+05:00) Islamabad, Karachi`,
+	// `(UTC+05:00) Qyzylorda`,
+	// `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
+	// `(UTC+05:30) Sri Jayawardenepura`,
+	// `(UTC+05:45) Kathmandu`,
+	// `(UTC+06:00) Astana`,
+	// `(UTC+06:00) Dhaka`,
+	// `(UTC+06:00) Omsk`,
+	// `(UTC+06:30) Yangon (Rangoon)`,
+	// `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
+	// `(UTC+07:00) Barnaul, Gorno-Altaysk`,
+	// `(UTC+07:00) Hovd`,
+	// `(UTC+07:00) Krasnoyarsk`,
+	// `(UTC+07:00) Novosibirsk`,
+	// `(UTC+07:00) Tomsk`,
+	// `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
+	// `(UTC+08:00) Irkutsk`,
+	// `(UTC+08:00) Kuala Lumpur, Singapore`,
+	// `(UTC+08:00) Perth`,
+	// `(UTC+08:00) Taipei`,
+	// `(UTC+08:00) Ulaanbaatar`,
+	// `(UTC+08:45) Eucla`,
+	// `(UTC+09:00) Chita`,
+	// `(UTC+09:00) Osaka, Sapporo, Tokyo`,
+	// `(UTC+09:00) Pyongyang`,
+	// `(UTC+09:00) Seoul`,
+	// `(UTC+09:00) Yakutsk`,
+	// `(UTC+09:30) Adelaide`,
+	// `(UTC+09:30) Darwin`,
+	// `(UTC+10:00) Brisbane`,
+	// `(UTC+10:00) Canberra, Melbourne, Sydney`,
+	// `(UTC+10:00) Guam, Port Moresby`,
+	// `(UTC+10:00) Hobart`,
+	// `(UTC+10:00) Vladivostok`,
+	// `(UTC+10:30) Lord Howe Island`,
+	// `(UTC+11:00) Bougainville Island`,
+	// `(UTC+11:00) Chokurdakh`,
+	// `(UTC+11:00) Magadan`,
+	// `(UTC+11:00) Norfolk Island`,
+	// `(UTC+11:00) Sakhalin`,
+	// `(UTC+11:00) Solomon Is., New Caledonia`,
+	// `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
+	// `(UTC+12:00) Auckland, Wellington`,
+	// `(UTC+12:00) Coordinated Universal Time+12`,
+	// `(UTC+12:00) Fiji`,
+	// `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
+	// `(UTC+12:45) Chatham Islands`,
+	// `(UTC+13:00) Coordinated Universal Time+13`,
+	// `(UTC+13:00) Nuku'alofa`,
+	// `(UTC+13:00) Samoa`,
+	// `(UTC+14:00) Kiritimati Island`.
+	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
 
 func (BuildDefinitionScheduleArgs) ElementType() reflect.Type {
@@ -4024,6 +4335,7 @@ func (o BuildDefinitionScheduleOutput) BranchFilters() BuildDefinitionScheduleBr
 	return o.ApplyT(func(v BuildDefinitionSchedule) []BuildDefinitionScheduleBranchFilter { return v.BranchFilters }).(BuildDefinitionScheduleBranchFilterArrayOutput)
 }
 
+// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
 func (o BuildDefinitionScheduleOutput) DaysToBuilds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) []string { return v.DaysToBuilds }).(pulumi.StringArrayOutput)
 }
@@ -4033,18 +4345,163 @@ func (o BuildDefinitionScheduleOutput) ScheduleJobId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) *string { return v.ScheduleJobId }).(pulumi.StringPtrOutput)
 }
 
+// Schedule builds if the source or pipeline has changed. Defaults to `true`.
 func (o BuildDefinitionScheduleOutput) ScheduleOnlyWithChanges() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) *bool { return v.ScheduleOnlyWithChanges }).(pulumi.BoolPtrOutput)
 }
 
+// Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
 func (o BuildDefinitionScheduleOutput) StartHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) *int { return v.StartHours }).(pulumi.IntPtrOutput)
 }
 
+// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
 func (o BuildDefinitionScheduleOutput) StartMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) *int { return v.StartMinutes }).(pulumi.IntPtrOutput)
 }
 
+// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
+// `(UTC-12:00) International Date Line West`,
+// `(UTC-11:00) Coordinated Universal Time-11`,
+// `(UTC-10:00) Aleutian Islands`,
+// `(UTC-10:00) Hawaii`,
+// `(UTC-09:30) Marquesas Islands`,
+// `(UTC-09:00) Alaska`,
+// `(UTC-09:00) Coordinated Universal Time-09`,
+// `(UTC-08:00) Baja California`,
+// `(UTC-08:00) Coordinated Universal Time-08`,
+// `(UTC-08:00) Pacific Time (US &Canada)`,
+// `(UTC-07:00) Arizona`,
+// `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
+// `(UTC-07:00) Mountain Time (US &Canada)`,
+// `(UTC-07:00) Yukon`,
+// `(UTC-06:00) Central America`,
+// `(UTC-06:00) Central Time (US &Canada)`,
+// `(UTC-06:00) Easter Island`,
+// `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
+// `(UTC-06:00) Saskatchewan`,
+// `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
+// `(UTC-05:00) Chetumal`,
+// `(UTC-05:00) Eastern Time (US &Canada)`,
+// `(UTC-05:00) Haiti`,
+// `(UTC-05:00) Havana`,
+// `(UTC-05:00) Indiana (East)`,
+// `(UTC-05:00) Turks and Caicos`,
+// `(UTC-04:00) Asuncion`,
+// `(UTC-04:00) Atlantic Time (Canada)`,
+// `(UTC-04:00) Caracas`,
+// `(UTC-04:00) Cuiaba`,
+// `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
+// `(UTC-04:00) Santiago`,
+// `(UTC-03:30) Newfoundland`,
+// `(UTC-03:00) Araguaina`,
+// `(UTC-03:00) Brasilia`,
+// `(UTC-03:00) Cayenne, Fortaleza`,
+// `(UTC-03:00) City of Buenos Aires`,
+// `(UTC-03:00) Greenland`,
+// `(UTC-03:00) Montevideo`,
+// `(UTC-03:00) Punta Arenas`,
+// `(UTC-03:00) Saint Pierre and Miquelon`,
+// `(UTC-03:00) Salvador`,
+// `(UTC-02:00) Coordinated Universal Time-02`,
+// `(UTC-02:00) Mid-Atlantic - Old`,
+// `(UTC-01:00) Azores`,
+// `(UTC-01:00) Cabo Verde Is.`,
+// `(UTC) Coordinated Universal Time`,
+// `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
+// `(UTC+00:00) Monrovia, Reykjavik`,
+// `(UTC+00:00) Sao Tome`,
+// `(UTC+01:00) Casablanca`,
+// `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
+// `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
+// `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
+// `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
+// `(UTC+01:00) West Central Africa`,
+// `(UTC+02:00) Amman`,
+// `(UTC+02:00) Athens, Bucharest`,
+// `(UTC+02:00) Beirut`,
+// `(UTC+02:00) Cairo`,
+// `(UTC+02:00) Chisinau`,
+// `(UTC+02:00) Damascus`,
+// `(UTC+02:00) Gaza, Hebron`,
+// `(UTC+02:00) Harare, Pretoria`,
+// `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
+// `(UTC+02:00) Jerusalem`,
+// `(UTC+02:00) Juba`,
+// `(UTC+02:00) Kaliningrad`,
+// `(UTC+02:00) Khartoum`,
+// `(UTC+02:00) Tripoli`,
+// `(UTC+02:00) Windhoek`,
+// `(UTC+03:00) Baghdad`,
+// `(UTC+03:00) Istanbul`,
+// `(UTC+03:00) Kuwait, Riyadh`,
+// `(UTC+03:00) Minsk`,
+// `(UTC+03:00) Moscow, St. Petersburg`,
+// `(UTC+03:00) Nairobi`,
+// `(UTC+03:00) Volgograd`,
+// `(UTC+03:30) Tehran`,
+// `(UTC+04:00) Abu Dhabi, Muscat`,
+// `(UTC+04:00) Astrakhan, Ulyanovsk`,
+// `(UTC+04:00) Baku`,
+// `(UTC+04:00) Izhevsk, Samara`,
+// `(UTC+04:00) Port Louis`,
+// `(UTC+04:00) Saratov`,
+// `(UTC+04:00) Tbilisi`,
+// `(UTC+04:00) Yerevan`,
+// `(UTC+04:30) Kabul`,
+// `(UTC+05:00) Ashgabat, Tashkent`,
+// `(UTC+05:00) Ekaterinburg`,
+// `(UTC+05:00) Islamabad, Karachi`,
+// `(UTC+05:00) Qyzylorda`,
+// `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
+// `(UTC+05:30) Sri Jayawardenepura`,
+// `(UTC+05:45) Kathmandu`,
+// `(UTC+06:00) Astana`,
+// `(UTC+06:00) Dhaka`,
+// `(UTC+06:00) Omsk`,
+// `(UTC+06:30) Yangon (Rangoon)`,
+// `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
+// `(UTC+07:00) Barnaul, Gorno-Altaysk`,
+// `(UTC+07:00) Hovd`,
+// `(UTC+07:00) Krasnoyarsk`,
+// `(UTC+07:00) Novosibirsk`,
+// `(UTC+07:00) Tomsk`,
+// `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
+// `(UTC+08:00) Irkutsk`,
+// `(UTC+08:00) Kuala Lumpur, Singapore`,
+// `(UTC+08:00) Perth`,
+// `(UTC+08:00) Taipei`,
+// `(UTC+08:00) Ulaanbaatar`,
+// `(UTC+08:45) Eucla`,
+// `(UTC+09:00) Chita`,
+// `(UTC+09:00) Osaka, Sapporo, Tokyo`,
+// `(UTC+09:00) Pyongyang`,
+// `(UTC+09:00) Seoul`,
+// `(UTC+09:00) Yakutsk`,
+// `(UTC+09:30) Adelaide`,
+// `(UTC+09:30) Darwin`,
+// `(UTC+10:00) Brisbane`,
+// `(UTC+10:00) Canberra, Melbourne, Sydney`,
+// `(UTC+10:00) Guam, Port Moresby`,
+// `(UTC+10:00) Hobart`,
+// `(UTC+10:00) Vladivostok`,
+// `(UTC+10:30) Lord Howe Island`,
+// `(UTC+11:00) Bougainville Island`,
+// `(UTC+11:00) Chokurdakh`,
+// `(UTC+11:00) Magadan`,
+// `(UTC+11:00) Norfolk Island`,
+// `(UTC+11:00) Sakhalin`,
+// `(UTC+11:00) Solomon Is., New Caledonia`,
+// `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
+// `(UTC+12:00) Auckland, Wellington`,
+// `(UTC+12:00) Coordinated Universal Time+12`,
+// `(UTC+12:00) Fiji`,
+// `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
+// `(UTC+12:45) Chatham Islands`,
+// `(UTC+13:00) Coordinated Universal Time+13`,
+// `(UTC+13:00) Nuku'alofa`,
+// `(UTC+13:00) Samoa`,
+// `(UTC+14:00) Kiritimati Island`.
 func (o BuildDefinitionScheduleOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
 }
@@ -4690,7 +5147,6 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) UsernameHash() p
 
 type ServiceEndpointArtifactoryAuthenticationToken struct {
 	// Authentication Token generated through Artifactory.
-	// * `authenticationBasic`
 	Token     string  `pulumi:"token"`
 	TokenHash *string `pulumi:"tokenHash"`
 }
@@ -4708,7 +5164,6 @@ type ServiceEndpointArtifactoryAuthenticationTokenInput interface {
 
 type ServiceEndpointArtifactoryAuthenticationTokenArgs struct {
 	// Authentication Token generated through Artifactory.
-	// * `authenticationBasic`
 	Token     pulumi.StringInput    `pulumi:"token"`
 	TokenHash pulumi.StringPtrInput `pulumi:"tokenHash"`
 }
@@ -4791,7 +5246,6 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointAr
 }
 
 // Authentication Token generated through Artifactory.
-// * `authenticationBasic`
 func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -4825,7 +5279,6 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Elem() ServiceEn
 }
 
 // Authentication Token generated through Artifactory.
-// * `authenticationBasic`
 func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationToken) *string {
 		if v == nil {
@@ -6126,7 +6579,7 @@ func (o ServiceEndpointPipelineAuthPersonalPtrOutput) PersonalAccessTokenHash() 
 }
 
 type ServiceEndpointServiceFabricAzureActiveDirectory struct {
-	// - Password for the Azure Active Directory account.
+	// Password for the Azure Active Directory account.
 	Password string `pulumi:"password"`
 	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
 	ServerCertificateCommonName *string `pulumi:"serverCertificateCommonName"`
@@ -6134,7 +6587,7 @@ type ServiceEndpointServiceFabricAzureActiveDirectory struct {
 	ServerCertificateLookup string `pulumi:"serverCertificateLookup"`
 	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
 	ServerCertificateThumbprint *string `pulumi:"serverCertificateThumbprint"`
-	// - Specify an Azure Active Directory account.
+	// Specify an Azure Active Directory account.
 	Username string `pulumi:"username"`
 }
 
@@ -6150,7 +6603,7 @@ type ServiceEndpointServiceFabricAzureActiveDirectoryInput interface {
 }
 
 type ServiceEndpointServiceFabricAzureActiveDirectoryArgs struct {
-	// - Password for the Azure Active Directory account.
+	// Password for the Azure Active Directory account.
 	Password pulumi.StringInput `pulumi:"password"`
 	// The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
 	ServerCertificateCommonName pulumi.StringPtrInput `pulumi:"serverCertificateCommonName"`
@@ -6158,7 +6611,7 @@ type ServiceEndpointServiceFabricAzureActiveDirectoryArgs struct {
 	ServerCertificateLookup pulumi.StringInput `pulumi:"serverCertificateLookup"`
 	// The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
 	ServerCertificateThumbprint pulumi.StringPtrInput `pulumi:"serverCertificateThumbprint"`
-	// - Specify an Azure Active Directory account.
+	// Specify an Azure Active Directory account.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -6239,7 +6692,7 @@ func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ToServiceEndpoin
 	}).(ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput)
 }
 
-// - Password for the Azure Active Directory account.
+// Password for the Azure Active Directory account.
 func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) string { return v.Password }).(pulumi.StringOutput)
 }
@@ -6259,7 +6712,7 @@ func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) ServerCertificat
 	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) *string { return v.ServerCertificateThumbprint }).(pulumi.StringPtrOutput)
 }
 
-// - Specify an Azure Active Directory account.
+// Specify an Azure Active Directory account.
 func (o ServiceEndpointServiceFabricAzureActiveDirectoryOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointServiceFabricAzureActiveDirectory) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -6288,7 +6741,7 @@ func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) Elem() Servic
 	}).(ServiceEndpointServiceFabricAzureActiveDirectoryOutput)
 }
 
-// - Password for the Azure Active Directory account.
+// Password for the Azure Active Directory account.
 func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) *string {
 		if v == nil {
@@ -6328,7 +6781,7 @@ func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) ServerCertifi
 	}).(pulumi.StringPtrOutput)
 }
 
-// - Specify an Azure Active Directory account.
+// Specify an Azure Active Directory account.
 func (o ServiceEndpointServiceFabricAzureActiveDirectoryPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointServiceFabricAzureActiveDirectory) *string {
 		if v == nil {
@@ -7045,6 +7498,143 @@ func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) TokenHash() pulumi.St
 	}).(pulumi.StringPtrOutput)
 }
 
+type ServiceendpointExternaltfsAuthPersonal struct {
+	// The Personal Access Token for Azure DevOps Organization.
+	PersonalAccessToken string `pulumi:"personalAccessToken"`
+}
+
+// ServiceendpointExternaltfsAuthPersonalInput is an input type that accepts ServiceendpointExternaltfsAuthPersonalArgs and ServiceendpointExternaltfsAuthPersonalOutput values.
+// You can construct a concrete instance of `ServiceendpointExternaltfsAuthPersonalInput` via:
+//
+//	ServiceendpointExternaltfsAuthPersonalArgs{...}
+type ServiceendpointExternaltfsAuthPersonalInput interface {
+	pulumi.Input
+
+	ToServiceendpointExternaltfsAuthPersonalOutput() ServiceendpointExternaltfsAuthPersonalOutput
+	ToServiceendpointExternaltfsAuthPersonalOutputWithContext(context.Context) ServiceendpointExternaltfsAuthPersonalOutput
+}
+
+type ServiceendpointExternaltfsAuthPersonalArgs struct {
+	// The Personal Access Token for Azure DevOps Organization.
+	PersonalAccessToken pulumi.StringInput `pulumi:"personalAccessToken"`
+}
+
+func (ServiceendpointExternaltfsAuthPersonalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointExternaltfsAuthPersonal)(nil)).Elem()
+}
+
+func (i ServiceendpointExternaltfsAuthPersonalArgs) ToServiceendpointExternaltfsAuthPersonalOutput() ServiceendpointExternaltfsAuthPersonalOutput {
+	return i.ToServiceendpointExternaltfsAuthPersonalOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointExternaltfsAuthPersonalArgs) ToServiceendpointExternaltfsAuthPersonalOutputWithContext(ctx context.Context) ServiceendpointExternaltfsAuthPersonalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointExternaltfsAuthPersonalOutput)
+}
+
+func (i ServiceendpointExternaltfsAuthPersonalArgs) ToServiceendpointExternaltfsAuthPersonalPtrOutput() ServiceendpointExternaltfsAuthPersonalPtrOutput {
+	return i.ToServiceendpointExternaltfsAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointExternaltfsAuthPersonalArgs) ToServiceendpointExternaltfsAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceendpointExternaltfsAuthPersonalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointExternaltfsAuthPersonalOutput).ToServiceendpointExternaltfsAuthPersonalPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointExternaltfsAuthPersonalPtrInput is an input type that accepts ServiceendpointExternaltfsAuthPersonalArgs, ServiceendpointExternaltfsAuthPersonalPtr and ServiceendpointExternaltfsAuthPersonalPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointExternaltfsAuthPersonalPtrInput` via:
+//
+//	        ServiceendpointExternaltfsAuthPersonalArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointExternaltfsAuthPersonalPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointExternaltfsAuthPersonalPtrOutput() ServiceendpointExternaltfsAuthPersonalPtrOutput
+	ToServiceendpointExternaltfsAuthPersonalPtrOutputWithContext(context.Context) ServiceendpointExternaltfsAuthPersonalPtrOutput
+}
+
+type serviceendpointExternaltfsAuthPersonalPtrType ServiceendpointExternaltfsAuthPersonalArgs
+
+func ServiceendpointExternaltfsAuthPersonalPtr(v *ServiceendpointExternaltfsAuthPersonalArgs) ServiceendpointExternaltfsAuthPersonalPtrInput {
+	return (*serviceendpointExternaltfsAuthPersonalPtrType)(v)
+}
+
+func (*serviceendpointExternaltfsAuthPersonalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointExternaltfsAuthPersonal)(nil)).Elem()
+}
+
+func (i *serviceendpointExternaltfsAuthPersonalPtrType) ToServiceendpointExternaltfsAuthPersonalPtrOutput() ServiceendpointExternaltfsAuthPersonalPtrOutput {
+	return i.ToServiceendpointExternaltfsAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointExternaltfsAuthPersonalPtrType) ToServiceendpointExternaltfsAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceendpointExternaltfsAuthPersonalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointExternaltfsAuthPersonalPtrOutput)
+}
+
+type ServiceendpointExternaltfsAuthPersonalOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointExternaltfsAuthPersonalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointExternaltfsAuthPersonal)(nil)).Elem()
+}
+
+func (o ServiceendpointExternaltfsAuthPersonalOutput) ToServiceendpointExternaltfsAuthPersonalOutput() ServiceendpointExternaltfsAuthPersonalOutput {
+	return o
+}
+
+func (o ServiceendpointExternaltfsAuthPersonalOutput) ToServiceendpointExternaltfsAuthPersonalOutputWithContext(ctx context.Context) ServiceendpointExternaltfsAuthPersonalOutput {
+	return o
+}
+
+func (o ServiceendpointExternaltfsAuthPersonalOutput) ToServiceendpointExternaltfsAuthPersonalPtrOutput() ServiceendpointExternaltfsAuthPersonalPtrOutput {
+	return o.ToServiceendpointExternaltfsAuthPersonalPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointExternaltfsAuthPersonalOutput) ToServiceendpointExternaltfsAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceendpointExternaltfsAuthPersonalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointExternaltfsAuthPersonal) *ServiceendpointExternaltfsAuthPersonal {
+		return &v
+	}).(ServiceendpointExternaltfsAuthPersonalPtrOutput)
+}
+
+// The Personal Access Token for Azure DevOps Organization.
+func (o ServiceendpointExternaltfsAuthPersonalOutput) PersonalAccessToken() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointExternaltfsAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
+}
+
+type ServiceendpointExternaltfsAuthPersonalPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointExternaltfsAuthPersonalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointExternaltfsAuthPersonal)(nil)).Elem()
+}
+
+func (o ServiceendpointExternaltfsAuthPersonalPtrOutput) ToServiceendpointExternaltfsAuthPersonalPtrOutput() ServiceendpointExternaltfsAuthPersonalPtrOutput {
+	return o
+}
+
+func (o ServiceendpointExternaltfsAuthPersonalPtrOutput) ToServiceendpointExternaltfsAuthPersonalPtrOutputWithContext(ctx context.Context) ServiceendpointExternaltfsAuthPersonalPtrOutput {
+	return o
+}
+
+func (o ServiceendpointExternaltfsAuthPersonalPtrOutput) Elem() ServiceendpointExternaltfsAuthPersonalOutput {
+	return o.ApplyT(func(v *ServiceendpointExternaltfsAuthPersonal) ServiceendpointExternaltfsAuthPersonal {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointExternaltfsAuthPersonal
+		return ret
+	}).(ServiceendpointExternaltfsAuthPersonalOutput)
+}
+
+// The Personal Access Token for Azure DevOps Organization.
+func (o ServiceendpointExternaltfsAuthPersonalPtrOutput) PersonalAccessToken() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointExternaltfsAuthPersonal) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PersonalAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
 type VariableGroupKeyVault struct {
 	// The name of the Azure key vault to link secrets from as variables.
 	Name string `pulumi:"name"`
@@ -7608,7 +8198,7 @@ type GetBuildDefinitionCiTriggerOverride struct {
 	BranchFilters []GetBuildDefinitionCiTriggerOverrideBranchFilter `pulumi:"branchFilters"`
 	// The number of max builds per branch.
 	MaxConcurrentBuildsPerBranch int `pulumi:"maxConcurrentBuildsPerBranch"`
-	// The file paths to include or exclude.
+	// block supports the following:
 	PathFilters []GetBuildDefinitionCiTriggerOverridePathFilter `pulumi:"pathFilters"`
 	// How often the external repository is polled.
 	PollingInterval int `pulumi:"pollingInterval"`
@@ -7634,7 +8224,7 @@ type GetBuildDefinitionCiTriggerOverrideArgs struct {
 	BranchFilters GetBuildDefinitionCiTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
 	// The number of max builds per branch.
 	MaxConcurrentBuildsPerBranch pulumi.IntInput `pulumi:"maxConcurrentBuildsPerBranch"`
-	// The file paths to include or exclude.
+	// block supports the following:
 	PathFilters GetBuildDefinitionCiTriggerOverridePathFilterArrayInput `pulumi:"pathFilters"`
 	// How often the external repository is polled.
 	PollingInterval pulumi.IntInput `pulumi:"pollingInterval"`
@@ -7710,7 +8300,7 @@ func (o GetBuildDefinitionCiTriggerOverrideOutput) MaxConcurrentBuildsPerBranch(
 	return o.ApplyT(func(v GetBuildDefinitionCiTriggerOverride) int { return v.MaxConcurrentBuildsPerBranch }).(pulumi.IntOutput)
 }
 
-// The file paths to include or exclude.
+// block supports the following:
 func (o GetBuildDefinitionCiTriggerOverrideOutput) PathFilters() GetBuildDefinitionCiTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v GetBuildDefinitionCiTriggerOverride) []GetBuildDefinitionCiTriggerOverridePathFilter {
 		return v.PathFilters
@@ -8203,10 +8793,11 @@ func (o GetBuildDefinitionPullRequestTriggerForkArrayOutput) Index(i pulumi.IntI
 }
 
 type GetBuildDefinitionPullRequestTriggerOverride struct {
+	// Should further updates to a PR cancel an in progress validation?
 	AutoCancel bool `pulumi:"autoCancel"`
 	// A `branchFilter` block as defined above.
 	BranchFilters []GetBuildDefinitionPullRequestTriggerOverrideBranchFilter `pulumi:"branchFilters"`
-	// The file paths to include or exclude.
+	// block supports the following:
 	PathFilters []GetBuildDefinitionPullRequestTriggerOverridePathFilter `pulumi:"pathFilters"`
 }
 
@@ -8222,10 +8813,11 @@ type GetBuildDefinitionPullRequestTriggerOverrideInput interface {
 }
 
 type GetBuildDefinitionPullRequestTriggerOverrideArgs struct {
+	// Should further updates to a PR cancel an in progress validation?
 	AutoCancel pulumi.BoolInput `pulumi:"autoCancel"`
 	// A `branchFilter` block as defined above.
 	BranchFilters GetBuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
-	// The file paths to include or exclude.
+	// block supports the following:
 	PathFilters GetBuildDefinitionPullRequestTriggerOverridePathFilterArrayInput `pulumi:"pathFilters"`
 }
 
@@ -8280,6 +8872,7 @@ func (o GetBuildDefinitionPullRequestTriggerOverrideOutput) ToGetBuildDefinition
 	return o
 }
 
+// Should further updates to a PR cancel an in progress validation?
 func (o GetBuildDefinitionPullRequestTriggerOverrideOutput) AutoCancel() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetBuildDefinitionPullRequestTriggerOverride) bool { return v.AutoCancel }).(pulumi.BoolOutput)
 }
@@ -8291,7 +8884,7 @@ func (o GetBuildDefinitionPullRequestTriggerOverrideOutput) BranchFilters() GetB
 	}).(GetBuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput)
 }
 
-// The file paths to include or exclude.
+// block supports the following:
 func (o GetBuildDefinitionPullRequestTriggerOverrideOutput) PathFilters() GetBuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v GetBuildDefinitionPullRequestTriggerOverride) []GetBuildDefinitionPullRequestTriggerOverridePathFilter {
 		return v.PathFilters
@@ -9376,7 +9969,9 @@ func (o GetIterationChildrenArrayOutput) Index(i pulumi.IntInput) GetIterationCh
 type GetPoolsAgentPool struct {
 	// Specifies whether or not a queue should be automatically provisioned for each project collection.
 	AutoProvision bool `pulumi:"autoProvision"`
-	Id            int  `pulumi:"id"`
+	// Specifies whether or not agents within the pool should be automatically updated.
+	AutoUpdate bool `pulumi:"autoUpdate"`
+	Id         int  `pulumi:"id"`
 	// The name of the agent pool
 	Name string `pulumi:"name"`
 	// Specifies whether the agent pool type is Automation or Deployment.
@@ -9397,7 +9992,9 @@ type GetPoolsAgentPoolInput interface {
 type GetPoolsAgentPoolArgs struct {
 	// Specifies whether or not a queue should be automatically provisioned for each project collection.
 	AutoProvision pulumi.BoolInput `pulumi:"autoProvision"`
-	Id            pulumi.IntInput  `pulumi:"id"`
+	// Specifies whether or not agents within the pool should be automatically updated.
+	AutoUpdate pulumi.BoolInput `pulumi:"autoUpdate"`
+	Id         pulumi.IntInput  `pulumi:"id"`
 	// The name of the agent pool
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies whether the agent pool type is Automation or Deployment.
@@ -9458,6 +10055,11 @@ func (o GetPoolsAgentPoolOutput) ToGetPoolsAgentPoolOutputWithContext(ctx contex
 // Specifies whether or not a queue should be automatically provisioned for each project collection.
 func (o GetPoolsAgentPoolOutput) AutoProvision() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPoolsAgentPool) bool { return v.AutoProvision }).(pulumi.BoolOutput)
+}
+
+// Specifies whether or not agents within the pool should be automatically updated.
+func (o GetPoolsAgentPoolOutput) AutoUpdate() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPoolsAgentPool) bool { return v.AutoUpdate }).(pulumi.BoolOutput)
 }
 
 func (o GetPoolsAgentPoolOutput) Id() pulumi.IntOutput {
@@ -10412,6 +11014,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointArgocdAuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointArgocdAuthenticationBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointArgocdAuthenticationTokenInput)(nil)).Elem(), ServiceendpointArgocdAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointArgocdAuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointArgocdAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointExternaltfsAuthPersonalInput)(nil)).Elem(), ServiceendpointExternaltfsAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointExternaltfsAuthPersonalPtrInput)(nil)).Elem(), ServiceendpointExternaltfsAuthPersonalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
@@ -10548,6 +11152,8 @@ func init() {
 	pulumi.RegisterOutputType(ServiceendpointArgocdAuthenticationBasicPtrOutput{})
 	pulumi.RegisterOutputType(ServiceendpointArgocdAuthenticationTokenOutput{})
 	pulumi.RegisterOutputType(ServiceendpointArgocdAuthenticationTokenPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointExternaltfsAuthPersonalOutput{})
+	pulumi.RegisterOutputType(ServiceendpointExternaltfsAuthPersonalPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})

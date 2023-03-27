@@ -26,11 +26,8 @@ import * as utilities from "./utilities";
  * ```
  */
 export function getBuildDefinition(args: GetBuildDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetBuildDefinitionResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getBuildDefinition:getBuildDefinition", {
         "name": args.name,
         "path": args.path,
@@ -103,9 +100,27 @@ export interface GetBuildDefinitionResult {
      */
     readonly variables: outputs.GetBuildDefinitionVariable[];
 }
-
+/**
+ * Use this data source to access information about an existing Build Definition.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const exampleBuildDefinition = exampleProject.then(exampleProject => azuredevops.getBuildDefinition({
+ *     projectId: exampleProject.id,
+ *     name: "existing",
+ * }));
+ * export const id = exampleBuildDefinition.then(exampleBuildDefinition => exampleBuildDefinition.id);
+ * ```
+ */
 export function getBuildDefinitionOutput(args: GetBuildDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBuildDefinitionResult> {
-    return pulumi.output(args).apply(a => getBuildDefinition(a, opts))
+    return pulumi.output(args).apply((a: any) => getBuildDefinition(a, opts))
 }
 
 /**

@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class ServiceEndpointServiceFabricAzureActiveDirectory
     {
         /// <summary>
-        /// - Password for the Azure Active Directory account.
+        /// Password for the Azure Active Directory account.
         /// </summary>
         public readonly string Password;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string? ServerCertificateThumbprint;
         /// <summary>
-        /// - Specify an Azure Active Directory account.
+        /// Specify an Azure Active Directory account.
         /// </summary>
         public readonly string Username;
 

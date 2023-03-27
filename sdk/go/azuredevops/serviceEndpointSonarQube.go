@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -104,7 +104,7 @@ func NewServiceEndpointSonarQube(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	if args.Token != nil {
-		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringOutput)
+		args.Token = pulumi.ToSecret(args.Token).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"token",

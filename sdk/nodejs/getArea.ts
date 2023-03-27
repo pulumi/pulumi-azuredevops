@@ -36,11 +36,8 @@ import * as utilities from "./utilities";
  * - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
  */
 export function getArea(args: GetAreaArgs, opts?: pulumi.InvokeOptions): Promise<GetAreaResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getArea:getArea", {
         "fetchChildren": args.fetchChildren,
         "path": args.path,
@@ -96,9 +93,37 @@ export interface GetAreaResult {
      */
     readonly projectId: string;
 }
-
+/**
+ * Use this data source to access information about an existing Area (Component) within Azure DevOps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleArea = exampleProject.id.apply(id => azuredevops.getAreaOutput({
+ *     projectId: id,
+ *     path: "/",
+ *     fetchChildren: false,
+ * }));
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
+ *
+ * ## PAT Permissions Required
+ *
+ * - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
+ */
 export function getAreaOutput(args: GetAreaOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAreaResult> {
-    return pulumi.output(args).apply(a => getArea(a, opts))
+    return pulumi.output(args).apply((a: any) => getArea(a, opts))
 }
 
 /**

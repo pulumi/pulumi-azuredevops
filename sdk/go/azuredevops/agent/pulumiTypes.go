@@ -13,7 +13,9 @@ import (
 type GetPoolsAgentPool struct {
 	// Specifies whether or not a queue should be automatically provisioned for each project collection.
 	AutoProvision bool `pulumi:"autoProvision"`
-	Id            int  `pulumi:"id"`
+	// Specifies whether or not agents within the pool should be automatically updated.
+	AutoUpdate bool `pulumi:"autoUpdate"`
+	Id         int  `pulumi:"id"`
 	// The name of the agent pool
 	Name string `pulumi:"name"`
 	// Specifies whether the agent pool type is Automation or Deployment.
@@ -34,7 +36,9 @@ type GetPoolsAgentPoolInput interface {
 type GetPoolsAgentPoolArgs struct {
 	// Specifies whether or not a queue should be automatically provisioned for each project collection.
 	AutoProvision pulumi.BoolInput `pulumi:"autoProvision"`
-	Id            pulumi.IntInput  `pulumi:"id"`
+	// Specifies whether or not agents within the pool should be automatically updated.
+	AutoUpdate pulumi.BoolInput `pulumi:"autoUpdate"`
+	Id         pulumi.IntInput  `pulumi:"id"`
 	// The name of the agent pool
 	Name pulumi.StringInput `pulumi:"name"`
 	// Specifies whether the agent pool type is Automation or Deployment.
@@ -95,6 +99,11 @@ func (o GetPoolsAgentPoolOutput) ToGetPoolsAgentPoolOutputWithContext(ctx contex
 // Specifies whether or not a queue should be automatically provisioned for each project collection.
 func (o GetPoolsAgentPoolOutput) AutoProvision() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetPoolsAgentPool) bool { return v.AutoProvision }).(pulumi.BoolOutput)
+}
+
+// Specifies whether or not agents within the pool should be automatically updated.
+func (o GetPoolsAgentPoolOutput) AutoUpdate() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetPoolsAgentPool) bool { return v.AutoUpdate }).(pulumi.BoolOutput)
 }
 
 func (o GetPoolsAgentPoolOutput) Id() pulumi.IntOutput {

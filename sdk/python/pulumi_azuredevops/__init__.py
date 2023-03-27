@@ -17,6 +17,8 @@ from .build_definition import *
 from .build_definition_permissions import *
 from .build_folder import *
 from .build_folder_permissions import *
+from .check_branch_control import *
+from .check_business_hours import *
 from .environment import *
 from .get_agent_queue import *
 from .get_area import *
@@ -39,6 +41,7 @@ from .get_users import *
 from .get_variable_group import *
 from .git import *
 from .git_permissions import *
+from .git_repository_branch import *
 from .git_repository_file import *
 from .group import *
 from .group_membership import *
@@ -77,6 +80,7 @@ from .service_endpoint_sonar_cloud import *
 from .service_endpoint_sonar_qube import *
 from .service_endpoint_ssh import *
 from .serviceendpoint_argocd import *
+from .serviceendpoint_externaltfs import *
 from .serviceendpoint_incomingwebhook import *
 from .serviceendpoint_octopusdeploy import *
 from .serviceendpoint_permissions import *
@@ -88,6 +92,7 @@ from .team_members import *
 from .user import *
 from .variable_group import *
 from .work_item_query_permissions import *
+from .workitem import *
 from ._inputs import *
 from . import outputs
 
@@ -373,6 +378,22 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/checkBranchControl",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/checkBranchControl:CheckBranchControl": "CheckBranchControl"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/checkBusinessHours",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/checkBusinessHours:CheckBusinessHours": "CheckBusinessHours"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/environment",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -393,6 +414,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/gitPermissions:GitPermissions": "GitPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/gitRepositoryBranch",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/gitRepositoryBranch:GitRepositoryBranch": "GitRepositoryBranch"
   }
  },
  {
@@ -693,6 +722,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/serviceendpointExternaltfs",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs": "ServiceendpointExternaltfs"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/serviceendpointIncomingwebhook",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -777,6 +814,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions": "WorkItemQueryPermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/workitem",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/workitem:Workitem": "Workitem"
   }
  }
 ]

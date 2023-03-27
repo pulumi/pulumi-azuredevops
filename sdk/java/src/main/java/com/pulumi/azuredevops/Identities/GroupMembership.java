@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.User;
  * import com.pulumi.azuredevops.UserArgs;
  * import com.pulumi.azuredevops.AzuredevopsFunctions;
- * import com.pulumi.azuredevops.Identities.inputs.GetGroupArgs;
+ * import com.pulumi.azuredevops.inputs.GetGroupArgs;
  * import com.pulumi.azuredevops.GroupMembership;
  * import com.pulumi.azuredevops.GroupMembershipArgs;
  * import java.util.List;

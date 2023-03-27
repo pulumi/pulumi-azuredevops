@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,7 +38,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
@@ -53,9 +53,9 @@ import (
 //			_, err = azuredevops.NewBuildFolderPermissions(ctx, "exampleBuildFolderPermissions", &azuredevops.BuildFolderPermissionsArgs{
 //				ProjectId: exampleProject.ID(),
 //				Path:      pulumi.String("\\ExampleFolder"),
-//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"ViewBuilds":                 pulumi.String("Allow"),
 //					"EditBuildQuality":           pulumi.String("Allow"),

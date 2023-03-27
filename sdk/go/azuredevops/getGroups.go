@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.GetGroups(ctx, &GetGroupsArgs{
+//			_, err = azuredevops.GetGroups(ctx, &azuredevops.GetGroupsArgs{
 //				ProjectId: pulumi.StringRef(example.Id),
 //			}, nil)
 //			if err != nil {

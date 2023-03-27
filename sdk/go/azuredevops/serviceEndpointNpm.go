@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -70,10 +70,8 @@ type ServiceEndpointNpm struct {
 	pulumi.CustomResourceState
 
 	// The access token for npm registry.
-	AccessToken pulumi.StringOutput `pulumi:"accessToken"`
-	// A bcrypted hash of the attribute 'access_token'
-	AccessTokenHash pulumi.StringOutput    `pulumi:"accessTokenHash"`
-	Authorization   pulumi.StringMapOutput `pulumi:"authorization"`
+	AccessToken   pulumi.StringOutput    `pulumi:"accessToken"`
+	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The ID of the project.
@@ -104,11 +102,10 @@ func NewServiceEndpointNpm(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
 	if args.AccessToken != nil {
-		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringOutput)
+		args.AccessToken = pulumi.ToSecret(args.AccessToken).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"accessToken",
-		"accessTokenHash",
 	})
 	opts = append(opts, secrets)
 	var resource ServiceEndpointNpm
@@ -134,10 +131,8 @@ func GetServiceEndpointNpm(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceEndpointNpm resources.
 type serviceEndpointNpmState struct {
 	// The access token for npm registry.
-	AccessToken *string `pulumi:"accessToken"`
-	// A bcrypted hash of the attribute 'access_token'
-	AccessTokenHash *string           `pulumi:"accessTokenHash"`
-	Authorization   map[string]string `pulumi:"authorization"`
+	AccessToken   *string           `pulumi:"accessToken"`
+	Authorization map[string]string `pulumi:"authorization"`
 	// The Service Endpoint description.
 	Description *string `pulumi:"description"`
 	// The ID of the project.
@@ -150,10 +145,8 @@ type serviceEndpointNpmState struct {
 
 type ServiceEndpointNpmState struct {
 	// The access token for npm registry.
-	AccessToken pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'access_token'
-	AccessTokenHash pulumi.StringPtrInput
-	Authorization   pulumi.StringMapInput
+	AccessToken   pulumi.StringPtrInput
+	Authorization pulumi.StringMapInput
 	// The Service Endpoint description.
 	Description pulumi.StringPtrInput
 	// The ID of the project.
@@ -287,11 +280,6 @@ func (o ServiceEndpointNpmOutput) ToServiceEndpointNpmOutputWithContext(ctx cont
 // The access token for npm registry.
 func (o ServiceEndpointNpmOutput) AccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointNpm) pulumi.StringOutput { return v.AccessToken }).(pulumi.StringOutput)
-}
-
-// A bcrypted hash of the attribute 'access_token'
-func (o ServiceEndpointNpmOutput) AccessTokenHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointNpm) pulumi.StringOutput { return v.AccessTokenHash }).(pulumi.StringOutput)
 }
 
 func (o ServiceEndpointNpmOutput) Authorization() pulumi.StringMapOutput {

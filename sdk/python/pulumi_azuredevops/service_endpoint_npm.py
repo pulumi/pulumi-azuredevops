@@ -111,7 +111,6 @@ class ServiceEndpointNpmArgs:
 class _ServiceEndpointNpmState:
     def __init__(__self__, *,
                  access_token: Optional[pulumi.Input[str]] = None,
-                 access_token_hash: Optional[pulumi.Input[str]] = None,
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -120,7 +119,6 @@ class _ServiceEndpointNpmState:
         """
         Input properties used for looking up and filtering ServiceEndpointNpm resources.
         :param pulumi.Input[str] access_token: The access token for npm registry.
-        :param pulumi.Input[str] access_token_hash: A bcrypted hash of the attribute 'access_token'
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -128,8 +126,6 @@ class _ServiceEndpointNpmState:
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
-        if access_token_hash is not None:
-            pulumi.set(__self__, "access_token_hash", access_token_hash)
         if authorization is not None:
             pulumi.set(__self__, "authorization", authorization)
         if description is not None:
@@ -152,18 +148,6 @@ class _ServiceEndpointNpmState:
     @access_token.setter
     def access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "access_token", value)
-
-    @property
-    @pulumi.getter(name="accessTokenHash")
-    def access_token_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'access_token'
-        """
-        return pulumi.get(self, "access_token_hash")
-
-    @access_token_hash.setter
-    def access_token_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "access_token_hash", value)
 
     @property
     @pulumi.getter
@@ -363,8 +347,7 @@ class ServiceEndpointNpm(pulumi.CustomResource):
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
-            __props__.__dict__["access_token_hash"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken", "accessTokenHash"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["accessToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointNpm, __self__).__init__(
             'azuredevops:index/serviceEndpointNpm:ServiceEndpointNpm',
@@ -377,7 +360,6 @@ class ServiceEndpointNpm(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             access_token: Optional[pulumi.Input[str]] = None,
-            access_token_hash: Optional[pulumi.Input[str]] = None,
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
@@ -391,7 +373,6 @@ class ServiceEndpointNpm(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] access_token: The access token for npm registry.
-        :param pulumi.Input[str] access_token_hash: A bcrypted hash of the attribute 'access_token'
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -402,7 +383,6 @@ class ServiceEndpointNpm(pulumi.CustomResource):
         __props__ = _ServiceEndpointNpmState.__new__(_ServiceEndpointNpmState)
 
         __props__.__dict__["access_token"] = access_token
-        __props__.__dict__["access_token_hash"] = access_token_hash
         __props__.__dict__["authorization"] = authorization
         __props__.__dict__["description"] = description
         __props__.__dict__["project_id"] = project_id
@@ -417,14 +397,6 @@ class ServiceEndpointNpm(pulumi.CustomResource):
         The access token for npm registry.
         """
         return pulumi.get(self, "access_token")
-
-    @property
-    @pulumi.getter(name="accessTokenHash")
-    def access_token_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'access_token'
-        """
-        return pulumi.get(self, "access_token_hash")
 
     @property
     @pulumi.getter

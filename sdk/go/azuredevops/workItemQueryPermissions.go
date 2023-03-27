@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,15 +47,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "project-wiq-root-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 //				ProjectId: example.ID(),
-//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"CreateRepository": pulumi.String("Deny"),
 //					"DeleteRepository": pulumi.String("Deny"),
@@ -100,16 +100,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Path:      pulumi.String("/Team"),
-//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"Contribute": pulumi.String("Allow"),
 //					"Delete":     pulumi.String("Deny"),
@@ -148,19 +148,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
-//			example_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-project-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 //				ProjectId: example.ID(),
-//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"Read":              pulumi.String("Allow"),
 //					"Delete":            pulumi.String("Deny"),
@@ -174,9 +174,9 @@ import (
 //			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-sharedqueries-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
 //				ProjectId: example.ID(),
 //				Path:      pulumi.String("/"),
-//				Principal: example_contributors.ApplyT(func(example_contributors GetGroupResult) (string, error) {
-//					return example_contributors.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_contributors.ApplyT(func(example_contributors azuredevops.GetGroupResult) (*string, error) {
+//					return &example_contributors.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"Read":   pulumi.String("Allow"),
 //					"Delete": pulumi.String("Deny"),

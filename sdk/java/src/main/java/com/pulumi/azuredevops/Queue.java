@@ -32,7 +32,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
  * import com.pulumi.azuredevops.AzuredevopsFunctions;
- * import com.pulumi.azuredevops.Agent.inputs.GetPoolArgs;
+ * import com.pulumi.azuredevops.inputs.GetPoolArgs;
  * import com.pulumi.azuredevops.Queue;
  * import com.pulumi.azuredevops.QueueArgs;
  * import com.pulumi.azuredevops.ResourceAuthorization;

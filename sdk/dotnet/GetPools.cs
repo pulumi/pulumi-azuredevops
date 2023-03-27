@@ -14,6 +14,43 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about existing Agent Pools within Azure DevOps.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetPools.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["agentPoolName"] = new[]
+        ///         {
+        ///             example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools),
+        ///         }.Select(__item =&gt; __item?.Name).ToList(),
+        ///         ["autoProvision"] = new[]
+        ///         {
+        ///             example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools),
+        ///         }.Select(__item =&gt; __item?.AutoProvision).ToList(),
+        ///         ["autoUpdate"] = new[]
+        ///         {
+        ///             example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools),
+        ///         }.Select(__item =&gt; __item?.AutoUpdate).ToList(),
+        ///         ["poolType"] = new[]
+        ///         {
+        ///             example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools),
+        ///         }.Select(__item =&gt; __item?.PoolType).ToList(),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)

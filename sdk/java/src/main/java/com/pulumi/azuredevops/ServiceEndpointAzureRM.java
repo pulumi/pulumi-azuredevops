@@ -187,70 +187,70 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return this.authorization;
     }
     /**
-     * The management group Id of the Azure targets.
+     * The Management group ID of the Azure targets.
      * 
      */
     @Export(name="azurermManagementGroupId", type=String.class, parameters={})
     private Output</* @Nullable */ String> azurermManagementGroupId;
 
     /**
-     * @return The management group Id of the Azure targets.
+     * @return The Management group ID of the Azure targets.
      * 
      */
     public Output<Optional<String>> azurermManagementGroupId() {
         return Codegen.optional(this.azurermManagementGroupId);
     }
     /**
-     * The management group Name of the targets.
+     * The Management group Name of the targets.
      * 
      */
     @Export(name="azurermManagementGroupName", type=String.class, parameters={})
     private Output</* @Nullable */ String> azurermManagementGroupName;
 
     /**
-     * @return The management group Name of the targets.
+     * @return The Management group Name of the targets.
      * 
      */
     public Output<Optional<String>> azurermManagementGroupName() {
         return Codegen.optional(this.azurermManagementGroupName);
     }
     /**
-     * The tenant id if the service principal.
+     * The Tenant ID if the service principal.
      * 
      */
     @Export(name="azurermSpnTenantid", type=String.class, parameters={})
     private Output<String> azurermSpnTenantid;
 
     /**
-     * @return The tenant id if the service principal.
+     * @return The Tenant ID if the service principal.
      * 
      */
     public Output<String> azurermSpnTenantid() {
         return this.azurermSpnTenantid;
     }
     /**
-     * The subscription Id of the Azure targets.
+     * The Subscription ID of the Azure targets.
      * 
      */
     @Export(name="azurermSubscriptionId", type=String.class, parameters={})
     private Output</* @Nullable */ String> azurermSubscriptionId;
 
     /**
-     * @return The subscription Id of the Azure targets.
+     * @return The Subscription ID of the Azure targets.
      * 
      */
     public Output<Optional<String>> azurermSubscriptionId() {
         return Codegen.optional(this.azurermSubscriptionId);
     }
     /**
-     * The subscription Name of the targets.
+     * The Subscription Name of the targets.
      * 
      */
     @Export(name="azurermSubscriptionName", type=String.class, parameters={})
     private Output</* @Nullable */ String> azurermSubscriptionName;
 
     /**
-     * @return The subscription Name of the targets.
+     * @return The Subscription Name of the targets.
      * 
      */
     public Output<Optional<String>> azurermSubscriptionName() {
@@ -285,6 +285,20 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.description);
     }
     /**
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Export(name="environment", type=String.class, parameters={})
+    private Output</* @Nullable */ String> environment;
+
+    /**
+     * @return The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Output<Optional<String>> environment() {
+        return Codegen.optional(this.environment);
+    }
+    /**
      * The ID of the project.
      * 
      */
@@ -313,14 +327,14 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.resourceGroup);
     }
     /**
-     * The Service Endpoint name.
+     * The Service Endpoint Name.
      * 
      */
     @Export(name="serviceEndpointName", type=String.class, parameters={})
     private Output<String> serviceEndpointName;
 
     /**
-     * @return The Service Endpoint name.
+     * @return The Service Endpoint Name.
      * 
      */
     public Output<String> serviceEndpointName() {

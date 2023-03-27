@@ -30,11 +30,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
-//			example_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
@@ -43,12 +43,12 @@ import (
 //				DisplayName: pulumi.String("Example group"),
 //				Description: pulumi.String("Example description"),
 //				Members: pulumi.StringArray{
-//					example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-//						return example_readers.Descriptor, nil
-//					}).(pulumi.StringOutput),
-//					example_contributors.ApplyT(func(example_contributors GetGroupResult) (string, error) {
-//						return example_contributors.Descriptor, nil
-//					}).(pulumi.StringOutput),
+//					example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//						return &example_readers.Descriptor, nil
+//					}).(pulumi.StringPtrOutput),
+//					example_contributors.ApplyT(func(example_contributors azuredevops.GetGroupResult) (*string, error) {
+//						return &example_contributors.Descriptor, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {

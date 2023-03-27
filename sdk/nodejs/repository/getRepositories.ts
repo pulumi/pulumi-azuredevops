@@ -36,11 +36,8 @@ import * as utilities from "../utilities";
 export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoriesResult> {
     pulumi.log.warn("getRepositories is deprecated: azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories")
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:Repository/getRepositories:getRepositories", {
         "includeHidden": args.includeHidden,
         "name": args.name,
@@ -85,9 +82,35 @@ export interface GetRepositoriesResult {
      */
     readonly repositories: outputs.Repository.GetRepositoriesRepository[];
 }
-
+/**
+ * Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
+ * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const example-all-repos = example.then(example => azuredevops.getRepositories({
+ *     projectId: example.id,
+ *     includeHidden: true,
+ * }));
+ * const example-single-repo = example.then(example => azuredevops.getRepositories({
+ *     projectId: example.id,
+ *     name: "Example Repository",
+ * }));
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+ */
+/** @deprecated azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories */
 export function getRepositoriesOutput(args?: GetRepositoriesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoriesResult> {
-    return pulumi.output(args).apply(a => getRepositories(a, opts))
+    return pulumi.output(args).apply((a: any) => getRepositories(a, opts))
 }
 
 /**

@@ -16,6 +16,11 @@ public final class GetPoolsAgentPool {
      * 
      */
     private Boolean autoProvision;
+    /**
+     * @return Specifies whether or not agents within the pool should be automatically updated.
+     * 
+     */
+    private Boolean autoUpdate;
     private Integer id;
     /**
      * @return The name of the agent pool
@@ -35,6 +40,13 @@ public final class GetPoolsAgentPool {
      */
     public Boolean autoProvision() {
         return this.autoProvision;
+    }
+    /**
+     * @return Specifies whether or not agents within the pool should be automatically updated.
+     * 
+     */
+    public Boolean autoUpdate() {
+        return this.autoUpdate;
     }
     public Integer id() {
         return this.id;
@@ -64,6 +76,7 @@ public final class GetPoolsAgentPool {
     @CustomType.Builder
     public static final class Builder {
         private Boolean autoProvision;
+        private Boolean autoUpdate;
         private Integer id;
         private String name;
         private String poolType;
@@ -71,6 +84,7 @@ public final class GetPoolsAgentPool {
         public Builder(GetPoolsAgentPool defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoProvision = defaults.autoProvision;
+    	      this.autoUpdate = defaults.autoUpdate;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.poolType = defaults.poolType;
@@ -79,6 +93,11 @@ public final class GetPoolsAgentPool {
         @CustomType.Setter
         public Builder autoProvision(Boolean autoProvision) {
             this.autoProvision = Objects.requireNonNull(autoProvision);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder autoUpdate(Boolean autoUpdate) {
+            this.autoUpdate = Objects.requireNonNull(autoUpdate);
             return this;
         }
         @CustomType.Setter
@@ -99,6 +118,7 @@ public final class GetPoolsAgentPool {
         public GetPoolsAgentPool build() {
             final var o = new GetPoolsAgentPool();
             o.autoProvision = autoProvision;
+            o.autoUpdate = autoUpdate;
             o.id = id;
             o.name = name;
             o.poolType = poolType;

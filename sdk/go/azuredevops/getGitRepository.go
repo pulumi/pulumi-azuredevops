@@ -27,13 +27,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+//			example, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuredevops.GetGitRepository(ctx, &GetGitRepositoryArgs{
+//			_, err = azuredevops.GetGitRepository(ctx, &azuredevops.GetGitRepositoryArgs{
 //				ProjectId: example.Id,
 //				Name:      "Example Repository",
 //			}, nil)

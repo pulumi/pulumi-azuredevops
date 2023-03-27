@@ -63,12 +63,6 @@ namespace Pulumi.AzureDevOps
         [Output("accessToken")]
         public Output<string> AccessToken { get; private set; } = null!;
 
-        /// <summary>
-        /// A bcrypted hash of the attribute 'access_token'
-        /// </summary>
-        [Output("accessTokenHash")]
-        public Output<string> AccessTokenHash { get; private set; } = null!;
-
         [Output("authorization")]
         public Output<ImmutableDictionary<string, string>> Authorization { get; private set; } = null!;
 
@@ -122,7 +116,6 @@ namespace Pulumi.AzureDevOps
                 AdditionalSecretOutputs =
                 {
                     "accessToken",
-                    "accessTokenHash",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -216,22 +209,6 @@ namespace Pulumi.AzureDevOps
             {
                 var emptySecret = Output.CreateSecret(0);
                 _accessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("accessTokenHash")]
-        private Input<string>? _accessTokenHash;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'access_token'
-        /// </summary>
-        public Input<string>? AccessTokenHash
-        {
-            get => _accessTokenHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _accessTokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

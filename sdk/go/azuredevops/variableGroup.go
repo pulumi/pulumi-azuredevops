@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -38,12 +38,12 @@ import (
 //				ProjectId:   exampleProject.ID(),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
-//				Variables: VariableGroupVariableArray{
-//					&VariableGroupVariableArgs{
+//				Variables: azuredevops.VariableGroupVariableArray{
+//					&azuredevops.VariableGroupVariableArgs{
 //						Name:  pulumi.String("key1"),
 //						Value: pulumi.String("val1"),
 //					},
-//					&VariableGroupVariableArgs{
+//					&azuredevops.VariableGroupVariableArgs{
 //						Name:        pulumi.String("key2"),
 //						SecretValue: pulumi.String("val2"),
 //						IsSecret:    pulumi.Bool(true),
@@ -85,7 +85,7 @@ import (
 //				ProjectId:           exampleProject.ID(),
 //				ServiceEndpointName: pulumi.String("Example AzureRM"),
 //				Description:         pulumi.String("Managed by Terraform"),
-//				Credentials: &ServiceEndpointAzureRMCredentialsArgs{
+//				Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
 //					Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
 //					Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 //				},
@@ -100,15 +100,15 @@ import (
 //				ProjectId:   exampleProject.ID(),
 //				Description: pulumi.String("Example Variable Group Description"),
 //				AllowAccess: pulumi.Bool(true),
-//				KeyVault: &VariableGroupKeyVaultArgs{
+//				KeyVault: &azuredevops.VariableGroupKeyVaultArgs{
 //					Name:              pulumi.String("example-kv"),
 //					ServiceEndpointId: exampleServiceEndpointAzureRM.ID(),
 //				},
-//				Variables: VariableGroupVariableArray{
-//					&VariableGroupVariableArgs{
+//				Variables: azuredevops.VariableGroupVariableArray{
+//					&azuredevops.VariableGroupVariableArgs{
 //						Name: pulumi.String("key1"),
 //					},
-//					&VariableGroupVariableArgs{
+//					&azuredevops.VariableGroupVariableArgs{
 //						Name: pulumi.String("key2"),
 //					},
 //				},
@@ -161,7 +161,7 @@ type VariableGroup struct {
 	AllowAccess pulumi.BoolPtrOutput `pulumi:"allowAccess"`
 	// The description of the Variable Group.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// -(Optional) A list of `keyVault` blocks as documented below.
+	// A list of `keyVault` blocks as documented below.
 	KeyVault VariableGroupKeyVaultPtrOutput `pulumi:"keyVault"`
 	// The name of the Variable Group.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -216,7 +216,7 @@ type variableGroupState struct {
 	AllowAccess *bool `pulumi:"allowAccess"`
 	// The description of the Variable Group.
 	Description *string `pulumi:"description"`
-	// -(Optional) A list of `keyVault` blocks as documented below.
+	// A list of `keyVault` blocks as documented below.
 	KeyVault *VariableGroupKeyVault `pulumi:"keyVault"`
 	// The name of the Variable Group.
 	Name *string `pulumi:"name"`
@@ -231,7 +231,7 @@ type VariableGroupState struct {
 	AllowAccess pulumi.BoolPtrInput
 	// The description of the Variable Group.
 	Description pulumi.StringPtrInput
-	// -(Optional) A list of `keyVault` blocks as documented below.
+	// A list of `keyVault` blocks as documented below.
 	KeyVault VariableGroupKeyVaultPtrInput
 	// The name of the Variable Group.
 	Name pulumi.StringPtrInput
@@ -250,7 +250,7 @@ type variableGroupArgs struct {
 	AllowAccess *bool `pulumi:"allowAccess"`
 	// The description of the Variable Group.
 	Description *string `pulumi:"description"`
-	// -(Optional) A list of `keyVault` blocks as documented below.
+	// A list of `keyVault` blocks as documented below.
 	KeyVault *VariableGroupKeyVault `pulumi:"keyVault"`
 	// The name of the Variable Group.
 	Name *string `pulumi:"name"`
@@ -266,7 +266,7 @@ type VariableGroupArgs struct {
 	AllowAccess pulumi.BoolPtrInput
 	// The description of the Variable Group.
 	Description pulumi.StringPtrInput
-	// -(Optional) A list of `keyVault` blocks as documented below.
+	// A list of `keyVault` blocks as documented below.
 	KeyVault VariableGroupKeyVaultPtrInput
 	// The name of the Variable Group.
 	Name pulumi.StringPtrInput
@@ -373,7 +373,7 @@ func (o VariableGroupOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VariableGroup) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// -(Optional) A list of `keyVault` blocks as documented below.
+// A list of `keyVault` blocks as documented below.
 func (o VariableGroupOutput) KeyVault() VariableGroupKeyVaultPtrOutput {
 	return o.ApplyT(func(v *VariableGroup) VariableGroupKeyVaultPtrOutput { return v.KeyVault }).(VariableGroupKeyVaultPtrOutput)
 }

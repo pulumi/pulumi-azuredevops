@@ -17,15 +17,18 @@ __all__ = [
 class GetPoolsAgentPoolResult(dict):
     def __init__(__self__, *,
                  auto_provision: bool,
+                 auto_update: bool,
                  id: int,
                  name: str,
                  pool_type: str):
         """
         :param bool auto_provision: Specifies whether or not a queue should be automatically provisioned for each project collection.
+        :param bool auto_update: Specifies whether or not agents within the pool should be automatically updated.
         :param str name: The name of the agent pool
         :param str pool_type: Specifies whether the agent pool type is Automation or Deployment.
         """
         pulumi.set(__self__, "auto_provision", auto_provision)
+        pulumi.set(__self__, "auto_update", auto_update)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "pool_type", pool_type)
@@ -37,6 +40,14 @@ class GetPoolsAgentPoolResult(dict):
         Specifies whether or not a queue should be automatically provisioned for each project collection.
         """
         return pulumi.get(self, "auto_provision")
+
+    @property
+    @pulumi.getter(name="autoUpdate")
+    def auto_update(self) -> bool:
+        """
+        Specifies whether or not agents within the pool should be automatically updated.
+        """
+        return pulumi.get(self, "auto_update")
 
     @property
     @pulumi.getter

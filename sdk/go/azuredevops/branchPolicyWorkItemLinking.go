@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,7 +33,7 @@ import (
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -44,19 +44,19 @@ import (
 //				ProjectId: exampleProject.ID(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
-//				Settings: &BranchPolicyWorkItemLinkingSettingsArgs{
-//					Scopes: BranchPolicyWorkItemLinkingSettingsScopeArray{
-//						&BranchPolicyWorkItemLinkingSettingsScopeArgs{
+//				Settings: &azuredevops.BranchPolicyWorkItemLinkingSettingsArgs{
+//					Scopes: azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArray{
+//						&azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},
-//						&BranchPolicyWorkItemLinkingSettingsScopeArgs{
+//						&azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: pulumi.String("refs/heads/releases"),
 //							MatchType:     pulumi.String("Prefix"),
 //						},
-//						&BranchPolicyWorkItemLinkingSettingsScopeArgs{
+//						&azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{
 //							MatchType: pulumi.String("DefaultBranch"),
 //						},
 //					},

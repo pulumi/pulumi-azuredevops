@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -104,7 +104,7 @@ func NewServiceEndpointGenericGit(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",

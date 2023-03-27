@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -111,7 +111,7 @@ func NewServiceEndpointAzureDevOps(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	if args.PersonalAccessToken != nil {
-		args.PersonalAccessToken = pulumi.ToSecret(args.PersonalAccessToken).(pulumi.StringOutput)
+		args.PersonalAccessToken = pulumi.ToSecret(args.PersonalAccessToken).(pulumi.StringInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"personalAccessToken",

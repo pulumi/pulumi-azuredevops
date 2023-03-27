@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,25 +36,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_project_contributors := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_project_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Contributors"),
 //			}, nil)
-//			example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_project_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
 //				ProjectId: exampleProject.ID(),
 //				Administrators: pulumi.StringArray{
-//					example_project_contributors.ApplyT(func(example_project_contributors GetGroupResult) (string, error) {
-//						return example_project_contributors.Descriptor, nil
-//					}).(pulumi.StringOutput),
+//					example_project_contributors.ApplyT(func(example_project_contributors azuredevops.GetGroupResult) (*string, error) {
+//						return &example_project_contributors.Descriptor, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //				Members: pulumi.StringArray{
-//					example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
-//						return example_project_readers.Descriptor, nil
-//					}).(pulumi.StringOutput),
+//					example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
+//						return &example_project_readers.Descriptor, nil
+//					}).(pulumi.StringPtrOutput),
 //				},
 //			})
 //			if err != nil {
