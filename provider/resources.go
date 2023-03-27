@@ -22,8 +22,10 @@ import (
 	"github.com/microsoft/terraform-provider-azuredevops/azuredevops"
 	"github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/x"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tokens"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 )
 
 // all of the token components used below.
@@ -307,6 +309,10 @@ func Provider() tfbridge.ProviderInfo {
 	prov.RenameDataSource("azuredevops_users",
 		makeDataSource("Identities", "getUsers"),
 		makeDataSource(mainMod, "getUsers"), "Identities", mainMod, nil)
+
+	err := x.ComputeDefaults(&prov, x.TokensSingleModule("azuredevops_",
+		mainMod, x.MakeStandardToken(mainPkg)))
+	contract.AssertNoError(err)
 
 	prov.SetAutonaming(255, "-")
 
