@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -42,7 +42,7 @@ import (
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -60,19 +60,19 @@ import (
 //				ProjectId: exampleProject.ID(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
-//				Settings: &BranchPolicyStatusCheckSettingsArgs{
+//				Settings: &azuredevops.BranchPolicyStatusCheckSettingsArgs{
 //					Name:               pulumi.String("Release"),
 //					AuthorId:           exampleUser.ID(),
 //					InvalidateOnUpdate: pulumi.Bool(true),
 //					Applicability:      pulumi.String("conditional"),
 //					DisplayName:        pulumi.String("PreCheck"),
-//					Scopes: BranchPolicyStatusCheckSettingsScopeArray{
-//						&BranchPolicyStatusCheckSettingsScopeArgs{
+//					Scopes: azuredevops.BranchPolicyStatusCheckSettingsScopeArray{
+//						&azuredevops.BranchPolicyStatusCheckSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},
-//						&BranchPolicyStatusCheckSettingsScopeArgs{
+//						&azuredevops.BranchPolicyStatusCheckSettingsScopeArgs{
 //							MatchType: pulumi.String("DefaultBranch"),
 //						},
 //					},

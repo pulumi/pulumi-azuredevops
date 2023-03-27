@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,15 +43,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_project_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_project_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: example.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewAreaPermissions(ctx, "example-root-permissions", &azuredevops.AreaPermissionsArgs{
 //				ProjectId: example.ID(),
-//				Principal: example_project_readers.ApplyT(func(example_project_readers GetGroupResult) (string, error) {
-//					return example_project_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_project_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Path: pulumi.String("/"),
 //				Permissions: pulumi.StringMap{
 //					"CREATE_CHILDREN": pulumi.String("Deny"),

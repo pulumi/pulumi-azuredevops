@@ -26,13 +26,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleGroup, err := azuredevops.LookupGroup(ctx, &GetGroupArgs{
+//			exampleGroup, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
 //				ProjectId: pulumi.StringRef(exampleProject.Id),
 //				Name:      "Example Group",
 //			}, nil)
@@ -41,7 +41,7 @@ import (
 //			}
 //			ctx.Export("groupId", exampleGroup.Id)
 //			ctx.Export("groupDescriptor", exampleGroup.Descriptor)
-//			_, err = azuredevops.LookupGroup(ctx, &GetGroupArgs{
+//			_, err = azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
 //				Name: "Project Collection Administrators",
 //			}, nil)
 //			if err != nil {

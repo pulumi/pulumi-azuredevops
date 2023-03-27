@@ -35,16 +35,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAgentQueue := azuredevops.GetAgentQueueOutput(ctx, GetAgentQueueOutputArgs{
+//			exampleAgentQueue := azuredevops.GetAgentQueueOutput(ctx, azuredevops.GetAgentQueueOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Example Agent Queue"),
 //			}, nil)
-//			ctx.Export("name", exampleAgentQueue.ApplyT(func(exampleAgentQueue GetAgentQueueResult) (string, error) {
-//				return exampleAgentQueue.Name, nil
-//			}).(pulumi.StringOutput))
-//			ctx.Export("poolId", exampleAgentQueue.ApplyT(func(exampleAgentQueue GetAgentQueueResult) (int, error) {
-//				return exampleAgentQueue.AgentPoolId, nil
-//			}).(pulumi.IntOutput))
+//			ctx.Export("name", exampleAgentQueue.ApplyT(func(exampleAgentQueue azuredevops.GetAgentQueueResult) (*string, error) {
+//				return &exampleAgentQueue.Name, nil
+//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("poolId", exampleAgentQueue.ApplyT(func(exampleAgentQueue azuredevops.GetAgentQueueResult) (*int, error) {
+//				return &exampleAgentQueue.AgentPoolId, nil
+//			}).(pulumi.IntPtrOutput))
 //			return nil
 //		})
 //	}

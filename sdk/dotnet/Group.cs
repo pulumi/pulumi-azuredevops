@@ -42,8 +42,8 @@ namespace Pulumi.AzureDevOps
     ///         Description = "Example description",
     ///         Members = new[]
     ///         {
-    ///             example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
-    ///             example_contributors.Apply(getGroupResult =&gt; getGroupResult).Apply(example_contributors =&gt; example_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///             example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///             example_contributors.Apply(example_contributors =&gt; example_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
     ///         },
     ///     });
     /// 

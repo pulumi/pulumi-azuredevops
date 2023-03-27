@@ -26,7 +26,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
+//			example, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
 //				Name: "Example Agent Pool",
 //			}, nil)
 //			if err != nil {
@@ -35,6 +35,7 @@ import (
 //			ctx.Export("name", example.Name)
 //			ctx.Export("poolType", example.PoolType)
 //			ctx.Export("autoProvision", example.AutoProvision)
+//			ctx.Export("autoUpdate", example.AutoUpdate)
 //			return nil
 //		})
 //	}
@@ -63,6 +64,7 @@ type LookupPoolArgs struct {
 // A collection of values returned by getPool.
 type LookupPoolResult struct {
 	AutoProvision bool `pulumi:"autoProvision"`
+	AutoUpdate    bool `pulumi:"autoUpdate"`
 	// The provider-assigned unique ID for this managed resource.
 	Id       string `pulumi:"id"`
 	Name     string `pulumi:"name"`
@@ -109,6 +111,10 @@ func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.
 
 func (o LookupPoolResultOutput) AutoProvision() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupPoolResult) bool { return v.AutoProvision }).(pulumi.BoolOutput)
+}
+
+func (o LookupPoolResultOutput) AutoUpdate() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupPoolResult) bool { return v.AutoUpdate }).(pulumi.BoolOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

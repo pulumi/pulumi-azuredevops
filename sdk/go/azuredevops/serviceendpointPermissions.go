@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -43,15 +43,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Readers"),
 //			}, nil)
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-root-permissions", &azuredevops.ServiceendpointPermissionsArgs{
 //				ProjectId: exampleProject.ID(),
-//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				Permissions: pulumi.StringMap{
 //					"Use":               pulumi.String("allow"),
 //					"Administer":        pulumi.String("allow"),
@@ -76,9 +76,9 @@ import (
 //			}
 //			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-permissions", &azuredevops.ServiceendpointPermissionsArgs{
 //				ProjectId: exampleProject.ID(),
-//				Principal: example_readers.ApplyT(func(example_readers GetGroupResult) (string, error) {
-//					return example_readers.Id, nil
-//				}).(pulumi.StringOutput),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
 //				ServiceendpointId: exampleServiceEndpointDockerRegistry.ID(),
 //				Permissions: pulumi.StringMap{
 //					"Use":               pulumi.String("allow"),

@@ -45,7 +45,7 @@ namespace Pulumi.AzureDevOps
     ///     var example_root_permissions = new AzureDevOps.AreaPermissions("example-root-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         Principal = example_project_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Path = "/",
     ///         Permissions = 
     ///         {

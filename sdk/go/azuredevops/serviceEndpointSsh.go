@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -109,10 +109,10 @@ func NewServiceEndpointSsh(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'Username'")
 	}
 	if args.Password != nil {
-		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrOutput)
+		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
 	if args.PrivateKey != nil {
-		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrOutput)
+		args.PrivateKey = pulumi.ToSecret(args.PrivateKey).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",

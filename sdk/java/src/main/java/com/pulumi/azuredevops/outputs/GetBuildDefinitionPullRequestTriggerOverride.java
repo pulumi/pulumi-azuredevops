@@ -12,6 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetBuildDefinitionPullRequestTriggerOverride {
+    /**
+     * @return Should further updates to a PR cancel an in progress validation?
+     * 
+     */
     private Boolean autoCancel;
     /**
      * @return A `branch_filter` block as defined above.
@@ -19,12 +23,16 @@ public final class GetBuildDefinitionPullRequestTriggerOverride {
      */
     private List<GetBuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters;
     /**
-     * @return The file paths to include or exclude.
+     * @return block supports the following:
      * 
      */
     private List<GetBuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters;
 
     private GetBuildDefinitionPullRequestTriggerOverride() {}
+    /**
+     * @return Should further updates to a PR cancel an in progress validation?
+     * 
+     */
     public Boolean autoCancel() {
         return this.autoCancel;
     }
@@ -36,7 +44,7 @@ public final class GetBuildDefinitionPullRequestTriggerOverride {
         return this.branchFilters;
     }
     /**
-     * @return The file paths to include or exclude.
+     * @return block supports the following:
      * 
      */
     public List<GetBuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters() {

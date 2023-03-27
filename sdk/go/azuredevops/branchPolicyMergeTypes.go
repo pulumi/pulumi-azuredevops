@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,7 +33,7 @@ import (
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -44,23 +44,23 @@ import (
 //				ProjectId: exampleProject.ID(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
-//				Settings: &BranchPolicyMergeTypesSettingsArgs{
+//				Settings: &azuredevops.BranchPolicyMergeTypesSettingsArgs{
 //					AllowSquash:               pulumi.Bool(true),
 //					AllowRebaseAndFastForward: pulumi.Bool(true),
 //					AllowBasicNoFastForward:   pulumi.Bool(true),
 //					AllowRebaseWithMerge:      pulumi.Bool(true),
-//					Scopes: BranchPolicyMergeTypesSettingsScopeArray{
-//						&BranchPolicyMergeTypesSettingsScopeArgs{
+//					Scopes: azuredevops.BranchPolicyMergeTypesSettingsScopeArray{
+//						&azuredevops.BranchPolicyMergeTypesSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},
-//						&BranchPolicyMergeTypesSettingsScopeArgs{
+//						&azuredevops.BranchPolicyMergeTypesSettingsScopeArgs{
 //							RepositoryId:  nil,
 //							RepositoryRef: pulumi.String("refs/heads/releases"),
 //							MatchType:     pulumi.String("Prefix"),
 //						},
-//						&BranchPolicyMergeTypesSettingsScopeArgs{
+//						&azuredevops.BranchPolicyMergeTypesSettingsScopeArgs{
 //							MatchType: pulumi.String("DefaultBranch"),
 //						},
 //					},

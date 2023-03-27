@@ -7,6 +7,7 @@ import com.pulumi.azuredevops.inputs.BranchPolicyAutoReviewersSettingsScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -46,6 +47,21 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
      */
     public Optional<Output<String>> message() {
         return Optional.ofNullable(this.message);
+    }
+
+    /**
+     * Minimum number of required reviewers. Defaults to `1`.
+     * 
+     */
+    @Import(name="minimumNumberOfReviewers")
+    private @Nullable Output<Integer> minimumNumberOfReviewers;
+
+    /**
+     * @return Minimum number of required reviewers. Defaults to `1`.
+     * 
+     */
+    public Optional<Output<Integer>> minimumNumberOfReviewers() {
+        return Optional.ofNullable(this.minimumNumberOfReviewers);
     }
 
     /**
@@ -98,6 +114,7 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
     private BranchPolicyAutoReviewersSettingsArgs(BranchPolicyAutoReviewersSettingsArgs $) {
         this.autoReviewerIds = $.autoReviewerIds;
         this.message = $.message;
+        this.minimumNumberOfReviewers = $.minimumNumberOfReviewers;
         this.pathFilters = $.pathFilters;
         this.scopes = $.scopes;
         this.submitterCanVote = $.submitterCanVote;
@@ -171,6 +188,27 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
          */
         public Builder message(String message) {
             return message(Output.of(message));
+        }
+
+        /**
+         * @param minimumNumberOfReviewers Minimum number of required reviewers. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumNumberOfReviewers(@Nullable Output<Integer> minimumNumberOfReviewers) {
+            $.minimumNumberOfReviewers = minimumNumberOfReviewers;
+            return this;
+        }
+
+        /**
+         * @param minimumNumberOfReviewers Minimum number of required reviewers. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder minimumNumberOfReviewers(Integer minimumNumberOfReviewers) {
+            return minimumNumberOfReviewers(Output.of(minimumNumberOfReviewers));
         }
 
         /**

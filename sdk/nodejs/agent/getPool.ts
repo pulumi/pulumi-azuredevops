@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * export const name = example.then(example => example.name);
  * export const poolType = example.then(example => example.poolType);
  * export const autoProvision = example.then(example => example.autoProvision);
+ * export const autoUpdate = example.then(example => example.autoUpdate);
  * ```
  * ## Relevant Links
  *
@@ -27,11 +28,8 @@ import * as utilities from "../utilities";
 /** @deprecated azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool */
 export function getPool(args: GetPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPoolResult> {
     pulumi.log.warn("getPool is deprecated: azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool")
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:Agent/getPool:getPool", {
         "name": args.name,
     }, opts);
@@ -52,6 +50,7 @@ export interface GetPoolArgs {
  */
 export interface GetPoolResult {
     readonly autoProvision: boolean;
+    readonly autoUpdate: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -59,9 +58,30 @@ export interface GetPoolResult {
     readonly name: string;
     readonly poolType: string;
 }
-
+/**
+ * Use this data source to access information about an existing Agent Pool within Azure DevOps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getPool({
+ *     name: "Example Agent Pool",
+ * });
+ * export const name = example.then(example => example.name);
+ * export const poolType = example.then(example => example.poolType);
+ * export const autoProvision = example.then(example => example.autoProvision);
+ * export const autoUpdate = example.then(example => example.autoUpdate);
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+ */
+/** @deprecated azuredevops.agent.getPool has been deprecated in favor of azuredevops.getPool */
 export function getPoolOutput(args: GetPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolResult> {
-    return pulumi.output(args).apply(a => getPool(a, opts))
+    return pulumi.output(args).apply((a: any) => getPool(a, opts))
 }
 
 /**

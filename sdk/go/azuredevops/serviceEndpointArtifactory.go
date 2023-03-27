@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -41,7 +41,7 @@ import (
 //				ServiceEndpointName: pulumi.String("Example Artifactory"),
 //				Description:         pulumi.String("Managed by Terraform"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),
-//				AuthenticationToken: &ServiceEndpointArtifactoryAuthenticationTokenArgs{
+//				AuthenticationToken: &azuredevops.ServiceEndpointArtifactoryAuthenticationTokenArgs{
 //					Token: pulumi.String("0000000000000000000000000000000000000000"),
 //				},
 //			})
@@ -81,7 +81,7 @@ import (
 //				ServiceEndpointName: pulumi.String("Example Artifactory"),
 //				Description:         pulumi.String("Managed by Terraform"),
 //				Url:                 pulumi.String("https://artifactory.my.com"),
-//				AuthenticationBasic: &ServiceEndpointArtifactoryAuthenticationBasicArgs{
+//				AuthenticationBasic: &azuredevops.ServiceEndpointArtifactoryAuthenticationBasicArgs{
 //					Username: pulumi.String("username"),
 //					Password: pulumi.String("password"),
 //				},

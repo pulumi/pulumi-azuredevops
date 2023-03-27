@@ -15,16 +15,20 @@ __all__ = ['PoolArgs', 'Pool']
 class PoolArgs:
     def __init__(__self__, *,
                  auto_provision: Optional[pulumi.Input[bool]] = None,
+                 auto_update: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pool_type: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Pool resource.
         :param pulumi.Input[bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        :param pulumi.Input[bool] auto_update: Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
         if auto_provision is not None:
             pulumi.set(__self__, "auto_provision", auto_provision)
+        if auto_update is not None:
+            pulumi.set(__self__, "auto_update", auto_update)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if pool_type is not None:
@@ -41,6 +45,18 @@ class PoolArgs:
     @auto_provision.setter
     def auto_provision(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_provision", value)
+
+    @property
+    @pulumi.getter(name="autoUpdate")
+    def auto_update(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_update")
+
+    @auto_update.setter
+    def auto_update(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_update", value)
 
     @property
     @pulumi.getter
@@ -71,16 +87,20 @@ class PoolArgs:
 class _PoolState:
     def __init__(__self__, *,
                  auto_provision: Optional[pulumi.Input[bool]] = None,
+                 auto_update: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pool_type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Pool resources.
         :param pulumi.Input[bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        :param pulumi.Input[bool] auto_update: Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
         if auto_provision is not None:
             pulumi.set(__self__, "auto_provision", auto_provision)
+        if auto_update is not None:
+            pulumi.set(__self__, "auto_update", auto_update)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if pool_type is not None:
@@ -97,6 +117,18 @@ class _PoolState:
     @auto_provision.setter
     def auto_provision(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_provision", value)
+
+    @property
+    @pulumi.getter(name="autoUpdate")
+    def auto_update(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_update")
+
+    @auto_update.setter
+    def auto_update(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "auto_update", value)
 
     @property
     @pulumi.getter
@@ -134,6 +166,7 @@ class Pool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_provision: Optional[pulumi.Input[bool]] = None,
+                 auto_update: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pool_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -146,7 +179,9 @@ class Pool(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example = azuredevops.Pool("example", auto_provision=False)
+        example = azuredevops.Pool("example",
+            auto_provision=False,
+            auto_update=False)
         ```
         ## Relevant Links
 
@@ -163,6 +198,7 @@ class Pool(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        :param pulumi.Input[bool] auto_update: Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
@@ -181,7 +217,9 @@ class Pool(pulumi.CustomResource):
         import pulumi
         import pulumi_azuredevops as azuredevops
 
-        example = azuredevops.Pool("example", auto_provision=False)
+        example = azuredevops.Pool("example",
+            auto_provision=False,
+            auto_update=False)
         ```
         ## Relevant Links
 
@@ -211,6 +249,7 @@ class Pool(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auto_provision: Optional[pulumi.Input[bool]] = None,
+                 auto_update: Optional[pulumi.Input[bool]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pool_type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -224,6 +263,7 @@ class Pool(pulumi.CustomResource):
             __props__ = PoolArgs.__new__(PoolArgs)
 
             __props__.__dict__["auto_provision"] = auto_provision
+            __props__.__dict__["auto_update"] = auto_update
             __props__.__dict__["name"] = name
             __props__.__dict__["pool_type"] = pool_type
         super(Pool, __self__).__init__(
@@ -237,6 +277,7 @@ class Pool(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             auto_provision: Optional[pulumi.Input[bool]] = None,
+            auto_update: Optional[pulumi.Input[bool]] = None,
             name: Optional[pulumi.Input[str]] = None,
             pool_type: Optional[pulumi.Input[str]] = None) -> 'Pool':
         """
@@ -247,6 +288,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] auto_provision: Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
+        :param pulumi.Input[bool] auto_update: Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
@@ -255,6 +297,7 @@ class Pool(pulumi.CustomResource):
         __props__ = _PoolState.__new__(_PoolState)
 
         __props__.__dict__["auto_provision"] = auto_provision
+        __props__.__dict__["auto_update"] = auto_update
         __props__.__dict__["name"] = name
         __props__.__dict__["pool_type"] = pool_type
         return Pool(resource_name, opts=opts, __props__=__props__)
@@ -266,6 +309,14 @@ class Pool(pulumi.CustomResource):
         Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
         """
         return pulumi.get(self, "auto_provision")
+
+    @property
+    @pulumi.getter(name="autoUpdate")
+    def auto_update(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+        """
+        return pulumi.get(self, "auto_update")
 
     @property
     @pulumi.getter

@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -37,14 +37,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleGroup := azuredevops.LookupGroupOutput(ctx, GetGroupOutputArgs{
+//			exampleGroup := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
 //				ProjectId: exampleProject.ID(),
 //				Name:      pulumi.String("Build Administrators"),
 //			}, nil)
 //			_, err = azuredevops.NewGroupMembership(ctx, "exampleGroupMembership", &azuredevops.GroupMembershipArgs{
-//				Group: exampleGroup.ApplyT(func(exampleGroup GetGroupResult) (string, error) {
-//					return exampleGroup.Descriptor, nil
-//				}).(pulumi.StringOutput),
+//				Group: exampleGroup.ApplyT(func(exampleGroup azuredevops.GetGroupResult) (*string, error) {
+//					return &exampleGroup.Descriptor, nil
+//				}).(pulumi.StringPtrOutput),
 //				Members: pulumi.StringArray{
 //					exampleUser.Descriptor,
 //				},

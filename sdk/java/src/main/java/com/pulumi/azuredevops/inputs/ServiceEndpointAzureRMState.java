@@ -25,14 +25,14 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The management group Id of the Azure targets.
+     * The Management group ID of the Azure targets.
      * 
      */
     @Import(name="azurermManagementGroupId")
     private @Nullable Output<String> azurermManagementGroupId;
 
     /**
-     * @return The management group Id of the Azure targets.
+     * @return The Management group ID of the Azure targets.
      * 
      */
     public Optional<Output<String>> azurermManagementGroupId() {
@@ -40,14 +40,14 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The management group Name of the targets.
+     * The Management group Name of the targets.
      * 
      */
     @Import(name="azurermManagementGroupName")
     private @Nullable Output<String> azurermManagementGroupName;
 
     /**
-     * @return The management group Name of the targets.
+     * @return The Management group Name of the targets.
      * 
      */
     public Optional<Output<String>> azurermManagementGroupName() {
@@ -55,14 +55,14 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The tenant id if the service principal.
+     * The Tenant ID if the service principal.
      * 
      */
     @Import(name="azurermSpnTenantid")
     private @Nullable Output<String> azurermSpnTenantid;
 
     /**
-     * @return The tenant id if the service principal.
+     * @return The Tenant ID if the service principal.
      * 
      */
     public Optional<Output<String>> azurermSpnTenantid() {
@@ -70,14 +70,14 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The subscription Id of the Azure targets.
+     * The Subscription ID of the Azure targets.
      * 
      */
     @Import(name="azurermSubscriptionId")
     private @Nullable Output<String> azurermSubscriptionId;
 
     /**
-     * @return The subscription Id of the Azure targets.
+     * @return The Subscription ID of the Azure targets.
      * 
      */
     public Optional<Output<String>> azurermSubscriptionId() {
@@ -85,14 +85,14 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The subscription Name of the targets.
+     * The Subscription Name of the targets.
      * 
      */
     @Import(name="azurermSubscriptionName")
     private @Nullable Output<String> azurermSubscriptionName;
 
     /**
-     * @return The subscription Name of the targets.
+     * @return The Subscription Name of the targets.
      * 
      */
     public Optional<Output<String>> azurermSubscriptionName() {
@@ -130,6 +130,21 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="environment")
+    private @Nullable Output<String> environment;
+
+    /**
+     * @return The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<String>> environment() {
+        return Optional.ofNullable(this.environment);
+    }
+
+    /**
      * The ID of the project.
      * 
      */
@@ -160,14 +175,14 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Service Endpoint name.
+     * The Service Endpoint Name.
      * 
      */
     @Import(name="serviceEndpointName")
     private @Nullable Output<String> serviceEndpointName;
 
     /**
-     * @return The Service Endpoint name.
+     * @return The Service Endpoint Name.
      * 
      */
     public Optional<Output<String>> serviceEndpointName() {
@@ -185,6 +200,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         this.azurermSubscriptionName = $.azurermSubscriptionName;
         this.credentials = $.credentials;
         this.description = $.description;
+        this.environment = $.environment;
         this.projectId = $.projectId;
         this.resourceGroup = $.resourceGroup;
         this.serviceEndpointName = $.serviceEndpointName;
@@ -218,7 +234,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermManagementGroupId The management group Id of the Azure targets.
+         * @param azurermManagementGroupId The Management group ID of the Azure targets.
          * 
          * @return builder
          * 
@@ -229,7 +245,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermManagementGroupId The management group Id of the Azure targets.
+         * @param azurermManagementGroupId The Management group ID of the Azure targets.
          * 
          * @return builder
          * 
@@ -239,7 +255,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermManagementGroupName The management group Name of the targets.
+         * @param azurermManagementGroupName The Management group Name of the targets.
          * 
          * @return builder
          * 
@@ -250,7 +266,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermManagementGroupName The management group Name of the targets.
+         * @param azurermManagementGroupName The Management group Name of the targets.
          * 
          * @return builder
          * 
@@ -260,7 +276,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermSpnTenantid The tenant id if the service principal.
+         * @param azurermSpnTenantid The Tenant ID if the service principal.
          * 
          * @return builder
          * 
@@ -271,7 +287,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermSpnTenantid The tenant id if the service principal.
+         * @param azurermSpnTenantid The Tenant ID if the service principal.
          * 
          * @return builder
          * 
@@ -281,7 +297,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermSubscriptionId The subscription Id of the Azure targets.
+         * @param azurermSubscriptionId The Subscription ID of the Azure targets.
          * 
          * @return builder
          * 
@@ -292,7 +308,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermSubscriptionId The subscription Id of the Azure targets.
+         * @param azurermSubscriptionId The Subscription ID of the Azure targets.
          * 
          * @return builder
          * 
@@ -302,7 +318,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermSubscriptionName The subscription Name of the targets.
+         * @param azurermSubscriptionName The Subscription Name of the targets.
          * 
          * @return builder
          * 
@@ -313,7 +329,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param azurermSubscriptionName The subscription Name of the targets.
+         * @param azurermSubscriptionName The Subscription Name of the targets.
          * 
          * @return builder
          * 
@@ -365,6 +381,27 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
+         * @param environment The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environment(@Nullable Output<String> environment) {
+            $.environment = environment;
+            return this;
+        }
+
+        /**
+         * @param environment The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder environment(String environment) {
+            return environment(Output.of(environment));
+        }
+
+        /**
          * @param projectId The ID of the project.
          * 
          * @return builder
@@ -407,7 +444,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serviceEndpointName The Service Endpoint name.
+         * @param serviceEndpointName The Service Endpoint Name.
          * 
          * @return builder
          * 
@@ -418,7 +455,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param serviceEndpointName The Service Endpoint name.
+         * @param serviceEndpointName The Service Endpoint Name.
          * 
          * @return builder
          * 

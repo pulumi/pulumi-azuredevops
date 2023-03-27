@@ -22,6 +22,34 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getClientConfig();
+     * 
+     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *     }
+     * }
+     * ```
+     * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
      * 
@@ -32,6 +60,34 @@ public final class CoreFunctions {
     }
     /**
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getClientConfig();
+     * 
+     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
@@ -44,6 +100,34 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getClientConfig();
+     * 
+     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *     }
+     * }
+     * ```
+     * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
      * 
@@ -54,6 +138,34 @@ public final class CoreFunctions {
     }
     /**
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getClientConfig();
+     * 
+     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
@@ -66,6 +178,34 @@ public final class CoreFunctions {
     /**
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getClientConfig();
+     * 
+     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *     }
+     * }
+     * ```
+     * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
      * 
@@ -76,6 +216,34 @@ public final class CoreFunctions {
     }
     /**
      * Use this data source to access information about the Azure DevOps organization configured for the provider.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getClientConfig();
+     * 
+     *         ctx.export(&#34;orgUrl&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.organizationUrl()));
+     *     }
+     * }
+     * ```
      * 
      * @deprecated
      * azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
@@ -96,7 +264,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -141,7 +309,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -186,7 +354,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -231,7 +399,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -276,7 +444,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -321,7 +489,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -366,7 +534,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectsArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -415,7 +583,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectsArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -464,7 +632,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectsArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -513,7 +681,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectsArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -562,7 +730,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectsArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -611,7 +779,7 @@ public final class CoreFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectsArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectsArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

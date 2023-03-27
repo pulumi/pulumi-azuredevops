@@ -28,7 +28,7 @@ class VariableGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]] variables: One or more `variable` blocks as documented below.
         :param pulumi.Input[bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
         :param pulumi.Input[str] description: The description of the Variable Group.
-        :param pulumi.Input['VariableGroupKeyVaultArgs'] key_vault: -(Optional) A list of `key_vault` blocks as documented below.
+        :param pulumi.Input['VariableGroupKeyVaultArgs'] key_vault: A list of `key_vault` blocks as documented below.
         :param pulumi.Input[str] name: The name of the Variable Group.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -94,7 +94,7 @@ class VariableGroupArgs:
     @pulumi.getter(name="keyVault")
     def key_vault(self) -> Optional[pulumi.Input['VariableGroupKeyVaultArgs']]:
         """
-        -(Optional) A list of `key_vault` blocks as documented below.
+        A list of `key_vault` blocks as documented below.
         """
         return pulumi.get(self, "key_vault")
 
@@ -128,7 +128,7 @@ class _VariableGroupState:
         Input properties used for looking up and filtering VariableGroup resources.
         :param pulumi.Input[bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
         :param pulumi.Input[str] description: The description of the Variable Group.
-        :param pulumi.Input['VariableGroupKeyVaultArgs'] key_vault: -(Optional) A list of `key_vault` blocks as documented below.
+        :param pulumi.Input['VariableGroupKeyVaultArgs'] key_vault: A list of `key_vault` blocks as documented below.
         :param pulumi.Input[str] name: The name of the Variable Group.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]] variables: One or more `variable` blocks as documented below.
@@ -174,7 +174,7 @@ class _VariableGroupState:
     @pulumi.getter(name="keyVault")
     def key_vault(self) -> Optional[pulumi.Input['VariableGroupKeyVaultArgs']]:
         """
-        -(Optional) A list of `key_vault` blocks as documented below.
+        A list of `key_vault` blocks as documented below.
         """
         return pulumi.get(self, "key_vault")
 
@@ -332,7 +332,7 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
         :param pulumi.Input[str] description: The description of the Variable Group.
-        :param pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']] key_vault: -(Optional) A list of `key_vault` blocks as documented below.
+        :param pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']] key_vault: A list of `key_vault` blocks as documented below.
         :param pulumi.Input[str] name: The name of the Variable Group.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
@@ -507,7 +507,7 @@ class VariableGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] allow_access: Boolean that indicate if this variable group is shared by all pipelines of this project.
         :param pulumi.Input[str] description: The description of the Variable Group.
-        :param pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']] key_vault: -(Optional) A list of `key_vault` blocks as documented below.
+        :param pulumi.Input[pulumi.InputType['VariableGroupKeyVaultArgs']] key_vault: A list of `key_vault` blocks as documented below.
         :param pulumi.Input[str] name: The name of the Variable Group.
         :param pulumi.Input[str] project_id: The project ID or project name.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]] variables: One or more `variable` blocks as documented below.
@@ -544,7 +544,7 @@ class VariableGroup(pulumi.CustomResource):
     @pulumi.getter(name="keyVault")
     def key_vault(self) -> pulumi.Output[Optional['outputs.VariableGroupKeyVault']]:
         """
-        -(Optional) A list of `key_vault` blocks as documented below.
+        A list of `key_vault` blocks as documented below.
         """
         return pulumi.get(self, "key_vault")
 

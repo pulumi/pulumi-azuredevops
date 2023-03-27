@@ -16,7 +16,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private Input<string>? _password;
 
         /// <summary>
-        /// - Password for the Azure Active Directory account.
+        /// Password for the Azure Active Directory account.
         /// </summary>
         public Input<string>? Password
         {
@@ -47,7 +47,7 @@ namespace Pulumi.AzureDevOps.Inputs
         public Input<string>? ServerCertificateThumbprint { get; set; }
 
         /// <summary>
-        /// - Specify an Azure Active Directory account.
+        /// Specify an Azure Active Directory account.
         /// </summary>
         [Input("username", required: true)]
         public Input<string> Username { get; set; } = null!;

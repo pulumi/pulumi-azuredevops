@@ -32,6 +32,8 @@
         "buildDefinitionPermissions.ts",
         "buildFolder.ts",
         "buildFolderPermissions.ts",
+        "checkBranchControl.ts",
+        "checkBusinessHours.ts",
         "config/index.ts",
         "config/vars.ts",
         "core/getClientConfig.ts",
@@ -64,6 +66,7 @@
         "getVariableGroup.ts",
         "git.ts",
         "gitPermissions.ts",
+        "gitRepositoryBranch.ts",
         "gitRepositoryFile.ts",
         "group.ts",
         "groupMembership.ts",
@@ -124,6 +127,7 @@
         "serviceendpoint/index.ts",
         "serviceendpoint/kubernetes.ts",
         "serviceendpointArgocd.ts",
+        "serviceendpointExternaltfs.ts",
         "serviceendpointIncomingwebhook.ts",
         "serviceendpointOctopusdeploy.ts",
         "serviceendpointPermissions.ts",
@@ -138,6 +142,7 @@
         "user.ts",
         "utilities.ts",
         "variableGroup.ts",
-        "workItemQueryPermissions.ts"
+        "workItemQueryPermissions.ts",
+        "workitem.ts"
     ]
 }

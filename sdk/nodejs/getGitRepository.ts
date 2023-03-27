@@ -27,11 +27,8 @@ import * as utilities from "./utilities";
  * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
  */
 export function getGitRepository(args: GetGitRepositoryArgs, opts?: pulumi.InvokeOptions): Promise<GetGitRepositoryResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getGitRepository:getGitRepository", {
         "name": args.name,
         "projectId": args.projectId,
@@ -94,9 +91,30 @@ export interface GetGitRepositoryResult {
      */
     readonly webUrl: string;
 }
-
+/**
+ * Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
+ * To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const example-single-repo = example.then(example => azuredevops.getGitRepository({
+ *     projectId: example.id,
+ *     name: "Example Repository",
+ * }));
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+ */
 export function getGitRepositoryOutput(args: GetGitRepositoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGitRepositoryResult> {
-    return pulumi.output(args).apply(a => getGitRepository(a, opts))
+    return pulumi.output(args).apply((a: any) => getGitRepository(a, opts))
 }
 
 /**

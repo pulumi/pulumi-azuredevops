@@ -127,23 +127,23 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
 
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
-     * The management group Id of the Azure targets.
+     * The Management group ID of the Azure targets.
      */
     public readonly azurermManagementGroupId!: pulumi.Output<string | undefined>;
     /**
-     * The management group Name of the targets.
+     * The Management group Name of the targets.
      */
     public readonly azurermManagementGroupName!: pulumi.Output<string | undefined>;
     /**
-     * The tenant id if the service principal.
+     * The Tenant ID if the service principal.
      */
     public readonly azurermSpnTenantid!: pulumi.Output<string>;
     /**
-     * The subscription Id of the Azure targets.
+     * The Subscription ID of the Azure targets.
      */
     public readonly azurermSubscriptionId!: pulumi.Output<string | undefined>;
     /**
-     * The subscription Name of the targets.
+     * The Subscription Name of the targets.
      */
     public readonly azurermSubscriptionName!: pulumi.Output<string | undefined>;
     /**
@@ -155,6 +155,10 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     */
+    public readonly environment!: pulumi.Output<string | undefined>;
+    /**
      * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
@@ -163,7 +167,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly resourceGroup!: pulumi.Output<string | undefined>;
     /**
-     * The Service Endpoint name.
+     * The Service Endpoint Name.
      */
     public readonly serviceEndpointName!: pulumi.Output<string>;
 
@@ -188,6 +192,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["azurermSubscriptionName"] = state ? state.azurermSubscriptionName : undefined;
             resourceInputs["credentials"] = state ? state.credentials : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
@@ -210,6 +215,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["azurermSubscriptionName"] = args ? args.azurermSubscriptionName : undefined;
             resourceInputs["credentials"] = args ? args.credentials : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
@@ -227,23 +233,23 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
 export interface ServiceEndpointAzureRMState {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The management group Id of the Azure targets.
+     * The Management group ID of the Azure targets.
      */
     azurermManagementGroupId?: pulumi.Input<string>;
     /**
-     * The management group Name of the targets.
+     * The Management group Name of the targets.
      */
     azurermManagementGroupName?: pulumi.Input<string>;
     /**
-     * The tenant id if the service principal.
+     * The Tenant ID if the service principal.
      */
     azurermSpnTenantid?: pulumi.Input<string>;
     /**
-     * The subscription Id of the Azure targets.
+     * The Subscription ID of the Azure targets.
      */
     azurermSubscriptionId?: pulumi.Input<string>;
     /**
-     * The subscription Name of the targets.
+     * The Subscription Name of the targets.
      */
     azurermSubscriptionName?: pulumi.Input<string>;
     /**
@@ -255,6 +261,10 @@ export interface ServiceEndpointAzureRMState {
      */
     description?: pulumi.Input<string>;
     /**
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     */
+    environment?: pulumi.Input<string>;
+    /**
      * The ID of the project.
      */
     projectId?: pulumi.Input<string>;
@@ -263,7 +273,7 @@ export interface ServiceEndpointAzureRMState {
      */
     resourceGroup?: pulumi.Input<string>;
     /**
-     * The Service Endpoint name.
+     * The Service Endpoint Name.
      */
     serviceEndpointName?: pulumi.Input<string>;
 }
@@ -274,23 +284,23 @@ export interface ServiceEndpointAzureRMState {
 export interface ServiceEndpointAzureRMArgs {
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * The management group Id of the Azure targets.
+     * The Management group ID of the Azure targets.
      */
     azurermManagementGroupId?: pulumi.Input<string>;
     /**
-     * The management group Name of the targets.
+     * The Management group Name of the targets.
      */
     azurermManagementGroupName?: pulumi.Input<string>;
     /**
-     * The tenant id if the service principal.
+     * The Tenant ID if the service principal.
      */
     azurermSpnTenantid: pulumi.Input<string>;
     /**
-     * The subscription Id of the Azure targets.
+     * The Subscription ID of the Azure targets.
      */
     azurermSubscriptionId?: pulumi.Input<string>;
     /**
-     * The subscription Name of the targets.
+     * The Subscription Name of the targets.
      */
     azurermSubscriptionName?: pulumi.Input<string>;
     /**
@@ -302,6 +312,10 @@ export interface ServiceEndpointAzureRMArgs {
      */
     description?: pulumi.Input<string>;
     /**
+     * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     */
+    environment?: pulumi.Input<string>;
+    /**
      * The ID of the project.
      */
     projectId: pulumi.Input<string>;
@@ -310,7 +324,7 @@ export interface ServiceEndpointAzureRMArgs {
      */
     resourceGroup?: pulumi.Input<string>;
     /**
-     * The Service Endpoint name.
+     * The Service Endpoint Name.
      */
     serviceEndpointName: pulumi.Input<string>;
 }

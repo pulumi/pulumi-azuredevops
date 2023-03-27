@@ -30,6 +30,12 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("message")]
         public Input<string>? Message { get; set; }
 
+        /// <summary>
+        /// Minimum number of required reviewers. Defaults to `1`.
+        /// </summary>
+        [Input("minimumNumberOfReviewers")]
+        public Input<int>? MinimumNumberOfReviewers { get; set; }
+
         [Input("pathFilters")]
         private InputList<string>? _pathFilters;
 

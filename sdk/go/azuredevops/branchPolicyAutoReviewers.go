@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,7 +33,7 @@ import (
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -51,7 +51,7 @@ import (
 //				ProjectId: exampleProject.ID(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
-//				Settings: &BranchPolicyAutoReviewersSettingsArgs{
+//				Settings: &azuredevops.BranchPolicyAutoReviewersSettingsArgs{
 //					AutoReviewerIds: pulumi.StringArray{
 //						exampleUser.ID(),
 //					},
@@ -60,8 +60,8 @@ import (
 //					PathFilters: pulumi.StringArray{
 //						pulumi.String("*/src/*.ts"),
 //					},
-//					Scopes: BranchPolicyAutoReviewersSettingsScopeArray{
-//						&BranchPolicyAutoReviewersSettingsScopeArgs{
+//					Scopes: azuredevops.BranchPolicyAutoReviewersSettingsScopeArray{
+//						&azuredevops.BranchPolicyAutoReviewersSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),

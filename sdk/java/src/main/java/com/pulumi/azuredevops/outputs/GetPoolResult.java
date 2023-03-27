@@ -11,6 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPoolResult {
     private Boolean autoProvision;
+    private Boolean autoUpdate;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -22,6 +23,9 @@ public final class GetPoolResult {
     private GetPoolResult() {}
     public Boolean autoProvision() {
         return this.autoProvision;
+    }
+    public Boolean autoUpdate() {
+        return this.autoUpdate;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -47,6 +51,7 @@ public final class GetPoolResult {
     @CustomType.Builder
     public static final class Builder {
         private Boolean autoProvision;
+        private Boolean autoUpdate;
         private String id;
         private String name;
         private String poolType;
@@ -54,6 +59,7 @@ public final class GetPoolResult {
         public Builder(GetPoolResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.autoProvision = defaults.autoProvision;
+    	      this.autoUpdate = defaults.autoUpdate;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.poolType = defaults.poolType;
@@ -62,6 +68,11 @@ public final class GetPoolResult {
         @CustomType.Setter
         public Builder autoProvision(Boolean autoProvision) {
             this.autoProvision = Objects.requireNonNull(autoProvision);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder autoUpdate(Boolean autoUpdate) {
+            this.autoUpdate = Objects.requireNonNull(autoUpdate);
             return this;
         }
         @CustomType.Setter
@@ -82,6 +93,7 @@ public final class GetPoolResult {
         public GetPoolResult build() {
             final var o = new GetPoolResult();
             o.autoProvision = autoProvision;
+            o.autoUpdate = autoUpdate;
             o.id = id;
             o.name = name;
             o.poolType = poolType;

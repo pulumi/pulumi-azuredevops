@@ -13,9 +13,7 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
- * const example = new azuredevops.User("example", {
- *     principalName: "foo@contoso.com",
- * });
+ * const example = new azuredevops.User("example", {principalName: "foo@contoso.com"});
  * ```
  * ## Relevant Links
  *

@@ -31,21 +31,6 @@ public final class ServiceEndpointNpmState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.accessToken);
     }
 
-    /**
-     * A bcrypted hash of the attribute &#39;access_token&#39;
-     * 
-     */
-    @Import(name="accessTokenHash")
-    private @Nullable Output<String> accessTokenHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;access_token&#39;
-     * 
-     */
-    public Optional<Output<String>> accessTokenHash() {
-        return Optional.ofNullable(this.accessTokenHash);
-    }
-
     @Import(name="authorization")
     private @Nullable Output<Map<String,String>> authorization;
 
@@ -117,7 +102,6 @@ public final class ServiceEndpointNpmState extends com.pulumi.resources.Resource
 
     private ServiceEndpointNpmState(ServiceEndpointNpmState $) {
         this.accessToken = $.accessToken;
-        this.accessTokenHash = $.accessTokenHash;
         this.authorization = $.authorization;
         this.description = $.description;
         this.projectId = $.projectId;
@@ -162,27 +146,6 @@ public final class ServiceEndpointNpmState extends com.pulumi.resources.Resource
          */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
-        }
-
-        /**
-         * @param accessTokenHash A bcrypted hash of the attribute &#39;access_token&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accessTokenHash(@Nullable Output<String> accessTokenHash) {
-            $.accessTokenHash = accessTokenHash;
-            return this;
-        }
-
-        /**
-         * @param accessTokenHash A bcrypted hash of the attribute &#39;access_token&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder accessTokenHash(String accessTokenHash) {
-            return accessTokenHash(Output.of(accessTokenHash));
         }
 
         public Builder authorization(@Nullable Output<Map<String,String>> authorization) {

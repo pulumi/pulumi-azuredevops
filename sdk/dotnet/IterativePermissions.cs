@@ -45,7 +45,7 @@ namespace Pulumi.AzureDevOps
     ///     var example_root_permissions = new AzureDevOps.IterativePermissions("example-root-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "CREATE_CHILDREN", "Deny" },
@@ -57,7 +57,7 @@ namespace Pulumi.AzureDevOps
     ///     var example_iteration_permissions = new AzureDevOps.IterativePermissions("example-iteration-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Path = "Iteration 1",
     ///         Permissions = 
     ///         {

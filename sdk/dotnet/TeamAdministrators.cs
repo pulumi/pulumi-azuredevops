@@ -47,7 +47,7 @@ namespace Pulumi.AzureDevOps
     ///         Mode = "overwrite",
     ///         Administrators = new[]
     ///         {
-    ///             example_project_contributors.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
+    ///             example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
     ///         },
     ///     });
     /// 

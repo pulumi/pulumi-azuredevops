@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -47,7 +47,7 @@ import (
 //				ProjectId:           exampleProject.ID(),
 //				ServiceEndpointName: pulumi.String("Example AzureRM"),
 //				Description:         pulumi.String("Managed by Terraform"),
-//				Credentials: &ServiceEndpointAzureRMCredentialsArgs{
+//				Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
 //					Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
 //					Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 //				},
@@ -90,7 +90,7 @@ import (
 //				ProjectId:           exampleProject.ID(),
 //				ServiceEndpointName: pulumi.String("Example AzureRM"),
 //				Description:         pulumi.String("Managed by Terraform"),
-//				Credentials: &ServiceEndpointAzureRMCredentialsArgs{
+//				Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
 //					Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
 //					Serviceprincipalkey: pulumi.String("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"),
 //				},
@@ -162,25 +162,27 @@ type AzureRM struct {
 	pulumi.CustomResourceState
 
 	Authorization pulumi.StringMapOutput `pulumi:"authorization"`
-	// The management group Id of the Azure targets.
+	// The Management group ID of the Azure targets.
 	AzurermManagementGroupId pulumi.StringPtrOutput `pulumi:"azurermManagementGroupId"`
-	// The management group Name of the targets.
+	// The Management group Name of the targets.
 	AzurermManagementGroupName pulumi.StringPtrOutput `pulumi:"azurermManagementGroupName"`
-	// The tenant id if the service principal.
+	// The Tenant ID if the service principal.
 	AzurermSpnTenantid pulumi.StringOutput `pulumi:"azurermSpnTenantid"`
-	// The subscription Id of the Azure targets.
+	// The Subscription ID of the Azure targets.
 	AzurermSubscriptionId pulumi.StringPtrOutput `pulumi:"azurermSubscriptionId"`
-	// The subscription Name of the targets.
+	// The Subscription Name of the targets.
 	AzurermSubscriptionName pulumi.StringPtrOutput `pulumi:"azurermSubscriptionName"`
 	// A `credentials` block.
 	Credentials AzureRMCredentialsPtrOutput `pulumi:"credentials"`
 	// Service connection description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The resource group used for scope of automatic service endpoint.
 	ResourceGroup pulumi.StringPtrOutput `pulumi:"resourceGroup"`
-	// The Service Endpoint name.
+	// The Service Endpoint Name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
 }
 
@@ -223,49 +225,53 @@ func GetAzureRM(ctx *pulumi.Context,
 // Input properties used for looking up and filtering AzureRM resources.
 type azureRMState struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	// The management group Id of the Azure targets.
+	// The Management group ID of the Azure targets.
 	AzurermManagementGroupId *string `pulumi:"azurermManagementGroupId"`
-	// The management group Name of the targets.
+	// The Management group Name of the targets.
 	AzurermManagementGroupName *string `pulumi:"azurermManagementGroupName"`
-	// The tenant id if the service principal.
+	// The Tenant ID if the service principal.
 	AzurermSpnTenantid *string `pulumi:"azurermSpnTenantid"`
-	// The subscription Id of the Azure targets.
+	// The Subscription ID of the Azure targets.
 	AzurermSubscriptionId *string `pulumi:"azurermSubscriptionId"`
-	// The subscription Name of the targets.
+	// The Subscription Name of the targets.
 	AzurermSubscriptionName *string `pulumi:"azurermSubscriptionName"`
 	// A `credentials` block.
 	Credentials *AzureRMCredentials `pulumi:"credentials"`
 	// Service connection description.
 	Description *string `pulumi:"description"`
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	Environment *string `pulumi:"environment"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The resource group used for scope of automatic service endpoint.
 	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The Service Endpoint name.
+	// The Service Endpoint Name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
 }
 
 type AzureRMState struct {
 	Authorization pulumi.StringMapInput
-	// The management group Id of the Azure targets.
+	// The Management group ID of the Azure targets.
 	AzurermManagementGroupId pulumi.StringPtrInput
-	// The management group Name of the targets.
+	// The Management group Name of the targets.
 	AzurermManagementGroupName pulumi.StringPtrInput
-	// The tenant id if the service principal.
+	// The Tenant ID if the service principal.
 	AzurermSpnTenantid pulumi.StringPtrInput
-	// The subscription Id of the Azure targets.
+	// The Subscription ID of the Azure targets.
 	AzurermSubscriptionId pulumi.StringPtrInput
-	// The subscription Name of the targets.
+	// The Subscription Name of the targets.
 	AzurermSubscriptionName pulumi.StringPtrInput
 	// A `credentials` block.
 	Credentials AzureRMCredentialsPtrInput
 	// Service connection description.
 	Description pulumi.StringPtrInput
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	Environment pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The resource group used for scope of automatic service endpoint.
 	ResourceGroup pulumi.StringPtrInput
-	// The Service Endpoint name.
+	// The Service Endpoint Name.
 	ServiceEndpointName pulumi.StringPtrInput
 }
 
@@ -275,50 +281,54 @@ func (AzureRMState) ElementType() reflect.Type {
 
 type azureRMArgs struct {
 	Authorization map[string]string `pulumi:"authorization"`
-	// The management group Id of the Azure targets.
+	// The Management group ID of the Azure targets.
 	AzurermManagementGroupId *string `pulumi:"azurermManagementGroupId"`
-	// The management group Name of the targets.
+	// The Management group Name of the targets.
 	AzurermManagementGroupName *string `pulumi:"azurermManagementGroupName"`
-	// The tenant id if the service principal.
+	// The Tenant ID if the service principal.
 	AzurermSpnTenantid string `pulumi:"azurermSpnTenantid"`
-	// The subscription Id of the Azure targets.
+	// The Subscription ID of the Azure targets.
 	AzurermSubscriptionId *string `pulumi:"azurermSubscriptionId"`
-	// The subscription Name of the targets.
+	// The Subscription Name of the targets.
 	AzurermSubscriptionName *string `pulumi:"azurermSubscriptionName"`
 	// A `credentials` block.
 	Credentials *AzureRMCredentials `pulumi:"credentials"`
 	// Service connection description.
 	Description *string `pulumi:"description"`
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	Environment *string `pulumi:"environment"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// The resource group used for scope of automatic service endpoint.
 	ResourceGroup *string `pulumi:"resourceGroup"`
-	// The Service Endpoint name.
+	// The Service Endpoint Name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
 }
 
 // The set of arguments for constructing a AzureRM resource.
 type AzureRMArgs struct {
 	Authorization pulumi.StringMapInput
-	// The management group Id of the Azure targets.
+	// The Management group ID of the Azure targets.
 	AzurermManagementGroupId pulumi.StringPtrInput
-	// The management group Name of the targets.
+	// The Management group Name of the targets.
 	AzurermManagementGroupName pulumi.StringPtrInput
-	// The tenant id if the service principal.
+	// The Tenant ID if the service principal.
 	AzurermSpnTenantid pulumi.StringInput
-	// The subscription Id of the Azure targets.
+	// The Subscription ID of the Azure targets.
 	AzurermSubscriptionId pulumi.StringPtrInput
-	// The subscription Name of the targets.
+	// The Subscription Name of the targets.
 	AzurermSubscriptionName pulumi.StringPtrInput
 	// A `credentials` block.
 	Credentials AzureRMCredentialsPtrInput
 	// Service connection description.
 	Description pulumi.StringPtrInput
+	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	Environment pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// The resource group used for scope of automatic service endpoint.
 	ResourceGroup pulumi.StringPtrInput
-	// The Service Endpoint name.
+	// The Service Endpoint Name.
 	ServiceEndpointName pulumi.StringInput
 }
 
@@ -413,27 +423,27 @@ func (o AzureRMOutput) Authorization() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringMapOutput { return v.Authorization }).(pulumi.StringMapOutput)
 }
 
-// The management group Id of the Azure targets.
+// The Management group ID of the Azure targets.
 func (o AzureRMOutput) AzurermManagementGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringPtrOutput { return v.AzurermManagementGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The management group Name of the targets.
+// The Management group Name of the targets.
 func (o AzureRMOutput) AzurermManagementGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringPtrOutput { return v.AzurermManagementGroupName }).(pulumi.StringPtrOutput)
 }
 
-// The tenant id if the service principal.
+// The Tenant ID if the service principal.
 func (o AzureRMOutput) AzurermSpnTenantid() pulumi.StringOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringOutput { return v.AzurermSpnTenantid }).(pulumi.StringOutput)
 }
 
-// The subscription Id of the Azure targets.
+// The Subscription ID of the Azure targets.
 func (o AzureRMOutput) AzurermSubscriptionId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringPtrOutput { return v.AzurermSubscriptionId }).(pulumi.StringPtrOutput)
 }
 
-// The subscription Name of the targets.
+// The Subscription Name of the targets.
 func (o AzureRMOutput) AzurermSubscriptionName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringPtrOutput { return v.AzurermSubscriptionName }).(pulumi.StringPtrOutput)
 }
@@ -448,6 +458,11 @@ func (o AzureRMOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+func (o AzureRMOutput) Environment() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureRM) pulumi.StringPtrOutput { return v.Environment }).(pulumi.StringPtrOutput)
+}
+
 // The ID of the project.
 func (o AzureRMOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
@@ -458,7 +473,7 @@ func (o AzureRMOutput) ResourceGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringPtrOutput { return v.ResourceGroup }).(pulumi.StringPtrOutput)
 }
 
-// The Service Endpoint name.
+// The Service Endpoint Name.
 func (o AzureRMOutput) ServiceEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringOutput { return v.ServiceEndpointName }).(pulumi.StringOutput)
 }

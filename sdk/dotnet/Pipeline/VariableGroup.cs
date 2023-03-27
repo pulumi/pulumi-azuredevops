@@ -154,7 +154,7 @@ namespace Pulumi.AzureDevOps.Pipeline
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// -(Optional) A list of `key_vault` blocks as documented below.
+        /// A list of `key_vault` blocks as documented below.
         /// </summary>
         [Output("keyVault")]
         public Output<Outputs.VariableGroupKeyVault?> KeyVault { get; private set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.AzureDevOps.Pipeline
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// -(Optional) A list of `key_vault` blocks as documented below.
+        /// A list of `key_vault` blocks as documented below.
         /// </summary>
         [Input("keyVault")]
         public Input<Inputs.VariableGroupKeyVaultArgs>? KeyVault { get; set; }
@@ -286,7 +286,7 @@ namespace Pulumi.AzureDevOps.Pipeline
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// -(Optional) A list of `key_vault` blocks as documented below.
+        /// A list of `key_vault` blocks as documented below.
         /// </summary>
         [Input("keyVault")]
         public Input<Inputs.VariableGroupKeyVaultGetArgs>? KeyVault { get; set; }

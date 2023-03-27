@@ -35,6 +35,7 @@ namespace Pulumi.AzureDevOps
         ///         ["name"] = example.Apply(getPoolResult =&gt; getPoolResult.Name),
         ///         ["poolType"] = example.Apply(getPoolResult =&gt; getPoolResult.PoolType),
         ///         ["autoProvision"] = example.Apply(getPoolResult =&gt; getPoolResult.AutoProvision),
+        ///         ["autoUpdate"] = example.Apply(getPoolResult =&gt; getPoolResult.AutoUpdate),
         ///     };
         /// });
         /// ```
@@ -71,6 +72,7 @@ namespace Pulumi.AzureDevOps
         ///         ["name"] = example.Apply(getPoolResult =&gt; getPoolResult.Name),
         ///         ["poolType"] = example.Apply(getPoolResult =&gt; getPoolResult.PoolType),
         ///         ["autoProvision"] = example.Apply(getPoolResult =&gt; getPoolResult.AutoProvision),
+        ///         ["autoUpdate"] = example.Apply(getPoolResult =&gt; getPoolResult.AutoUpdate),
         ///     };
         /// });
         /// ```
@@ -118,6 +120,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GetPoolResult
     {
         public readonly bool AutoProvision;
+        public readonly bool AutoUpdate;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
@@ -129,6 +132,8 @@ namespace Pulumi.AzureDevOps
         private GetPoolResult(
             bool autoProvision,
 
+            bool autoUpdate,
+
             string id,
 
             string name,
@@ -136,6 +141,7 @@ namespace Pulumi.AzureDevOps
             string poolType)
         {
             AutoProvision = autoProvision;
+            AutoUpdate = autoUpdate;
             Id = id;
             Name = name;
             PoolType = poolType;

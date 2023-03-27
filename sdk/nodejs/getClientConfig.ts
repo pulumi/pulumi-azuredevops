@@ -6,13 +6,20 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about the Azure DevOps organization configured for the provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getClientConfig({});
+ * export const orgUrl = example.then(example => example.organizationUrl);
+ * ```
  */
 export function getClientConfig(opts?: pulumi.InvokeOptions): Promise<GetClientConfigResult> {
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getClientConfig:getClientConfig", {
     }, opts);
 }

@@ -73,10 +73,6 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
      * The access token for npm registry.
      */
     public readonly accessToken!: pulumi.Output<string>;
-    /**
-     * A bcrypted hash of the attribute 'access_token'
-     */
-    public /*out*/ readonly accessTokenHash!: pulumi.Output<string>;
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
     /**
      * The Service Endpoint description.
@@ -109,7 +105,6 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ServiceEndpointNpmState | undefined;
             resourceInputs["accessToken"] = state ? state.accessToken : undefined;
-            resourceInputs["accessTokenHash"] = state ? state.accessTokenHash : undefined;
             resourceInputs["authorization"] = state ? state.authorization : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
@@ -135,10 +130,9 @@ export class ServiceEndpointNpm extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["accessTokenHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["accessToken", "accessTokenHash"] };
+        const secretOpts = { additionalSecretOutputs: ["accessToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointNpm.__pulumiType, name, resourceInputs, opts);
     }
@@ -152,10 +146,6 @@ export interface ServiceEndpointNpmState {
      * The access token for npm registry.
      */
     accessToken?: pulumi.Input<string>;
-    /**
-     * A bcrypted hash of the attribute 'access_token'
-     */
-    accessTokenHash?: pulumi.Input<string>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The Service Endpoint description.

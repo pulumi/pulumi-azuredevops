@@ -13,7 +13,6 @@ import javax.annotation.Nullable;
 public final class ServiceEndpointArtifactoryAuthenticationToken {
     /**
      * @return Authentication Token generated through Artifactory.
-     * * `authentication_basic`
      * 
      */
     private String token;
@@ -22,7 +21,6 @@ public final class ServiceEndpointArtifactoryAuthenticationToken {
     private ServiceEndpointArtifactoryAuthenticationToken() {}
     /**
      * @return Authentication Token generated through Artifactory.
-     * * `authentication_basic`
      * 
      */
     public String token() {

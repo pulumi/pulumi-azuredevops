@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -126,7 +126,7 @@ func NewServiceEndpointDockerRegistry(ctx *pulumi.Context,
 	})
 	opts = append(opts, aliases)
 	if args.DockerPassword != nil {
-		args.DockerPassword = pulumi.ToSecret(args.DockerPassword).(pulumi.StringPtrOutput)
+		args.DockerPassword = pulumi.ToSecret(args.DockerPassword).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"dockerPassword",

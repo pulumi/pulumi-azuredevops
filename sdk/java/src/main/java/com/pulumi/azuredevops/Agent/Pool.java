@@ -42,6 +42,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Pool(&#34;example&#34;, PoolArgs.builder()        
  *             .autoProvision(false)
+ *             .autoUpdate(false)
  *             .build());
  * 
  *     }
@@ -79,6 +80,20 @@ public class Pool extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> autoProvision() {
         return Codegen.optional(this.autoProvision);
+    }
+    /**
+     * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+     * 
+     */
+    @Export(name="autoUpdate", type=Boolean.class, parameters={})
+    private Output</* @Nullable */ Boolean> autoUpdate;
+
+    /**
+     * @return Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> autoUpdate() {
+        return Codegen.optional(this.autoUpdate);
     }
     /**
      * The name of the agent pool.

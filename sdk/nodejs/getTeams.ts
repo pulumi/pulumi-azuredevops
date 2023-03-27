@@ -31,11 +31,8 @@ import * as utilities from "./utilities";
  */
 export function getTeams(args?: GetTeamsArgs, opts?: pulumi.InvokeOptions): Promise<GetTeamsResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getTeams:getTeams", {
         "projectId": args.projectId,
     }, opts);
@@ -69,9 +66,31 @@ export interface GetTeamsResult {
      */
     readonly teams: outputs.GetTeamsTeam[];
 }
-
+/**
+ * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getTeams({});
+ * export const projectId = [example.then(example => example.teams)].map(__item => __item?.projectId);
+ * export const name = [example.then(example => example.teams)].map(__item => __item?.name);
+ * export const alladministrators = [example.then(example => example.teams)].map(__item => __item?.administrators);
+ * export const administrators = [example.then(example => example.teams)].map(__item => __item?.members);
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+ *
+ * ## PAT Permissions Required
+ *
+ * - **vso.project**:	Grants the ability to read projects and teams.
+ */
 export function getTeamsOutput(args?: GetTeamsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTeamsResult> {
-    return pulumi.output(args).apply(a => getTeams(a, opts))
+    return pulumi.output(args).apply((a: any) => getTeams(a, opts))
 }
 
 /**

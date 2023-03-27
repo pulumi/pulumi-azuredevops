@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,7 +40,7 @@ import (
 //				ServiceEndpointName: pulumi.String("Example ArgoCD"),
 //				Description:         pulumi.String("Managed by Terraform"),
 //				Url:                 pulumi.String("https://argocd.my.com"),
-//				AuthenticationToken: &ServiceendpointArgocdAuthenticationTokenArgs{
+//				AuthenticationToken: &azuredevops.ServiceendpointArgocdAuthenticationTokenArgs{
 //					Token: pulumi.String("0000000000000000000000000000000000000000"),
 //				},
 //			})
@@ -80,7 +80,7 @@ import (
 //				ServiceEndpointName: pulumi.String("Example ArgoCD"),
 //				Description:         pulumi.String("Managed by Terraform"),
 //				Url:                 pulumi.String("https://argocd.my.com"),
-//				AuthenticationBasic: &ServiceendpointArgocdAuthenticationBasicArgs{
+//				AuthenticationBasic: &azuredevops.ServiceendpointArgocdAuthenticationBasicArgs{
 //					Username: pulumi.String("username"),
 //					Password: pulumi.String("password"),
 //				},

@@ -40,7 +40,7 @@ namespace Pulumi.AzureDevOps
     ///     var example_permission = new AzureDevOps.ProjectPermissions("example-permission", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "DELETE", "Deny" },

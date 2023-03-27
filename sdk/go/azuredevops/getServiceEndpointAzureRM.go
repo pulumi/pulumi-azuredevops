@@ -27,13 +27,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			sample, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+//			sample, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Sample Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			serviceendpoint, err := azuredevops.LookupServiceEndpointAzureRM(ctx, &GetServiceEndpointAzureRMArgs{
+//			serviceendpoint, err := azuredevops.LookupServiceEndpointAzureRM(ctx, &azuredevops.LookupServiceEndpointAzureRMArgs{
 //				ProjectId:         sample.Id,
 //				ServiceEndpointId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
 //			}, nil)
@@ -60,13 +60,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			sample, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+//			sample, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Sample Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			serviceendpoint, err := azuredevops.LookupServiceEndpointAzureRM(ctx, &GetServiceEndpointAzureRMArgs{
+//			serviceendpoint, err := azuredevops.LookupServiceEndpointAzureRM(ctx, &azuredevops.LookupServiceEndpointAzureRMArgs{
 //				ProjectId:           sample.Id,
 //				ServiceEndpointName: pulumi.StringRef("Example-Service-Endpoint"),
 //			}, nil)

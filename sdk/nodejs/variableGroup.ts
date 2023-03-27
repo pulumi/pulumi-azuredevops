@@ -145,7 +145,7 @@ export class VariableGroup extends pulumi.CustomResource {
      */
     public readonly description!: pulumi.Output<string | undefined>;
     /**
-     * -(Optional) A list of `keyVault` blocks as documented below.
+     * A list of `keyVault` blocks as documented below.
      */
     public readonly keyVault!: pulumi.Output<outputs.VariableGroupKeyVault | undefined>;
     /**
@@ -215,7 +215,7 @@ export interface VariableGroupState {
      */
     description?: pulumi.Input<string>;
     /**
-     * -(Optional) A list of `keyVault` blocks as documented below.
+     * A list of `keyVault` blocks as documented below.
      */
     keyVault?: pulumi.Input<inputs.VariableGroupKeyVault>;
     /**
@@ -245,7 +245,7 @@ export interface VariableGroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * -(Optional) A list of `keyVault` blocks as documented below.
+     * A list of `keyVault` blocks as documented below.
      */
     keyVault?: pulumi.Input<inputs.VariableGroupKeyVault>;
     /**

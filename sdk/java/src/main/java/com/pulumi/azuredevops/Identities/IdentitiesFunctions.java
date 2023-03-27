@@ -28,8 +28,8 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Identities.inputs.GetGroupArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -86,8 +86,8 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Identities.inputs.GetGroupArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -144,8 +144,8 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Identities.inputs.GetGroupArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -202,8 +202,8 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Core.inputs.GetProjectArgs;
-     * import com.pulumi.azuredevops.Identities.inputs.GetGroupArgs;
+     * import com.pulumi.azuredevops.inputs.GetProjectArgs;
+     * import com.pulumi.azuredevops.inputs.GetGroupArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -260,7 +260,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Identities.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -321,7 +321,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Identities.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -382,7 +382,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Identities.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -443,7 +443,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Identities.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -504,7 +504,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Identities.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -565,7 +565,7 @@ public final class IdentitiesFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.azuredevops.AzuredevopsFunctions;
-     * import com.pulumi.azuredevops.Identities.inputs.GetUsersArgs;
+     * import com.pulumi.azuredevops.inputs.GetUsersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;

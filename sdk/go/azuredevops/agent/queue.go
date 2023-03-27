@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePool, err := azuredevops.LookupPool(ctx, &GetPoolArgs{
+//			examplePool, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
 //				Name: "example-pool",
 //			}, nil)
 //			if err != nil {
@@ -43,7 +43,7 @@ import (
 //			}
 //			exampleQueue, err := azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
 //				ProjectId:   exampleProject.ID(),
-//				AgentPoolId: pulumi.String(examplePool.Id),
+//				AgentPoolId: *pulumi.String(examplePool.Id),
 //			})
 //			if err != nil {
 //				return err

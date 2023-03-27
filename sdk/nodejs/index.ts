@@ -65,6 +65,16 @@ export type BuildFolderPermissions = import("./buildFolderPermissions").BuildFol
 export const BuildFolderPermissions: typeof import("./buildFolderPermissions").BuildFolderPermissions = null as any;
 utilities.lazyLoad(exports, ["BuildFolderPermissions"], () => require("./buildFolderPermissions"));
 
+export { CheckBranchControlArgs, CheckBranchControlState } from "./checkBranchControl";
+export type CheckBranchControl = import("./checkBranchControl").CheckBranchControl;
+export const CheckBranchControl: typeof import("./checkBranchControl").CheckBranchControl = null as any;
+utilities.lazyLoad(exports, ["CheckBranchControl"], () => require("./checkBranchControl"));
+
+export { CheckBusinessHoursArgs, CheckBusinessHoursState } from "./checkBusinessHours";
+export type CheckBusinessHours = import("./checkBusinessHours").CheckBusinessHours;
+export const CheckBusinessHours: typeof import("./checkBusinessHours").CheckBusinessHours = null as any;
+utilities.lazyLoad(exports, ["CheckBusinessHours"], () => require("./checkBusinessHours"));
+
 export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
@@ -172,6 +182,11 @@ export { GitPermissionsArgs, GitPermissionsState } from "./gitPermissions";
 export type GitPermissions = import("./gitPermissions").GitPermissions;
 export const GitPermissions: typeof import("./gitPermissions").GitPermissions = null as any;
 utilities.lazyLoad(exports, ["GitPermissions"], () => require("./gitPermissions"));
+
+export { GitRepositoryBranchArgs, GitRepositoryBranchState } from "./gitRepositoryBranch";
+export type GitRepositoryBranch = import("./gitRepositoryBranch").GitRepositoryBranch;
+export const GitRepositoryBranch: typeof import("./gitRepositoryBranch").GitRepositoryBranch = null as any;
+utilities.lazyLoad(exports, ["GitRepositoryBranch"], () => require("./gitRepositoryBranch"));
 
 export { GitRepositoryFileArgs, GitRepositoryFileState } from "./gitRepositoryFile";
 export type GitRepositoryFile = import("./gitRepositoryFile").GitRepositoryFile;
@@ -363,6 +378,11 @@ export type ServiceendpointArgocd = import("./serviceendpointArgocd").Serviceend
 export const ServiceendpointArgocd: typeof import("./serviceendpointArgocd").ServiceendpointArgocd = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointArgocd"], () => require("./serviceendpointArgocd"));
 
+export { ServiceendpointExternaltfsArgs, ServiceendpointExternaltfsState } from "./serviceendpointExternaltfs";
+export type ServiceendpointExternaltfs = import("./serviceendpointExternaltfs").ServiceendpointExternaltfs;
+export const ServiceendpointExternaltfs: typeof import("./serviceendpointExternaltfs").ServiceendpointExternaltfs = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointExternaltfs"], () => require("./serviceendpointExternaltfs"));
+
 export { ServiceendpointIncomingwebhookArgs, ServiceendpointIncomingwebhookState } from "./serviceendpointIncomingwebhook";
 export type ServiceendpointIncomingwebhook = import("./serviceendpointIncomingwebhook").ServiceendpointIncomingwebhook;
 export const ServiceendpointIncomingwebhook: typeof import("./serviceendpointIncomingwebhook").ServiceendpointIncomingwebhook = null as any;
@@ -417,6 +437,11 @@ export { WorkItemQueryPermissionsArgs, WorkItemQueryPermissionsState } from "./w
 export type WorkItemQueryPermissions = import("./workItemQueryPermissions").WorkItemQueryPermissions;
 export const WorkItemQueryPermissions: typeof import("./workItemQueryPermissions").WorkItemQueryPermissions = null as any;
 utilities.lazyLoad(exports, ["WorkItemQueryPermissions"], () => require("./workItemQueryPermissions"));
+
+export { WorkitemArgs, WorkitemState } from "./workitem";
+export type Workitem = import("./workitem").Workitem;
+export const Workitem: typeof import("./workitem").Workitem = null as any;
+utilities.lazyLoad(exports, ["Workitem"], () => require("./workitem"));
 
 
 // Export sub-modules:
@@ -476,12 +501,18 @@ const _module = {
                 return new BuildFolder(name, <any>undefined, { urn })
             case "azuredevops:index/buildFolderPermissions:BuildFolderPermissions":
                 return new BuildFolderPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/checkBranchControl:CheckBranchControl":
+                return new CheckBranchControl(name, <any>undefined, { urn })
+            case "azuredevops:index/checkBusinessHours:CheckBusinessHours":
+                return new CheckBusinessHours(name, <any>undefined, { urn })
             case "azuredevops:index/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
             case "azuredevops:index/git:Git":
                 return new Git(name, <any>undefined, { urn })
             case "azuredevops:index/gitPermissions:GitPermissions":
                 return new GitPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/gitRepositoryBranch:GitRepositoryBranch":
+                return new GitRepositoryBranch(name, <any>undefined, { urn })
             case "azuredevops:index/gitRepositoryFile:GitRepositoryFile":
                 return new GitRepositoryFile(name, <any>undefined, { urn })
             case "azuredevops:index/group:Group":
@@ -556,6 +587,8 @@ const _module = {
                 return new ServiceEndpointSsh(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointArgocd:ServiceendpointArgocd":
                 return new ServiceendpointArgocd(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs":
+                return new ServiceendpointExternaltfs(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook":
                 return new ServiceendpointIncomingwebhook(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy":
@@ -578,6 +611,8 @@ const _module = {
                 return new VariableGroup(name, <any>undefined, { urn })
             case "azuredevops:index/workItemQueryPermissions:WorkItemQueryPermissions":
                 return new WorkItemQueryPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/workitem:Workitem":
+                return new Workitem(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -595,9 +630,12 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinition", _m
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinitionPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildFolder", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildFolderPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/checkBranchControl", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/checkBusinessHours", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/git", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/gitRepositoryBranch", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitRepositoryFile", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/group", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/groupMembership", _module)
@@ -635,6 +673,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonar
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonarQube", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointArgocd", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointExternaltfs", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointIncomingwebhook", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointOctopusdeploy", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointPermissions", _module)
@@ -646,6 +685,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/teamMembers", _modul
 pulumi.runtime.registerResourceModule("azuredevops", "index/user", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/variableGroup", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/workItemQueryPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/workitem", _module)
 pulumi.runtime.registerResourcePackage("azuredevops", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {

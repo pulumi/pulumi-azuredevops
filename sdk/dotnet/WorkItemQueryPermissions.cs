@@ -49,7 +49,7 @@ namespace Pulumi.AzureDevOps
     ///     var project_wiq_root_permissions = new AzureDevOps.WorkItemQueryPermissions("project-wiq-root-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "CreateRepository", "Deny" },
@@ -94,7 +94,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = example.Id,
     ///         Path = "/Team",
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "Contribute", "Allow" },
@@ -138,7 +138,7 @@ namespace Pulumi.AzureDevOps
     ///     var example_project_permissions = new AzureDevOps.WorkItemQueryPermissions("example-project-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "Read", "Allow" },
@@ -152,7 +152,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = example.Id,
     ///         Path = "/",
-    ///         Principal = example_contributors.Apply(getGroupResult =&gt; getGroupResult).Apply(example_contributors =&gt; example_contributors.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_contributors.Apply(example_contributors =&gt; example_contributors.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "Read", "Allow" },

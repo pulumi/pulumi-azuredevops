@@ -28,6 +28,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := azuredevops.NewPool(ctx, "example", &azuredevops.PoolArgs{
 //				AutoProvision: pulumi.Bool(false),
+//				AutoUpdate:    pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
@@ -55,6 +56,8 @@ type Pool struct {
 
 	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision pulumi.BoolPtrOutput `pulumi:"autoProvision"`
+	// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+	AutoUpdate pulumi.BoolPtrOutput `pulumi:"autoUpdate"`
 	// The name of the agent pool.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
@@ -98,6 +101,8 @@ func GetPool(ctx *pulumi.Context,
 type poolState struct {
 	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision *bool `pulumi:"autoProvision"`
+	// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+	AutoUpdate *bool `pulumi:"autoUpdate"`
 	// The name of the agent pool.
 	Name *string `pulumi:"name"`
 	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
@@ -107,6 +112,8 @@ type poolState struct {
 type PoolState struct {
 	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision pulumi.BoolPtrInput
+	// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+	AutoUpdate pulumi.BoolPtrInput
 	// The name of the agent pool.
 	Name pulumi.StringPtrInput
 	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
@@ -120,6 +127,8 @@ func (PoolState) ElementType() reflect.Type {
 type poolArgs struct {
 	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision *bool `pulumi:"autoProvision"`
+	// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+	AutoUpdate *bool `pulumi:"autoUpdate"`
 	// The name of the agent pool.
 	Name *string `pulumi:"name"`
 	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
@@ -130,6 +139,8 @@ type poolArgs struct {
 type PoolArgs struct {
 	// Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 	AutoProvision pulumi.BoolPtrInput
+	// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+	AutoUpdate pulumi.BoolPtrInput
 	// The name of the agent pool.
 	Name pulumi.StringPtrInput
 	// Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
@@ -226,6 +237,11 @@ func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 // Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
 func (o PoolOutput) AutoProvision() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Pool) pulumi.BoolPtrOutput { return v.AutoProvision }).(pulumi.BoolPtrOutput)
+}
+
+// Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
+func (o PoolOutput) AutoUpdate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Pool) pulumi.BoolPtrOutput { return v.AutoUpdate }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the agent pool.

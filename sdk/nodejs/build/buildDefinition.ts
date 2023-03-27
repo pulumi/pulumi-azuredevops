@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     projectId: exampleProject.id,
  *     path: "\\ExampleFolder",
  *     ciTrigger: {
- *         useYaml: true,
+ *         useYaml: false,
  *     },
  *     schedules: [{
  *         branchFilters: [{
@@ -101,7 +101,7 @@ import * as utilities from "../utilities";
  *     projectId: exampleProject.id,
  *     path: "\\ExampleFolder",
  *     ciTrigger: {
- *         useYaml: true,
+ *         useYaml: false,
  *     },
  *     repository: {
  *         repoType: "GitHubEnterprise",

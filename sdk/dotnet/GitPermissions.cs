@@ -49,7 +49,7 @@ namespace Pulumi.AzureDevOps
     ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
     ///     {
     ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "CreateRepository", "Deny" },
@@ -100,7 +100,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = exampleGit.ProjectId,
     ///         RepositoryId = exampleGit.Id,
-    ///         Principal = example_group.Apply(getGroupResult =&gt; getGroupResult).Apply(example_group =&gt; example_group.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_group.Apply(example_group =&gt; example_group.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "RemoveOthersLocks", "Allow" },
@@ -153,7 +153,7 @@ namespace Pulumi.AzureDevOps
     ///         ProjectId = exampleGit.ProjectId,
     ///         RepositoryId = exampleGit.Id,
     ///         BranchName = "refs/heads/master",
-    ///         Principal = example_group.Apply(getGroupResult =&gt; getGroupResult).Apply(example_group =&gt; example_group.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_group.Apply(example_group =&gt; example_group.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "RemoveOthersLocks", "Allow" },
@@ -202,7 +202,7 @@ namespace Pulumi.AzureDevOps
     ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
-    ///         Principal = example_project_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "CreateRepository", "Deny" },
@@ -225,7 +225,7 @@ namespace Pulumi.AzureDevOps
     ///     {
     ///         ProjectId = exampleGit.ProjectId,
     ///         RepositoryId = exampleGit.Id,
-    ///         Principal = example_project_administrators.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_administrators =&gt; example_project_administrators.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_project_administrators.Apply(example_project_administrators =&gt; example_project_administrators.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "RemoveOthersLocks", "Allow" },
@@ -240,7 +240,7 @@ namespace Pulumi.AzureDevOps
     ///         ProjectId = exampleGit.ProjectId,
     ///         RepositoryId = exampleGit.Id,
     ///         BranchName = "master",
-    ///         Principal = example_project_contributors.Apply(getGroupResult =&gt; getGroupResult).Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         Permissions = 
     ///         {
     ///             { "RemoveOthersLocks", "Allow" },

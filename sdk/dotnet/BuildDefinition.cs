@@ -58,7 +58,7 @@ namespace Pulumi.AzureDevOps
     ///         Path = "\\ExampleFolder",
     ///         CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
     ///         {
-    ///             UseYaml = true,
+    ///             UseYaml = false,
     ///         },
     ///         Schedules = new[]
     ///         {
@@ -152,7 +152,7 @@ namespace Pulumi.AzureDevOps
     ///         Path = "\\ExampleFolder",
     ///         CiTrigger = new AzureDevOps.Inputs.BuildDefinitionCiTriggerArgs
     ///         {
-    ///             UseYaml = true,
+    ///             UseYaml = false,
     ///         },
     ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
     ///         {

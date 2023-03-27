@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -112,10 +112,10 @@ func NewServiceEndpointAws(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
 	if args.SecretAccessKey != nil {
-		args.SecretAccessKey = pulumi.ToSecret(args.SecretAccessKey).(pulumi.StringOutput)
+		args.SecretAccessKey = pulumi.ToSecret(args.SecretAccessKey).(pulumi.StringInput)
 	}
 	if args.SessionToken != nil {
-		args.SessionToken = pulumi.ToSecret(args.SessionToken).(pulumi.StringPtrOutput)
+		args.SessionToken = pulumi.ToSecret(args.SessionToken).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"secretAccessKey",

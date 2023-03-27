@@ -92,20 +92,6 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
     public Output<String> accessToken() {
         return this.accessToken;
     }
-    /**
-     * A bcrypted hash of the attribute &#39;access_token&#39;
-     * 
-     */
-    @Export(name="accessTokenHash", type=String.class, parameters={})
-    private Output<String> accessTokenHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;access_token&#39;
-     * 
-     */
-    public Output<String> accessTokenHash() {
-        return this.accessTokenHash;
-    }
     @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> authorization;
 
@@ -202,8 +188,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "accessToken",
-                "accessTokenHash"
+                "accessToken"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

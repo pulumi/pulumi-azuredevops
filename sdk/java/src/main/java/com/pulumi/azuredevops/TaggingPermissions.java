@@ -34,7 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuredevops.Project;
  * import com.pulumi.azuredevops.ProjectArgs;
  * import com.pulumi.azuredevops.AzuredevopsFunctions;
- * import com.pulumi.azuredevops.Identities.inputs.GetGroupArgs;
+ * import com.pulumi.azuredevops.inputs.GetGroupArgs;
  * import com.pulumi.azuredevops.TaggingPermissions;
  * import com.pulumi.azuredevops.TaggingPermissionsArgs;
  * import java.util.List;

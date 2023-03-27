@@ -26,13 +26,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.LookupProject(ctx, &GetProjectArgs{
+//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
 //				Name: pulumi.StringRef("Example Project"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleBuildDefinition, err := azuredevops.LookupBuildDefinition(ctx, &GetBuildDefinitionArgs{
+//			exampleBuildDefinition, err := azuredevops.LookupBuildDefinition(ctx, &azuredevops.LookupBuildDefinitionArgs{
 //				ProjectId: exampleProject.Id,
 //				Name:      "existing",
 //			}, nil)

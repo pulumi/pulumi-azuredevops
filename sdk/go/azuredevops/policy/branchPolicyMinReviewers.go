@@ -7,7 +7,7 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
+	"errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -33,7 +33,7 @@ import (
 //			}
 //			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
 //				ProjectId: exampleProject.ID(),
-//				Initialization: &GitInitializationArgs{
+//				Initialization: &azuredevops.GitInitializationArgs{
 //					InitType: pulumi.String("Clean"),
 //				},
 //			})
@@ -44,25 +44,25 @@ import (
 //				ProjectId: exampleProject.ID(),
 //				Enabled:   pulumi.Bool(true),
 //				Blocking:  pulumi.Bool(true),
-//				Settings: &BranchPolicyMinReviewersSettingsArgs{
+//				Settings: &azuredevops.BranchPolicyMinReviewersSettingsArgs{
 //					ReviewerCount:                     pulumi.Int(7),
 //					SubmitterCanVote:                  pulumi.Bool(false),
 //					LastPusherCannotApprove:           pulumi.Bool(true),
 //					AllowCompletionWithRejectsOrWaits: pulumi.Bool(false),
 //					OnPushResetApprovedVotes:          pulumi.Bool(true),
 //					OnLastIterationRequireVote:        pulumi.Bool(false),
-//					Scopes: BranchPolicyMinReviewersSettingsScopeArray{
-//						&BranchPolicyMinReviewersSettingsScopeArgs{
+//					Scopes: azuredevops.BranchPolicyMinReviewersSettingsScopeArray{
+//						&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
 //							RepositoryId:  exampleGit.ID(),
 //							RepositoryRef: exampleGit.DefaultBranch,
 //							MatchType:     pulumi.String("Exact"),
 //						},
-//						&BranchPolicyMinReviewersSettingsScopeArgs{
+//						&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
 //							RepositoryId:  nil,
 //							RepositoryRef: pulumi.String("refs/heads/releases"),
 //							MatchType:     pulumi.String("Prefix"),
 //						},
-//						&BranchPolicyMinReviewersSettingsScopeArgs{
+//						&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
 //							MatchType: pulumi.String("DefaultBranch"),
 //						},
 //					},

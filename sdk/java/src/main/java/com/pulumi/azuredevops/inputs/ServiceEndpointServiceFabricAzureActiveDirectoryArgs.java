@@ -16,14 +16,14 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectoryArgs extends 
     public static final ServiceEndpointServiceFabricAzureActiveDirectoryArgs Empty = new ServiceEndpointServiceFabricAzureActiveDirectoryArgs();
 
     /**
-     * - Password for the Azure Active Directory account.
+     * Password for the Azure Active Directory account.
      * 
      */
     @Import(name="password", required=true)
     private Output<String> password;
 
     /**
-     * @return - Password for the Azure Active Directory account.
+     * @return Password for the Azure Active Directory account.
      * 
      */
     public Output<String> password() {
@@ -76,14 +76,14 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectoryArgs extends 
     }
 
     /**
-     * - Specify an Azure Active Directory account.
+     * Specify an Azure Active Directory account.
      * 
      */
     @Import(name="username", required=true)
     private Output<String> username;
 
     /**
-     * @return - Specify an Azure Active Directory account.
+     * @return Specify an Azure Active Directory account.
      * 
      */
     public Output<String> username() {
@@ -119,7 +119,7 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectoryArgs extends 
         }
 
         /**
-         * @param password - Password for the Azure Active Directory account.
+         * @param password Password for the Azure Active Directory account.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectoryArgs extends 
         }
 
         /**
-         * @param password - Password for the Azure Active Directory account.
+         * @param password Password for the Azure Active Directory account.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectoryArgs extends 
         }
 
         /**
-         * @param username - Specify an Azure Active Directory account.
+         * @param username Specify an Azure Active Directory account.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectoryArgs extends 
         }
 
         /**
-         * @param username - Specify an Azure Active Directory account.
+         * @param username Specify an Azure Active Directory account.
          * 
          * @return builder
          * 

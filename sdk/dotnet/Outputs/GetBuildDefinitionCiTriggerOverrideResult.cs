@@ -26,7 +26,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly int MaxConcurrentBuildsPerBranch;
         /// <summary>
-        /// The file paths to include or exclude.
+        /// block supports the following:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetBuildDefinitionCiTriggerOverridePathFilterResult> PathFilters;
         /// <summary>

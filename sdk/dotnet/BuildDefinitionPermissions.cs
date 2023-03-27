@@ -66,7 +66,7 @@ namespace Pulumi.AzureDevOps
     ///     var exampleBuildDefinitionPermissions = new AzureDevOps.BuildDefinitionPermissions("exampleBuildDefinitionPermissions", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
-    ///         Principal = example_readers.Apply(getGroupResult =&gt; getGroupResult).Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
     ///         BuildDefinitionId = exampleBuildDefinition.Id,
     ///         Permissions = 
     ///         {

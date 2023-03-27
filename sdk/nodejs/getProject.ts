@@ -24,11 +24,8 @@ import * as utilities from "./utilities";
  */
 export function getProject(args?: GetProjectArgs, opts?: pulumi.InvokeOptions): Promise<GetProjectResult> {
     args = args || {};
-    if (!opts) {
-        opts = {}
-    }
 
-    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getProject:getProject", {
         "name": args.name,
         "projectId": args.projectId,
@@ -66,9 +63,26 @@ export interface GetProjectResult {
     readonly visibility: string;
     readonly workItemTemplate: string;
 }
-
+/**
+ * Use this data source to access information about an existing Project within Azure DevOps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * export const project = example;
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+ */
 export function getProjectOutput(args?: GetProjectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProjectResult> {
-    return pulumi.output(args).apply(a => getProject(a, opts))
+    return pulumi.output(args).apply((a: any) => getProject(a, opts))
 }
 
 /**
