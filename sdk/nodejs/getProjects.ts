@@ -19,10 +19,10 @@ import * as utilities from "./utilities";
  *     name: "Example Project",
  *     state: "wellFormed",
  * });
- * export const projectId = [example.then(example => example.projects)].map(__item => __item?.projectId);
- * export const name = [example.then(example => example.projects)].map(__item => __item?.name);
- * export const projectUrl = [example.then(example => example.projects)].map(__item => __item?.projectUrl);
- * export const state = [example.then(example => example.projects)].map(__item => __item?.state);
+ * export const projectId = example.then(example => example.projects.map(__item => __item.projectId));
+ * export const name = example.then(example => example.projects.map(__item => __item.name));
+ * export const projectUrl = example.then(example => example.projects.map(__item => __item.projectUrl));
+ * export const state = example.then(example => example.projects.map(__item => __item.state));
  * ```
  * ## Relevant Links
  *
@@ -61,7 +61,7 @@ export interface GetProjectsResult {
      */
     readonly id: string;
     /**
-     * Project name.
+     * The name of the Project.
      */
     readonly name?: string;
     /**
@@ -86,10 +86,10 @@ export interface GetProjectsResult {
  *     name: "Example Project",
  *     state: "wellFormed",
  * });
- * export const projectId = [example.then(example => example.projects)].map(__item => __item?.projectId);
- * export const name = [example.then(example => example.projects)].map(__item => __item?.name);
- * export const projectUrl = [example.then(example => example.projects)].map(__item => __item?.projectUrl);
- * export const state = [example.then(example => example.projects)].map(__item => __item?.state);
+ * export const projectId = example.then(example => example.projects.map(__item => __item.projectId));
+ * export const name = example.then(example => example.projects.map(__item => __item.name));
+ * export const projectUrl = example.then(example => example.projects.map(__item => __item.projectUrl));
+ * export const state = example.then(example => example.projects.map(__item => __item.state));
  * ```
  * ## Relevant Links
  *

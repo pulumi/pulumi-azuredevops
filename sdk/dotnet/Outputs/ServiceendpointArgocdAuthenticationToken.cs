@@ -17,16 +17,11 @@ namespace Pulumi.AzureDevOps.Outputs
         /// Authentication Token generated through ArgoCD.
         /// </summary>
         public readonly string Token;
-        public readonly string? TokenHash;
 
         [OutputConstructor]
-        private ServiceendpointArgocdAuthenticationToken(
-            string token,
-
-            string? tokenHash)
+        private ServiceendpointArgocdAuthenticationToken(string token)
         {
             Token = token;
-            TokenHash = tokenHash;
         }
     }
 }

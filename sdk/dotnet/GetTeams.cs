@@ -30,22 +30,10 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["projectId"] = new[]
-        ///         {
-        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
-        ///         }.Select(__item =&gt; __item?.ProjectId).ToList(),
-        ///         ["name"] = new[]
-        ///         {
-        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
-        ///         }.Select(__item =&gt; __item?.Name).ToList(),
-        ///         ["alladministrators"] = new[]
-        ///         {
-        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
-        ///         }.Select(__item =&gt; __item?.Administrators).ToList(),
-        ///         ["administrators"] = new[]
-        ///         {
-        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
-        ///         }.Select(__item =&gt; __item?.Members).ToList(),
+        ///         ["projectId"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.ProjectId).ToList(),
+        ///         ["name"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["alladministrators"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.Administrators).ToList(),
+        ///         ["administrators"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.Members).ToList(),
         ///     };
         /// });
         /// ```
@@ -81,22 +69,10 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["projectId"] = new[]
-        ///         {
-        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
-        ///         }.Select(__item =&gt; __item?.ProjectId).ToList(),
-        ///         ["name"] = new[]
-        ///         {
-        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
-        ///         }.Select(__item =&gt; __item?.Name).ToList(),
-        ///         ["alladministrators"] = new[]
-        ///         {
-        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
-        ///         }.Select(__item =&gt; __item?.Administrators).ToList(),
-        ///         ["administrators"] = new[]
-        ///         {
-        ///             example.Apply(getTeamsResult =&gt; getTeamsResult.Teams),
-        ///         }.Select(__item =&gt; __item?.Members).ToList(),
+        ///         ["projectId"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.ProjectId).ToList(),
+        ///         ["name"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["alladministrators"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.Administrators).ToList(),
+        ///         ["administrators"] = example.Apply(getTeamsResult =&gt; getTeamsResult.Teams).Select(__item =&gt; __item.Members).ToList(),
         ///     };
         /// });
         /// ```

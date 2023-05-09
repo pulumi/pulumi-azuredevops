@@ -6,8 +6,6 @@ package com.pulumi.azuredevops.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEndpointArtifactoryAuthenticationToken {
@@ -16,7 +14,6 @@ public final class ServiceEndpointArtifactoryAuthenticationToken {
      * 
      */
     private String token;
-    private @Nullable String tokenHash;
 
     private ServiceEndpointArtifactoryAuthenticationToken() {}
     /**
@@ -25,9 +22,6 @@ public final class ServiceEndpointArtifactoryAuthenticationToken {
      */
     public String token() {
         return this.token;
-    }
-    public Optional<String> tokenHash() {
-        return Optional.ofNullable(this.tokenHash);
     }
 
     public static Builder builder() {
@@ -40,12 +34,10 @@ public final class ServiceEndpointArtifactoryAuthenticationToken {
     @CustomType.Builder
     public static final class Builder {
         private String token;
-        private @Nullable String tokenHash;
         public Builder() {}
         public Builder(ServiceEndpointArtifactoryAuthenticationToken defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.token = defaults.token;
-    	      this.tokenHash = defaults.tokenHash;
         }
 
         @CustomType.Setter
@@ -53,15 +45,9 @@ public final class ServiceEndpointArtifactoryAuthenticationToken {
             this.token = Objects.requireNonNull(token);
             return this;
         }
-        @CustomType.Setter
-        public Builder tokenHash(@Nullable String tokenHash) {
-            this.tokenHash = tokenHash;
-            return this;
-        }
         public ServiceEndpointArtifactoryAuthenticationToken build() {
             final var o = new ServiceEndpointArtifactoryAuthenticationToken();
             o.token = token;
-            o.tokenHash = tokenHash;
             return o;
         }
     }

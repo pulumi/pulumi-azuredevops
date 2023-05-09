@@ -17,27 +17,19 @@ namespace Pulumi.AzureDevOps.Outputs
         /// Artifactory Password.
         /// </summary>
         public readonly string Password;
-        public readonly string? PasswordHash;
         /// <summary>
         /// Artifactory Username.
         /// </summary>
         public readonly string Username;
-        public readonly string? UsernameHash;
 
         [OutputConstructor]
         private ServiceEndpointArtifactoryAuthenticationBasic(
             string password,
 
-            string? passwordHash,
-
-            string username,
-
-            string? usernameHash)
+            string username)
         {
             Password = password;
-            PasswordHash = passwordHash;
             Username = username;
-            UsernameHash = usernameHash;
         }
     }
 }

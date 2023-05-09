@@ -19,7 +19,7 @@ public final class GetProjectsResult {
      */
     private String id;
     /**
-     * @return Project name.
+     * @return The name of the Project.
      * 
      */
     private @Nullable String name;
@@ -43,7 +43,7 @@ public final class GetProjectsResult {
         return this.id;
     }
     /**
-     * @return Project name.
+     * @return The name of the Project.
      * 
      */
     public Optional<String> name() {

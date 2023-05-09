@@ -28,18 +28,6 @@ namespace Pulumi.AzureDevOps.Inputs
             }
         }
 
-        [Input("tokenHash")]
-        private Input<string>? _tokenHash;
-        public Input<string>? TokenHash
-        {
-            get => _tokenHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _tokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
         public ServiceEndpointArtifactoryAuthenticationTokenArgs()
         {
         }

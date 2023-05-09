@@ -68,6 +68,10 @@ export interface GetTeamResult {
      */
     readonly description: string;
     /**
+     * The descriptor of the Team.
+     */
+    readonly descriptor: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;

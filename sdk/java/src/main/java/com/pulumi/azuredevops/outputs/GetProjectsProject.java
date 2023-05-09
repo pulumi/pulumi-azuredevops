@@ -15,7 +15,7 @@ public final class GetProjectsProject {
      */
     private String name;
     /**
-     * @return Project identifier.
+     * @return The ID of the Project.
      * 
      */
     private String projectId;
@@ -39,7 +39,7 @@ public final class GetProjectsProject {
         return this.name;
     }
     /**
-     * @return Project identifier.
+     * @return The ID of the Project.
      * 
      */
     public String projectId() {

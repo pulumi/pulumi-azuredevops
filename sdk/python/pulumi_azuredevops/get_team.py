@@ -21,13 +21,16 @@ class GetTeamResult:
     """
     A collection of values returned by getTeam.
     """
-    def __init__(__self__, administrators=None, description=None, id=None, members=None, name=None, project_id=None):
+    def __init__(__self__, administrators=None, description=None, descriptor=None, id=None, members=None, name=None, project_id=None):
         if administrators and not isinstance(administrators, list):
             raise TypeError("Expected argument 'administrators' to be a list")
         pulumi.set(__self__, "administrators", administrators)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if descriptor and not isinstance(descriptor, str):
+            raise TypeError("Expected argument 'descriptor' to be a str")
+        pulumi.set(__self__, "descriptor", descriptor)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -56,6 +59,14 @@ class GetTeamResult:
         Team description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def descriptor(self) -> str:
+        """
+        The descriptor of the Team.
+        """
+        return pulumi.get(self, "descriptor")
 
     @property
     @pulumi.getter
@@ -92,6 +103,7 @@ class AwaitableGetTeamResult(GetTeamResult):
         return GetTeamResult(
             administrators=self.administrators,
             description=self.description,
+            descriptor=self.descriptor,
             id=self.id,
             members=self.members,
             name=self.name,
@@ -139,6 +151,7 @@ def get_team(name: Optional[str] = None,
     return AwaitableGetTeamResult(
         administrators=__ret__.administrators,
         description=__ret__.description,
+        descriptor=__ret__.descriptor,
         id=__ret__.id,
         members=__ret__.members,
         name=__ret__.name,

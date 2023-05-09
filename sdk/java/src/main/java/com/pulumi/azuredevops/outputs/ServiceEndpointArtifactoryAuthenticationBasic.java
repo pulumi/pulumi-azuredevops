@@ -6,8 +6,6 @@ package com.pulumi.azuredevops.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEndpointArtifactoryAuthenticationBasic {
@@ -16,13 +14,11 @@ public final class ServiceEndpointArtifactoryAuthenticationBasic {
      * 
      */
     private String password;
-    private @Nullable String passwordHash;
     /**
      * @return Artifactory Username.
      * 
      */
     private String username;
-    private @Nullable String usernameHash;
 
     private ServiceEndpointArtifactoryAuthenticationBasic() {}
     /**
@@ -32,18 +28,12 @@ public final class ServiceEndpointArtifactoryAuthenticationBasic {
     public String password() {
         return this.password;
     }
-    public Optional<String> passwordHash() {
-        return Optional.ofNullable(this.passwordHash);
-    }
     /**
      * @return Artifactory Username.
      * 
      */
     public String username() {
         return this.username;
-    }
-    public Optional<String> usernameHash() {
-        return Optional.ofNullable(this.usernameHash);
     }
 
     public static Builder builder() {
@@ -56,16 +46,12 @@ public final class ServiceEndpointArtifactoryAuthenticationBasic {
     @CustomType.Builder
     public static final class Builder {
         private String password;
-        private @Nullable String passwordHash;
         private String username;
-        private @Nullable String usernameHash;
         public Builder() {}
         public Builder(ServiceEndpointArtifactoryAuthenticationBasic defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.password = defaults.password;
-    	      this.passwordHash = defaults.passwordHash;
     	      this.username = defaults.username;
-    	      this.usernameHash = defaults.usernameHash;
         }
 
         @CustomType.Setter
@@ -74,26 +60,14 @@ public final class ServiceEndpointArtifactoryAuthenticationBasic {
             return this;
         }
         @CustomType.Setter
-        public Builder passwordHash(@Nullable String passwordHash) {
-            this.passwordHash = passwordHash;
-            return this;
-        }
-        @CustomType.Setter
         public Builder username(String username) {
             this.username = Objects.requireNonNull(username);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder usernameHash(@Nullable String usernameHash) {
-            this.usernameHash = usernameHash;
             return this;
         }
         public ServiceEndpointArtifactoryAuthenticationBasic build() {
             final var o = new ServiceEndpointArtifactoryAuthenticationBasic();
             o.password = password;
-            o.passwordHash = passwordHash;
             o.username = username;
-            o.usernameHash = usernameHash;
             return o;
         }
     }

@@ -80,14 +80,14 @@ public final class VariableGroupState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The project ID or project name.
+     * The ID of the project.
      * 
      */
     @Import(name="projectId")
     private @Nullable Output<String> projectId;
 
     /**
-     * @return The project ID or project name.
+     * @return The ID of the project.
      * 
      */
     public Optional<Output<String>> projectId() {
@@ -223,7 +223,7 @@ public final class VariableGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param projectId The project ID or project name.
+         * @param projectId The ID of the project.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class VariableGroupState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param projectId The project ID or project name.
+         * @param projectId The ID of the project.
          * 
          * @return builder
          * 

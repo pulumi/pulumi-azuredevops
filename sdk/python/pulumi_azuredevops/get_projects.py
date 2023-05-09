@@ -48,7 +48,7 @@ class GetProjectsResult:
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        Project name.
+        The name of the Project.
         """
         return pulumi.get(self, "name")
 
@@ -95,10 +95,10 @@ def get_projects(name: Optional[str] = None,
 
     example = azuredevops.get_projects(name="Example Project",
         state="wellFormed")
-    pulumi.export("projectId", [__item.project_id for __item in [example.projects]])
-    pulumi.export("name", [__item.name for __item in [example.projects]])
-    pulumi.export("projectUrl", [__item.project_url for __item in [example.projects]])
-    pulumi.export("state", [__item.state for __item in [example.projects]])
+    pulumi.export("projectId", [__item.project_id for __item in example.projects])
+    pulumi.export("name", [__item.name for __item in example.projects])
+    pulumi.export("projectUrl", [__item.project_url for __item in example.projects])
+    pulumi.export("state", [__item.state for __item in example.projects])
     ```
     ## Relevant Links
 
@@ -136,10 +136,10 @@ def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     example = azuredevops.get_projects(name="Example Project",
         state="wellFormed")
-    pulumi.export("projectId", [__item.project_id for __item in [example.projects]])
-    pulumi.export("name", [__item.name for __item in [example.projects]])
-    pulumi.export("projectUrl", [__item.project_url for __item in [example.projects]])
-    pulumi.export("state", [__item.state for __item in [example.projects]])
+    pulumi.export("projectId", [__item.project_id for __item in example.projects])
+    pulumi.export("name", [__item.name for __item in example.projects])
+    pulumi.export("projectUrl", [__item.project_url for __item in example.projects])
+    pulumi.export("state", [__item.state for __item in example.projects])
     ```
     ## Relevant Links
 

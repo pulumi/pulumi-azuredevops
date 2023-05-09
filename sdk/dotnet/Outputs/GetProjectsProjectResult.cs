@@ -18,7 +18,7 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Project identifier.
+        /// The ID of the Project.
         /// </summary>
         public readonly string ProjectId;
         /// <summary>

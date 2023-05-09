@@ -74,6 +74,8 @@ type LookupTeamResult struct {
 	Administrators []string `pulumi:"administrators"`
 	// Team description.
 	Description string `pulumi:"description"`
+	// The descriptor of the Team.
+	Descriptor string `pulumi:"descriptor"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
 	// List of subject descriptors for `members` of the team.
@@ -130,6 +132,11 @@ func (o LookupTeamResultOutput) Administrators() pulumi.StringArrayOutput {
 // Team description.
 func (o LookupTeamResultOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.Description }).(pulumi.StringOutput)
+}
+
+// The descriptor of the Team.
+func (o LookupTeamResultOutput) Descriptor() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupTeamResult) string { return v.Descriptor }).(pulumi.StringOutput)
 }
 
 // The provider-assigned unique ID for this managed resource.

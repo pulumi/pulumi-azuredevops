@@ -167,7 +167,7 @@ type VariableGroup struct {
 	KeyVault VariableGroupKeyVaultPtrOutput `pulumi:"keyVault"`
 	// The name of the Variable Group.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// One or more `variable` blocks as documented below.
 	Variables VariableGroupVariableArrayOutput `pulumi:"variables"`
@@ -216,7 +216,7 @@ type variableGroupState struct {
 	KeyVault *VariableGroupKeyVault `pulumi:"keyVault"`
 	// The name of the Variable Group.
 	Name *string `pulumi:"name"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// One or more `variable` blocks as documented below.
 	Variables []VariableGroupVariable `pulumi:"variables"`
@@ -231,7 +231,7 @@ type VariableGroupState struct {
 	KeyVault VariableGroupKeyVaultPtrInput
 	// The name of the Variable Group.
 	Name pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// One or more `variable` blocks as documented below.
 	Variables VariableGroupVariableArrayInput
@@ -250,7 +250,7 @@ type variableGroupArgs struct {
 	KeyVault *VariableGroupKeyVault `pulumi:"keyVault"`
 	// The name of the Variable Group.
 	Name *string `pulumi:"name"`
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// One or more `variable` blocks as documented below.
 	Variables []VariableGroupVariable `pulumi:"variables"`
@@ -266,7 +266,7 @@ type VariableGroupArgs struct {
 	KeyVault VariableGroupKeyVaultPtrInput
 	// The name of the Variable Group.
 	Name pulumi.StringPtrInput
-	// The project ID or project name.
+	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// One or more `variable` blocks as documented below.
 	Variables VariableGroupVariableArrayInput
@@ -379,7 +379,7 @@ func (o VariableGroupOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *VariableGroup) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The project ID or project name.
+// The ID of the project.
 func (o VariableGroupOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VariableGroup) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }

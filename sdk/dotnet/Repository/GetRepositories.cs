@@ -22,6 +22,7 @@ namespace Pulumi.AzureDevOps.Repository
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
@@ -65,6 +66,7 @@ namespace Pulumi.AzureDevOps.Repository
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 

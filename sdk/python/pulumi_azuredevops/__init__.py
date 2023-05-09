@@ -82,6 +82,10 @@ from .service_endpoint_ssh import *
 from .serviceendpoint_argocd import *
 from .serviceendpoint_externaltfs import *
 from .serviceendpoint_incomingwebhook import *
+from .serviceendpoint_jfrog_artifactory_v2 import *
+from .serviceendpoint_jfrog_distribution_v2 import *
+from .serviceendpoint_jfrog_platform_v2 import *
+from .serviceendpoint_jfrog_xray_v2 import *
 from .serviceendpoint_octopusdeploy import *
 from .serviceendpoint_permissions import *
 from .servicehook_permissions import *
@@ -734,6 +738,38 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook": "ServiceendpointIncomingwebhook"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointJfrogArtifactoryV2",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2": "ServiceendpointJfrogArtifactoryV2"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointJfrogDistributionV2",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2": "ServiceendpointJfrogDistributionV2"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointJfrogPlatformV2",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2": "ServiceendpointJfrogPlatformV2"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointJfrogXrayV2",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2": "ServiceendpointJfrogXrayV2"
   }
  },
  {

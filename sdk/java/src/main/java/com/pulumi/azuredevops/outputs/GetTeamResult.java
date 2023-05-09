@@ -21,6 +21,11 @@ public final class GetTeamResult {
      */
     private String description;
     /**
+     * @return The descriptor of the Team.
+     * 
+     */
+    private String descriptor;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -47,6 +52,13 @@ public final class GetTeamResult {
      */
     public String description() {
         return this.description;
+    }
+    /**
+     * @return The descriptor of the Team.
+     * 
+     */
+    public String descriptor() {
+        return this.descriptor;
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -80,6 +92,7 @@ public final class GetTeamResult {
     public static final class Builder {
         private List<String> administrators;
         private String description;
+        private String descriptor;
         private String id;
         private List<String> members;
         private String name;
@@ -89,6 +102,7 @@ public final class GetTeamResult {
     	      Objects.requireNonNull(defaults);
     	      this.administrators = defaults.administrators;
     	      this.description = defaults.description;
+    	      this.descriptor = defaults.descriptor;
     	      this.id = defaults.id;
     	      this.members = defaults.members;
     	      this.name = defaults.name;
@@ -106,6 +120,11 @@ public final class GetTeamResult {
         @CustomType.Setter
         public Builder description(String description) {
             this.description = Objects.requireNonNull(description);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder descriptor(String descriptor) {
+            this.descriptor = Objects.requireNonNull(descriptor);
             return this;
         }
         @CustomType.Setter
@@ -135,6 +154,7 @@ public final class GetTeamResult {
             final var o = new GetTeamResult();
             o.administrators = administrators;
             o.description = description;
+            o.descriptor = descriptor;
             o.id = id;
             o.members = members;
             o.name = name;

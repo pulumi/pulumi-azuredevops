@@ -20,6 +20,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
@@ -63,6 +64,7 @@ namespace Pulumi.AzureDevOps
         /// 
         /// ```csharp
         /// using System.Collections.Generic;
+        /// using System.Linq;
         /// using Pulumi;
         /// using AzureDevOps = Pulumi.AzureDevOps;
         /// 
@@ -152,6 +154,10 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// The descriptor of the Team.
+        /// </summary>
+        public readonly string Descriptor;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -168,6 +174,8 @@ namespace Pulumi.AzureDevOps
 
             string description,
 
+            string descriptor,
+
             string id,
 
             ImmutableArray<string> members,
@@ -178,6 +186,7 @@ namespace Pulumi.AzureDevOps
         {
             Administrators = administrators;
             Description = description;
+            Descriptor = descriptor;
             Id = id;
             Members = members;
             Name = name;

@@ -388,6 +388,26 @@ export type ServiceendpointIncomingwebhook = import("./serviceendpointIncomingwe
 export const ServiceendpointIncomingwebhook: typeof import("./serviceendpointIncomingwebhook").ServiceendpointIncomingwebhook = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointIncomingwebhook"], () => require("./serviceendpointIncomingwebhook"));
 
+export { ServiceendpointJfrogArtifactoryV2Args, ServiceendpointJfrogArtifactoryV2State } from "./serviceendpointJfrogArtifactoryV2";
+export type ServiceendpointJfrogArtifactoryV2 = import("./serviceendpointJfrogArtifactoryV2").ServiceendpointJfrogArtifactoryV2;
+export const ServiceendpointJfrogArtifactoryV2: typeof import("./serviceendpointJfrogArtifactoryV2").ServiceendpointJfrogArtifactoryV2 = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointJfrogArtifactoryV2"], () => require("./serviceendpointJfrogArtifactoryV2"));
+
+export { ServiceendpointJfrogDistributionV2Args, ServiceendpointJfrogDistributionV2State } from "./serviceendpointJfrogDistributionV2";
+export type ServiceendpointJfrogDistributionV2 = import("./serviceendpointJfrogDistributionV2").ServiceendpointJfrogDistributionV2;
+export const ServiceendpointJfrogDistributionV2: typeof import("./serviceendpointJfrogDistributionV2").ServiceendpointJfrogDistributionV2 = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointJfrogDistributionV2"], () => require("./serviceendpointJfrogDistributionV2"));
+
+export { ServiceendpointJfrogPlatformV2Args, ServiceendpointJfrogPlatformV2State } from "./serviceendpointJfrogPlatformV2";
+export type ServiceendpointJfrogPlatformV2 = import("./serviceendpointJfrogPlatformV2").ServiceendpointJfrogPlatformV2;
+export const ServiceendpointJfrogPlatformV2: typeof import("./serviceendpointJfrogPlatformV2").ServiceendpointJfrogPlatformV2 = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointJfrogPlatformV2"], () => require("./serviceendpointJfrogPlatformV2"));
+
+export { ServiceendpointJfrogXrayV2Args, ServiceendpointJfrogXrayV2State } from "./serviceendpointJfrogXrayV2";
+export type ServiceendpointJfrogXrayV2 = import("./serviceendpointJfrogXrayV2").ServiceendpointJfrogXrayV2;
+export const ServiceendpointJfrogXrayV2: typeof import("./serviceendpointJfrogXrayV2").ServiceendpointJfrogXrayV2 = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointJfrogXrayV2"], () => require("./serviceendpointJfrogXrayV2"));
+
 export { ServiceendpointOctopusdeployArgs, ServiceendpointOctopusdeployState } from "./serviceendpointOctopusdeploy";
 export type ServiceendpointOctopusdeploy = import("./serviceendpointOctopusdeploy").ServiceendpointOctopusdeploy;
 export const ServiceendpointOctopusdeploy: typeof import("./serviceendpointOctopusdeploy").ServiceendpointOctopusdeploy = null as any;
@@ -591,6 +611,14 @@ const _module = {
                 return new ServiceendpointExternaltfs(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook":
                 return new ServiceendpointIncomingwebhook(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2":
+                return new ServiceendpointJfrogArtifactoryV2(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2":
+                return new ServiceendpointJfrogDistributionV2(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2":
+                return new ServiceendpointJfrogPlatformV2(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2":
+                return new ServiceendpointJfrogXrayV2(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy":
                 return new ServiceendpointOctopusdeploy(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
@@ -675,6 +703,10 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh",
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointArgocd", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointExternaltfs", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointIncomingwebhook", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJfrogArtifactoryV2", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJfrogDistributionV2", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJfrogPlatformV2", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJfrogXrayV2", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointOctopusdeploy", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookPermissions", _module)

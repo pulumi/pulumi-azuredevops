@@ -664,12 +664,10 @@ export interface ServiceEndpointArtifactoryAuthenticationBasic {
      * Artifactory Password.
      */
     password: pulumi.Input<string>;
-    passwordHash?: pulumi.Input<string>;
     /**
      * Artifactory Username.
      */
     username: pulumi.Input<string>;
-    usernameHash?: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointArtifactoryAuthenticationToken {
@@ -677,7 +675,6 @@ export interface ServiceEndpointArtifactoryAuthenticationToken {
      * Authentication Token generated through Artifactory.
      */
     token: pulumi.Input<string>;
-    tokenHash?: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointAzureRMCredentials {
@@ -845,12 +842,10 @@ export interface ServiceendpointArgocdAuthenticationBasic {
      * ArgoCD Password.
      */
     password: pulumi.Input<string>;
-    passwordHash?: pulumi.Input<string>;
     /**
      * ArgoCD Username.
      */
     username: pulumi.Input<string>;
-    usernameHash?: pulumi.Input<string>;
 }
 
 export interface ServiceendpointArgocdAuthenticationToken {
@@ -858,7 +853,6 @@ export interface ServiceendpointArgocdAuthenticationToken {
      * Authentication Token generated through ArgoCD.
      */
     token: pulumi.Input<string>;
-    tokenHash?: pulumi.Input<string>;
 }
 
 export interface ServiceendpointExternaltfsAuthPersonal {
@@ -866,6 +860,78 @@ export interface ServiceendpointExternaltfsAuthPersonal {
      * The Personal Access Token for Azure DevOps Organization.
      */
     personalAccessToken: pulumi.Input<string>;
+}
+
+export interface ServiceendpointJfrogArtifactoryV2AuthenticationBasic {
+    /**
+     * Artifactory Password.
+     */
+    password: pulumi.Input<string>;
+    /**
+     * Artifactory Username.
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface ServiceendpointJfrogArtifactoryV2AuthenticationToken {
+    /**
+     * Authentication Token generated through Artifactory.
+     */
+    token: pulumi.Input<string>;
+}
+
+export interface ServiceendpointJfrogDistributionV2AuthenticationBasic {
+    /**
+     * Artifactory Password.
+     */
+    password: pulumi.Input<string>;
+    /**
+     * Artifactory Username.
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface ServiceendpointJfrogDistributionV2AuthenticationToken {
+    /**
+     * Authentication Token generated through Artifactory.
+     */
+    token: pulumi.Input<string>;
+}
+
+export interface ServiceendpointJfrogPlatformV2AuthenticationBasic {
+    /**
+     * Artifactory Password.
+     */
+    password: pulumi.Input<string>;
+    /**
+     * Artifactory Username.
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface ServiceendpointJfrogPlatformV2AuthenticationToken {
+    /**
+     * Authentication Token generated through Artifactory.
+     */
+    token: pulumi.Input<string>;
+}
+
+export interface ServiceendpointJfrogXrayV2AuthenticationBasic {
+    /**
+     * Artifactory Password.
+     */
+    password: pulumi.Input<string>;
+    /**
+     * Artifactory Username.
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface ServiceendpointJfrogXrayV2AuthenticationToken {
+    /**
+     * Authentication Token generated through Artifactory.
+     */
+    token: pulumi.Input<string>;
 }
 
 export interface VariableGroupKeyVault {

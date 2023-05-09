@@ -978,7 +978,7 @@ export interface GetProjectsProject {
      */
     name: string;
     /**
-     * Project identifier.
+     * The ID of the Project.
      */
     projectId: string;
     /**
@@ -1142,12 +1142,10 @@ export interface ServiceEndpointArtifactoryAuthenticationBasic {
      * Artifactory Password.
      */
     password: string;
-    passwordHash: string;
     /**
      * Artifactory Username.
      */
     username: string;
-    usernameHash: string;
 }
 
 export interface ServiceEndpointArtifactoryAuthenticationToken {
@@ -1155,7 +1153,6 @@ export interface ServiceEndpointArtifactoryAuthenticationToken {
      * Authentication Token generated through Artifactory.
      */
     token: string;
-    tokenHash: string;
 }
 
 export interface ServiceEndpointAzureRMCredentials {
@@ -1323,12 +1320,10 @@ export interface ServiceendpointArgocdAuthenticationBasic {
      * ArgoCD Password.
      */
     password: string;
-    passwordHash: string;
     /**
      * ArgoCD Username.
      */
     username: string;
-    usernameHash: string;
 }
 
 export interface ServiceendpointArgocdAuthenticationToken {
@@ -1336,7 +1331,6 @@ export interface ServiceendpointArgocdAuthenticationToken {
      * Authentication Token generated through ArgoCD.
      */
     token: string;
-    tokenHash: string;
 }
 
 export interface ServiceendpointExternaltfsAuthPersonal {
@@ -1344,6 +1338,78 @@ export interface ServiceendpointExternaltfsAuthPersonal {
      * The Personal Access Token for Azure DevOps Organization.
      */
     personalAccessToken: string;
+}
+
+export interface ServiceendpointJfrogArtifactoryV2AuthenticationBasic {
+    /**
+     * Artifactory Password.
+     */
+    password: string;
+    /**
+     * Artifactory Username.
+     */
+    username: string;
+}
+
+export interface ServiceendpointJfrogArtifactoryV2AuthenticationToken {
+    /**
+     * Authentication Token generated through Artifactory.
+     */
+    token: string;
+}
+
+export interface ServiceendpointJfrogDistributionV2AuthenticationBasic {
+    /**
+     * Artifactory Password.
+     */
+    password: string;
+    /**
+     * Artifactory Username.
+     */
+    username: string;
+}
+
+export interface ServiceendpointJfrogDistributionV2AuthenticationToken {
+    /**
+     * Authentication Token generated through Artifactory.
+     */
+    token: string;
+}
+
+export interface ServiceendpointJfrogPlatformV2AuthenticationBasic {
+    /**
+     * Artifactory Password.
+     */
+    password: string;
+    /**
+     * Artifactory Username.
+     */
+    username: string;
+}
+
+export interface ServiceendpointJfrogPlatformV2AuthenticationToken {
+    /**
+     * Authentication Token generated through Artifactory.
+     */
+    token: string;
+}
+
+export interface ServiceendpointJfrogXrayV2AuthenticationBasic {
+    /**
+     * Artifactory Password.
+     */
+    password: string;
+    /**
+     * Artifactory Username.
+     */
+    username: string;
+}
+
+export interface ServiceendpointJfrogXrayV2AuthenticationToken {
+    /**
+     * Authentication Token generated through Artifactory.
+     */
+    token: string;
 }
 
 export interface VariableGroupKeyVault {
@@ -1778,7 +1844,7 @@ export namespace Core {
          */
         name: string;
         /**
-         * Project identifier.
+         * The ID of the Project.
          */
         projectId: string;
         /**

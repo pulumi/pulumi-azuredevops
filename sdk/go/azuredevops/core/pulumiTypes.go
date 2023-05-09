@@ -13,7 +13,7 @@ import (
 type GetProjectsProject struct {
 	// Name of the Project, if not specified all projects will be returned.
 	Name string `pulumi:"name"`
-	// Project identifier.
+	// The ID of the Project.
 	ProjectId string `pulumi:"projectId"`
 	// Url to the full version of the object.
 	ProjectUrl string `pulumi:"projectUrl"`
@@ -35,7 +35,7 @@ type GetProjectsProjectInput interface {
 type GetProjectsProjectArgs struct {
 	// Name of the Project, if not specified all projects will be returned.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Project identifier.
+	// The ID of the Project.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
 	// Url to the full version of the object.
 	ProjectUrl pulumi.StringInput `pulumi:"projectUrl"`
@@ -99,7 +99,7 @@ func (o GetProjectsProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Project identifier.
+// The ID of the Project.
 func (o GetProjectsProjectOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.ProjectId }).(pulumi.StringOutput)
 }
