@@ -17,27 +17,19 @@ namespace Pulumi.AzureDevOps.Outputs
         /// ArgoCD Password.
         /// </summary>
         public readonly string Password;
-        public readonly string? PasswordHash;
         /// <summary>
         /// ArgoCD Username.
         /// </summary>
         public readonly string Username;
-        public readonly string? UsernameHash;
 
         [OutputConstructor]
         private ServiceendpointArgocdAuthenticationBasic(
             string password,
 
-            string? passwordHash,
-
-            string username,
-
-            string? usernameHash)
+            string username)
         {
             Password = password;
-            PasswordHash = passwordHash;
             Username = username;
-            UsernameHash = usernameHash;
         }
     }
 }

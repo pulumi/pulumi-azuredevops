@@ -154,7 +154,7 @@ def get_git_repository(name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGitRepositoryResult:
     """
     Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
-    To read information about **multiple** Git Repositories use the data source _get_repositories_
+    To read information about **multiple** Git Repositories use the data source `get_repositories`
 
     ## Example Usage
 
@@ -199,7 +199,7 @@ def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGitRepositoryResult]:
     """
     Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
-    To read information about **multiple** Git Repositories use the data source _get_repositories_
+    To read information about **multiple** Git Repositories use the data source `get_repositories`
 
     ## Example Usage
 

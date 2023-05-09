@@ -4961,11 +4961,9 @@ func (o GitInitializationPtrOutput) SourceUrl() pulumi.StringPtrOutput {
 
 type ServiceEndpointArtifactoryAuthenticationBasic struct {
 	// Artifactory Password.
-	Password     string  `pulumi:"password"`
-	PasswordHash *string `pulumi:"passwordHash"`
+	Password string `pulumi:"password"`
 	// Artifactory Username.
-	Username     string  `pulumi:"username"`
-	UsernameHash *string `pulumi:"usernameHash"`
+	Username string `pulumi:"username"`
 }
 
 // ServiceEndpointArtifactoryAuthenticationBasicInput is an input type that accepts ServiceEndpointArtifactoryAuthenticationBasicArgs and ServiceEndpointArtifactoryAuthenticationBasicOutput values.
@@ -4981,11 +4979,9 @@ type ServiceEndpointArtifactoryAuthenticationBasicInput interface {
 
 type ServiceEndpointArtifactoryAuthenticationBasicArgs struct {
 	// Artifactory Password.
-	Password     pulumi.StringInput    `pulumi:"password"`
-	PasswordHash pulumi.StringPtrInput `pulumi:"passwordHash"`
+	Password pulumi.StringInput `pulumi:"password"`
 	// Artifactory Username.
-	Username     pulumi.StringInput    `pulumi:"username"`
-	UsernameHash pulumi.StringPtrInput `pulumi:"usernameHash"`
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (ServiceEndpointArtifactoryAuthenticationBasicArgs) ElementType() reflect.Type {
@@ -5070,17 +5066,9 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Password() pulumi.S
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) PasswordHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) *string { return v.PasswordHash }).(pulumi.StringPtrOutput)
-}
-
 // Artifactory Username.
 func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
-}
-
-func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) UsernameHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) *string { return v.UsernameHash }).(pulumi.StringPtrOutput)
 }
 
 type ServiceEndpointArtifactoryAuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
@@ -5117,15 +5105,6 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Password() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) PasswordHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PasswordHash
-	}).(pulumi.StringPtrOutput)
-}
-
 // Artifactory Username.
 func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
@@ -5136,19 +5115,9 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Username() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) UsernameHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UsernameHash
-	}).(pulumi.StringPtrOutput)
-}
-
 type ServiceEndpointArtifactoryAuthenticationToken struct {
 	// Authentication Token generated through Artifactory.
-	Token     string  `pulumi:"token"`
-	TokenHash *string `pulumi:"tokenHash"`
+	Token string `pulumi:"token"`
 }
 
 // ServiceEndpointArtifactoryAuthenticationTokenInput is an input type that accepts ServiceEndpointArtifactoryAuthenticationTokenArgs and ServiceEndpointArtifactoryAuthenticationTokenOutput values.
@@ -5164,8 +5133,7 @@ type ServiceEndpointArtifactoryAuthenticationTokenInput interface {
 
 type ServiceEndpointArtifactoryAuthenticationTokenArgs struct {
 	// Authentication Token generated through Artifactory.
-	Token     pulumi.StringInput    `pulumi:"token"`
-	TokenHash pulumi.StringPtrInput `pulumi:"tokenHash"`
+	Token pulumi.StringInput `pulumi:"token"`
 }
 
 func (ServiceEndpointArtifactoryAuthenticationTokenArgs) ElementType() reflect.Type {
@@ -5250,10 +5218,6 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) Token() pulumi.Stri
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
 }
 
-func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) TokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) *string { return v.TokenHash }).(pulumi.StringPtrOutput)
-}
-
 type ServiceEndpointArtifactoryAuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) ElementType() reflect.Type {
@@ -5285,15 +5249,6 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Token() pulumi.S
 			return nil
 		}
 		return &v.Token
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) TokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationToken) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TokenHash
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7162,11 +7117,9 @@ func (o ServiceEndpointServiceFabricNonePtrOutput) Unsecured() pulumi.BoolPtrOut
 
 type ServiceendpointArgocdAuthenticationBasic struct {
 	// ArgoCD Password.
-	Password     string  `pulumi:"password"`
-	PasswordHash *string `pulumi:"passwordHash"`
+	Password string `pulumi:"password"`
 	// ArgoCD Username.
-	Username     string  `pulumi:"username"`
-	UsernameHash *string `pulumi:"usernameHash"`
+	Username string `pulumi:"username"`
 }
 
 // ServiceendpointArgocdAuthenticationBasicInput is an input type that accepts ServiceendpointArgocdAuthenticationBasicArgs and ServiceendpointArgocdAuthenticationBasicOutput values.
@@ -7182,11 +7135,9 @@ type ServiceendpointArgocdAuthenticationBasicInput interface {
 
 type ServiceendpointArgocdAuthenticationBasicArgs struct {
 	// ArgoCD Password.
-	Password     pulumi.StringInput    `pulumi:"password"`
-	PasswordHash pulumi.StringPtrInput `pulumi:"passwordHash"`
+	Password pulumi.StringInput `pulumi:"password"`
 	// ArgoCD Username.
-	Username     pulumi.StringInput    `pulumi:"username"`
-	UsernameHash pulumi.StringPtrInput `pulumi:"usernameHash"`
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (ServiceendpointArgocdAuthenticationBasicArgs) ElementType() reflect.Type {
@@ -7271,17 +7222,9 @@ func (o ServiceendpointArgocdAuthenticationBasicOutput) Password() pulumi.String
 	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-func (o ServiceendpointArgocdAuthenticationBasicOutput) PasswordHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) *string { return v.PasswordHash }).(pulumi.StringPtrOutput)
-}
-
 // ArgoCD Username.
 func (o ServiceendpointArgocdAuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
-}
-
-func (o ServiceendpointArgocdAuthenticationBasicOutput) UsernameHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationBasic) *string { return v.UsernameHash }).(pulumi.StringPtrOutput)
 }
 
 type ServiceendpointArgocdAuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
@@ -7318,15 +7261,6 @@ func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Password() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) PasswordHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PasswordHash
-	}).(pulumi.StringPtrOutput)
-}
-
 // ArgoCD Username.
 func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
@@ -7337,19 +7271,9 @@ func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) Username() pulumi.Str
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceendpointArgocdAuthenticationBasicPtrOutput) UsernameHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationBasic) *string {
-		if v == nil {
-			return nil
-		}
-		return v.UsernameHash
-	}).(pulumi.StringPtrOutput)
-}
-
 type ServiceendpointArgocdAuthenticationToken struct {
 	// Authentication Token generated through ArgoCD.
-	Token     string  `pulumi:"token"`
-	TokenHash *string `pulumi:"tokenHash"`
+	Token string `pulumi:"token"`
 }
 
 // ServiceendpointArgocdAuthenticationTokenInput is an input type that accepts ServiceendpointArgocdAuthenticationTokenArgs and ServiceendpointArgocdAuthenticationTokenOutput values.
@@ -7365,8 +7289,7 @@ type ServiceendpointArgocdAuthenticationTokenInput interface {
 
 type ServiceendpointArgocdAuthenticationTokenArgs struct {
 	// Authentication Token generated through ArgoCD.
-	Token     pulumi.StringInput    `pulumi:"token"`
-	TokenHash pulumi.StringPtrInput `pulumi:"tokenHash"`
+	Token pulumi.StringInput `pulumi:"token"`
 }
 
 func (ServiceendpointArgocdAuthenticationTokenArgs) ElementType() reflect.Type {
@@ -7451,10 +7374,6 @@ func (o ServiceendpointArgocdAuthenticationTokenOutput) Token() pulumi.StringOut
 	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
 }
 
-func (o ServiceendpointArgocdAuthenticationTokenOutput) TokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceendpointArgocdAuthenticationToken) *string { return v.TokenHash }).(pulumi.StringPtrOutput)
-}
-
 type ServiceendpointArgocdAuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceendpointArgocdAuthenticationTokenPtrOutput) ElementType() reflect.Type {
@@ -7486,15 +7405,6 @@ func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) Token() pulumi.String
 			return nil
 		}
 		return &v.Token
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServiceendpointArgocdAuthenticationTokenPtrOutput) TokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceendpointArgocdAuthenticationToken) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TokenHash
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -7632,6 +7542,1178 @@ func (o ServiceendpointExternaltfsAuthPersonalPtrOutput) PersonalAccessToken() p
 			return nil
 		}
 		return &v.PersonalAccessToken
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointJfrogArtifactoryV2AuthenticationBasic struct {
+	// Artifactory Password.
+	Password string `pulumi:"password"`
+	// Artifactory Username.
+	Username string `pulumi:"username"`
+}
+
+// ServiceendpointJfrogArtifactoryV2AuthenticationBasicInput is an input type that accepts ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs and ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogArtifactoryV2AuthenticationBasicInput` via:
+//
+//	ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs{...}
+type ServiceendpointJfrogArtifactoryV2AuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput() ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput
+	ToServiceendpointJfrogArtifactoryV2AuthenticationBasicOutputWithContext(context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput
+}
+
+type ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs struct {
+	// Artifactory Password.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Artifactory Username.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogArtifactoryV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (i ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput() ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput {
+	return i.ToServiceendpointJfrogArtifactoryV2AuthenticationBasicOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput)
+}
+
+func (i ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
+	return i.ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput).ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrInput is an input type that accepts ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs, ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtr and ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrInput` via:
+//
+//	        ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput
+	ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutputWithContext(context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput
+}
+
+type serviceendpointJfrogArtifactoryV2AuthenticationBasicPtrType ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs
+
+func ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtr(v *ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs) ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrInput {
+	return (*serviceendpointJfrogArtifactoryV2AuthenticationBasicPtrType)(v)
+}
+
+func (*serviceendpointJfrogArtifactoryV2AuthenticationBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogArtifactoryV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (i *serviceendpointJfrogArtifactoryV2AuthenticationBasicPtrType) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
+	return i.ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointJfrogArtifactoryV2AuthenticationBasicPtrType) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput)
+}
+
+type ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogArtifactoryV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput() ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
+	return o.ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointJfrogArtifactoryV2AuthenticationBasic) *ServiceendpointJfrogArtifactoryV2AuthenticationBasic {
+		return &v
+	}).(ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput)
+}
+
+// Artifactory Password.
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogArtifactoryV2AuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Artifactory Username.
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogArtifactoryV2AuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogArtifactoryV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) Elem() ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogArtifactoryV2AuthenticationBasic) ServiceendpointJfrogArtifactoryV2AuthenticationBasic {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointJfrogArtifactoryV2AuthenticationBasic
+		return ret
+	}).(ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput)
+}
+
+// Artifactory Password.
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogArtifactoryV2AuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Artifactory Username.
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogArtifactoryV2AuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointJfrogArtifactoryV2AuthenticationToken struct {
+	// Authentication Token generated through Artifactory.
+	Token string `pulumi:"token"`
+}
+
+// ServiceendpointJfrogArtifactoryV2AuthenticationTokenInput is an input type that accepts ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs and ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogArtifactoryV2AuthenticationTokenInput` via:
+//
+//	ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs{...}
+type ServiceendpointJfrogArtifactoryV2AuthenticationTokenInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput() ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput
+	ToServiceendpointJfrogArtifactoryV2AuthenticationTokenOutputWithContext(context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput
+}
+
+type ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs struct {
+	// Authentication Token generated through Artifactory.
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogArtifactoryV2AuthenticationToken)(nil)).Elem()
+}
+
+func (i ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput() ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput {
+	return i.ToServiceendpointJfrogArtifactoryV2AuthenticationTokenOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput)
+}
+
+func (i ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
+	return i.ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput).ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrInput is an input type that accepts ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs, ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtr and ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrInput` via:
+//
+//	        ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput
+	ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutputWithContext(context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput
+}
+
+type serviceendpointJfrogArtifactoryV2AuthenticationTokenPtrType ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs
+
+func ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtr(v *ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs) ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrInput {
+	return (*serviceendpointJfrogArtifactoryV2AuthenticationTokenPtrType)(v)
+}
+
+func (*serviceendpointJfrogArtifactoryV2AuthenticationTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogArtifactoryV2AuthenticationToken)(nil)).Elem()
+}
+
+func (i *serviceendpointJfrogArtifactoryV2AuthenticationTokenPtrType) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
+	return i.ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointJfrogArtifactoryV2AuthenticationTokenPtrType) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput)
+}
+
+type ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogArtifactoryV2AuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput() ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
+	return o.ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointJfrogArtifactoryV2AuthenticationToken) *ServiceendpointJfrogArtifactoryV2AuthenticationToken {
+		return &v
+	}).(ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput)
+}
+
+// Authentication Token generated through Artifactory.
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogArtifactoryV2AuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogArtifactoryV2AuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput() ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput) ToServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput) Elem() ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogArtifactoryV2AuthenticationToken) ServiceendpointJfrogArtifactoryV2AuthenticationToken {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointJfrogArtifactoryV2AuthenticationToken
+		return ret
+	}).(ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput)
+}
+
+// Authentication Token generated through Artifactory.
+func (o ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogArtifactoryV2AuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointJfrogDistributionV2AuthenticationBasic struct {
+	// Artifactory Password.
+	Password string `pulumi:"password"`
+	// Artifactory Username.
+	Username string `pulumi:"username"`
+}
+
+// ServiceendpointJfrogDistributionV2AuthenticationBasicInput is an input type that accepts ServiceendpointJfrogDistributionV2AuthenticationBasicArgs and ServiceendpointJfrogDistributionV2AuthenticationBasicOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogDistributionV2AuthenticationBasicInput` via:
+//
+//	ServiceendpointJfrogDistributionV2AuthenticationBasicArgs{...}
+type ServiceendpointJfrogDistributionV2AuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogDistributionV2AuthenticationBasicOutput() ServiceendpointJfrogDistributionV2AuthenticationBasicOutput
+	ToServiceendpointJfrogDistributionV2AuthenticationBasicOutputWithContext(context.Context) ServiceendpointJfrogDistributionV2AuthenticationBasicOutput
+}
+
+type ServiceendpointJfrogDistributionV2AuthenticationBasicArgs struct {
+	// Artifactory Password.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Artifactory Username.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ServiceendpointJfrogDistributionV2AuthenticationBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogDistributionV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (i ServiceendpointJfrogDistributionV2AuthenticationBasicArgs) ToServiceendpointJfrogDistributionV2AuthenticationBasicOutput() ServiceendpointJfrogDistributionV2AuthenticationBasicOutput {
+	return i.ToServiceendpointJfrogDistributionV2AuthenticationBasicOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogDistributionV2AuthenticationBasicArgs) ToServiceendpointJfrogDistributionV2AuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogDistributionV2AuthenticationBasicOutput)
+}
+
+func (i ServiceendpointJfrogDistributionV2AuthenticationBasicArgs) ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
+	return i.ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogDistributionV2AuthenticationBasicArgs) ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogDistributionV2AuthenticationBasicOutput).ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointJfrogDistributionV2AuthenticationBasicPtrInput is an input type that accepts ServiceendpointJfrogDistributionV2AuthenticationBasicArgs, ServiceendpointJfrogDistributionV2AuthenticationBasicPtr and ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogDistributionV2AuthenticationBasicPtrInput` via:
+//
+//	        ServiceendpointJfrogDistributionV2AuthenticationBasicArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointJfrogDistributionV2AuthenticationBasicPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput
+	ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutputWithContext(context.Context) ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput
+}
+
+type serviceendpointJfrogDistributionV2AuthenticationBasicPtrType ServiceendpointJfrogDistributionV2AuthenticationBasicArgs
+
+func ServiceendpointJfrogDistributionV2AuthenticationBasicPtr(v *ServiceendpointJfrogDistributionV2AuthenticationBasicArgs) ServiceendpointJfrogDistributionV2AuthenticationBasicPtrInput {
+	return (*serviceendpointJfrogDistributionV2AuthenticationBasicPtrType)(v)
+}
+
+func (*serviceendpointJfrogDistributionV2AuthenticationBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogDistributionV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (i *serviceendpointJfrogDistributionV2AuthenticationBasicPtrType) ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
+	return i.ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointJfrogDistributionV2AuthenticationBasicPtrType) ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput)
+}
+
+type ServiceendpointJfrogDistributionV2AuthenticationBasicOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogDistributionV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) ToServiceendpointJfrogDistributionV2AuthenticationBasicOutput() ServiceendpointJfrogDistributionV2AuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) ToServiceendpointJfrogDistributionV2AuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
+	return o.ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointJfrogDistributionV2AuthenticationBasic) *ServiceendpointJfrogDistributionV2AuthenticationBasic {
+		return &v
+	}).(ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput)
+}
+
+// Artifactory Password.
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogDistributionV2AuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Artifactory Username.
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogDistributionV2AuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogDistributionV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) ToServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) Elem() ServiceendpointJfrogDistributionV2AuthenticationBasicOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2AuthenticationBasic) ServiceendpointJfrogDistributionV2AuthenticationBasic {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointJfrogDistributionV2AuthenticationBasic
+		return ret
+	}).(ServiceendpointJfrogDistributionV2AuthenticationBasicOutput)
+}
+
+// Artifactory Password.
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2AuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Artifactory Username.
+func (o ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2AuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointJfrogDistributionV2AuthenticationToken struct {
+	// Authentication Token generated through Artifactory.
+	Token string `pulumi:"token"`
+}
+
+// ServiceendpointJfrogDistributionV2AuthenticationTokenInput is an input type that accepts ServiceendpointJfrogDistributionV2AuthenticationTokenArgs and ServiceendpointJfrogDistributionV2AuthenticationTokenOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogDistributionV2AuthenticationTokenInput` via:
+//
+//	ServiceendpointJfrogDistributionV2AuthenticationTokenArgs{...}
+type ServiceendpointJfrogDistributionV2AuthenticationTokenInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogDistributionV2AuthenticationTokenOutput() ServiceendpointJfrogDistributionV2AuthenticationTokenOutput
+	ToServiceendpointJfrogDistributionV2AuthenticationTokenOutputWithContext(context.Context) ServiceendpointJfrogDistributionV2AuthenticationTokenOutput
+}
+
+type ServiceendpointJfrogDistributionV2AuthenticationTokenArgs struct {
+	// Authentication Token generated through Artifactory.
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (ServiceendpointJfrogDistributionV2AuthenticationTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogDistributionV2AuthenticationToken)(nil)).Elem()
+}
+
+func (i ServiceendpointJfrogDistributionV2AuthenticationTokenArgs) ToServiceendpointJfrogDistributionV2AuthenticationTokenOutput() ServiceendpointJfrogDistributionV2AuthenticationTokenOutput {
+	return i.ToServiceendpointJfrogDistributionV2AuthenticationTokenOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogDistributionV2AuthenticationTokenArgs) ToServiceendpointJfrogDistributionV2AuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogDistributionV2AuthenticationTokenOutput)
+}
+
+func (i ServiceendpointJfrogDistributionV2AuthenticationTokenArgs) ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
+	return i.ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogDistributionV2AuthenticationTokenArgs) ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogDistributionV2AuthenticationTokenOutput).ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointJfrogDistributionV2AuthenticationTokenPtrInput is an input type that accepts ServiceendpointJfrogDistributionV2AuthenticationTokenArgs, ServiceendpointJfrogDistributionV2AuthenticationTokenPtr and ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogDistributionV2AuthenticationTokenPtrInput` via:
+//
+//	        ServiceendpointJfrogDistributionV2AuthenticationTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointJfrogDistributionV2AuthenticationTokenPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput
+	ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutputWithContext(context.Context) ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput
+}
+
+type serviceendpointJfrogDistributionV2AuthenticationTokenPtrType ServiceendpointJfrogDistributionV2AuthenticationTokenArgs
+
+func ServiceendpointJfrogDistributionV2AuthenticationTokenPtr(v *ServiceendpointJfrogDistributionV2AuthenticationTokenArgs) ServiceendpointJfrogDistributionV2AuthenticationTokenPtrInput {
+	return (*serviceendpointJfrogDistributionV2AuthenticationTokenPtrType)(v)
+}
+
+func (*serviceendpointJfrogDistributionV2AuthenticationTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogDistributionV2AuthenticationToken)(nil)).Elem()
+}
+
+func (i *serviceendpointJfrogDistributionV2AuthenticationTokenPtrType) ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
+	return i.ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointJfrogDistributionV2AuthenticationTokenPtrType) ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput)
+}
+
+type ServiceendpointJfrogDistributionV2AuthenticationTokenOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogDistributionV2AuthenticationTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogDistributionV2AuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationTokenOutput) ToServiceendpointJfrogDistributionV2AuthenticationTokenOutput() ServiceendpointJfrogDistributionV2AuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationTokenOutput) ToServiceendpointJfrogDistributionV2AuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationTokenOutput) ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
+	return o.ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationTokenOutput) ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointJfrogDistributionV2AuthenticationToken) *ServiceendpointJfrogDistributionV2AuthenticationToken {
+		return &v
+	}).(ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput)
+}
+
+// Authentication Token generated through Artifactory.
+func (o ServiceendpointJfrogDistributionV2AuthenticationTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogDistributionV2AuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogDistributionV2AuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput) ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput() ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput) ToServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput) Elem() ServiceendpointJfrogDistributionV2AuthenticationTokenOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2AuthenticationToken) ServiceendpointJfrogDistributionV2AuthenticationToken {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointJfrogDistributionV2AuthenticationToken
+		return ret
+	}).(ServiceendpointJfrogDistributionV2AuthenticationTokenOutput)
+}
+
+// Authentication Token generated through Artifactory.
+func (o ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2AuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointJfrogPlatformV2AuthenticationBasic struct {
+	// Artifactory Password.
+	Password string `pulumi:"password"`
+	// Artifactory Username.
+	Username string `pulumi:"username"`
+}
+
+// ServiceendpointJfrogPlatformV2AuthenticationBasicInput is an input type that accepts ServiceendpointJfrogPlatformV2AuthenticationBasicArgs and ServiceendpointJfrogPlatformV2AuthenticationBasicOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogPlatformV2AuthenticationBasicInput` via:
+//
+//	ServiceendpointJfrogPlatformV2AuthenticationBasicArgs{...}
+type ServiceendpointJfrogPlatformV2AuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogPlatformV2AuthenticationBasicOutput() ServiceendpointJfrogPlatformV2AuthenticationBasicOutput
+	ToServiceendpointJfrogPlatformV2AuthenticationBasicOutputWithContext(context.Context) ServiceendpointJfrogPlatformV2AuthenticationBasicOutput
+}
+
+type ServiceendpointJfrogPlatformV2AuthenticationBasicArgs struct {
+	// Artifactory Password.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Artifactory Username.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ServiceendpointJfrogPlatformV2AuthenticationBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogPlatformV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (i ServiceendpointJfrogPlatformV2AuthenticationBasicArgs) ToServiceendpointJfrogPlatformV2AuthenticationBasicOutput() ServiceendpointJfrogPlatformV2AuthenticationBasicOutput {
+	return i.ToServiceendpointJfrogPlatformV2AuthenticationBasicOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogPlatformV2AuthenticationBasicArgs) ToServiceendpointJfrogPlatformV2AuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogPlatformV2AuthenticationBasicOutput)
+}
+
+func (i ServiceendpointJfrogPlatformV2AuthenticationBasicArgs) ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput {
+	return i.ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogPlatformV2AuthenticationBasicArgs) ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogPlatformV2AuthenticationBasicOutput).ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointJfrogPlatformV2AuthenticationBasicPtrInput is an input type that accepts ServiceendpointJfrogPlatformV2AuthenticationBasicArgs, ServiceendpointJfrogPlatformV2AuthenticationBasicPtr and ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogPlatformV2AuthenticationBasicPtrInput` via:
+//
+//	        ServiceendpointJfrogPlatformV2AuthenticationBasicArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointJfrogPlatformV2AuthenticationBasicPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput
+	ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutputWithContext(context.Context) ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput
+}
+
+type serviceendpointJfrogPlatformV2AuthenticationBasicPtrType ServiceendpointJfrogPlatformV2AuthenticationBasicArgs
+
+func ServiceendpointJfrogPlatformV2AuthenticationBasicPtr(v *ServiceendpointJfrogPlatformV2AuthenticationBasicArgs) ServiceendpointJfrogPlatformV2AuthenticationBasicPtrInput {
+	return (*serviceendpointJfrogPlatformV2AuthenticationBasicPtrType)(v)
+}
+
+func (*serviceendpointJfrogPlatformV2AuthenticationBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogPlatformV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (i *serviceendpointJfrogPlatformV2AuthenticationBasicPtrType) ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput {
+	return i.ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointJfrogPlatformV2AuthenticationBasicPtrType) ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput)
+}
+
+type ServiceendpointJfrogPlatformV2AuthenticationBasicOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogPlatformV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) ToServiceendpointJfrogPlatformV2AuthenticationBasicOutput() ServiceendpointJfrogPlatformV2AuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) ToServiceendpointJfrogPlatformV2AuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput {
+	return o.ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointJfrogPlatformV2AuthenticationBasic) *ServiceendpointJfrogPlatformV2AuthenticationBasic {
+		return &v
+	}).(ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput)
+}
+
+// Artifactory Password.
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogPlatformV2AuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Artifactory Username.
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogPlatformV2AuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogPlatformV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) ToServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) Elem() ServiceendpointJfrogPlatformV2AuthenticationBasicOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogPlatformV2AuthenticationBasic) ServiceendpointJfrogPlatformV2AuthenticationBasic {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointJfrogPlatformV2AuthenticationBasic
+		return ret
+	}).(ServiceendpointJfrogPlatformV2AuthenticationBasicOutput)
+}
+
+// Artifactory Password.
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogPlatformV2AuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Artifactory Username.
+func (o ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogPlatformV2AuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointJfrogPlatformV2AuthenticationToken struct {
+	// Authentication Token generated through Artifactory.
+	Token string `pulumi:"token"`
+}
+
+// ServiceendpointJfrogPlatformV2AuthenticationTokenInput is an input type that accepts ServiceendpointJfrogPlatformV2AuthenticationTokenArgs and ServiceendpointJfrogPlatformV2AuthenticationTokenOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogPlatformV2AuthenticationTokenInput` via:
+//
+//	ServiceendpointJfrogPlatformV2AuthenticationTokenArgs{...}
+type ServiceendpointJfrogPlatformV2AuthenticationTokenInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogPlatformV2AuthenticationTokenOutput() ServiceendpointJfrogPlatformV2AuthenticationTokenOutput
+	ToServiceendpointJfrogPlatformV2AuthenticationTokenOutputWithContext(context.Context) ServiceendpointJfrogPlatformV2AuthenticationTokenOutput
+}
+
+type ServiceendpointJfrogPlatformV2AuthenticationTokenArgs struct {
+	// Authentication Token generated through Artifactory.
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (ServiceendpointJfrogPlatformV2AuthenticationTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogPlatformV2AuthenticationToken)(nil)).Elem()
+}
+
+func (i ServiceendpointJfrogPlatformV2AuthenticationTokenArgs) ToServiceendpointJfrogPlatformV2AuthenticationTokenOutput() ServiceendpointJfrogPlatformV2AuthenticationTokenOutput {
+	return i.ToServiceendpointJfrogPlatformV2AuthenticationTokenOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogPlatformV2AuthenticationTokenArgs) ToServiceendpointJfrogPlatformV2AuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogPlatformV2AuthenticationTokenOutput)
+}
+
+func (i ServiceendpointJfrogPlatformV2AuthenticationTokenArgs) ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput {
+	return i.ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogPlatformV2AuthenticationTokenArgs) ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogPlatformV2AuthenticationTokenOutput).ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointJfrogPlatformV2AuthenticationTokenPtrInput is an input type that accepts ServiceendpointJfrogPlatformV2AuthenticationTokenArgs, ServiceendpointJfrogPlatformV2AuthenticationTokenPtr and ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogPlatformV2AuthenticationTokenPtrInput` via:
+//
+//	        ServiceendpointJfrogPlatformV2AuthenticationTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointJfrogPlatformV2AuthenticationTokenPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput
+	ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutputWithContext(context.Context) ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput
+}
+
+type serviceendpointJfrogPlatformV2AuthenticationTokenPtrType ServiceendpointJfrogPlatformV2AuthenticationTokenArgs
+
+func ServiceendpointJfrogPlatformV2AuthenticationTokenPtr(v *ServiceendpointJfrogPlatformV2AuthenticationTokenArgs) ServiceendpointJfrogPlatformV2AuthenticationTokenPtrInput {
+	return (*serviceendpointJfrogPlatformV2AuthenticationTokenPtrType)(v)
+}
+
+func (*serviceendpointJfrogPlatformV2AuthenticationTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogPlatformV2AuthenticationToken)(nil)).Elem()
+}
+
+func (i *serviceendpointJfrogPlatformV2AuthenticationTokenPtrType) ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput {
+	return i.ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointJfrogPlatformV2AuthenticationTokenPtrType) ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput)
+}
+
+type ServiceendpointJfrogPlatformV2AuthenticationTokenOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogPlatformV2AuthenticationTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogPlatformV2AuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationTokenOutput) ToServiceendpointJfrogPlatformV2AuthenticationTokenOutput() ServiceendpointJfrogPlatformV2AuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationTokenOutput) ToServiceendpointJfrogPlatformV2AuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationTokenOutput) ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput {
+	return o.ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationTokenOutput) ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointJfrogPlatformV2AuthenticationToken) *ServiceendpointJfrogPlatformV2AuthenticationToken {
+		return &v
+	}).(ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput)
+}
+
+// Authentication Token generated through Artifactory.
+func (o ServiceendpointJfrogPlatformV2AuthenticationTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogPlatformV2AuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogPlatformV2AuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput) ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput() ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput) ToServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput) Elem() ServiceendpointJfrogPlatformV2AuthenticationTokenOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogPlatformV2AuthenticationToken) ServiceendpointJfrogPlatformV2AuthenticationToken {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointJfrogPlatformV2AuthenticationToken
+		return ret
+	}).(ServiceendpointJfrogPlatformV2AuthenticationTokenOutput)
+}
+
+// Authentication Token generated through Artifactory.
+func (o ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogPlatformV2AuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointJfrogXrayV2AuthenticationBasic struct {
+	// Artifactory Password.
+	Password string `pulumi:"password"`
+	// Artifactory Username.
+	Username string `pulumi:"username"`
+}
+
+// ServiceendpointJfrogXrayV2AuthenticationBasicInput is an input type that accepts ServiceendpointJfrogXrayV2AuthenticationBasicArgs and ServiceendpointJfrogXrayV2AuthenticationBasicOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogXrayV2AuthenticationBasicInput` via:
+//
+//	ServiceendpointJfrogXrayV2AuthenticationBasicArgs{...}
+type ServiceendpointJfrogXrayV2AuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogXrayV2AuthenticationBasicOutput() ServiceendpointJfrogXrayV2AuthenticationBasicOutput
+	ToServiceendpointJfrogXrayV2AuthenticationBasicOutputWithContext(context.Context) ServiceendpointJfrogXrayV2AuthenticationBasicOutput
+}
+
+type ServiceendpointJfrogXrayV2AuthenticationBasicArgs struct {
+	// Artifactory Password.
+	Password pulumi.StringInput `pulumi:"password"`
+	// Artifactory Username.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ServiceendpointJfrogXrayV2AuthenticationBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (i ServiceendpointJfrogXrayV2AuthenticationBasicArgs) ToServiceendpointJfrogXrayV2AuthenticationBasicOutput() ServiceendpointJfrogXrayV2AuthenticationBasicOutput {
+	return i.ToServiceendpointJfrogXrayV2AuthenticationBasicOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogXrayV2AuthenticationBasicArgs) ToServiceendpointJfrogXrayV2AuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogXrayV2AuthenticationBasicOutput)
+}
+
+func (i ServiceendpointJfrogXrayV2AuthenticationBasicArgs) ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput() ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
+	return i.ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogXrayV2AuthenticationBasicArgs) ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogXrayV2AuthenticationBasicOutput).ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointJfrogXrayV2AuthenticationBasicPtrInput is an input type that accepts ServiceendpointJfrogXrayV2AuthenticationBasicArgs, ServiceendpointJfrogXrayV2AuthenticationBasicPtr and ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogXrayV2AuthenticationBasicPtrInput` via:
+//
+//	        ServiceendpointJfrogXrayV2AuthenticationBasicArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointJfrogXrayV2AuthenticationBasicPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput() ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput
+	ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutputWithContext(context.Context) ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput
+}
+
+type serviceendpointJfrogXrayV2AuthenticationBasicPtrType ServiceendpointJfrogXrayV2AuthenticationBasicArgs
+
+func ServiceendpointJfrogXrayV2AuthenticationBasicPtr(v *ServiceendpointJfrogXrayV2AuthenticationBasicArgs) ServiceendpointJfrogXrayV2AuthenticationBasicPtrInput {
+	return (*serviceendpointJfrogXrayV2AuthenticationBasicPtrType)(v)
+}
+
+func (*serviceendpointJfrogXrayV2AuthenticationBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogXrayV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (i *serviceendpointJfrogXrayV2AuthenticationBasicPtrType) ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput() ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
+	return i.ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointJfrogXrayV2AuthenticationBasicPtrType) ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput)
+}
+
+type ServiceendpointJfrogXrayV2AuthenticationBasicOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogXrayV2AuthenticationBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicOutput) ToServiceendpointJfrogXrayV2AuthenticationBasicOutput() ServiceendpointJfrogXrayV2AuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicOutput) ToServiceendpointJfrogXrayV2AuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicOutput) ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput() ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
+	return o.ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicOutput) ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointJfrogXrayV2AuthenticationBasic) *ServiceendpointJfrogXrayV2AuthenticationBasic {
+		return &v
+	}).(ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput)
+}
+
+// Artifactory Password.
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogXrayV2AuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Artifactory Username.
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogXrayV2AuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogXrayV2AuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput() ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) ToServiceendpointJfrogXrayV2AuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) Elem() ServiceendpointJfrogXrayV2AuthenticationBasicOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2AuthenticationBasic) ServiceendpointJfrogXrayV2AuthenticationBasic {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointJfrogXrayV2AuthenticationBasic
+		return ret
+	}).(ServiceendpointJfrogXrayV2AuthenticationBasicOutput)
+}
+
+// Artifactory Password.
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2AuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Artifactory Username.
+func (o ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2AuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointJfrogXrayV2AuthenticationToken struct {
+	// Authentication Token generated through Artifactory.
+	Token string `pulumi:"token"`
+}
+
+// ServiceendpointJfrogXrayV2AuthenticationTokenInput is an input type that accepts ServiceendpointJfrogXrayV2AuthenticationTokenArgs and ServiceendpointJfrogXrayV2AuthenticationTokenOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogXrayV2AuthenticationTokenInput` via:
+//
+//	ServiceendpointJfrogXrayV2AuthenticationTokenArgs{...}
+type ServiceendpointJfrogXrayV2AuthenticationTokenInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogXrayV2AuthenticationTokenOutput() ServiceendpointJfrogXrayV2AuthenticationTokenOutput
+	ToServiceendpointJfrogXrayV2AuthenticationTokenOutputWithContext(context.Context) ServiceendpointJfrogXrayV2AuthenticationTokenOutput
+}
+
+type ServiceendpointJfrogXrayV2AuthenticationTokenArgs struct {
+	// Authentication Token generated through Artifactory.
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (ServiceendpointJfrogXrayV2AuthenticationTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationToken)(nil)).Elem()
+}
+
+func (i ServiceendpointJfrogXrayV2AuthenticationTokenArgs) ToServiceendpointJfrogXrayV2AuthenticationTokenOutput() ServiceendpointJfrogXrayV2AuthenticationTokenOutput {
+	return i.ToServiceendpointJfrogXrayV2AuthenticationTokenOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogXrayV2AuthenticationTokenArgs) ToServiceendpointJfrogXrayV2AuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogXrayV2AuthenticationTokenOutput)
+}
+
+func (i ServiceendpointJfrogXrayV2AuthenticationTokenArgs) ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput() ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
+	return i.ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointJfrogXrayV2AuthenticationTokenArgs) ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogXrayV2AuthenticationTokenOutput).ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointJfrogXrayV2AuthenticationTokenPtrInput is an input type that accepts ServiceendpointJfrogXrayV2AuthenticationTokenArgs, ServiceendpointJfrogXrayV2AuthenticationTokenPtr and ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointJfrogXrayV2AuthenticationTokenPtrInput` via:
+//
+//	        ServiceendpointJfrogXrayV2AuthenticationTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointJfrogXrayV2AuthenticationTokenPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput() ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput
+	ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutputWithContext(context.Context) ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput
+}
+
+type serviceendpointJfrogXrayV2AuthenticationTokenPtrType ServiceendpointJfrogXrayV2AuthenticationTokenArgs
+
+func ServiceendpointJfrogXrayV2AuthenticationTokenPtr(v *ServiceendpointJfrogXrayV2AuthenticationTokenArgs) ServiceendpointJfrogXrayV2AuthenticationTokenPtrInput {
+	return (*serviceendpointJfrogXrayV2AuthenticationTokenPtrType)(v)
+}
+
+func (*serviceendpointJfrogXrayV2AuthenticationTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogXrayV2AuthenticationToken)(nil)).Elem()
+}
+
+func (i *serviceendpointJfrogXrayV2AuthenticationTokenPtrType) ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput() ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
+	return i.ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointJfrogXrayV2AuthenticationTokenPtrType) ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput)
+}
+
+type ServiceendpointJfrogXrayV2AuthenticationTokenOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogXrayV2AuthenticationTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationTokenOutput) ToServiceendpointJfrogXrayV2AuthenticationTokenOutput() ServiceendpointJfrogXrayV2AuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationTokenOutput) ToServiceendpointJfrogXrayV2AuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationTokenOutput) ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput() ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
+	return o.ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationTokenOutput) ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointJfrogXrayV2AuthenticationToken) *ServiceendpointJfrogXrayV2AuthenticationToken {
+		return &v
+	}).(ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput)
+}
+
+// Authentication Token generated through Artifactory.
+func (o ServiceendpointJfrogXrayV2AuthenticationTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointJfrogXrayV2AuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointJfrogXrayV2AuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput) ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput() ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput) ToServiceendpointJfrogXrayV2AuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput) Elem() ServiceendpointJfrogXrayV2AuthenticationTokenOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2AuthenticationToken) ServiceendpointJfrogXrayV2AuthenticationToken {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointJfrogXrayV2AuthenticationToken
+		return ret
+	}).(ServiceendpointJfrogXrayV2AuthenticationTokenOutput)
+}
+
+// Authentication Token generated through Artifactory.
+func (o ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2AuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -10099,7 +11181,7 @@ func (o GetPoolsAgentPoolArrayOutput) Index(i pulumi.IntInput) GetPoolsAgentPool
 type GetProjectsProject struct {
 	// Name of the Project, if not specified all projects will be returned.
 	Name string `pulumi:"name"`
-	// Project identifier.
+	// The ID of the Project.
 	ProjectId string `pulumi:"projectId"`
 	// Url to the full version of the object.
 	ProjectUrl string `pulumi:"projectUrl"`
@@ -10121,7 +11203,7 @@ type GetProjectsProjectInput interface {
 type GetProjectsProjectArgs struct {
 	// Name of the Project, if not specified all projects will be returned.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Project identifier.
+	// The ID of the Project.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
 	// Url to the full version of the object.
 	ProjectUrl pulumi.StringInput `pulumi:"projectUrl"`
@@ -10185,7 +11267,7 @@ func (o GetProjectsProjectOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Project identifier.
+// The ID of the Project.
 func (o GetProjectsProjectOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.ProjectId }).(pulumi.StringOutput)
 }
@@ -11016,6 +12098,22 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointArgocdAuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointArgocdAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointExternaltfsAuthPersonalInput)(nil)).Elem(), ServiceendpointExternaltfsAuthPersonalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointExternaltfsAuthPersonalPtrInput)(nil)).Elem(), ServiceendpointExternaltfsAuthPersonalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogArtifactoryV2AuthenticationBasicInput)(nil)).Elem(), ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogArtifactoryV2AuthenticationTokenInput)(nil)).Elem(), ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogDistributionV2AuthenticationBasicInput)(nil)).Elem(), ServiceendpointJfrogDistributionV2AuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogDistributionV2AuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointJfrogDistributionV2AuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogDistributionV2AuthenticationTokenInput)(nil)).Elem(), ServiceendpointJfrogDistributionV2AuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogDistributionV2AuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointJfrogDistributionV2AuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogPlatformV2AuthenticationBasicInput)(nil)).Elem(), ServiceendpointJfrogPlatformV2AuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogPlatformV2AuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointJfrogPlatformV2AuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogPlatformV2AuthenticationTokenInput)(nil)).Elem(), ServiceendpointJfrogPlatformV2AuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogPlatformV2AuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointJfrogPlatformV2AuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationBasicInput)(nil)).Elem(), ServiceendpointJfrogXrayV2AuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointJfrogXrayV2AuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationTokenInput)(nil)).Elem(), ServiceendpointJfrogXrayV2AuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointJfrogXrayV2AuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
@@ -11154,6 +12252,22 @@ func init() {
 	pulumi.RegisterOutputType(ServiceendpointArgocdAuthenticationTokenPtrOutput{})
 	pulumi.RegisterOutputType(ServiceendpointExternaltfsAuthPersonalOutput{})
 	pulumi.RegisterOutputType(ServiceendpointExternaltfsAuthPersonalPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogArtifactoryV2AuthenticationBasicOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogArtifactoryV2AuthenticationBasicPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogArtifactoryV2AuthenticationTokenOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogArtifactoryV2AuthenticationTokenPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogDistributionV2AuthenticationBasicOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogDistributionV2AuthenticationBasicPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogDistributionV2AuthenticationTokenOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogDistributionV2AuthenticationTokenPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogPlatformV2AuthenticationBasicOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogPlatformV2AuthenticationBasicPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogPlatformV2AuthenticationTokenOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogPlatformV2AuthenticationTokenPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogXrayV2AuthenticationBasicOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogXrayV2AuthenticationTokenOutput{})
+	pulumi.RegisterOutputType(ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})

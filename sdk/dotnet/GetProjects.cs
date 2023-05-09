@@ -34,22 +34,10 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["projectId"] = new[]
-        ///         {
-        ///             example.Apply(getProjectsResult =&gt; getProjectsResult.Projects),
-        ///         }.Select(__item =&gt; __item?.ProjectId).ToList(),
-        ///         ["name"] = new[]
-        ///         {
-        ///             example.Apply(getProjectsResult =&gt; getProjectsResult.Projects),
-        ///         }.Select(__item =&gt; __item?.Name).ToList(),
-        ///         ["projectUrl"] = new[]
-        ///         {
-        ///             example.Apply(getProjectsResult =&gt; getProjectsResult.Projects),
-        ///         }.Select(__item =&gt; __item?.ProjectUrl).ToList(),
-        ///         ["state"] = new[]
-        ///         {
-        ///             example.Apply(getProjectsResult =&gt; getProjectsResult.Projects),
-        ///         }.Select(__item =&gt; __item?.State).ToList(),
+        ///         ["projectId"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.ProjectId).ToList(),
+        ///         ["name"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["projectUrl"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.ProjectUrl).ToList(),
+        ///         ["state"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.State).ToList(),
         ///     };
         /// });
         /// ```
@@ -85,22 +73,10 @@ namespace Pulumi.AzureDevOps
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["projectId"] = new[]
-        ///         {
-        ///             example.Apply(getProjectsResult =&gt; getProjectsResult.Projects),
-        ///         }.Select(__item =&gt; __item?.ProjectId).ToList(),
-        ///         ["name"] = new[]
-        ///         {
-        ///             example.Apply(getProjectsResult =&gt; getProjectsResult.Projects),
-        ///         }.Select(__item =&gt; __item?.Name).ToList(),
-        ///         ["projectUrl"] = new[]
-        ///         {
-        ///             example.Apply(getProjectsResult =&gt; getProjectsResult.Projects),
-        ///         }.Select(__item =&gt; __item?.ProjectUrl).ToList(),
-        ///         ["state"] = new[]
-        ///         {
-        ///             example.Apply(getProjectsResult =&gt; getProjectsResult.Projects),
-        ///         }.Select(__item =&gt; __item?.State).ToList(),
+        ///         ["projectId"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.ProjectId).ToList(),
+        ///         ["name"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["projectUrl"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.ProjectUrl).ToList(),
+        ///         ["state"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.State).ToList(),
         ///     };
         /// });
         /// ```
@@ -164,7 +140,7 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Project name.
+        /// The name of the Project.
         /// </summary>
         public readonly string? Name;
         /// <summary>

@@ -7,8 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ServiceendpointArgocdAuthenticationTokenArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,18 +28,10 @@ public final class ServiceendpointArgocdAuthenticationTokenArgs extends com.pulu
         return this.token;
     }
 
-    @Import(name="tokenHash")
-    private @Nullable Output<String> tokenHash;
-
-    public Optional<Output<String>> tokenHash() {
-        return Optional.ofNullable(this.tokenHash);
-    }
-
     private ServiceendpointArgocdAuthenticationTokenArgs() {}
 
     private ServiceendpointArgocdAuthenticationTokenArgs(ServiceendpointArgocdAuthenticationTokenArgs $) {
         this.token = $.token;
-        this.tokenHash = $.tokenHash;
     }
 
     public static Builder builder() {
@@ -81,15 +71,6 @@ public final class ServiceendpointArgocdAuthenticationTokenArgs extends com.pulu
          */
         public Builder token(String token) {
             return token(Output.of(token));
-        }
-
-        public Builder tokenHash(@Nullable Output<String> tokenHash) {
-            $.tokenHash = tokenHash;
-            return this;
-        }
-
-        public Builder tokenHash(String tokenHash) {
-            return tokenHash(Output.of(tokenHash));
         }
 
         public ServiceendpointArgocdAuthenticationTokenArgs build() {

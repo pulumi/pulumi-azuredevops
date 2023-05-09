@@ -230,14 +230,14 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The project ID or project name.
+     * The ID of the project.
      * 
      */
     @Export(name="projectId", type=String.class, parameters={})
     private Output<String> projectId;
 
     /**
-     * @return The project ID or project name.
+     * @return The ID of the project.
      * 
      */
     public Output<String> projectId() {

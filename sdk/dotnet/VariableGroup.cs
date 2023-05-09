@@ -14,6 +14,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
@@ -54,6 +55,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
@@ -165,7 +167,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Output("projectId")]
         public Output<string> ProjectId { get; private set; } = null!;
@@ -251,7 +253,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
@@ -301,7 +303,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The project ID or project name.
+        /// The ID of the project.
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }

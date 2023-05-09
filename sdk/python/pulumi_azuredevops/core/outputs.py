@@ -22,7 +22,7 @@ class GetProjectsProjectResult(dict):
                  state: str):
         """
         :param str name: Name of the Project, if not specified all projects will be returned.
-        :param str project_id: Project identifier.
+        :param str project_id: The ID of the Project.
         :param str project_url: Url to the full version of the object.
         :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
         """
@@ -43,7 +43,7 @@ class GetProjectsProjectResult(dict):
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
         """
-        Project identifier.
+        The ID of the Project.
         """
         return pulumi.get(self, "project_id")
 

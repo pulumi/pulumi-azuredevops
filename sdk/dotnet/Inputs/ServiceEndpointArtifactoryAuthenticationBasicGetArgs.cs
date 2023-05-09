@@ -28,18 +28,6 @@ namespace Pulumi.AzureDevOps.Inputs
             }
         }
 
-        [Input("passwordHash")]
-        private Input<string>? _passwordHash;
-        public Input<string>? PasswordHash
-        {
-            get => _passwordHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _passwordHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
         [Input("username", required: true)]
         private Input<string>? _username;
 
@@ -53,18 +41,6 @@ namespace Pulumi.AzureDevOps.Inputs
             {
                 var emptySecret = Output.CreateSecret(0);
                 _username = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("usernameHash")]
-        private Input<string>? _usernameHash;
-        public Input<string>? UsernameHash
-        {
-            get => _usernameHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _usernameHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

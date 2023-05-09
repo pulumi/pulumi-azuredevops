@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = azuredevops.getPools({});
- * export const agentPoolName = [example.then(example => example.agentPools)].map(__item => __item?.name);
- * export const autoProvision = [example.then(example => example.agentPools)].map(__item => __item?.autoProvision);
- * export const autoUpdate = [example.then(example => example.agentPools)].map(__item => __item?.autoUpdate);
- * export const poolType = [example.then(example => example.agentPools)].map(__item => __item?.poolType);
+ * export const agentPoolName = example.then(example => example.agentPools.map(__item => __item.name));
+ * export const autoProvision = example.then(example => example.agentPools.map(__item => __item.autoProvision));
+ * export const autoUpdate = example.then(example => example.agentPools.map(__item => __item.autoUpdate));
+ * export const poolType = example.then(example => example.agentPools.map(__item => __item.poolType));
  * ```
  * ## Relevant Links
  *

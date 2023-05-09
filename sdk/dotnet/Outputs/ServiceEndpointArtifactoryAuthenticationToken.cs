@@ -17,16 +17,11 @@ namespace Pulumi.AzureDevOps.Outputs
         /// Authentication Token generated through Artifactory.
         /// </summary>
         public readonly string Token;
-        public readonly string? TokenHash;
 
         [OutputConstructor]
-        private ServiceEndpointArtifactoryAuthenticationToken(
-            string token,
-
-            string? tokenHash)
+        private ServiceEndpointArtifactoryAuthenticationToken(string token)
         {
             Token = token;
-            TokenHash = tokenHash;
         }
     }
 }

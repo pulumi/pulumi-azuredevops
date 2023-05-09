@@ -31,22 +31,10 @@ namespace Pulumi.AzureDevOps.Agent
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["agentPoolName"] = new[]
-        ///         {
-        ///             example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools),
-        ///         }.Select(__item =&gt; __item?.Name).ToList(),
-        ///         ["autoProvision"] = new[]
-        ///         {
-        ///             example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools),
-        ///         }.Select(__item =&gt; __item?.AutoProvision).ToList(),
-        ///         ["autoUpdate"] = new[]
-        ///         {
-        ///             example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools),
-        ///         }.Select(__item =&gt; __item?.AutoUpdate).ToList(),
-        ///         ["poolType"] = new[]
-        ///         {
-        ///             example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools),
-        ///         }.Select(__item =&gt; __item?.PoolType).ToList(),
+        ///         ["agentPoolName"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["autoProvision"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.AutoProvision).ToList(),
+        ///         ["autoUpdate"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.AutoUpdate).ToList(),
+        ///         ["poolType"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.PoolType).ToList(),
         ///     };
         /// });
         /// ```

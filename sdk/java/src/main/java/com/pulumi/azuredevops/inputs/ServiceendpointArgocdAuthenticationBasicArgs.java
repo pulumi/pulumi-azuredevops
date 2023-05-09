@@ -7,8 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,13 +28,6 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         return this.password;
     }
 
-    @Import(name="passwordHash")
-    private @Nullable Output<String> passwordHash;
-
-    public Optional<Output<String>> passwordHash() {
-        return Optional.ofNullable(this.passwordHash);
-    }
-
     /**
      * ArgoCD Username.
      * 
@@ -52,20 +43,11 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
         return this.username;
     }
 
-    @Import(name="usernameHash")
-    private @Nullable Output<String> usernameHash;
-
-    public Optional<Output<String>> usernameHash() {
-        return Optional.ofNullable(this.usernameHash);
-    }
-
     private ServiceendpointArgocdAuthenticationBasicArgs() {}
 
     private ServiceendpointArgocdAuthenticationBasicArgs(ServiceendpointArgocdAuthenticationBasicArgs $) {
         this.password = $.password;
-        this.passwordHash = $.passwordHash;
         this.username = $.username;
-        this.usernameHash = $.usernameHash;
     }
 
     public static Builder builder() {
@@ -107,15 +89,6 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
             return password(Output.of(password));
         }
 
-        public Builder passwordHash(@Nullable Output<String> passwordHash) {
-            $.passwordHash = passwordHash;
-            return this;
-        }
-
-        public Builder passwordHash(String passwordHash) {
-            return passwordHash(Output.of(passwordHash));
-        }
-
         /**
          * @param username ArgoCD Username.
          * 
@@ -135,15 +108,6 @@ public final class ServiceendpointArgocdAuthenticationBasicArgs extends com.pulu
          */
         public Builder username(String username) {
             return username(Output.of(username));
-        }
-
-        public Builder usernameHash(@Nullable Output<String> usernameHash) {
-            $.usernameHash = usernameHash;
-            return this;
-        }
-
-        public Builder usernameHash(String usernameHash) {
-            return usernameHash(Output.of(usernameHash));
         }
 
         public ServiceendpointArgocdAuthenticationBasicArgs build() {

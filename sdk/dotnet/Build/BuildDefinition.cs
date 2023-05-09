@@ -16,6 +16,7 @@ namespace Pulumi.AzureDevOps.Build
     /// ### Tfs
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 
@@ -122,6 +123,7 @@ namespace Pulumi.AzureDevOps.Build
     /// ### GitHub Enterprise
     /// ```csharp
     /// using System.Collections.Generic;
+    /// using System.Linq;
     /// using Pulumi;
     /// using AzureDevOps = Pulumi.AzureDevOps;
     /// 

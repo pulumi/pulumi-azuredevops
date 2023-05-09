@@ -55,6 +55,14 @@ __all__ = [
     'ServiceendpointArgocdAuthenticationBasic',
     'ServiceendpointArgocdAuthenticationToken',
     'ServiceendpointExternaltfsAuthPersonal',
+    'ServiceendpointJfrogArtifactoryV2AuthenticationBasic',
+    'ServiceendpointJfrogArtifactoryV2AuthenticationToken',
+    'ServiceendpointJfrogDistributionV2AuthenticationBasic',
+    'ServiceendpointJfrogDistributionV2AuthenticationToken',
+    'ServiceendpointJfrogPlatformV2AuthenticationBasic',
+    'ServiceendpointJfrogPlatformV2AuthenticationToken',
+    'ServiceendpointJfrogXrayV2AuthenticationBasic',
+    'ServiceendpointJfrogXrayV2AuthenticationToken',
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'GetAreaChildrenResult',
@@ -2311,40 +2319,15 @@ class GitInitialization(dict):
 
 @pulumi.output_type
 class ServiceEndpointArtifactoryAuthenticationBasic(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "passwordHash":
-            suggest = "password_hash"
-        elif key == "usernameHash":
-            suggest = "username_hash"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointArtifactoryAuthenticationBasic. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServiceEndpointArtifactoryAuthenticationBasic.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServiceEndpointArtifactoryAuthenticationBasic.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  password: str,
-                 username: str,
-                 password_hash: Optional[str] = None,
-                 username_hash: Optional[str] = None):
+                 username: str):
         """
         :param str password: Artifactory Password.
         :param str username: Artifactory Username.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-        if password_hash is not None:
-            pulumi.set(__self__, "password_hash", password_hash)
-        if username_hash is not None:
-            pulumi.set(__self__, "username_hash", username_hash)
 
     @property
     @pulumi.getter
@@ -2362,45 +2345,15 @@ class ServiceEndpointArtifactoryAuthenticationBasic(dict):
         """
         return pulumi.get(self, "username")
 
-    @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> Optional[str]:
-        return pulumi.get(self, "password_hash")
-
-    @property
-    @pulumi.getter(name="usernameHash")
-    def username_hash(self) -> Optional[str]:
-        return pulumi.get(self, "username_hash")
-
 
 @pulumi.output_type
 class ServiceEndpointArtifactoryAuthenticationToken(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tokenHash":
-            suggest = "token_hash"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointArtifactoryAuthenticationToken. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServiceEndpointArtifactoryAuthenticationToken.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServiceEndpointArtifactoryAuthenticationToken.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 token: str,
-                 token_hash: Optional[str] = None):
+                 token: str):
         """
         :param str token: Authentication Token generated through Artifactory.
         """
         pulumi.set(__self__, "token", token)
-        if token_hash is not None:
-            pulumi.set(__self__, "token_hash", token_hash)
 
     @property
     @pulumi.getter
@@ -2409,11 +2362,6 @@ class ServiceEndpointArtifactoryAuthenticationToken(dict):
         Authentication Token generated through Artifactory.
         """
         return pulumi.get(self, "token")
-
-    @property
-    @pulumi.getter(name="tokenHash")
-    def token_hash(self) -> Optional[str]:
-        return pulumi.get(self, "token_hash")
 
 
 @pulumi.output_type
@@ -3115,40 +3063,15 @@ class ServiceEndpointServiceFabricNone(dict):
 
 @pulumi.output_type
 class ServiceendpointArgocdAuthenticationBasic(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "passwordHash":
-            suggest = "password_hash"
-        elif key == "usernameHash":
-            suggest = "username_hash"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceendpointArgocdAuthenticationBasic. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServiceendpointArgocdAuthenticationBasic.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServiceendpointArgocdAuthenticationBasic.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  password: str,
-                 username: str,
-                 password_hash: Optional[str] = None,
-                 username_hash: Optional[str] = None):
+                 username: str):
         """
         :param str password: ArgoCD Password.
         :param str username: ArgoCD Username.
         """
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
-        if password_hash is not None:
-            pulumi.set(__self__, "password_hash", password_hash)
-        if username_hash is not None:
-            pulumi.set(__self__, "username_hash", username_hash)
 
     @property
     @pulumi.getter
@@ -3166,45 +3089,15 @@ class ServiceendpointArgocdAuthenticationBasic(dict):
         """
         return pulumi.get(self, "username")
 
-    @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> Optional[str]:
-        return pulumi.get(self, "password_hash")
-
-    @property
-    @pulumi.getter(name="usernameHash")
-    def username_hash(self) -> Optional[str]:
-        return pulumi.get(self, "username_hash")
-
 
 @pulumi.output_type
 class ServiceendpointArgocdAuthenticationToken(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "tokenHash":
-            suggest = "token_hash"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceendpointArgocdAuthenticationToken. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServiceendpointArgocdAuthenticationToken.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServiceendpointArgocdAuthenticationToken.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
-                 token: str,
-                 token_hash: Optional[str] = None):
+                 token: str):
         """
         :param str token: Authentication Token generated through ArgoCD.
         """
         pulumi.set(__self__, "token", token)
-        if token_hash is not None:
-            pulumi.set(__self__, "token_hash", token_hash)
 
     @property
     @pulumi.getter
@@ -3213,11 +3106,6 @@ class ServiceendpointArgocdAuthenticationToken(dict):
         Authentication Token generated through ArgoCD.
         """
         return pulumi.get(self, "token")
-
-    @property
-    @pulumi.getter(name="tokenHash")
-    def token_hash(self) -> Optional[str]:
-        return pulumi.get(self, "token_hash")
 
 
 @pulumi.output_type
@@ -3253,6 +3141,194 @@ class ServiceendpointExternaltfsAuthPersonal(dict):
         The Personal Access Token for Azure DevOps Organization.
         """
         return pulumi.get(self, "personal_access_token")
+
+
+@pulumi.output_type
+class ServiceendpointJfrogArtifactoryV2AuthenticationBasic(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: Artifactory Password.
+        :param str username: Artifactory Username.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Artifactory Password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Artifactory Username.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ServiceendpointJfrogArtifactoryV2AuthenticationToken(dict):
+    def __init__(__self__, *,
+                 token: str):
+        """
+        :param str token: Authentication Token generated through Artifactory.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        Authentication Token generated through Artifactory.
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ServiceendpointJfrogDistributionV2AuthenticationBasic(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: Artifactory Password.
+        :param str username: Artifactory Username.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Artifactory Password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Artifactory Username.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ServiceendpointJfrogDistributionV2AuthenticationToken(dict):
+    def __init__(__self__, *,
+                 token: str):
+        """
+        :param str token: Authentication Token generated through Artifactory.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        Authentication Token generated through Artifactory.
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ServiceendpointJfrogPlatformV2AuthenticationBasic(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: Artifactory Password.
+        :param str username: Artifactory Username.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Artifactory Password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Artifactory Username.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ServiceendpointJfrogPlatformV2AuthenticationToken(dict):
+    def __init__(__self__, *,
+                 token: str):
+        """
+        :param str token: Authentication Token generated through Artifactory.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        Authentication Token generated through Artifactory.
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ServiceendpointJfrogXrayV2AuthenticationBasic(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: Artifactory Password.
+        :param str username: Artifactory Username.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Artifactory Password.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        Artifactory Username.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ServiceendpointJfrogXrayV2AuthenticationToken(dict):
+    def __init__(__self__, *,
+                 token: str):
+        """
+        :param str token: Authentication Token generated through Artifactory.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        Authentication Token generated through Artifactory.
+        """
+        return pulumi.get(self, "token")
 
 
 @pulumi.output_type
@@ -4323,7 +4399,7 @@ class GetProjectsProjectResult(dict):
                  state: str):
         """
         :param str name: Name of the Project, if not specified all projects will be returned.
-        :param str project_id: Project identifier.
+        :param str project_id: The ID of the Project.
         :param str project_url: Url to the full version of the object.
         :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
         """
@@ -4344,7 +4420,7 @@ class GetProjectsProjectResult(dict):
     @pulumi.getter(name="projectId")
     def project_id(self) -> str:
         """
-        Project identifier.
+        The ID of the Project.
         """
         return pulumi.get(self, "project_id")
 

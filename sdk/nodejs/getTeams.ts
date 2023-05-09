@@ -16,10 +16,10 @@ import * as utilities from "./utilities";
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = azuredevops.getTeams({});
- * export const projectId = [example.then(example => example.teams)].map(__item => __item?.projectId);
- * export const name = [example.then(example => example.teams)].map(__item => __item?.name);
- * export const alladministrators = [example.then(example => example.teams)].map(__item => __item?.administrators);
- * export const administrators = [example.then(example => example.teams)].map(__item => __item?.members);
+ * export const projectId = example.then(example => example.teams.map(__item => __item.projectId));
+ * export const name = example.then(example => example.teams.map(__item => __item.name));
+ * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
+ * export const administrators = example.then(example => example.teams.map(__item => __item.members));
  * ```
  * ## Relevant Links
  *
@@ -76,10 +76,10 @@ export interface GetTeamsResult {
  * import * as azuredevops from "@pulumi/azuredevops";
  *
  * const example = azuredevops.getTeams({});
- * export const projectId = [example.then(example => example.teams)].map(__item => __item?.projectId);
- * export const name = [example.then(example => example.teams)].map(__item => __item?.name);
- * export const alladministrators = [example.then(example => example.teams)].map(__item => __item?.administrators);
- * export const administrators = [example.then(example => example.teams)].map(__item => __item?.members);
+ * export const projectId = example.then(example => example.teams.map(__item => __item.projectId));
+ * export const name = example.then(example => example.teams.map(__item => __item.name));
+ * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
+ * export const administrators = example.then(example => example.teams.map(__item => __item.members));
  * ```
  * ## Relevant Links
  *
