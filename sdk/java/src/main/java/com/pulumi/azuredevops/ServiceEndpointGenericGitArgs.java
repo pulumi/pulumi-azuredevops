@@ -49,12 +49,16 @@ public final class ServiceEndpointGenericGitArgs extends com.pulumi.resources.Re
     /**
      * The PAT or password used to authenticate to the git repository.
      * 
+     * &gt; **Note** For AzureDevOps Git, PAT should be used as the password.
+     * 
      */
     @Import(name="password")
     private @Nullable Output<String> password;
 
     /**
      * @return The PAT or password used to authenticate to the git repository.
+     * 
+     * &gt; **Note** For AzureDevOps Git, PAT should be used as the password.
      * 
      */
     public Optional<Output<String>> password() {
@@ -194,6 +198,8 @@ public final class ServiceEndpointGenericGitArgs extends com.pulumi.resources.Re
         /**
          * @param password The PAT or password used to authenticate to the git repository.
          * 
+         * &gt; **Note** For AzureDevOps Git, PAT should be used as the password.
+         * 
          * @return builder
          * 
          */
@@ -204,6 +210,8 @@ public final class ServiceEndpointGenericGitArgs extends com.pulumi.resources.Re
 
         /**
          * @param password The PAT or password used to authenticate to the git repository.
+         * 
+         * &gt; **Note** For AzureDevOps Git, PAT should be used as the password.
          * 
          * @return builder
          * 

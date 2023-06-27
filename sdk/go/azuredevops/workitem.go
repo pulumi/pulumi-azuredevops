@@ -104,8 +104,12 @@ import (
 type Workitem struct {
 	pulumi.CustomResourceState
 
+	// Specifies the area where the Work Item is used.
+	AreaPath pulumi.StringOutput `pulumi:"areaPath"`
 	// Specifies a list with Custom Fields for the Work Item.
 	CustomFields pulumi.StringMapOutput `pulumi:"customFields"`
+	// Specifies the iteration in which the Work Item is used.
+	IterationPath pulumi.StringOutput `pulumi:"iterationPath"`
 	// The ID of the Project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
@@ -156,8 +160,12 @@ func GetWorkitem(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workitem resources.
 type workitemState struct {
+	// Specifies the area where the Work Item is used.
+	AreaPath *string `pulumi:"areaPath"`
 	// Specifies a list with Custom Fields for the Work Item.
 	CustomFields map[string]string `pulumi:"customFields"`
+	// Specifies the iteration in which the Work Item is used.
+	IterationPath *string `pulumi:"iterationPath"`
 	// The ID of the Project.
 	ProjectId *string `pulumi:"projectId"`
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
@@ -171,8 +179,12 @@ type workitemState struct {
 }
 
 type WorkitemState struct {
+	// Specifies the area where the Work Item is used.
+	AreaPath pulumi.StringPtrInput
 	// Specifies a list with Custom Fields for the Work Item.
 	CustomFields pulumi.StringMapInput
+	// Specifies the iteration in which the Work Item is used.
+	IterationPath pulumi.StringPtrInput
 	// The ID of the Project.
 	ProjectId pulumi.StringPtrInput
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
@@ -190,8 +202,12 @@ func (WorkitemState) ElementType() reflect.Type {
 }
 
 type workitemArgs struct {
+	// Specifies the area where the Work Item is used.
+	AreaPath *string `pulumi:"areaPath"`
 	// Specifies a list with Custom Fields for the Work Item.
 	CustomFields map[string]string `pulumi:"customFields"`
+	// Specifies the iteration in which the Work Item is used.
+	IterationPath *string `pulumi:"iterationPath"`
 	// The ID of the Project.
 	ProjectId string `pulumi:"projectId"`
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
@@ -206,8 +222,12 @@ type workitemArgs struct {
 
 // The set of arguments for constructing a Workitem resource.
 type WorkitemArgs struct {
+	// Specifies the area where the Work Item is used.
+	AreaPath pulumi.StringPtrInput
 	// Specifies a list with Custom Fields for the Work Item.
 	CustomFields pulumi.StringMapInput
+	// Specifies the iteration in which the Work Item is used.
+	IterationPath pulumi.StringPtrInput
 	// The ID of the Project.
 	ProjectId pulumi.StringInput
 	// The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
@@ -307,9 +327,19 @@ func (o WorkitemOutput) ToWorkitemOutputWithContext(ctx context.Context) Workite
 	return o
 }
 
+// Specifies the area where the Work Item is used.
+func (o WorkitemOutput) AreaPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workitem) pulumi.StringOutput { return v.AreaPath }).(pulumi.StringOutput)
+}
+
 // Specifies a list with Custom Fields for the Work Item.
 func (o WorkitemOutput) CustomFields() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Workitem) pulumi.StringMapOutput { return v.CustomFields }).(pulumi.StringMapOutput)
+}
+
+// Specifies the iteration in which the Work Item is used.
+func (o WorkitemOutput) IterationPath() pulumi.StringOutput {
+	return o.ApplyT(func(v *Workitem) pulumi.StringOutput { return v.IterationPath }).(pulumi.StringOutput)
 }
 
 // The ID of the Project.

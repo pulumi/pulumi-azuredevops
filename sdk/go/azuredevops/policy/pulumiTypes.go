@@ -386,12 +386,14 @@ type BranchPolicyMinReviewersSettings struct {
 	// On last iteration require vote. Defaults to `false`.
 	OnLastIterationRequireVote *bool `pulumi:"onLastIterationRequireVote"`
 	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+	//
+	// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 	OnPushResetAllVotes *bool `pulumi:"onPushResetAllVotes"`
 	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
 	OnPushResetApprovedVotes *bool `pulumi:"onPushResetApprovedVotes"`
 	// The number of reviewers needed to approve.
 	ReviewerCount *int `pulumi:"reviewerCount"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyMinReviewersSettingsScope `pulumi:"scopes"`
 	// Allow requesters to approve their own changes. Defaults to `false`.
 	SubmitterCanVote *bool `pulumi:"submitterCanVote"`
@@ -416,12 +418,14 @@ type BranchPolicyMinReviewersSettingsArgs struct {
 	// On last iteration require vote. Defaults to `false`.
 	OnLastIterationRequireVote pulumi.BoolPtrInput `pulumi:"onLastIterationRequireVote"`
 	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+	//
+	// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 	OnPushResetAllVotes pulumi.BoolPtrInput `pulumi:"onPushResetAllVotes"`
 	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
 	OnPushResetApprovedVotes pulumi.BoolPtrInput `pulumi:"onPushResetApprovedVotes"`
 	// The number of reviewers needed to approve.
 	ReviewerCount pulumi.IntPtrInput `pulumi:"reviewerCount"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyMinReviewersSettingsScopeArrayInput `pulumi:"scopes"`
 	// Allow requesters to approve their own changes. Defaults to `false`.
 	SubmitterCanVote pulumi.BoolPtrInput `pulumi:"submitterCanVote"`
@@ -520,6 +524,8 @@ func (o BranchPolicyMinReviewersSettingsOutput) OnLastIterationRequireVote() pul
 }
 
 // When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+//
+// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 func (o BranchPolicyMinReviewersSettingsOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnPushResetAllVotes }).(pulumi.BoolPtrOutput)
 }
@@ -534,7 +540,7 @@ func (o BranchPolicyMinReviewersSettingsOutput) ReviewerCount() pulumi.IntPtrOut
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *int { return v.ReviewerCount }).(pulumi.IntPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyMinReviewersSettingsOutput) Scopes() BranchPolicyMinReviewersSettingsScopeArrayOutput {
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) []BranchPolicyMinReviewersSettingsScope { return v.Scopes }).(BranchPolicyMinReviewersSettingsScopeArrayOutput)
 }
@@ -599,6 +605,8 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) OnLastIterationRequireVote() 
 }
 
 // When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+//
+// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
 		if v == nil {
@@ -628,7 +636,7 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) ReviewerCount() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) Scopes() BranchPolicyMinReviewersSettingsScopeArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) []BranchPolicyMinReviewersSettingsScope {
 		if v == nil {

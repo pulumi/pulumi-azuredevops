@@ -18,17 +18,9 @@ public final class GitHubState extends com.pulumi.resources.ResourceArgs {
 
     public static final GitHubState Empty = new GitHubState();
 
-    /**
-     * An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-     * 
-     */
     @Import(name="authOauth")
     private @Nullable Output<GitHubAuthOauthArgs> authOauth;
 
-    /**
-     * @return An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-     * 
-     */
     public Optional<Output<GitHubAuthOauthArgs>> authOauth() {
         return Optional.ofNullable(this.authOauth);
     }
@@ -121,23 +113,11 @@ public final class GitHubState extends com.pulumi.resources.ResourceArgs {
             $ = new GitHubState(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authOauth(@Nullable Output<GitHubAuthOauthArgs> authOauth) {
             $.authOauth = authOauth;
             return this;
         }
 
-        /**
-         * @param authOauth An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-         * 
-         * @return builder
-         * 
-         */
         public Builder authOauth(GitHubAuthOauthArgs authOauth) {
             return authOauth(Output.of(authOauth));
         }

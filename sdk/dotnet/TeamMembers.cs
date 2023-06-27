@@ -71,6 +71,11 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// List of subject descriptors to define members of the team.
+        /// 
+        /// &gt; NOTE: It's possible to define team members both within the
+        /// &gt; `azuredevops.Team` resource via the `members` block and by using the
+        /// &gt; `azuredevops.TeamMembers` resource. However it's not possible to use
+        /// &gt; both methods to manage team members, since there'll be conflicts.
         /// </summary>
         [Output("members")]
         public Output<ImmutableArray<string>> Members { get; private set; } = null!;
@@ -146,6 +151,11 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// List of subject descriptors to define members of the team.
+        /// 
+        /// &gt; NOTE: It's possible to define team members both within the
+        /// &gt; `azuredevops.Team` resource via the `members` block and by using the
+        /// &gt; `azuredevops.TeamMembers` resource. However it's not possible to use
+        /// &gt; both methods to manage team members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {
@@ -186,6 +196,11 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// List of subject descriptors to define members of the team.
+        /// 
+        /// &gt; NOTE: It's possible to define team members both within the
+        /// &gt; `azuredevops.Team` resource via the `members` block and by using the
+        /// &gt; `azuredevops.TeamMembers` resource. However it's not possible to use
+        /// &gt; both methods to manage team members, since there'll be conflicts.
         /// </summary>
         public InputList<string> Members
         {

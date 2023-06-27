@@ -120,6 +120,8 @@ export class ServiceendpointJfrogXrayV2 extends pulumi.CustomResource {
     public readonly serviceEndpointName!: pulumi.Output<string>;
     /**
      * URL of the Artifactory server to connect with.
+     *
+     * > **NOTE:** URL should not end in a slash character.
      */
     public readonly url!: pulumi.Output<string>;
 
@@ -194,6 +196,8 @@ export interface ServiceendpointJfrogXrayV2State {
     serviceEndpointName?: pulumi.Input<string>;
     /**
      * URL of the Artifactory server to connect with.
+     *
+     * > **NOTE:** URL should not end in a slash character.
      */
     url?: pulumi.Input<string>;
 }
@@ -225,6 +229,8 @@ export interface ServiceendpointJfrogXrayV2Args {
     serviceEndpointName: pulumi.Input<string>;
     /**
      * URL of the Artifactory server to connect with.
+     *
+     * > **NOTE:** URL should not end in a slash character.
      */
     url: pulumi.Input<string>;
 }

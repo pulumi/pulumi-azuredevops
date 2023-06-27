@@ -119,6 +119,14 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// 
+        /// | Permission        | Description                         |
+        /// | ----------------- | ----------------------------------- |
+        /// | Use               | Use service endpoint                |
+        /// | Administer        | Full control over service endpoints |
+        /// | Create            | Create service endpoints            |
+        /// | ViewAuthorization | View authorizations                 |
+        /// | ViewEndpoint      | View service endpoint properties    |
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -201,6 +209,14 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// 
+        /// | Permission        | Description                         |
+        /// | ----------------- | ----------------------------------- |
+        /// | Use               | Use service endpoint                |
+        /// | Administer        | Full control over service endpoints |
+        /// | Create            | Create service endpoints            |
+        /// | ViewAuthorization | View authorizations                 |
+        /// | ViewEndpoint      | View service endpoint properties    |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -245,6 +261,14 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// 
+        /// | Permission        | Description                         |
+        /// | ----------------- | ----------------------------------- |
+        /// | Use               | Use service endpoint                |
+        /// | Administer        | Full control over service endpoints |
+        /// | Create            | Create service endpoints            |
+        /// | ViewAuthorization | View authorizations                 |
+        /// | ViewEndpoint      | View service endpoint properties    |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

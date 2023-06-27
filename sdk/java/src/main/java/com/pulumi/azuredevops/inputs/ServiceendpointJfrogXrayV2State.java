@@ -103,12 +103,16 @@ public final class ServiceendpointJfrogXrayV2State extends com.pulumi.resources.
     /**
      * URL of the Artifactory server to connect with.
      * 
+     * &gt; **NOTE:** URL should not end in a slash character.
+     * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
      * @return URL of the Artifactory server to connect with.
+     * 
+     * &gt; **NOTE:** URL should not end in a slash character.
      * 
      */
     public Optional<Output<String>> url() {
@@ -262,6 +266,8 @@ public final class ServiceendpointJfrogXrayV2State extends com.pulumi.resources.
         /**
          * @param url URL of the Artifactory server to connect with.
          * 
+         * &gt; **NOTE:** URL should not end in a slash character.
+         * 
          * @return builder
          * 
          */
@@ -272,6 +278,8 @@ public final class ServiceendpointJfrogXrayV2State extends com.pulumi.resources.
 
         /**
          * @param url URL of the Artifactory server to connect with.
+         * 
+         * &gt; **NOTE:** URL should not end in a slash character.
          * 
          * @return builder
          * 

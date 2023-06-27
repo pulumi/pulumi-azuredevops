@@ -202,6 +202,9 @@ def get_service_endpoint_azure_rm(project_id: Optional[str] = None,
     :param str project_id: The ID of the project.
     :param str service_endpoint_id: the ID of the Service Endpoint.
     :param str service_endpoint_name: the Name of the Service Endpoint.
+           
+           > **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+           > **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
     """
     __args__ = dict()
     __args__['projectId'] = project_id
@@ -261,5 +264,8 @@ def get_service_endpoint_azure_rm_output(project_id: Optional[pulumi.Input[str]]
     :param str project_id: The ID of the project.
     :param str service_endpoint_id: the ID of the Service Endpoint.
     :param str service_endpoint_name: the Name of the Service Endpoint.
+           
+           > **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+           > **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
     """
     ...

@@ -86,6 +86,13 @@ type TaggingPermissions struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId pulumi.StringPtrOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Name               | Permission Description     |
+	// | ------------------ | -------------------------- |
+	// | Enumerate          | Enumerate tag definitions  |
+	// | Create             | Create tag definition      |
+	// | Update             | Update tag definition      |
+	// | Delete             | Delete tag definition      |
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -131,6 +138,13 @@ type taggingPermissionsState struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Name               | Permission Description     |
+	// | ------------------ | -------------------------- |
+	// | Enumerate          | Enumerate tag definitions  |
+	// | Create             | Create tag definition      |
+	// | Update             | Update tag definition      |
+	// | Delete             | Delete tag definition      |
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -142,6 +156,13 @@ type TaggingPermissionsState struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Name               | Permission Description     |
+	// | ------------------ | -------------------------- |
+	// | Enumerate          | Enumerate tag definitions  |
+	// | Create             | Create tag definition      |
+	// | Update             | Update tag definition      |
+	// | Delete             | Delete tag definition      |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -157,6 +178,13 @@ type taggingPermissionsArgs struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Name               | Permission Description     |
+	// | ------------------ | -------------------------- |
+	// | Enumerate          | Enumerate tag definitions  |
+	// | Create             | Create tag definition      |
+	// | Update             | Update tag definition      |
+	// | Delete             | Delete tag definition      |
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -169,6 +197,13 @@ type TaggingPermissionsArgs struct {
 	// The ID of the project to assign the permissions. If omitted, organization wide permissions for tagging are managed.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Name               | Permission Description     |
+	// | ------------------ | -------------------------- |
+	// | Enumerate          | Enumerate tag definitions  |
+	// | Create             | Create tag definition      |
+	// | Update             | Update tag definition      |
+	// | Delete             | Delete tag definition      |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -275,6 +310,13 @@ func (o TaggingPermissionsOutput) ProjectId() pulumi.StringPtrOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`
+//
+// | Name               | Permission Description     |
+// | ------------------ | -------------------------- |
+// | Enumerate          | Enumerate tag definitions  |
+// | Create             | Create tag definition      |
+// | Update             | Update tag definition      |
+// | Delete             | Delete tag definition      |
 func (o TaggingPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *TaggingPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

@@ -85,9 +85,17 @@ export class Workitem extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies the area where the Work Item is used.
+     */
+    public readonly areaPath!: pulumi.Output<string>;
+    /**
      * Specifies a list with Custom Fields for the Work Item.
      */
     public readonly customFields!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Specifies the iteration in which the Work Item is used.
+     */
+    public readonly iterationPath!: pulumi.Output<string>;
     /**
      * The ID of the Project.
      */
@@ -122,7 +130,9 @@ export class Workitem extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as WorkitemState | undefined;
+            resourceInputs["areaPath"] = state ? state.areaPath : undefined;
             resourceInputs["customFields"] = state ? state.customFields : undefined;
+            resourceInputs["iterationPath"] = state ? state.iterationPath : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -139,7 +149,9 @@ export class Workitem extends pulumi.CustomResource {
             if ((!args || args.type === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
+            resourceInputs["areaPath"] = args ? args.areaPath : undefined;
             resourceInputs["customFields"] = args ? args.customFields : undefined;
+            resourceInputs["iterationPath"] = args ? args.iterationPath : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["state"] = args ? args.state : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -156,9 +168,17 @@ export class Workitem extends pulumi.CustomResource {
  */
 export interface WorkitemState {
     /**
+     * Specifies the area where the Work Item is used.
+     */
+    areaPath?: pulumi.Input<string>;
+    /**
      * Specifies a list with Custom Fields for the Work Item.
      */
     customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the iteration in which the Work Item is used.
+     */
+    iterationPath?: pulumi.Input<string>;
     /**
      * The ID of the Project.
      */
@@ -186,9 +206,17 @@ export interface WorkitemState {
  */
 export interface WorkitemArgs {
     /**
+     * Specifies the area where the Work Item is used.
+     */
+    areaPath?: pulumi.Input<string>;
+    /**
      * Specifies a list with Custom Fields for the Work Item.
      */
     customFields?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Specifies the iteration in which the Work Item is used.
+     */
+    iterationPath?: pulumi.Input<string>;
     /**
      * The ID of the Project.
      */

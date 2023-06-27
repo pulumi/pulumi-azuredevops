@@ -80,12 +80,34 @@ public final class AreaPermissionsState extends com.pulumi.resources.ResourceArg
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      * 
+     * | Permission         | Description                    |
+     * |--------------------|--------------------------------|
+     * | GENERIC_READ       | View permissions for this node |
+     * | GENERIC_WRITE      | Edit this node                 |
+     * | CREATE_CHILDREN    | Create child nodes             |
+     * | DELETE             | Delete this node               |
+     * | WORK_ITEM_READ     | View work items in this node   |
+     * | WORK_ITEM_WRITE    | Edit work items in this node   |
+     * | MANAGE_TEST_PLANS  | Manage test plans              |
+     * | MANAGE_TEST_SUITES | Manage test suites             |
+     * 
      */
     @Import(name="replace")
     private @Nullable Output<Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+     * 
+     * | Permission         | Description                    |
+     * |--------------------|--------------------------------|
+     * | GENERIC_READ       | View permissions for this node |
+     * | GENERIC_WRITE      | Edit this node                 |
+     * | CREATE_CHILDREN    | Create child nodes             |
+     * | DELETE             | Delete this node               |
+     * | WORK_ITEM_READ     | View work items in this node   |
+     * | WORK_ITEM_WRITE    | Edit work items in this node   |
+     * | MANAGE_TEST_PLANS  | Manage test plans              |
+     * | MANAGE_TEST_SUITES | Manage test suites             |
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -207,6 +229,17 @@ public final class AreaPermissionsState extends com.pulumi.resources.ResourceArg
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`.
          * 
+         * | Permission         | Description                    |
+         * |--------------------|--------------------------------|
+         * | GENERIC_READ       | View permissions for this node |
+         * | GENERIC_WRITE      | Edit this node                 |
+         * | CREATE_CHILDREN    | Create child nodes             |
+         * | DELETE             | Delete this node               |
+         * | WORK_ITEM_READ     | View work items in this node   |
+         * | WORK_ITEM_WRITE    | Edit work items in this node   |
+         * | MANAGE_TEST_PLANS  | Manage test plans              |
+         * | MANAGE_TEST_SUITES | Manage test suites             |
+         * 
          * @return builder
          * 
          */
@@ -217,6 +250,17 @@ public final class AreaPermissionsState extends com.pulumi.resources.ResourceArg
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+         * 
+         * | Permission         | Description                    |
+         * |--------------------|--------------------------------|
+         * | GENERIC_READ       | View permissions for this node |
+         * | GENERIC_WRITE      | Edit this node                 |
+         * | CREATE_CHILDREN    | Create child nodes             |
+         * | DELETE             | Delete this node               |
+         * | WORK_ITEM_READ     | View work items in this node   |
+         * | WORK_ITEM_WRITE    | Edit work items in this node   |
+         * | MANAGE_TEST_PLANS  | Manage test plans              |
+         * | MANAGE_TEST_SUITES | Manage test suites             |
          * 
          * @return builder
          * 

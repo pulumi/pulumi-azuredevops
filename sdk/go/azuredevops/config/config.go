@@ -14,7 +14,11 @@ func GetOrgServiceUrl(ctx *pulumi.Context) string {
 	if err == nil {
 		return v
 	}
-	return getEnvOrDefault("", nil, "AZDO_ORG_SERVICE_URL").(string)
+	var value string
+	if d := getEnvOrDefault(nil, nil, "AZDO_ORG_SERVICE_URL"); d != nil {
+		value = d.(string)
+	}
+	return value
 }
 
 // The personal access token which should be used.

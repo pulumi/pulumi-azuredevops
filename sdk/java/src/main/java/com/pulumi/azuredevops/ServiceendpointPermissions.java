@@ -163,12 +163,28 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
+     * | Permission        | Description                         |
+     * | ----------------- | ----------------------------------- |
+     * | Use               | Use service endpoint                |
+     * | Administer        | Full control over service endpoints |
+     * | Create            | Create service endpoints            |
+     * | ViewAuthorization | View authorizations                 |
+     * | ViewEndpoint      | View service endpoint properties    |
+     * 
      */
     @Export(name="replace", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * 
+     * | Permission        | Description                         |
+     * | ----------------- | ----------------------------------- |
+     * | Use               | Use service endpoint                |
+     * | Administer        | Full control over service endpoints |
+     * | Create            | Create service endpoints            |
+     * | ViewAuthorization | View authorizations                 |
+     * | ViewEndpoint      | View service endpoint properties    |
      * 
      */
     public Output<Optional<Boolean>> replace() {

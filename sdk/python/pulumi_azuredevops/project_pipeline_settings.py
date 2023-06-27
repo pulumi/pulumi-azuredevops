@@ -16,6 +16,7 @@ class ProjectPipelineSettingsArgs:
     def __init__(__self__, *,
                  project_id: pulumi.Input[str],
                  enforce_job_scope: Optional[pulumi.Input[bool]] = None,
+                 enforce_job_scope_for_release: Optional[pulumi.Input[bool]] = None,
                  enforce_referenced_repo_scoped_token: Optional[pulumi.Input[bool]] = None,
                  enforce_settable_var: Optional[pulumi.Input[bool]] = None,
                  publish_pipeline_metadata: Optional[pulumi.Input[bool]] = None,
@@ -24,6 +25,12 @@ class ProjectPipelineSettingsArgs:
         The set of arguments for constructing a ProjectPipelineSettings resource.
         :param pulumi.Input[str] project_id: The `id` of the project for which the project pipeline settings will be managed.
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
+        :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
+               
+               > **NOTE:**
+               > The settings at the organization will override settings specified on the project.
+               > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+               > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
         :param pulumi.Input[bool] enforce_settable_var: Limit variables that can be set at queue time.
         :param pulumi.Input[bool] publish_pipeline_metadata: Publish metadata from pipelines.
@@ -32,6 +39,8 @@ class ProjectPipelineSettingsArgs:
         pulumi.set(__self__, "project_id", project_id)
         if enforce_job_scope is not None:
             pulumi.set(__self__, "enforce_job_scope", enforce_job_scope)
+        if enforce_job_scope_for_release is not None:
+            pulumi.set(__self__, "enforce_job_scope_for_release", enforce_job_scope_for_release)
         if enforce_referenced_repo_scoped_token is not None:
             pulumi.set(__self__, "enforce_referenced_repo_scoped_token", enforce_referenced_repo_scoped_token)
         if enforce_settable_var is not None:
@@ -64,6 +73,23 @@ class ProjectPipelineSettingsArgs:
     @enforce_job_scope.setter
     def enforce_job_scope(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enforce_job_scope", value)
+
+    @property
+    @pulumi.getter(name="enforceJobScopeForRelease")
+    def enforce_job_scope_for_release(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Limit job authorization scope to current project for release pipelines.
+
+        > **NOTE:**
+        > The settings at the organization will override settings specified on the project.
+        > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+        > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+        """
+        return pulumi.get(self, "enforce_job_scope_for_release")
+
+    @enforce_job_scope_for_release.setter
+    def enforce_job_scope_for_release(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_job_scope_for_release", value)
 
     @property
     @pulumi.getter(name="enforceReferencedRepoScopedToken")
@@ -118,6 +144,7 @@ class ProjectPipelineSettingsArgs:
 class _ProjectPipelineSettingsState:
     def __init__(__self__, *,
                  enforce_job_scope: Optional[pulumi.Input[bool]] = None,
+                 enforce_job_scope_for_release: Optional[pulumi.Input[bool]] = None,
                  enforce_referenced_repo_scoped_token: Optional[pulumi.Input[bool]] = None,
                  enforce_settable_var: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -126,6 +153,12 @@ class _ProjectPipelineSettingsState:
         """
         Input properties used for looking up and filtering ProjectPipelineSettings resources.
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
+        :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
+               
+               > **NOTE:**
+               > The settings at the organization will override settings specified on the project.
+               > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+               > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
         :param pulumi.Input[bool] enforce_settable_var: Limit variables that can be set at queue time.
         :param pulumi.Input[str] project_id: The `id` of the project for which the project pipeline settings will be managed.
@@ -134,6 +167,8 @@ class _ProjectPipelineSettingsState:
         """
         if enforce_job_scope is not None:
             pulumi.set(__self__, "enforce_job_scope", enforce_job_scope)
+        if enforce_job_scope_for_release is not None:
+            pulumi.set(__self__, "enforce_job_scope_for_release", enforce_job_scope_for_release)
         if enforce_referenced_repo_scoped_token is not None:
             pulumi.set(__self__, "enforce_referenced_repo_scoped_token", enforce_referenced_repo_scoped_token)
         if enforce_settable_var is not None:
@@ -156,6 +191,23 @@ class _ProjectPipelineSettingsState:
     @enforce_job_scope.setter
     def enforce_job_scope(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "enforce_job_scope", value)
+
+    @property
+    @pulumi.getter(name="enforceJobScopeForRelease")
+    def enforce_job_scope_for_release(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Limit job authorization scope to current project for release pipelines.
+
+        > **NOTE:**
+        > The settings at the organization will override settings specified on the project.
+        > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+        > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+        """
+        return pulumi.get(self, "enforce_job_scope_for_release")
+
+    @enforce_job_scope_for_release.setter
+    def enforce_job_scope_for_release(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enforce_job_scope_for_release", value)
 
     @property
     @pulumi.getter(name="enforceReferencedRepoScopedToken")
@@ -224,6 +276,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enforce_job_scope: Optional[pulumi.Input[bool]] = None,
+                 enforce_job_scope_for_release: Optional[pulumi.Input[bool]] = None,
                  enforce_referenced_repo_scoped_token: Optional[pulumi.Input[bool]] = None,
                  enforce_settable_var: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -271,6 +324,12 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
+        :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
+               
+               > **NOTE:**
+               > The settings at the organization will override settings specified on the project.
+               > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+               > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
         :param pulumi.Input[bool] enforce_settable_var: Limit variables that can be set at queue time.
         :param pulumi.Input[str] project_id: The `id` of the project for which the project pipeline settings will be managed.
@@ -337,6 +396,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enforce_job_scope: Optional[pulumi.Input[bool]] = None,
+                 enforce_job_scope_for_release: Optional[pulumi.Input[bool]] = None,
                  enforce_referenced_repo_scoped_token: Optional[pulumi.Input[bool]] = None,
                  enforce_settable_var: Optional[pulumi.Input[bool]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -352,6 +412,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
             __props__ = ProjectPipelineSettingsArgs.__new__(ProjectPipelineSettingsArgs)
 
             __props__.__dict__["enforce_job_scope"] = enforce_job_scope
+            __props__.__dict__["enforce_job_scope_for_release"] = enforce_job_scope_for_release
             __props__.__dict__["enforce_referenced_repo_scoped_token"] = enforce_referenced_repo_scoped_token
             __props__.__dict__["enforce_settable_var"] = enforce_settable_var
             if project_id is None and not opts.urn:
@@ -370,6 +431,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             enforce_job_scope: Optional[pulumi.Input[bool]] = None,
+            enforce_job_scope_for_release: Optional[pulumi.Input[bool]] = None,
             enforce_referenced_repo_scoped_token: Optional[pulumi.Input[bool]] = None,
             enforce_settable_var: Optional[pulumi.Input[bool]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
@@ -383,6 +445,12 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enforce_job_scope: Limit job authorization scope to current project for non-release pipelines.
+        :param pulumi.Input[bool] enforce_job_scope_for_release: Limit job authorization scope to current project for release pipelines.
+               
+               > **NOTE:**
+               > The settings at the organization will override settings specified on the project.
+               > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+               > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         :param pulumi.Input[bool] enforce_referenced_repo_scoped_token: Protect access to repositories in YAML pipelines.
         :param pulumi.Input[bool] enforce_settable_var: Limit variables that can be set at queue time.
         :param pulumi.Input[str] project_id: The `id` of the project for which the project pipeline settings will be managed.
@@ -394,6 +462,7 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         __props__ = _ProjectPipelineSettingsState.__new__(_ProjectPipelineSettingsState)
 
         __props__.__dict__["enforce_job_scope"] = enforce_job_scope
+        __props__.__dict__["enforce_job_scope_for_release"] = enforce_job_scope_for_release
         __props__.__dict__["enforce_referenced_repo_scoped_token"] = enforce_referenced_repo_scoped_token
         __props__.__dict__["enforce_settable_var"] = enforce_settable_var
         __props__.__dict__["project_id"] = project_id
@@ -408,6 +477,19 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         Limit job authorization scope to current project for non-release pipelines.
         """
         return pulumi.get(self, "enforce_job_scope")
+
+    @property
+    @pulumi.getter(name="enforceJobScopeForRelease")
+    def enforce_job_scope_for_release(self) -> pulumi.Output[bool]:
+        """
+        Limit job authorization scope to current project for release pipelines.
+
+        > **NOTE:**
+        > The settings at the organization will override settings specified on the project.
+        > For example, if `enforce_job_scope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+        > In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+        """
+        return pulumi.get(self, "enforce_job_scope_for_release")
 
     @property
     @pulumi.getter(name="enforceReferencedRepoScopedToken")

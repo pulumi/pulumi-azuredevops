@@ -98,6 +98,24 @@ export class BuildFolderPermissions extends pulumi.CustomResource {
     public readonly path!: pulumi.Output<string>;
     /**
      * the permissions to assign. The following permissions are available.
+     *
+     * | Permission                     | Description                           |
+     * |--------------------------------|---------------------------------------|
+     * | ViewBuilds                     | View builds                           |
+     * | EditBuildQuality               | Edit build quality                    |
+     * | RetainIndefinitely             | Retain indefinitely                   |
+     * | DeleteBuilds                   | Delete builds                         |
+     * | ManageBuildQualities           | Manage build qualities                |
+     * | DestroyBuilds                  | Destroy builds                        |
+     * | UpdateBuildInformation         | Update build information              |
+     * | QueueBuilds                    | Queue builds                          |
+     * | ManageBuildQueue               | Manage build queue                    |
+     * | StopBuilds                     | Stop builds                           |
+     * | ViewBuildDefinition            | View build pipeline                   |
+     * | EditBuildDefinition            | Edit build pipeline                   |
+     * | DeleteBuildDefinition          | Delete build pipeline                 |
+     * | OverrideBuildCheckInValidation | Override check-in validation by build |
+     * | AdministerBuildPermissions     | Administer build permissions          |
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -166,6 +184,24 @@ export interface BuildFolderPermissionsState {
     path?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available.
+     *
+     * | Permission                     | Description                           |
+     * |--------------------------------|---------------------------------------|
+     * | ViewBuilds                     | View builds                           |
+     * | EditBuildQuality               | Edit build quality                    |
+     * | RetainIndefinitely             | Retain indefinitely                   |
+     * | DeleteBuilds                   | Delete builds                         |
+     * | ManageBuildQualities           | Manage build qualities                |
+     * | DestroyBuilds                  | Destroy builds                        |
+     * | UpdateBuildInformation         | Update build information              |
+     * | QueueBuilds                    | Queue builds                          |
+     * | ManageBuildQueue               | Manage build queue                    |
+     * | StopBuilds                     | Stop builds                           |
+     * | ViewBuildDefinition            | View build pipeline                   |
+     * | EditBuildDefinition            | Edit build pipeline                   |
+     * | DeleteBuildDefinition          | Delete build pipeline                 |
+     * | OverrideBuildCheckInValidation | Override check-in validation by build |
+     * | AdministerBuildPermissions     | Administer build permissions          |
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -192,6 +228,24 @@ export interface BuildFolderPermissionsArgs {
     path: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available.
+     *
+     * | Permission                     | Description                           |
+     * |--------------------------------|---------------------------------------|
+     * | ViewBuilds                     | View builds                           |
+     * | EditBuildQuality               | Edit build quality                    |
+     * | RetainIndefinitely             | Retain indefinitely                   |
+     * | DeleteBuilds                   | Delete builds                         |
+     * | ManageBuildQualities           | Manage build qualities                |
+     * | DestroyBuilds                  | Destroy builds                        |
+     * | UpdateBuildInformation         | Update build information              |
+     * | QueueBuilds                    | Queue builds                          |
+     * | ManageBuildQueue               | Manage build queue                    |
+     * | StopBuilds                     | Stop builds                           |
+     * | ViewBuildDefinition            | View build pipeline                   |
+     * | EditBuildDefinition            | Edit build pipeline                   |
+     * | DeleteBuildDefinition          | Delete build pipeline                 |
+     * | OverrideBuildCheckInValidation | Override check-in validation by build |
+     * | AdministerBuildPermissions     | Administer build permissions          |
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

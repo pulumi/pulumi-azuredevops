@@ -21,12 +21,16 @@ public final class ServiceendpointArgocdState extends com.pulumi.resources.Resou
     /**
      * An `authentication_basic` block for the ArgoCD as documented below.
      * 
+     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * 
      */
     @Import(name="authenticationBasic")
     private @Nullable Output<ServiceendpointArgocdAuthenticationBasicArgs> authenticationBasic;
 
     /**
      * @return An `authentication_basic` block for the ArgoCD as documented below.
+     * 
+     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
      * 
      */
     public Optional<Output<ServiceendpointArgocdAuthenticationBasicArgs>> authenticationBasic() {
@@ -148,6 +152,8 @@ public final class ServiceendpointArgocdState extends com.pulumi.resources.Resou
         /**
          * @param authenticationBasic An `authentication_basic` block for the ArgoCD as documented below.
          * 
+         * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+         * 
          * @return builder
          * 
          */
@@ -158,6 +164,8 @@ public final class ServiceendpointArgocdState extends com.pulumi.resources.Resou
 
         /**
          * @param authenticationBasic An `authentication_basic` block for the ArgoCD as documented below.
+         * 
+         * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
          * 
          * @return builder
          * 

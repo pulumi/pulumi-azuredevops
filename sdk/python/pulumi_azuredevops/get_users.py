@@ -133,6 +133,20 @@ def get_users(origin: Optional[str] = None,
 
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
     :param str origin_id: The unique identifier from the system of origin.
+           
+           DataSource without specifying any arguments will return all users inside an organization.
+           
+           List of possible subject types
+           
+           ```python
+           import pulumi
+           ```
+           
+           List of possible origins
+           
+           ```python
+           import pulumi
+           ```
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """
@@ -185,6 +199,20 @@ def get_users_output(origin: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
     :param str origin_id: The unique identifier from the system of origin.
+           
+           DataSource without specifying any arguments will return all users inside an organization.
+           
+           List of possible subject types
+           
+           ```python
+           import pulumi
+           ```
+           
+           List of possible origins
+           
+           ```python
+           import pulumi
+           ```
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """

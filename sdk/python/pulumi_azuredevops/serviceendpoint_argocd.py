@@ -29,6 +29,8 @@ class ServiceendpointArgocdArgs:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the ArgoCD server to connect with.
         :param pulumi.Input['ServiceendpointArgocdAuthenticationBasicArgs'] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
+               
+               > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         :param pulumi.Input['ServiceendpointArgocdAuthenticationTokenArgs'] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         """
@@ -85,6 +87,8 @@ class ServiceendpointArgocdArgs:
     def authentication_basic(self) -> Optional[pulumi.Input['ServiceendpointArgocdAuthenticationBasicArgs']]:
         """
         An `authentication_basic` block for the ArgoCD as documented below.
+
+        > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         """
         return pulumi.get(self, "authentication_basic")
 
@@ -139,6 +143,8 @@ class _ServiceendpointArgocdState:
         """
         Input properties used for looking up and filtering ServiceendpointArgocd resources.
         :param pulumi.Input['ServiceendpointArgocdAuthenticationBasicArgs'] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
+               
+               > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         :param pulumi.Input['ServiceendpointArgocdAuthenticationTokenArgs'] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
@@ -165,6 +171,8 @@ class _ServiceendpointArgocdState:
     def authentication_basic(self) -> Optional[pulumi.Input['ServiceendpointArgocdAuthenticationBasicArgs']]:
         """
         An `authentication_basic` block for the ArgoCD as documented below.
+
+        > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         """
         return pulumi.get(self, "authentication_basic")
 
@@ -315,6 +323,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationBasicArgs']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
+               
+               > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         :param pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationTokenArgs']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
@@ -453,6 +463,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationBasicArgs']] authentication_basic: An `authentication_basic` block for the ArgoCD as documented below.
+               
+               > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         :param pulumi.Input[pulumi.InputType['ServiceendpointArgocdAuthenticationTokenArgs']] authentication_token: An `authentication_token` block for the ArgoCD as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
         :param pulumi.Input[str] project_id: The ID of the project.
@@ -477,6 +489,8 @@ class ServiceendpointArgocd(pulumi.CustomResource):
     def authentication_basic(self) -> pulumi.Output[Optional['outputs.ServiceendpointArgocdAuthenticationBasic']]:
         """
         An `authentication_basic` block for the ArgoCD as documented below.
+
+        > **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         """
         return pulumi.get(self, "authentication_basic")
 

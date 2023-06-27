@@ -18,6 +18,21 @@ public final class WorkitemArgs extends com.pulumi.resources.ResourceArgs {
     public static final WorkitemArgs Empty = new WorkitemArgs();
 
     /**
+     * Specifies the area where the Work Item is used.
+     * 
+     */
+    @Import(name="areaPath")
+    private @Nullable Output<String> areaPath;
+
+    /**
+     * @return Specifies the area where the Work Item is used.
+     * 
+     */
+    public Optional<Output<String>> areaPath() {
+        return Optional.ofNullable(this.areaPath);
+    }
+
+    /**
      * Specifies a list with Custom Fields for the Work Item.
      * 
      */
@@ -30,6 +45,21 @@ public final class WorkitemArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Map<String,String>>> customFields() {
         return Optional.ofNullable(this.customFields);
+    }
+
+    /**
+     * Specifies the iteration in which the Work Item is used.
+     * 
+     */
+    @Import(name="iterationPath")
+    private @Nullable Output<String> iterationPath;
+
+    /**
+     * @return Specifies the iteration in which the Work Item is used.
+     * 
+     */
+    public Optional<Output<String>> iterationPath() {
+        return Optional.ofNullable(this.iterationPath);
     }
 
     /**
@@ -110,7 +140,9 @@ public final class WorkitemArgs extends com.pulumi.resources.ResourceArgs {
     private WorkitemArgs() {}
 
     private WorkitemArgs(WorkitemArgs $) {
+        this.areaPath = $.areaPath;
         this.customFields = $.customFields;
+        this.iterationPath = $.iterationPath;
         this.projectId = $.projectId;
         this.state = $.state;
         this.tags = $.tags;
@@ -137,6 +169,27 @@ public final class WorkitemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param areaPath Specifies the area where the Work Item is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder areaPath(@Nullable Output<String> areaPath) {
+            $.areaPath = areaPath;
+            return this;
+        }
+
+        /**
+         * @param areaPath Specifies the area where the Work Item is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder areaPath(String areaPath) {
+            return areaPath(Output.of(areaPath));
+        }
+
+        /**
          * @param customFields Specifies a list with Custom Fields for the Work Item.
          * 
          * @return builder
@@ -155,6 +208,27 @@ public final class WorkitemArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder customFields(Map<String,String> customFields) {
             return customFields(Output.of(customFields));
+        }
+
+        /**
+         * @param iterationPath Specifies the iteration in which the Work Item is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iterationPath(@Nullable Output<String> iterationPath) {
+            $.iterationPath = iterationPath;
+            return this;
+        }
+
+        /**
+         * @param iterationPath Specifies the iteration in which the Work Item is used.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder iterationPath(String iterationPath) {
+            return iterationPath(Output.of(iterationPath));
         }
 
         /**

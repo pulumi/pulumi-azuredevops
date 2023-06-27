@@ -90,10 +90,22 @@ namespace Pulumi.AzureDevOps
     public partial class Workitem : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies the area where the Work Item is used.
+        /// </summary>
+        [Output("areaPath")]
+        public Output<string> AreaPath { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies a list with Custom Fields for the Work Item.
         /// </summary>
         [Output("customFields")]
         public Output<ImmutableDictionary<string, string>?> CustomFields { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the iteration in which the Work Item is used.
+        /// </summary>
+        [Output("iterationPath")]
+        public Output<string> IterationPath { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the Project.
@@ -171,6 +183,12 @@ namespace Pulumi.AzureDevOps
 
     public sealed class WorkitemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the area where the Work Item is used.
+        /// </summary>
+        [Input("areaPath")]
+        public Input<string>? AreaPath { get; set; }
+
         [Input("customFields")]
         private InputMap<string>? _customFields;
 
@@ -182,6 +200,12 @@ namespace Pulumi.AzureDevOps
             get => _customFields ?? (_customFields = new InputMap<string>());
             set => _customFields = value;
         }
+
+        /// <summary>
+        /// Specifies the iteration in which the Work Item is used.
+        /// </summary>
+        [Input("iterationPath")]
+        public Input<string>? IterationPath { get; set; }
 
         /// <summary>
         /// The ID of the Project.
@@ -227,6 +251,12 @@ namespace Pulumi.AzureDevOps
 
     public sealed class WorkitemState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies the area where the Work Item is used.
+        /// </summary>
+        [Input("areaPath")]
+        public Input<string>? AreaPath { get; set; }
+
         [Input("customFields")]
         private InputMap<string>? _customFields;
 
@@ -238,6 +268,12 @@ namespace Pulumi.AzureDevOps
             get => _customFields ?? (_customFields = new InputMap<string>());
             set => _customFields = value;
         }
+
+        /// <summary>
+        /// Specifies the iteration in which the Work Item is used.
+        /// </summary>
+        [Input("iterationPath")]
+        public Input<string>? IterationPath { get; set; }
 
         /// <summary>
         /// The ID of the Project.

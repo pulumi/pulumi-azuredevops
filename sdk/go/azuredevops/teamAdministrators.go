@@ -79,6 +79,11 @@ type TeamAdministrators struct {
 	pulumi.CustomResourceState
 
 	// List of subject descriptors to define adminitrators of the team.
+	//
+	// > NOTE: It's possible to define team administrators both within the
+	// `Team` resource via the `administrators` block and by using the
+	// `TeamAdministrators` resource. However it's not possible to use
+	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators pulumi.StringArrayOutput `pulumi:"administrators"`
 	// The mode how the resource manages team administrators.
 	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
@@ -129,6 +134,11 @@ func GetTeamAdministrators(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TeamAdministrators resources.
 type teamAdministratorsState struct {
 	// List of subject descriptors to define adminitrators of the team.
+	//
+	// > NOTE: It's possible to define team administrators both within the
+	// `Team` resource via the `administrators` block and by using the
+	// `TeamAdministrators` resource. However it's not possible to use
+	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators []string `pulumi:"administrators"`
 	// The mode how the resource manages team administrators.
 	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
@@ -142,6 +152,11 @@ type teamAdministratorsState struct {
 
 type TeamAdministratorsState struct {
 	// List of subject descriptors to define adminitrators of the team.
+	//
+	// > NOTE: It's possible to define team administrators both within the
+	// `Team` resource via the `administrators` block and by using the
+	// `TeamAdministrators` resource. However it's not possible to use
+	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators pulumi.StringArrayInput
 	// The mode how the resource manages team administrators.
 	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
@@ -159,6 +174,11 @@ func (TeamAdministratorsState) ElementType() reflect.Type {
 
 type teamAdministratorsArgs struct {
 	// List of subject descriptors to define adminitrators of the team.
+	//
+	// > NOTE: It's possible to define team administrators both within the
+	// `Team` resource via the `administrators` block and by using the
+	// `TeamAdministrators` resource. However it's not possible to use
+	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators []string `pulumi:"administrators"`
 	// The mode how the resource manages team administrators.
 	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
@@ -173,6 +193,11 @@ type teamAdministratorsArgs struct {
 // The set of arguments for constructing a TeamAdministrators resource.
 type TeamAdministratorsArgs struct {
 	// List of subject descriptors to define adminitrators of the team.
+	//
+	// > NOTE: It's possible to define team administrators both within the
+	// `Team` resource via the `administrators` block and by using the
+	// `TeamAdministrators` resource. However it's not possible to use
+	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators pulumi.StringArrayInput
 	// The mode how the resource manages team administrators.
 	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
@@ -272,6 +297,11 @@ func (o TeamAdministratorsOutput) ToTeamAdministratorsOutputWithContext(ctx cont
 }
 
 // List of subject descriptors to define adminitrators of the team.
+//
+// > NOTE: It's possible to define team administrators both within the
+// `Team` resource via the `administrators` block and by using the
+// `TeamAdministrators` resource. However it's not possible to use
+// both methods to manage team administrators, since there'll be conflicts.
 func (o TeamAdministratorsOutput) Administrators() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TeamAdministrators) pulumi.StringArrayOutput { return v.Administrators }).(pulumi.StringArrayOutput)
 }

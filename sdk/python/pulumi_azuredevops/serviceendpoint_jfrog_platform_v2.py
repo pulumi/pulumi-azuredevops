@@ -28,6 +28,8 @@ class ServiceendpointJfrogPlatformV2Args:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
+               
+               > **NOTE:** URL should not end in a slash character.
         :param pulumi.Input['ServiceendpointJfrogPlatformV2AuthenticationBasicArgs'] authentication_basic: A `authentication_basic` block as documented below.
         :param pulumi.Input['ServiceendpointJfrogPlatformV2AuthenticationTokenArgs'] authentication_token: A `authentication_token` block as documented below.
         :param pulumi.Input[str] description: The Service Endpoint description.
@@ -73,6 +75,8 @@ class ServiceendpointJfrogPlatformV2Args:
     def url(self) -> pulumi.Input[str]:
         """
         URL of the Artifactory server to connect with.
+
+        > **NOTE:** URL should not end in a slash character.
         """
         return pulumi.get(self, "url")
 
@@ -144,6 +148,8 @@ class _ServiceendpointJfrogPlatformV2State:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
+               
+               > **NOTE:** URL should not end in a slash character.
         """
         if authentication_basic is not None:
             pulumi.set(__self__, "authentication_basic", authentication_basic)
@@ -234,6 +240,8 @@ class _ServiceendpointJfrogPlatformV2State:
     def url(self) -> Optional[pulumi.Input[str]]:
         """
         URL of the Artifactory server to connect with.
+
+        > **NOTE:** URL should not end in a slash character.
         """
         return pulumi.get(self, "url")
 
@@ -322,6 +330,8 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
+               
+               > **NOTE:** URL should not end in a slash character.
         """
         ...
     @overload
@@ -462,6 +472,8 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
+               
+               > **NOTE:** URL should not end in a slash character.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -526,6 +538,8 @@ class ServiceendpointJfrogPlatformV2(pulumi.CustomResource):
     def url(self) -> pulumi.Output[str]:
         """
         URL of the Artifactory server to connect with.
+
+        > **NOTE:** URL should not end in a slash character.
         """
         return pulumi.get(self, "url")
 

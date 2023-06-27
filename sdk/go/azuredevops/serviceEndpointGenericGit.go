@@ -74,6 +74,8 @@ type ServiceEndpointGenericGit struct {
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrOutput `pulumi:"enablePipelinesAccess"`
 	// The PAT or password used to authenticate to the git repository.
+	//
+	// > **Note** For AzureDevOps Git, PAT should be used as the password.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash pulumi.StringOutput `pulumi:"passwordHash"`
@@ -138,6 +140,8 @@ type serviceEndpointGenericGitState struct {
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess *bool `pulumi:"enablePipelinesAccess"`
 	// The PAT or password used to authenticate to the git repository.
+	//
+	// > **Note** For AzureDevOps Git, PAT should be used as the password.
 	Password *string `pulumi:"password"`
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash *string `pulumi:"passwordHash"`
@@ -157,6 +161,8 @@ type ServiceEndpointGenericGitState struct {
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrInput
 	// The PAT or password used to authenticate to the git repository.
+	//
+	// > **Note** For AzureDevOps Git, PAT should be used as the password.
 	Password pulumi.StringPtrInput
 	// A bcrypted hash of the attribute 'password'
 	PasswordHash pulumi.StringPtrInput
@@ -180,6 +186,8 @@ type serviceEndpointGenericGitArgs struct {
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess *bool `pulumi:"enablePipelinesAccess"`
 	// The PAT or password used to authenticate to the git repository.
+	//
+	// > **Note** For AzureDevOps Git, PAT should be used as the password.
 	Password *string `pulumi:"password"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
@@ -198,6 +206,8 @@ type ServiceEndpointGenericGitArgs struct {
 	// A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
 	EnablePipelinesAccess pulumi.BoolPtrInput
 	// The PAT or password used to authenticate to the git repository.
+	//
+	// > **Note** For AzureDevOps Git, PAT should be used as the password.
 	Password pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
@@ -310,6 +320,8 @@ func (o ServiceEndpointGenericGitOutput) EnablePipelinesAccess() pulumi.BoolPtrO
 }
 
 // The PAT or password used to authenticate to the git repository.
+//
+// > **Note** For AzureDevOps Git, PAT should be used as the password.
 func (o ServiceEndpointGenericGitOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointGenericGit) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }

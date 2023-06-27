@@ -23,6 +23,24 @@ class BuildFolderPermissionsArgs:
         The set of arguments for constructing a BuildFolderPermissions resource.
         :param pulumi.Input[str] path: The folder path to assign the permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+               
+               | Permission                     | Description                           |
+               |--------------------------------|---------------------------------------|
+               | ViewBuilds                     | View builds                           |
+               | EditBuildQuality               | Edit build quality                    |
+               | RetainIndefinitely             | Retain indefinitely                   |
+               | DeleteBuilds                   | Delete builds                         |
+               | ManageBuildQualities           | Manage build qualities                |
+               | DestroyBuilds                  | Destroy builds                        |
+               | UpdateBuildInformation         | Update build information              |
+               | QueueBuilds                    | Queue builds                          |
+               | ManageBuildQueue               | Manage build queue                    |
+               | StopBuilds                     | Stop builds                           |
+               | ViewBuildDefinition            | View build pipeline                   |
+               | EditBuildDefinition            | Edit build pipeline                   |
+               | DeleteBuildDefinition          | Delete build pipeline                 |
+               | OverrideBuildCheckInValidation | Override check-in validation by build |
+               | AdministerBuildPermissions     | Administer build permissions          |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
@@ -51,6 +69,24 @@ class BuildFolderPermissionsArgs:
     def permissions(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         the permissions to assign. The following permissions are available.
+
+        | Permission                     | Description                           |
+        |--------------------------------|---------------------------------------|
+        | ViewBuilds                     | View builds                           |
+        | EditBuildQuality               | Edit build quality                    |
+        | RetainIndefinitely             | Retain indefinitely                   |
+        | DeleteBuilds                   | Delete builds                         |
+        | ManageBuildQualities           | Manage build qualities                |
+        | DestroyBuilds                  | Destroy builds                        |
+        | UpdateBuildInformation         | Update build information              |
+        | QueueBuilds                    | Queue builds                          |
+        | ManageBuildQueue               | Manage build queue                    |
+        | StopBuilds                     | Stop builds                           |
+        | ViewBuildDefinition            | View build pipeline                   |
+        | EditBuildDefinition            | Edit build pipeline                   |
+        | DeleteBuildDefinition          | Delete build pipeline                 |
+        | OverrideBuildCheckInValidation | Override check-in validation by build |
+        | AdministerBuildPermissions     | Administer build permissions          |
         """
         return pulumi.get(self, "permissions")
 
@@ -107,6 +143,24 @@ class _BuildFolderPermissionsState:
         Input properties used for looking up and filtering BuildFolderPermissions resources.
         :param pulumi.Input[str] path: The folder path to assign the permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+               
+               | Permission                     | Description                           |
+               |--------------------------------|---------------------------------------|
+               | ViewBuilds                     | View builds                           |
+               | EditBuildQuality               | Edit build quality                    |
+               | RetainIndefinitely             | Retain indefinitely                   |
+               | DeleteBuilds                   | Delete builds                         |
+               | ManageBuildQualities           | Manage build qualities                |
+               | DestroyBuilds                  | Destroy builds                        |
+               | UpdateBuildInformation         | Update build information              |
+               | QueueBuilds                    | Queue builds                          |
+               | ManageBuildQueue               | Manage build queue                    |
+               | StopBuilds                     | Stop builds                           |
+               | ViewBuildDefinition            | View build pipeline                   |
+               | EditBuildDefinition            | Edit build pipeline                   |
+               | DeleteBuildDefinition          | Delete build pipeline                 |
+               | OverrideBuildCheckInValidation | Override check-in validation by build |
+               | AdministerBuildPermissions     | Administer build permissions          |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
@@ -139,6 +193,24 @@ class _BuildFolderPermissionsState:
     def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         the permissions to assign. The following permissions are available.
+
+        | Permission                     | Description                           |
+        |--------------------------------|---------------------------------------|
+        | ViewBuilds                     | View builds                           |
+        | EditBuildQuality               | Edit build quality                    |
+        | RetainIndefinitely             | Retain indefinitely                   |
+        | DeleteBuilds                   | Delete builds                         |
+        | ManageBuildQualities           | Manage build qualities                |
+        | DestroyBuilds                  | Destroy builds                        |
+        | UpdateBuildInformation         | Update build information              |
+        | QueueBuilds                    | Queue builds                          |
+        | ManageBuildQueue               | Manage build queue                    |
+        | StopBuilds                     | Stop builds                           |
+        | ViewBuildDefinition            | View build pipeline                   |
+        | EditBuildDefinition            | Edit build pipeline                   |
+        | DeleteBuildDefinition          | Delete build pipeline                 |
+        | OverrideBuildCheckInValidation | Override check-in validation by build |
+        | AdministerBuildPermissions     | Administer build permissions          |
         """
         return pulumi.get(self, "permissions")
 
@@ -253,6 +325,24 @@ class BuildFolderPermissions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] path: The folder path to assign the permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+               
+               | Permission                     | Description                           |
+               |--------------------------------|---------------------------------------|
+               | ViewBuilds                     | View builds                           |
+               | EditBuildQuality               | Edit build quality                    |
+               | RetainIndefinitely             | Retain indefinitely                   |
+               | DeleteBuilds                   | Delete builds                         |
+               | ManageBuildQualities           | Manage build qualities                |
+               | DestroyBuilds                  | Destroy builds                        |
+               | UpdateBuildInformation         | Update build information              |
+               | QueueBuilds                    | Queue builds                          |
+               | ManageBuildQueue               | Manage build queue                    |
+               | StopBuilds                     | Stop builds                           |
+               | ViewBuildDefinition            | View build pipeline                   |
+               | EditBuildDefinition            | Edit build pipeline                   |
+               | DeleteBuildDefinition          | Delete build pipeline                 |
+               | OverrideBuildCheckInValidation | Override check-in validation by build |
+               | AdministerBuildPermissions     | Administer build permissions          |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
@@ -384,6 +474,24 @@ class BuildFolderPermissions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] path: The folder path to assign the permissions.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The following permissions are available.
+               
+               | Permission                     | Description                           |
+               |--------------------------------|---------------------------------------|
+               | ViewBuilds                     | View builds                           |
+               | EditBuildQuality               | Edit build quality                    |
+               | RetainIndefinitely             | Retain indefinitely                   |
+               | DeleteBuilds                   | Delete builds                         |
+               | ManageBuildQualities           | Manage build qualities                |
+               | DestroyBuilds                  | Destroy builds                        |
+               | UpdateBuildInformation         | Update build information              |
+               | QueueBuilds                    | Queue builds                          |
+               | ManageBuildQueue               | Manage build queue                    |
+               | StopBuilds                     | Stop builds                           |
+               | ViewBuildDefinition            | View build pipeline                   |
+               | EditBuildDefinition            | Edit build pipeline                   |
+               | DeleteBuildDefinition          | Delete build pipeline                 |
+               | OverrideBuildCheckInValidation | Override check-in validation by build |
+               | AdministerBuildPermissions     | Administer build permissions          |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
@@ -412,6 +520,24 @@ class BuildFolderPermissions(pulumi.CustomResource):
     def permissions(self) -> pulumi.Output[Mapping[str, str]]:
         """
         the permissions to assign. The following permissions are available.
+
+        | Permission                     | Description                           |
+        |--------------------------------|---------------------------------------|
+        | ViewBuilds                     | View builds                           |
+        | EditBuildQuality               | Edit build quality                    |
+        | RetainIndefinitely             | Retain indefinitely                   |
+        | DeleteBuilds                   | Delete builds                         |
+        | ManageBuildQualities           | Manage build qualities                |
+        | DestroyBuilds                  | Destroy builds                        |
+        | UpdateBuildInformation         | Update build information              |
+        | QueueBuilds                    | Queue builds                          |
+        | ManageBuildQueue               | Manage build queue                    |
+        | StopBuilds                     | Stop builds                           |
+        | ViewBuildDefinition            | View build pipeline                   |
+        | EditBuildDefinition            | Edit build pipeline                   |
+        | DeleteBuildDefinition          | Delete build pipeline                 |
+        | OverrideBuildCheckInValidation | Override check-in validation by build |
+        | AdministerBuildPermissions     | Administer build permissions          |
         """
         return pulumi.get(self, "permissions")
 

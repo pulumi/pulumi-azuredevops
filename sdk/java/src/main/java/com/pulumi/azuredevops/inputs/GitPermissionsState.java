@@ -20,12 +20,16 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
     /**
      * The name of the branch to assign the permissions.
      * 
+     * &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
+     * 
      */
     @Import(name="branchName")
     private @Nullable Output<String> branchName;
 
     /**
      * @return The name of the branch to assign the permissions.
+     * 
+     * &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
      * 
      */
     public Optional<Output<String>> branchName() {
@@ -35,12 +39,50 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
     /**
      * the permissions to assign. The follwing permissions are available
      * 
+     * | Permissions             | Description                                            |
+     * |-------------------------|--------------------------------------------------------|
+     * | Administer              | Administer                                             |
+     * | GenericRead             | Read                                                   |
+     * | GenericContribute       | Contribute                                             |
+     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
+     * | CreateBranch            | Create branch                                          |
+     * | CreateTag               | Create tag                                             |
+     * | ManageNote              | Manage notes                                           |
+     * | PolicyExempt            | Bypass policies when pushing                           |
+     * | CreateRepository        | Create repository                                      |
+     * | DeleteRepository        | Delete repository                                      |
+     * | RenameRepository        | Rename repository                                      |
+     * | EditPolicies            | Edit policies                                          |
+     * | RemoveOthersLocks       | Remove others&#39; locks                                   |
+     * | ManagePermissions       | Manage permissions                                     |
+     * | PullRequestContribute   | Contribute to pull requests                            |
+     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * 
      */
     @Import(name="permissions")
     private @Nullable Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The follwing permissions are available
+     * 
+     * | Permissions             | Description                                            |
+     * |-------------------------|--------------------------------------------------------|
+     * | Administer              | Administer                                             |
+     * | GenericRead             | Read                                                   |
+     * | GenericContribute       | Contribute                                             |
+     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
+     * | CreateBranch            | Create branch                                          |
+     * | CreateTag               | Create tag                                             |
+     * | ManageNote              | Manage notes                                           |
+     * | PolicyExempt            | Bypass policies when pushing                           |
+     * | CreateRepository        | Create repository                                      |
+     * | DeleteRepository        | Delete repository                                      |
+     * | RenameRepository        | Rename repository                                      |
+     * | EditPolicies            | Edit policies                                          |
+     * | RemoveOthersLocks       | Remove others&#39; locks                                   |
+     * | ManagePermissions       | Manage permissions                                     |
+     * | PullRequestContribute   | Contribute to pull requests                            |
+     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
      * 
      */
     public Optional<Output<Map<String,String>>> permissions() {
@@ -139,6 +181,8 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
         /**
          * @param branchName The name of the branch to assign the permissions.
          * 
+         * &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
+         * 
          * @return builder
          * 
          */
@@ -150,6 +194,8 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
         /**
          * @param branchName The name of the branch to assign the permissions.
          * 
+         * &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
+         * 
          * @return builder
          * 
          */
@@ -159,6 +205,25 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param permissions the permissions to assign. The follwing permissions are available
+         * 
+         * | Permissions             | Description                                            |
+         * |-------------------------|--------------------------------------------------------|
+         * | Administer              | Administer                                             |
+         * | GenericRead             | Read                                                   |
+         * | GenericContribute       | Contribute                                             |
+         * | ForcePush               | Force push (rewrite history, delete branches and tags) |
+         * | CreateBranch            | Create branch                                          |
+         * | CreateTag               | Create tag                                             |
+         * | ManageNote              | Manage notes                                           |
+         * | PolicyExempt            | Bypass policies when pushing                           |
+         * | CreateRepository        | Create repository                                      |
+         * | DeleteRepository        | Delete repository                                      |
+         * | RenameRepository        | Rename repository                                      |
+         * | EditPolicies            | Edit policies                                          |
+         * | RemoveOthersLocks       | Remove others&#39; locks                                   |
+         * | ManagePermissions       | Manage permissions                                     |
+         * | PullRequestContribute   | Contribute to pull requests                            |
+         * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
          * 
          * @return builder
          * 
@@ -170,6 +235,25 @@ public final class GitPermissionsState extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param permissions the permissions to assign. The follwing permissions are available
+         * 
+         * | Permissions             | Description                                            |
+         * |-------------------------|--------------------------------------------------------|
+         * | Administer              | Administer                                             |
+         * | GenericRead             | Read                                                   |
+         * | GenericContribute       | Contribute                                             |
+         * | ForcePush               | Force push (rewrite history, delete branches and tags) |
+         * | CreateBranch            | Create branch                                          |
+         * | CreateTag               | Create tag                                             |
+         * | ManageNote              | Manage notes                                           |
+         * | PolicyExempt            | Bypass policies when pushing                           |
+         * | CreateRepository        | Create repository                                      |
+         * | DeleteRepository        | Delete repository                                      |
+         * | RenameRepository        | Rename repository                                      |
+         * | EditPolicies            | Edit policies                                          |
+         * | RemoveOthersLocks       | Remove others&#39; locks                                   |
+         * | ManagePermissions       | Manage permissions                                     |
+         * | PullRequestContribute   | Contribute to pull requests                            |
+         * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
          * 
          * @return builder
          * 

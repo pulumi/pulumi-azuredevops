@@ -29,6 +29,8 @@ class ServiceEndpointGenericGitArgs:
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
         :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
+               
+               > **Note** For AzureDevOps Git, PAT should be used as the password.
         :param pulumi.Input[str] username: The username used to authenticate to the git repository.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -116,6 +118,8 @@ class ServiceEndpointGenericGitArgs:
     def password(self) -> Optional[pulumi.Input[str]]:
         """
         The PAT or password used to authenticate to the git repository.
+
+        > **Note** For AzureDevOps Git, PAT should be used as the password.
         """
         return pulumi.get(self, "password")
 
@@ -152,6 +156,8 @@ class _ServiceEndpointGenericGitState:
         Input properties used for looking up and filtering ServiceEndpointGenericGit resources.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
         :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
+               
+               > **Note** For AzureDevOps Git, PAT should be used as the password.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
@@ -212,6 +218,8 @@ class _ServiceEndpointGenericGitState:
     def password(self) -> Optional[pulumi.Input[str]]:
         """
         The PAT or password used to authenticate to the git repository.
+
+        > **Note** For AzureDevOps Git, PAT should be used as the password.
         """
         return pulumi.get(self, "password")
 
@@ -333,6 +341,8 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
         :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
+               
+               > **Note** For AzureDevOps Git, PAT should be used as the password.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
@@ -456,6 +466,8 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[bool] enable_pipelines_access: A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
         :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
+               
+               > **Note** For AzureDevOps Git, PAT should be used as the password.
         :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
@@ -500,6 +512,8 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
     def password(self) -> pulumi.Output[Optional[str]]:
         """
         The PAT or password used to authenticate to the git repository.
+
+        > **Note** For AzureDevOps Git, PAT should be used as the password.
         """
         return pulumi.get(self, "password")
 

@@ -68,6 +68,7 @@ func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pul
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesArgs struct {
+	// DataSource without specifying any arguments will return all Git repositories of an organization.
 	IncludeHidden *bool `pulumi:"includeHidden"`
 	// Name of the Git repository to retrieve; requires `projectId` to be specified as well
 	Name *string `pulumi:"name"`
@@ -103,6 +104,7 @@ func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, 
 
 // A collection of arguments for invoking getRepositories.
 type GetRepositoriesOutputArgs struct {
+	// DataSource without specifying any arguments will return all Git repositories of an organization.
 	IncludeHidden pulumi.BoolPtrInput `pulumi:"includeHidden"`
 	// Name of the Git repository to retrieve; requires `projectId` to be specified as well
 	Name pulumi.StringPtrInput `pulumi:"name"`

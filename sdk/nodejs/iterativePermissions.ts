@@ -108,6 +108,13 @@ export class IterativePermissions extends pulumi.CustomResource {
     public readonly projectId!: pulumi.Output<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     *
+     * | Permission      | Description                    |
+     * |-----------------|--------------------------------|
+     * | GENERIC_READ    | View permissions for this node |
+     * | GENERIC_WRITE   | Edit this node                 |
+     * | CREATE_CHILDREN | Create child nodes             |
+     * | DELETE          | Delete this node               |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -173,6 +180,13 @@ export interface IterativePermissionsState {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     *
+     * | Permission      | Description                    |
+     * |-----------------|--------------------------------|
+     * | GENERIC_READ    | View permissions for this node |
+     * | GENERIC_WRITE   | Edit this node                 |
+     * | CREATE_CHILDREN | Create child nodes             |
+     * | DELETE          | Delete this node               |
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -199,6 +213,13 @@ export interface IterativePermissionsArgs {
     projectId: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     *
+     * | Permission      | Description                    |
+     * |-----------------|--------------------------------|
+     * | GENERIC_READ    | View permissions for this node |
+     * | GENERIC_WRITE   | Edit this node                 |
+     * | CREATE_CHILDREN | Create child nodes             |
+     * | DELETE          | Delete this node               |
      */
     replace?: pulumi.Input<boolean>;
 }

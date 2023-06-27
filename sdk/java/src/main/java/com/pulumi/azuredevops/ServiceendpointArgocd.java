@@ -130,12 +130,16 @@ public class ServiceendpointArgocd extends com.pulumi.resources.CustomResource {
     /**
      * An `authentication_basic` block for the ArgoCD as documented below.
      * 
+     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
+     * 
      */
     @Export(name="authenticationBasic", type=ServiceendpointArgocdAuthenticationBasic.class, parameters={})
     private Output</* @Nullable */ ServiceendpointArgocdAuthenticationBasic> authenticationBasic;
 
     /**
      * @return An `authentication_basic` block for the ArgoCD as documented below.
+     * 
+     * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
      * 
      */
     public Output<Optional<ServiceendpointArgocdAuthenticationBasic>> authenticationBasic() {

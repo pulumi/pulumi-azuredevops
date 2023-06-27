@@ -113,9 +113,6 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     [AzureDevOpsResourceType("azuredevops:ServiceEndpoint/gitHub:GitHub")]
     public partial class GitHub : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        /// </summary>
         [Output("authOauth")]
         public Output<Outputs.GitHubAuthOauth?> AuthOauth { get; private set; } = null!;
 
@@ -189,9 +186,6 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
 
     public sealed class GitHubArgs : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        /// </summary>
         [Input("authOauth")]
         public Input<Inputs.GitHubAuthOauthArgs>? AuthOauth { get; set; }
 
@@ -232,9 +226,6 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
 
     public sealed class GitHubState : global::Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        /// </summary>
         [Input("authOauth")]
         public Input<Inputs.GitHubAuthOauthGetArgs>? AuthOauth { get; set; }
 

@@ -207,6 +207,13 @@ type WorkItemQueryPermissions struct {
 	// Path to a query or folder beneath `Shared Queries`
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// the permissions to assign. The following permissions are available
+	//
+	// | Permissions              | Description                        |
+	// |--------------------------|------------------------------------|
+	// | Read                     | Read                               |
+	// | Contribute               | Contribute                         |
+	// | Delete                   | Delete                             |
+	// | ManagePermissions        | Manage Permissions                 |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
@@ -257,6 +264,13 @@ type workItemQueryPermissionsState struct {
 	// Path to a query or folder beneath `Shared Queries`
 	Path *string `pulumi:"path"`
 	// the permissions to assign. The following permissions are available
+	//
+	// | Permissions              | Description                        |
+	// |--------------------------|------------------------------------|
+	// | Read                     | Read                               |
+	// | Contribute               | Contribute                         |
+	// | Delete                   | Delete                             |
+	// | ManagePermissions        | Manage Permissions                 |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
@@ -270,6 +284,13 @@ type WorkItemQueryPermissionsState struct {
 	// Path to a query or folder beneath `Shared Queries`
 	Path pulumi.StringPtrInput
 	// the permissions to assign. The following permissions are available
+	//
+	// | Permissions              | Description                        |
+	// |--------------------------|------------------------------------|
+	// | Read                     | Read                               |
+	// | Contribute               | Contribute                         |
+	// | Delete                   | Delete                             |
+	// | ManagePermissions        | Manage Permissions                 |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringPtrInput
@@ -287,6 +308,13 @@ type workItemQueryPermissionsArgs struct {
 	// Path to a query or folder beneath `Shared Queries`
 	Path *string `pulumi:"path"`
 	// the permissions to assign. The following permissions are available
+	//
+	// | Permissions              | Description                        |
+	// |--------------------------|------------------------------------|
+	// | Read                     | Read                               |
+	// | Contribute               | Contribute                         |
+	// | Delete                   | Delete                             |
+	// | ManagePermissions        | Manage Permissions                 |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal string `pulumi:"principal"`
@@ -301,6 +329,13 @@ type WorkItemQueryPermissionsArgs struct {
 	// Path to a query or folder beneath `Shared Queries`
 	Path pulumi.StringPtrInput
 	// the permissions to assign. The following permissions are available
+	//
+	// | Permissions              | Description                        |
+	// |--------------------------|------------------------------------|
+	// | Read                     | Read                               |
+	// | Contribute               | Contribute                         |
+	// | Delete                   | Delete                             |
+	// | ManagePermissions        | Manage Permissions                 |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringInput
@@ -403,6 +438,13 @@ func (o WorkItemQueryPermissionsOutput) Path() pulumi.StringPtrOutput {
 }
 
 // the permissions to assign. The following permissions are available
+//
+// | Permissions              | Description                        |
+// |--------------------------|------------------------------------|
+// | Read                     | Read                               |
+// | Contribute               | Contribute                         |
+// | Delete                   | Delete                             |
+// | ManagePermissions        | Manage Permissions                 |
 func (o WorkItemQueryPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *WorkItemQueryPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }

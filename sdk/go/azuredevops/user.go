@@ -57,6 +57,8 @@ type User struct {
 	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
 	Descriptor pulumi.StringOutput `pulumi:"descriptor"`
 	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	//
+	// > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
 	LicensingSource pulumi.StringPtrOutput `pulumi:"licensingSource"`
 	// The type of source provider for the origin identifier.
 	Origin pulumi.StringOutput `pulumi:"origin"`
@@ -106,6 +108,8 @@ type userState struct {
 	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
 	Descriptor *string `pulumi:"descriptor"`
 	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	//
+	// > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
 	LicensingSource *string `pulumi:"licensingSource"`
 	// The type of source provider for the origin identifier.
 	Origin *string `pulumi:"origin"`
@@ -121,6 +125,8 @@ type UserState struct {
 	// The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
 	Descriptor pulumi.StringPtrInput
 	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	//
+	// > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
 	LicensingSource pulumi.StringPtrInput
 	// The type of source provider for the origin identifier.
 	Origin pulumi.StringPtrInput
@@ -138,6 +144,8 @@ type userArgs struct {
 	// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 	AccountLicenseType *string `pulumi:"accountLicenseType"`
 	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	//
+	// > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
 	LicensingSource *string `pulumi:"licensingSource"`
 	// The type of source provider for the origin identifier.
 	Origin *string `pulumi:"origin"`
@@ -152,6 +160,8 @@ type UserArgs struct {
 	// Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
 	AccountLicenseType pulumi.StringPtrInput
 	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+	//
+	// > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
 	LicensingSource pulumi.StringPtrInput
 	// The type of source provider for the origin identifier.
 	Origin pulumi.StringPtrInput
@@ -259,6 +269,8 @@ func (o UserOutput) Descriptor() pulumi.StringOutput {
 }
 
 // The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+//
+// > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
 func (o UserOutput) LicensingSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.LicensingSource }).(pulumi.StringPtrOutput)
 }

@@ -136,12 +136,26 @@ public class TaggingPermissions extends com.pulumi.resources.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
+     * | Name               | Permission Description     |
+     * | ------------------ | -------------------------- |
+     * | Enumerate          | Enumerate tag definitions  |
+     * | Create             | Create tag definition      |
+     * | Update             | Update tag definition      |
+     * | Delete             | Delete tag definition      |
+     * 
      */
     @Export(name="replace", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * 
+     * | Name               | Permission Description     |
+     * | ------------------ | -------------------------- |
+     * | Enumerate          | Enumerate tag definitions  |
+     * | Create             | Create tag definition      |
+     * | Update             | Update tag definition      |
+     * | Delete             | Delete tag definition      |
      * 
      */
     public Output<Optional<Boolean>> replace() {

@@ -97,6 +97,8 @@ export class ServiceendpointArgocd extends pulumi.CustomResource {
 
     /**
      * An `authenticationBasic` block for the ArgoCD as documented below.
+     *
+     * > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      */
     public readonly authenticationBasic!: pulumi.Output<outputs.ServiceendpointArgocdAuthenticationBasic | undefined>;
     /**
@@ -171,6 +173,8 @@ export class ServiceendpointArgocd extends pulumi.CustomResource {
 export interface ServiceendpointArgocdState {
     /**
      * An `authenticationBasic` block for the ArgoCD as documented below.
+     *
+     * > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      */
     authenticationBasic?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationBasic>;
     /**
@@ -202,6 +206,8 @@ export interface ServiceendpointArgocdState {
 export interface ServiceendpointArgocdArgs {
     /**
      * An `authenticationBasic` block for the ArgoCD as documented below.
+     *
+     * > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
      */
     authenticationBasic?: pulumi.Input<inputs.ServiceendpointArgocdAuthenticationBasic>;
     /**

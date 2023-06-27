@@ -93,6 +93,13 @@ export class TaggingPermissions extends pulumi.CustomResource {
     public readonly projectId!: pulumi.Output<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     *
+     * | Name               | Permission Description     |
+     * | ------------------ | -------------------------- |
+     * | Enumerate          | Enumerate tag definitions  |
+     * | Create             | Create tag definition      |
+     * | Update             | Update tag definition      |
+     * | Delete             | Delete tag definition      |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -149,6 +156,13 @@ export interface TaggingPermissionsState {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     *
+     * | Name               | Permission Description     |
+     * | ------------------ | -------------------------- |
+     * | Enumerate          | Enumerate tag definitions  |
+     * | Create             | Create tag definition      |
+     * | Update             | Update tag definition      |
+     * | Delete             | Delete tag definition      |
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -171,6 +185,13 @@ export interface TaggingPermissionsArgs {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     *
+     * | Name               | Permission Description     |
+     * | ------------------ | -------------------------- |
+     * | Enumerate          | Enumerate tag definitions  |
+     * | Create             | Create tag definition      |
+     * | Update             | Update tag definition      |
+     * | Delete             | Delete tag definition      |
      */
     replace?: pulumi.Input<boolean>;
 }

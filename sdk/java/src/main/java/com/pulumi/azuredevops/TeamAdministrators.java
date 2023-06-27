@@ -90,12 +90,22 @@ public class TeamAdministrators extends com.pulumi.resources.CustomResource {
     /**
      * List of subject descriptors to define adminitrators of the team.
      * 
+     * &gt; NOTE: It&#39;s possible to define team administrators both within the
+     * `azuredevops.Team` resource via the `administrators` block and by using the
+     * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
+     * both methods to manage team administrators, since there&#39;ll be conflicts.
+     * 
      */
     @Export(name="administrators", type=List.class, parameters={String.class})
     private Output<List<String>> administrators;
 
     /**
      * @return List of subject descriptors to define adminitrators of the team.
+     * 
+     * &gt; NOTE: It&#39;s possible to define team administrators both within the
+     * `azuredevops.Team` resource via the `administrators` block and by using the
+     * `azuredevops.TeamAdministrators` resource. However it&#39;s not possible to use
+     * both methods to manage team administrators, since there&#39;ll be conflicts.
      * 
      */
     public Output<List<String>> administrators() {

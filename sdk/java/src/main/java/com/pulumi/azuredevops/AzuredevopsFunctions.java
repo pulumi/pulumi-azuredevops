@@ -30,6 +30,10 @@ import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubPlainArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointNpmPlainArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudPlainArgs;
 import com.pulumi.azuredevops.inputs.GetTeamArgs;
 import com.pulumi.azuredevops.inputs.GetTeamPlainArgs;
 import com.pulumi.azuredevops.inputs.GetTeamsArgs;
@@ -53,6 +57,8 @@ import com.pulumi.azuredevops.outputs.GetProjectsResult;
 import com.pulumi.azuredevops.outputs.GetRepositoriesResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointAzureRMResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointGithubResult;
+import com.pulumi.azuredevops.outputs.GetServiceendpointNpmResult;
+import com.pulumi.azuredevops.outputs.GetServiceendpointSonarcloudResult;
 import com.pulumi.azuredevops.outputs.GetTeamResult;
 import com.pulumi.azuredevops.outputs.GetTeamsResult;
 import com.pulumi.azuredevops.outputs.GetUsersResult;
@@ -3706,6 +3712,318 @@ public final class AzuredevopsFunctions {
      */
     public static CompletableFuture<GetServiceEndpointGithubResult> getServiceEndpointGithubPlain(GetServiceEndpointGithubPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", TypeShape.of(GetServiceEndpointGithubResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NPM Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example npm&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointNpmResult -&gt; getServiceendpointNpmResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServiceendpointNpmResult> getServiceendpointNpm(GetServiceendpointNpmArgs args) {
+        return getServiceendpointNpm(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing NPM Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example npm&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointNpmResult -&gt; getServiceendpointNpmResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointNpmResult> getServiceendpointNpmPlain(GetServiceendpointNpmPlainArgs args) {
+        return getServiceendpointNpmPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing NPM Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example npm&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointNpmResult -&gt; getServiceendpointNpmResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServiceendpointNpmResult> getServiceendpointNpm(GetServiceendpointNpmArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", TypeShape.of(GetServiceendpointNpmResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing NPM Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointNpm(GetServiceendpointNpmArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example npm&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointNpmResult -&gt; getServiceendpointNpmResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointNpmResult> getServiceendpointNpmPlain(GetServiceendpointNpmPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", TypeShape.of(GetServiceendpointNpmResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointSonarcloudResult -&gt; getServiceendpointSonarcloudResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs args) {
+        return getServiceendpointSonarcloud(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointSonarcloudResult -&gt; getServiceendpointSonarcloudResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloudPlain(GetServiceendpointSonarcloudPlainArgs args) {
+        return getServiceendpointSonarcloudPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointSonarcloudResult -&gt; getServiceendpointSonarcloudResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", TypeShape.of(GetServiceendpointSonarcloudResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointSonarcloud(GetServiceendpointSonarcloudArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example Sonar Cloud&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointSonarcloudResult -&gt; getServiceendpointSonarcloudResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointSonarcloudResult> getServiceendpointSonarcloudPlain(GetServiceendpointSonarcloudPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointSonarcloud:getServiceendpointSonarcloud", TypeShape.of(GetServiceendpointSonarcloudResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Team in a Project within Azure DevOps.

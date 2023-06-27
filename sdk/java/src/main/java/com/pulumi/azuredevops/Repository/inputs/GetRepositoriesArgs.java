@@ -16,9 +16,17 @@ public final class GetRepositoriesArgs extends com.pulumi.resources.InvokeArgs {
 
     public static final GetRepositoriesArgs Empty = new GetRepositoriesArgs();
 
+    /**
+     * DataSource without specifying any arguments will return all Git repositories of an organization.
+     * 
+     */
     @Import(name="includeHidden")
     private @Nullable Output<Boolean> includeHidden;
 
+    /**
+     * @return DataSource without specifying any arguments will return all Git repositories of an organization.
+     * 
+     */
     public Optional<Output<Boolean>> includeHidden() {
         return Optional.ofNullable(this.includeHidden);
     }
@@ -79,11 +87,23 @@ public final class GetRepositoriesArgs extends com.pulumi.resources.InvokeArgs {
             $ = new GetRepositoriesArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param includeHidden DataSource without specifying any arguments will return all Git repositories of an organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeHidden(@Nullable Output<Boolean> includeHidden) {
             $.includeHidden = includeHidden;
             return this;
         }
 
+        /**
+         * @param includeHidden DataSource without specifying any arguments will return all Git repositories of an organization.
+         * 
+         * @return builder
+         * 
+         */
         public Builder includeHidden(Boolean includeHidden) {
             return includeHidden(Output.of(includeHidden));
         }

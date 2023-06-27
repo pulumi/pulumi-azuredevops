@@ -136,12 +136,26 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
+     * | Name               | Permission Description   |
+     * | ------------------ | ------------------------ |
+     * | ViewSubscriptions  | View Subscriptions       |
+     * | EditSubscriptions  | Edit Subscription        |
+     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | PublishEvents      | Publish Events           |
+     * 
      */
     @Export(name="replace", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * 
+     * | Name               | Permission Description   |
+     * | ------------------ | ------------------------ |
+     * | ViewSubscriptions  | View Subscriptions       |
+     * | EditSubscriptions  | Edit Subscription        |
+     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | PublishEvents      | Publish Events           |
      * 
      */
     public Output<Optional<Boolean>> replace() {

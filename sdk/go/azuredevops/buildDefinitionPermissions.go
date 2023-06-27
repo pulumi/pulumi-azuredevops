@@ -105,6 +105,24 @@ type BuildDefinitionPermissions struct {
 	// The id of the build definition to assign the permissions.
 	BuildDefinitionId pulumi.StringOutput `pulumi:"buildDefinitionId"`
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
@@ -158,6 +176,24 @@ type buildDefinitionPermissionsState struct {
 	// The id of the build definition to assign the permissions.
 	BuildDefinitionId *string `pulumi:"buildDefinitionId"`
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
@@ -171,6 +207,24 @@ type BuildDefinitionPermissionsState struct {
 	// The id of the build definition to assign the permissions.
 	BuildDefinitionId pulumi.StringPtrInput
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringPtrInput
@@ -188,6 +242,24 @@ type buildDefinitionPermissionsArgs struct {
 	// The id of the build definition to assign the permissions.
 	BuildDefinitionId string `pulumi:"buildDefinitionId"`
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal string `pulumi:"principal"`
@@ -202,6 +274,24 @@ type BuildDefinitionPermissionsArgs struct {
 	// The id of the build definition to assign the permissions.
 	BuildDefinitionId pulumi.StringInput
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringInput
@@ -304,6 +394,24 @@ func (o BuildDefinitionPermissionsOutput) BuildDefinitionId() pulumi.StringOutpu
 }
 
 // the permissions to assign. The following permissions are available.
+//
+// | Permission                     | Description                           |
+// |--------------------------------|---------------------------------------|
+// | ViewBuilds                     | View builds                           |
+// | EditBuildQuality               | Edit build quality                    |
+// | RetainIndefinitely             | Retain indefinitely                   |
+// | DeleteBuilds                   | Delete builds                         |
+// | ManageBuildQualities           | Manage build qualities                |
+// | DestroyBuilds                  | Destroy builds                        |
+// | UpdateBuildInformation         | Update build information              |
+// | QueueBuilds                    | Queue builds                          |
+// | ManageBuildQueue               | Manage build queue                    |
+// | StopBuilds                     | Stop builds                           |
+// | ViewBuildDefinition            | View build pipeline                   |
+// | EditBuildDefinition            | Edit build pipeline                   |
+// | DeleteBuildDefinition          | Delete build pipeline                 |
+// | OverrideBuildCheckInValidation | Override check-in validation by build |
+// | AdministerBuildPermissions     | Administer build permissions          |
 func (o BuildDefinitionPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BuildDefinitionPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }

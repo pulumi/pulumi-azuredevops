@@ -79,17 +79,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise")
 public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.CustomResource {
-    /**
-     * An `auth_personal` block as documented below. Allows connecting using a personal access token.
-     * 
-     */
     @Export(name="authPersonal", type=ServiceEndpointGitHubEnterpriseAuthPersonal.class, parameters={})
     private Output<ServiceEndpointGitHubEnterpriseAuthPersonal> authPersonal;
 
-    /**
-     * @return An `auth_personal` block as documented below. Allows connecting using a personal access token.
-     * 
-     */
     public Output<ServiceEndpointGitHubEnterpriseAuthPersonal> authPersonal() {
         return this.authPersonal;
     }

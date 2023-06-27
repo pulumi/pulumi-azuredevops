@@ -16,6 +16,8 @@ export interface BranchPolicyAutoReviewersSettings {
     message?: pulumi.Input<string>;
     /**
      * Minimum number of required reviewers. Defaults to `1`.
+     *
+     * > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
      */
     minimumNumberOfReviewers?: pulumi.Input<number>;
     /**
@@ -168,6 +170,8 @@ export interface BranchPolicyMinReviewersSettings {
     onLastIterationRequireVote?: pulumi.Input<boolean>;
     /**
      * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+     *
+     * > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      */
     onPushResetAllVotes?: pulumi.Input<boolean>;
     /**
@@ -179,7 +183,7 @@ export interface BranchPolicyMinReviewersSettings {
      */
     reviewerCount?: pulumi.Input<number>;
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: pulumi.Input<pulumi.Input<inputs.BranchPolicyMinReviewersSettingsScope>[]>;
     /**
@@ -1444,6 +1448,8 @@ export namespace Policy {
         onLastIterationRequireVote?: pulumi.Input<boolean>;
         /**
          * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+         *
+         * > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
          */
         onPushResetAllVotes?: pulumi.Input<boolean>;
         /**
@@ -1455,7 +1461,7 @@ export namespace Policy {
          */
         reviewerCount?: pulumi.Input<number>;
         /**
-         * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+         * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
          */
         scopes: pulumi.Input<pulumi.Input<inputs.Policy.BranchPolicyMinReviewersSettingsScope>[]>;
         /**

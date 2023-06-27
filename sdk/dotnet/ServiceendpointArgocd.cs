@@ -95,6 +95,8 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// An `authentication_basic` block for the ArgoCD as documented below.
+        /// 
+        /// &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         /// </summary>
         [Output("authenticationBasic")]
         public Output<Outputs.ServiceendpointArgocdAuthenticationBasic?> AuthenticationBasic { get; private set; } = null!;
@@ -180,6 +182,8 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// An `authentication_basic` block for the ArgoCD as documented below.
+        /// 
+        /// &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointArgocdAuthenticationBasicArgs>? AuthenticationBasic { get; set; }
@@ -232,6 +236,8 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// An `authentication_basic` block for the ArgoCD as documented below.
+        /// 
+        /// &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
         /// </summary>
         [Input("authenticationBasic")]
         public Input<Inputs.ServiceendpointArgocdAuthenticationBasicGetArgs>? AuthenticationBasic { get; set; }

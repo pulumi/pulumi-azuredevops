@@ -162,12 +162,26 @@ public class IterativePermissions extends com.pulumi.resources.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
+     * | Permission      | Description                    |
+     * |-----------------|--------------------------------|
+     * | GENERIC_READ    | View permissions for this node |
+     * | GENERIC_WRITE   | Edit this node                 |
+     * | CREATE_CHILDREN | Create child nodes             |
+     * | DELETE          | Delete this node               |
+     * 
      */
     @Export(name="replace", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * 
+     * | Permission      | Description                    |
+     * |-----------------|--------------------------------|
+     * | GENERIC_READ    | View permissions for this node |
+     * | GENERIC_WRITE   | Edit this node                 |
+     * | CREATE_CHILDREN | Create child nodes             |
+     * | DELETE          | Delete this node               |
      * 
      */
     public Output<Optional<Boolean>> replace() {

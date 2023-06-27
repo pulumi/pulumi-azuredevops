@@ -105,7 +105,7 @@ namespace Pulumi.AzureDevOps.Policy
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration for the policy. This block must be defined exactly once.
+        /// A `settings` block as defined below.. This block must be defined exactly once.
         /// </summary>
         [Output("settings")]
         public Output<Outputs.BranchPolicyMinReviewersSettings> Settings { get; private set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.AzureDevOps.Policy
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// Configuration for the policy. This block must be defined exactly once.
+        /// A `settings` block as defined below.. This block must be defined exactly once.
         /// </summary>
         [Input("settings", required: true)]
         public Input<Inputs.BranchPolicyMinReviewersSettingsArgs> Settings { get; set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.AzureDevOps.Policy
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Configuration for the policy. This block must be defined exactly once.
+        /// A `settings` block as defined below.. This block must be defined exactly once.
         /// </summary>
         [Input("settings")]
         public Input<Inputs.BranchPolicyMinReviewersSettingsGetArgs>? Settings { get; set; }

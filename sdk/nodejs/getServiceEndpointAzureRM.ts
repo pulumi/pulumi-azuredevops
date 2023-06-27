@@ -63,6 +63,9 @@ export interface GetServiceEndpointAzureRMArgs {
     serviceEndpointId?: string;
     /**
      * the Name of the Service Endpoint.
+     *
+     * > **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+     * > **NOTE:** When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
      */
     serviceEndpointName?: string;
 }
@@ -164,6 +167,9 @@ export interface GetServiceEndpointAzureRMOutputArgs {
     serviceEndpointId?: pulumi.Input<string>;
     /**
      * the Name of the Service Endpoint.
+     *
+     * > **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+     * > **NOTE:** When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
      */
     serviceEndpointName?: pulumi.Input<string>;
 }

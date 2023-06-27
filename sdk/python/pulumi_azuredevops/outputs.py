@@ -127,6 +127,8 @@ class BranchPolicyAutoReviewersSettings(dict):
         :param Sequence['BranchPolicyAutoReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param str message: Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
         :param int minimum_number_of_reviewers: Minimum number of required reviewers. Defaults to `1`.
+               
+               > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
         :param Sequence[str] path_filters: Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
         :param bool submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
@@ -170,6 +172,8 @@ class BranchPolicyAutoReviewersSettings(dict):
     def minimum_number_of_reviewers(self) -> Optional[int]:
         """
         Minimum number of required reviewers. Defaults to `1`.
+
+        > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
         """
         return pulumi.get(self, "minimum_number_of_reviewers")
 
@@ -709,11 +713,13 @@ class BranchPolicyMinReviewersSettings(dict):
                  reviewer_count: Optional[int] = None,
                  submitter_can_vote: Optional[bool] = None):
         """
-        :param Sequence['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param bool allow_completion_with_rejects_or_waits: Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
         :param bool last_pusher_cannot_approve: Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
         :param bool on_last_iteration_require_vote: On last iteration require vote. Defaults to `false`.
         :param bool on_push_reset_all_votes: When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+               
+               > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
         :param bool on_push_reset_approved_votes: When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
         :param int reviewer_count: The number of reviewers needed to approve.
         :param bool submitter_can_vote: Allow requesters to approve their own changes. Defaults to `false`.
@@ -738,7 +744,7 @@ class BranchPolicyMinReviewersSettings(dict):
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.BranchPolicyMinReviewersSettingsScope']:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -771,6 +777,8 @@ class BranchPolicyMinReviewersSettings(dict):
     def on_push_reset_all_votes(self) -> Optional[bool]:
         """
         When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+
+        > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
         """
         return pulumi.get(self, "on_push_reset_all_votes")
 
@@ -4402,6 +4410,8 @@ class GetProjectsProjectResult(dict):
         :param str project_id: The ID of the Project.
         :param str project_url: Url to the full version of the object.
         :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+               
+               DataSource without specifying any arguments will return all projects.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "project_id", project_id)
@@ -4437,6 +4447,8 @@ class GetProjectsProjectResult(dict):
     def state(self) -> str:
         """
         State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+
+        DataSource without specifying any arguments will return all projects.
         """
         return pulumi.get(self, "state")
 
@@ -4634,6 +4646,20 @@ class GetUsersUserResult(dict):
         :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         :param str principal_name: The PrincipalName of this graph member from the source provider.
         :param str origin_id: The unique identifier from the system of origin.
+               
+               DataSource without specifying any arguments will return all users inside an organization.
+               
+               List of possible subject types
+               
+               ```python
+               import pulumi
+               ```
+               
+               List of possible origins
+               
+               ```python
+               import pulumi
+               ```
         """
         pulumi.set(__self__, "descriptor", descriptor)
         pulumi.set(__self__, "display_name", display_name)
@@ -4697,6 +4723,20 @@ class GetUsersUserResult(dict):
     def origin_id(self) -> Optional[str]:
         """
         The unique identifier from the system of origin.
+
+        DataSource without specifying any arguments will return all users inside an organization.
+
+        List of possible subject types
+
+        ```python
+        import pulumi
+        ```
+
+        List of possible origins
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "origin_id")
 

@@ -59,6 +59,20 @@ export interface GetUsersArgs {
     origin?: string;
     /**
      * The unique identifier from the system of origin.
+     *
+     * DataSource without specifying any arguments will return all users inside an organization.
+     *
+     * List of possible subject types
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     *
+     * List of possible origins
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     originId?: string;
     /**
@@ -142,6 +156,20 @@ export interface GetUsersOutputArgs {
     origin?: pulumi.Input<string>;
     /**
      * The unique identifier from the system of origin.
+     *
+     * DataSource without specifying any arguments will return all users inside an organization.
+     *
+     * List of possible subject types
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     *
+     * List of possible origins
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     originId?: pulumi.Input<string>;
     /**

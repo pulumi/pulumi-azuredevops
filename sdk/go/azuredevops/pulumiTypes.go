@@ -16,6 +16,8 @@ type BranchPolicyAutoReviewersSettings struct {
 	// Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
 	Message *string `pulumi:"message"`
 	// Minimum number of required reviewers. Defaults to `1`.
+	//
+	// > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
 	MinimumNumberOfReviewers *int `pulumi:"minimumNumberOfReviewers"`
 	// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
 	PathFilters []string `pulumi:"pathFilters"`
@@ -42,6 +44,8 @@ type BranchPolicyAutoReviewersSettingsArgs struct {
 	// Activity feed message, Message will appear in the activity feed of pull requests with automatically added reviewers.
 	Message pulumi.StringPtrInput `pulumi:"message"`
 	// Minimum number of required reviewers. Defaults to `1`.
+	//
+	// > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
 	MinimumNumberOfReviewers pulumi.IntPtrInput `pulumi:"minimumNumberOfReviewers"`
 	// Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
 	PathFilters pulumi.StringArrayInput `pulumi:"pathFilters"`
@@ -139,6 +143,8 @@ func (o BranchPolicyAutoReviewersSettingsOutput) Message() pulumi.StringPtrOutpu
 }
 
 // Minimum number of required reviewers. Defaults to `1`.
+//
+// > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
 func (o BranchPolicyAutoReviewersSettingsOutput) MinimumNumberOfReviewers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v BranchPolicyAutoReviewersSettings) *int { return v.MinimumNumberOfReviewers }).(pulumi.IntPtrOutput)
 }
@@ -203,6 +209,8 @@ func (o BranchPolicyAutoReviewersSettingsPtrOutput) Message() pulumi.StringPtrOu
 }
 
 // Minimum number of required reviewers. Defaults to `1`.
+//
+// > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
 func (o BranchPolicyAutoReviewersSettingsPtrOutput) MinimumNumberOfReviewers() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyAutoReviewersSettings) *int {
 		if v == nil {
@@ -1315,12 +1323,14 @@ type BranchPolicyMinReviewersSettings struct {
 	// On last iteration require vote. Defaults to `false`.
 	OnLastIterationRequireVote *bool `pulumi:"onLastIterationRequireVote"`
 	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+	//
+	// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 	OnPushResetAllVotes *bool `pulumi:"onPushResetAllVotes"`
 	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
 	OnPushResetApprovedVotes *bool `pulumi:"onPushResetApprovedVotes"`
 	// The number of reviewers needed to approve.
 	ReviewerCount *int `pulumi:"reviewerCount"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes []BranchPolicyMinReviewersSettingsScope `pulumi:"scopes"`
 	// Allow requesters to approve their own changes. Defaults to `false`.
 	SubmitterCanVote *bool `pulumi:"submitterCanVote"`
@@ -1345,12 +1355,14 @@ type BranchPolicyMinReviewersSettingsArgs struct {
 	// On last iteration require vote. Defaults to `false`.
 	OnLastIterationRequireVote pulumi.BoolPtrInput `pulumi:"onLastIterationRequireVote"`
 	// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+	//
+	// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 	OnPushResetAllVotes pulumi.BoolPtrInput `pulumi:"onPushResetAllVotes"`
 	// When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
 	OnPushResetApprovedVotes pulumi.BoolPtrInput `pulumi:"onPushResetApprovedVotes"`
 	// The number of reviewers needed to approve.
 	ReviewerCount pulumi.IntPtrInput `pulumi:"reviewerCount"`
-	// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+	// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 	Scopes BranchPolicyMinReviewersSettingsScopeArrayInput `pulumi:"scopes"`
 	// Allow requesters to approve their own changes. Defaults to `false`.
 	SubmitterCanVote pulumi.BoolPtrInput `pulumi:"submitterCanVote"`
@@ -1449,6 +1461,8 @@ func (o BranchPolicyMinReviewersSettingsOutput) OnLastIterationRequireVote() pul
 }
 
 // When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+//
+// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 func (o BranchPolicyMinReviewersSettingsOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *bool { return v.OnPushResetAllVotes }).(pulumi.BoolPtrOutput)
 }
@@ -1463,7 +1477,7 @@ func (o BranchPolicyMinReviewersSettingsOutput) ReviewerCount() pulumi.IntPtrOut
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) *int { return v.ReviewerCount }).(pulumi.IntPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyMinReviewersSettingsOutput) Scopes() BranchPolicyMinReviewersSettingsScopeArrayOutput {
 	return o.ApplyT(func(v BranchPolicyMinReviewersSettings) []BranchPolicyMinReviewersSettingsScope { return v.Scopes }).(BranchPolicyMinReviewersSettingsScopeArrayOutput)
 }
@@ -1528,6 +1542,8 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) OnLastIterationRequireVote() 
 }
 
 // When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+//
+// > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) OnPushResetAllVotes() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) *bool {
 		if v == nil {
@@ -1557,7 +1573,7 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) ReviewerCount() pulumi.IntPtr
 	}).(pulumi.IntPtrOutput)
 }
 
-// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
 func (o BranchPolicyMinReviewersSettingsPtrOutput) Scopes() BranchPolicyMinReviewersSettingsScopeArrayOutput {
 	return o.ApplyT(func(v *BranchPolicyMinReviewersSettings) []BranchPolicyMinReviewersSettingsScope {
 		if v == nil {
@@ -11186,6 +11202,8 @@ type GetProjectsProject struct {
 	// Url to the full version of the object.
 	ProjectUrl string `pulumi:"projectUrl"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+	//
+	// DataSource without specifying any arguments will return all projects.
 	State string `pulumi:"state"`
 }
 
@@ -11208,6 +11226,8 @@ type GetProjectsProjectArgs struct {
 	// Url to the full version of the object.
 	ProjectUrl pulumi.StringInput `pulumi:"projectUrl"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+	//
+	// DataSource without specifying any arguments will return all projects.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -11278,6 +11298,8 @@ func (o GetProjectsProjectOutput) ProjectUrl() pulumi.StringOutput {
 }
 
 // State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+//
+// DataSource without specifying any arguments will return all projects.
 func (o GetProjectsProjectOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.State }).(pulumi.StringOutput)
 }
@@ -11622,6 +11644,40 @@ type GetUsersUser struct {
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin string `pulumi:"origin"`
 	// The unique identifier from the system of origin.
+	//
+	// DataSource without specifying any arguments will return all users inside an organization.
+	//
+	// List of possible subject types
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// List of possible origins
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	OriginId *string `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName string `pulumi:"principalName"`
@@ -11650,6 +11706,40 @@ type GetUsersUserArgs struct {
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin pulumi.StringInput `pulumi:"origin"`
 	// The unique identifier from the system of origin.
+	//
+	// DataSource without specifying any arguments will return all users inside an organization.
+	//
+	// List of possible subject types
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// List of possible origins
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	OriginId pulumi.StringPtrInput `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName pulumi.StringInput `pulumi:"principalName"`
@@ -11732,6 +11822,46 @@ func (o GetUsersUserOutput) Origin() pulumi.StringOutput {
 }
 
 // The unique identifier from the system of origin.
+//
+// DataSource without specifying any arguments will return all users inside an organization.
+//
+// # List of possible subject types
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # List of possible origins
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o GetUsersUserOutput) OriginId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersUser) *string { return v.OriginId }).(pulumi.StringPtrOutput)
 }

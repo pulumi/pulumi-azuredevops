@@ -112,6 +112,8 @@ type ServiceendpointArgocd struct {
 	pulumi.CustomResourceState
 
 	// An `authenticationBasic` block for the ArgoCD as documented below.
+	//
+	// > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
 	AuthenticationBasic ServiceendpointArgocdAuthenticationBasicPtrOutput `pulumi:"authenticationBasic"`
 	// An `authenticationToken` block for the ArgoCD as documented below.
 	AuthenticationToken ServiceendpointArgocdAuthenticationTokenPtrOutput `pulumi:"authenticationToken"`
@@ -165,6 +167,8 @@ func GetServiceendpointArgocd(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ServiceendpointArgocd resources.
 type serviceendpointArgocdState struct {
 	// An `authenticationBasic` block for the ArgoCD as documented below.
+	//
+	// > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
 	AuthenticationBasic *ServiceendpointArgocdAuthenticationBasic `pulumi:"authenticationBasic"`
 	// An `authenticationToken` block for the ArgoCD as documented below.
 	AuthenticationToken *ServiceendpointArgocdAuthenticationToken `pulumi:"authenticationToken"`
@@ -181,6 +185,8 @@ type serviceendpointArgocdState struct {
 
 type ServiceendpointArgocdState struct {
 	// An `authenticationBasic` block for the ArgoCD as documented below.
+	//
+	// > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
 	AuthenticationBasic ServiceendpointArgocdAuthenticationBasicPtrInput
 	// An `authenticationToken` block for the ArgoCD as documented below.
 	AuthenticationToken ServiceendpointArgocdAuthenticationTokenPtrInput
@@ -201,6 +207,8 @@ func (ServiceendpointArgocdState) ElementType() reflect.Type {
 
 type serviceendpointArgocdArgs struct {
 	// An `authenticationBasic` block for the ArgoCD as documented below.
+	//
+	// > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
 	AuthenticationBasic *ServiceendpointArgocdAuthenticationBasic `pulumi:"authenticationBasic"`
 	// An `authenticationToken` block for the ArgoCD as documented below.
 	AuthenticationToken *ServiceendpointArgocdAuthenticationToken `pulumi:"authenticationToken"`
@@ -218,6 +226,8 @@ type serviceendpointArgocdArgs struct {
 // The set of arguments for constructing a ServiceendpointArgocd resource.
 type ServiceendpointArgocdArgs struct {
 	// An `authenticationBasic` block for the ArgoCD as documented below.
+	//
+	// > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
 	AuthenticationBasic ServiceendpointArgocdAuthenticationBasicPtrInput
 	// An `authenticationToken` block for the ArgoCD as documented below.
 	AuthenticationToken ServiceendpointArgocdAuthenticationTokenPtrInput
@@ -320,6 +330,8 @@ func (o ServiceendpointArgocdOutput) ToServiceendpointArgocdOutputWithContext(ct
 }
 
 // An `authenticationBasic` block for the ArgoCD as documented below.
+//
+// > **NOTE:** `authenticationBasic` and `authenticationToken` conflict with each other, only one is required.
 func (o ServiceendpointArgocdOutput) AuthenticationBasic() ServiceendpointArgocdAuthenticationBasicPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointArgocd) ServiceendpointArgocdAuthenticationBasicPtrOutput {
 		return v.AuthenticationBasic

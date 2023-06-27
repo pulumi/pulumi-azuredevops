@@ -115,6 +115,7 @@ def get_repositories(include_hidden: Optional[bool] = None,
     - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
 
 
+    :param bool include_hidden: DataSource without specifying any arguments will return all Git repositories of an organization.
     :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
     :param str project_id: ID of project to list Git repositories
     """
@@ -159,6 +160,7 @@ def get_repositories_output(include_hidden: Optional[pulumi.Input[Optional[bool]
     - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
 
 
+    :param bool include_hidden: DataSource without specifying any arguments will return all Git repositories of an organization.
     :param str name: Name of the Git repository to retrieve; requires `project_id` to be specified as well
     :param str project_id: ID of project to list Git repositories
     """

@@ -25,6 +25,8 @@ class GetProjectsProjectResult(dict):
         :param str project_id: The ID of the Project.
         :param str project_url: Url to the full version of the object.
         :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+               
+               DataSource without specifying any arguments will return all projects.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "project_id", project_id)
@@ -60,6 +62,8 @@ class GetProjectsProjectResult(dict):
     def state(self) -> str:
         """
         State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+
+        DataSource without specifying any arguments will return all projects.
         """
         return pulumi.get(self, "state")
 

@@ -98,6 +98,24 @@ type BuildFolderPermissions struct {
 	// The folder path to assign the permissions.
 	Path pulumi.StringOutput `pulumi:"path"`
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
@@ -151,6 +169,24 @@ type buildFolderPermissionsState struct {
 	// The folder path to assign the permissions.
 	Path *string `pulumi:"path"`
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
@@ -164,6 +200,24 @@ type BuildFolderPermissionsState struct {
 	// The folder path to assign the permissions.
 	Path pulumi.StringPtrInput
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringPtrInput
@@ -181,6 +235,24 @@ type buildFolderPermissionsArgs struct {
 	// The folder path to assign the permissions.
 	Path string `pulumi:"path"`
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal string `pulumi:"principal"`
@@ -195,6 +267,24 @@ type BuildFolderPermissionsArgs struct {
 	// The folder path to assign the permissions.
 	Path pulumi.StringInput
 	// the permissions to assign. The following permissions are available.
+	//
+	// | Permission                     | Description                           |
+	// |--------------------------------|---------------------------------------|
+	// | ViewBuilds                     | View builds                           |
+	// | EditBuildQuality               | Edit build quality                    |
+	// | RetainIndefinitely             | Retain indefinitely                   |
+	// | DeleteBuilds                   | Delete builds                         |
+	// | ManageBuildQualities           | Manage build qualities                |
+	// | DestroyBuilds                  | Destroy builds                        |
+	// | UpdateBuildInformation         | Update build information              |
+	// | QueueBuilds                    | Queue builds                          |
+	// | ManageBuildQueue               | Manage build queue                    |
+	// | StopBuilds                     | Stop builds                           |
+	// | ViewBuildDefinition            | View build pipeline                   |
+	// | EditBuildDefinition            | Edit build pipeline                   |
+	// | DeleteBuildDefinition          | Delete build pipeline                 |
+	// | OverrideBuildCheckInValidation | Override check-in validation by build |
+	// | AdministerBuildPermissions     | Administer build permissions          |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringInput
@@ -297,6 +387,24 @@ func (o BuildFolderPermissionsOutput) Path() pulumi.StringOutput {
 }
 
 // the permissions to assign. The following permissions are available.
+//
+// | Permission                     | Description                           |
+// |--------------------------------|---------------------------------------|
+// | ViewBuilds                     | View builds                           |
+// | EditBuildQuality               | Edit build quality                    |
+// | RetainIndefinitely             | Retain indefinitely                   |
+// | DeleteBuilds                   | Delete builds                         |
+// | ManageBuildQualities           | Manage build qualities                |
+// | DestroyBuilds                  | Destroy builds                        |
+// | UpdateBuildInformation         | Update build information              |
+// | QueueBuilds                    | Queue builds                          |
+// | ManageBuildQueue               | Manage build queue                    |
+// | StopBuilds                     | Stop builds                           |
+// | ViewBuildDefinition            | View build pipeline                   |
+// | EditBuildDefinition            | Edit build pipeline                   |
+// | DeleteBuildDefinition          | Delete build pipeline                 |
+// | OverrideBuildCheckInValidation | Override check-in validation by build |
+// | AdministerBuildPermissions     | Administer build permissions          |
 func (o BuildFolderPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *BuildFolderPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }

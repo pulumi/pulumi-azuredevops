@@ -71,9 +71,6 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
         return obj['__pulumiType'] === ServiceEndpointGitHubEnterprise.__pulumiType;
     }
 
-    /**
-     * An `authPersonal` block as documented below. Allows connecting using a personal access token.
-     */
     public readonly authPersonal!: pulumi.Output<outputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
     public readonly authorization!: pulumi.Output<{[key: string]: string}>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -139,9 +136,6 @@ export class ServiceEndpointGitHubEnterprise extends pulumi.CustomResource {
  * Input properties used for looking up and filtering ServiceEndpointGitHubEnterprise resources.
  */
 export interface ServiceEndpointGitHubEnterpriseState {
-    /**
-     * An `authPersonal` block as documented below. Allows connecting using a personal access token.
-     */
     authPersonal?: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;
@@ -163,9 +157,6 @@ export interface ServiceEndpointGitHubEnterpriseState {
  * The set of arguments for constructing a ServiceEndpointGitHubEnterprise resource.
  */
 export interface ServiceEndpointGitHubEnterpriseArgs {
-    /**
-     * An `authPersonal` block as documented below. Allows connecting using a personal access token.
-     */
     authPersonal: pulumi.Input<inputs.ServiceEndpointGitHubEnterpriseAuthPersonal>;
     authorization?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     description?: pulumi.Input<string>;

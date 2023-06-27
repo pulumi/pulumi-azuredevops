@@ -76,6 +76,11 @@ type Project struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	//
+	// > **NOTE:**
+	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// via the `features` block by using the `Project` resource.
+	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features pulumi.StringMapOutput `pulumi:"features"`
 	// The Project Name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -128,6 +133,11 @@ type projectState struct {
 	Description *string `pulumi:"description"`
 	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	//
+	// > **NOTE:**
+	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// via the `features` block by using the `Project` resource.
+	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features map[string]string `pulumi:"features"`
 	// The Project Name.
 	Name *string `pulumi:"name"`
@@ -146,6 +156,11 @@ type ProjectState struct {
 	Description pulumi.StringPtrInput
 	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	//
+	// > **NOTE:**
+	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// via the `features` block by using the `Project` resource.
+	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features pulumi.StringMapInput
 	// The Project Name.
 	Name pulumi.StringPtrInput
@@ -168,6 +183,11 @@ type projectArgs struct {
 	Description *string `pulumi:"description"`
 	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	//
+	// > **NOTE:**
+	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// via the `features` block by using the `Project` resource.
+	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features map[string]string `pulumi:"features"`
 	// The Project Name.
 	Name *string `pulumi:"name"`
@@ -185,6 +205,11 @@ type ProjectArgs struct {
 	Description pulumi.StringPtrInput
 	// Defines the status (`enabled`, `disabled`) of the project features.
 	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+	//
+	// > **NOTE:**
+	// It's possible to define project features both within the `ProjectFeatures` resource and
+	// via the `features` block by using the `Project` resource.
+	// However it's not possible to use both methods to manage features, since there'll be conflicts.
 	Features pulumi.StringMapInput
 	// The Project Name.
 	Name pulumi.StringPtrInput
@@ -290,6 +315,11 @@ func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 
 // Defines the status (`enabled`, `disabled`) of the project features.
 // Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
+//
+// > **NOTE:**
+// It's possible to define project features both within the `ProjectFeatures` resource and
+// via the `features` block by using the `Project` resource.
+// However it's not possible to use both methods to manage features, since there'll be conflicts.
 func (o ProjectOutput) Features() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringMapOutput { return v.Features }).(pulumi.StringMapOutput)
 }

@@ -72,6 +72,8 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The PAT or password used to authenticate to the git repository.
+        /// 
+        /// &gt; **Note** For AzureDevOps Git, PAT should be used as the password.
         /// </summary>
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -179,6 +181,8 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The PAT or password used to authenticate to the git repository.
+        /// 
+        /// &gt; **Note** For AzureDevOps Git, PAT should be used as the password.
         /// </summary>
         public Input<string>? Password
         {
@@ -244,6 +248,8 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The PAT or password used to authenticate to the git repository.
+        /// 
+        /// &gt; **Note** For AzureDevOps Git, PAT should be used as the password.
         /// </summary>
         public Input<string>? Password
         {

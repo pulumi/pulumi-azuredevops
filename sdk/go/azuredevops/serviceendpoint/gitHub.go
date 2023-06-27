@@ -141,7 +141,6 @@ import (
 type GitHub struct {
 	pulumi.CustomResourceState
 
-	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth GitHubAuthOauthPtrOutput `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  GitHubAuthPersonalPtrOutput `pulumi:"authPersonal"`
@@ -188,7 +187,6 @@ func GetGitHub(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GitHub resources.
 type gitHubState struct {
-	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth *GitHubAuthOauth `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  *GitHubAuthPersonal `pulumi:"authPersonal"`
@@ -201,7 +199,6 @@ type gitHubState struct {
 }
 
 type GitHubState struct {
-	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth GitHubAuthOauthPtrInput
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  GitHubAuthPersonalPtrInput
@@ -218,7 +215,6 @@ func (GitHubState) ElementType() reflect.Type {
 }
 
 type gitHubArgs struct {
-	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth *GitHubAuthOauth `pulumi:"authOauth"`
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  *GitHubAuthPersonal `pulumi:"authPersonal"`
@@ -232,7 +228,6 @@ type gitHubArgs struct {
 
 // The set of arguments for constructing a GitHub resource.
 type GitHubArgs struct {
-	// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 	AuthOauth GitHubAuthOauthPtrInput
 	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  GitHubAuthPersonalPtrInput
@@ -331,7 +326,6 @@ func (o GitHubOutput) ToGitHubOutputWithContext(ctx context.Context) GitHubOutpu
 	return o
 }
 
-// An `authOauth` block as documented below. Allows connecting using an Oauth token.
 func (o GitHubOutput) AuthOauth() GitHubAuthOauthPtrOutput {
 	return o.ApplyT(func(v *GitHub) GitHubAuthOauthPtrOutput { return v.AuthOauth }).(GitHubAuthOauthPtrOutput)
 }

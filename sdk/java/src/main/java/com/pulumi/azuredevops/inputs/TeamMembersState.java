@@ -19,12 +19,22 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
     /**
      * List of subject descriptors to define members of the team.
      * 
+     * &gt; NOTE: It&#39;s possible to define team members both within the
+     * `azuredevops.Team` resource via the `members` block and by using the
+     * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+     * both methods to manage team members, since there&#39;ll be conflicts.
+     * 
      */
     @Import(name="members")
     private @Nullable Output<List<String>> members;
 
     /**
      * @return List of subject descriptors to define members of the team.
+     * 
+     * &gt; NOTE: It&#39;s possible to define team members both within the
+     * `azuredevops.Team` resource via the `members` block and by using the
+     * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+     * both methods to manage team members, since there&#39;ll be conflicts.
      * 
      */
     public Optional<Output<List<String>>> members() {
@@ -110,6 +120,11 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param members List of subject descriptors to define members of the team.
          * 
+         * &gt; NOTE: It&#39;s possible to define team members both within the
+         * `azuredevops.Team` resource via the `members` block and by using the
+         * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+         * both methods to manage team members, since there&#39;ll be conflicts.
+         * 
          * @return builder
          * 
          */
@@ -121,6 +136,11 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param members List of subject descriptors to define members of the team.
          * 
+         * &gt; NOTE: It&#39;s possible to define team members both within the
+         * `azuredevops.Team` resource via the `members` block and by using the
+         * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+         * both methods to manage team members, since there&#39;ll be conflicts.
+         * 
          * @return builder
          * 
          */
@@ -130,6 +150,11 @@ public final class TeamMembersState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param members List of subject descriptors to define members of the team.
+         * 
+         * &gt; NOTE: It&#39;s possible to define team members both within the
+         * `azuredevops.Team` resource via the `members` block and by using the
+         * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
+         * both methods to manage team members, since there&#39;ll be conflicts.
          * 
          * @return builder
          * 
