@@ -31,7 +31,9 @@ func NewProvider(ctx *pulumi.Context,
 	}
 
 	if args.OrgServiceUrl == nil {
-		args.OrgServiceUrl = pulumi.StringPtr(getEnvOrDefault("", nil, "AZDO_ORG_SERVICE_URL").(string))
+		if d := getEnvOrDefault(nil, nil, "AZDO_ORG_SERVICE_URL"); d != nil {
+			args.OrgServiceUrl = pulumi.StringPtr(d.(string))
+		}
 	}
 	if args.PersonalAccessToken != nil {
 		args.PersonalAccessToken = pulumi.ToSecret(args.PersonalAccessToken).(pulumi.StringPtrInput)

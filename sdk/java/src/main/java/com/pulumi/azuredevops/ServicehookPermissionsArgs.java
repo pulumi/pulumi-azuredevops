@@ -65,12 +65,26 @@ public final class ServicehookPermissionsArgs extends com.pulumi.resources.Resou
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
+     * | Name               | Permission Description   |
+     * | ------------------ | ------------------------ |
+     * | ViewSubscriptions  | View Subscriptions       |
+     * | EditSubscriptions  | Edit Subscription        |
+     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | PublishEvents      | Publish Events           |
+     * 
      */
     @Import(name="replace")
     private @Nullable Output<Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * 
+     * | Name               | Permission Description   |
+     * | ------------------ | ------------------------ |
+     * | ViewSubscriptions  | View Subscriptions       |
+     * | EditSubscriptions  | Edit Subscription        |
+     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | PublishEvents      | Publish Events           |
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -170,6 +184,13 @@ public final class ServicehookPermissionsArgs extends com.pulumi.resources.Resou
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
          * 
+         * | Name               | Permission Description   |
+         * | ------------------ | ------------------------ |
+         * | ViewSubscriptions  | View Subscriptions       |
+         * | EditSubscriptions  | Edit Subscription        |
+         * | DeleteSubscriptions| Delete Subscriptions     |
+         * | PublishEvents      | Publish Events           |
+         * 
          * @return builder
          * 
          */
@@ -180,6 +201,13 @@ public final class ServicehookPermissionsArgs extends com.pulumi.resources.Resou
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
+         * 
+         * | Name               | Permission Description   |
+         * | ------------------ | ------------------------ |
+         * | ViewSubscriptions  | View Subscriptions       |
+         * | EditSubscriptions  | Edit Subscription        |
+         * | DeleteSubscriptions| Delete Subscriptions     |
+         * | PublishEvents      | Publish Events           |
          * 
          * @return builder
          * 

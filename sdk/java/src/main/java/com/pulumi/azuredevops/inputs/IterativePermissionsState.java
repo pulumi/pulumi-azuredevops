@@ -80,12 +80,26 @@ public final class IterativePermissionsState extends com.pulumi.resources.Resour
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
+     * | Permission      | Description                    |
+     * |-----------------|--------------------------------|
+     * | GENERIC_READ    | View permissions for this node |
+     * | GENERIC_WRITE   | Edit this node                 |
+     * | CREATE_CHILDREN | Create child nodes             |
+     * | DELETE          | Delete this node               |
+     * 
      */
     @Import(name="replace")
     private @Nullable Output<Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * 
+     * | Permission      | Description                    |
+     * |-----------------|--------------------------------|
+     * | GENERIC_READ    | View permissions for this node |
+     * | GENERIC_WRITE   | Edit this node                 |
+     * | CREATE_CHILDREN | Create child nodes             |
+     * | DELETE          | Delete this node               |
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -207,6 +221,13 @@ public final class IterativePermissionsState extends com.pulumi.resources.Resour
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
          * 
+         * | Permission      | Description                    |
+         * |-----------------|--------------------------------|
+         * | GENERIC_READ    | View permissions for this node |
+         * | GENERIC_WRITE   | Edit this node                 |
+         * | CREATE_CHILDREN | Create child nodes             |
+         * | DELETE          | Delete this node               |
+         * 
          * @return builder
          * 
          */
@@ -217,6 +238,13 @@ public final class IterativePermissionsState extends com.pulumi.resources.Resour
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
+         * 
+         * | Permission      | Description                    |
+         * |-----------------|--------------------------------|
+         * | GENERIC_READ    | View permissions for this node |
+         * | GENERIC_WRITE   | Edit this node                 |
+         * | CREATE_CHILDREN | Create child nodes             |
+         * | DELETE          | Delete this node               |
          * 
          * @return builder
          * 

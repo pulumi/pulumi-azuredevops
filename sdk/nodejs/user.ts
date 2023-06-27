@@ -66,6 +66,8 @@ export class User extends pulumi.CustomResource {
     public /*out*/ readonly descriptor!: pulumi.Output<string>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     *
+     * > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
      */
     public readonly licensingSource!: pulumi.Output<string | undefined>;
     /**
@@ -130,6 +132,8 @@ export interface UserState {
     descriptor?: pulumi.Input<string>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     *
+     * > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
      */
     licensingSource?: pulumi.Input<string>;
     /**
@@ -156,6 +160,8 @@ export interface UserArgs {
     accountLicenseType?: pulumi.Input<string>;
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     *
+     * > **NOTE:** A user can only be referenced by it's `principalName` or by the combination of `originId` and `origin`.
      */
     licensingSource?: pulumi.Input<string>;
     /**

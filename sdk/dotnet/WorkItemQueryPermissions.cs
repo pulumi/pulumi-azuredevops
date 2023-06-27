@@ -188,6 +188,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available
+        /// 
+        /// | Permissions              | Description                        |
+        /// |--------------------------|------------------------------------|
+        /// | Read                     | Read                               |
+        /// | Contribute               | Contribute                         |
+        /// | Delete                   | Delete                             |
+        /// | ManagePermissions        | Manage Permissions                 |
         /// </summary>
         [Output("permissions")]
         public Output<ImmutableDictionary<string, string>> Permissions { get; private set; } = null!;
@@ -267,6 +274,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available
+        /// 
+        /// | Permissions              | Description                        |
+        /// |--------------------------|------------------------------------|
+        /// | Read                     | Read                               |
+        /// | Contribute               | Contribute                         |
+        /// | Delete                   | Delete                             |
+        /// | ManagePermissions        | Manage Permissions                 |
         /// </summary>
         public InputMap<string> Permissions
         {
@@ -311,6 +325,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The following permissions are available
+        /// 
+        /// | Permissions              | Description                        |
+        /// |--------------------------|------------------------------------|
+        /// | Read                     | Read                               |
+        /// | Contribute               | Contribute                         |
+        /// | Delete                   | Delete                             |
+        /// | ManagePermissions        | Manage Permissions                 |
         /// </summary>
         public InputMap<string> Permissions
         {

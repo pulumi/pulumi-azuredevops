@@ -77,6 +77,8 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
     public readonly enablePipelinesAccess!: pulumi.Output<boolean | undefined>;
     /**
      * The PAT or password used to authenticate to the git repository.
+     *
+     * > **Note** For AzureDevOps Git, PAT should be used as the password.
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
@@ -162,6 +164,8 @@ export interface ServiceEndpointGenericGitState {
     enablePipelinesAccess?: pulumi.Input<boolean>;
     /**
      * The PAT or password used to authenticate to the git repository.
+     *
+     * > **Note** For AzureDevOps Git, PAT should be used as the password.
      */
     password?: pulumi.Input<string>;
     /**
@@ -198,6 +202,8 @@ export interface ServiceEndpointGenericGitArgs {
     enablePipelinesAccess?: pulumi.Input<boolean>;
     /**
      * The PAT or password used to authenticate to the git repository.
+     *
+     * > **Note** For AzureDevOps Git, PAT should be used as the password.
      */
     password?: pulumi.Input<string>;
     /**

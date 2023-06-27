@@ -16,6 +16,8 @@ export interface BranchPolicyAutoReviewersSettings {
     message?: string;
     /**
      * Minimum number of required reviewers. Defaults to `1`.
+     *
+     * > **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `autoReviewerIds` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
      */
     minimumNumberOfReviewers?: number;
     /**
@@ -168,6 +170,8 @@ export interface BranchPolicyMinReviewersSettings {
     onLastIterationRequireVote?: boolean;
     /**
      * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+     *
+     * > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
      */
     onPushResetAllVotes?: boolean;
     /**
@@ -179,7 +183,7 @@ export interface BranchPolicyMinReviewersSettings {
      */
     reviewerCount?: number;
     /**
-     * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+     * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
      */
     scopes: outputs.BranchPolicyMinReviewersSettingsScope[];
     /**
@@ -987,6 +991,8 @@ export interface GetProjectsProject {
     projectUrl: string;
     /**
      * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+     *
+     * DataSource without specifying any arguments will return all projects.
      */
     state: string;
 }
@@ -1077,6 +1083,20 @@ export interface GetUsersUser {
     origin: string;
     /**
      * The unique identifier from the system of origin.
+     *
+     * DataSource without specifying any arguments will return all users inside an organization.
+     *
+     * List of possible subject types
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
+     *
+     * List of possible origins
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     originId?: string;
     /**
@@ -1853,6 +1873,8 @@ export namespace Core {
         projectUrl: string;
         /**
          * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+         *
+         * DataSource without specifying any arguments will return all projects.
          */
         state: string;
     }
@@ -1883,6 +1905,20 @@ export namespace Identities {
         origin: string;
         /**
          * The unique identifier from the system of origin.
+         *
+         * DataSource without specifying any arguments will return all users inside an organization.
+         *
+         * List of possible subject types
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
+         *
+         * List of possible origins
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          */
         originId?: string;
         /**
@@ -1995,6 +2031,8 @@ export namespace Policy {
         onLastIterationRequireVote?: boolean;
         /**
          * When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+         *
+         * > **Note:** If `onPushResetAllVotes` is `true` then `onPushResetApprovedVotes` will be set to `true`. To enable `onPushResetApprovedVotes`, you need explicitly set `onPushResetAllVotes` `false` or not configure.
          */
         onPushResetAllVotes?: boolean;
         /**
@@ -2006,7 +2044,7 @@ export namespace Policy {
          */
         reviewerCount?: number;
         /**
-         * Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+         * A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
          */
         scopes: outputs.Policy.BranchPolicyMinReviewersSettingsScope[];
         /**

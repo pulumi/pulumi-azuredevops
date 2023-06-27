@@ -153,12 +153,34 @@ public class AreaPermissions extends com.pulumi.resources.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      * 
+     * | Permission         | Description                    |
+     * |--------------------|--------------------------------|
+     * | GENERIC_READ       | View permissions for this node |
+     * | GENERIC_WRITE      | Edit this node                 |
+     * | CREATE_CHILDREN    | Create child nodes             |
+     * | DELETE             | Delete this node               |
+     * | WORK_ITEM_READ     | View work items in this node   |
+     * | WORK_ITEM_WRITE    | Edit work items in this node   |
+     * | MANAGE_TEST_PLANS  | Manage test plans              |
+     * | MANAGE_TEST_SUITES | Manage test suites             |
+     * 
      */
     @Export(name="replace", type=Boolean.class, parameters={})
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+     * 
+     * | Permission         | Description                    |
+     * |--------------------|--------------------------------|
+     * | GENERIC_READ       | View permissions for this node |
+     * | GENERIC_WRITE      | Edit this node                 |
+     * | CREATE_CHILDREN    | Create child nodes             |
+     * | DELETE             | Delete this node               |
+     * | WORK_ITEM_READ     | View work items in this node   |
+     * | WORK_ITEM_WRITE    | Edit work items in this node   |
+     * | MANAGE_TEST_PLANS  | Manage test plans              |
+     * | MANAGE_TEST_SUITES | Manage test suites             |
      * 
      */
     public Output<Optional<Boolean>> replace() {

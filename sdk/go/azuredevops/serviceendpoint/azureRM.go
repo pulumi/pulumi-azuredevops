@@ -177,6 +177,8 @@ type AzureRM struct {
 	// Service connection description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment pulumi.StringPtrOutput `pulumi:"environment"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -240,6 +242,8 @@ type azureRMState struct {
 	// Service connection description.
 	Description *string `pulumi:"description"`
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment *string `pulumi:"environment"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
@@ -266,6 +270,8 @@ type AzureRMState struct {
 	// Service connection description.
 	Description pulumi.StringPtrInput
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
@@ -296,6 +302,8 @@ type azureRMArgs struct {
 	// Service connection description.
 	Description *string `pulumi:"description"`
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment *string `pulumi:"environment"`
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
@@ -323,6 +331,8 @@ type AzureRMArgs struct {
 	// Service connection description.
 	Description pulumi.StringPtrInput
 	// The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+	//
+	// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 	Environment pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringInput
@@ -459,6 +469,8 @@ func (o AzureRMOutput) Description() pulumi.StringPtrOutput {
 }
 
 // The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+//
+// > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
 func (o AzureRMOutput) Environment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureRM) pulumi.StringPtrOutput { return v.Environment }).(pulumi.StringPtrOutput)
 }

@@ -26,6 +26,13 @@ class IterativePermissionsArgs:
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[str] path: The name of the branch to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+               
+               | Permission      | Description                    |
+               |-----------------|--------------------------------|
+               | GENERIC_READ    | View permissions for this node |
+               | GENERIC_WRITE   | Edit this node                 |
+               | CREATE_CHILDREN | Create child nodes             |
+               | DELETE          | Delete this node               |
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -88,6 +95,13 @@ class IterativePermissionsArgs:
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
+
+        | Permission      | Description                    |
+        |-----------------|--------------------------------|
+        | GENERIC_READ    | View permissions for this node |
+        | GENERIC_WRITE   | Edit this node                 |
+        | CREATE_CHILDREN | Create child nodes             |
+        | DELETE          | Delete this node               |
         """
         return pulumi.get(self, "replace")
 
@@ -111,6 +125,13 @@ class _IterativePermissionsState:
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+               
+               | Permission      | Description                    |
+               |-----------------|--------------------------------|
+               | GENERIC_READ    | View permissions for this node |
+               | GENERIC_WRITE   | Edit this node                 |
+               | CREATE_CHILDREN | Create child nodes             |
+               | DELETE          | Delete this node               |
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -176,6 +197,13 @@ class _IterativePermissionsState:
     def replace(self) -> Optional[pulumi.Input[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
+
+        | Permission      | Description                    |
+        |-----------------|--------------------------------|
+        | GENERIC_READ    | View permissions for this node |
+        | GENERIC_WRITE   | Edit this node                 |
+        | CREATE_CHILDREN | Create child nodes             |
+        | DELETE          | Delete this node               |
         """
         return pulumi.get(self, "replace")
 
@@ -255,6 +283,13 @@ class IterativePermissions(pulumi.CustomResource):
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+               
+               | Permission      | Description                    |
+               |-----------------|--------------------------------|
+               | GENERIC_READ    | View permissions for this node |
+               | GENERIC_WRITE   | Edit this node                 |
+               | CREATE_CHILDREN | Create child nodes             |
+               | DELETE          | Delete this node               |
         """
         ...
     @overload
@@ -382,6 +417,13 @@ class IterativePermissions(pulumi.CustomResource):
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
+               
+               | Permission      | Description                    |
+               |-----------------|--------------------------------|
+               | GENERIC_READ    | View permissions for this node |
+               | GENERIC_WRITE   | Edit this node                 |
+               | CREATE_CHILDREN | Create child nodes             |
+               | DELETE          | Delete this node               |
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -431,6 +473,13 @@ class IterativePermissions(pulumi.CustomResource):
     def replace(self) -> pulumi.Output[Optional[bool]]:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`
+
+        | Permission      | Description                    |
+        |-----------------|--------------------------------|
+        | GENERIC_READ    | View permissions for this node |
+        | GENERIC_WRITE   | Edit this node                 |
+        | CREATE_CHILDREN | Create child nodes             |
+        | DELETE          | Delete this node               |
         """
         return pulumi.get(self, "replace")
 

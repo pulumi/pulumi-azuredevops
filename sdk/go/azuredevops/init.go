@@ -44,6 +44,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &BuildFolder{}
 	case "azuredevops:index/buildFolderPermissions:BuildFolderPermissions":
 		r = &BuildFolderPermissions{}
+	case "azuredevops:index/checkApproval:CheckApproval":
+		r = &CheckApproval{}
 	case "azuredevops:index/checkBranchControl:CheckBranchControl":
 		r = &CheckBranchControl{}
 	case "azuredevops:index/checkBusinessHours:CheckBusinessHours":
@@ -64,6 +66,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GroupMembership{}
 	case "azuredevops:index/iterativePermissions:IterativePermissions":
 		r = &IterativePermissions{}
+	case "azuredevops:index/pipelineAuthorization:PipelineAuthorization":
+		r = &PipelineAuthorization{}
 	case "azuredevops:index/pool:Pool":
 		r = &Pool{}
 	case "azuredevops:index/project:Project":
@@ -132,6 +136,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceendpointArgocd{}
 	case "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs":
 		r = &ServiceendpointExternaltfs{}
+	case "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform":
+		r = &ServiceendpointGcpTerraform{}
 	case "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook":
 		r = &ServiceendpointIncomingwebhook{}
 	case "azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2":
@@ -254,6 +260,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/checkApproval",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/checkBranchControl",
 		&module{version},
 	)
@@ -300,6 +311,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/iterativePermissions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/pipelineAuthorization",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -470,6 +486,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceendpointExternaltfs",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointGcpTerraform",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

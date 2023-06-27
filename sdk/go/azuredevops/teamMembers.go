@@ -79,6 +79,11 @@ type TeamMembers struct {
 	pulumi.CustomResourceState
 
 	// List of subject descriptors to define members of the team.
+	//
+	// > NOTE: It's possible to define team members both within the
+	// `Team` resource via the `members` block and by using the
+	// `TeamMembers` resource. However it's not possible to use
+	// both methods to manage team members, since there'll be conflicts.
 	Members pulumi.StringArrayOutput `pulumi:"members"`
 	// The mode how the resource manages team members.
 	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
@@ -129,6 +134,11 @@ func GetTeamMembers(ctx *pulumi.Context,
 // Input properties used for looking up and filtering TeamMembers resources.
 type teamMembersState struct {
 	// List of subject descriptors to define members of the team.
+	//
+	// > NOTE: It's possible to define team members both within the
+	// `Team` resource via the `members` block and by using the
+	// `TeamMembers` resource. However it's not possible to use
+	// both methods to manage team members, since there'll be conflicts.
 	Members []string `pulumi:"members"`
 	// The mode how the resource manages team members.
 	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
@@ -142,6 +152,11 @@ type teamMembersState struct {
 
 type TeamMembersState struct {
 	// List of subject descriptors to define members of the team.
+	//
+	// > NOTE: It's possible to define team members both within the
+	// `Team` resource via the `members` block and by using the
+	// `TeamMembers` resource. However it's not possible to use
+	// both methods to manage team members, since there'll be conflicts.
 	Members pulumi.StringArrayInput
 	// The mode how the resource manages team members.
 	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
@@ -159,6 +174,11 @@ func (TeamMembersState) ElementType() reflect.Type {
 
 type teamMembersArgs struct {
 	// List of subject descriptors to define members of the team.
+	//
+	// > NOTE: It's possible to define team members both within the
+	// `Team` resource via the `members` block and by using the
+	// `TeamMembers` resource. However it's not possible to use
+	// both methods to manage team members, since there'll be conflicts.
 	Members []string `pulumi:"members"`
 	// The mode how the resource manages team members.
 	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
@@ -173,6 +193,11 @@ type teamMembersArgs struct {
 // The set of arguments for constructing a TeamMembers resource.
 type TeamMembersArgs struct {
 	// List of subject descriptors to define members of the team.
+	//
+	// > NOTE: It's possible to define team members both within the
+	// `Team` resource via the `members` block and by using the
+	// `TeamMembers` resource. However it's not possible to use
+	// both methods to manage team members, since there'll be conflicts.
 	Members pulumi.StringArrayInput
 	// The mode how the resource manages team members.
 	// - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
@@ -272,6 +297,11 @@ func (o TeamMembersOutput) ToTeamMembersOutputWithContext(ctx context.Context) T
 }
 
 // List of subject descriptors to define members of the team.
+//
+// > NOTE: It's possible to define team members both within the
+// `Team` resource via the `members` block and by using the
+// `TeamMembers` resource. However it's not possible to use
+// both methods to manage team members, since there'll be conflicts.
 func (o TeamMembersOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *TeamMembers) pulumi.StringArrayOutput { return v.Members }).(pulumi.StringArrayOutput)
 }

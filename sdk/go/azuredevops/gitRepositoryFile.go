@@ -66,7 +66,7 @@ import (
 //
 // ## Import
 //
-// Repository files can be imported using a combination of the `repositroy ID` and `file`, e.g.
+// Repository files can be imported using a combination of the `repository ID` and `file`, e.g.
 //
 // ```sh
 //

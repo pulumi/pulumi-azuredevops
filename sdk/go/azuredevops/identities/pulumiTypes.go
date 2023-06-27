@@ -22,6 +22,40 @@ type GetUsersUser struct {
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin string `pulumi:"origin"`
 	// The unique identifier from the system of origin.
+	//
+	// DataSource without specifying any arguments will return all users inside an organization.
+	//
+	// List of possible subject types
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// List of possible origins
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	OriginId *string `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName string `pulumi:"principalName"`
@@ -50,6 +84,40 @@ type GetUsersUserArgs struct {
 	// The type of source provider for the `originId` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
 	Origin pulumi.StringInput `pulumi:"origin"`
 	// The unique identifier from the system of origin.
+	//
+	// DataSource without specifying any arguments will return all users inside an organization.
+	//
+	// List of possible subject types
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
+	//
+	// List of possible origins
+	//
+	// ```go
+	// package main
+	//
+	// import (
+	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	// )
+	//
+	// func main() {
+	// 	pulumi.Run(func(ctx *pulumi.Context) error {
+	// 		return nil
+	// 	})
+	// }
+	// ```
 	OriginId pulumi.StringPtrInput `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName pulumi.StringInput `pulumi:"principalName"`
@@ -132,6 +200,46 @@ func (o GetUsersUserOutput) Origin() pulumi.StringOutput {
 }
 
 // The unique identifier from the system of origin.
+//
+// DataSource without specifying any arguments will return all users inside an organization.
+//
+// # List of possible subject types
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// # List of possible origins
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			return nil
+//		})
+//	}
+//
+// ```
 func (o GetUsersUserOutput) OriginId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetUsersUser) *string { return v.OriginId }).(pulumi.StringPtrOutput)
 }

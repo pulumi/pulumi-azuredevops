@@ -107,6 +107,8 @@ def get_projects(name: Optional[str] = None,
 
     :param str name: Name of the Project, if not specified all projects will be returned.
     :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+           
+           DataSource without specifying any arguments will return all projects.
     """
     __args__ = dict()
     __args__['name'] = name
@@ -148,5 +150,7 @@ def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
 
     :param str name: Name of the Project, if not specified all projects will be returned.
     :param str state: State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+           
+           DataSource without specifying any arguments will return all projects.
     """
     ...

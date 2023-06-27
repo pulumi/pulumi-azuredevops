@@ -27,6 +27,8 @@ public final class GetProjectsProject {
     /**
      * @return State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
      * 
+     * DataSource without specifying any arguments will return all projects.
+     * 
      */
     private String state;
 
@@ -54,6 +56,8 @@ public final class GetProjectsProject {
     }
     /**
      * @return State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+     * 
+     * DataSource without specifying any arguments will return all projects.
      * 
      */
     public String state() {

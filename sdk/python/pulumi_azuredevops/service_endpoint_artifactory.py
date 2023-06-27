@@ -28,6 +28,9 @@ class ServiceEndpointArtifactoryArgs:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
+               
+               _Note: URL should not end in a slash character._
+               * either `authentication_token` or `authentication_basic` (one is required)
         :param pulumi.Input[str] description: The Service Endpoint description.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -71,6 +74,9 @@ class ServiceEndpointArtifactoryArgs:
     def url(self) -> pulumi.Input[str]:
         """
         URL of the Artifactory server to connect with.
+
+        _Note: URL should not end in a slash character._
+        * either `authentication_token` or `authentication_basic` (one is required)
         """
         return pulumi.get(self, "url")
 
@@ -134,6 +140,9 @@ class _ServiceEndpointArtifactoryState:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
+               
+               _Note: URL should not end in a slash character._
+               * either `authentication_token` or `authentication_basic` (one is required)
         """
         if authentication_basic is not None:
             pulumi.set(__self__, "authentication_basic", authentication_basic)
@@ -218,6 +227,9 @@ class _ServiceEndpointArtifactoryState:
     def url(self) -> Optional[pulumi.Input[str]]:
         """
         URL of the Artifactory server to connect with.
+
+        _Note: URL should not end in a slash character._
+        * either `authentication_token` or `authentication_basic` (one is required)
         """
         return pulumi.get(self, "url")
 
@@ -302,6 +314,9 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
+               
+               _Note: URL should not end in a slash character._
+               * either `authentication_token` or `authentication_basic` (one is required)
         """
         ...
     @overload
@@ -438,6 +453,9 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: URL of the Artifactory server to connect with.
+               
+               _Note: URL should not end in a slash character._
+               * either `authentication_token` or `authentication_basic` (one is required)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -496,6 +514,9 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
     def url(self) -> pulumi.Output[str]:
         """
         URL of the Artifactory server to connect with.
+
+        _Note: URL should not end in a slash character._
+        * either `authentication_token` or `authentication_basic` (one is required)
         """
         return pulumi.get(self, "url")
 

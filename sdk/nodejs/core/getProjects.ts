@@ -50,6 +50,8 @@ export interface GetProjectsArgs {
     name?: string;
     /**
      * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+     *
+     * DataSource without specifying any arguments will return all projects.
      */
     state?: string;
 }
@@ -112,6 +114,8 @@ export interface GetProjectsOutputArgs {
     name?: pulumi.Input<string>;
     /**
      * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+     *
+     * DataSource without specifying any arguments will return all projects.
      */
     state?: pulumi.Input<string>;
 }

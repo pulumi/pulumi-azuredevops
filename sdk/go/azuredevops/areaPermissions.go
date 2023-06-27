@@ -91,6 +91,17 @@ type AreaPermissions struct {
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+	//
+	// | Permission         | Description                    |
+	// |--------------------|--------------------------------|
+	// | GENERIC_READ       | View permissions for this node |
+	// | GENERIC_WRITE      | Edit this node                 |
+	// | CREATE_CHILDREN    | Create child nodes             |
+	// | DELETE             | Delete this node               |
+	// | WORK_ITEM_READ     | View work items in this node   |
+	// | WORK_ITEM_WRITE    | Edit work items in this node   |
+	// | MANAGE_TEST_PLANS  | Manage test plans              |
+	// | MANAGE_TEST_SUITES | Manage test suites             |
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -141,6 +152,17 @@ type areaPermissionsState struct {
 	// The ID of the project to assign the permissions.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+	//
+	// | Permission         | Description                    |
+	// |--------------------|--------------------------------|
+	// | GENERIC_READ       | View permissions for this node |
+	// | GENERIC_WRITE      | Edit this node                 |
+	// | CREATE_CHILDREN    | Create child nodes             |
+	// | DELETE             | Delete this node               |
+	// | WORK_ITEM_READ     | View work items in this node   |
+	// | WORK_ITEM_WRITE    | Edit work items in this node   |
+	// | MANAGE_TEST_PLANS  | Manage test plans              |
+	// | MANAGE_TEST_SUITES | Manage test suites             |
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -154,6 +176,17 @@ type AreaPermissionsState struct {
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+	//
+	// | Permission         | Description                    |
+	// |--------------------|--------------------------------|
+	// | GENERIC_READ       | View permissions for this node |
+	// | GENERIC_WRITE      | Edit this node                 |
+	// | CREATE_CHILDREN    | Create child nodes             |
+	// | DELETE             | Delete this node               |
+	// | WORK_ITEM_READ     | View work items in this node   |
+	// | WORK_ITEM_WRITE    | Edit work items in this node   |
+	// | MANAGE_TEST_PLANS  | Manage test plans              |
+	// | MANAGE_TEST_SUITES | Manage test suites             |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -171,6 +204,17 @@ type areaPermissionsArgs struct {
 	// The ID of the project to assign the permissions.
 	ProjectId string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+	//
+	// | Permission         | Description                    |
+	// |--------------------|--------------------------------|
+	// | GENERIC_READ       | View permissions for this node |
+	// | GENERIC_WRITE      | Edit this node                 |
+	// | CREATE_CHILDREN    | Create child nodes             |
+	// | DELETE             | Delete this node               |
+	// | WORK_ITEM_READ     | View work items in this node   |
+	// | WORK_ITEM_WRITE    | Edit work items in this node   |
+	// | MANAGE_TEST_PLANS  | Manage test plans              |
+	// | MANAGE_TEST_SUITES | Manage test suites             |
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -185,6 +229,17 @@ type AreaPermissionsArgs struct {
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+	//
+	// | Permission         | Description                    |
+	// |--------------------|--------------------------------|
+	// | GENERIC_READ       | View permissions for this node |
+	// | GENERIC_WRITE      | Edit this node                 |
+	// | CREATE_CHILDREN    | Create child nodes             |
+	// | DELETE             | Delete this node               |
+	// | WORK_ITEM_READ     | View work items in this node   |
+	// | WORK_ITEM_WRITE    | Edit work items in this node   |
+	// | MANAGE_TEST_PLANS  | Manage test plans              |
+	// | MANAGE_TEST_SUITES | Manage test suites             |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -296,6 +351,17 @@ func (o AreaPermissionsOutput) ProjectId() pulumi.StringOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`.
+//
+// | Permission         | Description                    |
+// |--------------------|--------------------------------|
+// | GENERIC_READ       | View permissions for this node |
+// | GENERIC_WRITE      | Edit this node                 |
+// | CREATE_CHILDREN    | Create child nodes             |
+// | DELETE             | Delete this node               |
+// | WORK_ITEM_READ     | View work items in this node   |
+// | WORK_ITEM_WRITE    | Edit work items in this node   |
+// | MANAGE_TEST_PLANS  | Manage test plans              |
+// | MANAGE_TEST_SUITES | Manage test suites             |
 func (o AreaPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AreaPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

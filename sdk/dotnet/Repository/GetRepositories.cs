@@ -104,6 +104,9 @@ namespace Pulumi.AzureDevOps.Repository
 
     public sealed class GetRepositoriesArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// DataSource without specifying any arguments will return all Git repositories of an organization.
+        /// </summary>
         [Input("includeHidden")]
         public bool? IncludeHidden { get; set; }
 
@@ -127,6 +130,9 @@ namespace Pulumi.AzureDevOps.Repository
 
     public sealed class GetRepositoriesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        /// <summary>
+        /// DataSource without specifying any arguments will return all Git repositories of an organization.
+        /// </summary>
         [Input("includeHidden")]
         public Input<bool>? IncludeHidden { get; set; }
 

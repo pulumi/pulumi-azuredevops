@@ -240,12 +240,26 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
     /**
      * the permissions to assign. The following permissions are available
      * 
+     * | Permissions              | Description                        |
+     * |--------------------------|------------------------------------|
+     * | Read                     | Read                               |
+     * | Contribute               | Contribute                         |
+     * | Delete                   | Delete                             |
+     * | ManagePermissions        | Manage Permissions                 |
+     * 
      */
     @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The following permissions are available
+     * 
+     * | Permissions              | Description                        |
+     * |--------------------------|------------------------------------|
+     * | Read                     | Read                               |
+     * | Contribute               | Contribute                         |
+     * | Delete                   | Delete                             |
+     * | ManagePermissions        | Manage Permissions                 |
      * 
      */
     public Output<Map<String,String>> permissions() {

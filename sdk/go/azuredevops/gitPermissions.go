@@ -304,8 +304,29 @@ type GitPermissions struct {
 	pulumi.CustomResourceState
 
 	// The name of the branch to assign the permissions.
+	//
+	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName pulumi.StringPtrOutput `pulumi:"branchName"`
 	// the permissions to assign. The follwing permissions are available
+	//
+	// | Permissions             | Description                                            |
+	// |-------------------------|--------------------------------------------------------|
+	// | Administer              | Administer                                             |
+	// | GenericRead             | Read                                                   |
+	// | GenericContribute       | Contribute                                             |
+	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
+	// | CreateBranch            | Create branch                                          |
+	// | CreateTag               | Create tag                                             |
+	// | ManageNote              | Manage notes                                           |
+	// | PolicyExempt            | Bypass policies when pushing                           |
+	// | CreateRepository        | Create repository                                      |
+	// | DeleteRepository        | Delete repository                                      |
+	// | RenameRepository        | Rename repository                                      |
+	// | EditPolicies            | Edit policies                                          |
+	// | RemoveOthersLocks       | Remove others' locks                                   |
+	// | ManagePermissions       | Manage permissions                                     |
+	// | PullRequestContribute   | Contribute to pull requests                            |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions pulumi.StringMapOutput `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringOutput `pulumi:"principal"`
@@ -356,8 +377,29 @@ func GetGitPermissions(ctx *pulumi.Context,
 // Input properties used for looking up and filtering GitPermissions resources.
 type gitPermissionsState struct {
 	// The name of the branch to assign the permissions.
+	//
+	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName *string `pulumi:"branchName"`
 	// the permissions to assign. The follwing permissions are available
+	//
+	// | Permissions             | Description                                            |
+	// |-------------------------|--------------------------------------------------------|
+	// | Administer              | Administer                                             |
+	// | GenericRead             | Read                                                   |
+	// | GenericContribute       | Contribute                                             |
+	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
+	// | CreateBranch            | Create branch                                          |
+	// | CreateTag               | Create tag                                             |
+	// | ManageNote              | Manage notes                                           |
+	// | PolicyExempt            | Bypass policies when pushing                           |
+	// | CreateRepository        | Create repository                                      |
+	// | DeleteRepository        | Delete repository                                      |
+	// | RenameRepository        | Rename repository                                      |
+	// | EditPolicies            | Edit policies                                          |
+	// | RemoveOthersLocks       | Remove others' locks                                   |
+	// | ManagePermissions       | Manage permissions                                     |
+	// | PullRequestContribute   | Contribute to pull requests                            |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal *string `pulumi:"principal"`
@@ -371,8 +413,29 @@ type gitPermissionsState struct {
 
 type GitPermissionsState struct {
 	// The name of the branch to assign the permissions.
+	//
+	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName pulumi.StringPtrInput
 	// the permissions to assign. The follwing permissions are available
+	//
+	// | Permissions             | Description                                            |
+	// |-------------------------|--------------------------------------------------------|
+	// | Administer              | Administer                                             |
+	// | GenericRead             | Read                                                   |
+	// | GenericContribute       | Contribute                                             |
+	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
+	// | CreateBranch            | Create branch                                          |
+	// | CreateTag               | Create tag                                             |
+	// | ManageNote              | Manage notes                                           |
+	// | PolicyExempt            | Bypass policies when pushing                           |
+	// | CreateRepository        | Create repository                                      |
+	// | DeleteRepository        | Delete repository                                      |
+	// | RenameRepository        | Rename repository                                      |
+	// | EditPolicies            | Edit policies                                          |
+	// | RemoveOthersLocks       | Remove others' locks                                   |
+	// | ManagePermissions       | Manage permissions                                     |
+	// | PullRequestContribute   | Contribute to pull requests                            |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringPtrInput
@@ -390,8 +453,29 @@ func (GitPermissionsState) ElementType() reflect.Type {
 
 type gitPermissionsArgs struct {
 	// The name of the branch to assign the permissions.
+	//
+	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName *string `pulumi:"branchName"`
 	// the permissions to assign. The follwing permissions are available
+	//
+	// | Permissions             | Description                                            |
+	// |-------------------------|--------------------------------------------------------|
+	// | Administer              | Administer                                             |
+	// | GenericRead             | Read                                                   |
+	// | GenericContribute       | Contribute                                             |
+	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
+	// | CreateBranch            | Create branch                                          |
+	// | CreateTag               | Create tag                                             |
+	// | ManageNote              | Manage notes                                           |
+	// | PolicyExempt            | Bypass policies when pushing                           |
+	// | CreateRepository        | Create repository                                      |
+	// | DeleteRepository        | Delete repository                                      |
+	// | RenameRepository        | Rename repository                                      |
+	// | EditPolicies            | Edit policies                                          |
+	// | RemoveOthersLocks       | Remove others' locks                                   |
+	// | ManagePermissions       | Manage permissions                                     |
+	// | PullRequestContribute   | Contribute to pull requests                            |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions map[string]string `pulumi:"permissions"`
 	// The **group** principal to assign the permissions.
 	Principal string `pulumi:"principal"`
@@ -406,8 +490,29 @@ type gitPermissionsArgs struct {
 // The set of arguments for constructing a GitPermissions resource.
 type GitPermissionsArgs struct {
 	// The name of the branch to assign the permissions.
+	//
+	// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
 	BranchName pulumi.StringPtrInput
 	// the permissions to assign. The follwing permissions are available
+	//
+	// | Permissions             | Description                                            |
+	// |-------------------------|--------------------------------------------------------|
+	// | Administer              | Administer                                             |
+	// | GenericRead             | Read                                                   |
+	// | GenericContribute       | Contribute                                             |
+	// | ForcePush               | Force push (rewrite history, delete branches and tags) |
+	// | CreateBranch            | Create branch                                          |
+	// | CreateTag               | Create tag                                             |
+	// | ManageNote              | Manage notes                                           |
+	// | PolicyExempt            | Bypass policies when pushing                           |
+	// | CreateRepository        | Create repository                                      |
+	// | DeleteRepository        | Delete repository                                      |
+	// | RenameRepository        | Rename repository                                      |
+	// | EditPolicies            | Edit policies                                          |
+	// | RemoveOthersLocks       | Remove others' locks                                   |
+	// | ManagePermissions       | Manage permissions                                     |
+	// | PullRequestContribute   | Contribute to pull requests                            |
+	// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 	Permissions pulumi.StringMapInput
 	// The **group** principal to assign the permissions.
 	Principal pulumi.StringInput
@@ -507,11 +612,32 @@ func (o GitPermissionsOutput) ToGitPermissionsOutputWithContext(ctx context.Cont
 }
 
 // The name of the branch to assign the permissions.
+//
+// > **Note** to assign permissions to a branch, the `repositoryId` must be set as well.
 func (o GitPermissionsOutput) BranchName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GitPermissions) pulumi.StringPtrOutput { return v.BranchName }).(pulumi.StringPtrOutput)
 }
 
 // the permissions to assign. The follwing permissions are available
+//
+// | Permissions             | Description                                            |
+// |-------------------------|--------------------------------------------------------|
+// | Administer              | Administer                                             |
+// | GenericRead             | Read                                                   |
+// | GenericContribute       | Contribute                                             |
+// | ForcePush               | Force push (rewrite history, delete branches and tags) |
+// | CreateBranch            | Create branch                                          |
+// | CreateTag               | Create tag                                             |
+// | ManageNote              | Manage notes                                           |
+// | PolicyExempt            | Bypass policies when pushing                           |
+// | CreateRepository        | Create repository                                      |
+// | DeleteRepository        | Delete repository                                      |
+// | RenameRepository        | Rename repository                                      |
+// | EditPolicies            | Edit policies                                          |
+// | RemoveOthersLocks       | Remove others' locks                                   |
+// | ManagePermissions       | Manage permissions                                     |
+// | PullRequestContribute   | Contribute to pull requests                            |
+// | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
 func (o GitPermissionsOutput) Permissions() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *GitPermissions) pulumi.StringMapOutput { return v.Permissions }).(pulumi.StringMapOutput)
 }

@@ -112,6 +112,9 @@ export class ServiceEndpointArtifactory extends pulumi.CustomResource {
     public readonly serviceEndpointName!: pulumi.Output<string>;
     /**
      * URL of the Artifactory server to connect with.
+     *
+     * _Note: URL should not end in a slash character._
+     * * either `authenticationToken` or `authenticationBasic` (one is required)
      */
     public readonly url!: pulumi.Output<string>;
 
@@ -180,6 +183,9 @@ export interface ServiceEndpointArtifactoryState {
     serviceEndpointName?: pulumi.Input<string>;
     /**
      * URL of the Artifactory server to connect with.
+     *
+     * _Note: URL should not end in a slash character._
+     * * either `authenticationToken` or `authenticationBasic` (one is required)
      */
     url?: pulumi.Input<string>;
 }
@@ -205,6 +211,9 @@ export interface ServiceEndpointArtifactoryArgs {
     serviceEndpointName: pulumi.Input<string>;
     /**
      * URL of the Artifactory server to connect with.
+     *
+     * _Note: URL should not end in a slash character._
+     * * either `authenticationToken` or `authenticationBasic` (one is required)
      */
     url: pulumi.Input<string>;
 }

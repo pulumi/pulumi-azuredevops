@@ -23,6 +23,8 @@ namespace Pulumi.AzureDevOps.Outputs
         public readonly string? Message;
         /// <summary>
         /// Minimum number of required reviewers. Defaults to `1`.
+        /// 
+        /// &gt; **Note** Has to be greater than `0`. Can only be greater than `1` when attribute `auto_reviewer_ids` contains exactly one group! Only has an effect when attribute `blocking` is set to `true`.
         /// </summary>
         public readonly int? MinimumNumberOfReviewers;
         /// <summary>

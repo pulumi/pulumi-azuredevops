@@ -91,6 +91,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// 
+        /// | Name               | Permission Description     |
+        /// | ------------------ | -------------------------- |
+        /// | Enumerate          | Enumerate tag definitions  |
+        /// | Create             | Create tag definition      |
+        /// | Update             | Update tag definition      |
+        /// | Delete             | Delete tag definition      |
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -167,6 +174,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// 
+        /// | Name               | Permission Description     |
+        /// | ------------------ | -------------------------- |
+        /// | Enumerate          | Enumerate tag definitions  |
+        /// | Create             | Create tag definition      |
+        /// | Update             | Update tag definition      |
+        /// | Delete             | Delete tag definition      |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -205,6 +219,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// 
+        /// | Name               | Permission Description     |
+        /// | ------------------ | -------------------------- |
+        /// | Enumerate          | Enumerate tag definitions  |
+        /// | Create             | Create tag definition      |
+        /// | Update             | Update tag definition      |
+        /// | Delete             | Delete tag definition      |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

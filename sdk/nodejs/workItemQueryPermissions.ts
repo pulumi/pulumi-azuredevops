@@ -165,6 +165,13 @@ export class WorkItemQueryPermissions extends pulumi.CustomResource {
     public readonly path!: pulumi.Output<string | undefined>;
     /**
      * the permissions to assign. The following permissions are available
+     *
+     * | Permissions              | Description                        |
+     * |--------------------------|------------------------------------|
+     * | Read                     | Read                               |
+     * | Contribute               | Contribute                         |
+     * | Delete                   | Delete                             |
+     * | ManagePermissions        | Manage Permissions                 |
      */
     public readonly permissions!: pulumi.Output<{[key: string]: string}>;
     /**
@@ -230,6 +237,13 @@ export interface WorkItemQueryPermissionsState {
     path?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available
+     *
+     * | Permissions              | Description                        |
+     * |--------------------------|------------------------------------|
+     * | Read                     | Read                               |
+     * | Contribute               | Contribute                         |
+     * | Delete                   | Delete                             |
+     * | ManagePermissions        | Manage Permissions                 |
      */
     permissions?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -256,6 +270,13 @@ export interface WorkItemQueryPermissionsArgs {
     path?: pulumi.Input<string>;
     /**
      * the permissions to assign. The following permissions are available
+     *
+     * | Permissions              | Description                        |
+     * |--------------------------|------------------------------------|
+     * | Read                     | Read                               |
+     * | Contribute               | Contribute                         |
+     * | Delete                   | Delete                             |
+     * | ManagePermissions        | Manage Permissions                 |
      */
     permissions: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

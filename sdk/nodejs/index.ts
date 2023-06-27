@@ -65,6 +65,11 @@ export type BuildFolderPermissions = import("./buildFolderPermissions").BuildFol
 export const BuildFolderPermissions: typeof import("./buildFolderPermissions").BuildFolderPermissions = null as any;
 utilities.lazyLoad(exports, ["BuildFolderPermissions"], () => require("./buildFolderPermissions"));
 
+export { CheckApprovalArgs, CheckApprovalState } from "./checkApproval";
+export type CheckApproval = import("./checkApproval").CheckApproval;
+export const CheckApproval: typeof import("./checkApproval").CheckApproval = null as any;
+utilities.lazyLoad(exports, ["CheckApproval"], () => require("./checkApproval"));
+
 export { CheckBranchControlArgs, CheckBranchControlState } from "./checkBranchControl";
 export type CheckBranchControl = import("./checkBranchControl").CheckBranchControl;
 export const CheckBranchControl: typeof import("./checkBranchControl").CheckBranchControl = null as any;
@@ -153,6 +158,16 @@ export const getServiceEndpointGithub: typeof import("./getServiceEndpointGithub
 export const getServiceEndpointGithubOutput: typeof import("./getServiceEndpointGithub").getServiceEndpointGithubOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceEndpointGithub","getServiceEndpointGithubOutput"], () => require("./getServiceEndpointGithub"));
 
+export { GetServiceendpointNpmArgs, GetServiceendpointNpmResult, GetServiceendpointNpmOutputArgs } from "./getServiceendpointNpm";
+export const getServiceendpointNpm: typeof import("./getServiceendpointNpm").getServiceendpointNpm = null as any;
+export const getServiceendpointNpmOutput: typeof import("./getServiceendpointNpm").getServiceendpointNpmOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceendpointNpm","getServiceendpointNpmOutput"], () => require("./getServiceendpointNpm"));
+
+export { GetServiceendpointSonarcloudArgs, GetServiceendpointSonarcloudResult, GetServiceendpointSonarcloudOutputArgs } from "./getServiceendpointSonarcloud";
+export const getServiceendpointSonarcloud: typeof import("./getServiceendpointSonarcloud").getServiceendpointSonarcloud = null as any;
+export const getServiceendpointSonarcloudOutput: typeof import("./getServiceendpointSonarcloud").getServiceendpointSonarcloudOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceendpointSonarcloud","getServiceendpointSonarcloudOutput"], () => require("./getServiceendpointSonarcloud"));
+
 export { GetTeamArgs, GetTeamResult, GetTeamOutputArgs } from "./getTeam";
 export const getTeam: typeof import("./getTeam").getTeam = null as any;
 export const getTeamOutput: typeof import("./getTeam").getTeamOutput = null as any;
@@ -207,6 +222,11 @@ export { IterativePermissionsArgs, IterativePermissionsState } from "./iterative
 export type IterativePermissions = import("./iterativePermissions").IterativePermissions;
 export const IterativePermissions: typeof import("./iterativePermissions").IterativePermissions = null as any;
 utilities.lazyLoad(exports, ["IterativePermissions"], () => require("./iterativePermissions"));
+
+export { PipelineAuthorizationArgs, PipelineAuthorizationState } from "./pipelineAuthorization";
+export type PipelineAuthorization = import("./pipelineAuthorization").PipelineAuthorization;
+export const PipelineAuthorization: typeof import("./pipelineAuthorization").PipelineAuthorization = null as any;
+utilities.lazyLoad(exports, ["PipelineAuthorization"], () => require("./pipelineAuthorization"));
 
 export { PoolArgs, PoolState } from "./pool";
 export type Pool = import("./pool").Pool;
@@ -383,6 +403,11 @@ export type ServiceendpointExternaltfs = import("./serviceendpointExternaltfs").
 export const ServiceendpointExternaltfs: typeof import("./serviceendpointExternaltfs").ServiceendpointExternaltfs = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointExternaltfs"], () => require("./serviceendpointExternaltfs"));
 
+export { ServiceendpointGcpTerraformArgs, ServiceendpointGcpTerraformState } from "./serviceendpointGcpTerraform";
+export type ServiceendpointGcpTerraform = import("./serviceendpointGcpTerraform").ServiceendpointGcpTerraform;
+export const ServiceendpointGcpTerraform: typeof import("./serviceendpointGcpTerraform").ServiceendpointGcpTerraform = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointGcpTerraform"], () => require("./serviceendpointGcpTerraform"));
+
 export { ServiceendpointIncomingwebhookArgs, ServiceendpointIncomingwebhookState } from "./serviceendpointIncomingwebhook";
 export type ServiceendpointIncomingwebhook = import("./serviceendpointIncomingwebhook").ServiceendpointIncomingwebhook;
 export const ServiceendpointIncomingwebhook: typeof import("./serviceendpointIncomingwebhook").ServiceendpointIncomingwebhook = null as any;
@@ -521,6 +546,8 @@ const _module = {
                 return new BuildFolder(name, <any>undefined, { urn })
             case "azuredevops:index/buildFolderPermissions:BuildFolderPermissions":
                 return new BuildFolderPermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/checkApproval:CheckApproval":
+                return new CheckApproval(name, <any>undefined, { urn })
             case "azuredevops:index/checkBranchControl:CheckBranchControl":
                 return new CheckBranchControl(name, <any>undefined, { urn })
             case "azuredevops:index/checkBusinessHours:CheckBusinessHours":
@@ -541,6 +568,8 @@ const _module = {
                 return new GroupMembership(name, <any>undefined, { urn })
             case "azuredevops:index/iterativePermissions:IterativePermissions":
                 return new IterativePermissions(name, <any>undefined, { urn })
+            case "azuredevops:index/pipelineAuthorization:PipelineAuthorization":
+                return new PipelineAuthorization(name, <any>undefined, { urn })
             case "azuredevops:index/pool:Pool":
                 return new Pool(name, <any>undefined, { urn })
             case "azuredevops:index/project:Project":
@@ -609,6 +638,8 @@ const _module = {
                 return new ServiceendpointArgocd(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs":
                 return new ServiceendpointExternaltfs(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform":
+                return new ServiceendpointGcpTerraform(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook":
                 return new ServiceendpointIncomingwebhook(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2":
@@ -658,6 +689,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinition", _m
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildDefinitionPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildFolder", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/buildFolderPermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/checkApproval", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkBranchControl", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkBusinessHours", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
@@ -668,6 +700,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/gitRepositoryFile", 
 pulumi.runtime.registerResourceModule("azuredevops", "index/group", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/groupMembership", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/iterativePermissions", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/pipelineAuthorization", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/pool", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/project", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/projectFeatures", _module)
@@ -702,6 +735,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSonar
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceEndpointSsh", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointArgocd", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointExternaltfs", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointGcpTerraform", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointIncomingwebhook", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJfrogArtifactoryV2", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJfrogDistributionV2", _module)

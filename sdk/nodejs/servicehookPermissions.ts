@@ -93,6 +93,13 @@ export class ServicehookPermissions extends pulumi.CustomResource {
     public readonly projectId!: pulumi.Output<string | undefined>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     *
+     * | Name               | Permission Description   |
+     * | ------------------ | ------------------------ |
+     * | ViewSubscriptions  | View Subscriptions       |
+     * | EditSubscriptions  | Edit Subscription        |
+     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | PublishEvents      | Publish Events           |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -149,6 +156,13 @@ export interface ServicehookPermissionsState {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     *
+     * | Name               | Permission Description   |
+     * | ------------------ | ------------------------ |
+     * | ViewSubscriptions  | View Subscriptions       |
+     * | EditSubscriptions  | Edit Subscription        |
+     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | PublishEvents      | Publish Events           |
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -171,6 +185,13 @@ export interface ServicehookPermissionsArgs {
     projectId?: pulumi.Input<string>;
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     *
+     * | Name               | Permission Description   |
+     * | ------------------ | ------------------------ |
+     * | ViewSubscriptions  | View Subscriptions       |
+     * | EditSubscriptions  | Edit Subscription        |
+     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | PublishEvents      | Publish Events           |
      */
     replace?: pulumi.Input<boolean>;
 }

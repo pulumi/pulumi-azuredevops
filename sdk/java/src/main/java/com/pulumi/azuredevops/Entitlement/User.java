@@ -97,12 +97,16 @@ public class User extends com.pulumi.resources.CustomResource {
     /**
      * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
      * 
+     * &gt; **NOTE:** A user can only be referenced by it&#39;s `principal_name` or by the combination of `origin_id` and `origin`.
+     * 
      */
     @Export(name="licensingSource", type=String.class, parameters={})
     private Output</* @Nullable */ String> licensingSource;
 
     /**
      * @return The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
+     * 
+     * &gt; **NOTE:** A user can only be referenced by it&#39;s `principal_name` or by the combination of `origin_id` and `origin`.
      * 
      */
     public Output<Optional<String>> licensingSource() {

@@ -31,6 +31,20 @@ class GetUsersUserResult(dict):
         :param str origin: The type of source provider for the `origin_id` parameter (ex:AD, AAD, MSA) The supported origins are listed below.
         :param str principal_name: The PrincipalName of this graph member from the source provider.
         :param str origin_id: The unique identifier from the system of origin.
+               
+               DataSource without specifying any arguments will return all users inside an organization.
+               
+               List of possible subject types
+               
+               ```python
+               import pulumi
+               ```
+               
+               List of possible origins
+               
+               ```python
+               import pulumi
+               ```
         """
         pulumi.set(__self__, "descriptor", descriptor)
         pulumi.set(__self__, "display_name", display_name)
@@ -94,6 +108,20 @@ class GetUsersUserResult(dict):
     def origin_id(self) -> Optional[str]:
         """
         The unique identifier from the system of origin.
+
+        DataSource without specifying any arguments will return all users inside an organization.
+
+        List of possible subject types
+
+        ```python
+        import pulumi
+        ```
+
+        List of possible origins
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "origin_id")
 

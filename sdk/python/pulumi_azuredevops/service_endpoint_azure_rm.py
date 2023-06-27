@@ -40,6 +40,8 @@ class ServiceEndpointAzureRMArgs:
         :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         """
         pulumi.set(__self__, "azurerm_spn_tenantid", azurerm_spn_tenantid)
@@ -186,6 +188,8 @@ class ServiceEndpointAzureRMArgs:
     def environment(self) -> Optional[pulumi.Input[str]]:
         """
         The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+
+        > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         """
         return pulumi.get(self, "environment")
 
@@ -231,6 +235,8 @@ class _ServiceEndpointAzureRMState:
         :param pulumi.Input['ServiceEndpointAzureRMCredentialsArgs'] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
@@ -358,6 +364,8 @@ class _ServiceEndpointAzureRMState:
     def environment(self) -> Optional[pulumi.Input[str]]:
         """
         The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+
+        > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         """
         return pulumi.get(self, "environment")
 
@@ -515,6 +523,8 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
@@ -703,6 +713,8 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['ServiceEndpointAzureRMCredentialsArgs']] credentials: A `credentials` block.
         :param pulumi.Input[str] description: Service connection description.
         :param pulumi.Input[str] environment: The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+               
+               > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
@@ -791,6 +803,8 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
     def environment(self) -> pulumi.Output[Optional[str]]:
         """
         The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+
+        > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         """
         return pulumi.get(self, "environment")
 

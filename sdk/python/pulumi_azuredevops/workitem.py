@@ -17,7 +17,9 @@ class WorkitemArgs:
                  project_id: pulumi.Input[str],
                  title: pulumi.Input[str],
                  type: pulumi.Input[str],
+                 area_path: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 iteration_path: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
@@ -25,15 +27,21 @@ class WorkitemArgs:
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] title: The Title of the Work Item.
         :param pulumi.Input[str] type: The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
+        :param pulumi.Input[str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
+        :param pulumi.Input[str] iteration_path: Specifies the iteration in which the Work Item is used.
         :param pulumi.Input[str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Specifies a list of Tags.
         """
         pulumi.set(__self__, "project_id", project_id)
         pulumi.set(__self__, "title", title)
         pulumi.set(__self__, "type", type)
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
         if custom_fields is not None:
             pulumi.set(__self__, "custom_fields", custom_fields)
+        if iteration_path is not None:
+            pulumi.set(__self__, "iteration_path", iteration_path)
         if state is not None:
             pulumi.set(__self__, "state", state)
         if tags is not None:
@@ -76,6 +84,18 @@ class WorkitemArgs:
         pulumi.set(self, "type", value)
 
     @property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the area where the Work Item is used.
+        """
+        return pulumi.get(self, "area_path")
+
+    @area_path.setter
+    def area_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "area_path", value)
+
+    @property
     @pulumi.getter(name="customFields")
     def custom_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -86,6 +106,18 @@ class WorkitemArgs:
     @custom_fields.setter
     def custom_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "custom_fields", value)
+
+    @property
+    @pulumi.getter(name="iterationPath")
+    def iteration_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the iteration in which the Work Item is used.
+        """
+        return pulumi.get(self, "iteration_path")
+
+    @iteration_path.setter
+    def iteration_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iteration_path", value)
 
     @property
     @pulumi.getter
@@ -115,7 +147,9 @@ class WorkitemArgs:
 @pulumi.input_type
 class _WorkitemState:
     def __init__(__self__, *,
+                 area_path: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 iteration_path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -123,15 +157,21 @@ class _WorkitemState:
                  type: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Workitem resources.
+        :param pulumi.Input[str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
+        :param pulumi.Input[str] iteration_path: Specifies the iteration in which the Work Item is used.
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Specifies a list of Tags.
         :param pulumi.Input[str] title: The Title of the Work Item.
         :param pulumi.Input[str] type: The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
         """
+        if area_path is not None:
+            pulumi.set(__self__, "area_path", area_path)
         if custom_fields is not None:
             pulumi.set(__self__, "custom_fields", custom_fields)
+        if iteration_path is not None:
+            pulumi.set(__self__, "iteration_path", iteration_path)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if state is not None:
@@ -144,6 +184,18 @@ class _WorkitemState:
             pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the area where the Work Item is used.
+        """
+        return pulumi.get(self, "area_path")
+
+    @area_path.setter
+    def area_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "area_path", value)
+
+    @property
     @pulumi.getter(name="customFields")
     def custom_fields(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
@@ -154,6 +206,18 @@ class _WorkitemState:
     @custom_fields.setter
     def custom_fields(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "custom_fields", value)
+
+    @property
+    @pulumi.getter(name="iterationPath")
+    def iteration_path(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the iteration in which the Work Item is used.
+        """
+        return pulumi.get(self, "iteration_path")
+
+    @iteration_path.setter
+    def iteration_path(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "iteration_path", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -221,7 +285,9 @@ class Workitem(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 area_path: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 iteration_path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -278,7 +344,9 @@ class Workitem(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
+        :param pulumi.Input[str] iteration_path: Specifies the iteration in which the Work Item is used.
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Specifies a list of Tags.
@@ -354,7 +422,9 @@ class Workitem(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 area_path: Optional[pulumi.Input[str]] = None,
                  custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 iteration_path: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -369,7 +439,9 @@ class Workitem(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = WorkitemArgs.__new__(WorkitemArgs)
 
+            __props__.__dict__["area_path"] = area_path
             __props__.__dict__["custom_fields"] = custom_fields
+            __props__.__dict__["iteration_path"] = iteration_path
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
@@ -391,7 +463,9 @@ class Workitem(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            area_path: Optional[pulumi.Input[str]] = None,
             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+            iteration_path: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             state: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -404,7 +478,9 @@ class Workitem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] area_path: Specifies the area where the Work Item is used.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] custom_fields: Specifies a list with Custom Fields for the Work Item.
+        :param pulumi.Input[str] iteration_path: Specifies the iteration in which the Work Item is used.
         :param pulumi.Input[str] project_id: The ID of the Project.
         :param pulumi.Input[str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Specifies a list of Tags.
@@ -415,7 +491,9 @@ class Workitem(pulumi.CustomResource):
 
         __props__ = _WorkitemState.__new__(_WorkitemState)
 
+        __props__.__dict__["area_path"] = area_path
         __props__.__dict__["custom_fields"] = custom_fields
+        __props__.__dict__["iteration_path"] = iteration_path
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["state"] = state
         __props__.__dict__["tags"] = tags
@@ -424,12 +502,28 @@ class Workitem(pulumi.CustomResource):
         return Workitem(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="areaPath")
+    def area_path(self) -> pulumi.Output[str]:
+        """
+        Specifies the area where the Work Item is used.
+        """
+        return pulumi.get(self, "area_path")
+
+    @property
     @pulumi.getter(name="customFields")
     def custom_fields(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
         Specifies a list with Custom Fields for the Work Item.
         """
         return pulumi.get(self, "custom_fields")
+
+    @property
+    @pulumi.getter(name="iterationPath")
+    def iteration_path(self) -> pulumi.Output[str]:
+        """
+        Specifies the iteration in which the Work Item is used.
+        """
+        return pulumi.get(self, "iteration_path")
 
     @property
     @pulumi.getter(name="projectId")

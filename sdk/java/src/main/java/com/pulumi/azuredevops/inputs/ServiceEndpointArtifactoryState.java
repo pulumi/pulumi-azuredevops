@@ -87,12 +87,18 @@ public final class ServiceEndpointArtifactoryState extends com.pulumi.resources.
     /**
      * URL of the Artifactory server to connect with.
      * 
+     * _Note: URL should not end in a slash character._
+     * * either `authentication_token` or `authentication_basic` (one is required)
+     * 
      */
     @Import(name="url")
     private @Nullable Output<String> url;
 
     /**
      * @return URL of the Artifactory server to connect with.
+     * 
+     * _Note: URL should not end in a slash character._
+     * * either `authentication_token` or `authentication_basic` (one is required)
      * 
      */
     public Optional<Output<String>> url() {
@@ -222,6 +228,9 @@ public final class ServiceEndpointArtifactoryState extends com.pulumi.resources.
         /**
          * @param url URL of the Artifactory server to connect with.
          * 
+         * _Note: URL should not end in a slash character._
+         * * either `authentication_token` or `authentication_basic` (one is required)
+         * 
          * @return builder
          * 
          */
@@ -232,6 +241,9 @@ public final class ServiceEndpointArtifactoryState extends com.pulumi.resources.
 
         /**
          * @param url URL of the Artifactory server to connect with.
+         * 
+         * _Note: URL should not end in a slash character._
+         * * either `authentication_token` or `authentication_basic` (one is required)
          * 
          * @return builder
          * 

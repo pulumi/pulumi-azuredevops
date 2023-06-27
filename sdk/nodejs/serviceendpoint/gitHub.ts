@@ -108,9 +108,6 @@ export class GitHub extends pulumi.CustomResource {
         return obj['__pulumiType'] === GitHub.__pulumiType;
     }
 
-    /**
-     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
-     */
     public readonly authOauth!: pulumi.Output<outputs.ServiceEndpoint.GitHubAuthOauth | undefined>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
@@ -173,9 +170,6 @@ export class GitHub extends pulumi.CustomResource {
  * Input properties used for looking up and filtering GitHub resources.
  */
 export interface GitHubState {
-    /**
-     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
-     */
     authOauth?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthOauth>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.
@@ -197,9 +191,6 @@ export interface GitHubState {
  * The set of arguments for constructing a GitHub resource.
  */
 export interface GitHubArgs {
-    /**
-     * An `authOauth` block as documented below. Allows connecting using an Oauth token.
-     */
     authOauth?: pulumi.Input<inputs.ServiceEndpoint.GitHubAuthOauth>;
     /**
      * An `authPersonal` block as documented below. Allows connecting using a personal access token.

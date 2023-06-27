@@ -328,12 +328,16 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     /**
      * The name of the branch to assign the permissions.
      * 
+     * &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
+     * 
      */
     @Export(name="branchName", type=String.class, parameters={})
     private Output</* @Nullable */ String> branchName;
 
     /**
      * @return The name of the branch to assign the permissions.
+     * 
+     * &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
      * 
      */
     public Output<Optional<String>> branchName() {
@@ -342,12 +346,50 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
     /**
      * the permissions to assign. The follwing permissions are available
      * 
+     * | Permissions             | Description                                            |
+     * |-------------------------|--------------------------------------------------------|
+     * | Administer              | Administer                                             |
+     * | GenericRead             | Read                                                   |
+     * | GenericContribute       | Contribute                                             |
+     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
+     * | CreateBranch            | Create branch                                          |
+     * | CreateTag               | Create tag                                             |
+     * | ManageNote              | Manage notes                                           |
+     * | PolicyExempt            | Bypass policies when pushing                           |
+     * | CreateRepository        | Create repository                                      |
+     * | DeleteRepository        | Delete repository                                      |
+     * | RenameRepository        | Rename repository                                      |
+     * | EditPolicies            | Edit policies                                          |
+     * | RemoveOthersLocks       | Remove others&#39; locks                                   |
+     * | ManagePermissions       | Manage permissions                                     |
+     * | PullRequestContribute   | Contribute to pull requests                            |
+     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
+     * 
      */
     @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
     private Output<Map<String,String>> permissions;
 
     /**
      * @return the permissions to assign. The follwing permissions are available
+     * 
+     * | Permissions             | Description                                            |
+     * |-------------------------|--------------------------------------------------------|
+     * | Administer              | Administer                                             |
+     * | GenericRead             | Read                                                   |
+     * | GenericContribute       | Contribute                                             |
+     * | ForcePush               | Force push (rewrite history, delete branches and tags) |
+     * | CreateBranch            | Create branch                                          |
+     * | CreateTag               | Create tag                                             |
+     * | ManageNote              | Manage notes                                           |
+     * | PolicyExempt            | Bypass policies when pushing                           |
+     * | CreateRepository        | Create repository                                      |
+     * | DeleteRepository        | Delete repository                                      |
+     * | RenameRepository        | Rename repository                                      |
+     * | EditPolicies            | Edit policies                                          |
+     * | RemoveOthersLocks       | Remove others&#39; locks                                   |
+     * | ManagePermissions       | Manage permissions                                     |
+     * | PullRequestContribute   | Contribute to pull requests                            |
+     * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
      * 
      */
     public Output<Map<String,String>> permissions() {

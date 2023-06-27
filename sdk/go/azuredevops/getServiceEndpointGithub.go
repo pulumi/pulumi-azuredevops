@@ -95,6 +95,9 @@ type GetServiceEndpointGithubArgs struct {
 	// the ID of the Service Endpoint.
 	ServiceEndpointId *string `pulumi:"serviceEndpointId"`
 	// the Name of the Service Endpoint.
+	//
+	// > **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+	// **NOTE:** When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
 }
 
@@ -131,6 +134,9 @@ type GetServiceEndpointGithubOutputArgs struct {
 	// the ID of the Service Endpoint.
 	ServiceEndpointId pulumi.StringPtrInput `pulumi:"serviceEndpointId"`
 	// the Name of the Service Endpoint.
+	//
+	// > **NOTE:** One of either `serviceEndpointId` or `serviceEndpointName` must be specified.
+	// **NOTE:** When supplying `serviceEndpointName`, take care to ensure that this is a unique name.
 	ServiceEndpointName pulumi.StringPtrInput `pulumi:"serviceEndpointName"`
 }
 

@@ -65,12 +65,26 @@ public final class TaggingPermissionsArgs extends com.pulumi.resources.ResourceA
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
+     * | Name               | Permission Description     |
+     * | ------------------ | -------------------------- |
+     * | Enumerate          | Enumerate tag definitions  |
+     * | Create             | Create tag definition      |
+     * | Update             | Update tag definition      |
+     * | Delete             | Delete tag definition      |
+     * 
      */
     @Import(name="replace")
     private @Nullable Output<Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`
+     * 
+     * | Name               | Permission Description     |
+     * | ------------------ | -------------------------- |
+     * | Enumerate          | Enumerate tag definitions  |
+     * | Create             | Create tag definition      |
+     * | Update             | Update tag definition      |
+     * | Delete             | Delete tag definition      |
      * 
      */
     public Optional<Output<Boolean>> replace() {
@@ -170,6 +184,13 @@ public final class TaggingPermissionsArgs extends com.pulumi.resources.ResourceA
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
          * 
+         * | Name               | Permission Description     |
+         * | ------------------ | -------------------------- |
+         * | Enumerate          | Enumerate tag definitions  |
+         * | Create             | Create tag definition      |
+         * | Update             | Update tag definition      |
+         * | Delete             | Delete tag definition      |
+         * 
          * @return builder
          * 
          */
@@ -180,6 +201,13 @@ public final class TaggingPermissionsArgs extends com.pulumi.resources.ResourceA
 
         /**
          * @param replace Replace (`true`) or merge (`false`) the permissions. Default: `true`
+         * 
+         * | Name               | Permission Description     |
+         * | ------------------ | -------------------------- |
+         * | Enumerate          | Enumerate tag definitions  |
+         * | Create             | Create tag definition      |
+         * | Update             | Update tag definition      |
+         * | Delete             | Delete tag definition      |
          * 
          * @return builder
          * 

@@ -49,6 +49,9 @@ export function getRepositories(args?: GetRepositoriesArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesArgs {
+    /**
+     * DataSource without specifying any arguments will return all Git repositories of an organization.
+     */
     includeHidden?: boolean;
     /**
      * Name of the Git repository to retrieve; requires `projectId` to be specified as well
@@ -117,6 +120,9 @@ export function getRepositoriesOutput(args?: GetRepositoriesOutputArgs, opts?: p
  * A collection of arguments for invoking getRepositories.
  */
 export interface GetRepositoriesOutputArgs {
+    /**
+     * DataSource without specifying any arguments will return all Git repositories of an organization.
+     */
     includeHidden?: pulumi.Input<boolean>;
     /**
      * Name of the Git repository to retrieve; requires `projectId` to be specified as well

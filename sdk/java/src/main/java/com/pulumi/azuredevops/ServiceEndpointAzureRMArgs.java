@@ -132,12 +132,16 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     /**
      * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
      * 
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+     * 
      */
     @Import(name="environment")
     private @Nullable Output<String> environment;
 
     /**
      * @return The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     * 
+     * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
      * 
      */
     public Optional<Output<String>> environment() {
@@ -383,6 +387,8 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         /**
          * @param environment The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
          * 
+         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
+         * 
          * @return builder
          * 
          */
@@ -393,6 +399,8 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
 
         /**
          * @param environment The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+         * 
+         * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
          * 
          * @return builder
          * 

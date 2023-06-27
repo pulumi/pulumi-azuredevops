@@ -130,6 +130,8 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// URL of the Artifactory server to connect with.
+        /// 
+        /// &gt; **NOTE:** URL should not end in a slash character.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -220,6 +222,8 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// URL of the Artifactory server to connect with.
+        /// 
+        /// &gt; **NOTE:** URL should not end in a slash character.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -272,6 +276,8 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// URL of the Artifactory server to connect with.
+        /// 
+        /// &gt; **NOTE:** URL should not end in a slash character.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

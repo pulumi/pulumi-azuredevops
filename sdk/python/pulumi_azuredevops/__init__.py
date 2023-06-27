@@ -17,6 +17,7 @@ from .build_definition import *
 from .build_definition_permissions import *
 from .build_folder import *
 from .build_folder_permissions import *
+from .check_approval import *
 from .check_branch_control import *
 from .check_business_hours import *
 from .environment import *
@@ -35,6 +36,8 @@ from .get_projects import *
 from .get_repositories import *
 from .get_service_endpoint_azure_rm import *
 from .get_service_endpoint_github import *
+from .get_serviceendpoint_npm import *
+from .get_serviceendpoint_sonarcloud import *
 from .get_team import *
 from .get_teams import *
 from .get_users import *
@@ -46,6 +49,7 @@ from .git_repository_file import *
 from .group import *
 from .group_membership import *
 from .iterative_permissions import *
+from .pipeline_authorization import *
 from .pool import *
 from .project import *
 from .project_features import *
@@ -81,6 +85,7 @@ from .service_endpoint_sonar_qube import *
 from .service_endpoint_ssh import *
 from .serviceendpoint_argocd import *
 from .serviceendpoint_externaltfs import *
+from .serviceendpoint_gcp_terraform import *
 from .serviceendpoint_incomingwebhook import *
 from .serviceendpoint_jfrog_artifactory_v2 import *
 from .serviceendpoint_jfrog_distribution_v2 import *
@@ -382,6 +387,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/checkApproval",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/checkApproval:CheckApproval": "CheckApproval"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/checkBranchControl",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -458,6 +471,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/iterativePermissions:IterativePermissions": "IterativePermissions"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/pipelineAuthorization",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/pipelineAuthorization:PipelineAuthorization": "PipelineAuthorization"
   }
  },
  {
@@ -730,6 +751,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointExternaltfs:ServiceendpointExternaltfs": "ServiceendpointExternaltfs"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointGcpTerraform",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform": "ServiceendpointGcpTerraform"
   }
  },
  {

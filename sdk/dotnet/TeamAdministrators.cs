@@ -71,6 +71,11 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// List of subject descriptors to define adminitrators of the team.
+        /// 
+        /// &gt; NOTE: It's possible to define team administrators both within the
+        /// &gt; `azuredevops.Team` resource via the `administrators` block and by using the
+        /// &gt; `azuredevops.TeamAdministrators` resource. However it's not possible to use
+        /// &gt; both methods to manage team administrators, since there'll be conflicts.
         /// </summary>
         [Output("administrators")]
         public Output<ImmutableArray<string>> Administrators { get; private set; } = null!;
@@ -146,6 +151,11 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// List of subject descriptors to define adminitrators of the team.
+        /// 
+        /// &gt; NOTE: It's possible to define team administrators both within the
+        /// &gt; `azuredevops.Team` resource via the `administrators` block and by using the
+        /// &gt; `azuredevops.TeamAdministrators` resource. However it's not possible to use
+        /// &gt; both methods to manage team administrators, since there'll be conflicts.
         /// </summary>
         public InputList<string> Administrators
         {
@@ -186,6 +196,11 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// List of subject descriptors to define adminitrators of the team.
+        /// 
+        /// &gt; NOTE: It's possible to define team administrators both within the
+        /// &gt; `azuredevops.Team` resource via the `administrators` block and by using the
+        /// &gt; `azuredevops.TeamAdministrators` resource. However it's not possible to use
+        /// &gt; both methods to manage team administrators, since there'll be conflicts.
         /// </summary>
         public InputList<string> Administrators
         {

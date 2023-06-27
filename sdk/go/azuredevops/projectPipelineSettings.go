@@ -74,6 +74,13 @@ type ProjectPipelineSettings struct {
 
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope pulumi.BoolOutput `pulumi:"enforceJobScope"`
+	// Limit job authorization scope to current project for release pipelines.
+	//
+	// > **NOTE:**
+	// The settings at the organization will override settings specified on the project.
+	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+	EnforceJobScopeForRelease pulumi.BoolOutput `pulumi:"enforceJobScopeForRelease"`
 	// Protect access to repositories in YAML pipelines.
 	EnforceReferencedRepoScopedToken pulumi.BoolOutput `pulumi:"enforceReferencedRepoScopedToken"`
 	// Limit variables that can be set at queue time.
@@ -120,6 +127,13 @@ func GetProjectPipelineSettings(ctx *pulumi.Context,
 type projectPipelineSettingsState struct {
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope *bool `pulumi:"enforceJobScope"`
+	// Limit job authorization scope to current project for release pipelines.
+	//
+	// > **NOTE:**
+	// The settings at the organization will override settings specified on the project.
+	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+	EnforceJobScopeForRelease *bool `pulumi:"enforceJobScopeForRelease"`
 	// Protect access to repositories in YAML pipelines.
 	EnforceReferencedRepoScopedToken *bool `pulumi:"enforceReferencedRepoScopedToken"`
 	// Limit variables that can be set at queue time.
@@ -135,6 +149,13 @@ type projectPipelineSettingsState struct {
 type ProjectPipelineSettingsState struct {
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope pulumi.BoolPtrInput
+	// Limit job authorization scope to current project for release pipelines.
+	//
+	// > **NOTE:**
+	// The settings at the organization will override settings specified on the project.
+	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+	EnforceJobScopeForRelease pulumi.BoolPtrInput
 	// Protect access to repositories in YAML pipelines.
 	EnforceReferencedRepoScopedToken pulumi.BoolPtrInput
 	// Limit variables that can be set at queue time.
@@ -154,6 +175,13 @@ func (ProjectPipelineSettingsState) ElementType() reflect.Type {
 type projectPipelineSettingsArgs struct {
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope *bool `pulumi:"enforceJobScope"`
+	// Limit job authorization scope to current project for release pipelines.
+	//
+	// > **NOTE:**
+	// The settings at the organization will override settings specified on the project.
+	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+	EnforceJobScopeForRelease *bool `pulumi:"enforceJobScopeForRelease"`
 	// Protect access to repositories in YAML pipelines.
 	EnforceReferencedRepoScopedToken *bool `pulumi:"enforceReferencedRepoScopedToken"`
 	// Limit variables that can be set at queue time.
@@ -170,6 +198,13 @@ type projectPipelineSettingsArgs struct {
 type ProjectPipelineSettingsArgs struct {
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope pulumi.BoolPtrInput
+	// Limit job authorization scope to current project for release pipelines.
+	//
+	// > **NOTE:**
+	// The settings at the organization will override settings specified on the project.
+	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+	EnforceJobScopeForRelease pulumi.BoolPtrInput
 	// Protect access to repositories in YAML pipelines.
 	EnforceReferencedRepoScopedToken pulumi.BoolPtrInput
 	// Limit variables that can be set at queue time.
@@ -272,6 +307,16 @@ func (o ProjectPipelineSettingsOutput) ToProjectPipelineSettingsOutputWithContex
 // Limit job authorization scope to current project for non-release pipelines.
 func (o ProjectPipelineSettingsOutput) EnforceJobScope() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ProjectPipelineSettings) pulumi.BoolOutput { return v.EnforceJobScope }).(pulumi.BoolOutput)
+}
+
+// Limit job authorization scope to current project for release pipelines.
+//
+// > **NOTE:**
+// The settings at the organization will override settings specified on the project.
+// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
+// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+func (o ProjectPipelineSettingsOutput) EnforceJobScopeForRelease() pulumi.BoolOutput {
+	return o.ApplyT(func(v *ProjectPipelineSettings) pulumi.BoolOutput { return v.EnforceJobScopeForRelease }).(pulumi.BoolOutput)
 }
 
 // Protect access to repositories in YAML pipelines.

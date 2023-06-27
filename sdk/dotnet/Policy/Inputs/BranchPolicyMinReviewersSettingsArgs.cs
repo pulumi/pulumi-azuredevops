@@ -32,6 +32,8 @@ namespace Pulumi.AzureDevOps.Policy.Inputs
 
         /// <summary>
         /// When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+        /// 
+        /// &gt; **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
         /// </summary>
         [Input("onPushResetAllVotes")]
         public Input<bool>? OnPushResetAllVotes { get; set; }
@@ -52,7 +54,7 @@ namespace Pulumi.AzureDevOps.Policy.Inputs
         private InputList<Inputs.BranchPolicyMinReviewersSettingsScopeArgs>? _scopes;
 
         /// <summary>
-        /// Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        /// A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         /// </summary>
         public InputList<Inputs.BranchPolicyMinReviewersSettingsScopeArgs> Scopes
         {

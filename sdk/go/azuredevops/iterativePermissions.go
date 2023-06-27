@@ -104,6 +104,13 @@ type IterativePermissions struct {
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission      | Description                    |
+	// |-----------------|--------------------------------|
+	// | GENERIC_READ    | View permissions for this node |
+	// | GENERIC_WRITE   | Edit this node                 |
+	// | CREATE_CHILDREN | Create child nodes             |
+	// | DELETE          | Delete this node               |
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 }
 
@@ -154,6 +161,13 @@ type iterativePermissionsState struct {
 	// The ID of the project to assign the permissions.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission      | Description                    |
+	// |-----------------|--------------------------------|
+	// | GENERIC_READ    | View permissions for this node |
+	// | GENERIC_WRITE   | Edit this node                 |
+	// | CREATE_CHILDREN | Create child nodes             |
+	// | DELETE          | Delete this node               |
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -167,6 +181,13 @@ type IterativePermissionsState struct {
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission      | Description                    |
+	// |-----------------|--------------------------------|
+	// | GENERIC_READ    | View permissions for this node |
+	// | GENERIC_WRITE   | Edit this node                 |
+	// | CREATE_CHILDREN | Create child nodes             |
+	// | DELETE          | Delete this node               |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -184,6 +205,13 @@ type iterativePermissionsArgs struct {
 	// The ID of the project to assign the permissions.
 	ProjectId string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission      | Description                    |
+	// |-----------------|--------------------------------|
+	// | GENERIC_READ    | View permissions for this node |
+	// | GENERIC_WRITE   | Edit this node                 |
+	// | CREATE_CHILDREN | Create child nodes             |
+	// | DELETE          | Delete this node               |
 	Replace *bool `pulumi:"replace"`
 }
 
@@ -198,6 +226,13 @@ type IterativePermissionsArgs struct {
 	// The ID of the project to assign the permissions.
 	ProjectId pulumi.StringInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission      | Description                    |
+	// |-----------------|--------------------------------|
+	// | GENERIC_READ    | View permissions for this node |
+	// | GENERIC_WRITE   | Edit this node                 |
+	// | CREATE_CHILDREN | Create child nodes             |
+	// | DELETE          | Delete this node               |
 	Replace pulumi.BoolPtrInput
 }
 
@@ -309,6 +344,13 @@ func (o IterativePermissionsOutput) ProjectId() pulumi.StringOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`
+//
+// | Permission      | Description                    |
+// |-----------------|--------------------------------|
+// | GENERIC_READ    | View permissions for this node |
+// | GENERIC_WRITE   | Edit this node                 |
+// | CREATE_CHILDREN | Create child nodes             |
+// | DELETE          | Delete this node               |
 func (o IterativePermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *IterativePermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

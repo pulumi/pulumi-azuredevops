@@ -114,6 +114,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/workitem:Workitem")
 public class Workitem extends com.pulumi.resources.CustomResource {
     /**
+     * Specifies the area where the Work Item is used.
+     * 
+     */
+    @Export(name="areaPath", type=String.class, parameters={})
+    private Output<String> areaPath;
+
+    /**
+     * @return Specifies the area where the Work Item is used.
+     * 
+     */
+    public Output<String> areaPath() {
+        return this.areaPath;
+    }
+    /**
      * Specifies a list with Custom Fields for the Work Item.
      * 
      */
@@ -126,6 +140,20 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Map<String,String>>> customFields() {
         return Codegen.optional(this.customFields);
+    }
+    /**
+     * Specifies the iteration in which the Work Item is used.
+     * 
+     */
+    @Export(name="iterationPath", type=String.class, parameters={})
+    private Output<String> iterationPath;
+
+    /**
+     * @return Specifies the iteration in which the Work Item is used.
+     * 
+     */
+    public Output<String> iterationPath() {
+        return this.iterationPath;
     }
     /**
      * The ID of the Project.

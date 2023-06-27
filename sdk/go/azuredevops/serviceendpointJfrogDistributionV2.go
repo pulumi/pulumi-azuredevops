@@ -125,6 +125,8 @@ type ServiceendpointJfrogDistributionV2 struct {
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
 	// URL of the Artifactory server to connect with.
+	//
+	// > **NOTE:** URL should not end in a slash character.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -178,6 +180,8 @@ type serviceendpointJfrogDistributionV2State struct {
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
 	// URL of the Artifactory server to connect with.
+	//
+	// > **NOTE:** URL should not end in a slash character.
 	Url *string `pulumi:"url"`
 }
 
@@ -194,6 +198,8 @@ type ServiceendpointJfrogDistributionV2State struct {
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
 	// URL of the Artifactory server to connect with.
+	//
+	// > **NOTE:** URL should not end in a slash character.
 	Url pulumi.StringPtrInput
 }
 
@@ -214,6 +220,8 @@ type serviceendpointJfrogDistributionV2Args struct {
 	// The Service Endpoint name.
 	ServiceEndpointName string `pulumi:"serviceEndpointName"`
 	// URL of the Artifactory server to connect with.
+	//
+	// > **NOTE:** URL should not end in a slash character.
 	Url string `pulumi:"url"`
 }
 
@@ -231,6 +239,8 @@ type ServiceendpointJfrogDistributionV2Args struct {
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringInput
 	// URL of the Artifactory server to connect with.
+	//
+	// > **NOTE:** URL should not end in a slash character.
 	Url pulumi.StringInput
 }
 
@@ -355,6 +365,8 @@ func (o ServiceendpointJfrogDistributionV2Output) ServiceEndpointName() pulumi.S
 }
 
 // URL of the Artifactory server to connect with.
+//
+// > **NOTE:** URL should not end in a slash character.
 func (o ServiceendpointJfrogDistributionV2Output) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogDistributionV2) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

@@ -69,7 +69,6 @@ import (
 type ServiceEndpointGitHubEnterprise struct {
 	pulumi.CustomResourceState
 
-	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalOutput `pulumi:"authPersonal"`
 	Authorization pulumi.StringMapOutput                            `pulumi:"authorization"`
 	Description   pulumi.StringPtrOutput                            `pulumi:"description"`
@@ -122,7 +121,6 @@ func GetServiceEndpointGitHubEnterprise(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServiceEndpointGitHubEnterprise resources.
 type serviceEndpointGitHubEnterpriseState struct {
-	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  *ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                            `pulumi:"authorization"`
 	Description   *string                                      `pulumi:"description"`
@@ -135,7 +133,6 @@ type serviceEndpointGitHubEnterpriseState struct {
 }
 
 type ServiceEndpointGitHubEnterpriseState struct {
-	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalPtrInput
 	Authorization pulumi.StringMapInput
 	Description   pulumi.StringPtrInput
@@ -152,7 +149,6 @@ func (ServiceEndpointGitHubEnterpriseState) ElementType() reflect.Type {
 }
 
 type serviceEndpointGitHubEnterpriseArgs struct {
-	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonal `pulumi:"authPersonal"`
 	Authorization map[string]string                           `pulumi:"authorization"`
 	Description   *string                                     `pulumi:"description"`
@@ -166,7 +162,6 @@ type serviceEndpointGitHubEnterpriseArgs struct {
 
 // The set of arguments for constructing a ServiceEndpointGitHubEnterprise resource.
 type ServiceEndpointGitHubEnterpriseArgs struct {
-	// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 	AuthPersonal  ServiceEndpointGitHubEnterpriseAuthPersonalInput
 	Authorization pulumi.StringMapInput
 	Description   pulumi.StringPtrInput
@@ -265,7 +260,6 @@ func (o ServiceEndpointGitHubEnterpriseOutput) ToServiceEndpointGitHubEnterprise
 	return o
 }
 
-// An `authPersonal` block as documented below. Allows connecting using a personal access token.
 func (o ServiceEndpointGitHubEnterpriseOutput) AuthPersonal() ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
 	return o.ApplyT(func(v *ServiceEndpointGitHubEnterprise) ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
 		return v.AuthPersonal

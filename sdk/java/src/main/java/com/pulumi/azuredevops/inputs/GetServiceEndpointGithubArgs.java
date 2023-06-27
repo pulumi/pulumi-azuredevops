@@ -48,12 +48,18 @@ public final class GetServiceEndpointGithubArgs extends com.pulumi.resources.Inv
     /**
      * the Name of the Service Endpoint.
      * 
+     * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+     * **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+     * 
      */
     @Import(name="serviceEndpointName")
     private @Nullable Output<String> serviceEndpointName;
 
     /**
      * @return the Name of the Service Endpoint.
+     * 
+     * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+     * **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
      * 
      */
     public Optional<Output<String>> serviceEndpointName() {
@@ -131,6 +137,9 @@ public final class GetServiceEndpointGithubArgs extends com.pulumi.resources.Inv
         /**
          * @param serviceEndpointName the Name of the Service Endpoint.
          * 
+         * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+         * **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
+         * 
          * @return builder
          * 
          */
@@ -141,6 +150,9 @@ public final class GetServiceEndpointGithubArgs extends com.pulumi.resources.Inv
 
         /**
          * @param serviceEndpointName the Name of the Service Endpoint.
+         * 
+         * &gt; **NOTE:** One of either `service_endpoint_id` or `service_endpoint_name` must be specified.
+         * **NOTE:** When supplying `service_endpoint_name`, take care to ensure that this is a unique name.
          * 
          * @return builder
          * 

@@ -237,11 +237,13 @@ class BranchPolicyMinReviewersSettings(dict):
                  reviewer_count: Optional[int] = None,
                  submitter_can_vote: Optional[bool] = None):
         """
-        :param Sequence['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        :param Sequence['BranchPolicyMinReviewersSettingsScopeArgs'] scopes: A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         :param bool allow_completion_with_rejects_or_waits: Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
         :param bool last_pusher_cannot_approve: Prohibit the most recent pusher from approving their own changes. Defaults to `false`.
         :param bool on_last_iteration_require_vote: On last iteration require vote. Defaults to `false`.
         :param bool on_push_reset_all_votes: When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+               
+               > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
         :param bool on_push_reset_approved_votes: When new changes are pushed reset all approval votes (does not reset votes to reject or wait). Defaults to `false`.
         :param int reviewer_count: The number of reviewers needed to approve.
         :param bool submitter_can_vote: Allow requesters to approve their own changes. Defaults to `false`.
@@ -266,7 +268,7 @@ class BranchPolicyMinReviewersSettings(dict):
     @pulumi.getter
     def scopes(self) -> Sequence['outputs.BranchPolicyMinReviewersSettingsScope']:
         """
-        Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
+        A `scope` block as defined below. Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
         return pulumi.get(self, "scopes")
 
@@ -299,6 +301,8 @@ class BranchPolicyMinReviewersSettings(dict):
     def on_push_reset_all_votes(self) -> Optional[bool]:
         """
         When new changes are pushed reset all code reviewer votes. Defaults to `false`.
+
+        > **Note:** If `on_push_reset_all_votes` is `true` then `on_push_reset_approved_votes` will be set to `true`. To enable `on_push_reset_approved_votes`, you need explicitly set `on_push_reset_all_votes` `false` or not configure.
         """
         return pulumi.get(self, "on_push_reset_all_votes")
 

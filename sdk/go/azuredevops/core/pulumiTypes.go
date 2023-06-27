@@ -18,6 +18,8 @@ type GetProjectsProject struct {
 	// Url to the full version of the object.
 	ProjectUrl string `pulumi:"projectUrl"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+	//
+	// DataSource without specifying any arguments will return all projects.
 	State string `pulumi:"state"`
 }
 
@@ -40,6 +42,8 @@ type GetProjectsProjectArgs struct {
 	// Url to the full version of the object.
 	ProjectUrl pulumi.StringInput `pulumi:"projectUrl"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+	//
+	// DataSource without specifying any arguments will return all projects.
 	State pulumi.StringInput `pulumi:"state"`
 }
 
@@ -110,6 +114,8 @@ func (o GetProjectsProjectOutput) ProjectUrl() pulumi.StringOutput {
 }
 
 // State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+//
+// DataSource without specifying any arguments will return all projects.
 func (o GetProjectsProjectOutput) State() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProjectsProject) string { return v.State }).(pulumi.StringOutput)
 }

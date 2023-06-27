@@ -117,6 +117,14 @@ type ServiceendpointPermissions struct {
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission        | Description                         |
+	// | ----------------- | ----------------------------------- |
+	// | Use               | Use service endpoint                |
+	// | Administer        | Full control over service endpoints |
+	// | Create            | Create service endpoints            |
+	// | ViewAuthorization | View authorizations                 |
+	// | ViewEndpoint      | View service endpoint properties    |
 	Replace pulumi.BoolPtrOutput `pulumi:"replace"`
 	// The id of the service endpoint to assign the permissions.
 	ServiceendpointId pulumi.StringPtrOutput `pulumi:"serviceendpointId"`
@@ -167,6 +175,14 @@ type serviceendpointPermissionsState struct {
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission        | Description                         |
+	// | ----------------- | ----------------------------------- |
+	// | Use               | Use service endpoint                |
+	// | Administer        | Full control over service endpoints |
+	// | Create            | Create service endpoints            |
+	// | ViewAuthorization | View authorizations                 |
+	// | ViewEndpoint      | View service endpoint properties    |
 	Replace *bool `pulumi:"replace"`
 	// The id of the service endpoint to assign the permissions.
 	ServiceendpointId *string `pulumi:"serviceendpointId"`
@@ -180,6 +196,14 @@ type ServiceendpointPermissionsState struct {
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission        | Description                         |
+	// | ----------------- | ----------------------------------- |
+	// | Use               | Use service endpoint                |
+	// | Administer        | Full control over service endpoints |
+	// | Create            | Create service endpoints            |
+	// | ViewAuthorization | View authorizations                 |
+	// | ViewEndpoint      | View service endpoint properties    |
 	Replace pulumi.BoolPtrInput
 	// The id of the service endpoint to assign the permissions.
 	ServiceendpointId pulumi.StringPtrInput
@@ -197,6 +221,14 @@ type serviceendpointPermissionsArgs struct {
 	// The ID of the project.
 	ProjectId string `pulumi:"projectId"`
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission        | Description                         |
+	// | ----------------- | ----------------------------------- |
+	// | Use               | Use service endpoint                |
+	// | Administer        | Full control over service endpoints |
+	// | Create            | Create service endpoints            |
+	// | ViewAuthorization | View authorizations                 |
+	// | ViewEndpoint      | View service endpoint properties    |
 	Replace *bool `pulumi:"replace"`
 	// The id of the service endpoint to assign the permissions.
 	ServiceendpointId *string `pulumi:"serviceendpointId"`
@@ -211,6 +243,14 @@ type ServiceendpointPermissionsArgs struct {
 	// The ID of the project.
 	ProjectId pulumi.StringInput
 	// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+	//
+	// | Permission        | Description                         |
+	// | ----------------- | ----------------------------------- |
+	// | Use               | Use service endpoint                |
+	// | Administer        | Full control over service endpoints |
+	// | Create            | Create service endpoints            |
+	// | ViewAuthorization | View authorizations                 |
+	// | ViewEndpoint      | View service endpoint properties    |
 	Replace pulumi.BoolPtrInput
 	// The id of the service endpoint to assign the permissions.
 	ServiceendpointId pulumi.StringPtrInput
@@ -319,6 +359,14 @@ func (o ServiceendpointPermissionsOutput) ProjectId() pulumi.StringOutput {
 }
 
 // Replace (`true`) or merge (`false`) the permissions. Default: `true`
+//
+// | Permission        | Description                         |
+// | ----------------- | ----------------------------------- |
+// | Use               | Use service endpoint                |
+// | Administer        | Full control over service endpoints |
+// | Create            | Create service endpoints            |
+// | ViewAuthorization | View authorizations                 |
+// | ViewEndpoint      | View service endpoint properties    |
 func (o ServiceendpointPermissionsOutput) Replace() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointPermissions) pulumi.BoolPtrOutput { return v.Replace }).(pulumi.BoolPtrOutput)
 }

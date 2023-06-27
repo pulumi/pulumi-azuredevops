@@ -161,17 +161,9 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointGitHub:ServiceEndpointGitHub")
 public class ServiceEndpointGitHub extends com.pulumi.resources.CustomResource {
-    /**
-     * An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-     * 
-     */
     @Export(name="authOauth", type=ServiceEndpointGitHubAuthOauth.class, parameters={})
     private Output</* @Nullable */ ServiceEndpointGitHubAuthOauth> authOauth;
 
-    /**
-     * @return An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-     * 
-     */
     public Output<Optional<ServiceEndpointGitHubAuthOauth>> authOauth() {
         return Codegen.optional(this.authOauth);
     }

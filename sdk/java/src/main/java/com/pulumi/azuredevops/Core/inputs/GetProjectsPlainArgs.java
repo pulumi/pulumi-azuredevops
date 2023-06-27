@@ -32,12 +32,16 @@ public final class GetProjectsPlainArgs extends com.pulumi.resources.InvokeArgs 
     /**
      * State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
      * 
+     * DataSource without specifying any arguments will return all projects.
+     * 
      */
     @Import(name="state")
     private @Nullable String state;
 
     /**
      * @return State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+     * 
+     * DataSource without specifying any arguments will return all projects.
      * 
      */
     public Optional<String> state() {
@@ -82,6 +86,8 @@ public final class GetProjectsPlainArgs extends com.pulumi.resources.InvokeArgs 
 
         /**
          * @param state State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+         * 
+         * DataSource without specifying any arguments will return all projects.
          * 
          * @return builder
          * 

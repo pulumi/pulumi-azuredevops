@@ -102,6 +102,8 @@ namespace Pulumi.AzureDevOps.Core
 
         /// <summary>
         /// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+        /// 
+        /// DataSource without specifying any arguments will return all projects.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
@@ -122,6 +124,8 @@ namespace Pulumi.AzureDevOps.Core
 
         /// <summary>
         /// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+        /// 
+        /// DataSource without specifying any arguments will return all projects.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

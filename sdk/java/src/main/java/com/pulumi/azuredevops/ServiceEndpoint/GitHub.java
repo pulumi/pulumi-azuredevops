@@ -163,17 +163,9 @@ import javax.annotation.Nullable;
 @Deprecated /* azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub */
 @ResourceType(type="azuredevops:ServiceEndpoint/gitHub:GitHub")
 public class GitHub extends com.pulumi.resources.CustomResource {
-    /**
-     * An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-     * 
-     */
     @Export(name="authOauth", type=GitHubAuthOauth.class, parameters={})
     private Output</* @Nullable */ GitHubAuthOauth> authOauth;
 
-    /**
-     * @return An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-     * 
-     */
     public Output<Optional<GitHubAuthOauth>> authOauth() {
         return Codegen.optional(this.authOauth);
     }

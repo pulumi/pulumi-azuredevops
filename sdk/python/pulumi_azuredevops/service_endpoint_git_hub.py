@@ -26,7 +26,6 @@ class ServiceEndpointGitHubArgs:
         The set of arguments for constructing a ServiceEndpointGitHub resource.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
-        :param pulumi.Input['ServiceEndpointGitHubAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input['ServiceEndpointGitHubAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -67,9 +66,6 @@ class ServiceEndpointGitHubArgs:
     @property
     @pulumi.getter(name="authOauth")
     def auth_oauth(self) -> Optional[pulumi.Input['ServiceEndpointGitHubAuthOauthArgs']]:
-        """
-        An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        """
         return pulumi.get(self, "auth_oauth")
 
     @auth_oauth.setter
@@ -118,7 +114,6 @@ class _ServiceEndpointGitHubState:
                  service_endpoint_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointGitHub resources.
-        :param pulumi.Input['ServiceEndpointGitHubAuthOauthArgs'] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input['ServiceEndpointGitHubAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -139,9 +134,6 @@ class _ServiceEndpointGitHubState:
     @property
     @pulumi.getter(name="authOauth")
     def auth_oauth(self) -> Optional[pulumi.Input['ServiceEndpointGitHubAuthOauthArgs']]:
-        """
-        An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        """
         return pulumi.get(self, "auth_oauth")
 
     @auth_oauth.setter
@@ -282,7 +274,6 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthOauthArgs']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -423,7 +414,6 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthOauthArgs']] auth_oauth: An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
         :param pulumi.Input[pulumi.InputType['ServiceEndpointGitHubAuthPersonalArgs']] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -443,9 +433,6 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
     @property
     @pulumi.getter(name="authOauth")
     def auth_oauth(self) -> pulumi.Output[Optional['outputs.ServiceEndpointGitHubAuthOauth']]:
-        """
-        An `auth_oauth` block as documented below. Allows connecting using an Oauth token.
-        """
         return pulumi.get(self, "auth_oauth")
 
     @property

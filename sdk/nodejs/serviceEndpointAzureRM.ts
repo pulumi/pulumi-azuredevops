@@ -156,6 +156,8 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      */
     public readonly environment!: pulumi.Output<string | undefined>;
     /**
@@ -262,6 +264,8 @@ export interface ServiceEndpointAzureRMState {
     description?: pulumi.Input<string>;
     /**
      * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      */
     environment?: pulumi.Input<string>;
     /**
@@ -313,6 +317,8 @@ export interface ServiceEndpointAzureRMArgs {
     description?: pulumi.Input<string>;
     /**
      * The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.
+     *
+     * > **NOTE:** One of either `Subscription` scoped i.e. `azurermSubscriptionId`, `azurermSubscriptionName` or `ManagementGroup` scoped i.e. `azurermManagementGroupId`, `azurermManagementGroupName` values must be specified.
      */
     environment?: pulumi.Input<string>;
     /**

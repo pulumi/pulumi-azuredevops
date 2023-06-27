@@ -91,6 +91,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// 
+        /// | Name               | Permission Description   |
+        /// | ------------------ | ------------------------ |
+        /// | ViewSubscriptions  | View Subscriptions       |
+        /// | EditSubscriptions  | Edit Subscription        |
+        /// | DeleteSubscriptions| Delete Subscriptions     |
+        /// | PublishEvents      | Publish Events           |
         /// </summary>
         [Output("replace")]
         public Output<bool?> Replace { get; private set; } = null!;
@@ -167,6 +174,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// 
+        /// | Name               | Permission Description   |
+        /// | ------------------ | ------------------------ |
+        /// | ViewSubscriptions  | View Subscriptions       |
+        /// | EditSubscriptions  | Edit Subscription        |
+        /// | DeleteSubscriptions| Delete Subscriptions     |
+        /// | PublishEvents      | Publish Events           |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }
@@ -205,6 +219,13 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// Replace (`true`) or merge (`false`) the permissions. Default: `true`
+        /// 
+        /// | Name               | Permission Description   |
+        /// | ------------------ | ------------------------ |
+        /// | ViewSubscriptions  | View Subscriptions       |
+        /// | EditSubscriptions  | Edit Subscription        |
+        /// | DeleteSubscriptions| Delete Subscriptions     |
+        /// | PublishEvents      | Publish Events           |
         /// </summary>
         [Input("replace")]
         public Input<bool>? Replace { get; set; }

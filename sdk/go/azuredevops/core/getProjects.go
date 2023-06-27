@@ -77,6 +77,8 @@ type GetProjectsArgs struct {
 	// Name of the Project, if not specified all projects will be returned.
 	Name *string `pulumi:"name"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+	//
+	// DataSource without specifying any arguments will return all projects.
 	State *string `pulumi:"state"`
 }
 
@@ -110,6 +112,8 @@ type GetProjectsOutputArgs struct {
 	// Name of the Project, if not specified all projects will be returned.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// State of the Project, if not specified all projects will be returned. Valid values are `all`, `deleting`, `new`, `wellFormed`, `createPending`, `unchanged`,`deleted`.
+	//
+	// DataSource without specifying any arguments will return all projects.
 	State pulumi.StringPtrInput `pulumi:"state"`
 }
 

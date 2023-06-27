@@ -190,12 +190,18 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
     /**
      * URL of the Artifactory server to connect with.
      * 
+     * _Note: URL should not end in a slash character._
+     * * either `authentication_token` or `authentication_basic` (one is required)
+     * 
      */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**
      * @return URL of the Artifactory server to connect with.
+     * 
+     * _Note: URL should not end in a slash character._
+     * * either `authentication_token` or `authentication_basic` (one is required)
      * 
      */
     public Output<String> url() {

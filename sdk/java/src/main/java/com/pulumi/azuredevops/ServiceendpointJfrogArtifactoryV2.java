@@ -208,12 +208,16 @@ public class ServiceendpointJfrogArtifactoryV2 extends com.pulumi.resources.Cust
     /**
      * URL of the Artifactory server to connect with.
      * 
+     * &gt; **NOTE:** URL should not end in a slash character.
+     * 
      */
     @Export(name="url", type=String.class, parameters={})
     private Output<String> url;
 
     /**
      * @return URL of the Artifactory server to connect with.
+     * 
+     * &gt; **NOTE:** URL should not end in a slash character.
      * 
      */
     public Output<String> url() {

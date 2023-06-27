@@ -77,6 +77,15 @@ export class ProjectPipelineSettings extends pulumi.CustomResource {
      */
     public readonly enforceJobScope!: pulumi.Output<boolean>;
     /**
+     * Limit job authorization scope to current project for release pipelines.
+     *
+     * > **NOTE:**
+     * > The settings at the organization will override settings specified on the project.
+     * > For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
+     * > In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+     */
+    public readonly enforceJobScopeForRelease!: pulumi.Output<boolean>;
+    /**
      * Protect access to repositories in YAML pipelines.
      */
     public readonly enforceReferencedRepoScopedToken!: pulumi.Output<boolean>;
@@ -111,6 +120,7 @@ export class ProjectPipelineSettings extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ProjectPipelineSettingsState | undefined;
             resourceInputs["enforceJobScope"] = state ? state.enforceJobScope : undefined;
+            resourceInputs["enforceJobScopeForRelease"] = state ? state.enforceJobScopeForRelease : undefined;
             resourceInputs["enforceReferencedRepoScopedToken"] = state ? state.enforceReferencedRepoScopedToken : undefined;
             resourceInputs["enforceSettableVar"] = state ? state.enforceSettableVar : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
@@ -122,6 +132,7 @@ export class ProjectPipelineSettings extends pulumi.CustomResource {
                 throw new Error("Missing required property 'projectId'");
             }
             resourceInputs["enforceJobScope"] = args ? args.enforceJobScope : undefined;
+            resourceInputs["enforceJobScopeForRelease"] = args ? args.enforceJobScopeForRelease : undefined;
             resourceInputs["enforceReferencedRepoScopedToken"] = args ? args.enforceReferencedRepoScopedToken : undefined;
             resourceInputs["enforceSettableVar"] = args ? args.enforceSettableVar : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
@@ -141,6 +152,15 @@ export interface ProjectPipelineSettingsState {
      * Limit job authorization scope to current project for non-release pipelines.
      */
     enforceJobScope?: pulumi.Input<boolean>;
+    /**
+     * Limit job authorization scope to current project for release pipelines.
+     *
+     * > **NOTE:**
+     * > The settings at the organization will override settings specified on the project.
+     * > For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
+     * > In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+     */
+    enforceJobScopeForRelease?: pulumi.Input<boolean>;
     /**
      * Protect access to repositories in YAML pipelines.
      */
@@ -171,6 +191,15 @@ export interface ProjectPipelineSettingsArgs {
      * Limit job authorization scope to current project for non-release pipelines.
      */
     enforceJobScope?: pulumi.Input<boolean>;
+    /**
+     * Limit job authorization scope to current project for release pipelines.
+     *
+     * > **NOTE:**
+     * > The settings at the organization will override settings specified on the project.
+     * > For example, if `enforceJobScope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
+     * > In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
+     */
+    enforceJobScopeForRelease?: pulumi.Input<boolean>;
     /**
      * Protect access to repositories in YAML pipelines.
      */
