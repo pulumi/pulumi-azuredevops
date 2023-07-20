@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type GetPoolsAgentPool struct {
 	// Specifies whether or not a queue should be automatically provisioned for each project collection.

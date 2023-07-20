@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
  * 
  * ## Example Usage
- * ### Manual AzureRM Service Endpoint (Subscription Scoped)
+ * ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
  * ```java
  * package generated_program;
  * 
@@ -62,6 +62,7 @@ import javax.annotation.Nullable;
  *             .projectId(exampleProject.id())
  *             .serviceEndpointName(&#34;Example AzureRM&#34;)
  *             .description(&#34;Managed by Terraform&#34;)
+ *             .serviceEndpointAuthenticationScheme(&#34;ServicePrincipal&#34;)
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
  *                 .serviceprincipalid(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *                 .serviceprincipalkey(&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;)
@@ -74,7 +75,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Manual AzureRM Service Endpoint (ManagementGroup Scoped)
+ * ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
  * ```java
  * package generated_program;
  * 
@@ -110,6 +111,7 @@ import javax.annotation.Nullable;
  *             .projectId(exampleProject.id())
  *             .serviceEndpointName(&#34;Example AzureRM&#34;)
  *             .description(&#34;Managed by Terraform&#34;)
+ *             .serviceEndpointAuthenticationScheme(&#34;ServicePrincipal&#34;)
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
  *                 .serviceprincipalid(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *                 .serviceprincipalkey(&#34;xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx&#34;)
@@ -122,7 +124,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
- * ### Automatic AzureRM Service Endpoint
+ * ### Service Principal Automatic AzureRM Service Endpoint
  * ```java
  * package generated_program;
  * 
@@ -155,6 +157,91 @@ import javax.annotation.Nullable;
  *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(exampleProject.id())
  *             .serviceEndpointName(&#34;Example AzureRM&#34;)
+ *             .serviceEndpointAuthenticationScheme(&#34;ServicePrincipal&#34;)
+ *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Workload Identity Federation Automatic AzureRM Service Endpoint
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
+ * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .visibility(&#34;private&#34;)
+ *             .versionControl(&#34;Git&#34;)
+ *             .workItemTemplate(&#34;Agile&#34;)
+ *             .build());
+ * 
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *             .projectId(exampleProject.id())
+ *             .serviceEndpointName(&#34;Example AzureRM&#34;)
+ *             .serviceEndpointAuthenticationScheme(&#34;WorkloadIdentityFederation&#34;)
+ *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Managed Identity AzureRM Service Endpoint
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
+ * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .visibility(&#34;private&#34;)
+ *             .versionControl(&#34;Git&#34;)
+ *             .workItemTemplate(&#34;Agile&#34;)
+ *             .build());
+ * 
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *             .projectId(exampleProject.id())
+ *             .serviceEndpointName(&#34;Example AzureRM&#34;)
+ *             .serviceEndpointAuthenticationScheme(&#34;ManagedServiceIdentity&#34;)
  *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
@@ -331,6 +418,24 @@ public class AzureRM extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> resourceGroup() {
         return Codegen.optional(this.resourceGroup);
+    }
+    /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * 
+     * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+     * 
+     */
+    @Export(name="serviceEndpointAuthenticationScheme", type=String.class, parameters={})
+    private Output</* @Nullable */ String> serviceEndpointAuthenticationScheme;
+
+    /**
+     * @return Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * 
+     * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+     * 
+     */
+    public Output<Optional<String>> serviceEndpointAuthenticationScheme() {
+        return Codegen.optional(this.serviceEndpointAuthenticationScheme);
     }
     /**
      * The Service Endpoint Name.

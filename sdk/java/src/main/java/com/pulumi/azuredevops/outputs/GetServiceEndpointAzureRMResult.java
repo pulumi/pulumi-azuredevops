@@ -56,6 +56,11 @@ public final class GetServiceEndpointAzureRMResult {
      * 
      */
     private String resourceGroup;
+    /**
+     * @return Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+     * 
+     */
+    private String serviceEndpointAuthenticationScheme;
     private String serviceEndpointId;
     private String serviceEndpointName;
 
@@ -126,6 +131,13 @@ public final class GetServiceEndpointAzureRMResult {
     public String resourceGroup() {
         return this.resourceGroup;
     }
+    /**
+     * @return Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+     * 
+     */
+    public String serviceEndpointAuthenticationScheme() {
+        return this.serviceEndpointAuthenticationScheme;
+    }
     public String serviceEndpointId() {
         return this.serviceEndpointId;
     }
@@ -152,6 +164,7 @@ public final class GetServiceEndpointAzureRMResult {
         private String id;
         private String projectId;
         private String resourceGroup;
+        private String serviceEndpointAuthenticationScheme;
         private String serviceEndpointId;
         private String serviceEndpointName;
         public Builder() {}
@@ -167,6 +180,7 @@ public final class GetServiceEndpointAzureRMResult {
     	      this.id = defaults.id;
     	      this.projectId = defaults.projectId;
     	      this.resourceGroup = defaults.resourceGroup;
+    	      this.serviceEndpointAuthenticationScheme = defaults.serviceEndpointAuthenticationScheme;
     	      this.serviceEndpointId = defaults.serviceEndpointId;
     	      this.serviceEndpointName = defaults.serviceEndpointName;
         }
@@ -222,6 +236,11 @@ public final class GetServiceEndpointAzureRMResult {
             return this;
         }
         @CustomType.Setter
+        public Builder serviceEndpointAuthenticationScheme(String serviceEndpointAuthenticationScheme) {
+            this.serviceEndpointAuthenticationScheme = Objects.requireNonNull(serviceEndpointAuthenticationScheme);
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceEndpointId(String serviceEndpointId) {
             this.serviceEndpointId = Objects.requireNonNull(serviceEndpointId);
             return this;
@@ -243,6 +262,7 @@ public final class GetServiceEndpointAzureRMResult {
             o.id = id;
             o.projectId = projectId;
             o.resourceGroup = resourceGroup;
+            o.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
             o.serviceEndpointId = serviceEndpointId;
             o.serviceEndpointName = serviceEndpointName;
             return o;

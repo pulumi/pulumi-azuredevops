@@ -117,10 +117,10 @@ def get_agent_queue(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getAgentQueue:getAgentQueue', __args__, opts=opts, typ=GetAgentQueueResult).value
 
     return AwaitableGetAgentQueueResult(
-        agent_pool_id=__ret__.agent_pool_id,
-        id=__ret__.id,
-        name=__ret__.name,
-        project_id=__ret__.project_id)
+        agent_pool_id=pulumi.get(__ret__, 'agent_pool_id'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        project_id=pulumi.get(__ret__, 'project_id'))
 
 
 @_utilities.lift_output_func(get_agent_queue)

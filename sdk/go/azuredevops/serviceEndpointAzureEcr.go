@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -122,6 +123,7 @@ func NewServiceEndpointAzureEcr(ctx *pulumi.Context,
 	if args.ServiceEndpointName == nil {
 		return nil, errors.New("invalid value for required argument 'ServiceEndpointName'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceEndpointAzureEcr
 	err := ctx.RegisterResource("azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr", name, args, &resource, opts...)
 	if err != nil {

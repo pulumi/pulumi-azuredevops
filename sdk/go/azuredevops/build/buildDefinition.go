@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -268,6 +269,7 @@ func NewBuildDefinition(ctx *pulumi.Context,
 	if args.Repository == nil {
 		return nil, errors.New("invalid value for required argument 'Repository'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BuildDefinition
 	err := ctx.RegisterResource("azuredevops:Build/buildDefinition:BuildDefinition", name, args, &resource, opts...)
 	if err != nil {

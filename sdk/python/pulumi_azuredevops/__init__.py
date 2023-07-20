@@ -20,6 +20,9 @@ from .build_folder_permissions import *
 from .check_approval import *
 from .check_branch_control import *
 from .check_business_hours import *
+from .check_exclusive_lock import *
+from .check_required_template import *
+from .elastic_pool import *
 from .environment import *
 from .get_agent_queue import *
 from .get_area import *
@@ -407,6 +410,30 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/checkBusinessHours:CheckBusinessHours": "CheckBusinessHours"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/checkExclusiveLock",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/checkExclusiveLock:CheckExclusiveLock": "CheckExclusiveLock"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/checkRequiredTemplate",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate": "CheckRequiredTemplate"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/elasticPool",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/elasticPool:ElasticPool": "ElasticPool"
   }
  },
  {

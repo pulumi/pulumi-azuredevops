@@ -159,12 +159,12 @@ def get_users(origin: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getUsers:getUsers', __args__, opts=opts, typ=GetUsersResult).value
 
     return AwaitableGetUsersResult(
-        id=__ret__.id,
-        origin=__ret__.origin,
-        origin_id=__ret__.origin_id,
-        principal_name=__ret__.principal_name,
-        subject_types=__ret__.subject_types,
-        users=__ret__.users)
+        id=pulumi.get(__ret__, 'id'),
+        origin=pulumi.get(__ret__, 'origin'),
+        origin_id=pulumi.get(__ret__, 'origin_id'),
+        principal_name=pulumi.get(__ret__, 'principal_name'),
+        subject_types=pulumi.get(__ret__, 'subject_types'),
+        users=pulumi.get(__ret__, 'users'))
 
 
 @_utilities.lift_output_func(get_users)

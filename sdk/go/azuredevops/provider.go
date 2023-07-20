@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -31,7 +32,7 @@ func NewProvider(ctx *pulumi.Context,
 	}
 
 	if args.OrgServiceUrl == nil {
-		if d := getEnvOrDefault(nil, nil, "AZDO_ORG_SERVICE_URL"); d != nil {
+		if d := internal.GetEnvOrDefault(nil, nil, "AZDO_ORG_SERVICE_URL"); d != nil {
 			args.OrgServiceUrl = pulumi.StringPtr(d.(string))
 		}
 	}
@@ -42,6 +43,7 @@ func NewProvider(ctx *pulumi.Context,
 		"personalAccessToken",
 	})
 	opts = append(opts, secrets)
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Provider
 	err := ctx.RegisterResource("pulumi:providers:azuredevops", name, args, &resource, opts...)
 	if err != nil {

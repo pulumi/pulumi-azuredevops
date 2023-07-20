@@ -490,7 +490,7 @@ class CheckBusinessHours(pulumi.CustomResource):
                  wednesday: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
         """
-        Manages a branch control check on a resource within Azure DevOps.
+        Manages a business hours check on a resource within Azure DevOps.
 
         ## Example Usage
         ### Protect a service connection
@@ -791,7 +791,7 @@ class CheckBusinessHours(pulumi.CustomResource):
                  args: CheckBusinessHoursArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a branch control check on a resource within Azure DevOps.
+        Manages a business hours check on a resource within Azure DevOps.
 
         ## Example Usage
         ### Protect a service connection

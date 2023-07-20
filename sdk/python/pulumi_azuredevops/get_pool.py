@@ -110,11 +110,11 @@ def get_pool(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getPool:getPool', __args__, opts=opts, typ=GetPoolResult).value
 
     return AwaitableGetPoolResult(
-        auto_provision=__ret__.auto_provision,
-        auto_update=__ret__.auto_update,
-        id=__ret__.id,
-        name=__ret__.name,
-        pool_type=__ret__.pool_type)
+        auto_provision=pulumi.get(__ret__, 'auto_provision'),
+        auto_update=pulumi.get(__ret__, 'auto_update'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        pool_type=pulumi.get(__ret__, 'pool_type'))
 
 
 @_utilities.lift_output_func(get_pool)

@@ -148,13 +148,13 @@ def get_variable_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getVariableGroup:getVariableGroup', __args__, opts=opts, typ=GetVariableGroupResult).value
 
     return AwaitableGetVariableGroupResult(
-        allow_access=__ret__.allow_access,
-        description=__ret__.description,
-        id=__ret__.id,
-        key_vaults=__ret__.key_vaults,
-        name=__ret__.name,
-        project_id=__ret__.project_id,
-        variables=__ret__.variables)
+        allow_access=pulumi.get(__ret__, 'allow_access'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        key_vaults=pulumi.get(__ret__, 'key_vaults'),
+        name=pulumi.get(__ret__, 'name'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        variables=pulumi.get(__ret__, 'variables'))
 
 
 @_utilities.lift_output_func(get_variable_group)

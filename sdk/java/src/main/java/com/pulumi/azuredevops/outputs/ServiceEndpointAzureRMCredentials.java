@@ -17,10 +17,10 @@ public final class ServiceEndpointAzureRMCredentials {
      */
     private String serviceprincipalid;
     /**
-     * @return The service principal secret.
+     * @return The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
      * 
      */
-    private String serviceprincipalkey;
+    private @Nullable String serviceprincipalkey;
     private @Nullable String serviceprincipalkeyHash;
 
     private ServiceEndpointAzureRMCredentials() {}
@@ -32,11 +32,11 @@ public final class ServiceEndpointAzureRMCredentials {
         return this.serviceprincipalid;
     }
     /**
-     * @return The service principal secret.
+     * @return The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
      * 
      */
-    public String serviceprincipalkey() {
-        return this.serviceprincipalkey;
+    public Optional<String> serviceprincipalkey() {
+        return Optional.ofNullable(this.serviceprincipalkey);
     }
     public Optional<String> serviceprincipalkeyHash() {
         return Optional.ofNullable(this.serviceprincipalkeyHash);
@@ -52,7 +52,7 @@ public final class ServiceEndpointAzureRMCredentials {
     @CustomType.Builder
     public static final class Builder {
         private String serviceprincipalid;
-        private String serviceprincipalkey;
+        private @Nullable String serviceprincipalkey;
         private @Nullable String serviceprincipalkeyHash;
         public Builder() {}
         public Builder(ServiceEndpointAzureRMCredentials defaults) {
@@ -68,8 +68,8 @@ public final class ServiceEndpointAzureRMCredentials {
             return this;
         }
         @CustomType.Setter
-        public Builder serviceprincipalkey(String serviceprincipalkey) {
-            this.serviceprincipalkey = Objects.requireNonNull(serviceprincipalkey);
+        public Builder serviceprincipalkey(@Nullable String serviceprincipalkey) {
+            this.serviceprincipalkey = serviceprincipalkey;
             return this;
         }
         @CustomType.Setter

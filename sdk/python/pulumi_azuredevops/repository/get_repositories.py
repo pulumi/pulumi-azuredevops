@@ -130,11 +130,11 @@ def get_repositories(include_hidden: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:Repository/getRepositories:getRepositories', __args__, opts=opts, typ=GetRepositoriesResult).value
 
     return AwaitableGetRepositoriesResult(
-        id=__ret__.id,
-        include_hidden=__ret__.include_hidden,
-        name=__ret__.name,
-        project_id=__ret__.project_id,
-        repositories=__ret__.repositories)
+        id=pulumi.get(__ret__, 'id'),
+        include_hidden=pulumi.get(__ret__, 'include_hidden'),
+        name=pulumi.get(__ret__, 'name'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        repositories=pulumi.get(__ret__, 'repositories'))
 
 
 @_utilities.lift_output_func(get_repositories)

@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -130,6 +131,7 @@ func NewBranchPolicyBuildValidation(ctx *pulumi.Context,
 	if args.Settings == nil {
 		return nil, errors.New("invalid value for required argument 'Settings'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource BranchPolicyBuildValidation
 	err := ctx.RegisterResource("azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation", name, args, &resource, opts...)
 	if err != nil {

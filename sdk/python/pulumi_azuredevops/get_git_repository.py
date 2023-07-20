@@ -181,16 +181,16 @@ def get_git_repository(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getGitRepository:getGitRepository', __args__, opts=opts, typ=GetGitRepositoryResult).value
 
     return AwaitableGetGitRepositoryResult(
-        default_branch=__ret__.default_branch,
-        id=__ret__.id,
-        is_fork=__ret__.is_fork,
-        name=__ret__.name,
-        project_id=__ret__.project_id,
-        remote_url=__ret__.remote_url,
-        size=__ret__.size,
-        ssh_url=__ret__.ssh_url,
-        url=__ret__.url,
-        web_url=__ret__.web_url)
+        default_branch=pulumi.get(__ret__, 'default_branch'),
+        id=pulumi.get(__ret__, 'id'),
+        is_fork=pulumi.get(__ret__, 'is_fork'),
+        name=pulumi.get(__ret__, 'name'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        remote_url=pulumi.get(__ret__, 'remote_url'),
+        size=pulumi.get(__ret__, 'size'),
+        ssh_url=pulumi.get(__ret__, 'ssh_url'),
+        url=pulumi.get(__ret__, 'url'),
+        web_url=pulumi.get(__ret__, 'web_url'))
 
 
 @_utilities.lift_output_func(get_git_repository)

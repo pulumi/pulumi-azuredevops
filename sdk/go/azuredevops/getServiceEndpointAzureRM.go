@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -80,6 +81,7 @@ import (
 //
 // ```
 func LookupServiceEndpointAzureRM(ctx *pulumi.Context, args *LookupServiceEndpointAzureRMArgs, opts ...pulumi.InvokeOption) (*LookupServiceEndpointAzureRMResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceEndpointAzureRMResult
 	err := ctx.Invoke("azuredevops:index/getServiceEndpointAzureRM:getServiceEndpointAzureRM", args, &rv, opts...)
 	if err != nil {
@@ -121,9 +123,11 @@ type LookupServiceEndpointAzureRMResult struct {
 	Id        string `pulumi:"id"`
 	ProjectId string `pulumi:"projectId"`
 	// Specifies the Resource Group of the Service Endpoint target, if available.
-	ResourceGroup       string `pulumi:"resourceGroup"`
-	ServiceEndpointId   string `pulumi:"serviceEndpointId"`
-	ServiceEndpointName string `pulumi:"serviceEndpointName"`
+	ResourceGroup string `pulumi:"resourceGroup"`
+	// Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+	ServiceEndpointAuthenticationScheme string `pulumi:"serviceEndpointAuthenticationScheme"`
+	ServiceEndpointId                   string `pulumi:"serviceEndpointId"`
+	ServiceEndpointName                 string `pulumi:"serviceEndpointName"`
 }
 
 func LookupServiceEndpointAzureRMOutput(ctx *pulumi.Context, args LookupServiceEndpointAzureRMOutputArgs, opts ...pulumi.InvokeOption) LookupServiceEndpointAzureRMResultOutput {
@@ -218,6 +222,11 @@ func (o LookupServiceEndpointAzureRMResultOutput) ProjectId() pulumi.StringOutpu
 // Specifies the Resource Group of the Service Endpoint target, if available.
 func (o LookupServiceEndpointAzureRMResultOutput) ResourceGroup() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ResourceGroup }).(pulumi.StringOutput)
+}
+
+// Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+func (o LookupServiceEndpointAzureRMResultOutput) ServiceEndpointAuthenticationScheme() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ServiceEndpointAuthenticationScheme }).(pulumi.StringOutput)
 }
 
 func (o LookupServiceEndpointAzureRMResultOutput) ServiceEndpointId() pulumi.StringOutput {

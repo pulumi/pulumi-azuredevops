@@ -7,8 +7,11 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type BranchPolicyAutoReviewersSettings struct {
 	// Required reviewers ids. Supports multiples user Ids.
@@ -4781,6 +4784,130 @@ func (o BuildDefinitionVariableArrayOutput) Index(i pulumi.IntInput) BuildDefini
 	}).(BuildDefinitionVariableOutput)
 }
 
+type CheckRequiredTemplateRequiredTemplate struct {
+	// The name of the repository storing the template.
+	RepositoryName string `pulumi:"repositoryName"`
+	// The branch in which the template will be referenced.
+	RepositoryRef string `pulumi:"repositoryRef"`
+	// The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+	RepositoryType *string `pulumi:"repositoryType"`
+	// The path to the template yaml.
+	TemplatePath string `pulumi:"templatePath"`
+}
+
+// CheckRequiredTemplateRequiredTemplateInput is an input type that accepts CheckRequiredTemplateRequiredTemplateArgs and CheckRequiredTemplateRequiredTemplateOutput values.
+// You can construct a concrete instance of `CheckRequiredTemplateRequiredTemplateInput` via:
+//
+//	CheckRequiredTemplateRequiredTemplateArgs{...}
+type CheckRequiredTemplateRequiredTemplateInput interface {
+	pulumi.Input
+
+	ToCheckRequiredTemplateRequiredTemplateOutput() CheckRequiredTemplateRequiredTemplateOutput
+	ToCheckRequiredTemplateRequiredTemplateOutputWithContext(context.Context) CheckRequiredTemplateRequiredTemplateOutput
+}
+
+type CheckRequiredTemplateRequiredTemplateArgs struct {
+	// The name of the repository storing the template.
+	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
+	// The branch in which the template will be referenced.
+	RepositoryRef pulumi.StringInput `pulumi:"repositoryRef"`
+	// The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+	RepositoryType pulumi.StringPtrInput `pulumi:"repositoryType"`
+	// The path to the template yaml.
+	TemplatePath pulumi.StringInput `pulumi:"templatePath"`
+}
+
+func (CheckRequiredTemplateRequiredTemplateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CheckRequiredTemplateRequiredTemplate)(nil)).Elem()
+}
+
+func (i CheckRequiredTemplateRequiredTemplateArgs) ToCheckRequiredTemplateRequiredTemplateOutput() CheckRequiredTemplateRequiredTemplateOutput {
+	return i.ToCheckRequiredTemplateRequiredTemplateOutputWithContext(context.Background())
+}
+
+func (i CheckRequiredTemplateRequiredTemplateArgs) ToCheckRequiredTemplateRequiredTemplateOutputWithContext(ctx context.Context) CheckRequiredTemplateRequiredTemplateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CheckRequiredTemplateRequiredTemplateOutput)
+}
+
+// CheckRequiredTemplateRequiredTemplateArrayInput is an input type that accepts CheckRequiredTemplateRequiredTemplateArray and CheckRequiredTemplateRequiredTemplateArrayOutput values.
+// You can construct a concrete instance of `CheckRequiredTemplateRequiredTemplateArrayInput` via:
+//
+//	CheckRequiredTemplateRequiredTemplateArray{ CheckRequiredTemplateRequiredTemplateArgs{...} }
+type CheckRequiredTemplateRequiredTemplateArrayInput interface {
+	pulumi.Input
+
+	ToCheckRequiredTemplateRequiredTemplateArrayOutput() CheckRequiredTemplateRequiredTemplateArrayOutput
+	ToCheckRequiredTemplateRequiredTemplateArrayOutputWithContext(context.Context) CheckRequiredTemplateRequiredTemplateArrayOutput
+}
+
+type CheckRequiredTemplateRequiredTemplateArray []CheckRequiredTemplateRequiredTemplateInput
+
+func (CheckRequiredTemplateRequiredTemplateArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CheckRequiredTemplateRequiredTemplate)(nil)).Elem()
+}
+
+func (i CheckRequiredTemplateRequiredTemplateArray) ToCheckRequiredTemplateRequiredTemplateArrayOutput() CheckRequiredTemplateRequiredTemplateArrayOutput {
+	return i.ToCheckRequiredTemplateRequiredTemplateArrayOutputWithContext(context.Background())
+}
+
+func (i CheckRequiredTemplateRequiredTemplateArray) ToCheckRequiredTemplateRequiredTemplateArrayOutputWithContext(ctx context.Context) CheckRequiredTemplateRequiredTemplateArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CheckRequiredTemplateRequiredTemplateArrayOutput)
+}
+
+type CheckRequiredTemplateRequiredTemplateOutput struct{ *pulumi.OutputState }
+
+func (CheckRequiredTemplateRequiredTemplateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CheckRequiredTemplateRequiredTemplate)(nil)).Elem()
+}
+
+func (o CheckRequiredTemplateRequiredTemplateOutput) ToCheckRequiredTemplateRequiredTemplateOutput() CheckRequiredTemplateRequiredTemplateOutput {
+	return o
+}
+
+func (o CheckRequiredTemplateRequiredTemplateOutput) ToCheckRequiredTemplateRequiredTemplateOutputWithContext(ctx context.Context) CheckRequiredTemplateRequiredTemplateOutput {
+	return o
+}
+
+// The name of the repository storing the template.
+func (o CheckRequiredTemplateRequiredTemplateOutput) RepositoryName() pulumi.StringOutput {
+	return o.ApplyT(func(v CheckRequiredTemplateRequiredTemplate) string { return v.RepositoryName }).(pulumi.StringOutput)
+}
+
+// The branch in which the template will be referenced.
+func (o CheckRequiredTemplateRequiredTemplateOutput) RepositoryRef() pulumi.StringOutput {
+	return o.ApplyT(func(v CheckRequiredTemplateRequiredTemplate) string { return v.RepositoryRef }).(pulumi.StringOutput)
+}
+
+// The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+func (o CheckRequiredTemplateRequiredTemplateOutput) RepositoryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v CheckRequiredTemplateRequiredTemplate) *string { return v.RepositoryType }).(pulumi.StringPtrOutput)
+}
+
+// The path to the template yaml.
+func (o CheckRequiredTemplateRequiredTemplateOutput) TemplatePath() pulumi.StringOutput {
+	return o.ApplyT(func(v CheckRequiredTemplateRequiredTemplate) string { return v.TemplatePath }).(pulumi.StringOutput)
+}
+
+type CheckRequiredTemplateRequiredTemplateArrayOutput struct{ *pulumi.OutputState }
+
+func (CheckRequiredTemplateRequiredTemplateArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]CheckRequiredTemplateRequiredTemplate)(nil)).Elem()
+}
+
+func (o CheckRequiredTemplateRequiredTemplateArrayOutput) ToCheckRequiredTemplateRequiredTemplateArrayOutput() CheckRequiredTemplateRequiredTemplateArrayOutput {
+	return o
+}
+
+func (o CheckRequiredTemplateRequiredTemplateArrayOutput) ToCheckRequiredTemplateRequiredTemplateArrayOutputWithContext(ctx context.Context) CheckRequiredTemplateRequiredTemplateArrayOutput {
+	return o
+}
+
+func (o CheckRequiredTemplateRequiredTemplateArrayOutput) Index(i pulumi.IntInput) CheckRequiredTemplateRequiredTemplateOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CheckRequiredTemplateRequiredTemplate {
+		return vs[0].([]CheckRequiredTemplateRequiredTemplate)[vs[1].(int)]
+	}).(CheckRequiredTemplateRequiredTemplateOutput)
+}
+
 type GitInitialization struct {
 	// The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
 	InitType string `pulumi:"initType"`
@@ -5271,8 +5398,8 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Token() pulumi.S
 type ServiceEndpointAzureRMCredentials struct {
 	// The service principal application Id
 	Serviceprincipalid string `pulumi:"serviceprincipalid"`
-	// The service principal secret.
-	Serviceprincipalkey     string  `pulumi:"serviceprincipalkey"`
+	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+	Serviceprincipalkey     *string `pulumi:"serviceprincipalkey"`
 	ServiceprincipalkeyHash *string `pulumi:"serviceprincipalkeyHash"`
 }
 
@@ -5290,8 +5417,8 @@ type ServiceEndpointAzureRMCredentialsInput interface {
 type ServiceEndpointAzureRMCredentialsArgs struct {
 	// The service principal application Id
 	Serviceprincipalid pulumi.StringInput `pulumi:"serviceprincipalid"`
-	// The service principal secret.
-	Serviceprincipalkey     pulumi.StringInput    `pulumi:"serviceprincipalkey"`
+	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+	Serviceprincipalkey     pulumi.StringPtrInput `pulumi:"serviceprincipalkey"`
 	ServiceprincipalkeyHash pulumi.StringPtrInput `pulumi:"serviceprincipalkeyHash"`
 }
 
@@ -5377,9 +5504,9 @@ func (o ServiceEndpointAzureRMCredentialsOutput) Serviceprincipalid() pulumi.Str
 	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) string { return v.Serviceprincipalid }).(pulumi.StringOutput)
 }
 
-// The service principal secret.
-func (o ServiceEndpointAzureRMCredentialsOutput) Serviceprincipalkey() pulumi.StringOutput {
-	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) string { return v.Serviceprincipalkey }).(pulumi.StringOutput)
+// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+func (o ServiceEndpointAzureRMCredentialsOutput) Serviceprincipalkey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) *string { return v.Serviceprincipalkey }).(pulumi.StringPtrOutput)
 }
 
 func (o ServiceEndpointAzureRMCredentialsOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
@@ -5420,13 +5547,13 @@ func (o ServiceEndpointAzureRMCredentialsPtrOutput) Serviceprincipalid() pulumi.
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service principal secret.
+// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
 func (o ServiceEndpointAzureRMCredentialsPtrOutput) Serviceprincipalkey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Serviceprincipalkey
+		return v.Serviceprincipalkey
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -12194,6 +12321,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionScheduleBranchFilterArrayInput)(nil)).Elem(), BuildDefinitionScheduleBranchFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionVariableInput)(nil)).Elem(), BuildDefinitionVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BuildDefinitionVariableArrayInput)(nil)).Elem(), BuildDefinitionVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CheckRequiredTemplateRequiredTemplateInput)(nil)).Elem(), CheckRequiredTemplateRequiredTemplateArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*CheckRequiredTemplateRequiredTemplateArrayInput)(nil)).Elem(), CheckRequiredTemplateRequiredTemplateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitInitializationInput)(nil)).Elem(), GitInitializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GitInitializationPtrInput)(nil)).Elem(), GitInitializationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceEndpointArtifactoryAuthenticationBasicInput)(nil)).Elem(), ServiceEndpointArtifactoryAuthenticationBasicArgs{})
@@ -12348,6 +12477,8 @@ func init() {
 	pulumi.RegisterOutputType(BuildDefinitionScheduleBranchFilterArrayOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionVariableOutput{})
 	pulumi.RegisterOutputType(BuildDefinitionVariableArrayOutput{})
+	pulumi.RegisterOutputType(CheckRequiredTemplateRequiredTemplateOutput{})
+	pulumi.RegisterOutputType(CheckRequiredTemplateRequiredTemplateArrayOutput{})
 	pulumi.RegisterOutputType(GitInitializationOutput{})
 	pulumi.RegisterOutputType(GitInitializationPtrOutput{})
 	pulumi.RegisterOutputType(ServiceEndpointArtifactoryAuthenticationBasicOutput{})

@@ -104,9 +104,9 @@ def get_teams(project_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getTeams:getTeams', __args__, opts=opts, typ=GetTeamsResult).value
 
     return AwaitableGetTeamsResult(
-        id=__ret__.id,
-        project_id=__ret__.project_id,
-        teams=__ret__.teams)
+        id=pulumi.get(__ret__, 'id'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        teams=pulumi.get(__ret__, 'teams'))
 
 
 @_utilities.lift_output_func(get_teams)

@@ -81,5 +81,5 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getPools:getPools', __args__, opts=opts, typ=GetPoolsResult).value
 
     return AwaitableGetPoolsResult(
-        agent_pools=__ret__.agent_pools,
-        id=__ret__.id)
+        agent_pools=pulumi.get(__ret__, 'agent_pools'),
+        id=pulumi.get(__ret__, 'id'))

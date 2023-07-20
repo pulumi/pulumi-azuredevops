@@ -157,13 +157,13 @@ def get_area(fetch_children: Optional[bool] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getArea:getArea', __args__, opts=opts, typ=GetAreaResult).value
 
     return AwaitableGetAreaResult(
-        childrens=__ret__.childrens,
-        fetch_children=__ret__.fetch_children,
-        has_children=__ret__.has_children,
-        id=__ret__.id,
-        name=__ret__.name,
-        path=__ret__.path,
-        project_id=__ret__.project_id)
+        childrens=pulumi.get(__ret__, 'childrens'),
+        fetch_children=pulumi.get(__ret__, 'fetch_children'),
+        has_children=pulumi.get(__ret__, 'has_children'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        path=pulumi.get(__ret__, 'path'),
+        project_id=pulumi.get(__ret__, 'project_id'))
 
 
 @_utilities.lift_output_func(get_area)

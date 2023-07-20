@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -146,6 +147,7 @@ func NewRepositoryPolicyFilePathPattern(ctx *pulumi.Context,
 	if args.ProjectId == nil {
 		return nil, errors.New("invalid value for required argument 'ProjectId'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource RepositoryPolicyFilePathPattern
 	err := ctx.RegisterResource("azuredevops:index/repositoryPolicyFilePathPattern:RepositoryPolicyFilePathPattern", name, args, &resource, opts...)
 	if err != nil {

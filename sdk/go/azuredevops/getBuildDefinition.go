@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -46,6 +47,7 @@ import (
 //
 // ```
 func LookupBuildDefinition(ctx *pulumi.Context, args *LookupBuildDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupBuildDefinitionResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBuildDefinitionResult
 	err := ctx.Invoke("azuredevops:index/getBuildDefinition:getBuildDefinition", args, &rv, opts...)
 	if err != nil {

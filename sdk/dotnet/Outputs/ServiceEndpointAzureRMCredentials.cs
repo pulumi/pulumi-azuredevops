@@ -18,16 +18,16 @@ namespace Pulumi.AzureDevOps.Outputs
         /// </summary>
         public readonly string Serviceprincipalid;
         /// <summary>
-        /// The service principal secret.
+        /// The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         /// </summary>
-        public readonly string Serviceprincipalkey;
+        public readonly string? Serviceprincipalkey;
         public readonly string? ServiceprincipalkeyHash;
 
         [OutputConstructor]
         private ServiceEndpointAzureRMCredentials(
             string serviceprincipalid,
 
-            string serviceprincipalkey,
+            string? serviceprincipalkey,
 
             string? serviceprincipalkeyHash)
         {
