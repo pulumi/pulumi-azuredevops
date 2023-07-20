@@ -120,6 +120,70 @@ namespace Pulumi.AzureDevOps
     /// 
     /// });
     /// ```
+    /// ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// using Azurerm = Pulumi.Azurerm;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var serviceConnectionName = "example-federated-sc";
+    /// 
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var identity = new Azurerm.Index.Azurerm_resource_group("identity", new()
+    ///     {
+    ///         Name = "identity",
+    ///         Location = "UK South",
+    ///     });
+    /// 
+    ///     var exampleazurerm_user_assigned_identity = new Azurerm.Index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity", new()
+    ///     {
+    ///         Location = @var.Location,
+    ///         Name = "example-identity",
+    ///         ResourceGroupName = "azurerm_resource_group.identity.name",
+    ///     });
+    /// 
+    ///     var exampleazurerm_federated_identity_credential = new Azurerm.Index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential", new()
+    ///     {
+    ///         Name = "example-federated-credential",
+    ///         ResourceGroupName = identity.Name,
+    ///         Audience = new[]
+    ///         {
+    ///             "api://AzureADTokenExchange",
+    ///         },
+    ///         Issuer = "https://app.vstoken.visualstudio.com",
+    ///         ParentId = exampleazurerm_user_assigned_identity.Id,
+    ///         Subject = $"sc://{@var.Azure_devops_organisation}/{exampleProject.Name}/{serviceConnectionName}",
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = serviceConnectionName,
+    ///         Description = "Managed by Terraform",
+    ///         ServiceEndpointAuthenticationScheme = "WorkloadIdentityFederation",
+    ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
+    ///         {
+    ///             Serviceprincipalid = exampleazurerm_user_assigned_identity.ClientId,
+    ///         },
+    ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionName = "Example Subscription Name",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ### Workload Identity Federation Automatic AzureRM Service Endpoint
     /// 
     /// ```csharp
