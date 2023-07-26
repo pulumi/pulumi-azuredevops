@@ -17,14 +17,14 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
     public static final PipelineAuthorizationArgs Empty = new PipelineAuthorizationArgs();
 
     /**
-     * The ID of the pipeline. Changing this forces a new resource to be created
+     * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="pipelineId")
     private @Nullable Output<Integer> pipelineId;
 
     /**
-     * @return The ID of the pipeline. Changing this forces a new resource to be created
+     * @return The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Integer>> pipelineId() {
@@ -104,7 +104,7 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param pipelineId The ID of the pipeline. Changing this forces a new resource to be created
+         * @param pipelineId The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param pipelineId The ID of the pipeline. Changing this forces a new resource to be created
+         * @param pipelineId The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

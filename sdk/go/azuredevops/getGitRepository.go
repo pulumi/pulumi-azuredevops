@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -49,6 +50,7 @@ import (
 //
 // - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
 func GetGitRepository(ctx *pulumi.Context, args *GetGitRepositoryArgs, opts ...pulumi.InvokeOption) (*GetGitRepositoryResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGitRepositoryResult
 	err := ctx.Invoke("azuredevops:index/getGitRepository:getGitRepository", args, &rv, opts...)
 	if err != nil {

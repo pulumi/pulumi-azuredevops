@@ -8,13 +8,15 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Manage pipeline access permissions to resources.
 //
-// > **Note** This resource is a replacement for `ResourceAuthorization`.  Pipeline authorizations managed by `ResourceAuthorization` can also
-// be managed by this resource
+// > **Note** This resource is a replacement for `ResourceAuthorization`.  Pipeline authorizations managed by `ResourceAuthorization` can also be managed by this resource.
+//
+// > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
 //
 // ## Example Usage
 // ### Authorization for all pipelines
@@ -141,7 +143,7 @@ import (
 type PipelineAuthorization struct {
 	pulumi.CustomResourceState
 
-	// The ID of the pipeline. Changing this forces a new resource to be created
+	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId pulumi.IntPtrOutput `pulumi:"pipelineId"`
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -167,6 +169,7 @@ func NewPipelineAuthorization(ctx *pulumi.Context,
 	if args.Type == nil {
 		return nil, errors.New("invalid value for required argument 'Type'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource PipelineAuthorization
 	err := ctx.RegisterResource("azuredevops:index/pipelineAuthorization:PipelineAuthorization", name, args, &resource, opts...)
 	if err != nil {
@@ -189,7 +192,7 @@ func GetPipelineAuthorization(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PipelineAuthorization resources.
 type pipelineAuthorizationState struct {
-	// The ID of the pipeline. Changing this forces a new resource to be created
+	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId *int `pulumi:"pipelineId"`
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId *string `pulumi:"projectId"`
@@ -200,7 +203,7 @@ type pipelineAuthorizationState struct {
 }
 
 type PipelineAuthorizationState struct {
-	// The ID of the pipeline. Changing this forces a new resource to be created
+	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId pulumi.IntPtrInput
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId pulumi.StringPtrInput
@@ -215,7 +218,7 @@ func (PipelineAuthorizationState) ElementType() reflect.Type {
 }
 
 type pipelineAuthorizationArgs struct {
-	// The ID of the pipeline. Changing this forces a new resource to be created
+	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId *int `pulumi:"pipelineId"`
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId string `pulumi:"projectId"`
@@ -227,7 +230,7 @@ type pipelineAuthorizationArgs struct {
 
 // The set of arguments for constructing a PipelineAuthorization resource.
 type PipelineAuthorizationArgs struct {
-	// The ID of the pipeline. Changing this forces a new resource to be created
+	// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 	PipelineId pulumi.IntPtrInput
 	// The  ID of the project. Changing this forces a new resource to be created
 	ProjectId pulumi.StringInput
@@ -324,7 +327,7 @@ func (o PipelineAuthorizationOutput) ToPipelineAuthorizationOutputWithContext(ct
 	return o
 }
 
-// The ID of the pipeline. Changing this forces a new resource to be created
+// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
 func (o PipelineAuthorizationOutput) PipelineId() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *PipelineAuthorization) pulumi.IntPtrOutput { return v.PipelineId }).(pulumi.IntPtrOutput)
 }

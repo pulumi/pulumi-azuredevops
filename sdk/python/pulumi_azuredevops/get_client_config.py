@@ -71,5 +71,5 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getClientConfig:getClientConfig', __args__, opts=opts, typ=GetClientConfigResult).value
 
     return AwaitableGetClientConfigResult(
-        id=__ret__.id,
-        organization_url=__ret__.organization_url)
+        id=pulumi.get(__ret__, 'id'),
+        organization_url=pulumi.get(__ret__, 'organization_url'))

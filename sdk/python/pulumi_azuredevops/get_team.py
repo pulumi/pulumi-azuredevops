@@ -149,13 +149,13 @@ def get_team(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult).value
 
     return AwaitableGetTeamResult(
-        administrators=__ret__.administrators,
-        description=__ret__.description,
-        descriptor=__ret__.descriptor,
-        id=__ret__.id,
-        members=__ret__.members,
-        name=__ret__.name,
-        project_id=__ret__.project_id)
+        administrators=pulumi.get(__ret__, 'administrators'),
+        description=pulumi.get(__ret__, 'description'),
+        descriptor=pulumi.get(__ret__, 'descriptor'),
+        id=pulumi.get(__ret__, 'id'),
+        members=pulumi.get(__ret__, 'members'),
+        name=pulumi.get(__ret__, 'name'),
+        project_id=pulumi.get(__ret__, 'project_id'))
 
 
 @_utilities.lift_output_func(get_team)

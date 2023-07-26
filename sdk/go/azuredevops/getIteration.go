@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -58,6 +59,7 @@ import (
 //
 // - **Project & Team**: vso.work - Grants the ability to read work items, queries, boards, area and iterations paths, and other work item tracking related metadata. Also grants the ability to execute queries, search work items and to receive notifications about work item events via service hooks.
 func GetIteration(ctx *pulumi.Context, args *GetIterationArgs, opts ...pulumi.InvokeOption) (*GetIterationResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetIterationResult
 	err := ctx.Invoke("azuredevops:index/getIteration:getIteration", args, &rv, opts...)
 	if err != nil {

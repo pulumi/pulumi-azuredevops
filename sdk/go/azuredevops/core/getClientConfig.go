@@ -4,6 +4,7 @@
 package core
 
 import (
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -36,6 +37,7 @@ import (
 //
 // Deprecated: azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig
 func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClientConfigResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClientConfigResult
 	err := ctx.Invoke("azuredevops:Core/getClientConfig:getClientConfig", nil, &rv, opts...)
 	if err != nil {

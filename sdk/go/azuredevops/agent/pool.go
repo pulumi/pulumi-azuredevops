@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -73,6 +74,7 @@ func NewPool(ctx *pulumi.Context,
 		args = &PoolArgs{}
 	}
 
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource Pool
 	err := ctx.RegisterResource("azuredevops:Agent/pool:Pool", name, args, &resource, opts...)
 	if err != nil {

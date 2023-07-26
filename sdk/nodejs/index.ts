@@ -80,6 +80,21 @@ export type CheckBusinessHours = import("./checkBusinessHours").CheckBusinessHou
 export const CheckBusinessHours: typeof import("./checkBusinessHours").CheckBusinessHours = null as any;
 utilities.lazyLoad(exports, ["CheckBusinessHours"], () => require("./checkBusinessHours"));
 
+export { CheckExclusiveLockArgs, CheckExclusiveLockState } from "./checkExclusiveLock";
+export type CheckExclusiveLock = import("./checkExclusiveLock").CheckExclusiveLock;
+export const CheckExclusiveLock: typeof import("./checkExclusiveLock").CheckExclusiveLock = null as any;
+utilities.lazyLoad(exports, ["CheckExclusiveLock"], () => require("./checkExclusiveLock"));
+
+export { CheckRequiredTemplateArgs, CheckRequiredTemplateState } from "./checkRequiredTemplate";
+export type CheckRequiredTemplate = import("./checkRequiredTemplate").CheckRequiredTemplate;
+export const CheckRequiredTemplate: typeof import("./checkRequiredTemplate").CheckRequiredTemplate = null as any;
+utilities.lazyLoad(exports, ["CheckRequiredTemplate"], () => require("./checkRequiredTemplate"));
+
+export { ElasticPoolArgs, ElasticPoolState } from "./elasticPool";
+export type ElasticPool = import("./elasticPool").ElasticPool;
+export const ElasticPool: typeof import("./elasticPool").ElasticPool = null as any;
+utilities.lazyLoad(exports, ["ElasticPool"], () => require("./elasticPool"));
+
 export { EnvironmentArgs, EnvironmentState } from "./environment";
 export type Environment = import("./environment").Environment;
 export const Environment: typeof import("./environment").Environment = null as any;
@@ -552,6 +567,12 @@ const _module = {
                 return new CheckBranchControl(name, <any>undefined, { urn })
             case "azuredevops:index/checkBusinessHours:CheckBusinessHours":
                 return new CheckBusinessHours(name, <any>undefined, { urn })
+            case "azuredevops:index/checkExclusiveLock:CheckExclusiveLock":
+                return new CheckExclusiveLock(name, <any>undefined, { urn })
+            case "azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate":
+                return new CheckRequiredTemplate(name, <any>undefined, { urn })
+            case "azuredevops:index/elasticPool:ElasticPool":
+                return new ElasticPool(name, <any>undefined, { urn })
             case "azuredevops:index/environment:Environment":
                 return new Environment(name, <any>undefined, { urn })
             case "azuredevops:index/git:Git":
@@ -692,6 +713,9 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/buildFolderPermissio
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkApproval", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkBranchControl", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/checkBusinessHours", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/checkExclusiveLock", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/checkRequiredTemplate", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/elasticPool", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/environment", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/git", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitPermissions", _module)

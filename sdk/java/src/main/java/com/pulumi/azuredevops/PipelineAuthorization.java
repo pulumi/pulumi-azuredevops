@@ -18,8 +18,9 @@ import javax.annotation.Nullable;
 /**
  * Manage pipeline access permissions to resources.
  * 
- * &gt; **Note** This resource is a replacement for `azuredevops.ResourceAuthorization`.  Pipeline authorizations managed by `azuredevops.ResourceAuthorization` can also
- * be managed by this resource
+ * &gt; **Note** This resource is a replacement for `azuredevops.ResourceAuthorization`.  Pipeline authorizations managed by `azuredevops.ResourceAuthorization` can also be managed by this resource.
+ * 
+ * &gt; **Note** If both &#34;All Pipeline Authorization&#34; and &#34;Custom Pipeline Authorization&#34; are configured, &#34;All Pipeline Authorization&#34; has higher priority.
  * 
  * ## Example Usage
  * ### Authorization for all pipelines
@@ -158,14 +159,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/pipelineAuthorization:PipelineAuthorization")
 public class PipelineAuthorization extends com.pulumi.resources.CustomResource {
     /**
-     * The ID of the pipeline. Changing this forces a new resource to be created
+     * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="pipelineId", type=Integer.class, parameters={})
     private Output</* @Nullable */ Integer> pipelineId;
 
     /**
-     * @return The ID of the pipeline. Changing this forces a new resource to be created
+     * @return The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Integer>> pipelineId() {

@@ -248,6 +248,10 @@ namespace Pulumi.AzureDevOps
         /// Specifies the Resource Group of the Service Endpoint target, if available.
         /// </summary>
         public readonly string ResourceGroup;
+        /// <summary>
+        /// Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+        /// </summary>
+        public readonly string ServiceEndpointAuthenticationScheme;
         public readonly string ServiceEndpointId;
         public readonly string ServiceEndpointName;
 
@@ -273,6 +277,8 @@ namespace Pulumi.AzureDevOps
 
             string resourceGroup,
 
+            string serviceEndpointAuthenticationScheme,
+
             string serviceEndpointId,
 
             string serviceEndpointName)
@@ -287,6 +293,7 @@ namespace Pulumi.AzureDevOps
             Id = id;
             ProjectId = projectId;
             ResourceGroup = resourceGroup;
+            ServiceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
             ServiceEndpointId = serviceEndpointId;
             ServiceEndpointName = serviceEndpointName;
         }

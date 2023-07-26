@@ -8,10 +8,11 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Manages a branch control check on a resource within Azure DevOps.
+// Manages a business hours check on a resource within Azure DevOps.
 //
 // ## Example Usage
 // ### Protect a service connection
@@ -470,6 +471,7 @@ func NewCheckBusinessHours(ctx *pulumi.Context,
 	if args.TimeZone == nil {
 		return nil, errors.New("invalid value for required argument 'TimeZone'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource CheckBusinessHours
 	err := ctx.RegisterResource("azuredevops:index/checkBusinessHours:CheckBusinessHours", name, args, &resource, opts...)
 	if err != nil {

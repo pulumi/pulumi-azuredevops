@@ -142,12 +142,12 @@ def get_service_endpoint_github(project_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub', __args__, opts=opts, typ=GetServiceEndpointGithubResult).value
 
     return AwaitableGetServiceEndpointGithubResult(
-        authorization=__ret__.authorization,
-        description=__ret__.description,
-        id=__ret__.id,
-        project_id=__ret__.project_id,
-        service_endpoint_id=__ret__.service_endpoint_id,
-        service_endpoint_name=__ret__.service_endpoint_name)
+        authorization=pulumi.get(__ret__, 'authorization'),
+        description=pulumi.get(__ret__, 'description'),
+        id=pulumi.get(__ret__, 'id'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        service_endpoint_id=pulumi.get(__ret__, 'service_endpoint_id'),
+        service_endpoint_name=pulumi.get(__ret__, 'service_endpoint_name'))
 
 
 @_utilities.lift_output_func(get_service_endpoint_github)

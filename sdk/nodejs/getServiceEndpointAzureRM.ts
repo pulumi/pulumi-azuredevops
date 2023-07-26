@@ -111,6 +111,10 @@ export interface GetServiceEndpointAzureRMResult {
      * Specifies the Resource Group of the Service Endpoint target, if available.
      */
     readonly resourceGroup: string;
+    /**
+     * Specifies the authentication scheme of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`.
+     */
+    readonly serviceEndpointAuthenticationScheme: string;
     readonly serviceEndpointId: string;
     readonly serviceEndpointName: string;
 }

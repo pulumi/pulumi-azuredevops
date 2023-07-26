@@ -203,18 +203,18 @@ def get_build_definition(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getBuildDefinition:getBuildDefinition', __args__, opts=opts, typ=GetBuildDefinitionResult).value
 
     return AwaitableGetBuildDefinitionResult(
-        agent_pool_name=__ret__.agent_pool_name,
-        ci_triggers=__ret__.ci_triggers,
-        id=__ret__.id,
-        name=__ret__.name,
-        path=__ret__.path,
-        project_id=__ret__.project_id,
-        pull_request_triggers=__ret__.pull_request_triggers,
-        repositories=__ret__.repositories,
-        revision=__ret__.revision,
-        schedules=__ret__.schedules,
-        variable_groups=__ret__.variable_groups,
-        variables=__ret__.variables)
+        agent_pool_name=pulumi.get(__ret__, 'agent_pool_name'),
+        ci_triggers=pulumi.get(__ret__, 'ci_triggers'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        path=pulumi.get(__ret__, 'path'),
+        project_id=pulumi.get(__ret__, 'project_id'),
+        pull_request_triggers=pulumi.get(__ret__, 'pull_request_triggers'),
+        repositories=pulumi.get(__ret__, 'repositories'),
+        revision=pulumi.get(__ret__, 'revision'),
+        schedules=pulumi.get(__ret__, 'schedules'),
+        variable_groups=pulumi.get(__ret__, 'variable_groups'),
+        variables=pulumi.get(__ret__, 'variables'))
 
 
 @_utilities.lift_output_func(get_build_definition)

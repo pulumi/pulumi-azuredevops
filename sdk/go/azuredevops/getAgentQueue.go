@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -54,6 +55,7 @@ import (
 //
 // - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
 func GetAgentQueue(ctx *pulumi.Context, args *GetAgentQueueArgs, opts ...pulumi.InvokeOption) (*GetAgentQueueResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAgentQueueResult
 	err := ctx.Invoke("azuredevops:index/getAgentQueue:getAgentQueue", args, &rv, opts...)
 	if err != nil {

@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a branch control check on a resource within Azure DevOps.
+ * Manages a business hours check on a resource within Azure DevOps.
  * 
  * ## Example Usage
  * ### Protect a service connection

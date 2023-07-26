@@ -18,11 +18,11 @@ namespace Pulumi.AzureDevOps.Inputs
         [Input("serviceprincipalid", required: true)]
         public Input<string> Serviceprincipalid { get; set; } = null!;
 
-        [Input("serviceprincipalkey", required: true)]
+        [Input("serviceprincipalkey")]
         private Input<string>? _serviceprincipalkey;
 
         /// <summary>
-        /// The service principal secret.
+        /// The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         /// </summary>
         public Input<string>? Serviceprincipalkey
         {

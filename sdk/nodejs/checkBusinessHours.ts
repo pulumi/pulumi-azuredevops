@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * Manages a branch control check on a resource within Azure DevOps.
+ * Manages a business hours check on a resource within Azure DevOps.
  *
  * ## Example Usage
  * ### Protect a service connection

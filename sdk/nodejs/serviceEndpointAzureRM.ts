@@ -16,7 +16,7 @@ import * as utilities from "./utilities";
  * For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
  *
  * ## Example Usage
- * ### Manual AzureRM Service Endpoint (Subscription Scoped)
+ * ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -32,6 +32,7 @@ import * as utilities from "./utilities";
  *     projectId: exampleProject.id,
  *     serviceEndpointName: "Example AzureRM",
  *     description: "Managed by Terraform",
+ *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
  *     credentials: {
  *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
  *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -41,7 +42,7 @@ import * as utilities from "./utilities";
  *     azurermSubscriptionName: "Example Subscription Name",
  * });
  * ```
- * ### Manual AzureRM Service Endpoint (ManagementGroup Scoped)
+ * ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -57,6 +58,7 @@ import * as utilities from "./utilities";
  *     projectId: exampleProject.id,
  *     serviceEndpointName: "Example AzureRM",
  *     description: "Managed by Terraform",
+ *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
  *     credentials: {
  *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
  *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -66,7 +68,7 @@ import * as utilities from "./utilities";
  *     azurermManagementGroupName: "managementGroup",
  * });
  * ```
- * ### Automatic AzureRM Service Endpoint
+ * ### Service Principal Automatic AzureRM Service Endpoint
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -80,6 +82,91 @@ import * as utilities from "./utilities";
  * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
  *     projectId: exampleProject.id,
  *     serviceEndpointName: "Example AzureRM",
+ *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * ```
+ * ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const serviceConnectionName = "example-federated-sc";
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const identity = new azurerm.index.Azurerm_resource_group("identity", {
+ *     name: "identity",
+ *     location: "UK South",
+ * });
+ * const exampleazurerm_user_assigned_identity = new azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity", {
+ *     location: _var.location,
+ *     name: "example-identity",
+ *     resourceGroupName: "azurerm_resource_group.identity.name",
+ * });
+ * const exampleazurerm_federated_identity_credential = new azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential", {
+ *     name: "example-federated-credential",
+ *     resourceGroupName: identity.name,
+ *     audience: ["api://AzureADTokenExchange"],
+ *     issuer: "https://app.vstoken.visualstudio.com",
+ *     parentId: exampleazurerm_user_assigned_identity.id,
+ *     subject: `sc://${_var.azure_devops_organisation}/${exampleProject.name}/${serviceConnectionName}`,
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: serviceConnectionName,
+ *     description: "Managed by Terraform",
+ *     serviceEndpointAuthenticationScheme: "WorkloadIdentityFederation",
+ *     credentials: {
+ *         serviceprincipalid: exampleazurerm_user_assigned_identity.clientId,
+ *     },
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * ```
+ * ### Workload Identity Federation Automatic AzureRM Service Endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     serviceEndpointAuthenticationScheme: "WorkloadIdentityFederation",
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * ```
+ * ### Managed Identity AzureRM Service Endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     serviceEndpointAuthenticationScheme: "ManagedServiceIdentity",
  *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionName: "Example Subscription Name",
@@ -169,6 +256,12 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly resourceGroup!: pulumi.Output<string | undefined>;
     /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     *
+     * > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+     */
+    public readonly serviceEndpointAuthenticationScheme!: pulumi.Output<string | undefined>;
+    /**
      * The Service Endpoint Name.
      */
     public readonly serviceEndpointName!: pulumi.Output<string>;
@@ -197,6 +290,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["environment"] = state ? state.environment : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
+            resourceInputs["serviceEndpointAuthenticationScheme"] = state ? state.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
         } else {
             const args = argsOrState as ServiceEndpointAzureRMArgs | undefined;
@@ -220,6 +314,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["environment"] = args ? args.environment : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -277,6 +372,12 @@ export interface ServiceEndpointAzureRMState {
      */
     resourceGroup?: pulumi.Input<string>;
     /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     *
+     * > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+     */
+    serviceEndpointAuthenticationScheme?: pulumi.Input<string>;
+    /**
      * The Service Endpoint Name.
      */
     serviceEndpointName?: pulumi.Input<string>;
@@ -329,6 +430,12 @@ export interface ServiceEndpointAzureRMArgs {
      * The resource group used for scope of automatic service endpoint.
      */
     resourceGroup?: pulumi.Input<string>;
+    /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     *
+     * > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+     */
+    serviceEndpointAuthenticationScheme?: pulumi.Input<string>;
     /**
      * The Service Endpoint Name.
      */

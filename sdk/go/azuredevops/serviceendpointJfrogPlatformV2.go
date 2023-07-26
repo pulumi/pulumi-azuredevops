@@ -8,6 +8,7 @@ import (
 	"reflect"
 
 	"errors"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -146,6 +147,7 @@ func NewServiceendpointJfrogPlatformV2(ctx *pulumi.Context,
 	if args.Url == nil {
 		return nil, errors.New("invalid value for required argument 'Url'")
 	}
+	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ServiceendpointJfrogPlatformV2
 	err := ctx.RegisterResource("azuredevops:index/serviceendpointJfrogPlatformV2:ServiceendpointJfrogPlatformV2", name, args, &resource, opts...)
 	if err != nil {

@@ -644,6 +644,25 @@ export interface BuildDefinitionVariable {
     value?: pulumi.Input<string>;
 }
 
+export interface CheckRequiredTemplateRequiredTemplate {
+    /**
+     * The name of the repository storing the template.
+     */
+    repositoryName: pulumi.Input<string>;
+    /**
+     * The branch in which the template will be referenced.
+     */
+    repositoryRef: pulumi.Input<string>;
+    /**
+     * The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+     */
+    repositoryType?: pulumi.Input<string>;
+    /**
+     * The path to the template yaml.
+     */
+    templatePath: pulumi.Input<string>;
+}
+
 export interface GitInitialization {
     /**
      * The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
@@ -687,9 +706,9 @@ export interface ServiceEndpointAzureRMCredentials {
      */
     serviceprincipalid: pulumi.Input<string>;
     /**
-     * The service principal secret.
+     * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      */
-    serviceprincipalkey: pulumi.Input<string>;
+    serviceprincipalkey?: pulumi.Input<string>;
     serviceprincipalkeyHash?: pulumi.Input<string>;
 }
 
@@ -1514,9 +1533,9 @@ export namespace ServiceEndpoint {
          */
         serviceprincipalid: pulumi.Input<string>;
         /**
-         * The service principal secret.
+         * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
          */
-        serviceprincipalkey: pulumi.Input<string>;
+        serviceprincipalkey?: pulumi.Input<string>;
         serviceprincipalkeyHash?: pulumi.Input<string>;
     }
 

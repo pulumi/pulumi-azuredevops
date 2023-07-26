@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -40,6 +41,7 @@ import (
 //
 // ```
 func GetServiceendpointNpm(ctx *pulumi.Context, args *GetServiceendpointNpmArgs, opts ...pulumi.InvokeOption) (*GetServiceendpointNpmResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceendpointNpmResult
 	err := ctx.Invoke("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", args, &rv, opts...)
 	if err != nil {

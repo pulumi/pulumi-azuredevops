@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -52,6 +53,7 @@ import (
 //
 // - **vso.project**:	Grants the ability to read projects and teams.
 func LookupTeam(ctx *pulumi.Context, args *LookupTeamArgs, opts ...pulumi.InvokeOption) (*LookupTeamResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTeamResult
 	err := ctx.Invoke("azuredevops:index/getTeam:getTeam", args, &rv, opts...)
 	if err != nil {

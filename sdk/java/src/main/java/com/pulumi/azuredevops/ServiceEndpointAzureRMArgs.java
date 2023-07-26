@@ -179,6 +179,25 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
     }
 
     /**
+     * Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * 
+     * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+     * 
+     */
+    @Import(name="serviceEndpointAuthenticationScheme")
+    private @Nullable Output<String> serviceEndpointAuthenticationScheme;
+
+    /**
+     * @return Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+     * 
+     * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+     * 
+     */
+    public Optional<Output<String>> serviceEndpointAuthenticationScheme() {
+        return Optional.ofNullable(this.serviceEndpointAuthenticationScheme);
+    }
+
+    /**
      * The Service Endpoint Name.
      * 
      */
@@ -207,6 +226,7 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
         this.environment = $.environment;
         this.projectId = $.projectId;
         this.resourceGroup = $.resourceGroup;
+        this.serviceEndpointAuthenticationScheme = $.serviceEndpointAuthenticationScheme;
         this.serviceEndpointName = $.serviceEndpointName;
     }
 
@@ -449,6 +469,31 @@ public final class ServiceEndpointAzureRMArgs extends com.pulumi.resources.Resou
          */
         public Builder resourceGroup(String resourceGroup) {
             return resourceGroup(Output.of(resourceGroup));
+        }
+
+        /**
+         * @param serviceEndpointAuthenticationScheme Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+         * 
+         * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpointAuthenticationScheme(@Nullable Output<String> serviceEndpointAuthenticationScheme) {
+            $.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
+            return this;
+        }
+
+        /**
+         * @param serviceEndpointAuthenticationScheme Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+         * 
+         * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceEndpointAuthenticationScheme(String serviceEndpointAuthenticationScheme) {
+            return serviceEndpointAuthenticationScheme(Output.of(serviceEndpointAuthenticationScheme));
         }
 
         /**

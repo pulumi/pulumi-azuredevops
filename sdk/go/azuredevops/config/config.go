@@ -4,9 +4,12 @@
 package config
 
 import (
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
 )
+
+var _ = internal.GetEnvOrDefault
 
 // The url of the Azure DevOps instance which should be used.
 func GetOrgServiceUrl(ctx *pulumi.Context) string {
@@ -15,7 +18,7 @@ func GetOrgServiceUrl(ctx *pulumi.Context) string {
 		return v
 	}
 	var value string
-	if d := getEnvOrDefault(nil, nil, "AZDO_ORG_SERVICE_URL"); d != nil {
+	if d := internal.GetEnvOrDefault(nil, nil, "AZDO_ORG_SERVICE_URL"); d != nil {
 		value = d.(string)
 	}
 	return value

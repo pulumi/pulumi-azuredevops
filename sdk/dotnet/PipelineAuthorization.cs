@@ -12,8 +12,9 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manage pipeline access permissions to resources.
     /// 
-    /// &gt; **Note** This resource is a replacement for `azuredevops.ResourceAuthorization`.  Pipeline authorizations managed by `azuredevops.ResourceAuthorization` can also
-    /// be managed by this resource
+    /// &gt; **Note** This resource is a replacement for `azuredevops.ResourceAuthorization`.  Pipeline authorizations managed by `azuredevops.ResourceAuthorization` can also be managed by this resource.
+    /// 
+    /// &gt; **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
     /// 
     /// ## Example Usage
     /// ### Authorization for all pipelines
@@ -120,7 +121,7 @@ namespace Pulumi.AzureDevOps
     public partial class PipelineAuthorization : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ID of the pipeline. Changing this forces a new resource to be created
+        /// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         /// </summary>
         [Output("pipelineId")]
         public Output<int?> PipelineId { get; private set; } = null!;
@@ -190,7 +191,7 @@ namespace Pulumi.AzureDevOps
     public sealed class PipelineAuthorizationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the pipeline. Changing this forces a new resource to be created
+        /// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         /// </summary>
         [Input("pipelineId")]
         public Input<int>? PipelineId { get; set; }
@@ -222,7 +223,7 @@ namespace Pulumi.AzureDevOps
     public sealed class PipelineAuthorizationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ID of the pipeline. Changing this forces a new resource to be created
+        /// The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         /// </summary>
         [Input("pipelineId")]
         public Input<int>? PipelineId { get; set; }

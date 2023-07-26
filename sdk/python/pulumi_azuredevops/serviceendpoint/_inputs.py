@@ -22,14 +22,15 @@ __all__ = [
 class AzureRMCredentialsArgs:
     def __init__(__self__, *,
                  serviceprincipalid: pulumi.Input[str],
-                 serviceprincipalkey: pulumi.Input[str],
+                 serviceprincipalkey: Optional[pulumi.Input[str]] = None,
                  serviceprincipalkey_hash: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] serviceprincipalid: The service principal application Id
-        :param pulumi.Input[str] serviceprincipalkey: The service principal secret.
+        :param pulumi.Input[str] serviceprincipalkey: The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
-        pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
+        if serviceprincipalkey is not None:
+            pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
         if serviceprincipalkey_hash is not None:
             pulumi.set(__self__, "serviceprincipalkey_hash", serviceprincipalkey_hash)
 
@@ -47,14 +48,14 @@ class AzureRMCredentialsArgs:
 
     @property
     @pulumi.getter
-    def serviceprincipalkey(self) -> pulumi.Input[str]:
+    def serviceprincipalkey(self) -> Optional[pulumi.Input[str]]:
         """
-        The service principal secret.
+        The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         return pulumi.get(self, "serviceprincipalkey")
 
     @serviceprincipalkey.setter
-    def serviceprincipalkey(self, value: pulumi.Input[str]):
+    def serviceprincipalkey(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "serviceprincipalkey", value)
 
     @property

@@ -7,6 +7,7 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -51,6 +52,7 @@ import (
 //
 // - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
 func LookupVariableGroup(ctx *pulumi.Context, args *LookupVariableGroupArgs, opts ...pulumi.InvokeOption) (*LookupVariableGroupResult, error) {
+	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVariableGroupResult
 	err := ctx.Invoke("azuredevops:index/getVariableGroup:getVariableGroup", args, &rv, opts...)
 	if err != nil {

@@ -134,12 +134,12 @@ def get_group(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getGroup:getGroup', __args__, opts=opts, typ=GetGroupResult).value
 
     return AwaitableGetGroupResult(
-        descriptor=__ret__.descriptor,
-        id=__ret__.id,
-        name=__ret__.name,
-        origin=__ret__.origin,
-        origin_id=__ret__.origin_id,
-        project_id=__ret__.project_id)
+        descriptor=pulumi.get(__ret__, 'descriptor'),
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        origin=pulumi.get(__ret__, 'origin'),
+        origin_id=pulumi.get(__ret__, 'origin_id'),
+        project_id=pulumi.get(__ret__, 'project_id'))
 
 
 @_utilities.lift_output_func(get_group)

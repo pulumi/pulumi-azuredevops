@@ -7,8 +7,9 @@ import * as utilities from "./utilities";
 /**
  * Manage pipeline access permissions to resources.
  *
- * > **Note** This resource is a replacement for `azuredevops.ResourceAuthorization`.  Pipeline authorizations managed by `azuredevops.ResourceAuthorization` can also
- * be managed by this resource
+ * > **Note** This resource is a replacement for `azuredevops.ResourceAuthorization`.  Pipeline authorizations managed by `azuredevops.ResourceAuthorization` can also be managed by this resource.
+ *
+ * > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
  *
  * ## Example Usage
  * ### Authorization for all pipelines
@@ -109,7 +110,7 @@ export class PipelineAuthorization extends pulumi.CustomResource {
     }
 
     /**
-     * The ID of the pipeline. Changing this forces a new resource to be created
+     * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      */
     public readonly pipelineId!: pulumi.Output<number | undefined>;
     /**
@@ -168,7 +169,7 @@ export class PipelineAuthorization extends pulumi.CustomResource {
  */
 export interface PipelineAuthorizationState {
     /**
-     * The ID of the pipeline. Changing this forces a new resource to be created
+     * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      */
     pipelineId?: pulumi.Input<number>;
     /**
@@ -190,7 +191,7 @@ export interface PipelineAuthorizationState {
  */
 export interface PipelineAuthorizationArgs {
     /**
-     * The ID of the pipeline. Changing this forces a new resource to be created
+     * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      */
     pipelineId?: pulumi.Input<number>;
     /**

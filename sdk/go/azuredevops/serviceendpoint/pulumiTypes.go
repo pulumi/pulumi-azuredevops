@@ -7,14 +7,17 @@ import (
 	"context"
 	"reflect"
 
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
+
+var _ = internal.GetEnvOrDefault
 
 type AzureRMCredentials struct {
 	// The service principal application Id
 	Serviceprincipalid string `pulumi:"serviceprincipalid"`
-	// The service principal secret.
-	Serviceprincipalkey     string  `pulumi:"serviceprincipalkey"`
+	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+	Serviceprincipalkey     *string `pulumi:"serviceprincipalkey"`
 	ServiceprincipalkeyHash *string `pulumi:"serviceprincipalkeyHash"`
 }
 
@@ -32,8 +35,8 @@ type AzureRMCredentialsInput interface {
 type AzureRMCredentialsArgs struct {
 	// The service principal application Id
 	Serviceprincipalid pulumi.StringInput `pulumi:"serviceprincipalid"`
-	// The service principal secret.
-	Serviceprincipalkey     pulumi.StringInput    `pulumi:"serviceprincipalkey"`
+	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+	Serviceprincipalkey     pulumi.StringPtrInput `pulumi:"serviceprincipalkey"`
 	ServiceprincipalkeyHash pulumi.StringPtrInput `pulumi:"serviceprincipalkeyHash"`
 }
 
@@ -119,9 +122,9 @@ func (o AzureRMCredentialsOutput) Serviceprincipalid() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureRMCredentials) string { return v.Serviceprincipalid }).(pulumi.StringOutput)
 }
 
-// The service principal secret.
-func (o AzureRMCredentialsOutput) Serviceprincipalkey() pulumi.StringOutput {
-	return o.ApplyT(func(v AzureRMCredentials) string { return v.Serviceprincipalkey }).(pulumi.StringOutput)
+// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
+func (o AzureRMCredentialsOutput) Serviceprincipalkey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AzureRMCredentials) *string { return v.Serviceprincipalkey }).(pulumi.StringPtrOutput)
 }
 
 func (o AzureRMCredentialsOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
@@ -162,13 +165,13 @@ func (o AzureRMCredentialsPtrOutput) Serviceprincipalid() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The service principal secret.
+// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
 func (o AzureRMCredentialsPtrOutput) Serviceprincipalkey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AzureRMCredentials) *string {
 		if v == nil {
 			return nil
 		}
-		return &v.Serviceprincipalkey
+		return v.Serviceprincipalkey
 	}).(pulumi.StringPtrOutput)
 }
 

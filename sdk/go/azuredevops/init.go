@@ -7,6 +7,7 @@ import (
 	"fmt"
 
 	"github.com/blang/semver"
+	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
@@ -50,6 +51,12 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CheckBranchControl{}
 	case "azuredevops:index/checkBusinessHours:CheckBusinessHours":
 		r = &CheckBusinessHours{}
+	case "azuredevops:index/checkExclusiveLock:CheckExclusiveLock":
+		r = &CheckExclusiveLock{}
+	case "azuredevops:index/checkRequiredTemplate:CheckRequiredTemplate":
+		r = &CheckRequiredTemplate{}
+	case "azuredevops:index/elasticPool:ElasticPool":
+		r = &ElasticPool{}
 	case "azuredevops:index/environment:Environment":
 		r = &Environment{}
 	case "azuredevops:index/git:Git":
@@ -197,7 +204,10 @@ func (p *pkg) ConstructProvider(ctx *pulumi.Context, name, typ, urn string) (pul
 }
 
 func init() {
-	version, _ := PkgVersion()
+	version, err := internal.PkgVersion()
+	if err != nil {
+		version = semver.Version{Major: 1}
+	}
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/areaPermissions",
@@ -271,6 +281,21 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/checkBusinessHours",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/checkExclusiveLock",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/checkRequiredTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/elasticPool",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

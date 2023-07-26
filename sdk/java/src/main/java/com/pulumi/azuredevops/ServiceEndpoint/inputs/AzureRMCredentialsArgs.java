@@ -31,18 +31,18 @@ public final class AzureRMCredentialsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The service principal secret.
+     * The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
      * 
      */
-    @Import(name="serviceprincipalkey", required=true)
-    private Output<String> serviceprincipalkey;
+    @Import(name="serviceprincipalkey")
+    private @Nullable Output<String> serviceprincipalkey;
 
     /**
-     * @return The service principal secret.
+     * @return The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
      * 
      */
-    public Output<String> serviceprincipalkey() {
-        return this.serviceprincipalkey;
+    public Optional<Output<String>> serviceprincipalkey() {
+        return Optional.ofNullable(this.serviceprincipalkey);
     }
 
     @Import(name="serviceprincipalkeyHash")
@@ -100,18 +100,18 @@ public final class AzureRMCredentialsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceprincipalkey The service principal secret.
+         * @param serviceprincipalkey The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
          * 
          * @return builder
          * 
          */
-        public Builder serviceprincipalkey(Output<String> serviceprincipalkey) {
+        public Builder serviceprincipalkey(@Nullable Output<String> serviceprincipalkey) {
             $.serviceprincipalkey = serviceprincipalkey;
             return this;
         }
 
         /**
-         * @param serviceprincipalkey The service principal secret.
+         * @param serviceprincipalkey The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
          * 
          * @return builder
          * 
@@ -131,7 +131,6 @@ public final class AzureRMCredentialsArgs extends com.pulumi.resources.ResourceA
 
         public AzureRMCredentialsArgs build() {
             $.serviceprincipalid = Objects.requireNonNull($.serviceprincipalid, "expected parameter 'serviceprincipalid' to be non-null");
-            $.serviceprincipalkey = Objects.requireNonNull($.serviceprincipalkey, "expected parameter 'serviceprincipalkey' to be non-null");
             return $;
         }
     }

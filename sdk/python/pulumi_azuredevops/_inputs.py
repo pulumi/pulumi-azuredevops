@@ -37,6 +37,7 @@ __all__ = [
     'BuildDefinitionScheduleArgs',
     'BuildDefinitionScheduleBranchFilterArgs',
     'BuildDefinitionVariableArgs',
+    'CheckRequiredTemplateRequiredTemplateArgs',
     'GitInitializationArgs',
     'ServiceEndpointArtifactoryAuthenticationBasicArgs',
     'ServiceEndpointArtifactoryAuthenticationTokenArgs',
@@ -2189,6 +2190,74 @@ class BuildDefinitionVariableArgs:
 
 
 @pulumi.input_type
+class CheckRequiredTemplateRequiredTemplateArgs:
+    def __init__(__self__, *,
+                 repository_name: pulumi.Input[str],
+                 repository_ref: pulumi.Input[str],
+                 template_path: pulumi.Input[str],
+                 repository_type: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] repository_name: The name of the repository storing the template.
+        :param pulumi.Input[str] repository_ref: The branch in which the template will be referenced.
+        :param pulumi.Input[str] template_path: The path to the template yaml.
+        :param pulumi.Input[str] repository_type: The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+        """
+        pulumi.set(__self__, "repository_name", repository_name)
+        pulumi.set(__self__, "repository_ref", repository_ref)
+        pulumi.set(__self__, "template_path", template_path)
+        if repository_type is not None:
+            pulumi.set(__self__, "repository_type", repository_type)
+
+    @property
+    @pulumi.getter(name="repositoryName")
+    def repository_name(self) -> pulumi.Input[str]:
+        """
+        The name of the repository storing the template.
+        """
+        return pulumi.get(self, "repository_name")
+
+    @repository_name.setter
+    def repository_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_name", value)
+
+    @property
+    @pulumi.getter(name="repositoryRef")
+    def repository_ref(self) -> pulumi.Input[str]:
+        """
+        The branch in which the template will be referenced.
+        """
+        return pulumi.get(self, "repository_ref")
+
+    @repository_ref.setter
+    def repository_ref(self, value: pulumi.Input[str]):
+        pulumi.set(self, "repository_ref", value)
+
+    @property
+    @pulumi.getter(name="templatePath")
+    def template_path(self) -> pulumi.Input[str]:
+        """
+        The path to the template yaml.
+        """
+        return pulumi.get(self, "template_path")
+
+    @template_path.setter
+    def template_path(self, value: pulumi.Input[str]):
+        pulumi.set(self, "template_path", value)
+
+    @property
+    @pulumi.getter(name="repositoryType")
+    def repository_type(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+        """
+        return pulumi.get(self, "repository_type")
+
+    @repository_type.setter
+    def repository_type(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "repository_type", value)
+
+
+@pulumi.input_type
 class GitInitializationArgs:
     def __init__(__self__, *,
                  init_type: pulumi.Input[str],
@@ -2321,14 +2390,15 @@ class ServiceEndpointArtifactoryAuthenticationTokenArgs:
 class ServiceEndpointAzureRMCredentialsArgs:
     def __init__(__self__, *,
                  serviceprincipalid: pulumi.Input[str],
-                 serviceprincipalkey: pulumi.Input[str],
+                 serviceprincipalkey: Optional[pulumi.Input[str]] = None,
                  serviceprincipalkey_hash: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] serviceprincipalid: The service principal application Id
-        :param pulumi.Input[str] serviceprincipalkey: The service principal secret.
+        :param pulumi.Input[str] serviceprincipalkey: The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
-        pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
+        if serviceprincipalkey is not None:
+            pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
         if serviceprincipalkey_hash is not None:
             pulumi.set(__self__, "serviceprincipalkey_hash", serviceprincipalkey_hash)
 
@@ -2346,14 +2416,14 @@ class ServiceEndpointAzureRMCredentialsArgs:
 
     @property
     @pulumi.getter
-    def serviceprincipalkey(self) -> pulumi.Input[str]:
+    def serviceprincipalkey(self) -> Optional[pulumi.Input[str]]:
         """
-        The service principal secret.
+        The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         return pulumi.get(self, "serviceprincipalkey")
 
     @serviceprincipalkey.setter
-    def serviceprincipalkey(self, value: pulumi.Input[str]):
+    def serviceprincipalkey(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "serviceprincipalkey", value)
 
     @property

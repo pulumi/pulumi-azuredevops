@@ -644,6 +644,25 @@ export interface BuildDefinitionVariable {
     value?: string;
 }
 
+export interface CheckRequiredTemplateRequiredTemplate {
+    /**
+     * The name of the repository storing the template.
+     */
+    repositoryName: string;
+    /**
+     * The branch in which the template will be referenced.
+     */
+    repositoryRef: string;
+    /**
+     * The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
+     */
+    repositoryType?: string;
+    /**
+     * The path to the template yaml.
+     */
+    templatePath: string;
+}
+
 export interface GetAreaChildren {
     /**
      * Indicator if the child Area node has child nodes
@@ -1181,9 +1200,9 @@ export interface ServiceEndpointAzureRMCredentials {
      */
     serviceprincipalid: string;
     /**
-     * The service principal secret.
+     * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      */
-    serviceprincipalkey: string;
+    serviceprincipalkey?: string;
     serviceprincipalkeyHash: string;
 }
 
@@ -2138,9 +2157,9 @@ export namespace ServiceEndpoint {
          */
         serviceprincipalid: string;
         /**
-         * The service principal secret.
+         * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
          */
-        serviceprincipalkey: string;
+        serviceprincipalkey?: string;
         serviceprincipalkeyHash: string;
     }
 

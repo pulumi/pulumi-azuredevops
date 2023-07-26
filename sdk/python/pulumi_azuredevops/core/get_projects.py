@@ -120,10 +120,10 @@ def get_projects(name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azuredevops:Core/getProjects:getProjects', __args__, opts=opts, typ=GetProjectsResult).value
 
     return AwaitableGetProjectsResult(
-        id=__ret__.id,
-        name=__ret__.name,
-        projects=__ret__.projects,
-        state=__ret__.state)
+        id=pulumi.get(__ret__, 'id'),
+        name=pulumi.get(__ret__, 'name'),
+        projects=pulumi.get(__ret__, 'projects'),
+        state=pulumi.get(__ret__, 'state'))
 
 
 @_utilities.lift_output_func(get_projects)

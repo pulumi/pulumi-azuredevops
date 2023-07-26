@@ -27,7 +27,8 @@ class AzureRMArgs:
                  credentials: Optional[pulumi.Input['AzureRMCredentialsArgs']] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  environment: Optional[pulumi.Input[str]] = None,
-                 resource_group: Optional[pulumi.Input[str]] = None):
+                 resource_group: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AzureRM resource.
         :param pulumi.Input[str] azurerm_spn_tenantid: The Tenant ID if the service principal.
@@ -43,6 +44,9 @@ class AzureRMArgs:
                
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+               
+               > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         """
         pulumi.set(__self__, "azurerm_spn_tenantid", azurerm_spn_tenantid)
         pulumi.set(__self__, "project_id", project_id)
@@ -65,6 +69,8 @@ class AzureRMArgs:
             pulumi.set(__self__, "environment", environment)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if service_endpoint_authentication_scheme is not None:
+            pulumi.set(__self__, "service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
 
     @property
     @pulumi.getter(name="azurermSpnTenantid")
@@ -209,6 +215,20 @@ class AzureRMArgs:
     def resource_group(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "resource_group", value)
 
+    @property
+    @pulumi.getter(name="serviceEndpointAuthenticationScheme")
+    def service_endpoint_authentication_scheme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+
+        > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+        """
+        return pulumi.get(self, "service_endpoint_authentication_scheme")
+
+    @service_endpoint_authentication_scheme.setter
+    def service_endpoint_authentication_scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint_authentication_scheme", value)
+
 
 @pulumi.input_type
 class _AzureRMState:
@@ -224,6 +244,7 @@ class _AzureRMState:
                  environment: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AzureRM resources.
@@ -239,6 +260,9 @@ class _AzureRMState:
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+               
+               > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
         """
         if authorization is not None:
@@ -263,6 +287,8 @@ class _AzureRMState:
             pulumi.set(__self__, "project_id", project_id)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
+        if service_endpoint_authentication_scheme is not None:
+            pulumi.set(__self__, "service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
         if service_endpoint_name is not None:
             pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
 
@@ -398,6 +424,20 @@ class _AzureRMState:
         pulumi.set(self, "resource_group", value)
 
     @property
+    @pulumi.getter(name="serviceEndpointAuthenticationScheme")
+    def service_endpoint_authentication_scheme(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+
+        > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+        """
+        return pulumi.get(self, "service_endpoint_authentication_scheme")
+
+    @service_endpoint_authentication_scheme.setter
+    def service_endpoint_authentication_scheme(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_endpoint_authentication_scheme", value)
+
+    @property
     @pulumi.getter(name="serviceEndpointName")
     def service_endpoint_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -431,6 +471,7 @@ class AzureRM(pulumi.CustomResource):
                  environment: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -443,7 +484,7 @@ class AzureRM(pulumi.CustomResource):
         For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
         ## Example Usage
-        ### Manual AzureRM Service Endpoint (Subscription Scoped)
+        ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
 
         ```python
         import pulumi
@@ -458,6 +499,7 @@ class AzureRM(pulumi.CustomResource):
             project_id=example_project.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
+            service_endpoint_authentication_scheme="ServicePrincipal",
             credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
                 serviceprincipalid="00000000-0000-0000-0000-000000000000",
                 serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -466,7 +508,7 @@ class AzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        ### Manual AzureRM Service Endpoint (ManagementGroup Scoped)
+        ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
 
         ```python
         import pulumi
@@ -481,6 +523,7 @@ class AzureRM(pulumi.CustomResource):
             project_id=example_project.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
+            service_endpoint_authentication_scheme="ServicePrincipal",
             credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
                 serviceprincipalid="00000000-0000-0000-0000-000000000000",
                 serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -489,7 +532,7 @@ class AzureRM(pulumi.CustomResource):
             azurerm_management_group_id="managementGroup",
             azurerm_management_group_name="managementGroup")
         ```
-        ### Automatic AzureRM Service Endpoint
+        ### Service Principal Automatic AzureRM Service Endpoint
 
         ```python
         import pulumi
@@ -502,6 +545,82 @@ class AzureRM(pulumi.CustomResource):
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
             project_id=example_project.id,
             service_endpoint_name="Example AzureRM",
+            service_endpoint_authentication_scheme="ServicePrincipal",
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        ```
+        ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+        import pulumi_azurerm as azurerm
+
+        service_connection_name = "example-federated-sc"
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        identity = azurerm.index.Azurerm_resource_group("identity",
+            name=identity,
+            location=UK South)
+        exampleazurerm_user_assigned_identity = azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity",
+            location=var.location,
+            name=example-identity,
+            resource_group_name=azurerm_resource_group.identity.name)
+        exampleazurerm_federated_identity_credential = azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential",
+            name=example-federated-credential,
+            resource_group_name=identity.name,
+            audience=[api://AzureADTokenExchange],
+            issuer=https://app.vstoken.visualstudio.com,
+            parent_id=exampleazurerm_user_assigned_identity.id,
+            subject=fsc://{var.azure_devops_organisation}/{example_project.name}/{service_connection_name})
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name=service_connection_name,
+            description="Managed by Terraform",
+            service_endpoint_authentication_scheme="WorkloadIdentityFederation",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid=exampleazurerm_user_assigned_identity["clientId"],
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        ```
+        ### Workload Identity Federation Automatic AzureRM Service Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
+            service_endpoint_authentication_scheme="WorkloadIdentityFederation",
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        ```
+        ### Managed Identity AzureRM Service Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
+            service_endpoint_authentication_scheme="ManagedServiceIdentity",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
@@ -532,6 +651,9 @@ class AzureRM(pulumi.CustomResource):
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+               
+               > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
         """
         ...
@@ -550,7 +672,7 @@ class AzureRM(pulumi.CustomResource):
         For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
 
         ## Example Usage
-        ### Manual AzureRM Service Endpoint (Subscription Scoped)
+        ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
 
         ```python
         import pulumi
@@ -565,6 +687,7 @@ class AzureRM(pulumi.CustomResource):
             project_id=example_project.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
+            service_endpoint_authentication_scheme="ServicePrincipal",
             credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
                 serviceprincipalid="00000000-0000-0000-0000-000000000000",
                 serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -573,7 +696,7 @@ class AzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
-        ### Manual AzureRM Service Endpoint (ManagementGroup Scoped)
+        ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
 
         ```python
         import pulumi
@@ -588,6 +711,7 @@ class AzureRM(pulumi.CustomResource):
             project_id=example_project.id,
             service_endpoint_name="Example AzureRM",
             description="Managed by Terraform",
+            service_endpoint_authentication_scheme="ServicePrincipal",
             credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
                 serviceprincipalid="00000000-0000-0000-0000-000000000000",
                 serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
@@ -596,7 +720,7 @@ class AzureRM(pulumi.CustomResource):
             azurerm_management_group_id="managementGroup",
             azurerm_management_group_name="managementGroup")
         ```
-        ### Automatic AzureRM Service Endpoint
+        ### Service Principal Automatic AzureRM Service Endpoint
 
         ```python
         import pulumi
@@ -609,6 +733,82 @@ class AzureRM(pulumi.CustomResource):
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
             project_id=example_project.id,
             service_endpoint_name="Example AzureRM",
+            service_endpoint_authentication_scheme="ServicePrincipal",
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        ```
+        ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+        import pulumi_azurerm as azurerm
+
+        service_connection_name = "example-federated-sc"
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        identity = azurerm.index.Azurerm_resource_group("identity",
+            name=identity,
+            location=UK South)
+        exampleazurerm_user_assigned_identity = azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity",
+            location=var.location,
+            name=example-identity,
+            resource_group_name=azurerm_resource_group.identity.name)
+        exampleazurerm_federated_identity_credential = azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential",
+            name=example-federated-credential,
+            resource_group_name=identity.name,
+            audience=[api://AzureADTokenExchange],
+            issuer=https://app.vstoken.visualstudio.com,
+            parent_id=exampleazurerm_user_assigned_identity.id,
+            subject=fsc://{var.azure_devops_organisation}/{example_project.name}/{service_connection_name})
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name=service_connection_name,
+            description="Managed by Terraform",
+            service_endpoint_authentication_scheme="WorkloadIdentityFederation",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid=exampleazurerm_user_assigned_identity["clientId"],
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        ```
+        ### Workload Identity Federation Automatic AzureRM Service Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
+            service_endpoint_authentication_scheme="WorkloadIdentityFederation",
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        ```
+        ### Managed Identity AzureRM Service Endpoint
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
+            service_endpoint_authentication_scheme="ManagedServiceIdentity",
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
@@ -651,6 +851,7 @@ class AzureRM(pulumi.CustomResource):
                  environment: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  resource_group: Optional[pulumi.Input[str]] = None,
+                 service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         pulumi.log.warn("""AzureRM is deprecated: azuredevops.serviceendpoint.AzureRM has been deprecated in favor of azuredevops.ServiceEndpointAzureRM""")
@@ -677,6 +878,7 @@ class AzureRM(pulumi.CustomResource):
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
             __props__.__dict__["resource_group"] = resource_group
+            __props__.__dict__["service_endpoint_authentication_scheme"] = service_endpoint_authentication_scheme
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
@@ -701,6 +903,7 @@ class AzureRM(pulumi.CustomResource):
             environment: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             resource_group: Optional[pulumi.Input[str]] = None,
+            service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None) -> 'AzureRM':
         """
         Get an existing AzureRM resource's state with the given name, id, and optional extra
@@ -721,6 +924,9 @@ class AzureRM(pulumi.CustomResource):
                > **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] resource_group: The resource group used for scope of automatic service endpoint.
+        :param pulumi.Input[str] service_endpoint_authentication_scheme: Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+               
+               > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -738,6 +944,7 @@ class AzureRM(pulumi.CustomResource):
         __props__.__dict__["environment"] = environment
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["resource_group"] = resource_group
+        __props__.__dict__["service_endpoint_authentication_scheme"] = service_endpoint_authentication_scheme
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         return AzureRM(resource_name, opts=opts, __props__=__props__)
 
@@ -827,6 +1034,16 @@ class AzureRM(pulumi.CustomResource):
         The resource group used for scope of automatic service endpoint.
         """
         return pulumi.get(self, "resource_group")
+
+    @property
+    @pulumi.getter(name="serviceEndpointAuthenticationScheme")
+    def service_endpoint_authentication_scheme(self) -> pulumi.Output[Optional[str]]:
+        """
+        Specifies the type of azurerm endpoint, either `WorkloadIdentityFederation`, `ManagedServiceIdentity` or `ServicePrincipal`. Defaults to `ServicePrincipal` for backwards compatibility.
+
+        > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
+        """
+        return pulumi.get(self, "service_endpoint_authentication_scheme")
 
     @property
     @pulumi.getter(name="serviceEndpointName")
