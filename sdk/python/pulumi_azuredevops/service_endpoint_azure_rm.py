@@ -545,6 +545,45 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")
         ```
+        ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+        import pulumi_azurerm as azurerm
+
+        service_connection_name = "example-federated-sc"
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        identity = azurerm.index.Azurerm_resource_group("identity",
+            name=identity,
+            location=UK South)
+        exampleazurerm_user_assigned_identity = azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity",
+            location=var.location,
+            name=example-identity,
+            resource_group_name=azurerm_resource_group.identity.name)
+        exampleazurerm_federated_identity_credential = azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential",
+            name=example-federated-credential,
+            resource_group_name=identity.name,
+            audience=[api://AzureADTokenExchange],
+            issuer=https://app.vstoken.visualstudio.com,
+            parent_id=exampleazurerm_user_assigned_identity.id,
+            subject=fsc://{var.azure_devops_organisation}/{example_project.name}/{service_connection_name})
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name=service_connection_name,
+            description="Managed by Terraform",
+            service_endpoint_authentication_scheme="WorkloadIdentityFederation",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid=exampleazurerm_user_assigned_identity["clientId"],
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        ```
         ### Workload Identity Federation Automatic AzureRM Service Endpoint
 
         ```python
@@ -690,6 +729,45 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             project_id=example_project.id,
             service_endpoint_name="Example AzureRM",
             service_endpoint_authentication_scheme="ServicePrincipal",
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        ```
+        ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+        import pulumi_azurerm as azurerm
+
+        service_connection_name = "example-federated-sc"
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        identity = azurerm.index.Azurerm_resource_group("identity",
+            name=identity,
+            location=UK South)
+        exampleazurerm_user_assigned_identity = azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity",
+            location=var.location,
+            name=example-identity,
+            resource_group_name=azurerm_resource_group.identity.name)
+        exampleazurerm_federated_identity_credential = azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential",
+            name=example-federated-credential,
+            resource_group_name=identity.name,
+            audience=[api://AzureADTokenExchange],
+            issuer=https://app.vstoken.visualstudio.com,
+            parent_id=exampleazurerm_user_assigned_identity.id,
+            subject=fsc://{var.azure_devops_organisation}/{example_project.name}/{service_connection_name})
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name=service_connection_name,
+            description="Managed by Terraform",
+            service_endpoint_authentication_scheme="WorkloadIdentityFederation",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid=exampleazurerm_user_assigned_identity["clientId"],
+            ),
             azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
             azurerm_subscription_name="Example Subscription Name")

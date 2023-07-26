@@ -168,6 +168,82 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azurerm.azurerm_resource_group;
+ * import com.pulumi.azurerm.Azurerm_resource_groupArgs;
+ * import com.pulumi.azurerm.azurerm_user_assigned_identity;
+ * import com.pulumi.azurerm.Azurerm_user_assigned_identityArgs;
+ * import com.pulumi.azurerm.azurerm_federated_identity_credential;
+ * import com.pulumi.azurerm.Azurerm_federated_identity_credentialArgs;
+ * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
+ * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
+ * import com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMCredentialsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var serviceConnectionName = &#34;example-federated-sc&#34;;
+ * 
+ *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .visibility(&#34;private&#34;)
+ *             .versionControl(&#34;Git&#34;)
+ *             .workItemTemplate(&#34;Agile&#34;)
+ *             .description(&#34;Managed by Terraform&#34;)
+ *             .build());
+ * 
+ *         var identity = new Azurerm_resource_group(&#34;identity&#34;, Azurerm_resource_groupArgs.builder()        
+ *             .name(&#34;identity&#34;)
+ *             .location(&#34;UK South&#34;)
+ *             .build());
+ * 
+ *         var exampleazurerm_user_assigned_identity = new Azurerm_user_assigned_identity(&#34;exampleazurerm_user_assigned_identity&#34;, Azurerm_user_assigned_identityArgs.builder()        
+ *             .location(var_.location())
+ *             .name(&#34;example-identity&#34;)
+ *             .resourceGroupName(&#34;azurerm_resource_group.identity.name&#34;)
+ *             .build());
+ * 
+ *         var exampleazurerm_federated_identity_credential = new Azurerm_federated_identity_credential(&#34;exampleazurerm_federated_identity_credential&#34;, Azurerm_federated_identity_credentialArgs.builder()        
+ *             .name(&#34;example-federated-credential&#34;)
+ *             .resourceGroupName(identity.name())
+ *             .audience(&#34;api://AzureADTokenExchange&#34;)
+ *             .issuer(&#34;https://app.vstoken.visualstudio.com&#34;)
+ *             .parentId(exampleazurerm_user_assigned_identity.id())
+ *             .subject(exampleProject.name().applyValue(name -&gt; String.format(&#34;sc://%s/%s/%s&#34;, var_.azure_devops_organisation(),name,serviceConnectionName)))
+ *             .build());
+ * 
+ *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
+ *             .projectId(exampleProject.id())
+ *             .serviceEndpointName(serviceConnectionName)
+ *             .description(&#34;Managed by Terraform&#34;)
+ *             .serviceEndpointAuthenticationScheme(&#34;WorkloadIdentityFederation&#34;)
+ *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
+ *                 .serviceprincipalid(exampleazurerm_user_assigned_identity.clientId())
+ *                 .build())
+ *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ### Workload Identity Federation Automatic AzureRM Service Endpoint
  * ```java
  * package generated_program;

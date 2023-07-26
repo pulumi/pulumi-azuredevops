@@ -147,6 +147,81 @@ import (
 //	}
 //
 // ```
+// ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"fmt"
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi-azurerm/sdk/v1/go/azurerm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			serviceConnectionName := "example-federated-sc"
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			identity, err := index.NewAzurerm_resource_group(ctx, "identity", &index.Azurerm_resource_groupArgs{
+//				Name:     "identity",
+//				Location: "UK South",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleazurerm_user_assigned_identity, err := index.NewAzurerm_user_assigned_identity(ctx, "exampleazurerm_user_assigned_identity", &index.Azurerm_user_assigned_identityArgs{
+//				Location:          _var.Location,
+//				Name:              "example-identity",
+//				ResourceGroupName: "azurerm_resource_group.identity.name",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = index.NewAzurerm_federated_identity_credential(ctx, "exampleazurerm_federated_identity_credential", &index.Azurerm_federated_identity_credentialArgs{
+//				Name:              "example-federated-credential",
+//				ResourceGroupName: identity.Name,
+//				Audience: []string{
+//					"api://AzureADTokenExchange",
+//				},
+//				Issuer:   "https://app.vstoken.visualstudio.com",
+//				ParentId: exampleazurerm_user_assigned_identity.Id,
+//				Subject:  pulumi.String(fmt.Sprintf("sc://%v/%v/%v", _var.Azure_devops_organisation, exampleProject.Name, serviceConnectionName)),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
+//				ProjectId:                           exampleProject.ID(),
+//				ServiceEndpointName:                 pulumi.String(serviceConnectionName),
+//				Description:                         pulumi.String("Managed by Terraform"),
+//				ServiceEndpointAuthenticationScheme: pulumi.String("WorkloadIdentityFederation"),
+//				Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
+//					Serviceprincipalid: exampleazurerm_user_assigned_identity.ClientId,
+//				},
+//				AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurermSubscriptionName: pulumi.String("Example Subscription Name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ### Workload Identity Federation Automatic AzureRM Service Endpoint
 //
 // ```go
