@@ -71,12 +71,6 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// A bcrypted hash of the attribute 'password'
-        /// </summary>
-        [Output("passwordHash")]
-        public Output<string> PasswordHash { get; private set; } = null!;
-
-        /// <summary>
         /// The ID of the project.
         /// </summary>
         [Output("projectId")]
@@ -126,7 +120,6 @@ namespace Pulumi.AzureDevOps
                 AdditionalSecretOutputs =
                 {
                     "password",
-                    "passwordHash",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -234,22 +227,6 @@ namespace Pulumi.AzureDevOps
             {
                 var emptySecret = Output.CreateSecret(0);
                 _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("passwordHash")]
-        private Input<string>? _passwordHash;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'password'
-        /// </summary>
-        public Input<string>? PasswordHash
-        {
-            get => _passwordHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _passwordHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

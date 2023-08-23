@@ -50,6 +50,7 @@ import (
 //				TargetResourceId:   exampleServiceEndpointGeneric.ID(),
 //				TargetResourceType: pulumi.String("endpoint"),
 //				AllowedBranches:    pulumi.String("refs/heads/main, refs/heads/features/*"),
+//				Timeout:            pulumi.Int(1440),
 //			})
 //			if err != nil {
 //				return err
@@ -264,6 +265,8 @@ type CheckBranchControl struct {
 	TargetResourceId pulumi.StringOutput `pulumi:"targetResourceId"`
 	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType pulumi.StringOutput `pulumi:"targetResourceType"`
+	// The timeout in minutes for the branch control check. Defaults to `1440`.
+	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// Validate the branches being deployed are protected. Defaults to `false`.
 	VerifyBranchProtection pulumi.BoolPtrOutput `pulumi:"verifyBranchProtection"`
 }
@@ -319,6 +322,8 @@ type checkBranchControlState struct {
 	TargetResourceId *string `pulumi:"targetResourceId"`
 	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType *string `pulumi:"targetResourceType"`
+	// The timeout in minutes for the branch control check. Defaults to `1440`.
+	Timeout *int `pulumi:"timeout"`
 	// Validate the branches being deployed are protected. Defaults to `false`.
 	VerifyBranchProtection *bool `pulumi:"verifyBranchProtection"`
 }
@@ -336,6 +341,8 @@ type CheckBranchControlState struct {
 	TargetResourceId pulumi.StringPtrInput
 	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType pulumi.StringPtrInput
+	// The timeout in minutes for the branch control check. Defaults to `1440`.
+	Timeout pulumi.IntPtrInput
 	// Validate the branches being deployed are protected. Defaults to `false`.
 	VerifyBranchProtection pulumi.BoolPtrInput
 }
@@ -357,6 +364,8 @@ type checkBranchControlArgs struct {
 	TargetResourceId string `pulumi:"targetResourceId"`
 	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType string `pulumi:"targetResourceType"`
+	// The timeout in minutes for the branch control check. Defaults to `1440`.
+	Timeout *int `pulumi:"timeout"`
 	// Validate the branches being deployed are protected. Defaults to `false`.
 	VerifyBranchProtection *bool `pulumi:"verifyBranchProtection"`
 }
@@ -375,6 +384,8 @@ type CheckBranchControlArgs struct {
 	TargetResourceId pulumi.StringInput
 	// The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 	TargetResourceType pulumi.StringInput
+	// The timeout in minutes for the branch control check. Defaults to `1440`.
+	Timeout pulumi.IntPtrInput
 	// Validate the branches being deployed are protected. Defaults to `false`.
 	VerifyBranchProtection pulumi.BoolPtrInput
 }
@@ -494,6 +505,11 @@ func (o CheckBranchControlOutput) TargetResourceId() pulumi.StringOutput {
 // The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
 func (o CheckBranchControlOutput) TargetResourceType() pulumi.StringOutput {
 	return o.ApplyT(func(v *CheckBranchControl) pulumi.StringOutput { return v.TargetResourceType }).(pulumi.StringOutput)
+}
+
+// The timeout in minutes for the branch control check. Defaults to `1440`.
+func (o CheckBranchControlOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CheckBranchControl) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
 // Validate the branches being deployed are protected. Defaults to `false`.

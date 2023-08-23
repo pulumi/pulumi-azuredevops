@@ -82,10 +82,6 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * A bcrypted hash of the attribute 'password'
-     */
-    public /*out*/ readonly passwordHash!: pulumi.Output<string>;
-    /**
      * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
@@ -119,7 +115,6 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enablePipelinesAccess"] = state ? state.enablePipelinesAccess : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["passwordHash"] = state ? state.passwordHash : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["repositoryUrl"] = state ? state.repositoryUrl : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
@@ -143,10 +138,9 @@ export class ServiceEndpointGenericGit extends pulumi.CustomResource {
             resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["passwordHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password", "passwordHash"] };
+        const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointGenericGit.__pulumiType, name, resourceInputs, opts);
     }
@@ -168,10 +162,6 @@ export interface ServiceEndpointGenericGitState {
      * > **Note** For AzureDevOps Git, PAT should be used as the password.
      */
     password?: pulumi.Input<string>;
-    /**
-     * A bcrypted hash of the attribute 'password'
-     */
-    passwordHash?: pulumi.Input<string>;
     /**
      * The ID of the project.
      */

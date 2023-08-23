@@ -78,8 +78,6 @@ type ServiceEndpointGenericGit struct {
 	//
 	// > **Note** For AzureDevOps Git, PAT should be used as the password.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash pulumi.StringOutput `pulumi:"passwordHash"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The URL of the repository associated with the service endpoint.
@@ -111,7 +109,6 @@ func NewServiceEndpointGenericGit(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
-		"passwordHash",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -145,8 +142,6 @@ type serviceEndpointGenericGitState struct {
 	//
 	// > **Note** For AzureDevOps Git, PAT should be used as the password.
 	Password *string `pulumi:"password"`
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash *string `pulumi:"passwordHash"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The URL of the repository associated with the service endpoint.
@@ -166,8 +161,6 @@ type ServiceEndpointGenericGitState struct {
 	//
 	// > **Note** For AzureDevOps Git, PAT should be used as the password.
 	Password pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The URL of the repository associated with the service endpoint.
@@ -326,11 +319,6 @@ func (o ServiceEndpointGenericGitOutput) EnablePipelinesAccess() pulumi.BoolPtrO
 // > **Note** For AzureDevOps Git, PAT should be used as the password.
 func (o ServiceEndpointGenericGitOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointGenericGit) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// A bcrypted hash of the attribute 'password'
-func (o ServiceEndpointGenericGitOutput) PasswordHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointGenericGit) pulumi.StringOutput { return v.PasswordHash }).(pulumi.StringOutput)
 }
 
 // The ID of the project.

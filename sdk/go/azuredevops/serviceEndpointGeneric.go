@@ -74,8 +74,6 @@ type ServiceEndpointGeneric struct {
 	Description   pulumi.StringPtrOutput `pulumi:"description"`
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash pulumi.StringOutput `pulumi:"passwordHash"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The URL of the server associated with the service endpoint.
@@ -107,7 +105,6 @@ func NewServiceEndpointGeneric(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
-		"passwordHash",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -137,8 +134,6 @@ type serviceEndpointGenericState struct {
 	Description   *string           `pulumi:"description"`
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password *string `pulumi:"password"`
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash *string `pulumi:"passwordHash"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The URL of the server associated with the service endpoint.
@@ -154,8 +149,6 @@ type ServiceEndpointGenericState struct {
 	Description   pulumi.StringPtrInput
 	// The password or token key used to authenticate to the server url using basic authentication.
 	Password pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The URL of the server associated with the service endpoint.
@@ -299,11 +292,6 @@ func (o ServiceEndpointGenericOutput) Description() pulumi.StringPtrOutput {
 // The password or token key used to authenticate to the server url using basic authentication.
 func (o ServiceEndpointGenericOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointGeneric) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
-}
-
-// A bcrypted hash of the attribute 'password'
-func (o ServiceEndpointGenericOutput) PasswordHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointGeneric) pulumi.StringOutput { return v.PasswordHash }).(pulumi.StringOutput)
 }
 
 // The ID of the project.

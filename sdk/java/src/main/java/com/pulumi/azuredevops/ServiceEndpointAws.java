@@ -174,20 +174,6 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
         return this.secretAccessKey;
     }
     /**
-     * A bcrypted hash of the attribute &#39;secret_access_key&#39;
-     * 
-     */
-    @Export(name="secretAccessKeyHash", type=String.class, parameters={})
-    private Output<String> secretAccessKeyHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;secret_access_key&#39;
-     * 
-     */
-    public Output<String> secretAccessKeyHash() {
-        return this.secretAccessKeyHash;
-    }
-    /**
      * The Service Endpoint name.
      * 
      */
@@ -214,20 +200,6 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> sessionToken() {
         return Codegen.optional(this.sessionToken);
-    }
-    /**
-     * A bcrypted hash of the attribute &#39;session_token&#39;
-     * 
-     */
-    @Export(name="sessionTokenHash", type=String.class, parameters={})
-    private Output<String> sessionTokenHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;session_token&#39;
-     * 
-     */
-    public Output<String> sessionTokenHash() {
-        return this.sessionTokenHash;
     }
 
     /**
@@ -264,9 +236,7 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "secretAccessKey",
-                "secretAccessKeyHash",
-                "sessionToken",
-                "sessionTokenHash"
+                "sessionToken"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -197,6 +198,21 @@ public final class CheckBusinessHoursArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
+     * The timeout in minutes for the business hours check. Defaults to `1440`.
+     * 
+     */
+    @Import(name="timeout")
+    private @Nullable Output<Integer> timeout;
+
+    /**
+     * @return The timeout in minutes for the business hours check. Defaults to `1440`.
+     * 
+     */
+    public Optional<Output<Integer>> timeout() {
+        return Optional.ofNullable(this.timeout);
+    }
+
+    /**
      * This check will pass on Tuesday. Defaults to `false`.
      * 
      */
@@ -241,6 +257,7 @@ public final class CheckBusinessHoursArgs extends com.pulumi.resources.ResourceA
         this.targetResourceType = $.targetResourceType;
         this.thursday = $.thursday;
         this.timeZone = $.timeZone;
+        this.timeout = $.timeout;
         this.tuesday = $.tuesday;
         this.wednesday = $.wednesday;
     }
@@ -513,6 +530,27 @@ public final class CheckBusinessHoursArgs extends com.pulumi.resources.ResourceA
          */
         public Builder timeZone(String timeZone) {
             return timeZone(Output.of(timeZone));
+        }
+
+        /**
+         * @param timeout The timeout in minutes for the business hours check. Defaults to `1440`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeout(@Nullable Output<Integer> timeout) {
+            $.timeout = timeout;
+            return this;
+        }
+
+        /**
+         * @param timeout The timeout in minutes for the business hours check. Defaults to `1440`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeout(Integer timeout) {
+            return timeout(Output.of(timeout));
         }
 
         /**

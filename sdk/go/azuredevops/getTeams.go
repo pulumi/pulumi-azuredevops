@@ -77,6 +77,8 @@ func GetTeams(ctx *pulumi.Context, args *GetTeamsArgs, opts ...pulumi.InvokeOpti
 type GetTeamsArgs struct {
 	// The Project ID. If no project ID all teams of the organization will be returned.
 	ProjectId *string `pulumi:"projectId"`
+	// The maximum number of teams to return. Defaults to `100`.
+	Top *int `pulumi:"top"`
 }
 
 // A collection of values returned by getTeams.
@@ -88,6 +90,7 @@ type GetTeamsResult struct {
 	ProjectId *string `pulumi:"projectId"`
 	// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
 	Teams []GetTeamsTeam `pulumi:"teams"`
+	Top   *int           `pulumi:"top"`
 }
 
 func GetTeamsOutput(ctx *pulumi.Context, args GetTeamsOutputArgs, opts ...pulumi.InvokeOption) GetTeamsResultOutput {
@@ -107,6 +110,8 @@ func GetTeamsOutput(ctx *pulumi.Context, args GetTeamsOutputArgs, opts ...pulumi
 type GetTeamsOutputArgs struct {
 	// The Project ID. If no project ID all teams of the organization will be returned.
 	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+	// The maximum number of teams to return. Defaults to `100`.
+	Top pulumi.IntPtrInput `pulumi:"top"`
 }
 
 func (GetTeamsOutputArgs) ElementType() reflect.Type {
@@ -142,6 +147,10 @@ func (o GetTeamsResultOutput) ProjectId() pulumi.StringPtrOutput {
 // A list of existing projects in your Azure DevOps Organization with details about every project which includes:
 func (o GetTeamsResultOutput) Teams() GetTeamsTeamArrayOutput {
 	return o.ApplyT(func(v GetTeamsResult) []GetTeamsTeam { return v.Teams }).(GetTeamsTeamArrayOutput)
+}
+
+func (o GetTeamsResultOutput) Top() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetTeamsResult) *int { return v.Top }).(pulumi.IntPtrOutput)
 }
 
 func init() {

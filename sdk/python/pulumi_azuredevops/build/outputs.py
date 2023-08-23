@@ -342,7 +342,7 @@ class BuildDefinitionPullRequestTriggerForks(dict):
                  enabled: bool,
                  share_secrets: bool):
         """
-        :param bool enabled: Build pull requests form forms of this repository.
+        :param bool enabled: Build pull requests from forks of this repository.
         :param bool share_secrets: Make secrets available to builds of forks.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -352,7 +352,7 @@ class BuildDefinitionPullRequestTriggerForks(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Build pull requests form forms of this repository.
+        Build pull requests from forks of this repository.
         """
         return pulumi.get(self, "enabled")
 

@@ -38,6 +38,7 @@ export function getTeam(args: GetTeamArgs, opts?: pulumi.InvokeOptions): Promise
     return pulumi.runtime.invoke("azuredevops:index/getTeam:getTeam", {
         "name": args.name,
         "projectId": args.projectId,
+        "top": args.top,
     }, opts);
 }
 
@@ -53,6 +54,10 @@ export interface GetTeamArgs {
      * The Project ID.
      */
     projectId: string;
+    /**
+     * The maximum number of teams to return. Defaults to `100`.
+     */
+    top?: number;
 }
 
 /**
@@ -81,6 +86,7 @@ export interface GetTeamResult {
     readonly members: string[];
     readonly name: string;
     readonly projectId: string;
+    readonly top?: number;
 }
 /**
  * Use this data source to access information about an existing Team in a Project within Azure DevOps.
@@ -126,4 +132,8 @@ export interface GetTeamOutputArgs {
      * The Project ID.
      */
     projectId: pulumi.Input<string>;
+    /**
+     * The maximum number of teams to return. Defaults to `100`.
+     */
+    top?: pulumi.Input<number>;
 }

@@ -214,7 +214,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleazurerm_user_assigned_identity = new Azurerm_user_assigned_identity(&#34;exampleazurerm_user_assigned_identity&#34;, Azurerm_user_assigned_identityArgs.builder()        
- *             .location(var_.location())
+ *             .location(identity.location())
  *             .name(&#34;example-identity&#34;)
  *             .resourceGroupName(&#34;azurerm_resource_group.identity.name&#34;)
  *             .build());
@@ -225,7 +225,7 @@ import javax.annotation.Nullable;
  *             .audience(&#34;api://AzureADTokenExchange&#34;)
  *             .issuer(&#34;https://app.vstoken.visualstudio.com&#34;)
  *             .parentId(exampleazurerm_user_assigned_identity.id())
- *             .subject(exampleProject.name().applyValue(name -&gt; String.format(&#34;sc://%s/%s/%s&#34;, var_.azure_devops_organisation(),name,serviceConnectionName)))
+ *             .subject(String.format(&#34;sc://organizationName/projectName/%s&#34;, serviceConnectionName))
  *             .build());
  * 
  *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        

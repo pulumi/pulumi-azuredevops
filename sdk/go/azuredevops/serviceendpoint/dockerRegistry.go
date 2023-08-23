@@ -89,8 +89,6 @@ type DockerRegistry struct {
 	DockerEmail pulumi.StringPtrOutput `pulumi:"dockerEmail"`
 	// The password for the account user identified above.
 	DockerPassword pulumi.StringPtrOutput `pulumi:"dockerPassword"`
-	// A bcrypted hash of the attribute 'docker_password'
-	DockerPasswordHash pulumi.StringOutput `pulumi:"dockerPasswordHash"`
 	// The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
 	DockerRegistry pulumi.StringOutput `pulumi:"dockerRegistry"`
 	// The identifier of the Docker account user.
@@ -127,7 +125,6 @@ func NewDockerRegistry(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"dockerPassword",
-		"dockerPasswordHash",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -159,8 +156,6 @@ type dockerRegistryState struct {
 	DockerEmail *string `pulumi:"dockerEmail"`
 	// The password for the account user identified above.
 	DockerPassword *string `pulumi:"dockerPassword"`
-	// A bcrypted hash of the attribute 'docker_password'
-	DockerPasswordHash *string `pulumi:"dockerPasswordHash"`
 	// The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
 	DockerRegistry *string `pulumi:"dockerRegistry"`
 	// The identifier of the Docker account user.
@@ -180,8 +175,6 @@ type DockerRegistryState struct {
 	DockerEmail pulumi.StringPtrInput
 	// The password for the account user identified above.
 	DockerPassword pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'docker_password'
-	DockerPasswordHash pulumi.StringPtrInput
 	// The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
 	DockerRegistry pulumi.StringPtrInput
 	// The identifier of the Docker account user.
@@ -340,11 +333,6 @@ func (o DockerRegistryOutput) DockerEmail() pulumi.StringPtrOutput {
 // The password for the account user identified above.
 func (o DockerRegistryOutput) DockerPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DockerRegistry) pulumi.StringPtrOutput { return v.DockerPassword }).(pulumi.StringPtrOutput)
-}
-
-// A bcrypted hash of the attribute 'docker_password'
-func (o DockerRegistryOutput) DockerPasswordHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *DockerRegistry) pulumi.StringOutput { return v.DockerPasswordHash }).(pulumi.StringOutput)
 }
 
 // The URL of the Docker registry. (Default: "https://index.docker.io/v1/")

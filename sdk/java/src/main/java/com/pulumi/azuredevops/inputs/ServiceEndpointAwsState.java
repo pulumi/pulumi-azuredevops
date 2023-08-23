@@ -121,21 +121,6 @@ public final class ServiceEndpointAwsState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A bcrypted hash of the attribute &#39;secret_access_key&#39;
-     * 
-     */
-    @Import(name="secretAccessKeyHash")
-    private @Nullable Output<String> secretAccessKeyHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;secret_access_key&#39;
-     * 
-     */
-    public Optional<Output<String>> secretAccessKeyHash() {
-        return Optional.ofNullable(this.secretAccessKeyHash);
-    }
-
-    /**
      * The Service Endpoint name.
      * 
      */
@@ -165,21 +150,6 @@ public final class ServiceEndpointAwsState extends com.pulumi.resources.Resource
         return Optional.ofNullable(this.sessionToken);
     }
 
-    /**
-     * A bcrypted hash of the attribute &#39;session_token&#39;
-     * 
-     */
-    @Import(name="sessionTokenHash")
-    private @Nullable Output<String> sessionTokenHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;session_token&#39;
-     * 
-     */
-    public Optional<Output<String>> sessionTokenHash() {
-        return Optional.ofNullable(this.sessionTokenHash);
-    }
-
     private ServiceEndpointAwsState() {}
 
     private ServiceEndpointAwsState(ServiceEndpointAwsState $) {
@@ -191,10 +161,8 @@ public final class ServiceEndpointAwsState extends com.pulumi.resources.Resource
         this.roleSessionName = $.roleSessionName;
         this.roleToAssume = $.roleToAssume;
         this.secretAccessKey = $.secretAccessKey;
-        this.secretAccessKeyHash = $.secretAccessKeyHash;
         this.serviceEndpointName = $.serviceEndpointName;
         this.sessionToken = $.sessionToken;
-        this.sessionTokenHash = $.sessionTokenHash;
     }
 
     public static Builder builder() {
@@ -360,27 +328,6 @@ public final class ServiceEndpointAwsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param secretAccessKeyHash A bcrypted hash of the attribute &#39;secret_access_key&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder secretAccessKeyHash(@Nullable Output<String> secretAccessKeyHash) {
-            $.secretAccessKeyHash = secretAccessKeyHash;
-            return this;
-        }
-
-        /**
-         * @param secretAccessKeyHash A bcrypted hash of the attribute &#39;secret_access_key&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder secretAccessKeyHash(String secretAccessKeyHash) {
-            return secretAccessKeyHash(Output.of(secretAccessKeyHash));
-        }
-
-        /**
          * @param serviceEndpointName The Service Endpoint name.
          * 
          * @return builder
@@ -420,27 +367,6 @@ public final class ServiceEndpointAwsState extends com.pulumi.resources.Resource
          */
         public Builder sessionToken(String sessionToken) {
             return sessionToken(Output.of(sessionToken));
-        }
-
-        /**
-         * @param sessionTokenHash A bcrypted hash of the attribute &#39;session_token&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sessionTokenHash(@Nullable Output<String> sessionTokenHash) {
-            $.sessionTokenHash = sessionTokenHash;
-            return this;
-        }
-
-        /**
-         * @param sessionTokenHash A bcrypted hash of the attribute &#39;session_token&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder sessionTokenHash(String sessionTokenHash) {
-            return sessionTokenHash(Output.of(sessionTokenHash));
         }
 
         public ServiceEndpointAwsState build() {

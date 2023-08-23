@@ -99,6 +99,12 @@ namespace Pulumi.AzureDevOps
         [Input("projectId")]
         public string? ProjectId { get; set; }
 
+        /// <summary>
+        /// The maximum number of teams to return. Defaults to `100`.
+        /// </summary>
+        [Input("top")]
+        public int? Top { get; set; }
+
         public GetTeamsArgs()
         {
         }
@@ -112,6 +118,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("projectId")]
         public Input<string>? ProjectId { get; set; }
+
+        /// <summary>
+        /// The maximum number of teams to return. Defaults to `100`.
+        /// </summary>
+        [Input("top")]
+        public Input<int>? Top { get; set; }
 
         public GetTeamsInvokeArgs()
         {
@@ -136,6 +148,7 @@ namespace Pulumi.AzureDevOps
         /// A list of existing projects in your Azure DevOps Organization with details about every project which includes:
         /// </summary>
         public readonly ImmutableArray<Outputs.GetTeamsTeamResult> Teams;
+        public readonly int? Top;
 
         [OutputConstructor]
         private GetTeamsResult(
@@ -143,11 +156,14 @@ namespace Pulumi.AzureDevOps
 
             string? projectId,
 
-            ImmutableArray<Outputs.GetTeamsTeamResult> teams)
+            ImmutableArray<Outputs.GetTeamsTeamResult> teams,
+
+            int? top)
         {
             Id = id;
             ProjectId = projectId;
             Teams = teams;
+            Top = top;
         }
     }
 }

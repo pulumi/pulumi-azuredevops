@@ -87,10 +87,6 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
      */
     public readonly token!: pulumi.Output<string>;
     /**
-     * A bcrypted hash of the attribute 'token'
-     */
-    public /*out*/ readonly tokenHash!: pulumi.Output<string>;
-    /**
      * URL of the SonarQube server to connect with.
      */
     public readonly url!: pulumi.Output<string>;
@@ -113,7 +109,6 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
             resourceInputs["token"] = state ? state.token : undefined;
-            resourceInputs["tokenHash"] = state ? state.tokenHash : undefined;
             resourceInputs["url"] = state ? state.url : undefined;
         } else {
             const args = argsOrState as ServiceEndpointSonarQubeArgs | undefined;
@@ -135,10 +130,9 @@ export class ServiceEndpointSonarQube extends pulumi.CustomResource {
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["token"] = args?.token ? pulumi.secret(args.token) : undefined;
             resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["tokenHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["token", "tokenHash"] };
+        const secretOpts = { additionalSecretOutputs: ["token"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointSonarQube.__pulumiType, name, resourceInputs, opts);
     }
@@ -165,10 +159,6 @@ export interface ServiceEndpointSonarQubeState {
      * Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
      */
     token?: pulumi.Input<string>;
-    /**
-     * A bcrypted hash of the attribute 'token'
-     */
-    tokenHash?: pulumi.Input<string>;
     /**
      * URL of the SonarQube server to connect with.
      */

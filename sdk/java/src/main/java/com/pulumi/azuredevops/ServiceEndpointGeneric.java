@@ -105,20 +105,6 @@ public class ServiceEndpointGeneric extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.password);
     }
     /**
-     * A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    @Export(name="passwordHash", type=String.class, parameters={})
-    private Output<String> passwordHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    public Output<String> passwordHash() {
-        return this.passwordHash;
-    }
-    /**
      * The ID of the project.
      * 
      */
@@ -208,8 +194,7 @@ public class ServiceEndpointGeneric extends com.pulumi.resources.CustomResource 
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "password",
-                "passwordHash"
+                "password"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

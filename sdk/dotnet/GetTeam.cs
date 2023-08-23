@@ -115,6 +115,12 @@ namespace Pulumi.AzureDevOps
         [Input("projectId", required: true)]
         public string ProjectId { get; set; } = null!;
 
+        /// <summary>
+        /// The maximum number of teams to return. Defaults to `100`.
+        /// </summary>
+        [Input("top")]
+        public int? Top { get; set; }
+
         public GetTeamArgs()
         {
         }
@@ -134,6 +140,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("projectId", required: true)]
         public Input<string> ProjectId { get; set; } = null!;
+
+        /// <summary>
+        /// The maximum number of teams to return. Defaults to `100`.
+        /// </summary>
+        [Input("top")]
+        public Input<int>? Top { get; set; }
 
         public GetTeamInvokeArgs()
         {
@@ -167,6 +179,7 @@ namespace Pulumi.AzureDevOps
         public readonly ImmutableArray<string> Members;
         public readonly string Name;
         public readonly string ProjectId;
+        public readonly int? Top;
 
         [OutputConstructor]
         private GetTeamResult(
@@ -182,7 +195,9 @@ namespace Pulumi.AzureDevOps
 
             string name,
 
-            string projectId)
+            string projectId,
+
+            int? top)
         {
             Administrators = administrators;
             Description = description;
@@ -191,6 +206,7 @@ namespace Pulumi.AzureDevOps
             Members = members;
             Name = name;
             ProjectId = projectId;
+            Top = top;
         }
     }
 }

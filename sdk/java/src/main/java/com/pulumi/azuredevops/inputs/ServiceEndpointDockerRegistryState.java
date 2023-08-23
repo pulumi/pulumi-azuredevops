@@ -61,21 +61,6 @@ public final class ServiceEndpointDockerRegistryState extends com.pulumi.resourc
     }
 
     /**
-     * A bcrypted hash of the attribute &#39;docker_password&#39;
-     * 
-     */
-    @Import(name="dockerPasswordHash")
-    private @Nullable Output<String> dockerPasswordHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;docker_password&#39;
-     * 
-     */
-    public Optional<Output<String>> dockerPasswordHash() {
-        return Optional.ofNullable(this.dockerPasswordHash);
-    }
-
-    /**
      * The URL of the Docker registry. (Default: &#34;https://index.docker.io/v1/&#34;)
      * 
      */
@@ -157,7 +142,6 @@ public final class ServiceEndpointDockerRegistryState extends com.pulumi.resourc
         this.description = $.description;
         this.dockerEmail = $.dockerEmail;
         this.dockerPassword = $.dockerPassword;
-        this.dockerPasswordHash = $.dockerPasswordHash;
         this.dockerRegistry = $.dockerRegistry;
         this.dockerUsername = $.dockerUsername;
         this.projectId = $.projectId;
@@ -241,27 +225,6 @@ public final class ServiceEndpointDockerRegistryState extends com.pulumi.resourc
          */
         public Builder dockerPassword(String dockerPassword) {
             return dockerPassword(Output.of(dockerPassword));
-        }
-
-        /**
-         * @param dockerPasswordHash A bcrypted hash of the attribute &#39;docker_password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dockerPasswordHash(@Nullable Output<String> dockerPasswordHash) {
-            $.dockerPasswordHash = dockerPasswordHash;
-            return this;
-        }
-
-        /**
-         * @param dockerPasswordHash A bcrypted hash of the attribute &#39;docker_password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder dockerPasswordHash(String dockerPasswordHash) {
-            return dockerPasswordHash(Output.of(dockerPasswordHash));
         }
 
         /**

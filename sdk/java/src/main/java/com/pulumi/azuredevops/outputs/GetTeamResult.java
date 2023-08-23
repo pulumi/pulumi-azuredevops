@@ -4,9 +4,12 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetTeamResult {
@@ -37,6 +40,7 @@ public final class GetTeamResult {
     private List<String> members;
     private String name;
     private String projectId;
+    private @Nullable Integer top;
 
     private GetTeamResult() {}
     /**
@@ -80,6 +84,9 @@ public final class GetTeamResult {
     public String projectId() {
         return this.projectId;
     }
+    public Optional<Integer> top() {
+        return Optional.ofNullable(this.top);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -97,6 +104,7 @@ public final class GetTeamResult {
         private List<String> members;
         private String name;
         private String projectId;
+        private @Nullable Integer top;
         public Builder() {}
         public Builder(GetTeamResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -107,6 +115,7 @@ public final class GetTeamResult {
     	      this.members = defaults.members;
     	      this.name = defaults.name;
     	      this.projectId = defaults.projectId;
+    	      this.top = defaults.top;
         }
 
         @CustomType.Setter
@@ -150,6 +159,11 @@ public final class GetTeamResult {
             this.projectId = Objects.requireNonNull(projectId);
             return this;
         }
+        @CustomType.Setter
+        public Builder top(@Nullable Integer top) {
+            this.top = top;
+            return this;
+        }
         public GetTeamResult build() {
             final var o = new GetTeamResult();
             o.administrators = administrators;
@@ -159,6 +173,7 @@ public final class GetTeamResult {
             o.members = members;
             o.name = name;
             o.projectId = projectId;
+            o.top = top;
             return o;
         }
     }

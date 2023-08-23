@@ -122,20 +122,6 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
         return this.personalAccessToken;
     }
     /**
-     * A bcrypted hash of the attribute &#39;personal_access_token&#39;
-     * 
-     */
-    @Export(name="personalAccessTokenHash", type=String.class, parameters={})
-    private Output<String> personalAccessTokenHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;personal_access_token&#39;
-     * 
-     */
-    public Output<String> personalAccessTokenHash() {
-        return this.personalAccessTokenHash;
-    }
-    /**
      * The ID of the project.
      * 
      */
@@ -211,8 +197,7 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "personalAccessToken",
-                "personalAccessTokenHash"
+                "personalAccessToken"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

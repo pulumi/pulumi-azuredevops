@@ -10,7 +10,7 @@ import java.util.Objects;
 @CustomType
 public final class BuildDefinitionPullRequestTriggerForks {
     /**
-     * @return Build pull requests form forms of this repository.
+     * @return Build pull requests from forks of this repository.
      * 
      */
     private Boolean enabled;
@@ -22,7 +22,7 @@ public final class BuildDefinitionPullRequestTriggerForks {
 
     private BuildDefinitionPullRequestTriggerForks() {}
     /**
-     * @return Build pull requests form forms of this repository.
+     * @return Build pull requests from forks of this repository.
      * 
      */
     public Boolean enabled() {

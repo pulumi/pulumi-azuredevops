@@ -21,7 +21,7 @@ class GetTeamResult:
     """
     A collection of values returned by getTeam.
     """
-    def __init__(__self__, administrators=None, description=None, descriptor=None, id=None, members=None, name=None, project_id=None):
+    def __init__(__self__, administrators=None, description=None, descriptor=None, id=None, members=None, name=None, project_id=None, top=None):
         if administrators and not isinstance(administrators, list):
             raise TypeError("Expected argument 'administrators' to be a list")
         pulumi.set(__self__, "administrators", administrators)
@@ -43,6 +43,9 @@ class GetTeamResult:
         if project_id and not isinstance(project_id, str):
             raise TypeError("Expected argument 'project_id' to be a str")
         pulumi.set(__self__, "project_id", project_id)
+        if top and not isinstance(top, int):
+            raise TypeError("Expected argument 'top' to be a int")
+        pulumi.set(__self__, "top", top)
 
     @property
     @pulumi.getter
@@ -94,6 +97,11 @@ class GetTeamResult:
     def project_id(self) -> str:
         return pulumi.get(self, "project_id")
 
+    @property
+    @pulumi.getter
+    def top(self) -> Optional[int]:
+        return pulumi.get(self, "top")
+
 
 class AwaitableGetTeamResult(GetTeamResult):
     # pylint: disable=using-constant-test
@@ -107,11 +115,13 @@ class AwaitableGetTeamResult(GetTeamResult):
             id=self.id,
             members=self.members,
             name=self.name,
-            project_id=self.project_id)
+            project_id=self.project_id,
+            top=self.top)
 
 
 def get_team(name: Optional[str] = None,
              project_id: Optional[str] = None,
+             top: Optional[int] = None,
              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTeamResult:
     """
     Use this data source to access information about an existing Team in a Project within Azure DevOps.
@@ -141,10 +151,12 @@ def get_team(name: Optional[str] = None,
 
     :param str name: The name of the Team.
     :param str project_id: The Project ID.
+    :param int top: The maximum number of teams to return. Defaults to `100`.
     """
     __args__ = dict()
     __args__['name'] = name
     __args__['projectId'] = project_id
+    __args__['top'] = top
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azuredevops:index/getTeam:getTeam', __args__, opts=opts, typ=GetTeamResult).value
 
@@ -155,12 +167,14 @@ def get_team(name: Optional[str] = None,
         id=pulumi.get(__ret__, 'id'),
         members=pulumi.get(__ret__, 'members'),
         name=pulumi.get(__ret__, 'name'),
-        project_id=pulumi.get(__ret__, 'project_id'))
+        project_id=pulumi.get(__ret__, 'project_id'),
+        top=pulumi.get(__ret__, 'top'))
 
 
 @_utilities.lift_output_func(get_team)
 def get_team_output(name: Optional[pulumi.Input[str]] = None,
                     project_id: Optional[pulumi.Input[str]] = None,
+                    top: Optional[pulumi.Input[Optional[int]]] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTeamResult]:
     """
     Use this data source to access information about an existing Team in a Project within Azure DevOps.
@@ -190,5 +204,6 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
 
     :param str name: The name of the Team.
     :param str project_id: The Project ID.
+    :param int top: The maximum number of teams to return. Defaults to `100`.
     """
     ...

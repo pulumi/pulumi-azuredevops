@@ -147,6 +147,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceendpointGcpTerraform{}
 	case "azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook":
 		r = &ServiceendpointIncomingwebhook{}
+	case "azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins":
+		r = &ServiceendpointJenkins{}
 	case "azuredevops:index/serviceendpointJfrogArtifactoryV2:ServiceendpointJfrogArtifactoryV2":
 		r = &ServiceendpointJfrogArtifactoryV2{}
 	case "azuredevops:index/serviceendpointJfrogDistributionV2:ServiceendpointJfrogDistributionV2":
@@ -155,6 +157,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceendpointJfrogPlatformV2{}
 	case "azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2":
 		r = &ServiceendpointJfrogXrayV2{}
+	case "azuredevops:index/serviceendpointMaven:ServiceendpointMaven":
+		r = &ServiceendpointMaven{}
+	case "azuredevops:index/serviceendpointNexus:ServiceendpointNexus":
+		r = &ServiceendpointNexus{}
 	case "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy":
 		r = &ServiceendpointOctopusdeploy{}
 	case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
@@ -525,6 +531,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"azuredevops",
+		"index/serviceendpointJenkins",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
 		"index/serviceendpointJfrogArtifactoryV2",
 		&module{version},
 	)
@@ -541,6 +552,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceendpointJfrogXrayV2",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointMaven",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointNexus",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

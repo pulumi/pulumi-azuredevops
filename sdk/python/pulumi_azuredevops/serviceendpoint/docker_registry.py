@@ -158,7 +158,6 @@ class _DockerRegistryState:
                  description: Optional[pulumi.Input[str]] = None,
                  docker_email: Optional[pulumi.Input[str]] = None,
                  docker_password: Optional[pulumi.Input[str]] = None,
-                 docker_password_hash: Optional[pulumi.Input[str]] = None,
                  docker_registry: Optional[pulumi.Input[str]] = None,
                  docker_username: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
@@ -168,7 +167,6 @@ class _DockerRegistryState:
         Input properties used for looking up and filtering DockerRegistry resources.
         :param pulumi.Input[str] docker_email: The email for Docker account user.
         :param pulumi.Input[str] docker_password: The password for the account user identified above.
-        :param pulumi.Input[str] docker_password_hash: A bcrypted hash of the attribute 'docker_password'
         :param pulumi.Input[str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         :param pulumi.Input[str] docker_username: The identifier of the Docker account user.
         :param pulumi.Input[str] project_id: The ID of the project.
@@ -183,8 +181,6 @@ class _DockerRegistryState:
             pulumi.set(__self__, "docker_email", docker_email)
         if docker_password is not None:
             pulumi.set(__self__, "docker_password", docker_password)
-        if docker_password_hash is not None:
-            pulumi.set(__self__, "docker_password_hash", docker_password_hash)
         if docker_registry is not None:
             pulumi.set(__self__, "docker_registry", docker_registry)
         if docker_username is not None:
@@ -237,18 +233,6 @@ class _DockerRegistryState:
     @docker_password.setter
     def docker_password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_password", value)
-
-    @property
-    @pulumi.getter(name="dockerPasswordHash")
-    def docker_password_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'docker_password'
-        """
-        return pulumi.get(self, "docker_password_hash")
-
-    @docker_password_hash.setter
-    def docker_password_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "docker_password_hash", value)
 
     @property
     @pulumi.getter(name="dockerRegistry")
@@ -486,8 +470,7 @@ class DockerRegistry(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
-            __props__.__dict__["docker_password_hash"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["dockerPassword", "dockerPasswordHash"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["dockerPassword"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DockerRegistry, __self__).__init__(
             'azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry',
@@ -503,7 +486,6 @@ class DockerRegistry(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             docker_email: Optional[pulumi.Input[str]] = None,
             docker_password: Optional[pulumi.Input[str]] = None,
-            docker_password_hash: Optional[pulumi.Input[str]] = None,
             docker_registry: Optional[pulumi.Input[str]] = None,
             docker_username: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
@@ -518,7 +500,6 @@ class DockerRegistry(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] docker_email: The email for Docker account user.
         :param pulumi.Input[str] docker_password: The password for the account user identified above.
-        :param pulumi.Input[str] docker_password_hash: A bcrypted hash of the attribute 'docker_password'
         :param pulumi.Input[str] docker_registry: The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         :param pulumi.Input[str] docker_username: The identifier of the Docker account user.
         :param pulumi.Input[str] project_id: The ID of the project.
@@ -533,7 +514,6 @@ class DockerRegistry(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["docker_email"] = docker_email
         __props__.__dict__["docker_password"] = docker_password
-        __props__.__dict__["docker_password_hash"] = docker_password_hash
         __props__.__dict__["docker_registry"] = docker_registry
         __props__.__dict__["docker_username"] = docker_username
         __props__.__dict__["project_id"] = project_id
@@ -566,14 +546,6 @@ class DockerRegistry(pulumi.CustomResource):
         The password for the account user identified above.
         """
         return pulumi.get(self, "docker_password")
-
-    @property
-    @pulumi.getter(name="dockerPasswordHash")
-    def docker_password_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'docker_password'
-        """
-        return pulumi.get(self, "docker_password_hash")
 
     @property
     @pulumi.getter(name="dockerRegistry")

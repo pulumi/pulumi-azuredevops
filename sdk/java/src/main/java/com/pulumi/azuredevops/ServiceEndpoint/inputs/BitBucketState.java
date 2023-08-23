@@ -46,21 +46,6 @@ public final class BitBucketState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    @Import(name="passwordHash")
-    private @Nullable Output<String> passwordHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    public Optional<Output<String>> passwordHash() {
-        return Optional.ofNullable(this.passwordHash);
-    }
-
-    /**
      * The ID of the project.
      * 
      */
@@ -111,7 +96,6 @@ public final class BitBucketState extends com.pulumi.resources.ResourceArgs {
         this.authorization = $.authorization;
         this.description = $.description;
         this.password = $.password;
-        this.passwordHash = $.passwordHash;
         this.projectId = $.projectId;
         this.serviceEndpointName = $.serviceEndpointName;
         this.username = $.username;
@@ -172,27 +156,6 @@ public final class BitBucketState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder password(String password) {
             return password(Output.of(password));
-        }
-
-        /**
-         * @param passwordHash A bcrypted hash of the attribute &#39;password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordHash(@Nullable Output<String> passwordHash) {
-            $.passwordHash = passwordHash;
-            return this;
-        }
-
-        /**
-         * @param passwordHash A bcrypted hash of the attribute &#39;password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordHash(String passwordHash) {
-            return passwordHash(Output.of(passwordHash));
         }
 
         /**

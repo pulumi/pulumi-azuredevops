@@ -17,27 +17,19 @@ namespace Pulumi.AzureDevOps.Outputs
         /// The certificate from a Kubernetes secret object.
         /// </summary>
         public readonly string CaCert;
-        public readonly string? CaCertHash;
         /// <summary>
         /// The token from a Kubernetes secret object.
         /// </summary>
         public readonly string Token;
-        public readonly string? TokenHash;
 
         [OutputConstructor]
         private ServiceEndpointKubernetesServiceAccount(
             string caCert,
 
-            string? caCertHash,
-
-            string token,
-
-            string? tokenHash)
+            string token)
         {
             CaCert = caCert;
-            CaCertHash = caCertHash;
             Token = token;
-            TokenHash = tokenHash;
         }
     }
 }

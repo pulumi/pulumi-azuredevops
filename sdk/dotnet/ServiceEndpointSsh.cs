@@ -75,12 +75,6 @@ namespace Pulumi.AzureDevOps
         public Output<string?> Password { get; private set; } = null!;
 
         /// <summary>
-        /// A bcrypted hash of the attribute 'password'
-        /// </summary>
-        [Output("passwordHash")]
-        public Output<string> PasswordHash { get; private set; } = null!;
-
-        /// <summary>
         /// Port number on the remote machine to use for connecting. Defaults to `22`.
         /// </summary>
         [Output("port")]
@@ -91,12 +85,6 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("privateKey")]
         public Output<string?> PrivateKey { get; private set; } = null!;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'private_key'
-        /// </summary>
-        [Output("privateKeyHash")]
-        public Output<string> PrivateKeyHash { get; private set; } = null!;
 
         /// <summary>
         /// The ID of the project.
@@ -142,9 +130,7 @@ namespace Pulumi.AzureDevOps
                 AdditionalSecretOutputs =
                 {
                     "password",
-                    "passwordHash",
                     "privateKey",
-                    "privateKeyHash",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -283,22 +269,6 @@ namespace Pulumi.AzureDevOps
             }
         }
 
-        [Input("passwordHash")]
-        private Input<string>? _passwordHash;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'password'
-        /// </summary>
-        public Input<string>? PasswordHash
-        {
-            get => _passwordHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _passwordHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
         /// <summary>
         /// Port number on the remote machine to use for connecting. Defaults to `22`.
         /// </summary>
@@ -318,22 +288,6 @@ namespace Pulumi.AzureDevOps
             {
                 var emptySecret = Output.CreateSecret(0);
                 _privateKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("privateKeyHash")]
-        private Input<string>? _privateKeyHash;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'private_key'
-        /// </summary>
-        public Input<string>? PrivateKeyHash
-        {
-            get => _privateKeyHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _privateKeyHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

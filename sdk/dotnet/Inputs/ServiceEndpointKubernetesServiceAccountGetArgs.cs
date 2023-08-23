@@ -28,18 +28,6 @@ namespace Pulumi.AzureDevOps.Inputs
             }
         }
 
-        [Input("caCertHash")]
-        private Input<string>? _caCertHash;
-        public Input<string>? CaCertHash
-        {
-            get => _caCertHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _caCertHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
         [Input("token", required: true)]
         private Input<string>? _token;
 
@@ -53,18 +41,6 @@ namespace Pulumi.AzureDevOps.Inputs
             {
                 var emptySecret = Output.CreateSecret(0);
                 _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("tokenHash")]
-        private Input<string>? _tokenHash;
-        public Input<string>? TokenHash
-        {
-            get => _tokenHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _tokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

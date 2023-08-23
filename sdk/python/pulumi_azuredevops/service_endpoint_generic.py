@@ -126,7 +126,6 @@ class _ServiceEndpointGenericState:
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_hash: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  server_url: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -134,7 +133,6 @@ class _ServiceEndpointGenericState:
         """
         Input properties used for looking up and filtering ServiceEndpointGeneric resources.
         :param pulumi.Input[str] password: The password or token key used to authenticate to the server url using basic authentication.
-        :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] server_url: The URL of the server associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The service endpoint name.
@@ -146,8 +144,6 @@ class _ServiceEndpointGenericState:
             pulumi.set(__self__, "description", description)
         if password is not None:
             pulumi.set(__self__, "password", password)
-        if password_hash is not None:
-            pulumi.set(__self__, "password_hash", password_hash)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if server_url is not None:
@@ -186,18 +182,6 @@ class _ServiceEndpointGenericState:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'password'
-        """
-        return pulumi.get(self, "password_hash")
-
-    @password_hash.setter
-    def password_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password_hash", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -389,8 +373,7 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["username"] = username
-            __props__.__dict__["password_hash"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "passwordHash"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointGeneric, __self__).__init__(
             'azuredevops:index/serviceEndpointGeneric:ServiceEndpointGeneric',
@@ -405,7 +388,6 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
-            password_hash: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             server_url: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -418,7 +400,6 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] password: The password or token key used to authenticate to the server url using basic authentication.
-        :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] server_url: The URL of the server associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The service endpoint name.
@@ -431,7 +412,6 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         __props__.__dict__["authorization"] = authorization
         __props__.__dict__["description"] = description
         __props__.__dict__["password"] = password
-        __props__.__dict__["password_hash"] = password_hash
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["server_url"] = server_url
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
@@ -455,14 +435,6 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         The password or token key used to authenticate to the server url using basic authentication.
         """
         return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'password'
-        """
-        return pulumi.get(self, "password_hash")
 
     @property
     @pulumi.getter(name="projectId")

@@ -61,21 +61,6 @@ public final class ServiceEndpointAzureDevOpsState extends com.pulumi.resources.
     }
 
     /**
-     * A bcrypted hash of the attribute &#39;personal_access_token&#39;
-     * 
-     */
-    @Import(name="personalAccessTokenHash")
-    private @Nullable Output<String> personalAccessTokenHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;personal_access_token&#39;
-     * 
-     */
-    public Optional<Output<String>> personalAccessTokenHash() {
-        return Optional.ofNullable(this.personalAccessTokenHash);
-    }
-
-    /**
      * The ID of the project.
      * 
      */
@@ -127,7 +112,6 @@ public final class ServiceEndpointAzureDevOpsState extends com.pulumi.resources.
         this.description = $.description;
         this.orgUrl = $.orgUrl;
         this.personalAccessToken = $.personalAccessToken;
-        this.personalAccessTokenHash = $.personalAccessTokenHash;
         this.projectId = $.projectId;
         this.releaseApiUrl = $.releaseApiUrl;
         this.serviceEndpointName = $.serviceEndpointName;
@@ -209,27 +193,6 @@ public final class ServiceEndpointAzureDevOpsState extends com.pulumi.resources.
          */
         public Builder personalAccessToken(String personalAccessToken) {
             return personalAccessToken(Output.of(personalAccessToken));
-        }
-
-        /**
-         * @param personalAccessTokenHash A bcrypted hash of the attribute &#39;personal_access_token&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder personalAccessTokenHash(@Nullable Output<String> personalAccessTokenHash) {
-            $.personalAccessTokenHash = personalAccessTokenHash;
-            return this;
-        }
-
-        /**
-         * @param personalAccessTokenHash A bcrypted hash of the attribute &#39;personal_access_token&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder personalAccessTokenHash(String personalAccessTokenHash) {
-            return personalAccessTokenHash(Output.of(personalAccessTokenHash));
         }
 
         /**

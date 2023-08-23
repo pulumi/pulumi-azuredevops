@@ -29,6 +29,7 @@ import * as utilities from "./utilities";
  *     targetResourceId: exampleServiceEndpointGeneric.id,
  *     targetResourceType: "endpoint",
  *     allowedBranches: "refs/heads/main, refs/heads/features/*",
+ *     timeout: 1440,
  * });
  * ```
  * ### Protect an environment
@@ -180,6 +181,10 @@ export class CheckBranchControl extends pulumi.CustomResource {
      */
     public readonly targetResourceType!: pulumi.Output<string>;
     /**
+     * The timeout in minutes for the branch control check. Defaults to `1440`.
+     */
+    public readonly timeout!: pulumi.Output<number | undefined>;
+    /**
      * Validate the branches being deployed are protected. Defaults to `false`.
      */
     public readonly verifyBranchProtection!: pulumi.Output<boolean | undefined>;
@@ -203,6 +208,7 @@ export class CheckBranchControl extends pulumi.CustomResource {
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["targetResourceId"] = state ? state.targetResourceId : undefined;
             resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
             resourceInputs["verifyBranchProtection"] = state ? state.verifyBranchProtection : undefined;
         } else {
             const args = argsOrState as CheckBranchControlArgs | undefined;
@@ -221,6 +227,7 @@ export class CheckBranchControl extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
             resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["verifyBranchProtection"] = args ? args.verifyBranchProtection : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -257,6 +264,10 @@ export interface CheckBranchControlState {
      */
     targetResourceType?: pulumi.Input<string>;
     /**
+     * The timeout in minutes for the branch control check. Defaults to `1440`.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
      * Validate the branches being deployed are protected. Defaults to `false`.
      */
     verifyBranchProtection?: pulumi.Input<boolean>;
@@ -290,6 +301,10 @@ export interface CheckBranchControlArgs {
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      */
     targetResourceType: pulumi.Input<string>;
+    /**
+     * The timeout in minutes for the branch control check. Defaults to `1440`.
+     */
+    timeout?: pulumi.Input<number>;
     /**
      * Validate the branches being deployed are protected. Defaults to `false`.
      */

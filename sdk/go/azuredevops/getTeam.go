@@ -68,6 +68,8 @@ type LookupTeamArgs struct {
 	Name string `pulumi:"name"`
 	// The Project ID.
 	ProjectId string `pulumi:"projectId"`
+	// The maximum number of teams to return. Defaults to `100`.
+	Top *int `pulumi:"top"`
 }
 
 // A collection of values returned by getTeam.
@@ -84,6 +86,7 @@ type LookupTeamResult struct {
 	Members   []string `pulumi:"members"`
 	Name      string   `pulumi:"name"`
 	ProjectId string   `pulumi:"projectId"`
+	Top       *int     `pulumi:"top"`
 }
 
 func LookupTeamOutput(ctx *pulumi.Context, args LookupTeamOutputArgs, opts ...pulumi.InvokeOption) LookupTeamResultOutput {
@@ -105,6 +108,8 @@ type LookupTeamOutputArgs struct {
 	Name pulumi.StringInput `pulumi:"name"`
 	// The Project ID.
 	ProjectId pulumi.StringInput `pulumi:"projectId"`
+	// The maximum number of teams to return. Defaults to `100`.
+	Top pulumi.IntPtrInput `pulumi:"top"`
 }
 
 func (LookupTeamOutputArgs) ElementType() reflect.Type {
@@ -157,6 +162,10 @@ func (o LookupTeamResultOutput) Name() pulumi.StringOutput {
 
 func (o LookupTeamResultOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupTeamResult) string { return v.ProjectId }).(pulumi.StringOutput)
+}
+
+func (o LookupTeamResultOutput) Top() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v LookupTeamResult) *int { return v.Top }).(pulumi.IntPtrOutput)
 }
 
 func init() {

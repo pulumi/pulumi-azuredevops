@@ -17,16 +17,11 @@ namespace Pulumi.AzureDevOps.Outputs
         /// The Personal Access Token for GitHub.
         /// </summary>
         public readonly string PersonalAccessToken;
-        public readonly string? PersonalAccessTokenHash;
 
         [OutputConstructor]
-        private ServiceEndpointGitHubAuthPersonal(
-            string personalAccessToken,
-
-            string? personalAccessTokenHash)
+        private ServiceEndpointGitHubAuthPersonal(string personalAccessToken)
         {
             PersonalAccessToken = personalAccessToken;
-            PersonalAccessTokenHash = personalAccessTokenHash;
         }
     }
 }

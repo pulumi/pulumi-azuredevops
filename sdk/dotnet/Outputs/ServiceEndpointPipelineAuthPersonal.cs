@@ -17,16 +17,11 @@ namespace Pulumi.AzureDevOps.Outputs
         /// The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
         /// </summary>
         public readonly string PersonalAccessToken;
-        public readonly string? PersonalAccessTokenHash;
 
         [OutputConstructor]
-        private ServiceEndpointPipelineAuthPersonal(
-            string personalAccessToken,
-
-            string? personalAccessTokenHash)
+        private ServiceEndpointPipelineAuthPersonal(string personalAccessToken)
         {
             PersonalAccessToken = personalAccessToken;
-            PersonalAccessTokenHash = personalAccessTokenHash;
         }
     }
 }

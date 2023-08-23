@@ -361,7 +361,7 @@ export interface BuildDefinitionPullRequestTrigger {
 
 export interface BuildDefinitionPullRequestTriggerForks {
     /**
-     * Build pull requests form forms of this repository.
+     * Build pull requests from forks of this repository.
      */
     enabled: pulumi.Input<boolean>;
     /**
@@ -709,7 +709,6 @@ export interface ServiceEndpointAzureRMCredentials {
      * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      */
     serviceprincipalkey?: pulumi.Input<string>;
-    serviceprincipalkeyHash?: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointGitHubAuthOauth {
@@ -721,7 +720,6 @@ export interface ServiceEndpointGitHubAuthPersonal {
      * The Personal Access Token for GitHub.
      */
     personalAccessToken: pulumi.Input<string>;
-    personalAccessTokenHash?: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointGitHubEnterpriseAuthPersonal {
@@ -729,7 +727,6 @@ export interface ServiceEndpointGitHubEnterpriseAuthPersonal {
      * The Personal Access Token for GitHub.
      */
     personalAccessToken: pulumi.Input<string>;
-    personalAccessTokenHash?: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointKubernetesAzureSubscription {
@@ -787,12 +784,10 @@ export interface ServiceEndpointKubernetesServiceAccount {
      * The certificate from a Kubernetes secret object.
      */
     caCert: pulumi.Input<string>;
-    caCertHash?: pulumi.Input<string>;
     /**
      * The token from a Kubernetes secret object.
      */
     token: pulumi.Input<string>;
-    tokenHash?: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointPipelineAuthPersonal {
@@ -800,7 +795,6 @@ export interface ServiceEndpointPipelineAuthPersonal {
      * The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
      */
     personalAccessToken: pulumi.Input<string>;
-    personalAccessTokenHash?: pulumi.Input<string>;
 }
 
 export interface ServiceEndpointServiceFabricAzureActiveDirectory {
@@ -957,6 +951,24 @@ export interface ServiceendpointJfrogXrayV2AuthenticationToken {
     token: pulumi.Input<string>;
 }
 
+export interface ServiceendpointMavenAuthenticationBasic {
+    /**
+     * The password Maven Repository.
+     */
+    password: pulumi.Input<string>;
+    /**
+     * The Username of the Maven Repository.
+     */
+    username: pulumi.Input<string>;
+}
+
+export interface ServiceendpointMavenAuthenticationToken {
+    /**
+     * Authentication Token generated through maven repository.
+     */
+    token: pulumi.Input<string>;
+}
+
 export interface VariableGroupKeyVault {
     /**
      * The name of the Azure key vault to link secrets from as variables.
@@ -1076,7 +1088,7 @@ export namespace Build {
 
     export interface BuildDefinitionPullRequestTriggerForks {
         /**
-         * Build pull requests form forms of this repository.
+         * Build pull requests from forks of this repository.
          */
         enabled: pulumi.Input<boolean>;
         /**
@@ -1536,7 +1548,6 @@ export namespace ServiceEndpoint {
          * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
          */
         serviceprincipalkey?: pulumi.Input<string>;
-        serviceprincipalkeyHash?: pulumi.Input<string>;
     }
 
     export interface GitHubAuthOauth {
@@ -1548,7 +1559,6 @@ export namespace ServiceEndpoint {
          * The Personal Access Token for GitHub.
          */
         personalAccessToken: pulumi.Input<string>;
-        personalAccessTokenHash?: pulumi.Input<string>;
     }
 
     export interface KubernetesAzureSubscription {
@@ -1606,11 +1616,9 @@ export namespace ServiceEndpoint {
          * The certificate from a Kubernetes secret object.
          */
         caCert: pulumi.Input<string>;
-        caCertHash?: pulumi.Input<string>;
         /**
          * The token from a Kubernetes secret object.
          */
         token: pulumi.Input<string>;
-        tokenHash?: pulumi.Input<string>;
     }
 }

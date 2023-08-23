@@ -63,6 +63,8 @@ __all__ = [
     'ServiceendpointJfrogPlatformV2AuthenticationTokenArgs',
     'ServiceendpointJfrogXrayV2AuthenticationBasicArgs',
     'ServiceendpointJfrogXrayV2AuthenticationTokenArgs',
+    'ServiceendpointMavenAuthenticationBasicArgs',
+    'ServiceendpointMavenAuthenticationTokenArgs',
     'VariableGroupKeyVaultArgs',
     'VariableGroupVariableArgs',
 ]
@@ -1384,7 +1386,7 @@ class BuildDefinitionPullRequestTriggerForksArgs:
                  enabled: pulumi.Input[bool],
                  share_secrets: pulumi.Input[bool]):
         """
-        :param pulumi.Input[bool] enabled: Build pull requests form forms of this repository.
+        :param pulumi.Input[bool] enabled: Build pull requests from forks of this repository.
         :param pulumi.Input[bool] share_secrets: Make secrets available to builds of forks.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1394,7 +1396,7 @@ class BuildDefinitionPullRequestTriggerForksArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[bool]:
         """
-        Build pull requests form forms of this repository.
+        Build pull requests from forks of this repository.
         """
         return pulumi.get(self, "enabled")
 
@@ -2390,8 +2392,7 @@ class ServiceEndpointArtifactoryAuthenticationTokenArgs:
 class ServiceEndpointAzureRMCredentialsArgs:
     def __init__(__self__, *,
                  serviceprincipalid: pulumi.Input[str],
-                 serviceprincipalkey: Optional[pulumi.Input[str]] = None,
-                 serviceprincipalkey_hash: Optional[pulumi.Input[str]] = None):
+                 serviceprincipalkey: Optional[pulumi.Input[str]] = None):
         """
         :param pulumi.Input[str] serviceprincipalid: The service principal application Id
         :param pulumi.Input[str] serviceprincipalkey: The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
@@ -2399,8 +2400,6 @@ class ServiceEndpointAzureRMCredentialsArgs:
         pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
         if serviceprincipalkey is not None:
             pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
-        if serviceprincipalkey_hash is not None:
-            pulumi.set(__self__, "serviceprincipalkey_hash", serviceprincipalkey_hash)
 
     @property
     @pulumi.getter
@@ -2426,15 +2425,6 @@ class ServiceEndpointAzureRMCredentialsArgs:
     def serviceprincipalkey(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "serviceprincipalkey", value)
 
-    @property
-    @pulumi.getter(name="serviceprincipalkeyHash")
-    def serviceprincipalkey_hash(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "serviceprincipalkey_hash")
-
-    @serviceprincipalkey_hash.setter
-    def serviceprincipalkey_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "serviceprincipalkey_hash", value)
-
 
 @pulumi.input_type
 class ServiceEndpointGitHubAuthOauthArgs:
@@ -2455,14 +2445,11 @@ class ServiceEndpointGitHubAuthOauthArgs:
 @pulumi.input_type
 class ServiceEndpointGitHubAuthPersonalArgs:
     def __init__(__self__, *,
-                 personal_access_token: pulumi.Input[str],
-                 personal_access_token_hash: Optional[pulumi.Input[str]] = None):
+                 personal_access_token: pulumi.Input[str]):
         """
         :param pulumi.Input[str] personal_access_token: The Personal Access Token for GitHub.
         """
         pulumi.set(__self__, "personal_access_token", personal_access_token)
-        if personal_access_token_hash is not None:
-            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -2475,28 +2462,16 @@ class ServiceEndpointGitHubAuthPersonalArgs:
     @personal_access_token.setter
     def personal_access_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "personal_access_token", value)
-
-    @property
-    @pulumi.getter(name="personalAccessTokenHash")
-    def personal_access_token_hash(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "personal_access_token_hash")
-
-    @personal_access_token_hash.setter
-    def personal_access_token_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "personal_access_token_hash", value)
 
 
 @pulumi.input_type
 class ServiceEndpointGitHubEnterpriseAuthPersonalArgs:
     def __init__(__self__, *,
-                 personal_access_token: pulumi.Input[str],
-                 personal_access_token_hash: Optional[pulumi.Input[str]] = None):
+                 personal_access_token: pulumi.Input[str]):
         """
         :param pulumi.Input[str] personal_access_token: The Personal Access Token for GitHub.
         """
         pulumi.set(__self__, "personal_access_token", personal_access_token)
-        if personal_access_token_hash is not None:
-            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -2509,15 +2484,6 @@ class ServiceEndpointGitHubEnterpriseAuthPersonalArgs:
     @personal_access_token.setter
     def personal_access_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "personal_access_token", value)
-
-    @property
-    @pulumi.getter(name="personalAccessTokenHash")
-    def personal_access_token_hash(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "personal_access_token_hash")
-
-    @personal_access_token_hash.setter
-    def personal_access_token_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "personal_access_token_hash", value)
 
 
 @pulumi.input_type
@@ -2708,19 +2674,13 @@ class ServiceEndpointKubernetesKubeconfigArgs:
 class ServiceEndpointKubernetesServiceAccountArgs:
     def __init__(__self__, *,
                  ca_cert: pulumi.Input[str],
-                 token: pulumi.Input[str],
-                 ca_cert_hash: Optional[pulumi.Input[str]] = None,
-                 token_hash: Optional[pulumi.Input[str]] = None):
+                 token: pulumi.Input[str]):
         """
         :param pulumi.Input[str] ca_cert: The certificate from a Kubernetes secret object.
         :param pulumi.Input[str] token: The token from a Kubernetes secret object.
         """
         pulumi.set(__self__, "ca_cert", ca_cert)
         pulumi.set(__self__, "token", token)
-        if ca_cert_hash is not None:
-            pulumi.set(__self__, "ca_cert_hash", ca_cert_hash)
-        if token_hash is not None:
-            pulumi.set(__self__, "token_hash", token_hash)
 
     @property
     @pulumi.getter(name="caCert")
@@ -2746,36 +2706,15 @@ class ServiceEndpointKubernetesServiceAccountArgs:
     def token(self, value: pulumi.Input[str]):
         pulumi.set(self, "token", value)
 
-    @property
-    @pulumi.getter(name="caCertHash")
-    def ca_cert_hash(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "ca_cert_hash")
-
-    @ca_cert_hash.setter
-    def ca_cert_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "ca_cert_hash", value)
-
-    @property
-    @pulumi.getter(name="tokenHash")
-    def token_hash(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "token_hash")
-
-    @token_hash.setter
-    def token_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "token_hash", value)
-
 
 @pulumi.input_type
 class ServiceEndpointPipelineAuthPersonalArgs:
     def __init__(__self__, *,
-                 personal_access_token: pulumi.Input[str],
-                 personal_access_token_hash: Optional[pulumi.Input[str]] = None):
+                 personal_access_token: pulumi.Input[str]):
         """
         :param pulumi.Input[str] personal_access_token: The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
         """
         pulumi.set(__self__, "personal_access_token", personal_access_token)
-        if personal_access_token_hash is not None:
-            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -2788,15 +2727,6 @@ class ServiceEndpointPipelineAuthPersonalArgs:
     @personal_access_token.setter
     def personal_access_token(self, value: pulumi.Input[str]):
         pulumi.set(self, "personal_access_token", value)
-
-    @property
-    @pulumi.getter(name="personalAccessTokenHash")
-    def personal_access_token_hash(self) -> Optional[pulumi.Input[str]]:
-        return pulumi.get(self, "personal_access_token_hash")
-
-    @personal_access_token_hash.setter
-    def personal_access_token_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "personal_access_token_hash", value)
 
 
 @pulumi.input_type
@@ -3316,6 +3246,65 @@ class ServiceendpointJfrogXrayV2AuthenticationTokenArgs:
     def token(self) -> pulumi.Input[str]:
         """
         Authentication Token generated through Artifactory.
+        """
+        return pulumi.get(self, "token")
+
+    @token.setter
+    def token(self, value: pulumi.Input[str]):
+        pulumi.set(self, "token", value)
+
+
+@pulumi.input_type
+class ServiceendpointMavenAuthenticationBasicArgs:
+    def __init__(__self__, *,
+                 password: pulumi.Input[str],
+                 username: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] password: The password Maven Repository.
+        :param pulumi.Input[str] username: The Username of the Maven Repository.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        The password Maven Repository.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input[str]:
+        """
+        The Username of the Maven Repository.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input[str]):
+        pulumi.set(self, "username", value)
+
+
+@pulumi.input_type
+class ServiceendpointMavenAuthenticationTokenArgs:
+    def __init__(__self__, *,
+                 token: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] token: Authentication Token generated through maven repository.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> pulumi.Input[str]:
+        """
+        Authentication Token generated through maven repository.
         """
         return pulumi.get(self, "token")
 

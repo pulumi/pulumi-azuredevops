@@ -14,14 +14,14 @@ public final class BuildDefinitionPullRequestTriggerForksArgs extends com.pulumi
     public static final BuildDefinitionPullRequestTriggerForksArgs Empty = new BuildDefinitionPullRequestTriggerForksArgs();
 
     /**
-     * Build pull requests form forms of this repository.
+     * Build pull requests from forks of this repository.
      * 
      */
     @Import(name="enabled", required=true)
     private Output<Boolean> enabled;
 
     /**
-     * @return Build pull requests form forms of this repository.
+     * @return Build pull requests from forks of this repository.
      * 
      */
     public Output<Boolean> enabled() {
@@ -69,7 +69,7 @@ public final class BuildDefinitionPullRequestTriggerForksArgs extends com.pulumi
         }
 
         /**
-         * @param enabled Build pull requests form forms of this repository.
+         * @param enabled Build pull requests from forks of this repository.
          * 
          * @return builder
          * 
@@ -80,7 +80,7 @@ public final class BuildDefinitionPullRequestTriggerForksArgs extends com.pulumi
         }
 
         /**
-         * @param enabled Build pull requests form forms of this repository.
+         * @param enabled Build pull requests from forks of this repository.
          * 
          * @return builder
          * 

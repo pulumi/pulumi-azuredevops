@@ -115,7 +115,6 @@ class _ServiceEndpointSonarQubeState:
                  project_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  token: Optional[pulumi.Input[str]] = None,
-                 token_hash: Optional[pulumi.Input[str]] = None,
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointSonarQube resources.
@@ -123,7 +122,6 @@ class _ServiceEndpointSonarQubeState:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
-        :param pulumi.Input[str] token_hash: A bcrypted hash of the attribute 'token'
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
         """
         if authorization is not None:
@@ -136,8 +134,6 @@ class _ServiceEndpointSonarQubeState:
             pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if token is not None:
             pulumi.set(__self__, "token", token)
-        if token_hash is not None:
-            pulumi.set(__self__, "token_hash", token_hash)
         if url is not None:
             pulumi.set(__self__, "url", url)
 
@@ -197,18 +193,6 @@ class _ServiceEndpointSonarQubeState:
     @token.setter
     def token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "token", value)
-
-    @property
-    @pulumi.getter(name="tokenHash")
-    def token_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'token'
-        """
-        return pulumi.get(self, "token_hash")
-
-    @token_hash.setter
-    def token_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "token_hash", value)
 
     @property
     @pulumi.getter
@@ -363,8 +347,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
             if url is None and not opts.urn:
                 raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
-            __props__.__dict__["token_hash"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token", "tokenHash"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["token"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointSonarQube, __self__).__init__(
             'azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube',
@@ -381,7 +364,6 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
             project_id: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None,
             token: Optional[pulumi.Input[str]] = None,
-            token_hash: Optional[pulumi.Input[str]] = None,
             url: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointSonarQube':
         """
         Get an existing ServiceEndpointSonarQube resource's state with the given name, id, and optional extra
@@ -394,7 +376,6 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
-        :param pulumi.Input[str] token_hash: A bcrypted hash of the attribute 'token'
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -406,7 +387,6 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         __props__.__dict__["token"] = token
-        __props__.__dict__["token_hash"] = token_hash
         __props__.__dict__["url"] = url
         return ServiceEndpointSonarQube(resource_name, opts=opts, __props__=__props__)
 
@@ -446,14 +426,6 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         """
         return pulumi.get(self, "token")
-
-    @property
-    @pulumi.getter(name="tokenHash")
-    def token_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'token'
-        """
-        return pulumi.get(self, "token_hash")
 
     @property
     @pulumi.getter

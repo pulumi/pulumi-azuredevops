@@ -42,6 +42,7 @@ namespace Pulumi.AzureDevOps
     ///         TargetResourceId = exampleServiceEndpointGeneric.Id,
     ///         TargetResourceType = "endpoint",
     ///         AllowedBranches = "refs/heads/main, refs/heads/features/*",
+    ///         Timeout = 1440,
     ///     });
     /// 
     /// });
@@ -234,6 +235,12 @@ namespace Pulumi.AzureDevOps
         public Output<string> TargetResourceType { get; private set; } = null!;
 
         /// <summary>
+        /// The timeout in minutes for the branch control check. Defaults to `1440`.
+        /// </summary>
+        [Output("timeout")]
+        public Output<int?> Timeout { get; private set; } = null!;
+
+        /// <summary>
         /// Validate the branches being deployed are protected. Defaults to `false`.
         /// </summary>
         [Output("verifyBranchProtection")]
@@ -322,6 +329,12 @@ namespace Pulumi.AzureDevOps
         public Input<string> TargetResourceType { get; set; } = null!;
 
         /// <summary>
+        /// The timeout in minutes for the branch control check. Defaults to `1440`.
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
+
+        /// <summary>
         /// Validate the branches being deployed are protected. Defaults to `false`.
         /// </summary>
         [Input("verifyBranchProtection")]
@@ -370,6 +383,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("targetResourceType")]
         public Input<string>? TargetResourceType { get; set; }
+
+        /// <summary>
+        /// The timeout in minutes for the branch control check. Defaults to `1440`.
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
 
         /// <summary>
         /// Validate the branches being deployed are protected. Defaults to `false`.

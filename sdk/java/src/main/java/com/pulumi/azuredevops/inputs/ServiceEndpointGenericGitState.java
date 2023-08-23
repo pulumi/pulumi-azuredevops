@@ -66,21 +66,6 @@ public final class ServiceEndpointGenericGitState extends com.pulumi.resources.R
     }
 
     /**
-     * A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    @Import(name="passwordHash")
-    private @Nullable Output<String> passwordHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    public Optional<Output<String>> passwordHash() {
-        return Optional.ofNullable(this.passwordHash);
-    }
-
-    /**
      * The ID of the project.
      * 
      */
@@ -147,7 +132,6 @@ public final class ServiceEndpointGenericGitState extends com.pulumi.resources.R
         this.description = $.description;
         this.enablePipelinesAccess = $.enablePipelinesAccess;
         this.password = $.password;
-        this.passwordHash = $.passwordHash;
         this.projectId = $.projectId;
         this.repositoryUrl = $.repositoryUrl;
         this.serviceEndpointName = $.serviceEndpointName;
@@ -234,27 +218,6 @@ public final class ServiceEndpointGenericGitState extends com.pulumi.resources.R
          */
         public Builder password(String password) {
             return password(Output.of(password));
-        }
-
-        /**
-         * @param passwordHash A bcrypted hash of the attribute &#39;password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordHash(@Nullable Output<String> passwordHash) {
-            $.passwordHash = passwordHash;
-            return this;
-        }
-
-        /**
-         * @param passwordHash A bcrypted hash of the attribute &#39;password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordHash(String passwordHash) {
-            return passwordHash(Output.of(passwordHash));
         }
 
         /**

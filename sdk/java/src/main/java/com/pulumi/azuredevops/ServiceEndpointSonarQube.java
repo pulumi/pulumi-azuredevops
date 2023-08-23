@@ -141,20 +141,6 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
         return this.token;
     }
     /**
-     * A bcrypted hash of the attribute &#39;token&#39;
-     * 
-     */
-    @Export(name="tokenHash", type=String.class, parameters={})
-    private Output<String> tokenHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;token&#39;
-     * 
-     */
-    public Output<String> tokenHash() {
-        return this.tokenHash;
-    }
-    /**
      * URL of the SonarQube server to connect with.
      * 
      */
@@ -202,8 +188,7 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "token",
-                "tokenHash"
+                "token"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

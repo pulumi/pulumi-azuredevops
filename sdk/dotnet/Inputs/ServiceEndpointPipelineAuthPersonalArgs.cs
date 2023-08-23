@@ -28,18 +28,6 @@ namespace Pulumi.AzureDevOps.Inputs
             }
         }
 
-        [Input("personalAccessTokenHash")]
-        private Input<string>? _personalAccessTokenHash;
-        public Input<string>? PersonalAccessTokenHash
-        {
-            get => _personalAccessTokenHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _personalAccessTokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
         public ServiceEndpointPipelineAuthPersonalArgs()
         {
         }
