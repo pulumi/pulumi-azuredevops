@@ -13,7 +13,7 @@ namespace Pulumi.AzureDevOps.Inputs
     public sealed class BuildDefinitionPullRequestTriggerForksGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Build pull requests form forms of this repository.
+        /// Build pull requests from forks of this repository.
         /// </summary>
         [Input("enabled", required: true)]
         public Input<bool> Enabled { get; set; } = null!;

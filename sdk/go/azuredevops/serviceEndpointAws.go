@@ -83,14 +83,10 @@ type ServiceEndpointAws struct {
 	RoleToAssume pulumi.StringPtrOutput `pulumi:"roleToAssume"`
 	// The AWS secret access key for signing programmatic requests.
 	SecretAccessKey pulumi.StringOutput `pulumi:"secretAccessKey"`
-	// A bcrypted hash of the attribute 'secret_access_key'
-	SecretAccessKeyHash pulumi.StringOutput `pulumi:"secretAccessKeyHash"`
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
 	// The AWS session token for signing programmatic requests.
 	SessionToken pulumi.StringPtrOutput `pulumi:"sessionToken"`
-	// A bcrypted hash of the attribute 'session_token'
-	SessionTokenHash pulumi.StringOutput `pulumi:"sessionTokenHash"`
 }
 
 // NewServiceEndpointAws registers a new resource with the given unique name, arguments, and options.
@@ -120,9 +116,7 @@ func NewServiceEndpointAws(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"secretAccessKey",
-		"secretAccessKeyHash",
 		"sessionToken",
-		"sessionTokenHash",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -162,14 +156,10 @@ type serviceEndpointAwsState struct {
 	RoleToAssume *string `pulumi:"roleToAssume"`
 	// The AWS secret access key for signing programmatic requests.
 	SecretAccessKey *string `pulumi:"secretAccessKey"`
-	// A bcrypted hash of the attribute 'secret_access_key'
-	SecretAccessKeyHash *string `pulumi:"secretAccessKeyHash"`
 	// The Service Endpoint name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
 	// The AWS session token for signing programmatic requests.
 	SessionToken *string `pulumi:"sessionToken"`
-	// A bcrypted hash of the attribute 'session_token'
-	SessionTokenHash *string `pulumi:"sessionTokenHash"`
 }
 
 type ServiceEndpointAwsState struct {
@@ -187,14 +177,10 @@ type ServiceEndpointAwsState struct {
 	RoleToAssume pulumi.StringPtrInput
 	// The AWS secret access key for signing programmatic requests.
 	SecretAccessKey pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'secret_access_key'
-	SecretAccessKeyHash pulumi.StringPtrInput
 	// The Service Endpoint name.
 	ServiceEndpointName pulumi.StringPtrInput
 	// The AWS session token for signing programmatic requests.
 	SessionToken pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'session_token'
-	SessionTokenHash pulumi.StringPtrInput
 }
 
 func (ServiceEndpointAwsState) ElementType() reflect.Type {
@@ -369,11 +355,6 @@ func (o ServiceEndpointAwsOutput) SecretAccessKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringOutput { return v.SecretAccessKey }).(pulumi.StringOutput)
 }
 
-// A bcrypted hash of the attribute 'secret_access_key'
-func (o ServiceEndpointAwsOutput) SecretAccessKeyHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringOutput { return v.SecretAccessKeyHash }).(pulumi.StringOutput)
-}
-
 // The Service Endpoint name.
 func (o ServiceEndpointAwsOutput) ServiceEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringOutput { return v.ServiceEndpointName }).(pulumi.StringOutput)
@@ -382,11 +363,6 @@ func (o ServiceEndpointAwsOutput) ServiceEndpointName() pulumi.StringOutput {
 // The AWS session token for signing programmatic requests.
 func (o ServiceEndpointAwsOutput) SessionToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringPtrOutput { return v.SessionToken }).(pulumi.StringPtrOutput)
-}
-
-// A bcrypted hash of the attribute 'session_token'
-func (o ServiceEndpointAwsOutput) SessionTokenHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointAws) pulumi.StringOutput { return v.SessionTokenHash }).(pulumi.StringOutput)
 }
 
 type ServiceEndpointAwsArrayOutput struct{ *pulumi.OutputState }

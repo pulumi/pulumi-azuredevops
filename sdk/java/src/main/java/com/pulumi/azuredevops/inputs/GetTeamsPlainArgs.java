@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -29,10 +30,26 @@ public final class GetTeamsPlainArgs extends com.pulumi.resources.InvokeArgs {
         return Optional.ofNullable(this.projectId);
     }
 
+    /**
+     * The maximum number of teams to return. Defaults to `100`.
+     * 
+     */
+    @Import(name="top")
+    private @Nullable Integer top;
+
+    /**
+     * @return The maximum number of teams to return. Defaults to `100`.
+     * 
+     */
+    public Optional<Integer> top() {
+        return Optional.ofNullable(this.top);
+    }
+
     private GetTeamsPlainArgs() {}
 
     private GetTeamsPlainArgs(GetTeamsPlainArgs $) {
         this.projectId = $.projectId;
+        this.top = $.top;
     }
 
     public static Builder builder() {
@@ -61,6 +78,17 @@ public final class GetTeamsPlainArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder projectId(@Nullable String projectId) {
             $.projectId = projectId;
+            return this;
+        }
+
+        /**
+         * @param top The maximum number of teams to return. Defaults to `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder top(@Nullable Integer top) {
+            $.top = top;
             return this;
         }
 

@@ -21,7 +21,6 @@ public final class AzureRMCredentials {
      * 
      */
     private @Nullable String serviceprincipalkey;
-    private @Nullable String serviceprincipalkeyHash;
 
     private AzureRMCredentials() {}
     /**
@@ -38,9 +37,6 @@ public final class AzureRMCredentials {
     public Optional<String> serviceprincipalkey() {
         return Optional.ofNullable(this.serviceprincipalkey);
     }
-    public Optional<String> serviceprincipalkeyHash() {
-        return Optional.ofNullable(this.serviceprincipalkeyHash);
-    }
 
     public static Builder builder() {
         return new Builder();
@@ -53,13 +49,11 @@ public final class AzureRMCredentials {
     public static final class Builder {
         private String serviceprincipalid;
         private @Nullable String serviceprincipalkey;
-        private @Nullable String serviceprincipalkeyHash;
         public Builder() {}
         public Builder(AzureRMCredentials defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.serviceprincipalid = defaults.serviceprincipalid;
     	      this.serviceprincipalkey = defaults.serviceprincipalkey;
-    	      this.serviceprincipalkeyHash = defaults.serviceprincipalkeyHash;
         }
 
         @CustomType.Setter
@@ -72,16 +66,10 @@ public final class AzureRMCredentials {
             this.serviceprincipalkey = serviceprincipalkey;
             return this;
         }
-        @CustomType.Setter
-        public Builder serviceprincipalkeyHash(@Nullable String serviceprincipalkeyHash) {
-            this.serviceprincipalkeyHash = serviceprincipalkeyHash;
-            return this;
-        }
         public AzureRMCredentials build() {
             final var o = new AzureRMCredentials();
             o.serviceprincipalid = serviceprincipalid;
             o.serviceprincipalkey = serviceprincipalkey;
-            o.serviceprincipalkeyHash = serviceprincipalkeyHash;
             return o;
         }
     }

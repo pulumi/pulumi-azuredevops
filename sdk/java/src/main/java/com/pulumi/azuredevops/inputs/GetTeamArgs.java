@@ -5,8 +5,11 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
@@ -43,11 +46,27 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
         return this.projectId;
     }
 
+    /**
+     * The maximum number of teams to return. Defaults to `100`.
+     * 
+     */
+    @Import(name="top")
+    private @Nullable Output<Integer> top;
+
+    /**
+     * @return The maximum number of teams to return. Defaults to `100`.
+     * 
+     */
+    public Optional<Output<Integer>> top() {
+        return Optional.ofNullable(this.top);
+    }
+
     private GetTeamArgs() {}
 
     private GetTeamArgs(GetTeamArgs $) {
         this.name = $.name;
         this.projectId = $.projectId;
+        this.top = $.top;
     }
 
     public static Builder builder() {
@@ -108,6 +127,27 @@ public final class GetTeamArgs extends com.pulumi.resources.InvokeArgs {
          */
         public Builder projectId(String projectId) {
             return projectId(Output.of(projectId));
+        }
+
+        /**
+         * @param top The maximum number of teams to return. Defaults to `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder top(@Nullable Output<Integer> top) {
+            $.top = top;
+            return this;
+        }
+
+        /**
+         * @param top The maximum number of teams to return. Defaults to `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder top(Integer top) {
+            return top(Output.of(top));
         }
 
         public GetTeamArgs build() {

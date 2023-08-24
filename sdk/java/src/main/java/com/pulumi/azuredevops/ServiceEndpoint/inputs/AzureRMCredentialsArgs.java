@@ -45,19 +45,11 @@ public final class AzureRMCredentialsArgs extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.serviceprincipalkey);
     }
 
-    @Import(name="serviceprincipalkeyHash")
-    private @Nullable Output<String> serviceprincipalkeyHash;
-
-    public Optional<Output<String>> serviceprincipalkeyHash() {
-        return Optional.ofNullable(this.serviceprincipalkeyHash);
-    }
-
     private AzureRMCredentialsArgs() {}
 
     private AzureRMCredentialsArgs(AzureRMCredentialsArgs $) {
         this.serviceprincipalid = $.serviceprincipalid;
         this.serviceprincipalkey = $.serviceprincipalkey;
-        this.serviceprincipalkeyHash = $.serviceprincipalkeyHash;
     }
 
     public static Builder builder() {
@@ -118,15 +110,6 @@ public final class AzureRMCredentialsArgs extends com.pulumi.resources.ResourceA
          */
         public Builder serviceprincipalkey(String serviceprincipalkey) {
             return serviceprincipalkey(Output.of(serviceprincipalkey));
-        }
-
-        public Builder serviceprincipalkeyHash(@Nullable Output<String> serviceprincipalkeyHash) {
-            $.serviceprincipalkeyHash = serviceprincipalkeyHash;
-            return this;
-        }
-
-        public Builder serviceprincipalkeyHash(String serviceprincipalkeyHash) {
-            return serviceprincipalkeyHash(Output.of(serviceprincipalkeyHash));
         }
 
         public AzureRMCredentialsArgs build() {

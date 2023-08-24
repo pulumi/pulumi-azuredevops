@@ -72,8 +72,6 @@ type ServiceEndpointBitBucket struct {
 	Description   pulumi.StringPtrOutput `pulumi:"description"`
 	// Bitbucket account password.
 	Password pulumi.StringOutput `pulumi:"password"`
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash pulumi.StringOutput `pulumi:"passwordHash"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -112,7 +110,6 @@ func NewServiceEndpointBitBucket(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
-		"passwordHash",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -142,8 +139,6 @@ type serviceEndpointBitBucketState struct {
 	Description   *string           `pulumi:"description"`
 	// Bitbucket account password.
 	Password *string `pulumi:"password"`
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash *string `pulumi:"passwordHash"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -157,8 +152,6 @@ type ServiceEndpointBitBucketState struct {
 	Description   pulumi.StringPtrInput
 	// Bitbucket account password.
 	Password pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
@@ -296,11 +289,6 @@ func (o ServiceEndpointBitBucketOutput) Description() pulumi.StringPtrOutput {
 // Bitbucket account password.
 func (o ServiceEndpointBitBucketOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringOutput { return v.Password }).(pulumi.StringOutput)
-}
-
-// A bcrypted hash of the attribute 'password'
-func (o ServiceEndpointBitBucketOutput) PasswordHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointBitBucket) pulumi.StringOutput { return v.PasswordHash }).(pulumi.StringOutput)
 }
 
 // The ID of the project.

@@ -54,6 +54,7 @@ import (
 //				TimeZone:           pulumi.String("UTC"),
 //				Monday:             pulumi.Bool(true),
 //				Tuesday:            pulumi.Bool(true),
+//				Timeout:            pulumi.Int(1440),
 //			})
 //			if err != nil {
 //				return err
@@ -440,6 +441,8 @@ type CheckBusinessHours struct {
 	Thursday pulumi.BoolPtrOutput `pulumi:"thursday"`
 	// The time zone this check will be evaluated in. See below for supported values.
 	TimeZone pulumi.StringOutput `pulumi:"timeZone"`
+	// The timeout in minutes for the business hours check. Defaults to `1440`.
+	Timeout pulumi.IntPtrOutput `pulumi:"timeout"`
 	// This check will pass on Tuesday. Defaults to `false`.
 	Tuesday pulumi.BoolPtrOutput `pulumi:"tuesday"`
 	// This check will pass on Wednesdays. Defaults to `false`.
@@ -518,6 +521,8 @@ type checkBusinessHoursState struct {
 	Thursday *bool `pulumi:"thursday"`
 	// The time zone this check will be evaluated in. See below for supported values.
 	TimeZone *string `pulumi:"timeZone"`
+	// The timeout in minutes for the business hours check. Defaults to `1440`.
+	Timeout *int `pulumi:"timeout"`
 	// This check will pass on Tuesday. Defaults to `false`.
 	Tuesday *bool `pulumi:"tuesday"`
 	// This check will pass on Wednesdays. Defaults to `false`.
@@ -549,6 +554,8 @@ type CheckBusinessHoursState struct {
 	Thursday pulumi.BoolPtrInput
 	// The time zone this check will be evaluated in. See below for supported values.
 	TimeZone pulumi.StringPtrInput
+	// The timeout in minutes for the business hours check. Defaults to `1440`.
+	Timeout pulumi.IntPtrInput
 	// This check will pass on Tuesday. Defaults to `false`.
 	Tuesday pulumi.BoolPtrInput
 	// This check will pass on Wednesdays. Defaults to `false`.
@@ -584,6 +591,8 @@ type checkBusinessHoursArgs struct {
 	Thursday *bool `pulumi:"thursday"`
 	// The time zone this check will be evaluated in. See below for supported values.
 	TimeZone string `pulumi:"timeZone"`
+	// The timeout in minutes for the business hours check. Defaults to `1440`.
+	Timeout *int `pulumi:"timeout"`
 	// This check will pass on Tuesday. Defaults to `false`.
 	Tuesday *bool `pulumi:"tuesday"`
 	// This check will pass on Wednesdays. Defaults to `false`.
@@ -616,6 +625,8 @@ type CheckBusinessHoursArgs struct {
 	Thursday pulumi.BoolPtrInput
 	// The time zone this check will be evaluated in. See below for supported values.
 	TimeZone pulumi.StringInput
+	// The timeout in minutes for the business hours check. Defaults to `1440`.
+	Timeout pulumi.IntPtrInput
 	// This check will pass on Tuesday. Defaults to `false`.
 	Tuesday pulumi.BoolPtrInput
 	// This check will pass on Wednesdays. Defaults to `false`.
@@ -767,6 +778,11 @@ func (o CheckBusinessHoursOutput) Thursday() pulumi.BoolPtrOutput {
 // The time zone this check will be evaluated in. See below for supported values.
 func (o CheckBusinessHoursOutput) TimeZone() pulumi.StringOutput {
 	return o.ApplyT(func(v *CheckBusinessHours) pulumi.StringOutput { return v.TimeZone }).(pulumi.StringOutput)
+}
+
+// The timeout in minutes for the business hours check. Defaults to `1440`.
+func (o CheckBusinessHoursOutput) Timeout() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CheckBusinessHours) pulumi.IntPtrOutput { return v.Timeout }).(pulumi.IntPtrOutput)
 }
 
 // This check will pass on Tuesday. Defaults to `false`.

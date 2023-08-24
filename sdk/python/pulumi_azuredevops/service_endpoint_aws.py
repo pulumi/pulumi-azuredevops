@@ -178,10 +178,8 @@ class _ServiceEndpointAwsState:
                  role_session_name: Optional[pulumi.Input[str]] = None,
                  role_to_assume: Optional[pulumi.Input[str]] = None,
                  secret_access_key: Optional[pulumi.Input[str]] = None,
-                 secret_access_key_hash: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
-                 session_token: Optional[pulumi.Input[str]] = None,
-                 session_token_hash: Optional[pulumi.Input[str]] = None):
+                 session_token: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointAws resources.
         :param pulumi.Input[str] access_key_id: The AWS access key ID for signing programmatic requests.
@@ -190,10 +188,8 @@ class _ServiceEndpointAwsState:
         :param pulumi.Input[str] role_session_name: Optional identifier for the assumed role session.
         :param pulumi.Input[str] role_to_assume: The Amazon Resource Name (ARN) of the role to assume.
         :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
-        :param pulumi.Input[str] secret_access_key_hash: A bcrypted hash of the attribute 'secret_access_key'
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
-        :param pulumi.Input[str] session_token_hash: A bcrypted hash of the attribute 'session_token'
         """
         if access_key_id is not None:
             pulumi.set(__self__, "access_key_id", access_key_id)
@@ -211,14 +207,10 @@ class _ServiceEndpointAwsState:
             pulumi.set(__self__, "role_to_assume", role_to_assume)
         if secret_access_key is not None:
             pulumi.set(__self__, "secret_access_key", secret_access_key)
-        if secret_access_key_hash is not None:
-            pulumi.set(__self__, "secret_access_key_hash", secret_access_key_hash)
         if service_endpoint_name is not None:
             pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if session_token is not None:
             pulumi.set(__self__, "session_token", session_token)
-        if session_token_hash is not None:
-            pulumi.set(__self__, "session_token_hash", session_token_hash)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -311,18 +303,6 @@ class _ServiceEndpointAwsState:
         pulumi.set(self, "secret_access_key", value)
 
     @property
-    @pulumi.getter(name="secretAccessKeyHash")
-    def secret_access_key_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'secret_access_key'
-        """
-        return pulumi.get(self, "secret_access_key_hash")
-
-    @secret_access_key_hash.setter
-    def secret_access_key_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "secret_access_key_hash", value)
-
-    @property
     @pulumi.getter(name="serviceEndpointName")
     def service_endpoint_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -345,18 +325,6 @@ class _ServiceEndpointAwsState:
     @session_token.setter
     def session_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "session_token", value)
-
-    @property
-    @pulumi.getter(name="sessionTokenHash")
-    def session_token_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'session_token'
-        """
-        return pulumi.get(self, "session_token_hash")
-
-    @session_token_hash.setter
-    def session_token_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "session_token_hash", value)
 
 
 class ServiceEndpointAws(pulumi.CustomResource):
@@ -512,9 +480,7 @@ class ServiceEndpointAws(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["session_token"] = None if session_token is None else pulumi.Output.secret(session_token)
-            __props__.__dict__["secret_access_key_hash"] = None
-            __props__.__dict__["session_token_hash"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretAccessKey", "secretAccessKeyHash", "sessionToken", "sessionTokenHash"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["secretAccessKey", "sessionToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointAws, __self__).__init__(
             'azuredevops:index/serviceEndpointAws:ServiceEndpointAws',
@@ -534,10 +500,8 @@ class ServiceEndpointAws(pulumi.CustomResource):
             role_session_name: Optional[pulumi.Input[str]] = None,
             role_to_assume: Optional[pulumi.Input[str]] = None,
             secret_access_key: Optional[pulumi.Input[str]] = None,
-            secret_access_key_hash: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-            session_token: Optional[pulumi.Input[str]] = None,
-            session_token_hash: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointAws':
+            session_token: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointAws':
         """
         Get an existing ServiceEndpointAws resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -551,10 +515,8 @@ class ServiceEndpointAws(pulumi.CustomResource):
         :param pulumi.Input[str] role_session_name: Optional identifier for the assumed role session.
         :param pulumi.Input[str] role_to_assume: The Amazon Resource Name (ARN) of the role to assume.
         :param pulumi.Input[str] secret_access_key: The AWS secret access key for signing programmatic requests.
-        :param pulumi.Input[str] secret_access_key_hash: A bcrypted hash of the attribute 'secret_access_key'
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
-        :param pulumi.Input[str] session_token_hash: A bcrypted hash of the attribute 'session_token'
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -568,10 +530,8 @@ class ServiceEndpointAws(pulumi.CustomResource):
         __props__.__dict__["role_session_name"] = role_session_name
         __props__.__dict__["role_to_assume"] = role_to_assume
         __props__.__dict__["secret_access_key"] = secret_access_key
-        __props__.__dict__["secret_access_key_hash"] = secret_access_key_hash
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         __props__.__dict__["session_token"] = session_token
-        __props__.__dict__["session_token_hash"] = session_token_hash
         return ServiceEndpointAws(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -633,14 +593,6 @@ class ServiceEndpointAws(pulumi.CustomResource):
         return pulumi.get(self, "secret_access_key")
 
     @property
-    @pulumi.getter(name="secretAccessKeyHash")
-    def secret_access_key_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'secret_access_key'
-        """
-        return pulumi.get(self, "secret_access_key_hash")
-
-    @property
     @pulumi.getter(name="serviceEndpointName")
     def service_endpoint_name(self) -> pulumi.Output[str]:
         """
@@ -655,12 +607,4 @@ class ServiceEndpointAws(pulumi.CustomResource):
         The AWS session token for signing programmatic requests.
         """
         return pulumi.get(self, "session_token")
-
-    @property
-    @pulumi.getter(name="sessionTokenHash")
-    def session_token_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'session_token'
-        """
-        return pulumi.get(self, "session_token_hash")
 

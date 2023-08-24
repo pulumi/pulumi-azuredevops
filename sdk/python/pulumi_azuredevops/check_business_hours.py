@@ -26,6 +26,7 @@ class CheckBusinessHoursArgs:
                  saturday: Optional[pulumi.Input[bool]] = None,
                  sunday: Optional[pulumi.Input[bool]] = None,
                  thursday: Optional[pulumi.Input[bool]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  tuesday: Optional[pulumi.Input[bool]] = None,
                  wednesday: Optional[pulumi.Input[bool]] = None):
         """
@@ -42,6 +43,7 @@ class CheckBusinessHoursArgs:
         :param pulumi.Input[bool] saturday: This check will pass on Saturdays. Defaults to `false`.
         :param pulumi.Input[bool] sunday: This check will pass on Sundays. Defaults to `false`.
         :param pulumi.Input[bool] thursday: This check will pass on Thursdays. Defaults to `false`.
+        :param pulumi.Input[int] timeout: The timeout in minutes for the business hours check. Defaults to `1440`.
         :param pulumi.Input[bool] tuesday: This check will pass on Tuesday. Defaults to `false`.
         :param pulumi.Input[bool] wednesday: This check will pass on Wednesdays. Defaults to `false`.
         """
@@ -63,6 +65,8 @@ class CheckBusinessHoursArgs:
             pulumi.set(__self__, "sunday", sunday)
         if thursday is not None:
             pulumi.set(__self__, "thursday", thursday)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
         if tuesday is not None:
             pulumi.set(__self__, "tuesday", tuesday)
         if wednesday is not None:
@@ -214,6 +218,18 @@ class CheckBusinessHoursArgs:
 
     @property
     @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout in minutes for the business hours check. Defaults to `1440`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
     def tuesday(self) -> Optional[pulumi.Input[bool]]:
         """
         This check will pass on Tuesday. Defaults to `false`.
@@ -252,6 +268,7 @@ class _CheckBusinessHoursState:
                  target_resource_type: Optional[pulumi.Input[str]] = None,
                  thursday: Optional[pulumi.Input[bool]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  tuesday: Optional[pulumi.Input[bool]] = None,
                  wednesday: Optional[pulumi.Input[bool]] = None):
         """
@@ -268,6 +285,7 @@ class _CheckBusinessHoursState:
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[bool] thursday: This check will pass on Thursdays. Defaults to `false`.
         :param pulumi.Input[str] time_zone: The time zone this check will be evaluated in. See below for supported values.
+        :param pulumi.Input[int] timeout: The timeout in minutes for the business hours check. Defaults to `1440`.
         :param pulumi.Input[bool] tuesday: This check will pass on Tuesday. Defaults to `false`.
         :param pulumi.Input[bool] wednesday: This check will pass on Wednesdays. Defaults to `false`.
         """
@@ -295,6 +313,8 @@ class _CheckBusinessHoursState:
             pulumi.set(__self__, "thursday", thursday)
         if time_zone is not None:
             pulumi.set(__self__, "time_zone", time_zone)
+        if timeout is not None:
+            pulumi.set(__self__, "timeout", timeout)
         if tuesday is not None:
             pulumi.set(__self__, "tuesday", tuesday)
         if wednesday is not None:
@@ -446,6 +466,18 @@ class _CheckBusinessHoursState:
 
     @property
     @pulumi.getter
+    def timeout(self) -> Optional[pulumi.Input[int]]:
+        """
+        The timeout in minutes for the business hours check. Defaults to `1440`.
+        """
+        return pulumi.get(self, "timeout")
+
+    @timeout.setter
+    def timeout(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "timeout", value)
+
+    @property
+    @pulumi.getter
     def tuesday(self) -> Optional[pulumi.Input[bool]]:
         """
         This check will pass on Tuesday. Defaults to `false`.
@@ -486,6 +518,7 @@ class CheckBusinessHours(pulumi.CustomResource):
                  target_resource_type: Optional[pulumi.Input[str]] = None,
                  thursday: Optional[pulumi.Input[bool]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  tuesday: Optional[pulumi.Input[bool]] = None,
                  wednesday: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -516,7 +549,8 @@ class CheckBusinessHours(pulumi.CustomResource):
             end_time="15:30",
             time_zone="UTC",
             monday=True,
-            tuesday=True)
+            tuesday=True,
+            timeout=1440)
         ```
         ### Protect an environment
 
@@ -781,6 +815,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[bool] thursday: This check will pass on Thursdays. Defaults to `false`.
         :param pulumi.Input[str] time_zone: The time zone this check will be evaluated in. See below for supported values.
+        :param pulumi.Input[int] timeout: The timeout in minutes for the business hours check. Defaults to `1440`.
         :param pulumi.Input[bool] tuesday: This check will pass on Tuesday. Defaults to `false`.
         :param pulumi.Input[bool] wednesday: This check will pass on Wednesdays. Defaults to `false`.
         """
@@ -817,7 +852,8 @@ class CheckBusinessHours(pulumi.CustomResource):
             end_time="15:30",
             time_zone="UTC",
             monday=True,
-            tuesday=True)
+            tuesday=True,
+            timeout=1440)
         ```
         ### Protect an environment
 
@@ -1095,6 +1131,7 @@ class CheckBusinessHours(pulumi.CustomResource):
                  target_resource_type: Optional[pulumi.Input[str]] = None,
                  thursday: Optional[pulumi.Input[bool]] = None,
                  time_zone: Optional[pulumi.Input[str]] = None,
+                 timeout: Optional[pulumi.Input[int]] = None,
                  tuesday: Optional[pulumi.Input[bool]] = None,
                  wednesday: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
@@ -1130,6 +1167,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             if time_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'time_zone'")
             __props__.__dict__["time_zone"] = time_zone
+            __props__.__dict__["timeout"] = timeout
             __props__.__dict__["tuesday"] = tuesday
             __props__.__dict__["wednesday"] = wednesday
         super(CheckBusinessHours, __self__).__init__(
@@ -1154,6 +1192,7 @@ class CheckBusinessHours(pulumi.CustomResource):
             target_resource_type: Optional[pulumi.Input[str]] = None,
             thursday: Optional[pulumi.Input[bool]] = None,
             time_zone: Optional[pulumi.Input[str]] = None,
+            timeout: Optional[pulumi.Input[int]] = None,
             tuesday: Optional[pulumi.Input[bool]] = None,
             wednesday: Optional[pulumi.Input[bool]] = None) -> 'CheckBusinessHours':
         """
@@ -1175,6 +1214,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
         :param pulumi.Input[bool] thursday: This check will pass on Thursdays. Defaults to `false`.
         :param pulumi.Input[str] time_zone: The time zone this check will be evaluated in. See below for supported values.
+        :param pulumi.Input[int] timeout: The timeout in minutes for the business hours check. Defaults to `1440`.
         :param pulumi.Input[bool] tuesday: This check will pass on Tuesday. Defaults to `false`.
         :param pulumi.Input[bool] wednesday: This check will pass on Wednesdays. Defaults to `false`.
         """
@@ -1194,6 +1234,7 @@ class CheckBusinessHours(pulumi.CustomResource):
         __props__.__dict__["target_resource_type"] = target_resource_type
         __props__.__dict__["thursday"] = thursday
         __props__.__dict__["time_zone"] = time_zone
+        __props__.__dict__["timeout"] = timeout
         __props__.__dict__["tuesday"] = tuesday
         __props__.__dict__["wednesday"] = wednesday
         return CheckBusinessHours(resource_name, opts=opts, __props__=__props__)
@@ -1293,6 +1334,14 @@ class CheckBusinessHours(pulumi.CustomResource):
         The time zone this check will be evaluated in. See below for supported values.
         """
         return pulumi.get(self, "time_zone")
+
+    @property
+    @pulumi.getter
+    def timeout(self) -> pulumi.Output[Optional[int]]:
+        """
+        The timeout in minutes for the business hours check. Defaults to `1440`.
+        """
+        return pulumi.get(self, "timeout")
 
     @property
     @pulumi.getter

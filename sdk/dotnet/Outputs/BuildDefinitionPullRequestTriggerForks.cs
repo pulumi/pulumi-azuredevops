@@ -14,7 +14,7 @@ namespace Pulumi.AzureDevOps.Outputs
     public sealed class BuildDefinitionPullRequestTriggerForks
     {
         /// <summary>
-        /// Build pull requests form forms of this repository.
+        /// Build pull requests from forks of this repository.
         /// </summary>
         public readonly bool Enabled;
         /// <summary>

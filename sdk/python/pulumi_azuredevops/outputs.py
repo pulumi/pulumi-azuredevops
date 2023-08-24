@@ -64,6 +64,8 @@ __all__ = [
     'ServiceendpointJfrogPlatformV2AuthenticationToken',
     'ServiceendpointJfrogXrayV2AuthenticationBasic',
     'ServiceendpointJfrogXrayV2AuthenticationToken',
+    'ServiceendpointMavenAuthenticationBasic',
+    'ServiceendpointMavenAuthenticationToken',
     'VariableGroupKeyVault',
     'VariableGroupVariable',
     'GetAreaChildrenResult',
@@ -1464,7 +1466,7 @@ class BuildDefinitionPullRequestTriggerForks(dict):
                  enabled: bool,
                  share_secrets: bool):
         """
-        :param bool enabled: Build pull requests form forms of this repository.
+        :param bool enabled: Build pull requests from forks of this repository.
         :param bool share_secrets: Make secrets available to builds of forks.
         """
         pulumi.set(__self__, "enabled", enabled)
@@ -1474,7 +1476,7 @@ class BuildDefinitionPullRequestTriggerForks(dict):
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Build pull requests form forms of this repository.
+        Build pull requests from forks of this repository.
         """
         return pulumi.get(self, "enabled")
 
@@ -2450,27 +2452,9 @@ class ServiceEndpointArtifactoryAuthenticationToken(dict):
 
 @pulumi.output_type
 class ServiceEndpointAzureRMCredentials(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "serviceprincipalkeyHash":
-            suggest = "serviceprincipalkey_hash"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointAzureRMCredentials. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        ServiceEndpointAzureRMCredentials.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        ServiceEndpointAzureRMCredentials.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  serviceprincipalid: str,
-                 serviceprincipalkey: Optional[str] = None,
-                 serviceprincipalkey_hash: Optional[str] = None):
+                 serviceprincipalkey: Optional[str] = None):
         """
         :param str serviceprincipalid: The service principal application Id
         :param str serviceprincipalkey: The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
@@ -2478,8 +2462,6 @@ class ServiceEndpointAzureRMCredentials(dict):
         pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
         if serviceprincipalkey is not None:
             pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
-        if serviceprincipalkey_hash is not None:
-            pulumi.set(__self__, "serviceprincipalkey_hash", serviceprincipalkey_hash)
 
     @property
     @pulumi.getter
@@ -2496,11 +2478,6 @@ class ServiceEndpointAzureRMCredentials(dict):
         The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         return pulumi.get(self, "serviceprincipalkey")
-
-    @property
-    @pulumi.getter(name="serviceprincipalkeyHash")
-    def serviceprincipalkey_hash(self) -> Optional[str]:
-        return pulumi.get(self, "serviceprincipalkey_hash")
 
 
 @pulumi.output_type
@@ -2539,8 +2516,6 @@ class ServiceEndpointGitHubAuthPersonal(dict):
         suggest = None
         if key == "personalAccessToken":
             suggest = "personal_access_token"
-        elif key == "personalAccessTokenHash":
-            suggest = "personal_access_token_hash"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointGitHubAuthPersonal. Access the value via the '{suggest}' property getter instead.")
@@ -2554,14 +2529,11 @@ class ServiceEndpointGitHubAuthPersonal(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 personal_access_token: str,
-                 personal_access_token_hash: Optional[str] = None):
+                 personal_access_token: str):
         """
         :param str personal_access_token: The Personal Access Token for GitHub.
         """
         pulumi.set(__self__, "personal_access_token", personal_access_token)
-        if personal_access_token_hash is not None:
-            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -2571,11 +2543,6 @@ class ServiceEndpointGitHubAuthPersonal(dict):
         """
         return pulumi.get(self, "personal_access_token")
 
-    @property
-    @pulumi.getter(name="personalAccessTokenHash")
-    def personal_access_token_hash(self) -> Optional[str]:
-        return pulumi.get(self, "personal_access_token_hash")
-
 
 @pulumi.output_type
 class ServiceEndpointGitHubEnterpriseAuthPersonal(dict):
@@ -2584,8 +2551,6 @@ class ServiceEndpointGitHubEnterpriseAuthPersonal(dict):
         suggest = None
         if key == "personalAccessToken":
             suggest = "personal_access_token"
-        elif key == "personalAccessTokenHash":
-            suggest = "personal_access_token_hash"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointGitHubEnterpriseAuthPersonal. Access the value via the '{suggest}' property getter instead.")
@@ -2599,14 +2564,11 @@ class ServiceEndpointGitHubEnterpriseAuthPersonal(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 personal_access_token: str,
-                 personal_access_token_hash: Optional[str] = None):
+                 personal_access_token: str):
         """
         :param str personal_access_token: The Personal Access Token for GitHub.
         """
         pulumi.set(__self__, "personal_access_token", personal_access_token)
-        if personal_access_token_hash is not None:
-            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -2615,11 +2577,6 @@ class ServiceEndpointGitHubEnterpriseAuthPersonal(dict):
         The Personal Access Token for GitHub.
         """
         return pulumi.get(self, "personal_access_token")
-
-    @property
-    @pulumi.getter(name="personalAccessTokenHash")
-    def personal_access_token_hash(self) -> Optional[str]:
-        return pulumi.get(self, "personal_access_token_hash")
 
 
 @pulumi.output_type
@@ -2819,10 +2776,6 @@ class ServiceEndpointKubernetesServiceAccount(dict):
         suggest = None
         if key == "caCert":
             suggest = "ca_cert"
-        elif key == "caCertHash":
-            suggest = "ca_cert_hash"
-        elif key == "tokenHash":
-            suggest = "token_hash"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointKubernetesServiceAccount. Access the value via the '{suggest}' property getter instead.")
@@ -2837,19 +2790,13 @@ class ServiceEndpointKubernetesServiceAccount(dict):
 
     def __init__(__self__, *,
                  ca_cert: str,
-                 token: str,
-                 ca_cert_hash: Optional[str] = None,
-                 token_hash: Optional[str] = None):
+                 token: str):
         """
         :param str ca_cert: The certificate from a Kubernetes secret object.
         :param str token: The token from a Kubernetes secret object.
         """
         pulumi.set(__self__, "ca_cert", ca_cert)
         pulumi.set(__self__, "token", token)
-        if ca_cert_hash is not None:
-            pulumi.set(__self__, "ca_cert_hash", ca_cert_hash)
-        if token_hash is not None:
-            pulumi.set(__self__, "token_hash", token_hash)
 
     @property
     @pulumi.getter(name="caCert")
@@ -2867,16 +2814,6 @@ class ServiceEndpointKubernetesServiceAccount(dict):
         """
         return pulumi.get(self, "token")
 
-    @property
-    @pulumi.getter(name="caCertHash")
-    def ca_cert_hash(self) -> Optional[str]:
-        return pulumi.get(self, "ca_cert_hash")
-
-    @property
-    @pulumi.getter(name="tokenHash")
-    def token_hash(self) -> Optional[str]:
-        return pulumi.get(self, "token_hash")
-
 
 @pulumi.output_type
 class ServiceEndpointPipelineAuthPersonal(dict):
@@ -2885,8 +2822,6 @@ class ServiceEndpointPipelineAuthPersonal(dict):
         suggest = None
         if key == "personalAccessToken":
             suggest = "personal_access_token"
-        elif key == "personalAccessTokenHash":
-            suggest = "personal_access_token_hash"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ServiceEndpointPipelineAuthPersonal. Access the value via the '{suggest}' property getter instead.")
@@ -2900,14 +2835,11 @@ class ServiceEndpointPipelineAuthPersonal(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 personal_access_token: str,
-                 personal_access_token_hash: Optional[str] = None):
+                 personal_access_token: str):
         """
         :param str personal_access_token: The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
         """
         pulumi.set(__self__, "personal_access_token", personal_access_token)
-        if personal_access_token_hash is not None:
-            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -2916,11 +2848,6 @@ class ServiceEndpointPipelineAuthPersonal(dict):
         The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
         """
         return pulumi.get(self, "personal_access_token")
-
-    @property
-    @pulumi.getter(name="personalAccessTokenHash")
-    def personal_access_token_hash(self) -> Optional[str]:
-        return pulumi.get(self, "personal_access_token_hash")
 
 
 @pulumi.output_type
@@ -3412,6 +3339,53 @@ class ServiceendpointJfrogXrayV2AuthenticationToken(dict):
     def token(self) -> str:
         """
         Authentication Token generated through Artifactory.
+        """
+        return pulumi.get(self, "token")
+
+
+@pulumi.output_type
+class ServiceendpointMavenAuthenticationBasic(dict):
+    def __init__(__self__, *,
+                 password: str,
+                 username: str):
+        """
+        :param str password: The password Maven Repository.
+        :param str username: The Username of the Maven Repository.
+        """
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        The password Maven Repository.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        """
+        The Username of the Maven Repository.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class ServiceendpointMavenAuthenticationToken(dict):
+    def __init__(__self__, *,
+                 token: str):
+        """
+        :param str token: Authentication Token generated through maven repository.
+        """
+        pulumi.set(__self__, "token", token)
+
+    @property
+    @pulumi.getter
+    def token(self) -> str:
+        """
+        Authentication Token generated through maven repository.
         """
         return pulumi.get(self, "token")
 

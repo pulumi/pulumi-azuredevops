@@ -149,7 +149,7 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// 
     ///     var exampleazurerm_user_assigned_identity = new Azurerm.Index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity", new()
     ///     {
-    ///         Location = @var.Location,
+    ///         Location = identity.Location,
     ///         Name = "example-identity",
     ///         ResourceGroupName = "azurerm_resource_group.identity.name",
     ///     });
@@ -164,9 +164,10 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///         },
     ///         Issuer = "https://app.vstoken.visualstudio.com",
     ///         ParentId = exampleazurerm_user_assigned_identity.Id,
-    ///         Subject = $"sc://{@var.Azure_devops_organisation}/{exampleProject.Name}/{serviceConnectionName}",
+    ///         Subject = $"sc://organizationName/projectName/{serviceConnectionName}",
     ///     });
     /// 
+    ///     //NOTE: The federated credential subject is formed from the Azure DevOps Organisation, Project and the Service Connection name.
     ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
     ///     {
     ///         ProjectId = exampleProject.Id,

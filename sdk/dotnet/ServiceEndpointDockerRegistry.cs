@@ -89,12 +89,6 @@ namespace Pulumi.AzureDevOps
         public Output<string?> DockerPassword { get; private set; } = null!;
 
         /// <summary>
-        /// A bcrypted hash of the attribute 'docker_password'
-        /// </summary>
-        [Output("dockerPasswordHash")]
-        public Output<string> DockerPasswordHash { get; private set; } = null!;
-
-        /// <summary>
         /// The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
         /// </summary>
         [Output("dockerRegistry")]
@@ -154,7 +148,6 @@ namespace Pulumi.AzureDevOps
                 AdditionalSecretOutputs =
                 {
                     "dockerPassword",
-                    "dockerPasswordHash",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -280,22 +273,6 @@ namespace Pulumi.AzureDevOps
             {
                 var emptySecret = Output.CreateSecret(0);
                 _dockerPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("dockerPasswordHash")]
-        private Input<string>? _dockerPasswordHash;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'docker_password'
-        /// </summary>
-        public Input<string>? DockerPasswordHash
-        {
-            get => _dockerPasswordHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _dockerPasswordHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

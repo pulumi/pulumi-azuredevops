@@ -34,18 +34,6 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint.Inputs
             }
         }
 
-        [Input("serviceprincipalkeyHash")]
-        private Input<string>? _serviceprincipalkeyHash;
-        public Input<string>? ServiceprincipalkeyHash
-        {
-            get => _serviceprincipalkeyHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _serviceprincipalkeyHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
         public AzureRMCredentialsGetArgs()
         {
         }

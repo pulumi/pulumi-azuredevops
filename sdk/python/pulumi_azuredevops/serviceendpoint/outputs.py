@@ -20,27 +20,9 @@ __all__ = [
 
 @pulumi.output_type
 class AzureRMCredentials(dict):
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "serviceprincipalkeyHash":
-            suggest = "serviceprincipalkey_hash"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in AzureRMCredentials. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        AzureRMCredentials.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        AzureRMCredentials.__key_warning(key)
-        return super().get(key, default)
-
     def __init__(__self__, *,
                  serviceprincipalid: str,
-                 serviceprincipalkey: Optional[str] = None,
-                 serviceprincipalkey_hash: Optional[str] = None):
+                 serviceprincipalkey: Optional[str] = None):
         """
         :param str serviceprincipalid: The service principal application Id
         :param str serviceprincipalkey: The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
@@ -48,8 +30,6 @@ class AzureRMCredentials(dict):
         pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
         if serviceprincipalkey is not None:
             pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
-        if serviceprincipalkey_hash is not None:
-            pulumi.set(__self__, "serviceprincipalkey_hash", serviceprincipalkey_hash)
 
     @property
     @pulumi.getter
@@ -66,11 +46,6 @@ class AzureRMCredentials(dict):
         The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
         return pulumi.get(self, "serviceprincipalkey")
-
-    @property
-    @pulumi.getter(name="serviceprincipalkeyHash")
-    def serviceprincipalkey_hash(self) -> Optional[str]:
-        return pulumi.get(self, "serviceprincipalkey_hash")
 
 
 @pulumi.output_type
@@ -109,8 +84,6 @@ class GitHubAuthPersonal(dict):
         suggest = None
         if key == "personalAccessToken":
             suggest = "personal_access_token"
-        elif key == "personalAccessTokenHash":
-            suggest = "personal_access_token_hash"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in GitHubAuthPersonal. Access the value via the '{suggest}' property getter instead.")
@@ -124,14 +97,11 @@ class GitHubAuthPersonal(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 personal_access_token: str,
-                 personal_access_token_hash: Optional[str] = None):
+                 personal_access_token: str):
         """
         :param str personal_access_token: The Personal Access Token for GitHub.
         """
         pulumi.set(__self__, "personal_access_token", personal_access_token)
-        if personal_access_token_hash is not None:
-            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -140,11 +110,6 @@ class GitHubAuthPersonal(dict):
         The Personal Access Token for GitHub.
         """
         return pulumi.get(self, "personal_access_token")
-
-    @property
-    @pulumi.getter(name="personalAccessTokenHash")
-    def personal_access_token_hash(self) -> Optional[str]:
-        return pulumi.get(self, "personal_access_token_hash")
 
 
 @pulumi.output_type
@@ -344,10 +309,6 @@ class KubernetesServiceAccount(dict):
         suggest = None
         if key == "caCert":
             suggest = "ca_cert"
-        elif key == "caCertHash":
-            suggest = "ca_cert_hash"
-        elif key == "tokenHash":
-            suggest = "token_hash"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KubernetesServiceAccount. Access the value via the '{suggest}' property getter instead.")
@@ -362,19 +323,13 @@ class KubernetesServiceAccount(dict):
 
     def __init__(__self__, *,
                  ca_cert: str,
-                 token: str,
-                 ca_cert_hash: Optional[str] = None,
-                 token_hash: Optional[str] = None):
+                 token: str):
         """
         :param str ca_cert: The certificate from a Kubernetes secret object.
         :param str token: The token from a Kubernetes secret object.
         """
         pulumi.set(__self__, "ca_cert", ca_cert)
         pulumi.set(__self__, "token", token)
-        if ca_cert_hash is not None:
-            pulumi.set(__self__, "ca_cert_hash", ca_cert_hash)
-        if token_hash is not None:
-            pulumi.set(__self__, "token_hash", token_hash)
 
     @property
     @pulumi.getter(name="caCert")
@@ -391,15 +346,5 @@ class KubernetesServiceAccount(dict):
         The token from a Kubernetes secret object.
         """
         return pulumi.get(self, "token")
-
-    @property
-    @pulumi.getter(name="caCertHash")
-    def ca_cert_hash(self) -> Optional[str]:
-        return pulumi.get(self, "ca_cert_hash")
-
-    @property
-    @pulumi.getter(name="tokenHash")
-    def token_hash(self) -> Optional[str]:
-        return pulumi.get(self, "token_hash")
 
 

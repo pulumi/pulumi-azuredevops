@@ -80,12 +80,6 @@ namespace Pulumi.AzureDevOps
         public Output<string> PersonalAccessToken { get; private set; } = null!;
 
         /// <summary>
-        /// A bcrypted hash of the attribute 'personal_access_token'
-        /// </summary>
-        [Output("personalAccessTokenHash")]
-        public Output<string> PersonalAccessTokenHash { get; private set; } = null!;
-
-        /// <summary>
         /// The ID of the project.
         /// </summary>
         [Output("projectId")]
@@ -129,7 +123,6 @@ namespace Pulumi.AzureDevOps
                 AdditionalSecretOutputs =
                 {
                     "personalAccessToken",
-                    "personalAccessTokenHash",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -243,22 +236,6 @@ namespace Pulumi.AzureDevOps
             {
                 var emptySecret = Output.CreateSecret(0);
                 _personalAccessToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("personalAccessTokenHash")]
-        private Input<string>? _personalAccessTokenHash;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'personal_access_token'
-        /// </summary>
-        public Input<string>? PersonalAccessTokenHash
-        {
-            get => _personalAccessTokenHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _personalAccessTokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

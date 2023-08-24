@@ -10,6 +10,8 @@ import com.pulumi.azuredevops.inputs.GetAreaArgs;
 import com.pulumi.azuredevops.inputs.GetAreaPlainArgs;
 import com.pulumi.azuredevops.inputs.GetBuildDefinitionArgs;
 import com.pulumi.azuredevops.inputs.GetBuildDefinitionPlainArgs;
+import com.pulumi.azuredevops.inputs.GetEnvironmentArgs;
+import com.pulumi.azuredevops.inputs.GetEnvironmentPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGitRepositoryArgs;
 import com.pulumi.azuredevops.inputs.GetGitRepositoryPlainArgs;
 import com.pulumi.azuredevops.inputs.GetGroupArgs;
@@ -46,6 +48,7 @@ import com.pulumi.azuredevops.outputs.GetAgentQueueResult;
 import com.pulumi.azuredevops.outputs.GetAreaResult;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionResult;
 import com.pulumi.azuredevops.outputs.GetClientConfigResult;
+import com.pulumi.azuredevops.outputs.GetEnvironmentResult;
 import com.pulumi.azuredevops.outputs.GetGitRepositoryResult;
 import com.pulumi.azuredevops.outputs.GetGroupResult;
 import com.pulumi.azuredevops.outputs.GetGroupsResult;
@@ -886,6 +889,50 @@ public final class AzuredevopsFunctions {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getClientConfig:getClientConfig", TypeShape.of(GetClientConfigResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an Environment.
+     * 
+     * ## Relevant Links
+     * 
+     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args) {
+        return getEnvironment(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an Environment.
+     * 
+     * ## Relevant Links
+     * 
+     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args) {
+        return getEnvironmentPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an Environment.
+     * 
+     * ## Relevant Links
+     * 
+     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an Environment.
+     * 
+     * ## Relevant Links
+     * 
+     * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
+     * 
+     */
+    public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getEnvironment:getEnvironment", TypeShape.of(GetEnvironmentResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
      * To read information about **multiple** Git Repositories use the data source `azuredevops.getRepositories`
      * 
@@ -1330,7 +1377,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetGroupsResult> getGroups() {
@@ -1377,7 +1424,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain() {
@@ -1424,7 +1471,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetGroupsResult> getGroups(GetGroupsArgs args) {
@@ -1471,7 +1518,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain(GetGroupsPlainArgs args) {
@@ -1518,7 +1565,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetGroupsResult> getGroups(GetGroupsArgs args, InvokeOptions options) {
@@ -1565,7 +1612,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetGroupsResult> getGroupsPlain(GetGroupsPlainArgs args, InvokeOptions options) {

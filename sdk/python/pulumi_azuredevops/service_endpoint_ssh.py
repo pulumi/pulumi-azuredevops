@@ -158,10 +158,8 @@ class _ServiceEndpointSshState:
                  description: Optional[pulumi.Input[str]] = None,
                  host: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_hash: Optional[pulumi.Input[str]] = None,
                  port: Optional[pulumi.Input[int]] = None,
                  private_key: Optional[pulumi.Input[str]] = None,
-                 private_key_hash: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
@@ -169,10 +167,8 @@ class _ServiceEndpointSshState:
         Input properties used for looking up and filtering ServiceEndpointSsh resources.
         :param pulumi.Input[str] host: The Host name or IP address of the remote machine.
         :param pulumi.Input[str] password: Password for connecting to the endpoint.
-        :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[int] port: Port number on the remote machine to use for connecting. Defaults to `22`.
         :param pulumi.Input[str] private_key: Private Key for connecting to the endpoint.
-        :param pulumi.Input[str] private_key_hash: A bcrypted hash of the attribute 'private_key'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Username for connecting to the endpoint.
@@ -185,14 +181,10 @@ class _ServiceEndpointSshState:
             pulumi.set(__self__, "host", host)
         if password is not None:
             pulumi.set(__self__, "password", password)
-        if password_hash is not None:
-            pulumi.set(__self__, "password_hash", password_hash)
         if port is not None:
             pulumi.set(__self__, "port", port)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
-        if private_key_hash is not None:
-            pulumi.set(__self__, "private_key_hash", private_key_hash)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if service_endpoint_name is not None:
@@ -243,18 +235,6 @@ class _ServiceEndpointSshState:
         pulumi.set(self, "password", value)
 
     @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'password'
-        """
-        return pulumi.get(self, "password_hash")
-
-    @password_hash.setter
-    def password_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password_hash", value)
-
-    @property
     @pulumi.getter
     def port(self) -> Optional[pulumi.Input[int]]:
         """
@@ -277,18 +257,6 @@ class _ServiceEndpointSshState:
     @private_key.setter
     def private_key(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "private_key", value)
-
-    @property
-    @pulumi.getter(name="privateKeyHash")
-    def private_key_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'private_key'
-        """
-        return pulumi.get(self, "private_key_hash")
-
-    @private_key_hash.setter
-    def private_key_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "private_key_hash", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -474,9 +442,7 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
-            __props__.__dict__["password_hash"] = None
-            __props__.__dict__["private_key_hash"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "passwordHash", "privateKey", "privateKeyHash"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "privateKey"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointSsh, __self__).__init__(
             'azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh',
@@ -492,10 +458,8 @@ class ServiceEndpointSsh(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             host: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
-            password_hash: Optional[pulumi.Input[str]] = None,
             port: Optional[pulumi.Input[int]] = None,
             private_key: Optional[pulumi.Input[str]] = None,
-            private_key_hash: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointSsh':
@@ -508,10 +472,8 @@ class ServiceEndpointSsh(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] host: The Host name or IP address of the remote machine.
         :param pulumi.Input[str] password: Password for connecting to the endpoint.
-        :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[int] port: Port number on the remote machine to use for connecting. Defaults to `22`.
         :param pulumi.Input[str] private_key: Private Key for connecting to the endpoint.
-        :param pulumi.Input[str] private_key_hash: A bcrypted hash of the attribute 'private_key'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Username for connecting to the endpoint.
@@ -524,10 +486,8 @@ class ServiceEndpointSsh(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["host"] = host
         __props__.__dict__["password"] = password
-        __props__.__dict__["password_hash"] = password_hash
         __props__.__dict__["port"] = port
         __props__.__dict__["private_key"] = private_key
-        __props__.__dict__["private_key_hash"] = private_key_hash
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         __props__.__dict__["username"] = username
@@ -560,14 +520,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
         return pulumi.get(self, "password")
 
     @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'password'
-        """
-        return pulumi.get(self, "password_hash")
-
-    @property
     @pulumi.getter
     def port(self) -> pulumi.Output[Optional[int]]:
         """
@@ -582,14 +534,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
         Private Key for connecting to the endpoint.
         """
         return pulumi.get(self, "private_key")
-
-    @property
-    @pulumi.getter(name="privateKeyHash")
-    def private_key_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'private_key'
-        """
-        return pulumi.get(self, "private_key_hash")
 
     @property
     @pulumi.getter(name="projectId")

@@ -182,7 +182,7 @@ import (
 //				return err
 //			}
 //			exampleazurerm_user_assigned_identity, err := index.NewAzurerm_user_assigned_identity(ctx, "exampleazurerm_user_assigned_identity", &index.Azurerm_user_assigned_identityArgs{
-//				Location:          _var.Location,
+//				Location:          identity.Location,
 //				Name:              "example-identity",
 //				ResourceGroupName: "azurerm_resource_group.identity.name",
 //			})
@@ -197,7 +197,7 @@ import (
 //				},
 //				Issuer:   "https://app.vstoken.visualstudio.com",
 //				ParentId: exampleazurerm_user_assigned_identity.Id,
-//				Subject:  pulumi.String(fmt.Sprintf("sc://%v/%v/%v", _var.Azure_devops_organisation, exampleProject.Name, serviceConnectionName)),
+//				Subject:  fmt.Sprintf("sc://organizationName/projectName/%v", serviceConnectionName),
 //			})
 //			if err != nil {
 //				return err

@@ -6,8 +6,6 @@ package com.pulumi.azuredevops.ServiceEndpoint.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class KubernetesServiceAccount {
@@ -16,13 +14,11 @@ public final class KubernetesServiceAccount {
      * 
      */
     private String caCert;
-    private @Nullable String caCertHash;
     /**
      * @return The token from a Kubernetes secret object.
      * 
      */
     private String token;
-    private @Nullable String tokenHash;
 
     private KubernetesServiceAccount() {}
     /**
@@ -32,18 +28,12 @@ public final class KubernetesServiceAccount {
     public String caCert() {
         return this.caCert;
     }
-    public Optional<String> caCertHash() {
-        return Optional.ofNullable(this.caCertHash);
-    }
     /**
      * @return The token from a Kubernetes secret object.
      * 
      */
     public String token() {
         return this.token;
-    }
-    public Optional<String> tokenHash() {
-        return Optional.ofNullable(this.tokenHash);
     }
 
     public static Builder builder() {
@@ -56,16 +46,12 @@ public final class KubernetesServiceAccount {
     @CustomType.Builder
     public static final class Builder {
         private String caCert;
-        private @Nullable String caCertHash;
         private String token;
-        private @Nullable String tokenHash;
         public Builder() {}
         public Builder(KubernetesServiceAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.caCert = defaults.caCert;
-    	      this.caCertHash = defaults.caCertHash;
     	      this.token = defaults.token;
-    	      this.tokenHash = defaults.tokenHash;
         }
 
         @CustomType.Setter
@@ -74,26 +60,14 @@ public final class KubernetesServiceAccount {
             return this;
         }
         @CustomType.Setter
-        public Builder caCertHash(@Nullable String caCertHash) {
-            this.caCertHash = caCertHash;
-            return this;
-        }
-        @CustomType.Setter
         public Builder token(String token) {
             this.token = Objects.requireNonNull(token);
-            return this;
-        }
-        @CustomType.Setter
-        public Builder tokenHash(@Nullable String tokenHash) {
-            this.tokenHash = tokenHash;
             return this;
         }
         public KubernetesServiceAccount build() {
             final var o = new KubernetesServiceAccount();
             o.caCert = caCert;
-            o.caCertHash = caCertHash;
             o.token = token;
-            o.tokenHash = tokenHash;
             return o;
         }
     }

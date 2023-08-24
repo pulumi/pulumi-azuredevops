@@ -74,10 +74,6 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string>;
     /**
-     * A bcrypted hash of the attribute 'password'
-     */
-    public /*out*/ readonly passwordHash!: pulumi.Output<string>;
-    /**
      * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
@@ -106,7 +102,6 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
             resourceInputs["authorization"] = state ? state.authorization : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["passwordHash"] = state ? state.passwordHash : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
@@ -130,12 +125,11 @@ export class ServiceEndpointBitBucket extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["passwordHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const aliasOpts = { aliases: [{ type: "azuredevops:ServiceEndpoint/bitBucket:BitBucket" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
-        const secretOpts = { additionalSecretOutputs: ["password", "passwordHash"] };
+        const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointBitBucket.__pulumiType, name, resourceInputs, opts);
     }
@@ -151,10 +145,6 @@ export interface ServiceEndpointBitBucketState {
      * Bitbucket account password.
      */
     password?: pulumi.Input<string>;
-    /**
-     * A bcrypted hash of the attribute 'password'
-     */
-    passwordHash?: pulumi.Input<string>;
     /**
      * The ID of the project.
      */

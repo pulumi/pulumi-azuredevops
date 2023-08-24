@@ -93,10 +93,6 @@ export class DockerRegistry extends pulumi.CustomResource {
      */
     public readonly dockerPassword!: pulumi.Output<string | undefined>;
     /**
-     * A bcrypted hash of the attribute 'docker_password'
-     */
-    public /*out*/ readonly dockerPasswordHash!: pulumi.Output<string>;
-    /**
      * The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
      */
     public readonly dockerRegistry!: pulumi.Output<string>;
@@ -137,7 +133,6 @@ export class DockerRegistry extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["dockerEmail"] = state ? state.dockerEmail : undefined;
             resourceInputs["dockerPassword"] = state ? state.dockerPassword : undefined;
-            resourceInputs["dockerPasswordHash"] = state ? state.dockerPasswordHash : undefined;
             resourceInputs["dockerRegistry"] = state ? state.dockerRegistry : undefined;
             resourceInputs["dockerUsername"] = state ? state.dockerUsername : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
@@ -166,10 +161,9 @@ export class DockerRegistry extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["registryType"] = args ? args.registryType : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["dockerPasswordHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["dockerPassword", "dockerPasswordHash"] };
+        const secretOpts = { additionalSecretOutputs: ["dockerPassword"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(DockerRegistry.__pulumiType, name, resourceInputs, opts);
     }
@@ -189,10 +183,6 @@ export interface DockerRegistryState {
      * The password for the account user identified above.
      */
     dockerPassword?: pulumi.Input<string>;
-    /**
-     * A bcrypted hash of the attribute 'docker_password'
-     */
-    dockerPasswordHash?: pulumi.Input<string>;
     /**
      * The URL of the Docker registry. (Default: "https://index.docker.io/v1/")
      */

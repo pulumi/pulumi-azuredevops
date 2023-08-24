@@ -35,6 +35,7 @@ export function getTeams(args?: GetTeamsArgs, opts?: pulumi.InvokeOptions): Prom
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azuredevops:index/getTeams:getTeams", {
         "projectId": args.projectId,
+        "top": args.top,
     }, opts);
 }
 
@@ -46,6 +47,10 @@ export interface GetTeamsArgs {
      * The Project ID. If no project ID all teams of the organization will be returned.
      */
     projectId?: string;
+    /**
+     * The maximum number of teams to return. Defaults to `100`.
+     */
+    top?: number;
 }
 
 /**
@@ -65,6 +70,7 @@ export interface GetTeamsResult {
      * A list of existing projects in your Azure DevOps Organization with details about every project which includes:
      */
     readonly teams: outputs.GetTeamsTeam[];
+    readonly top?: number;
 }
 /**
  * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
@@ -101,4 +107,8 @@ export interface GetTeamsOutputArgs {
      * The Project ID. If no project ID all teams of the organization will be returned.
      */
     projectId?: pulumi.Input<string>;
+    /**
+     * The maximum number of teams to return. Defaults to `100`.
+     */
+    top?: pulumi.Input<number>;
 }

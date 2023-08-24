@@ -107,7 +107,7 @@ import * as utilities from "../utilities";
  *     location: "UK South",
  * });
  * const exampleazurerm_user_assigned_identity = new azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity", {
- *     location: _var.location,
+ *     location: identity.location,
  *     name: "example-identity",
  *     resourceGroupName: "azurerm_resource_group.identity.name",
  * });
@@ -117,8 +117,9 @@ import * as utilities from "../utilities";
  *     audience: ["api://AzureADTokenExchange"],
  *     issuer: "https://app.vstoken.visualstudio.com",
  *     parentId: exampleazurerm_user_assigned_identity.id,
- *     subject: `sc://${_var.azure_devops_organisation}/${exampleProject.name}/${serviceConnectionName}`,
+ *     subject: `sc://organizationName/projectName/${serviceConnectionName}`,
  * });
+ * //NOTE: The federated credential subject is formed from the Azure DevOps Organisation, Project and the Service Connection name.
  * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
  *     projectId: exampleProject.id,
  *     serviceEndpointName: serviceConnectionName,

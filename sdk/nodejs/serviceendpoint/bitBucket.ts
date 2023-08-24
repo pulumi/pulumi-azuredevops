@@ -77,10 +77,6 @@ export class BitBucket extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string>;
     /**
-     * A bcrypted hash of the attribute 'password'
-     */
-    public /*out*/ readonly passwordHash!: pulumi.Output<string>;
-    /**
      * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
@@ -112,7 +108,6 @@ export class BitBucket extends pulumi.CustomResource {
             resourceInputs["authorization"] = state ? state.authorization : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["passwordHash"] = state ? state.passwordHash : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
@@ -136,10 +131,9 @@ export class BitBucket extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["passwordHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password", "passwordHash"] };
+        const secretOpts = { additionalSecretOutputs: ["password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(BitBucket.__pulumiType, name, resourceInputs, opts);
     }
@@ -155,10 +149,6 @@ export interface BitBucketState {
      * Bitbucket account password.
      */
     password?: pulumi.Input<string>;
-    /**
-     * A bcrypted hash of the attribute 'password'
-     */
-    passwordHash?: pulumi.Input<string>;
     /**
      * The ID of the project.
      */

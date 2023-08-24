@@ -7,8 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ServiceEndpointKubernetesServiceAccountArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,13 +28,6 @@ public final class ServiceEndpointKubernetesServiceAccountArgs extends com.pulum
         return this.caCert;
     }
 
-    @Import(name="caCertHash")
-    private @Nullable Output<String> caCertHash;
-
-    public Optional<Output<String>> caCertHash() {
-        return Optional.ofNullable(this.caCertHash);
-    }
-
     /**
      * The token from a Kubernetes secret object.
      * 
@@ -52,20 +43,11 @@ public final class ServiceEndpointKubernetesServiceAccountArgs extends com.pulum
         return this.token;
     }
 
-    @Import(name="tokenHash")
-    private @Nullable Output<String> tokenHash;
-
-    public Optional<Output<String>> tokenHash() {
-        return Optional.ofNullable(this.tokenHash);
-    }
-
     private ServiceEndpointKubernetesServiceAccountArgs() {}
 
     private ServiceEndpointKubernetesServiceAccountArgs(ServiceEndpointKubernetesServiceAccountArgs $) {
         this.caCert = $.caCert;
-        this.caCertHash = $.caCertHash;
         this.token = $.token;
-        this.tokenHash = $.tokenHash;
     }
 
     public static Builder builder() {
@@ -107,15 +89,6 @@ public final class ServiceEndpointKubernetesServiceAccountArgs extends com.pulum
             return caCert(Output.of(caCert));
         }
 
-        public Builder caCertHash(@Nullable Output<String> caCertHash) {
-            $.caCertHash = caCertHash;
-            return this;
-        }
-
-        public Builder caCertHash(String caCertHash) {
-            return caCertHash(Output.of(caCertHash));
-        }
-
         /**
          * @param token The token from a Kubernetes secret object.
          * 
@@ -135,15 +108,6 @@ public final class ServiceEndpointKubernetesServiceAccountArgs extends com.pulum
          */
         public Builder token(String token) {
             return token(Output.of(token));
-        }
-
-        public Builder tokenHash(@Nullable Output<String> tokenHash) {
-            $.tokenHash = tokenHash;
-            return this;
-        }
-
-        public Builder tokenHash(String tokenHash) {
-            return tokenHash(Output.of(tokenHash));
         }
 
         public ServiceEndpointKubernetesServiceAccountArgs build() {

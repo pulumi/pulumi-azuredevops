@@ -3174,7 +3174,7 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) UseYaml() pulumi.BoolPtrOutp
 }
 
 type BuildDefinitionPullRequestTriggerForks struct {
-	// Build pull requests form forms of this repository.
+	// Build pull requests from forks of this repository.
 	Enabled bool `pulumi:"enabled"`
 	// Make secrets available to builds of forks.
 	ShareSecrets bool `pulumi:"shareSecrets"`
@@ -3192,7 +3192,7 @@ type BuildDefinitionPullRequestTriggerForksInput interface {
 }
 
 type BuildDefinitionPullRequestTriggerForksArgs struct {
-	// Build pull requests form forms of this repository.
+	// Build pull requests from forks of this repository.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Make secrets available to builds of forks.
 	ShareSecrets pulumi.BoolInput `pulumi:"shareSecrets"`
@@ -3275,7 +3275,7 @@ func (o BuildDefinitionPullRequestTriggerForksOutput) ToBuildDefinitionPullReque
 	}).(BuildDefinitionPullRequestTriggerForksPtrOutput)
 }
 
-// Build pull requests form forms of this repository.
+// Build pull requests from forks of this repository.
 func (o BuildDefinitionPullRequestTriggerForksOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerForks) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -3309,7 +3309,7 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Elem() BuildDefinitionP
 	}).(BuildDefinitionPullRequestTriggerForksOutput)
 }
 
-// Build pull requests form forms of this repository.
+// Build pull requests from forks of this repository.
 func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerForks) *bool {
 		if v == nil {
@@ -5399,8 +5399,7 @@ type ServiceEndpointAzureRMCredentials struct {
 	// The service principal application Id
 	Serviceprincipalid string `pulumi:"serviceprincipalid"`
 	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
-	Serviceprincipalkey     *string `pulumi:"serviceprincipalkey"`
-	ServiceprincipalkeyHash *string `pulumi:"serviceprincipalkeyHash"`
+	Serviceprincipalkey *string `pulumi:"serviceprincipalkey"`
 }
 
 // ServiceEndpointAzureRMCredentialsInput is an input type that accepts ServiceEndpointAzureRMCredentialsArgs and ServiceEndpointAzureRMCredentialsOutput values.
@@ -5418,8 +5417,7 @@ type ServiceEndpointAzureRMCredentialsArgs struct {
 	// The service principal application Id
 	Serviceprincipalid pulumi.StringInput `pulumi:"serviceprincipalid"`
 	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
-	Serviceprincipalkey     pulumi.StringPtrInput `pulumi:"serviceprincipalkey"`
-	ServiceprincipalkeyHash pulumi.StringPtrInput `pulumi:"serviceprincipalkeyHash"`
+	Serviceprincipalkey pulumi.StringPtrInput `pulumi:"serviceprincipalkey"`
 }
 
 func (ServiceEndpointAzureRMCredentialsArgs) ElementType() reflect.Type {
@@ -5509,10 +5507,6 @@ func (o ServiceEndpointAzureRMCredentialsOutput) Serviceprincipalkey() pulumi.St
 	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) *string { return v.Serviceprincipalkey }).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceEndpointAzureRMCredentialsOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointAzureRMCredentials) *string { return v.ServiceprincipalkeyHash }).(pulumi.StringPtrOutput)
-}
-
 type ServiceEndpointAzureRMCredentialsPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureRMCredentialsPtrOutput) ElementType() reflect.Type {
@@ -5554,15 +5548,6 @@ func (o ServiceEndpointAzureRMCredentialsPtrOutput) Serviceprincipalkey() pulumi
 			return nil
 		}
 		return v.Serviceprincipalkey
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServiceEndpointAzureRMCredentialsPtrOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceEndpointAzureRMCredentials) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceprincipalkeyHash
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -5701,8 +5686,7 @@ func (o ServiceEndpointGitHubAuthOauthPtrOutput) OauthConfigurationId() pulumi.S
 
 type ServiceEndpointGitHubAuthPersonal struct {
 	// The Personal Access Token for GitHub.
-	PersonalAccessToken     string  `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
+	PersonalAccessToken string `pulumi:"personalAccessToken"`
 }
 
 // ServiceEndpointGitHubAuthPersonalInput is an input type that accepts ServiceEndpointGitHubAuthPersonalArgs and ServiceEndpointGitHubAuthPersonalOutput values.
@@ -5718,8 +5702,7 @@ type ServiceEndpointGitHubAuthPersonalInput interface {
 
 type ServiceEndpointGitHubAuthPersonalArgs struct {
 	// The Personal Access Token for GitHub.
-	PersonalAccessToken     pulumi.StringInput    `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash pulumi.StringPtrInput `pulumi:"personalAccessTokenHash"`
+	PersonalAccessToken pulumi.StringInput `pulumi:"personalAccessToken"`
 }
 
 func (ServiceEndpointGitHubAuthPersonalArgs) ElementType() reflect.Type {
@@ -5804,10 +5787,6 @@ func (o ServiceEndpointGitHubAuthPersonalOutput) PersonalAccessToken() pulumi.St
 	return o.ApplyT(func(v ServiceEndpointGitHubAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
 }
 
-func (o ServiceEndpointGitHubAuthPersonalOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointGitHubAuthPersonal) *string { return v.PersonalAccessTokenHash }).(pulumi.StringPtrOutput)
-}
-
 type ServiceEndpointGitHubAuthPersonalPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGitHubAuthPersonalPtrOutput) ElementType() reflect.Type {
@@ -5842,19 +5821,9 @@ func (o ServiceEndpointGitHubAuthPersonalPtrOutput) PersonalAccessToken() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceEndpointGitHubAuthPersonalPtrOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceEndpointGitHubAuthPersonal) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PersonalAccessTokenHash
-	}).(pulumi.StringPtrOutput)
-}
-
 type ServiceEndpointGitHubEnterpriseAuthPersonal struct {
 	// The Personal Access Token for GitHub.
-	PersonalAccessToken     string  `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
+	PersonalAccessToken string `pulumi:"personalAccessToken"`
 }
 
 // ServiceEndpointGitHubEnterpriseAuthPersonalInput is an input type that accepts ServiceEndpointGitHubEnterpriseAuthPersonalArgs and ServiceEndpointGitHubEnterpriseAuthPersonalOutput values.
@@ -5870,8 +5839,7 @@ type ServiceEndpointGitHubEnterpriseAuthPersonalInput interface {
 
 type ServiceEndpointGitHubEnterpriseAuthPersonalArgs struct {
 	// The Personal Access Token for GitHub.
-	PersonalAccessToken     pulumi.StringInput    `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash pulumi.StringPtrInput `pulumi:"personalAccessTokenHash"`
+	PersonalAccessToken pulumi.StringInput `pulumi:"personalAccessToken"`
 }
 
 func (ServiceEndpointGitHubEnterpriseAuthPersonalArgs) ElementType() reflect.Type {
@@ -5956,10 +5924,6 @@ func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) PersonalAccessToken()
 	return o.ApplyT(func(v ServiceEndpointGitHubEnterpriseAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
 }
 
-func (o ServiceEndpointGitHubEnterpriseAuthPersonalOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointGitHubEnterpriseAuthPersonal) *string { return v.PersonalAccessTokenHash }).(pulumi.StringPtrOutput)
-}
-
 type ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) ElementType() reflect.Type {
@@ -5991,15 +5955,6 @@ func (o ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) PersonalAccessToke
 			return nil
 		}
 		return &v.PersonalAccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServiceEndpointGitHubEnterpriseAuthPersonalPtrOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceEndpointGitHubEnterpriseAuthPersonal) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PersonalAccessTokenHash
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -6340,11 +6295,9 @@ func (o ServiceEndpointKubernetesKubeconfigPtrOutput) KubeConfig() pulumi.String
 
 type ServiceEndpointKubernetesServiceAccount struct {
 	// The certificate from a Kubernetes secret object.
-	CaCert     string  `pulumi:"caCert"`
-	CaCertHash *string `pulumi:"caCertHash"`
+	CaCert string `pulumi:"caCert"`
 	// The token from a Kubernetes secret object.
-	Token     string  `pulumi:"token"`
-	TokenHash *string `pulumi:"tokenHash"`
+	Token string `pulumi:"token"`
 }
 
 // ServiceEndpointKubernetesServiceAccountInput is an input type that accepts ServiceEndpointKubernetesServiceAccountArgs and ServiceEndpointKubernetesServiceAccountOutput values.
@@ -6360,11 +6313,9 @@ type ServiceEndpointKubernetesServiceAccountInput interface {
 
 type ServiceEndpointKubernetesServiceAccountArgs struct {
 	// The certificate from a Kubernetes secret object.
-	CaCert     pulumi.StringInput    `pulumi:"caCert"`
-	CaCertHash pulumi.StringPtrInput `pulumi:"caCertHash"`
+	CaCert pulumi.StringInput `pulumi:"caCert"`
 	// The token from a Kubernetes secret object.
-	Token     pulumi.StringInput    `pulumi:"token"`
-	TokenHash pulumi.StringPtrInput `pulumi:"tokenHash"`
+	Token pulumi.StringInput `pulumi:"token"`
 }
 
 func (ServiceEndpointKubernetesServiceAccountArgs) ElementType() reflect.Type {
@@ -6449,17 +6400,9 @@ func (o ServiceEndpointKubernetesServiceAccountOutput) CaCert() pulumi.StringOut
 	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) string { return v.CaCert }).(pulumi.StringOutput)
 }
 
-func (o ServiceEndpointKubernetesServiceAccountOutput) CaCertHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) *string { return v.CaCertHash }).(pulumi.StringPtrOutput)
-}
-
 // The token from a Kubernetes secret object.
 func (o ServiceEndpointKubernetesServiceAccountOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) string { return v.Token }).(pulumi.StringOutput)
-}
-
-func (o ServiceEndpointKubernetesServiceAccountOutput) TokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointKubernetesServiceAccount) *string { return v.TokenHash }).(pulumi.StringPtrOutput)
 }
 
 type ServiceEndpointKubernetesServiceAccountPtrOutput struct{ *pulumi.OutputState }
@@ -6496,15 +6439,6 @@ func (o ServiceEndpointKubernetesServiceAccountPtrOutput) CaCert() pulumi.String
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceEndpointKubernetesServiceAccountPtrOutput) CaCertHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceEndpointKubernetesServiceAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CaCertHash
-	}).(pulumi.StringPtrOutput)
-}
-
 // The token from a Kubernetes secret object.
 func (o ServiceEndpointKubernetesServiceAccountPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointKubernetesServiceAccount) *string {
@@ -6515,19 +6449,9 @@ func (o ServiceEndpointKubernetesServiceAccountPtrOutput) Token() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o ServiceEndpointKubernetesServiceAccountPtrOutput) TokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceEndpointKubernetesServiceAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TokenHash
-	}).(pulumi.StringPtrOutput)
-}
-
 type ServiceEndpointPipelineAuthPersonal struct {
 	// The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
-	PersonalAccessToken     string  `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
+	PersonalAccessToken string `pulumi:"personalAccessToken"`
 }
 
 // ServiceEndpointPipelineAuthPersonalInput is an input type that accepts ServiceEndpointPipelineAuthPersonalArgs and ServiceEndpointPipelineAuthPersonalOutput values.
@@ -6543,8 +6467,7 @@ type ServiceEndpointPipelineAuthPersonalInput interface {
 
 type ServiceEndpointPipelineAuthPersonalArgs struct {
 	// The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
-	PersonalAccessToken     pulumi.StringInput    `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash pulumi.StringPtrInput `pulumi:"personalAccessTokenHash"`
+	PersonalAccessToken pulumi.StringInput `pulumi:"personalAccessToken"`
 }
 
 func (ServiceEndpointPipelineAuthPersonalArgs) ElementType() reflect.Type {
@@ -6629,10 +6552,6 @@ func (o ServiceEndpointPipelineAuthPersonalOutput) PersonalAccessToken() pulumi.
 	return o.ApplyT(func(v ServiceEndpointPipelineAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
 }
 
-func (o ServiceEndpointPipelineAuthPersonalOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceEndpointPipelineAuthPersonal) *string { return v.PersonalAccessTokenHash }).(pulumi.StringPtrOutput)
-}
-
 type ServiceEndpointPipelineAuthPersonalPtrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPipelineAuthPersonalPtrOutput) ElementType() reflect.Type {
@@ -6664,15 +6583,6 @@ func (o ServiceEndpointPipelineAuthPersonalPtrOutput) PersonalAccessToken() pulu
 			return nil
 		}
 		return &v.PersonalAccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o ServiceEndpointPipelineAuthPersonalPtrOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ServiceEndpointPipelineAuthPersonal) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PersonalAccessTokenHash
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -8853,6 +8763,299 @@ func (o ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput) Elem() Serviceen
 // Authentication Token generated through Artifactory.
 func (o ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceendpointJfrogXrayV2AuthenticationToken) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointMavenAuthenticationBasic struct {
+	// The password Maven Repository.
+	Password string `pulumi:"password"`
+	// The Username of the Maven Repository.
+	Username string `pulumi:"username"`
+}
+
+// ServiceendpointMavenAuthenticationBasicInput is an input type that accepts ServiceendpointMavenAuthenticationBasicArgs and ServiceendpointMavenAuthenticationBasicOutput values.
+// You can construct a concrete instance of `ServiceendpointMavenAuthenticationBasicInput` via:
+//
+//	ServiceendpointMavenAuthenticationBasicArgs{...}
+type ServiceendpointMavenAuthenticationBasicInput interface {
+	pulumi.Input
+
+	ToServiceendpointMavenAuthenticationBasicOutput() ServiceendpointMavenAuthenticationBasicOutput
+	ToServiceendpointMavenAuthenticationBasicOutputWithContext(context.Context) ServiceendpointMavenAuthenticationBasicOutput
+}
+
+type ServiceendpointMavenAuthenticationBasicArgs struct {
+	// The password Maven Repository.
+	Password pulumi.StringInput `pulumi:"password"`
+	// The Username of the Maven Repository.
+	Username pulumi.StringInput `pulumi:"username"`
+}
+
+func (ServiceendpointMavenAuthenticationBasicArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointMavenAuthenticationBasic)(nil)).Elem()
+}
+
+func (i ServiceendpointMavenAuthenticationBasicArgs) ToServiceendpointMavenAuthenticationBasicOutput() ServiceendpointMavenAuthenticationBasicOutput {
+	return i.ToServiceendpointMavenAuthenticationBasicOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointMavenAuthenticationBasicArgs) ToServiceendpointMavenAuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationBasicOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointMavenAuthenticationBasicOutput)
+}
+
+func (i ServiceendpointMavenAuthenticationBasicArgs) ToServiceendpointMavenAuthenticationBasicPtrOutput() ServiceendpointMavenAuthenticationBasicPtrOutput {
+	return i.ToServiceendpointMavenAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointMavenAuthenticationBasicArgs) ToServiceendpointMavenAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointMavenAuthenticationBasicOutput).ToServiceendpointMavenAuthenticationBasicPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointMavenAuthenticationBasicPtrInput is an input type that accepts ServiceendpointMavenAuthenticationBasicArgs, ServiceendpointMavenAuthenticationBasicPtr and ServiceendpointMavenAuthenticationBasicPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointMavenAuthenticationBasicPtrInput` via:
+//
+//	        ServiceendpointMavenAuthenticationBasicArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointMavenAuthenticationBasicPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointMavenAuthenticationBasicPtrOutput() ServiceendpointMavenAuthenticationBasicPtrOutput
+	ToServiceendpointMavenAuthenticationBasicPtrOutputWithContext(context.Context) ServiceendpointMavenAuthenticationBasicPtrOutput
+}
+
+type serviceendpointMavenAuthenticationBasicPtrType ServiceendpointMavenAuthenticationBasicArgs
+
+func ServiceendpointMavenAuthenticationBasicPtr(v *ServiceendpointMavenAuthenticationBasicArgs) ServiceendpointMavenAuthenticationBasicPtrInput {
+	return (*serviceendpointMavenAuthenticationBasicPtrType)(v)
+}
+
+func (*serviceendpointMavenAuthenticationBasicPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointMavenAuthenticationBasic)(nil)).Elem()
+}
+
+func (i *serviceendpointMavenAuthenticationBasicPtrType) ToServiceendpointMavenAuthenticationBasicPtrOutput() ServiceendpointMavenAuthenticationBasicPtrOutput {
+	return i.ToServiceendpointMavenAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointMavenAuthenticationBasicPtrType) ToServiceendpointMavenAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationBasicPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointMavenAuthenticationBasicPtrOutput)
+}
+
+type ServiceendpointMavenAuthenticationBasicOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointMavenAuthenticationBasicOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointMavenAuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointMavenAuthenticationBasicOutput) ToServiceendpointMavenAuthenticationBasicOutput() ServiceendpointMavenAuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointMavenAuthenticationBasicOutput) ToServiceendpointMavenAuthenticationBasicOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationBasicOutput {
+	return o
+}
+
+func (o ServiceendpointMavenAuthenticationBasicOutput) ToServiceendpointMavenAuthenticationBasicPtrOutput() ServiceendpointMavenAuthenticationBasicPtrOutput {
+	return o.ToServiceendpointMavenAuthenticationBasicPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointMavenAuthenticationBasicOutput) ToServiceendpointMavenAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationBasicPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointMavenAuthenticationBasic) *ServiceendpointMavenAuthenticationBasic {
+		return &v
+	}).(ServiceendpointMavenAuthenticationBasicPtrOutput)
+}
+
+// The password Maven Repository.
+func (o ServiceendpointMavenAuthenticationBasicOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointMavenAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// The Username of the Maven Repository.
+func (o ServiceendpointMavenAuthenticationBasicOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointMavenAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type ServiceendpointMavenAuthenticationBasicPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointMavenAuthenticationBasicPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointMavenAuthenticationBasic)(nil)).Elem()
+}
+
+func (o ServiceendpointMavenAuthenticationBasicPtrOutput) ToServiceendpointMavenAuthenticationBasicPtrOutput() ServiceendpointMavenAuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointMavenAuthenticationBasicPtrOutput) ToServiceendpointMavenAuthenticationBasicPtrOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationBasicPtrOutput {
+	return o
+}
+
+func (o ServiceendpointMavenAuthenticationBasicPtrOutput) Elem() ServiceendpointMavenAuthenticationBasicOutput {
+	return o.ApplyT(func(v *ServiceendpointMavenAuthenticationBasic) ServiceendpointMavenAuthenticationBasic {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointMavenAuthenticationBasic
+		return ret
+	}).(ServiceendpointMavenAuthenticationBasicOutput)
+}
+
+// The password Maven Repository.
+func (o ServiceendpointMavenAuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointMavenAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Username of the Maven Repository.
+func (o ServiceendpointMavenAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointMavenAuthenticationBasic) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Username
+	}).(pulumi.StringPtrOutput)
+}
+
+type ServiceendpointMavenAuthenticationToken struct {
+	// Authentication Token generated through maven repository.
+	Token string `pulumi:"token"`
+}
+
+// ServiceendpointMavenAuthenticationTokenInput is an input type that accepts ServiceendpointMavenAuthenticationTokenArgs and ServiceendpointMavenAuthenticationTokenOutput values.
+// You can construct a concrete instance of `ServiceendpointMavenAuthenticationTokenInput` via:
+//
+//	ServiceendpointMavenAuthenticationTokenArgs{...}
+type ServiceendpointMavenAuthenticationTokenInput interface {
+	pulumi.Input
+
+	ToServiceendpointMavenAuthenticationTokenOutput() ServiceendpointMavenAuthenticationTokenOutput
+	ToServiceendpointMavenAuthenticationTokenOutputWithContext(context.Context) ServiceendpointMavenAuthenticationTokenOutput
+}
+
+type ServiceendpointMavenAuthenticationTokenArgs struct {
+	// Authentication Token generated through maven repository.
+	Token pulumi.StringInput `pulumi:"token"`
+}
+
+func (ServiceendpointMavenAuthenticationTokenArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointMavenAuthenticationToken)(nil)).Elem()
+}
+
+func (i ServiceendpointMavenAuthenticationTokenArgs) ToServiceendpointMavenAuthenticationTokenOutput() ServiceendpointMavenAuthenticationTokenOutput {
+	return i.ToServiceendpointMavenAuthenticationTokenOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointMavenAuthenticationTokenArgs) ToServiceendpointMavenAuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationTokenOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointMavenAuthenticationTokenOutput)
+}
+
+func (i ServiceendpointMavenAuthenticationTokenArgs) ToServiceendpointMavenAuthenticationTokenPtrOutput() ServiceendpointMavenAuthenticationTokenPtrOutput {
+	return i.ToServiceendpointMavenAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i ServiceendpointMavenAuthenticationTokenArgs) ToServiceendpointMavenAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointMavenAuthenticationTokenOutput).ToServiceendpointMavenAuthenticationTokenPtrOutputWithContext(ctx)
+}
+
+// ServiceendpointMavenAuthenticationTokenPtrInput is an input type that accepts ServiceendpointMavenAuthenticationTokenArgs, ServiceendpointMavenAuthenticationTokenPtr and ServiceendpointMavenAuthenticationTokenPtrOutput values.
+// You can construct a concrete instance of `ServiceendpointMavenAuthenticationTokenPtrInput` via:
+//
+//	        ServiceendpointMavenAuthenticationTokenArgs{...}
+//
+//	or:
+//
+//	        nil
+type ServiceendpointMavenAuthenticationTokenPtrInput interface {
+	pulumi.Input
+
+	ToServiceendpointMavenAuthenticationTokenPtrOutput() ServiceendpointMavenAuthenticationTokenPtrOutput
+	ToServiceendpointMavenAuthenticationTokenPtrOutputWithContext(context.Context) ServiceendpointMavenAuthenticationTokenPtrOutput
+}
+
+type serviceendpointMavenAuthenticationTokenPtrType ServiceendpointMavenAuthenticationTokenArgs
+
+func ServiceendpointMavenAuthenticationTokenPtr(v *ServiceendpointMavenAuthenticationTokenArgs) ServiceendpointMavenAuthenticationTokenPtrInput {
+	return (*serviceendpointMavenAuthenticationTokenPtrType)(v)
+}
+
+func (*serviceendpointMavenAuthenticationTokenPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointMavenAuthenticationToken)(nil)).Elem()
+}
+
+func (i *serviceendpointMavenAuthenticationTokenPtrType) ToServiceendpointMavenAuthenticationTokenPtrOutput() ServiceendpointMavenAuthenticationTokenPtrOutput {
+	return i.ToServiceendpointMavenAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (i *serviceendpointMavenAuthenticationTokenPtrType) ToServiceendpointMavenAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationTokenPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointMavenAuthenticationTokenPtrOutput)
+}
+
+type ServiceendpointMavenAuthenticationTokenOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointMavenAuthenticationTokenOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ServiceendpointMavenAuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointMavenAuthenticationTokenOutput) ToServiceendpointMavenAuthenticationTokenOutput() ServiceendpointMavenAuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointMavenAuthenticationTokenOutput) ToServiceendpointMavenAuthenticationTokenOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationTokenOutput {
+	return o
+}
+
+func (o ServiceendpointMavenAuthenticationTokenOutput) ToServiceendpointMavenAuthenticationTokenPtrOutput() ServiceendpointMavenAuthenticationTokenPtrOutput {
+	return o.ToServiceendpointMavenAuthenticationTokenPtrOutputWithContext(context.Background())
+}
+
+func (o ServiceendpointMavenAuthenticationTokenOutput) ToServiceendpointMavenAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationTokenPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ServiceendpointMavenAuthenticationToken) *ServiceendpointMavenAuthenticationToken {
+		return &v
+	}).(ServiceendpointMavenAuthenticationTokenPtrOutput)
+}
+
+// Authentication Token generated through maven repository.
+func (o ServiceendpointMavenAuthenticationTokenOutput) Token() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceendpointMavenAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
+}
+
+type ServiceendpointMavenAuthenticationTokenPtrOutput struct{ *pulumi.OutputState }
+
+func (ServiceendpointMavenAuthenticationTokenPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ServiceendpointMavenAuthenticationToken)(nil)).Elem()
+}
+
+func (o ServiceendpointMavenAuthenticationTokenPtrOutput) ToServiceendpointMavenAuthenticationTokenPtrOutput() ServiceendpointMavenAuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointMavenAuthenticationTokenPtrOutput) ToServiceendpointMavenAuthenticationTokenPtrOutputWithContext(ctx context.Context) ServiceendpointMavenAuthenticationTokenPtrOutput {
+	return o
+}
+
+func (o ServiceendpointMavenAuthenticationTokenPtrOutput) Elem() ServiceendpointMavenAuthenticationTokenOutput {
+	return o.ApplyT(func(v *ServiceendpointMavenAuthenticationToken) ServiceendpointMavenAuthenticationToken {
+		if v != nil {
+			return *v
+		}
+		var ret ServiceendpointMavenAuthenticationToken
+		return ret
+	}).(ServiceendpointMavenAuthenticationTokenOutput)
+}
+
+// Authentication Token generated through maven repository.
+func (o ServiceendpointMavenAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ServiceendpointMavenAuthenticationToken) *string {
 		if v == nil {
 			return nil
 		}
@@ -12373,6 +12576,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointJfrogXrayV2AuthenticationBasicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationTokenInput)(nil)).Elem(), ServiceendpointJfrogXrayV2AuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointJfrogXrayV2AuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointJfrogXrayV2AuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationBasicInput)(nil)).Elem(), ServiceendpointMavenAuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationBasicPtrInput)(nil)).Elem(), ServiceendpointMavenAuthenticationBasicArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationTokenInput)(nil)).Elem(), ServiceendpointMavenAuthenticationTokenArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ServiceendpointMavenAuthenticationTokenPtrInput)(nil)).Elem(), ServiceendpointMavenAuthenticationTokenArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupKeyVaultPtrInput)(nil)).Elem(), VariableGroupKeyVaultArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*VariableGroupVariableInput)(nil)).Elem(), VariableGroupVariableArgs{})
@@ -12529,6 +12736,10 @@ func init() {
 	pulumi.RegisterOutputType(ServiceendpointJfrogXrayV2AuthenticationBasicPtrOutput{})
 	pulumi.RegisterOutputType(ServiceendpointJfrogXrayV2AuthenticationTokenOutput{})
 	pulumi.RegisterOutputType(ServiceendpointJfrogXrayV2AuthenticationTokenPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationBasicOutput{})
+	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationBasicPtrOutput{})
+	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationTokenOutput{})
+	pulumi.RegisterOutputType(ServiceendpointMavenAuthenticationTokenPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultOutput{})
 	pulumi.RegisterOutputType(VariableGroupKeyVaultPtrOutput{})
 	pulumi.RegisterOutputType(VariableGroupVariableOutput{})

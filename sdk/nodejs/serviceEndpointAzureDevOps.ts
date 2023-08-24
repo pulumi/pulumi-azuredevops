@@ -83,10 +83,6 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
      */
     public readonly personalAccessToken!: pulumi.Output<string>;
     /**
-     * A bcrypted hash of the attribute 'personal_access_token'
-     */
-    public /*out*/ readonly personalAccessTokenHash!: pulumi.Output<string>;
-    /**
      * The ID of the project.
      */
     public readonly projectId!: pulumi.Output<string>;
@@ -116,7 +112,6 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["orgUrl"] = state ? state.orgUrl : undefined;
             resourceInputs["personalAccessToken"] = state ? state.personalAccessToken : undefined;
-            resourceInputs["personalAccessTokenHash"] = state ? state.personalAccessTokenHash : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["releaseApiUrl"] = state ? state.releaseApiUrl : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
@@ -144,10 +139,9 @@ export class ServiceEndpointAzureDevOps extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["releaseApiUrl"] = args ? args.releaseApiUrl : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
-            resourceInputs["personalAccessTokenHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["personalAccessToken", "personalAccessTokenHash"] };
+        const secretOpts = { additionalSecretOutputs: ["personalAccessToken"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointAzureDevOps.__pulumiType, name, resourceInputs, opts);
     }
@@ -167,10 +161,6 @@ export interface ServiceEndpointAzureDevOpsState {
      * The Azure DevOps personal access token.
      */
     personalAccessToken?: pulumi.Input<string>;
-    /**
-     * A bcrypted hash of the attribute 'personal_access_token'
-     */
-    personalAccessTokenHash?: pulumi.Input<string>;
     /**
      * The ID of the project.
      */

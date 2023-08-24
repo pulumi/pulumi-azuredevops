@@ -361,7 +361,7 @@ export interface BuildDefinitionPullRequestTrigger {
 
 export interface BuildDefinitionPullRequestTriggerForks {
     /**
-     * Build pull requests form forms of this repository.
+     * Build pull requests from forks of this repository.
      */
     enabled: boolean;
     /**
@@ -1203,7 +1203,6 @@ export interface ServiceEndpointAzureRMCredentials {
      * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
      */
     serviceprincipalkey?: string;
-    serviceprincipalkeyHash: string;
 }
 
 export interface ServiceEndpointGitHubAuthOauth {
@@ -1215,7 +1214,6 @@ export interface ServiceEndpointGitHubAuthPersonal {
      * The Personal Access Token for GitHub.
      */
     personalAccessToken: string;
-    personalAccessTokenHash: string;
 }
 
 export interface ServiceEndpointGitHubEnterpriseAuthPersonal {
@@ -1223,7 +1221,6 @@ export interface ServiceEndpointGitHubEnterpriseAuthPersonal {
      * The Personal Access Token for GitHub.
      */
     personalAccessToken: string;
-    personalAccessTokenHash: string;
 }
 
 export interface ServiceEndpointKubernetesAzureSubscription {
@@ -1281,12 +1278,10 @@ export interface ServiceEndpointKubernetesServiceAccount {
      * The certificate from a Kubernetes secret object.
      */
     caCert: string;
-    caCertHash: string;
     /**
      * The token from a Kubernetes secret object.
      */
     token: string;
-    tokenHash: string;
 }
 
 export interface ServiceEndpointPipelineAuthPersonal {
@@ -1294,7 +1289,6 @@ export interface ServiceEndpointPipelineAuthPersonal {
      * The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
      */
     personalAccessToken: string;
-    personalAccessTokenHash: string;
 }
 
 export interface ServiceEndpointServiceFabricAzureActiveDirectory {
@@ -1451,6 +1445,24 @@ export interface ServiceendpointJfrogXrayV2AuthenticationToken {
     token: string;
 }
 
+export interface ServiceendpointMavenAuthenticationBasic {
+    /**
+     * The password Maven Repository.
+     */
+    password: string;
+    /**
+     * The Username of the Maven Repository.
+     */
+    username: string;
+}
+
+export interface ServiceendpointMavenAuthenticationToken {
+    /**
+     * Authentication Token generated through maven repository.
+     */
+    token: string;
+}
+
 export interface VariableGroupKeyVault {
     /**
      * The name of the Azure key vault to link secrets from as variables.
@@ -1591,7 +1603,7 @@ export namespace Build {
 
     export interface BuildDefinitionPullRequestTriggerForks {
         /**
-         * Build pull requests form forms of this repository.
+         * Build pull requests from forks of this repository.
          */
         enabled: boolean;
         /**
@@ -2160,7 +2172,6 @@ export namespace ServiceEndpoint {
          * The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
          */
         serviceprincipalkey?: string;
-        serviceprincipalkeyHash: string;
     }
 
     export interface GitHubAuthOauth {
@@ -2172,7 +2183,6 @@ export namespace ServiceEndpoint {
          * The Personal Access Token for GitHub.
          */
         personalAccessToken: string;
-        personalAccessTokenHash: string;
     }
 
     export interface KubernetesAzureSubscription {
@@ -2230,12 +2240,10 @@ export namespace ServiceEndpoint {
          * The certificate from a Kubernetes secret object.
          */
         caCert: string;
-        caCertHash: string;
         /**
          * The token from a Kubernetes secret object.
          */
         token: string;
-        tokenHash: string;
     }
 
 }

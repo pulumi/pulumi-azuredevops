@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -107,6 +108,21 @@ public final class CheckBranchControlState extends com.pulumi.resources.Resource
     }
 
     /**
+     * The timeout in minutes for the branch control check. Defaults to `1440`.
+     * 
+     */
+    @Import(name="timeout")
+    private @Nullable Output<Integer> timeout;
+
+    /**
+     * @return The timeout in minutes for the branch control check. Defaults to `1440`.
+     * 
+     */
+    public Optional<Output<Integer>> timeout() {
+        return Optional.ofNullable(this.timeout);
+    }
+
+    /**
      * Validate the branches being deployed are protected. Defaults to `false`.
      * 
      */
@@ -130,6 +146,7 @@ public final class CheckBranchControlState extends com.pulumi.resources.Resource
         this.projectId = $.projectId;
         this.targetResourceId = $.targetResourceId;
         this.targetResourceType = $.targetResourceType;
+        this.timeout = $.timeout;
         this.verifyBranchProtection = $.verifyBranchProtection;
     }
 
@@ -275,6 +292,27 @@ public final class CheckBranchControlState extends com.pulumi.resources.Resource
          */
         public Builder targetResourceType(String targetResourceType) {
             return targetResourceType(Output.of(targetResourceType));
+        }
+
+        /**
+         * @param timeout The timeout in minutes for the branch control check. Defaults to `1440`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeout(@Nullable Output<Integer> timeout) {
+            $.timeout = timeout;
+            return this;
+        }
+
+        /**
+         * @param timeout The timeout in minutes for the branch control check. Defaults to `1440`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder timeout(Integer timeout) {
+            return timeout(Output.of(timeout));
         }
 
         /**

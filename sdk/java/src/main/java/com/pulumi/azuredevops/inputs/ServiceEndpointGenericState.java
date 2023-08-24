@@ -46,21 +46,6 @@ public final class ServiceEndpointGenericState extends com.pulumi.resources.Reso
     }
 
     /**
-     * A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    @Import(name="passwordHash")
-    private @Nullable Output<String> passwordHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    public Optional<Output<String>> passwordHash() {
-        return Optional.ofNullable(this.passwordHash);
-    }
-
-    /**
      * The ID of the project.
      * 
      */
@@ -126,7 +111,6 @@ public final class ServiceEndpointGenericState extends com.pulumi.resources.Reso
         this.authorization = $.authorization;
         this.description = $.description;
         this.password = $.password;
-        this.passwordHash = $.passwordHash;
         this.projectId = $.projectId;
         this.serverUrl = $.serverUrl;
         this.serviceEndpointName = $.serviceEndpointName;
@@ -188,27 +172,6 @@ public final class ServiceEndpointGenericState extends com.pulumi.resources.Reso
          */
         public Builder password(String password) {
             return password(Output.of(password));
-        }
-
-        /**
-         * @param passwordHash A bcrypted hash of the attribute &#39;password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordHash(@Nullable Output<String> passwordHash) {
-            $.passwordHash = passwordHash;
-            return this;
-        }
-
-        /**
-         * @param passwordHash A bcrypted hash of the attribute &#39;password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordHash(String passwordHash) {
-            return passwordHash(Output.of(passwordHash));
         }
 
         /**

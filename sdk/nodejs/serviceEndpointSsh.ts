@@ -78,10 +78,6 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
      */
     public readonly password!: pulumi.Output<string | undefined>;
     /**
-     * A bcrypted hash of the attribute 'password'
-     */
-    public /*out*/ readonly passwordHash!: pulumi.Output<string>;
-    /**
      * Port number on the remote machine to use for connecting. Defaults to `22`.
      */
     public readonly port!: pulumi.Output<number | undefined>;
@@ -89,10 +85,6 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
      * Private Key for connecting to the endpoint.
      */
     public readonly privateKey!: pulumi.Output<string | undefined>;
-    /**
-     * A bcrypted hash of the attribute 'private_key'
-     */
-    public /*out*/ readonly privateKeyHash!: pulumi.Output<string>;
     /**
      * The ID of the project.
      */
@@ -123,10 +115,8 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["host"] = state ? state.host : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
-            resourceInputs["passwordHash"] = state ? state.passwordHash : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
-            resourceInputs["privateKeyHash"] = state ? state.privateKeyHash : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
             resourceInputs["username"] = state ? state.username : undefined;
@@ -153,11 +143,9 @@ export class ServiceEndpointSsh extends pulumi.CustomResource {
             resourceInputs["projectId"] = args ? args.projectId : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
             resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["passwordHash"] = undefined /*out*/;
-            resourceInputs["privateKeyHash"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["password", "passwordHash", "privateKey", "privateKeyHash"] };
+        const secretOpts = { additionalSecretOutputs: ["password", "privateKey"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(ServiceEndpointSsh.__pulumiType, name, resourceInputs, opts);
     }
@@ -178,10 +166,6 @@ export interface ServiceEndpointSshState {
      */
     password?: pulumi.Input<string>;
     /**
-     * A bcrypted hash of the attribute 'password'
-     */
-    passwordHash?: pulumi.Input<string>;
-    /**
      * Port number on the remote machine to use for connecting. Defaults to `22`.
      */
     port?: pulumi.Input<number>;
@@ -189,10 +173,6 @@ export interface ServiceEndpointSshState {
      * Private Key for connecting to the endpoint.
      */
     privateKey?: pulumi.Input<string>;
-    /**
-     * A bcrypted hash of the attribute 'private_key'
-     */
-    privateKeyHash?: pulumi.Input<string>;
     /**
      * The ID of the project.
      */

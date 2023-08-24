@@ -118,20 +118,6 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.password);
     }
     /**
-     * A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    @Export(name="passwordHash", type=String.class, parameters={})
-    private Output<String> passwordHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    public Output<String> passwordHash() {
-        return this.passwordHash;
-    }
-    /**
      * Port number on the remote machine to use for connecting. Defaults to `22`.
      * 
      */
@@ -158,20 +144,6 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> privateKey() {
         return Codegen.optional(this.privateKey);
-    }
-    /**
-     * A bcrypted hash of the attribute &#39;private_key&#39;
-     * 
-     */
-    @Export(name="privateKeyHash", type=String.class, parameters={})
-    private Output<String> privateKeyHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;private_key&#39;
-     * 
-     */
-    public Output<String> privateKeyHash() {
-        return this.privateKeyHash;
     }
     /**
      * The ID of the project.
@@ -250,9 +222,7 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
                 "password",
-                "passwordHash",
-                "privateKey",
-                "privateKeyHash"
+                "privateKey"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

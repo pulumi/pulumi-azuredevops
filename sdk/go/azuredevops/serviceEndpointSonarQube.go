@@ -79,8 +79,6 @@ type ServiceEndpointSonarQube struct {
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
 	// Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 	Token pulumi.StringOutput `pulumi:"token"`
-	// A bcrypted hash of the attribute 'token'
-	TokenHash pulumi.StringOutput `pulumi:"tokenHash"`
 	// URL of the SonarQube server to connect with.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
@@ -109,7 +107,6 @@ func NewServiceEndpointSonarQube(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"token",
-		"tokenHash",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -144,8 +141,6 @@ type serviceEndpointSonarQubeState struct {
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
 	// Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 	Token *string `pulumi:"token"`
-	// A bcrypted hash of the attribute 'token'
-	TokenHash *string `pulumi:"tokenHash"`
 	// URL of the SonarQube server to connect with.
 	Url *string `pulumi:"url"`
 }
@@ -160,8 +155,6 @@ type ServiceEndpointSonarQubeState struct {
 	ServiceEndpointName pulumi.StringPtrInput
 	// Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 	Token pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'token'
-	TokenHash pulumi.StringPtrInput
 	// URL of the SonarQube server to connect with.
 	Url pulumi.StringPtrInput
 }
@@ -308,11 +301,6 @@ func (o ServiceEndpointSonarQubeOutput) ServiceEndpointName() pulumi.StringOutpu
 // Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
 func (o ServiceEndpointSonarQubeOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointSonarQube) pulumi.StringOutput { return v.Token }).(pulumi.StringOutput)
-}
-
-// A bcrypted hash of the attribute 'token'
-func (o ServiceEndpointSonarQubeOutput) TokenHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointSonarQube) pulumi.StringOutput { return v.TokenHash }).(pulumi.StringOutput)
 }
 
 // URL of the SonarQube server to connect with.

@@ -79,8 +79,6 @@ type ServiceEndpointAzureDevOps struct {
 	OrgUrl pulumi.StringOutput `pulumi:"orgUrl"`
 	// The Azure DevOps personal access token.
 	PersonalAccessToken pulumi.StringOutput `pulumi:"personalAccessToken"`
-	// A bcrypted hash of the attribute 'personal_access_token'
-	PersonalAccessTokenHash pulumi.StringOutput `pulumi:"personalAccessTokenHash"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The URL of the release API.
@@ -116,7 +114,6 @@ func NewServiceEndpointAzureDevOps(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"personalAccessToken",
-		"personalAccessTokenHash",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -148,8 +145,6 @@ type serviceEndpointAzureDevOpsState struct {
 	OrgUrl *string `pulumi:"orgUrl"`
 	// The Azure DevOps personal access token.
 	PersonalAccessToken *string `pulumi:"personalAccessToken"`
-	// A bcrypted hash of the attribute 'personal_access_token'
-	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The URL of the release API.
@@ -165,8 +160,6 @@ type ServiceEndpointAzureDevOpsState struct {
 	OrgUrl pulumi.StringPtrInput
 	// The Azure DevOps personal access token.
 	PersonalAccessToken pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'personal_access_token'
-	PersonalAccessTokenHash pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The URL of the release API.
@@ -313,11 +306,6 @@ func (o ServiceEndpointAzureDevOpsOutput) OrgUrl() pulumi.StringOutput {
 // The Azure DevOps personal access token.
 func (o ServiceEndpointAzureDevOpsOutput) PersonalAccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureDevOps) pulumi.StringOutput { return v.PersonalAccessToken }).(pulumi.StringOutput)
-}
-
-// A bcrypted hash of the attribute 'personal_access_token'
-func (o ServiceEndpointAzureDevOpsOutput) PersonalAccessTokenHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointAzureDevOps) pulumi.StringOutput { return v.PersonalAccessTokenHash }).(pulumi.StringOutput)
 }
 
 // The ID of the project.

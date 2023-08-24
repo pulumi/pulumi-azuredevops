@@ -28,6 +28,7 @@ from .get_agent_queue import *
 from .get_area import *
 from .get_build_definition import *
 from .get_client_config import *
+from .get_environment import *
 from .get_git_repository import *
 from .get_group import *
 from .get_groups import *
@@ -90,10 +91,13 @@ from .serviceendpoint_argocd import *
 from .serviceendpoint_externaltfs import *
 from .serviceendpoint_gcp_terraform import *
 from .serviceendpoint_incomingwebhook import *
+from .serviceendpoint_jenkins import *
 from .serviceendpoint_jfrog_artifactory_v2 import *
 from .serviceendpoint_jfrog_distribution_v2 import *
 from .serviceendpoint_jfrog_platform_v2 import *
 from .serviceendpoint_jfrog_xray_v2 import *
+from .serviceendpoint_maven import *
+from .serviceendpoint_nexus import *
 from .serviceendpoint_octopusdeploy import *
 from .serviceendpoint_permissions import *
 from .servicehook_permissions import *
@@ -798,6 +802,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/serviceendpointJenkins",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointJenkins:ServiceendpointJenkins": "ServiceendpointJenkins"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/serviceendpointJfrogArtifactoryV2",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -826,6 +838,22 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointJfrogXrayV2:ServiceendpointJfrogXrayV2": "ServiceendpointJfrogXrayV2"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointMaven",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointMaven:ServiceendpointMaven": "ServiceendpointMaven"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointNexus",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointNexus:ServiceendpointNexus": "ServiceendpointNexus"
   }
  },
  {

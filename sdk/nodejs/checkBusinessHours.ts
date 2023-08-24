@@ -33,6 +33,7 @@ import * as utilities from "./utilities";
  *     timeZone: "UTC",
  *     monday: true,
  *     tuesday: true,
+ *     timeout: 1440,
  * });
  * ```
  * ### Protect an environment
@@ -368,6 +369,10 @@ export class CheckBusinessHours extends pulumi.CustomResource {
      */
     public readonly timeZone!: pulumi.Output<string>;
     /**
+     * The timeout in minutes for the business hours check. Defaults to `1440`.
+     */
+    public readonly timeout!: pulumi.Output<number | undefined>;
+    /**
      * This check will pass on Tuesday. Defaults to `false`.
      */
     public readonly tuesday!: pulumi.Output<boolean | undefined>;
@@ -401,6 +406,7 @@ export class CheckBusinessHours extends pulumi.CustomResource {
             resourceInputs["targetResourceType"] = state ? state.targetResourceType : undefined;
             resourceInputs["thursday"] = state ? state.thursday : undefined;
             resourceInputs["timeZone"] = state ? state.timeZone : undefined;
+            resourceInputs["timeout"] = state ? state.timeout : undefined;
             resourceInputs["tuesday"] = state ? state.tuesday : undefined;
             resourceInputs["wednesday"] = state ? state.wednesday : undefined;
         } else {
@@ -435,6 +441,7 @@ export class CheckBusinessHours extends pulumi.CustomResource {
             resourceInputs["targetResourceType"] = args ? args.targetResourceType : undefined;
             resourceInputs["thursday"] = args ? args.thursday : undefined;
             resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["tuesday"] = args ? args.tuesday : undefined;
             resourceInputs["wednesday"] = args ? args.wednesday : undefined;
         }
@@ -495,6 +502,10 @@ export interface CheckBusinessHoursState {
      * The time zone this check will be evaluated in. See below for supported values.
      */
     timeZone?: pulumi.Input<string>;
+    /**
+     * The timeout in minutes for the business hours check. Defaults to `1440`.
+     */
+    timeout?: pulumi.Input<number>;
     /**
      * This check will pass on Tuesday. Defaults to `false`.
      */
@@ -557,6 +568,10 @@ export interface CheckBusinessHoursArgs {
      * The time zone this check will be evaluated in. See below for supported values.
      */
     timeZone: pulumi.Input<string>;
+    /**
+     * The timeout in minutes for the business hours check. Defaults to `1440`.
+     */
+    timeout?: pulumi.Input<number>;
     /**
      * This check will pass on Tuesday. Defaults to `false`.
      */

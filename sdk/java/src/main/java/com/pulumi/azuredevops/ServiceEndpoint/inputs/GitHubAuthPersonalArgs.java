@@ -7,8 +7,6 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class GitHubAuthPersonalArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,18 +28,10 @@ public final class GitHubAuthPersonalArgs extends com.pulumi.resources.ResourceA
         return this.personalAccessToken;
     }
 
-    @Import(name="personalAccessTokenHash")
-    private @Nullable Output<String> personalAccessTokenHash;
-
-    public Optional<Output<String>> personalAccessTokenHash() {
-        return Optional.ofNullable(this.personalAccessTokenHash);
-    }
-
     private GitHubAuthPersonalArgs() {}
 
     private GitHubAuthPersonalArgs(GitHubAuthPersonalArgs $) {
         this.personalAccessToken = $.personalAccessToken;
-        this.personalAccessTokenHash = $.personalAccessTokenHash;
     }
 
     public static Builder builder() {
@@ -81,15 +71,6 @@ public final class GitHubAuthPersonalArgs extends com.pulumi.resources.ResourceA
          */
         public Builder personalAccessToken(String personalAccessToken) {
             return personalAccessToken(Output.of(personalAccessToken));
-        }
-
-        public Builder personalAccessTokenHash(@Nullable Output<String> personalAccessTokenHash) {
-            $.personalAccessTokenHash = personalAccessTokenHash;
-            return this;
-        }
-
-        public Builder personalAccessTokenHash(String personalAccessTokenHash) {
-            return personalAccessTokenHash(Output.of(personalAccessTokenHash));
         }
 
         public GitHubAuthPersonalArgs build() {

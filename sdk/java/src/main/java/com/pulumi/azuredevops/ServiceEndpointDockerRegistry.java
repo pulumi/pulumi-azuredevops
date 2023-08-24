@@ -129,20 +129,6 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
         return Codegen.optional(this.dockerPassword);
     }
     /**
-     * A bcrypted hash of the attribute &#39;docker_password&#39;
-     * 
-     */
-    @Export(name="dockerPasswordHash", type=String.class, parameters={})
-    private Output<String> dockerPasswordHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;docker_password&#39;
-     * 
-     */
-    public Output<String> dockerPasswordHash() {
-        return this.dockerPasswordHash;
-    }
-    /**
      * The URL of the Docker registry. (Default: &#34;https://index.docker.io/v1/&#34;)
      * 
      */
@@ -249,8 +235,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
                 Output.of(Alias.builder().type("azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry").build())
             ))
             .additionalSecretOutputs(List.of(
-                "dockerPassword",
-                "dockerPasswordHash"
+                "dockerPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

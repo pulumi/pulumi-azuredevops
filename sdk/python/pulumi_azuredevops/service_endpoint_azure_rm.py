@@ -562,7 +562,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             name=identity,
             location=UK South)
         exampleazurerm_user_assigned_identity = azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity",
-            location=var.location,
+            location=identity.location,
             name=example-identity,
             resource_group_name=azurerm_resource_group.identity.name)
         exampleazurerm_federated_identity_credential = azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential",
@@ -571,7 +571,8 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             audience=[api://AzureADTokenExchange],
             issuer=https://app.vstoken.visualstudio.com,
             parent_id=exampleazurerm_user_assigned_identity.id,
-            subject=fsc://{var.azure_devops_organisation}/{example_project.name}/{service_connection_name})
+            subject=fsc://organizationName/projectName/{service_connection_name})
+        #NOTE: The federated credential subject is formed from the Azure DevOps Organisation, Project and the Service Connection name.
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
             project_id=example_project.id,
             service_endpoint_name=service_connection_name,
@@ -750,7 +751,7 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             name=identity,
             location=UK South)
         exampleazurerm_user_assigned_identity = azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity",
-            location=var.location,
+            location=identity.location,
             name=example-identity,
             resource_group_name=azurerm_resource_group.identity.name)
         exampleazurerm_federated_identity_credential = azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential",
@@ -759,7 +760,8 @@ class ServiceEndpointAzureRM(pulumi.CustomResource):
             audience=[api://AzureADTokenExchange],
             issuer=https://app.vstoken.visualstudio.com,
             parent_id=exampleazurerm_user_assigned_identity.id,
-            subject=fsc://{var.azure_devops_organisation}/{example_project.name}/{service_connection_name})
+            subject=fsc://organizationName/projectName/{service_connection_name})
+        #NOTE: The federated credential subject is formed from the Azure DevOps Organisation, Project and the Service Connection name.
         example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
             project_id=example_project.id,
             service_endpoint_name=service_connection_name,

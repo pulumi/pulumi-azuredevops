@@ -46,6 +46,7 @@ namespace Pulumi.AzureDevOps
     ///         TimeZone = "UTC",
     ///         Monday = true,
     ///         Tuesday = true,
+    ///         Timeout = 1440,
     ///     });
     /// 
     /// });
@@ -434,6 +435,12 @@ namespace Pulumi.AzureDevOps
         public Output<string> TimeZone { get; private set; } = null!;
 
         /// <summary>
+        /// The timeout in minutes for the business hours check. Defaults to `1440`.
+        /// </summary>
+        [Output("timeout")]
+        public Output<int?> Timeout { get; private set; } = null!;
+
+        /// <summary>
         /// This check will pass on Tuesday. Defaults to `false`.
         /// </summary>
         [Output("tuesday")]
@@ -564,6 +571,12 @@ namespace Pulumi.AzureDevOps
         public Input<string> TimeZone { get; set; } = null!;
 
         /// <summary>
+        /// The timeout in minutes for the business hours check. Defaults to `1440`.
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
+
+        /// <summary>
         /// This check will pass on Tuesday. Defaults to `false`.
         /// </summary>
         [Input("tuesday")]
@@ -654,6 +667,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
+
+        /// <summary>
+        /// The timeout in minutes for the business hours check. Defaults to `1440`.
+        /// </summary>
+        [Input("timeout")]
+        public Input<int>? Timeout { get; set; }
 
         /// <summary>
         /// This check will pass on Tuesday. Defaults to `false`.

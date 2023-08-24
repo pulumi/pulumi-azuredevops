@@ -109,14 +109,12 @@ class _ServiceEndpointBitBucketState:
                  authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_hash: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
                  username: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering ServiceEndpointBitBucket resources.
         :param pulumi.Input[str] password: Bitbucket account password.
-        :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Bitbucket account username.
@@ -127,8 +125,6 @@ class _ServiceEndpointBitBucketState:
             pulumi.set(__self__, "description", description)
         if password is not None:
             pulumi.set(__self__, "password", password)
-        if password_hash is not None:
-            pulumi.set(__self__, "password_hash", password_hash)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if service_endpoint_name is not None:
@@ -165,18 +161,6 @@ class _ServiceEndpointBitBucketState:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'password'
-        """
-        return pulumi.get(self, "password_hash")
-
-    @password_hash.setter
-    def password_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password_hash", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -350,10 +334,9 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             if username is None and not opts.urn:
                 raise TypeError("Missing required property 'username'")
             __props__.__dict__["username"] = username
-            __props__.__dict__["password_hash"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azuredevops:ServiceEndpoint/bitBucket:BitBucket")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "passwordHash"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointBitBucket, __self__).__init__(
             'azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket',
@@ -368,7 +351,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             description: Optional[pulumi.Input[str]] = None,
             password: Optional[pulumi.Input[str]] = None,
-            password_hash: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None,
             username: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointBitBucket':
@@ -380,7 +362,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] password: Bitbucket account password.
-        :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Bitbucket account username.
@@ -392,7 +373,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
         __props__.__dict__["authorization"] = authorization
         __props__.__dict__["description"] = description
         __props__.__dict__["password"] = password
-        __props__.__dict__["password_hash"] = password_hash
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
         __props__.__dict__["username"] = username
@@ -415,14 +395,6 @@ class ServiceEndpointBitBucket(pulumi.CustomResource):
         Bitbucket account password.
         """
         return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'password'
-        """
-        return pulumi.get(self, "password_hash")
 
     @property
     @pulumi.getter(name="projectId")

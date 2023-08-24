@@ -11,6 +11,7 @@ import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
 import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -61,6 +62,7 @@ import javax.annotation.Nullable;
  *             .targetResourceId(exampleServiceEndpointGeneric.id())
  *             .targetResourceType(&#34;endpoint&#34;)
  *             .allowedBranches(&#34;refs/heads/main, refs/heads/features/*&#34;)
+ *             .timeout(1440)
  *             .build());
  * 
  *     }
@@ -353,6 +355,20 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      */
     public Output<String> targetResourceType() {
         return this.targetResourceType;
+    }
+    /**
+     * The timeout in minutes for the branch control check. Defaults to `1440`.
+     * 
+     */
+    @Export(name="timeout", type=Integer.class, parameters={})
+    private Output</* @Nullable */ Integer> timeout;
+
+    /**
+     * @return The timeout in minutes for the branch control check. Defaults to `1440`.
+     * 
+     */
+    public Output<Optional<Integer>> timeout() {
+        return Codegen.optional(this.timeout);
     }
     /**
      * Validate the branches being deployed are protected. Defaults to `false`.

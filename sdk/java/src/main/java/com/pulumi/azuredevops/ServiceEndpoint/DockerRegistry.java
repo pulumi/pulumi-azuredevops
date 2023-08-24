@@ -132,20 +132,6 @@ public class DockerRegistry extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.dockerPassword);
     }
     /**
-     * A bcrypted hash of the attribute &#39;docker_password&#39;
-     * 
-     */
-    @Export(name="dockerPasswordHash", type=String.class, parameters={})
-    private Output<String> dockerPasswordHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;docker_password&#39;
-     * 
-     */
-    public Output<String> dockerPasswordHash() {
-        return this.dockerPasswordHash;
-    }
-    /**
      * The URL of the Docker registry. (Default: &#34;https://index.docker.io/v1/&#34;)
      * 
      */
@@ -249,8 +235,7 @@ public class DockerRegistry extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "dockerPassword",
-                "dockerPasswordHash"
+                "dockerPassword"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

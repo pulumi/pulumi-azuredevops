@@ -125,7 +125,6 @@ class _ServiceEndpointAzureDevOpsState:
                  description: Optional[pulumi.Input[str]] = None,
                  org_url: Optional[pulumi.Input[str]] = None,
                  personal_access_token: Optional[pulumi.Input[str]] = None,
-                 personal_access_token_hash: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  release_api_url: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None):
@@ -133,7 +132,6 @@ class _ServiceEndpointAzureDevOpsState:
         Input properties used for looking up and filtering ServiceEndpointAzureDevOps resources.
         :param pulumi.Input[str] org_url: The organization URL.
         :param pulumi.Input[str] personal_access_token: The Azure DevOps personal access token.
-        :param pulumi.Input[str] personal_access_token_hash: A bcrypted hash of the attribute 'personal_access_token'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] release_api_url: The URL of the release API.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -146,8 +144,6 @@ class _ServiceEndpointAzureDevOpsState:
             pulumi.set(__self__, "org_url", org_url)
         if personal_access_token is not None:
             pulumi.set(__self__, "personal_access_token", personal_access_token)
-        if personal_access_token_hash is not None:
-            pulumi.set(__self__, "personal_access_token_hash", personal_access_token_hash)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if release_api_url is not None:
@@ -196,18 +192,6 @@ class _ServiceEndpointAzureDevOpsState:
     @personal_access_token.setter
     def personal_access_token(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "personal_access_token", value)
-
-    @property
-    @pulumi.getter(name="personalAccessTokenHash")
-    def personal_access_token_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'personal_access_token'
-        """
-        return pulumi.get(self, "personal_access_token_hash")
-
-    @personal_access_token_hash.setter
-    def personal_access_token_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "personal_access_token_hash", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -397,8 +381,7 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
-            __props__.__dict__["personal_access_token_hash"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["personalAccessToken", "personalAccessTokenHash"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["personalAccessToken"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointAzureDevOps, __self__).__init__(
             'azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps',
@@ -414,7 +397,6 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             org_url: Optional[pulumi.Input[str]] = None,
             personal_access_token: Optional[pulumi.Input[str]] = None,
-            personal_access_token_hash: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             release_api_url: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None) -> 'ServiceEndpointAzureDevOps':
@@ -427,7 +409,6 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] org_url: The organization URL.
         :param pulumi.Input[str] personal_access_token: The Azure DevOps personal access token.
-        :param pulumi.Input[str] personal_access_token_hash: A bcrypted hash of the attribute 'personal_access_token'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] release_api_url: The URL of the release API.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
@@ -440,7 +421,6 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["org_url"] = org_url
         __props__.__dict__["personal_access_token"] = personal_access_token
-        __props__.__dict__["personal_access_token_hash"] = personal_access_token_hash
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["release_api_url"] = release_api_url
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
@@ -471,14 +451,6 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         The Azure DevOps personal access token.
         """
         return pulumi.get(self, "personal_access_token")
-
-    @property
-    @pulumi.getter(name="personalAccessTokenHash")
-    def personal_access_token_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'personal_access_token'
-        """
-        return pulumi.get(self, "personal_access_token_hash")
 
     @property
     @pulumi.getter(name="projectId")

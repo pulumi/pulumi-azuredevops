@@ -6,8 +6,6 @@ package com.pulumi.azuredevops.outputs;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceEndpointPipelineAuthPersonal {
@@ -16,7 +14,6 @@ public final class ServiceEndpointPipelineAuthPersonal {
      * 
      */
     private String personalAccessToken;
-    private @Nullable String personalAccessTokenHash;
 
     private ServiceEndpointPipelineAuthPersonal() {}
     /**
@@ -25,9 +22,6 @@ public final class ServiceEndpointPipelineAuthPersonal {
      */
     public String personalAccessToken() {
         return this.personalAccessToken;
-    }
-    public Optional<String> personalAccessTokenHash() {
-        return Optional.ofNullable(this.personalAccessTokenHash);
     }
 
     public static Builder builder() {
@@ -40,12 +34,10 @@ public final class ServiceEndpointPipelineAuthPersonal {
     @CustomType.Builder
     public static final class Builder {
         private String personalAccessToken;
-        private @Nullable String personalAccessTokenHash;
         public Builder() {}
         public Builder(ServiceEndpointPipelineAuthPersonal defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.personalAccessToken = defaults.personalAccessToken;
-    	      this.personalAccessTokenHash = defaults.personalAccessTokenHash;
         }
 
         @CustomType.Setter
@@ -53,15 +45,9 @@ public final class ServiceEndpointPipelineAuthPersonal {
             this.personalAccessToken = Objects.requireNonNull(personalAccessToken);
             return this;
         }
-        @CustomType.Setter
-        public Builder personalAccessTokenHash(@Nullable String personalAccessTokenHash) {
-            this.personalAccessTokenHash = personalAccessTokenHash;
-            return this;
-        }
         public ServiceEndpointPipelineAuthPersonal build() {
             final var o = new ServiceEndpointPipelineAuthPersonal();
             o.personalAccessToken = personalAccessToken;
-            o.personalAccessTokenHash = personalAccessTokenHash;
             return o;
         }
     }

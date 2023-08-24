@@ -825,7 +825,7 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) UseYaml() pulumi.BoolPtrOutp
 }
 
 type BuildDefinitionPullRequestTriggerForks struct {
-	// Build pull requests form forms of this repository.
+	// Build pull requests from forks of this repository.
 	Enabled bool `pulumi:"enabled"`
 	// Make secrets available to builds of forks.
 	ShareSecrets bool `pulumi:"shareSecrets"`
@@ -843,7 +843,7 @@ type BuildDefinitionPullRequestTriggerForksInput interface {
 }
 
 type BuildDefinitionPullRequestTriggerForksArgs struct {
-	// Build pull requests form forms of this repository.
+	// Build pull requests from forks of this repository.
 	Enabled pulumi.BoolInput `pulumi:"enabled"`
 	// Make secrets available to builds of forks.
 	ShareSecrets pulumi.BoolInput `pulumi:"shareSecrets"`
@@ -926,7 +926,7 @@ func (o BuildDefinitionPullRequestTriggerForksOutput) ToBuildDefinitionPullReque
 	}).(BuildDefinitionPullRequestTriggerForksPtrOutput)
 }
 
-// Build pull requests form forms of this repository.
+// Build pull requests from forks of this repository.
 func (o BuildDefinitionPullRequestTriggerForksOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerForks) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
@@ -960,7 +960,7 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Elem() BuildDefinitionP
 	}).(BuildDefinitionPullRequestTriggerForksOutput)
 }
 
-// Build pull requests form forms of this repository.
+// Build pull requests from forks of this repository.
 func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerForks) *bool {
 		if v == nil {

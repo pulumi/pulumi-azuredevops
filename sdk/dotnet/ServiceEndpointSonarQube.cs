@@ -86,12 +86,6 @@ namespace Pulumi.AzureDevOps
         public Output<string> Token { get; private set; } = null!;
 
         /// <summary>
-        /// A bcrypted hash of the attribute 'token'
-        /// </summary>
-        [Output("tokenHash")]
-        public Output<string> TokenHash { get; private set; } = null!;
-
-        /// <summary>
         /// URL of the SonarQube server to connect with.
         /// </summary>
         [Output("url")]
@@ -123,7 +117,6 @@ namespace Pulumi.AzureDevOps
                 AdditionalSecretOutputs =
                 {
                     "token",
-                    "tokenHash",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -243,22 +236,6 @@ namespace Pulumi.AzureDevOps
             {
                 var emptySecret = Output.CreateSecret(0);
                 _token = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("tokenHash")]
-        private Input<string>? _tokenHash;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'token'
-        /// </summary>
-        public Input<string>? TokenHash
-        {
-            get => _tokenHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _tokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

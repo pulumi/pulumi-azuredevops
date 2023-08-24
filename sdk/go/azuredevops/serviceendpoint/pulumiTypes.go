@@ -17,8 +17,7 @@ type AzureRMCredentials struct {
 	// The service principal application Id
 	Serviceprincipalid string `pulumi:"serviceprincipalid"`
 	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
-	Serviceprincipalkey     *string `pulumi:"serviceprincipalkey"`
-	ServiceprincipalkeyHash *string `pulumi:"serviceprincipalkeyHash"`
+	Serviceprincipalkey *string `pulumi:"serviceprincipalkey"`
 }
 
 // AzureRMCredentialsInput is an input type that accepts AzureRMCredentialsArgs and AzureRMCredentialsOutput values.
@@ -36,8 +35,7 @@ type AzureRMCredentialsArgs struct {
 	// The service principal application Id
 	Serviceprincipalid pulumi.StringInput `pulumi:"serviceprincipalid"`
 	// The service principal secret. This not required if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`.
-	Serviceprincipalkey     pulumi.StringPtrInput `pulumi:"serviceprincipalkey"`
-	ServiceprincipalkeyHash pulumi.StringPtrInput `pulumi:"serviceprincipalkeyHash"`
+	Serviceprincipalkey pulumi.StringPtrInput `pulumi:"serviceprincipalkey"`
 }
 
 func (AzureRMCredentialsArgs) ElementType() reflect.Type {
@@ -127,10 +125,6 @@ func (o AzureRMCredentialsOutput) Serviceprincipalkey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AzureRMCredentials) *string { return v.Serviceprincipalkey }).(pulumi.StringPtrOutput)
 }
 
-func (o AzureRMCredentialsOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v AzureRMCredentials) *string { return v.ServiceprincipalkeyHash }).(pulumi.StringPtrOutput)
-}
-
 type AzureRMCredentialsPtrOutput struct{ *pulumi.OutputState }
 
 func (AzureRMCredentialsPtrOutput) ElementType() reflect.Type {
@@ -172,15 +166,6 @@ func (o AzureRMCredentialsPtrOutput) Serviceprincipalkey() pulumi.StringPtrOutpu
 			return nil
 		}
 		return v.Serviceprincipalkey
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o AzureRMCredentialsPtrOutput) ServiceprincipalkeyHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *AzureRMCredentials) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ServiceprincipalkeyHash
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -319,8 +304,7 @@ func (o GitHubAuthOauthPtrOutput) OauthConfigurationId() pulumi.StringPtrOutput 
 
 type GitHubAuthPersonal struct {
 	// The Personal Access Token for GitHub.
-	PersonalAccessToken     string  `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash *string `pulumi:"personalAccessTokenHash"`
+	PersonalAccessToken string `pulumi:"personalAccessToken"`
 }
 
 // GitHubAuthPersonalInput is an input type that accepts GitHubAuthPersonalArgs and GitHubAuthPersonalOutput values.
@@ -336,8 +320,7 @@ type GitHubAuthPersonalInput interface {
 
 type GitHubAuthPersonalArgs struct {
 	// The Personal Access Token for GitHub.
-	PersonalAccessToken     pulumi.StringInput    `pulumi:"personalAccessToken"`
-	PersonalAccessTokenHash pulumi.StringPtrInput `pulumi:"personalAccessTokenHash"`
+	PersonalAccessToken pulumi.StringInput `pulumi:"personalAccessToken"`
 }
 
 func (GitHubAuthPersonalArgs) ElementType() reflect.Type {
@@ -422,10 +405,6 @@ func (o GitHubAuthPersonalOutput) PersonalAccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GitHubAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
 }
 
-func (o GitHubAuthPersonalOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v GitHubAuthPersonal) *string { return v.PersonalAccessTokenHash }).(pulumi.StringPtrOutput)
-}
-
 type GitHubAuthPersonalPtrOutput struct{ *pulumi.OutputState }
 
 func (GitHubAuthPersonalPtrOutput) ElementType() reflect.Type {
@@ -457,15 +436,6 @@ func (o GitHubAuthPersonalPtrOutput) PersonalAccessToken() pulumi.StringPtrOutpu
 			return nil
 		}
 		return &v.PersonalAccessToken
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o GitHubAuthPersonalPtrOutput) PersonalAccessTokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GitHubAuthPersonal) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PersonalAccessTokenHash
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -806,11 +776,9 @@ func (o KubernetesKubeconfigPtrOutput) KubeConfig() pulumi.StringPtrOutput {
 
 type KubernetesServiceAccount struct {
 	// The certificate from a Kubernetes secret object.
-	CaCert     string  `pulumi:"caCert"`
-	CaCertHash *string `pulumi:"caCertHash"`
+	CaCert string `pulumi:"caCert"`
 	// The token from a Kubernetes secret object.
-	Token     string  `pulumi:"token"`
-	TokenHash *string `pulumi:"tokenHash"`
+	Token string `pulumi:"token"`
 }
 
 // KubernetesServiceAccountInput is an input type that accepts KubernetesServiceAccountArgs and KubernetesServiceAccountOutput values.
@@ -826,11 +794,9 @@ type KubernetesServiceAccountInput interface {
 
 type KubernetesServiceAccountArgs struct {
 	// The certificate from a Kubernetes secret object.
-	CaCert     pulumi.StringInput    `pulumi:"caCert"`
-	CaCertHash pulumi.StringPtrInput `pulumi:"caCertHash"`
+	CaCert pulumi.StringInput `pulumi:"caCert"`
 	// The token from a Kubernetes secret object.
-	Token     pulumi.StringInput    `pulumi:"token"`
-	TokenHash pulumi.StringPtrInput `pulumi:"tokenHash"`
+	Token pulumi.StringInput `pulumi:"token"`
 }
 
 func (KubernetesServiceAccountArgs) ElementType() reflect.Type {
@@ -915,17 +881,9 @@ func (o KubernetesServiceAccountOutput) CaCert() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesServiceAccount) string { return v.CaCert }).(pulumi.StringOutput)
 }
 
-func (o KubernetesServiceAccountOutput) CaCertHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesServiceAccount) *string { return v.CaCertHash }).(pulumi.StringPtrOutput)
-}
-
 // The token from a Kubernetes secret object.
 func (o KubernetesServiceAccountOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesServiceAccount) string { return v.Token }).(pulumi.StringOutput)
-}
-
-func (o KubernetesServiceAccountOutput) TokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v KubernetesServiceAccount) *string { return v.TokenHash }).(pulumi.StringPtrOutput)
 }
 
 type KubernetesServiceAccountPtrOutput struct{ *pulumi.OutputState }
@@ -962,15 +920,6 @@ func (o KubernetesServiceAccountPtrOutput) CaCert() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-func (o KubernetesServiceAccountPtrOutput) CaCertHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesServiceAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CaCertHash
-	}).(pulumi.StringPtrOutput)
-}
-
 // The token from a Kubernetes secret object.
 func (o KubernetesServiceAccountPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesServiceAccount) *string {
@@ -978,15 +927,6 @@ func (o KubernetesServiceAccountPtrOutput) Token() pulumi.StringPtrOutput {
 			return nil
 		}
 		return &v.Token
-	}).(pulumi.StringPtrOutput)
-}
-
-func (o KubernetesServiceAccountPtrOutput) TokenHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *KubernetesServiceAccount) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TokenHash
 	}).(pulumi.StringPtrOutput)
 }
 

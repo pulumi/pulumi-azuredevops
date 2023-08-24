@@ -147,7 +147,6 @@ class _ServiceEndpointGenericGitState:
                  description: Optional[pulumi.Input[str]] = None,
                  enable_pipelines_access: Optional[pulumi.Input[bool]] = None,
                  password: Optional[pulumi.Input[str]] = None,
-                 password_hash: Optional[pulumi.Input[str]] = None,
                  project_id: Optional[pulumi.Input[str]] = None,
                  repository_url: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -158,7 +157,6 @@ class _ServiceEndpointGenericGitState:
         :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
                
                > **Note** For AzureDevOps Git, PAT should be used as the password.
-        :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
@@ -172,8 +170,6 @@ class _ServiceEndpointGenericGitState:
             pulumi.set(__self__, "enable_pipelines_access", enable_pipelines_access)
         if password is not None:
             pulumi.set(__self__, "password", password)
-        if password_hash is not None:
-            pulumi.set(__self__, "password_hash", password_hash)
         if project_id is not None:
             pulumi.set(__self__, "project_id", project_id)
         if repository_url is not None:
@@ -226,18 +222,6 @@ class _ServiceEndpointGenericGitState:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
-
-    @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> Optional[pulumi.Input[str]]:
-        """
-        A bcrypted hash of the attribute 'password'
-        """
-        return pulumi.get(self, "password_hash")
-
-    @password_hash.setter
-    def password_hash(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "password_hash", value)
 
     @property
     @pulumi.getter(name="projectId")
@@ -435,8 +419,7 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
             __props__.__dict__["username"] = username
-            __props__.__dict__["password_hash"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password", "passwordHash"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ServiceEndpointGenericGit, __self__).__init__(
             'azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit',
@@ -452,7 +435,6 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             enable_pipelines_access: Optional[pulumi.Input[bool]] = None,
             password: Optional[pulumi.Input[str]] = None,
-            password_hash: Optional[pulumi.Input[str]] = None,
             project_id: Optional[pulumi.Input[str]] = None,
             repository_url: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None,
@@ -468,7 +450,6 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         :param pulumi.Input[str] password: The PAT or password used to authenticate to the git repository.
                
                > **Note** For AzureDevOps Git, PAT should be used as the password.
-        :param pulumi.Input[str] password_hash: A bcrypted hash of the attribute 'password'
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] repository_url: The URL of the repository associated with the service endpoint.
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
@@ -482,7 +463,6 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["enable_pipelines_access"] = enable_pipelines_access
         __props__.__dict__["password"] = password
-        __props__.__dict__["password_hash"] = password_hash
         __props__.__dict__["project_id"] = project_id
         __props__.__dict__["repository_url"] = repository_url
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
@@ -516,14 +496,6 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         > **Note** For AzureDevOps Git, PAT should be used as the password.
         """
         return pulumi.get(self, "password")
-
-    @property
-    @pulumi.getter(name="passwordHash")
-    def password_hash(self) -> pulumi.Output[str]:
-        """
-        A bcrypted hash of the attribute 'password'
-        """
-        return pulumi.get(self, "password_hash")
 
     @property
     @pulumi.getter(name="projectId")

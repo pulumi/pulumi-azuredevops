@@ -84,21 +84,6 @@ public final class ServiceEndpointSonarQubeState extends com.pulumi.resources.Re
     }
 
     /**
-     * A bcrypted hash of the attribute &#39;token&#39;
-     * 
-     */
-    @Import(name="tokenHash")
-    private @Nullable Output<String> tokenHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;token&#39;
-     * 
-     */
-    public Optional<Output<String>> tokenHash() {
-        return Optional.ofNullable(this.tokenHash);
-    }
-
-    /**
      * URL of the SonarQube server to connect with.
      * 
      */
@@ -121,7 +106,6 @@ public final class ServiceEndpointSonarQubeState extends com.pulumi.resources.Re
         this.projectId = $.projectId;
         this.serviceEndpointName = $.serviceEndpointName;
         this.token = $.token;
-        this.tokenHash = $.tokenHash;
         this.url = $.url;
     }
 
@@ -234,27 +218,6 @@ public final class ServiceEndpointSonarQubeState extends com.pulumi.resources.Re
          */
         public Builder token(String token) {
             return token(Output.of(token));
-        }
-
-        /**
-         * @param tokenHash A bcrypted hash of the attribute &#39;token&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tokenHash(@Nullable Output<String> tokenHash) {
-            $.tokenHash = tokenHash;
-            return this;
-        }
-
-        /**
-         * @param tokenHash A bcrypted hash of the attribute &#39;token&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder tokenHash(String tokenHash) {
-            return tokenHash(Output.of(tokenHash));
         }
 
         /**

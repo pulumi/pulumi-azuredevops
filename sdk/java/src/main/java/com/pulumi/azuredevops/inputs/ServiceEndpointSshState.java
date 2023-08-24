@@ -62,21 +62,6 @@ public final class ServiceEndpointSshState extends com.pulumi.resources.Resource
     }
 
     /**
-     * A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    @Import(name="passwordHash")
-    private @Nullable Output<String> passwordHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;password&#39;
-     * 
-     */
-    public Optional<Output<String>> passwordHash() {
-        return Optional.ofNullable(this.passwordHash);
-    }
-
-    /**
      * Port number on the remote machine to use for connecting. Defaults to `22`.
      * 
      */
@@ -104,21 +89,6 @@ public final class ServiceEndpointSshState extends com.pulumi.resources.Resource
      */
     public Optional<Output<String>> privateKey() {
         return Optional.ofNullable(this.privateKey);
-    }
-
-    /**
-     * A bcrypted hash of the attribute &#39;private_key&#39;
-     * 
-     */
-    @Import(name="privateKeyHash")
-    private @Nullable Output<String> privateKeyHash;
-
-    /**
-     * @return A bcrypted hash of the attribute &#39;private_key&#39;
-     * 
-     */
-    public Optional<Output<String>> privateKeyHash() {
-        return Optional.ofNullable(this.privateKeyHash);
     }
 
     /**
@@ -173,10 +143,8 @@ public final class ServiceEndpointSshState extends com.pulumi.resources.Resource
         this.description = $.description;
         this.host = $.host;
         this.password = $.password;
-        this.passwordHash = $.passwordHash;
         this.port = $.port;
         this.privateKey = $.privateKey;
-        this.privateKeyHash = $.privateKeyHash;
         this.projectId = $.projectId;
         this.serviceEndpointName = $.serviceEndpointName;
         this.username = $.username;
@@ -261,27 +229,6 @@ public final class ServiceEndpointSshState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param passwordHash A bcrypted hash of the attribute &#39;password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordHash(@Nullable Output<String> passwordHash) {
-            $.passwordHash = passwordHash;
-            return this;
-        }
-
-        /**
-         * @param passwordHash A bcrypted hash of the attribute &#39;password&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder passwordHash(String passwordHash) {
-            return passwordHash(Output.of(passwordHash));
-        }
-
-        /**
          * @param port Port number on the remote machine to use for connecting. Defaults to `22`.
          * 
          * @return builder
@@ -321,27 +268,6 @@ public final class ServiceEndpointSshState extends com.pulumi.resources.Resource
          */
         public Builder privateKey(String privateKey) {
             return privateKey(Output.of(privateKey));
-        }
-
-        /**
-         * @param privateKeyHash A bcrypted hash of the attribute &#39;private_key&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder privateKeyHash(@Nullable Output<String> privateKeyHash) {
-            $.privateKeyHash = privateKeyHash;
-            return this;
-        }
-
-        /**
-         * @param privateKeyHash A bcrypted hash of the attribute &#39;private_key&#39;
-         * 
-         * @return builder
-         * 
-         */
-        public Builder privateKeyHash(String privateKeyHash) {
-            return privateKeyHash(Output.of(privateKeyHash));
         }
 
         /**

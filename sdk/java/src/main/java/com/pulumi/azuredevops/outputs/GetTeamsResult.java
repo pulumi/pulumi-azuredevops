@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.GetTeamsTeam;
 import com.pulumi.core.annotations.CustomType;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -29,6 +30,7 @@ public final class GetTeamsResult {
      * 
      */
     private List<GetTeamsTeam> teams;
+    private @Nullable Integer top;
 
     private GetTeamsResult() {}
     /**
@@ -53,6 +55,9 @@ public final class GetTeamsResult {
     public List<GetTeamsTeam> teams() {
         return this.teams;
     }
+    public Optional<Integer> top() {
+        return Optional.ofNullable(this.top);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -66,12 +71,14 @@ public final class GetTeamsResult {
         private String id;
         private @Nullable String projectId;
         private List<GetTeamsTeam> teams;
+        private @Nullable Integer top;
         public Builder() {}
         public Builder(GetTeamsResult defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.projectId = defaults.projectId;
     	      this.teams = defaults.teams;
+    	      this.top = defaults.top;
         }
 
         @CustomType.Setter
@@ -92,11 +99,17 @@ public final class GetTeamsResult {
         public Builder teams(GetTeamsTeam... teams) {
             return teams(List.of(teams));
         }
+        @CustomType.Setter
+        public Builder top(@Nullable Integer top) {
+            this.top = top;
+            return this;
+        }
         public GetTeamsResult build() {
             final var o = new GetTeamsResult();
             o.id = id;
             o.projectId = projectId;
             o.teams = teams;
+            o.top = top;
             return o;
         }
     }

@@ -100,12 +100,6 @@ namespace Pulumi.AzureDevOps
         public Output<string> SecretAccessKey { get; private set; } = null!;
 
         /// <summary>
-        /// A bcrypted hash of the attribute 'secret_access_key'
-        /// </summary>
-        [Output("secretAccessKeyHash")]
-        public Output<string> SecretAccessKeyHash { get; private set; } = null!;
-
-        /// <summary>
         /// The Service Endpoint name.
         /// </summary>
         [Output("serviceEndpointName")]
@@ -116,12 +110,6 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Output("sessionToken")]
         public Output<string?> SessionToken { get; private set; } = null!;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'session_token'
-        /// </summary>
-        [Output("sessionTokenHash")]
-        public Output<string> SessionTokenHash { get; private set; } = null!;
 
 
         /// <summary>
@@ -149,9 +137,7 @@ namespace Pulumi.AzureDevOps
                 AdditionalSecretOutputs =
                 {
                     "secretAccessKey",
-                    "secretAccessKeyHash",
                     "sessionToken",
-                    "sessionTokenHash",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -320,22 +306,6 @@ namespace Pulumi.AzureDevOps
             }
         }
 
-        [Input("secretAccessKeyHash")]
-        private Input<string>? _secretAccessKeyHash;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'secret_access_key'
-        /// </summary>
-        public Input<string>? SecretAccessKeyHash
-        {
-            get => _secretAccessKeyHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _secretAccessKeyHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
         /// <summary>
         /// The Service Endpoint name.
         /// </summary>
@@ -355,22 +325,6 @@ namespace Pulumi.AzureDevOps
             {
                 var emptySecret = Output.CreateSecret(0);
                 _sessionToken = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
-            }
-        }
-
-        [Input("sessionTokenHash")]
-        private Input<string>? _sessionTokenHash;
-
-        /// <summary>
-        /// A bcrypted hash of the attribute 'session_token'
-        /// </summary>
-        public Input<string>? SessionTokenHash
-        {
-            get => _sessionTokenHash;
-            set
-            {
-                var emptySecret = Output.CreateSecret(0);
-                _sessionTokenHash = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
 

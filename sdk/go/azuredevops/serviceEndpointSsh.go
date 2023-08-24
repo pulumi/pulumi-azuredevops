@@ -74,14 +74,10 @@ type ServiceEndpointSsh struct {
 	Host pulumi.StringOutput `pulumi:"host"`
 	// Password for connecting to the endpoint.
 	Password pulumi.StringPtrOutput `pulumi:"password"`
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash pulumi.StringOutput `pulumi:"passwordHash"`
 	// Port number on the remote machine to use for connecting. Defaults to `22`.
 	Port pulumi.IntPtrOutput `pulumi:"port"`
 	// Private Key for connecting to the endpoint.
 	PrivateKey pulumi.StringPtrOutput `pulumi:"privateKey"`
-	// A bcrypted hash of the attribute 'private_key'
-	PrivateKeyHash pulumi.StringOutput `pulumi:"privateKeyHash"`
 	// The ID of the project.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -117,9 +113,7 @@ func NewServiceEndpointSsh(ctx *pulumi.Context,
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"password",
-		"passwordHash",
 		"privateKey",
-		"privateKeyHash",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -151,14 +145,10 @@ type serviceEndpointSshState struct {
 	Host *string `pulumi:"host"`
 	// Password for connecting to the endpoint.
 	Password *string `pulumi:"password"`
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash *string `pulumi:"passwordHash"`
 	// Port number on the remote machine to use for connecting. Defaults to `22`.
 	Port *int `pulumi:"port"`
 	// Private Key for connecting to the endpoint.
 	PrivateKey *string `pulumi:"privateKey"`
-	// A bcrypted hash of the attribute 'private_key'
-	PrivateKeyHash *string `pulumi:"privateKeyHash"`
 	// The ID of the project.
 	ProjectId *string `pulumi:"projectId"`
 	// The Service Endpoint name.
@@ -174,14 +164,10 @@ type ServiceEndpointSshState struct {
 	Host pulumi.StringPtrInput
 	// Password for connecting to the endpoint.
 	Password pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'password'
-	PasswordHash pulumi.StringPtrInput
 	// Port number on the remote machine to use for connecting. Defaults to `22`.
 	Port pulumi.IntPtrInput
 	// Private Key for connecting to the endpoint.
 	PrivateKey pulumi.StringPtrInput
-	// A bcrypted hash of the attribute 'private_key'
-	PrivateKeyHash pulumi.StringPtrInput
 	// The ID of the project.
 	ProjectId pulumi.StringPtrInput
 	// The Service Endpoint name.
@@ -338,11 +324,6 @@ func (o ServiceEndpointSshOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointSsh) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
-// A bcrypted hash of the attribute 'password'
-func (o ServiceEndpointSshOutput) PasswordHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointSsh) pulumi.StringOutput { return v.PasswordHash }).(pulumi.StringOutput)
-}
-
 // Port number on the remote machine to use for connecting. Defaults to `22`.
 func (o ServiceEndpointSshOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointSsh) pulumi.IntPtrOutput { return v.Port }).(pulumi.IntPtrOutput)
@@ -351,11 +332,6 @@ func (o ServiceEndpointSshOutput) Port() pulumi.IntPtrOutput {
 // Private Key for connecting to the endpoint.
 func (o ServiceEndpointSshOutput) PrivateKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointSsh) pulumi.StringPtrOutput { return v.PrivateKey }).(pulumi.StringPtrOutput)
-}
-
-// A bcrypted hash of the attribute 'private_key'
-func (o ServiceEndpointSshOutput) PrivateKeyHash() pulumi.StringOutput {
-	return o.ApplyT(func(v *ServiceEndpointSsh) pulumi.StringOutput { return v.PrivateKeyHash }).(pulumi.StringOutput)
 }
 
 // The ID of the project.
