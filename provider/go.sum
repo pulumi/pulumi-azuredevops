@@ -1872,8 +1872,8 @@ github.com/microsoft/azure-devops-go-api/azuredevops v1.0.0-b5 h1:YH424zrwLTlyHS
 github.com/microsoft/azure-devops-go-api/azuredevops v1.0.0-b5/go.mod h1:PoGiBqKSQK1vIfQ+yVaFcGjDySHvym6FM1cNYnwzbrY=
 github.com/microsoft/azure-devops-go-api/azuredevops/v7 v7.1.0 h1:mmJCWLe63QvybxhW1iBmQWEaCKdc4SKgALfTNZ+OphU=
 github.com/microsoft/azure-devops-go-api/azuredevops/v7 v7.1.0/go.mod h1:mDunUZ1IUJdJIRHvFb+LPBUtxe3AYB5MI6BMXNg8194=
-github.com/microsoft/terraform-provider-azuredevops v0.8.0 h1:SkwK+s9ikch3pqyNd7rELiKNHgJdPRAkM2vsHJj6aY8=
-github.com/microsoft/terraform-provider-azuredevops v0.8.0/go.mod h1:rp8boCNMoajXCJARN8xtV7IwJwgOT+AgqsLG2pp0PvM=
+github.com/microsoft/terraform-provider-azuredevops v0.9.0 h1:Sy3wjyQyJtfqr5qTZyjQ4IHd/ikes4ke6bmQwhwrEUc=
+github.com/microsoft/terraform-provider-azuredevops v0.9.0/go.mod h1:rp8boCNMoajXCJARN8xtV7IwJwgOT+AgqsLG2pp0PvM=
 github.com/miekg/dns v1.0.14/go.mod h1:W1PPwlIAgtquWBMBEV9nkV9Cazfe8ScdGz/Lj7v3Nrg=
 github.com/miekg/dns v1.1.26/go.mod h1:bPDLeHnStXmXAq1m/Ch/hvfNHr14JKNPMBo3VZKjuso=
 github.com/miekg/dns v1.1.41/go.mod h1:p6aan82bvRIyn+zDIv9xYNUpwa73JcSh9BKwknJysuI=
@@ -2140,8 +2140,8 @@ github.com/prometheus/tsdb v0.7.1/go.mod h1:qhTCs0VvXwvX/y3TZrWD7rabWM+ijKTux40T
 github.com/pulumi/pulumi-java/pkg v0.9.4 h1:gIQZmlUI1o9ye8CL2XFqtmAX6Lwr9uj/+HzjboiSmK4=
 github.com/pulumi/pulumi-java/pkg v0.9.4/go.mod h1:c6rSw/+q4O0IImgJ9axxoC6QesbPYWBaG5gimbHouUQ=
 github.com/pulumi/pulumi-terraform-bridge/testing v0.0.1 h1:SCg1gjfY9N4yn8U8peIUYATifjoDABkyR7H9lmefsfc=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0 h1:munOxi56glme47MT8/wI29o9wrRBJrEQuwjAgm1zviI=
-github.com/pulumi/pulumi-terraform-bridge/v3 v3.57.0/go.mod h1:ykaml8e6XS/yI9JOcNZ+6gLirs6EWTB0FmjbT+JyEdU=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.58.0 h1:1vQokJDOEQQuPAsvIHoqb0x7yGflfmXYcjkHrT5tkXg=
+github.com/pulumi/pulumi-terraform-bridge/v3 v3.58.0/go.mod h1:ykaml8e6XS/yI9JOcNZ+6gLirs6EWTB0FmjbT+JyEdU=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4 h1:rIzMmtcVpPX8ynaz6/nW5AHNY63DiNfCohqmxWvMpM4=
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.4/go.mod h1:Kt8RIZWa/N8rW3+0g6NrqCBmF3o+HuIhFaZpssEkG6w=
 github.com/pulumi/pulumi-yaml v1.1.1 h1:8pyBNIU8+ym0wYpjhsCqN+cutygfK1XbhY2YEeNfyXY=
