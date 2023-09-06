@@ -46,6 +46,11 @@ public final class GetServiceEndpointAzureRMResult {
      */
     private String description;
     /**
+     * @return The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+     * 
+     */
+    private String environment;
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -63,6 +68,16 @@ public final class GetServiceEndpointAzureRMResult {
     private String serviceEndpointAuthenticationScheme;
     private String serviceEndpointId;
     private String serviceEndpointName;
+    /**
+     * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * 
+     */
+    private String workloadIdentityFederationIssuer;
+    /**
+     * @return The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+     * 
+     */
+    private String workloadIdentityFederationSubject;
 
     private GetServiceEndpointAzureRMResult() {}
     /**
@@ -115,6 +130,13 @@ public final class GetServiceEndpointAzureRMResult {
         return this.description;
     }
     /**
+     * @return The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+     * 
+     */
+    public String environment() {
+        return this.environment;
+    }
+    /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
@@ -144,6 +166,20 @@ public final class GetServiceEndpointAzureRMResult {
     public String serviceEndpointName() {
         return this.serviceEndpointName;
     }
+    /**
+     * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * 
+     */
+    public String workloadIdentityFederationIssuer() {
+        return this.workloadIdentityFederationIssuer;
+    }
+    /**
+     * @return The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+     * 
+     */
+    public String workloadIdentityFederationSubject() {
+        return this.workloadIdentityFederationSubject;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -161,12 +197,15 @@ public final class GetServiceEndpointAzureRMResult {
         private String azurermSubscriptionId;
         private String azurermSubscriptionName;
         private String description;
+        private String environment;
         private String id;
         private String projectId;
         private String resourceGroup;
         private String serviceEndpointAuthenticationScheme;
         private String serviceEndpointId;
         private String serviceEndpointName;
+        private String workloadIdentityFederationIssuer;
+        private String workloadIdentityFederationSubject;
         public Builder() {}
         public Builder(GetServiceEndpointAzureRMResult defaults) {
     	      Objects.requireNonNull(defaults);
@@ -177,12 +216,15 @@ public final class GetServiceEndpointAzureRMResult {
     	      this.azurermSubscriptionId = defaults.azurermSubscriptionId;
     	      this.azurermSubscriptionName = defaults.azurermSubscriptionName;
     	      this.description = defaults.description;
+    	      this.environment = defaults.environment;
     	      this.id = defaults.id;
     	      this.projectId = defaults.projectId;
     	      this.resourceGroup = defaults.resourceGroup;
     	      this.serviceEndpointAuthenticationScheme = defaults.serviceEndpointAuthenticationScheme;
     	      this.serviceEndpointId = defaults.serviceEndpointId;
     	      this.serviceEndpointName = defaults.serviceEndpointName;
+    	      this.workloadIdentityFederationIssuer = defaults.workloadIdentityFederationIssuer;
+    	      this.workloadIdentityFederationSubject = defaults.workloadIdentityFederationSubject;
         }
 
         @CustomType.Setter
@@ -221,6 +263,11 @@ public final class GetServiceEndpointAzureRMResult {
             return this;
         }
         @CustomType.Setter
+        public Builder environment(String environment) {
+            this.environment = Objects.requireNonNull(environment);
+            return this;
+        }
+        @CustomType.Setter
         public Builder id(String id) {
             this.id = Objects.requireNonNull(id);
             return this;
@@ -250,6 +297,16 @@ public final class GetServiceEndpointAzureRMResult {
             this.serviceEndpointName = Objects.requireNonNull(serviceEndpointName);
             return this;
         }
+        @CustomType.Setter
+        public Builder workloadIdentityFederationIssuer(String workloadIdentityFederationIssuer) {
+            this.workloadIdentityFederationIssuer = Objects.requireNonNull(workloadIdentityFederationIssuer);
+            return this;
+        }
+        @CustomType.Setter
+        public Builder workloadIdentityFederationSubject(String workloadIdentityFederationSubject) {
+            this.workloadIdentityFederationSubject = Objects.requireNonNull(workloadIdentityFederationSubject);
+            return this;
+        }
         public GetServiceEndpointAzureRMResult build() {
             final var o = new GetServiceEndpointAzureRMResult();
             o.authorization = authorization;
@@ -259,12 +316,15 @@ public final class GetServiceEndpointAzureRMResult {
             o.azurermSubscriptionId = azurermSubscriptionId;
             o.azurermSubscriptionName = azurermSubscriptionName;
             o.description = description;
+            o.environment = environment;
             o.id = id;
             o.projectId = projectId;
             o.resourceGroup = resourceGroup;
             o.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
             o.serviceEndpointId = serviceEndpointId;
             o.serviceEndpointName = serviceEndpointName;
+            o.workloadIdentityFederationIssuer = workloadIdentityFederationIssuer;
+            o.workloadIdentityFederationSubject = workloadIdentityFederationSubject;
             return o;
         }
     }

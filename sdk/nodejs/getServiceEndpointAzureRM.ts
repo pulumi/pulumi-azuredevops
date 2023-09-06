@@ -103,6 +103,10 @@ export interface GetServiceEndpointAzureRMResult {
      */
     readonly description: string;
     /**
+     * The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+     */
+    readonly environment: string;
+    /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
@@ -117,6 +121,14 @@ export interface GetServiceEndpointAzureRMResult {
     readonly serviceEndpointAuthenticationScheme: string;
     readonly serviceEndpointId: string;
     readonly serviceEndpointName: string;
+    /**
+     * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     */
+    readonly workloadIdentityFederationIssuer: string;
+    /**
+     * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+     */
+    readonly workloadIdentityFederationSubject: string;
 }
 /**
  * Use this data source to access information about an existing AzureRM service Endpoint.

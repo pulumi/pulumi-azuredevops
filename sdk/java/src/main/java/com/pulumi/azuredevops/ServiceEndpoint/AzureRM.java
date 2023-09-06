@@ -179,11 +179,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.azurerm.Azurerm_resource_groupArgs;
  * import com.pulumi.azurerm.azurerm_user_assigned_identity;
  * import com.pulumi.azurerm.Azurerm_user_assigned_identityArgs;
- * import com.pulumi.azurerm.azurerm_federated_identity_credential;
- * import com.pulumi.azurerm.Azurerm_federated_identity_credentialArgs;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
  * import com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMCredentialsArgs;
+ * import com.pulumi.azurerm.azurerm_federated_identity_credential;
+ * import com.pulumi.azurerm.Azurerm_federated_identity_credentialArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -217,15 +217,6 @@ import javax.annotation.Nullable;
  *             .resourceGroupName(&#34;azurerm_resource_group.identity.name&#34;)
  *             .build());
  * 
- *         var exampleazurerm_federated_identity_credential = new Azurerm_federated_identity_credential(&#34;exampleazurerm_federated_identity_credential&#34;, Azurerm_federated_identity_credentialArgs.builder()        
- *             .name(&#34;example-federated-credential&#34;)
- *             .resourceGroupName(identity.name())
- *             .audience(&#34;api://AzureADTokenExchange&#34;)
- *             .issuer(&#34;https://app.vstoken.visualstudio.com&#34;)
- *             .parentId(exampleazurerm_user_assigned_identity.id())
- *             .subject(String.format(&#34;sc://organizationName/projectName/%s&#34;, serviceConnectionName))
- *             .build());
- * 
  *         var exampleServiceEndpointAzureRM = new ServiceEndpointAzureRM(&#34;exampleServiceEndpointAzureRM&#34;, ServiceEndpointAzureRMArgs.builder()        
  *             .projectId(exampleProject.id())
  *             .serviceEndpointName(serviceConnectionName)
@@ -237,6 +228,15 @@ import javax.annotation.Nullable;
  *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
+ *             .build());
+ * 
+ *         var exampleazurerm_federated_identity_credential = new Azurerm_federated_identity_credential(&#34;exampleazurerm_federated_identity_credential&#34;, Azurerm_federated_identity_credentialArgs.builder()        
+ *             .name(&#34;example-federated-credential&#34;)
+ *             .resourceGroupName(identity.name())
+ *             .parentId(exampleazurerm_user_assigned_identity.id())
+ *             .audience(&#34;api://AzureADTokenExchange&#34;)
+ *             .issuer(exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer())
+ *             .subject(exampleServiceEndpointAzureRM.workloadIdentityFederationSubject())
  *             .build());
  * 
  *     }
@@ -526,6 +526,34 @@ public class AzureRM extends com.pulumi.resources.CustomResource {
      */
     public Output<String> serviceEndpointName() {
         return this.serviceEndpointName;
+    }
+    /**
+     * The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * 
+     */
+    @Export(name="workloadIdentityFederationIssuer", type=String.class, parameters={})
+    private Output<String> workloadIdentityFederationIssuer;
+
+    /**
+     * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * 
+     */
+    public Output<String> workloadIdentityFederationIssuer() {
+        return this.workloadIdentityFederationIssuer;
+    }
+    /**
+     * The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+     * 
+     */
+    @Export(name="workloadIdentityFederationSubject", type=String.class, parameters={})
+    private Output<String> workloadIdentityFederationSubject;
+
+    /**
+     * @return The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+     * 
+     */
+    public Output<String> workloadIdentityFederationSubject() {
+        return this.workloadIdentityFederationSubject;
     }
 
     /**

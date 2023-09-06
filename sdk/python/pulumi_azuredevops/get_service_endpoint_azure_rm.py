@@ -21,7 +21,7 @@ class GetServiceEndpointAzureRMResult:
     """
     A collection of values returned by getServiceEndpointAzureRM.
     """
-    def __init__(__self__, authorization=None, azurerm_management_group_id=None, azurerm_management_group_name=None, azurerm_spn_tenantid=None, azurerm_subscription_id=None, azurerm_subscription_name=None, description=None, id=None, project_id=None, resource_group=None, service_endpoint_authentication_scheme=None, service_endpoint_id=None, service_endpoint_name=None):
+    def __init__(__self__, authorization=None, azurerm_management_group_id=None, azurerm_management_group_name=None, azurerm_spn_tenantid=None, azurerm_subscription_id=None, azurerm_subscription_name=None, description=None, environment=None, id=None, project_id=None, resource_group=None, service_endpoint_authentication_scheme=None, service_endpoint_id=None, service_endpoint_name=None, workload_identity_federation_issuer=None, workload_identity_federation_subject=None):
         if authorization and not isinstance(authorization, dict):
             raise TypeError("Expected argument 'authorization' to be a dict")
         pulumi.set(__self__, "authorization", authorization)
@@ -43,6 +43,9 @@ class GetServiceEndpointAzureRMResult:
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if environment and not isinstance(environment, str):
+            raise TypeError("Expected argument 'environment' to be a str")
+        pulumi.set(__self__, "environment", environment)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -61,6 +64,12 @@ class GetServiceEndpointAzureRMResult:
         if service_endpoint_name and not isinstance(service_endpoint_name, str):
             raise TypeError("Expected argument 'service_endpoint_name' to be a str")
         pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if workload_identity_federation_issuer and not isinstance(workload_identity_federation_issuer, str):
+            raise TypeError("Expected argument 'workload_identity_federation_issuer' to be a str")
+        pulumi.set(__self__, "workload_identity_federation_issuer", workload_identity_federation_issuer)
+        if workload_identity_federation_subject and not isinstance(workload_identity_federation_subject, str):
+            raise TypeError("Expected argument 'workload_identity_federation_subject' to be a str")
+        pulumi.set(__self__, "workload_identity_federation_subject", workload_identity_federation_subject)
 
     @property
     @pulumi.getter
@@ -120,6 +129,14 @@ class GetServiceEndpointAzureRMResult:
 
     @property
     @pulumi.getter
+    def environment(self) -> str:
+        """
+        The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+        """
+        return pulumi.get(self, "environment")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         The provider-assigned unique ID for this managed resource.
@@ -157,6 +174,22 @@ class GetServiceEndpointAzureRMResult:
     def service_endpoint_name(self) -> str:
         return pulumi.get(self, "service_endpoint_name")
 
+    @property
+    @pulumi.getter(name="workloadIdentityFederationIssuer")
+    def workload_identity_federation_issuer(self) -> str:
+        """
+        The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        """
+        return pulumi.get(self, "workload_identity_federation_issuer")
+
+    @property
+    @pulumi.getter(name="workloadIdentityFederationSubject")
+    def workload_identity_federation_subject(self) -> str:
+        """
+        The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+        """
+        return pulumi.get(self, "workload_identity_federation_subject")
+
 
 class AwaitableGetServiceEndpointAzureRMResult(GetServiceEndpointAzureRMResult):
     # pylint: disable=using-constant-test
@@ -171,12 +204,15 @@ class AwaitableGetServiceEndpointAzureRMResult(GetServiceEndpointAzureRMResult):
             azurerm_subscription_id=self.azurerm_subscription_id,
             azurerm_subscription_name=self.azurerm_subscription_name,
             description=self.description,
+            environment=self.environment,
             id=self.id,
             project_id=self.project_id,
             resource_group=self.resource_group,
             service_endpoint_authentication_scheme=self.service_endpoint_authentication_scheme,
             service_endpoint_id=self.service_endpoint_id,
-            service_endpoint_name=self.service_endpoint_name)
+            service_endpoint_name=self.service_endpoint_name,
+            workload_identity_federation_issuer=self.workload_identity_federation_issuer,
+            workload_identity_federation_subject=self.workload_identity_federation_subject)
 
 
 def get_service_endpoint_azure_rm(project_id: Optional[str] = None,
@@ -233,12 +269,15 @@ def get_service_endpoint_azure_rm(project_id: Optional[str] = None,
         azurerm_subscription_id=pulumi.get(__ret__, 'azurerm_subscription_id'),
         azurerm_subscription_name=pulumi.get(__ret__, 'azurerm_subscription_name'),
         description=pulumi.get(__ret__, 'description'),
+        environment=pulumi.get(__ret__, 'environment'),
         id=pulumi.get(__ret__, 'id'),
         project_id=pulumi.get(__ret__, 'project_id'),
         resource_group=pulumi.get(__ret__, 'resource_group'),
         service_endpoint_authentication_scheme=pulumi.get(__ret__, 'service_endpoint_authentication_scheme'),
         service_endpoint_id=pulumi.get(__ret__, 'service_endpoint_id'),
-        service_endpoint_name=pulumi.get(__ret__, 'service_endpoint_name'))
+        service_endpoint_name=pulumi.get(__ret__, 'service_endpoint_name'),
+        workload_identity_federation_issuer=pulumi.get(__ret__, 'workload_identity_federation_issuer'),
+        workload_identity_federation_subject=pulumi.get(__ret__, 'workload_identity_federation_subject'))
 
 
 @_utilities.lift_output_func(get_service_endpoint_azure_rm)

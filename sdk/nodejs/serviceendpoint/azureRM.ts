@@ -111,15 +111,6 @@ import * as utilities from "../utilities";
  *     name: "example-identity",
  *     resourceGroupName: "azurerm_resource_group.identity.name",
  * });
- * const exampleazurerm_federated_identity_credential = new azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential", {
- *     name: "example-federated-credential",
- *     resourceGroupName: identity.name,
- *     audience: ["api://AzureADTokenExchange"],
- *     issuer: "https://app.vstoken.visualstudio.com",
- *     parentId: exampleazurerm_user_assigned_identity.id,
- *     subject: `sc://organizationName/projectName/${serviceConnectionName}`,
- * });
- * //NOTE: The federated credential subject is formed from the Azure DevOps Organisation, Project and the Service Connection name.
  * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
  *     projectId: exampleProject.id,
  *     serviceEndpointName: serviceConnectionName,
@@ -131,6 +122,14 @@ import * as utilities from "../utilities";
  *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
  *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * const exampleazurerm_federated_identity_credential = new azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential", {
+ *     name: "example-federated-credential",
+ *     resourceGroupName: identity.name,
+ *     parentId: exampleazurerm_user_assigned_identity.id,
+ *     audience: ["api://AzureADTokenExchange"],
+ *     issuer: exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer,
+ *     subject: exampleServiceEndpointAzureRM.workloadIdentityFederationSubject,
  * });
  * ```
  * ### Workload Identity Federation Automatic AzureRM Service Endpoint
@@ -269,6 +268,14 @@ export class AzureRM extends pulumi.CustomResource {
      * The Service Endpoint Name.
      */
     public readonly serviceEndpointName!: pulumi.Output<string>;
+    /**
+     * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     */
+    public /*out*/ readonly workloadIdentityFederationIssuer!: pulumi.Output<string>;
+    /**
+     * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
+     */
+    public /*out*/ readonly workloadIdentityFederationSubject!: pulumi.Output<string>;
 
     /**
      * Create a AzureRM resource with the given unique name, arguments, and options.
@@ -299,6 +306,8 @@ export class AzureRM extends pulumi.CustomResource {
             resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
             resourceInputs["serviceEndpointAuthenticationScheme"] = state ? state.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["workloadIdentityFederationIssuer"] = state ? state.workloadIdentityFederationIssuer : undefined;
+            resourceInputs["workloadIdentityFederationSubject"] = state ? state.workloadIdentityFederationSubject : undefined;
         } else {
             const args = argsOrState as AzureRMArgs | undefined;
             if ((!args || args.azurermSpnTenantid === undefined) && !opts.urn) {
@@ -323,6 +332,8 @@ export class AzureRM extends pulumi.CustomResource {
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["workloadIdentityFederationIssuer"] = undefined /*out*/;
+            resourceInputs["workloadIdentityFederationSubject"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AzureRM.__pulumiType, name, resourceInputs, opts);
@@ -386,6 +397,14 @@ export interface AzureRMState {
      * The Service Endpoint Name.
      */
     serviceEndpointName?: pulumi.Input<string>;
+    /**
+     * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     */
+    workloadIdentityFederationIssuer?: pulumi.Input<string>;
+    /**
+     * The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
+     */
+    workloadIdentityFederationSubject?: pulumi.Input<string>;
 }
 
 /**
