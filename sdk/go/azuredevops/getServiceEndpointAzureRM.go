@@ -119,6 +119,8 @@ type LookupServiceEndpointAzureRMResult struct {
 	AzurermSubscriptionName string `pulumi:"azurermSubscriptionName"`
 	// Specifies the description of the Service Endpoint.
 	Description string `pulumi:"description"`
+	// The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+	Environment string `pulumi:"environment"`
 	// The provider-assigned unique ID for this managed resource.
 	Id        string `pulumi:"id"`
 	ProjectId string `pulumi:"projectId"`
@@ -128,6 +130,10 @@ type LookupServiceEndpointAzureRMResult struct {
 	ServiceEndpointAuthenticationScheme string `pulumi:"serviceEndpointAuthenticationScheme"`
 	ServiceEndpointId                   string `pulumi:"serviceEndpointId"`
 	ServiceEndpointName                 string `pulumi:"serviceEndpointName"`
+	// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+	WorkloadIdentityFederationIssuer string `pulumi:"workloadIdentityFederationIssuer"`
+	// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+	WorkloadIdentityFederationSubject string `pulumi:"workloadIdentityFederationSubject"`
 }
 
 func LookupServiceEndpointAzureRMOutput(ctx *pulumi.Context, args LookupServiceEndpointAzureRMOutputArgs, opts ...pulumi.InvokeOption) LookupServiceEndpointAzureRMResultOutput {
@@ -210,6 +216,11 @@ func (o LookupServiceEndpointAzureRMResultOutput) Description() pulumi.StringOut
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+func (o LookupServiceEndpointAzureRMResultOutput) Environment() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.Environment }).(pulumi.StringOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o LookupServiceEndpointAzureRMResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.Id }).(pulumi.StringOutput)
@@ -235,6 +246,16 @@ func (o LookupServiceEndpointAzureRMResultOutput) ServiceEndpointId() pulumi.Str
 
 func (o LookupServiceEndpointAzureRMResultOutput) ServiceEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.ServiceEndpointName }).(pulumi.StringOutput)
+}
+
+// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+func (o LookupServiceEndpointAzureRMResultOutput) WorkloadIdentityFederationIssuer() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.WorkloadIdentityFederationIssuer }).(pulumi.StringOutput)
+}
+
+// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+func (o LookupServiceEndpointAzureRMResultOutput) WorkloadIdentityFederationSubject() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupServiceEndpointAzureRMResult) string { return v.WorkloadIdentityFederationSubject }).(pulumi.StringOutput)
 }
 
 func init() {

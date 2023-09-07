@@ -212,6 +212,36 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         return Optional.ofNullable(this.serviceEndpointName);
     }
 
+    /**
+     * The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * 
+     */
+    @Import(name="workloadIdentityFederationIssuer")
+    private @Nullable Output<String> workloadIdentityFederationIssuer;
+
+    /**
+     * @return The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+     * 
+     */
+    public Optional<Output<String>> workloadIdentityFederationIssuer() {
+        return Optional.ofNullable(this.workloadIdentityFederationIssuer);
+    }
+
+    /**
+     * The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+     * 
+     */
+    @Import(name="workloadIdentityFederationSubject")
+    private @Nullable Output<String> workloadIdentityFederationSubject;
+
+    /**
+     * @return The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+     * 
+     */
+    public Optional<Output<String>> workloadIdentityFederationSubject() {
+        return Optional.ofNullable(this.workloadIdentityFederationSubject);
+    }
+
     private ServiceEndpointAzureRMState() {}
 
     private ServiceEndpointAzureRMState(ServiceEndpointAzureRMState $) {
@@ -228,6 +258,8 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         this.resourceGroup = $.resourceGroup;
         this.serviceEndpointAuthenticationScheme = $.serviceEndpointAuthenticationScheme;
         this.serviceEndpointName = $.serviceEndpointName;
+        this.workloadIdentityFederationIssuer = $.workloadIdentityFederationIssuer;
+        this.workloadIdentityFederationSubject = $.workloadIdentityFederationSubject;
     }
 
     public static Builder builder() {
@@ -515,6 +547,48 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
          */
         public Builder serviceEndpointName(String serviceEndpointName) {
             return serviceEndpointName(Output.of(serviceEndpointName));
+        }
+
+        /**
+         * @param workloadIdentityFederationIssuer The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityFederationIssuer(@Nullable Output<String> workloadIdentityFederationIssuer) {
+            $.workloadIdentityFederationIssuer = workloadIdentityFederationIssuer;
+            return this;
+        }
+
+        /**
+         * @param workloadIdentityFederationIssuer The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityFederationIssuer(String workloadIdentityFederationIssuer) {
+            return workloadIdentityFederationIssuer(Output.of(workloadIdentityFederationIssuer));
+        }
+
+        /**
+         * @param workloadIdentityFederationSubject The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityFederationSubject(@Nullable Output<String> workloadIdentityFederationSubject) {
+            $.workloadIdentityFederationSubject = workloadIdentityFederationSubject;
+            return this;
+        }
+
+        /**
+         * @param workloadIdentityFederationSubject The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder workloadIdentityFederationSubject(String workloadIdentityFederationSubject) {
+            return workloadIdentityFederationSubject(Output.of(workloadIdentityFederationSubject));
         }
 
         public ServiceEndpointAzureRMState build() {

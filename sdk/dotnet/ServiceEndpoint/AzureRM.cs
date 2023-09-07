@@ -154,20 +154,6 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///         ResourceGroupName = "azurerm_resource_group.identity.name",
     ///     });
     /// 
-    ///     var exampleazurerm_federated_identity_credential = new Azurerm.Index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential", new()
-    ///     {
-    ///         Name = "example-federated-credential",
-    ///         ResourceGroupName = identity.Name,
-    ///         Audience = new[]
-    ///         {
-    ///             "api://AzureADTokenExchange",
-    ///         },
-    ///         Issuer = "https://app.vstoken.visualstudio.com",
-    ///         ParentId = exampleazurerm_user_assigned_identity.Id,
-    ///         Subject = $"sc://organizationName/projectName/{serviceConnectionName}",
-    ///     });
-    /// 
-    ///     //NOTE: The federated credential subject is formed from the Azure DevOps Organisation, Project and the Service Connection name.
     ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
     ///     {
     ///         ProjectId = exampleProject.Id,
@@ -181,6 +167,19 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
     ///         AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///         AzurermSubscriptionName = "Example Subscription Name",
+    ///     });
+    /// 
+    ///     var exampleazurerm_federated_identity_credential = new Azurerm.Index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential", new()
+    ///     {
+    ///         Name = "example-federated-credential",
+    ///         ResourceGroupName = identity.Name,
+    ///         ParentId = exampleazurerm_user_assigned_identity.Id,
+    ///         Audience = new[]
+    ///         {
+    ///             "api://AzureADTokenExchange",
+    ///         },
+    ///         Issuer = exampleServiceEndpointAzureRM.WorkloadIdentityFederationIssuer,
+    ///         Subject = exampleServiceEndpointAzureRM.WorkloadIdentityFederationSubject,
     ///     });
     /// 
     /// });
@@ -337,6 +336,18 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         /// </summary>
         [Output("serviceEndpointName")]
         public Output<string> ServiceEndpointName { get; private set; } = null!;
+
+        /// <summary>
+        /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        /// </summary>
+        [Output("workloadIdentityFederationIssuer")]
+        public Output<string> WorkloadIdentityFederationIssuer { get; private set; } = null!;
+
+        /// <summary>
+        /// The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+        /// </summary>
+        [Output("workloadIdentityFederationSubject")]
+        public Output<string> WorkloadIdentityFederationSubject { get; private set; } = null!;
 
 
         /// <summary>
@@ -559,6 +570,18 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
         /// </summary>
         [Input("serviceEndpointName")]
         public Input<string>? ServiceEndpointName { get; set; }
+
+        /// <summary>
+        /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        /// </summary>
+        [Input("workloadIdentityFederationIssuer")]
+        public Input<string>? WorkloadIdentityFederationIssuer { get; set; }
+
+        /// <summary>
+        /// The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
+        /// </summary>
+        [Input("workloadIdentityFederationSubject")]
+        public Input<string>? WorkloadIdentityFederationSubject { get; set; }
 
         public AzureRMState()
         {

@@ -154,8 +154,6 @@ import (
 //
 // import (
 //
-//	"fmt"
-//
 //	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
 //	"github.com/pulumi/pulumi-azurerm/sdk/v1/go/azurerm"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
@@ -189,20 +187,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = index.NewAzurerm_federated_identity_credential(ctx, "exampleazurerm_federated_identity_credential", &index.Azurerm_federated_identity_credentialArgs{
-//				Name:              "example-federated-credential",
-//				ResourceGroupName: identity.Name,
-//				Audience: []string{
-//					"api://AzureADTokenExchange",
-//				},
-//				Issuer:   "https://app.vstoken.visualstudio.com",
-//				ParentId: exampleazurerm_user_assigned_identity.Id,
-//				Subject:  fmt.Sprintf("sc://organizationName/projectName/%v", serviceConnectionName),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
+//			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
 //				ProjectId:                           exampleProject.ID(),
 //				ServiceEndpointName:                 pulumi.String(serviceConnectionName),
 //				Description:                         pulumi.String("Managed by Terraform"),
@@ -213,6 +198,19 @@ import (
 //				AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				AzurermSubscriptionName: pulumi.String("Example Subscription Name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = index.NewAzurerm_federated_identity_credential(ctx, "exampleazurerm_federated_identity_credential", &index.Azurerm_federated_identity_credentialArgs{
+//				Name:              "example-federated-credential",
+//				ResourceGroupName: identity.Name,
+//				ParentId:          exampleazurerm_user_assigned_identity.Id,
+//				Audience: []string{
+//					"api://AzureADTokenExchange",
+//				},
+//				Issuer:  exampleServiceEndpointAzureRM.WorkloadIdentityFederationIssuer,
+//				Subject: exampleServiceEndpointAzureRM.WorkloadIdentityFederationSubject,
 //			})
 //			if err != nil {
 //				return err
@@ -343,6 +341,10 @@ type ServiceEndpointAzureRM struct {
 	ServiceEndpointAuthenticationScheme pulumi.StringPtrOutput `pulumi:"serviceEndpointAuthenticationScheme"`
 	// The Service Endpoint Name.
 	ServiceEndpointName pulumi.StringOutput `pulumi:"serviceEndpointName"`
+	// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+	WorkloadIdentityFederationIssuer pulumi.StringOutput `pulumi:"workloadIdentityFederationIssuer"`
+	// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
+	WorkloadIdentityFederationSubject pulumi.StringOutput `pulumi:"workloadIdentityFederationSubject"`
 }
 
 // NewServiceEndpointAzureRM registers a new resource with the given unique name, arguments, and options.
@@ -419,6 +421,10 @@ type serviceEndpointAzureRMState struct {
 	ServiceEndpointAuthenticationScheme *string `pulumi:"serviceEndpointAuthenticationScheme"`
 	// The Service Endpoint Name.
 	ServiceEndpointName *string `pulumi:"serviceEndpointName"`
+	// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+	WorkloadIdentityFederationIssuer *string `pulumi:"workloadIdentityFederationIssuer"`
+	// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
+	WorkloadIdentityFederationSubject *string `pulumi:"workloadIdentityFederationSubject"`
 }
 
 type ServiceEndpointAzureRMState struct {
@@ -451,6 +457,10 @@ type ServiceEndpointAzureRMState struct {
 	ServiceEndpointAuthenticationScheme pulumi.StringPtrInput
 	// The Service Endpoint Name.
 	ServiceEndpointName pulumi.StringPtrInput
+	// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+	WorkloadIdentityFederationIssuer pulumi.StringPtrInput
+	// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
+	WorkloadIdentityFederationSubject pulumi.StringPtrInput
 }
 
 func (ServiceEndpointAzureRMState) ElementType() reflect.Type {
@@ -675,6 +685,16 @@ func (o ServiceEndpointAzureRMOutput) ServiceEndpointAuthenticationScheme() pulu
 // The Service Endpoint Name.
 func (o ServiceEndpointAzureRMOutput) ServiceEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointAzureRM) pulumi.StringOutput { return v.ServiceEndpointName }).(pulumi.StringOutput)
+}
+
+// The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+func (o ServiceEndpointAzureRMOutput) WorkloadIdentityFederationIssuer() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRM) pulumi.StringOutput { return v.WorkloadIdentityFederationIssuer }).(pulumi.StringOutput)
+}
+
+// The subject if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
+func (o ServiceEndpointAzureRMOutput) WorkloadIdentityFederationSubject() pulumi.StringOutput {
+	return o.ApplyT(func(v *ServiceEndpointAzureRM) pulumi.StringOutput { return v.WorkloadIdentityFederationSubject }).(pulumi.StringOutput)
 }
 
 type ServiceEndpointAzureRMArrayOutput struct{ *pulumi.OutputState }

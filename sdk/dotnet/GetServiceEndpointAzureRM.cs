@@ -240,6 +240,10 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         public readonly string Description;
         /// <summary>
+        /// The Cloud Environment. Possible values are `AzureCloud` and `AzureChinaCloud`.
+        /// </summary>
+        public readonly string Environment;
+        /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
@@ -254,6 +258,14 @@ namespace Pulumi.AzureDevOps
         public readonly string ServiceEndpointAuthenticationScheme;
         public readonly string ServiceEndpointId;
         public readonly string ServiceEndpointName;
+        /// <summary>
+        /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/f66a4bc2-08ad-4ec0-a25e-e769d6b3b294`, where the GUID is the Organization ID of your Azure DevOps Organisation.
+        /// </summary>
+        public readonly string WorkloadIdentityFederationIssuer;
+        /// <summary>
+        /// The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://my-organisation/my-project/my-service-connection-name`.
+        /// </summary>
+        public readonly string WorkloadIdentityFederationSubject;
 
         [OutputConstructor]
         private GetServiceEndpointAzureRMResult(
@@ -271,6 +283,8 @@ namespace Pulumi.AzureDevOps
 
             string description,
 
+            string environment,
+
             string id,
 
             string projectId,
@@ -281,7 +295,11 @@ namespace Pulumi.AzureDevOps
 
             string serviceEndpointId,
 
-            string serviceEndpointName)
+            string serviceEndpointName,
+
+            string workloadIdentityFederationIssuer,
+
+            string workloadIdentityFederationSubject)
         {
             Authorization = authorization;
             AzurermManagementGroupId = azurermManagementGroupId;
@@ -290,12 +308,15 @@ namespace Pulumi.AzureDevOps
             AzurermSubscriptionId = azurermSubscriptionId;
             AzurermSubscriptionName = azurermSubscriptionName;
             Description = description;
+            Environment = environment;
             Id = id;
             ProjectId = projectId;
             ResourceGroup = resourceGroup;
             ServiceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
             ServiceEndpointId = serviceEndpointId;
             ServiceEndpointName = serviceEndpointName;
+            WorkloadIdentityFederationIssuer = workloadIdentityFederationIssuer;
+            WorkloadIdentityFederationSubject = workloadIdentityFederationSubject;
         }
     }
 }
