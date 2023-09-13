@@ -14,11 +14,11 @@ namespace Pulumi.AzureDevOps.Build.Outputs
     public sealed class BuildDefinitionPullRequestTriggerOverridePathFilter
     {
         /// <summary>
-        /// List of branch patterns to exclude.
+        /// List of path patterns to exclude.
         /// </summary>
         public readonly ImmutableArray<string> Excludes;
         /// <summary>
-        /// List of branch patterns to include.
+        /// List of path patterns to include.
         /// </summary>
         public readonly ImmutableArray<string> Includes;
 

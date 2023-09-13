@@ -242,7 +242,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+        - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
         - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
         - [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
 
@@ -291,7 +291,7 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         ```
         ## Relevant Links
 
-        - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+        - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
         - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
         - [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
 

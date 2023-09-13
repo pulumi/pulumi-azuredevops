@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -48,6 +49,12 @@ func (i AzureRMCredentialsArgs) ToAzureRMCredentialsOutput() AzureRMCredentialsO
 
 func (i AzureRMCredentialsArgs) ToAzureRMCredentialsOutputWithContext(ctx context.Context) AzureRMCredentialsOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(AzureRMCredentialsOutput)
+}
+
+func (i AzureRMCredentialsArgs) ToOutput(ctx context.Context) pulumix.Output[AzureRMCredentials] {
+	return pulumix.Output[AzureRMCredentials]{
+		OutputState: i.ToAzureRMCredentialsOutputWithContext(ctx).OutputState,
+	}
 }
 
 func (i AzureRMCredentialsArgs) ToAzureRMCredentialsPtrOutput() AzureRMCredentialsPtrOutput {
@@ -91,6 +98,12 @@ func (i *azureRMCredentialsPtrType) ToAzureRMCredentialsPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(AzureRMCredentialsPtrOutput)
 }
 
+func (i *azureRMCredentialsPtrType) ToOutput(ctx context.Context) pulumix.Output[*AzureRMCredentials] {
+	return pulumix.Output[*AzureRMCredentials]{
+		OutputState: i.ToAzureRMCredentialsPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type AzureRMCredentialsOutput struct{ *pulumi.OutputState }
 
 func (AzureRMCredentialsOutput) ElementType() reflect.Type {
@@ -115,6 +128,12 @@ func (o AzureRMCredentialsOutput) ToAzureRMCredentialsPtrOutputWithContext(ctx c
 	}).(AzureRMCredentialsPtrOutput)
 }
 
+func (o AzureRMCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[AzureRMCredentials] {
+	return pulumix.Output[AzureRMCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The service principal application Id
 func (o AzureRMCredentialsOutput) Serviceprincipalid() pulumi.StringOutput {
 	return o.ApplyT(func(v AzureRMCredentials) string { return v.Serviceprincipalid }).(pulumi.StringOutput)
@@ -137,6 +156,12 @@ func (o AzureRMCredentialsPtrOutput) ToAzureRMCredentialsPtrOutput() AzureRMCred
 
 func (o AzureRMCredentialsPtrOutput) ToAzureRMCredentialsPtrOutputWithContext(ctx context.Context) AzureRMCredentialsPtrOutput {
 	return o
+}
+
+func (o AzureRMCredentialsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*AzureRMCredentials] {
+	return pulumix.Output[*AzureRMCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o AzureRMCredentialsPtrOutput) Elem() AzureRMCredentialsOutput {
@@ -200,6 +225,12 @@ func (i GitHubAuthOauthArgs) ToGitHubAuthOauthOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthOauthOutput)
 }
 
+func (i GitHubAuthOauthArgs) ToOutput(ctx context.Context) pulumix.Output[GitHubAuthOauth] {
+	return pulumix.Output[GitHubAuthOauth]{
+		OutputState: i.ToGitHubAuthOauthOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GitHubAuthOauthArgs) ToGitHubAuthOauthPtrOutput() GitHubAuthOauthPtrOutput {
 	return i.ToGitHubAuthOauthPtrOutputWithContext(context.Background())
 }
@@ -241,6 +272,12 @@ func (i *gitHubAuthOauthPtrType) ToGitHubAuthOauthPtrOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthOauthPtrOutput)
 }
 
+func (i *gitHubAuthOauthPtrType) ToOutput(ctx context.Context) pulumix.Output[*GitHubAuthOauth] {
+	return pulumix.Output[*GitHubAuthOauth]{
+		OutputState: i.ToGitHubAuthOauthPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GitHubAuthOauthOutput struct{ *pulumi.OutputState }
 
 func (GitHubAuthOauthOutput) ElementType() reflect.Type {
@@ -265,6 +302,12 @@ func (o GitHubAuthOauthOutput) ToGitHubAuthOauthPtrOutputWithContext(ctx context
 	}).(GitHubAuthOauthPtrOutput)
 }
 
+func (o GitHubAuthOauthOutput) ToOutput(ctx context.Context) pulumix.Output[GitHubAuthOauth] {
+	return pulumix.Output[GitHubAuthOauth]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o GitHubAuthOauthOutput) OauthConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v GitHubAuthOauth) string { return v.OauthConfigurationId }).(pulumi.StringOutput)
 }
@@ -281,6 +324,12 @@ func (o GitHubAuthOauthPtrOutput) ToGitHubAuthOauthPtrOutput() GitHubAuthOauthPt
 
 func (o GitHubAuthOauthPtrOutput) ToGitHubAuthOauthPtrOutputWithContext(ctx context.Context) GitHubAuthOauthPtrOutput {
 	return o
+}
+
+func (o GitHubAuthOauthPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GitHubAuthOauth] {
+	return pulumix.Output[*GitHubAuthOauth]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GitHubAuthOauthPtrOutput) Elem() GitHubAuthOauthOutput {
@@ -335,6 +384,12 @@ func (i GitHubAuthPersonalArgs) ToGitHubAuthPersonalOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthPersonalOutput)
 }
 
+func (i GitHubAuthPersonalArgs) ToOutput(ctx context.Context) pulumix.Output[GitHubAuthPersonal] {
+	return pulumix.Output[GitHubAuthPersonal]{
+		OutputState: i.ToGitHubAuthPersonalOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GitHubAuthPersonalArgs) ToGitHubAuthPersonalPtrOutput() GitHubAuthPersonalPtrOutput {
 	return i.ToGitHubAuthPersonalPtrOutputWithContext(context.Background())
 }
@@ -376,6 +431,12 @@ func (i *gitHubAuthPersonalPtrType) ToGitHubAuthPersonalPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubAuthPersonalPtrOutput)
 }
 
+func (i *gitHubAuthPersonalPtrType) ToOutput(ctx context.Context) pulumix.Output[*GitHubAuthPersonal] {
+	return pulumix.Output[*GitHubAuthPersonal]{
+		OutputState: i.ToGitHubAuthPersonalPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GitHubAuthPersonalOutput struct{ *pulumi.OutputState }
 
 func (GitHubAuthPersonalOutput) ElementType() reflect.Type {
@@ -400,6 +461,12 @@ func (o GitHubAuthPersonalOutput) ToGitHubAuthPersonalPtrOutputWithContext(ctx c
 	}).(GitHubAuthPersonalPtrOutput)
 }
 
+func (o GitHubAuthPersonalOutput) ToOutput(ctx context.Context) pulumix.Output[GitHubAuthPersonal] {
+	return pulumix.Output[GitHubAuthPersonal]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The Personal Access Token for GitHub.
 func (o GitHubAuthPersonalOutput) PersonalAccessToken() pulumi.StringOutput {
 	return o.ApplyT(func(v GitHubAuthPersonal) string { return v.PersonalAccessToken }).(pulumi.StringOutput)
@@ -417,6 +484,12 @@ func (o GitHubAuthPersonalPtrOutput) ToGitHubAuthPersonalPtrOutput() GitHubAuthP
 
 func (o GitHubAuthPersonalPtrOutput) ToGitHubAuthPersonalPtrOutputWithContext(ctx context.Context) GitHubAuthPersonalPtrOutput {
 	return o
+}
+
+func (o GitHubAuthPersonalPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GitHubAuthPersonal] {
+	return pulumix.Output[*GitHubAuthPersonal]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GitHubAuthPersonalPtrOutput) Elem() GitHubAuthPersonalOutput {
@@ -500,6 +573,12 @@ func (i KubernetesAzureSubscriptionArgs) ToKubernetesAzureSubscriptionOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesAzureSubscriptionOutput)
 }
 
+func (i KubernetesAzureSubscriptionArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesAzureSubscription] {
+	return pulumix.Output[KubernetesAzureSubscription]{
+		OutputState: i.ToKubernetesAzureSubscriptionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // KubernetesAzureSubscriptionArrayInput is an input type that accepts KubernetesAzureSubscriptionArray and KubernetesAzureSubscriptionArrayOutput values.
 // You can construct a concrete instance of `KubernetesAzureSubscriptionArrayInput` via:
 //
@@ -525,6 +604,12 @@ func (i KubernetesAzureSubscriptionArray) ToKubernetesAzureSubscriptionArrayOutp
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesAzureSubscriptionArrayOutput)
 }
 
+func (i KubernetesAzureSubscriptionArray) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesAzureSubscription] {
+	return pulumix.Output[[]KubernetesAzureSubscription]{
+		OutputState: i.ToKubernetesAzureSubscriptionArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesAzureSubscriptionOutput struct{ *pulumi.OutputState }
 
 func (KubernetesAzureSubscriptionOutput) ElementType() reflect.Type {
@@ -537,6 +622,12 @@ func (o KubernetesAzureSubscriptionOutput) ToKubernetesAzureSubscriptionOutput()
 
 func (o KubernetesAzureSubscriptionOutput) ToKubernetesAzureSubscriptionOutputWithContext(ctx context.Context) KubernetesAzureSubscriptionOutput {
 	return o
+}
+
+func (o KubernetesAzureSubscriptionOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesAzureSubscription] {
+	return pulumix.Output[KubernetesAzureSubscription]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Azure environment refers to whether the public cloud offering or domestic (government) clouds are being used. Currently, only the public cloud is supported. The value must be AzureCloud. This is also the default-value.
@@ -593,6 +684,12 @@ func (o KubernetesAzureSubscriptionArrayOutput) ToKubernetesAzureSubscriptionArr
 	return o
 }
 
+func (o KubernetesAzureSubscriptionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]KubernetesAzureSubscription] {
+	return pulumix.Output[[]KubernetesAzureSubscription]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o KubernetesAzureSubscriptionArrayOutput) Index(i pulumi.IntInput) KubernetesAzureSubscriptionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesAzureSubscription {
 		return vs[0].([]KubernetesAzureSubscription)[vs[1].(int)]
@@ -640,6 +737,12 @@ func (i KubernetesKubeconfigArgs) ToKubernetesKubeconfigOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesKubeconfigOutput)
 }
 
+func (i KubernetesKubeconfigArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesKubeconfig] {
+	return pulumix.Output[KubernetesKubeconfig]{
+		OutputState: i.ToKubernetesKubeconfigOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesKubeconfigArgs) ToKubernetesKubeconfigPtrOutput() KubernetesKubeconfigPtrOutput {
 	return i.ToKubernetesKubeconfigPtrOutputWithContext(context.Background())
 }
@@ -681,6 +784,12 @@ func (i *kubernetesKubeconfigPtrType) ToKubernetesKubeconfigPtrOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesKubeconfigPtrOutput)
 }
 
+func (i *kubernetesKubeconfigPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesKubeconfig] {
+	return pulumix.Output[*KubernetesKubeconfig]{
+		OutputState: i.ToKubernetesKubeconfigPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesKubeconfigOutput struct{ *pulumi.OutputState }
 
 func (KubernetesKubeconfigOutput) ElementType() reflect.Type {
@@ -703,6 +812,12 @@ func (o KubernetesKubeconfigOutput) ToKubernetesKubeconfigPtrOutputWithContext(c
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v KubernetesKubeconfig) *KubernetesKubeconfig {
 		return &v
 	}).(KubernetesKubeconfigPtrOutput)
+}
+
+func (o KubernetesKubeconfigOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesKubeconfig] {
+	return pulumix.Output[KubernetesKubeconfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set this option to allow clients to accept a self-signed certificate.
@@ -732,6 +847,12 @@ func (o KubernetesKubeconfigPtrOutput) ToKubernetesKubeconfigPtrOutput() Kuberne
 
 func (o KubernetesKubeconfigPtrOutput) ToKubernetesKubeconfigPtrOutputWithContext(ctx context.Context) KubernetesKubeconfigPtrOutput {
 	return o
+}
+
+func (o KubernetesKubeconfigPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesKubeconfig] {
+	return pulumix.Output[*KubernetesKubeconfig]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesKubeconfigPtrOutput) Elem() KubernetesKubeconfigOutput {
@@ -811,6 +932,12 @@ func (i KubernetesServiceAccountArgs) ToKubernetesServiceAccountOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesServiceAccountOutput)
 }
 
+func (i KubernetesServiceAccountArgs) ToOutput(ctx context.Context) pulumix.Output[KubernetesServiceAccount] {
+	return pulumix.Output[KubernetesServiceAccount]{
+		OutputState: i.ToKubernetesServiceAccountOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i KubernetesServiceAccountArgs) ToKubernetesServiceAccountPtrOutput() KubernetesServiceAccountPtrOutput {
 	return i.ToKubernetesServiceAccountPtrOutputWithContext(context.Background())
 }
@@ -852,6 +979,12 @@ func (i *kubernetesServiceAccountPtrType) ToKubernetesServiceAccountPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(KubernetesServiceAccountPtrOutput)
 }
 
+func (i *kubernetesServiceAccountPtrType) ToOutput(ctx context.Context) pulumix.Output[*KubernetesServiceAccount] {
+	return pulumix.Output[*KubernetesServiceAccount]{
+		OutputState: i.ToKubernetesServiceAccountPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type KubernetesServiceAccountOutput struct{ *pulumi.OutputState }
 
 func (KubernetesServiceAccountOutput) ElementType() reflect.Type {
@@ -876,6 +1009,12 @@ func (o KubernetesServiceAccountOutput) ToKubernetesServiceAccountPtrOutputWithC
 	}).(KubernetesServiceAccountPtrOutput)
 }
 
+func (o KubernetesServiceAccountOutput) ToOutput(ctx context.Context) pulumix.Output[KubernetesServiceAccount] {
+	return pulumix.Output[KubernetesServiceAccount]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The certificate from a Kubernetes secret object.
 func (o KubernetesServiceAccountOutput) CaCert() pulumi.StringOutput {
 	return o.ApplyT(func(v KubernetesServiceAccount) string { return v.CaCert }).(pulumi.StringOutput)
@@ -898,6 +1037,12 @@ func (o KubernetesServiceAccountPtrOutput) ToKubernetesServiceAccountPtrOutput()
 
 func (o KubernetesServiceAccountPtrOutput) ToKubernetesServiceAccountPtrOutputWithContext(ctx context.Context) KubernetesServiceAccountPtrOutput {
 	return o
+}
+
+func (o KubernetesServiceAccountPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*KubernetesServiceAccount] {
+	return pulumix.Output[*KubernetesServiceAccount]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o KubernetesServiceAccountPtrOutput) Elem() KubernetesServiceAccountOutput {

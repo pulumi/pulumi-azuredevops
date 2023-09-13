@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Area (Component) within Azure DevOps.
@@ -50,7 +51,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
 //
 // ## PAT Permissions Required
 //
@@ -132,6 +133,12 @@ func (o GetAreaResultOutput) ToGetAreaResultOutput() GetAreaResultOutput {
 
 func (o GetAreaResultOutput) ToGetAreaResultOutputWithContext(ctx context.Context) GetAreaResultOutput {
 	return o
+}
+
+func (o GetAreaResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAreaResult] {
+	return pulumix.Output[GetAreaResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of `children` blocks as defined below, empty if `hasChildren == false`

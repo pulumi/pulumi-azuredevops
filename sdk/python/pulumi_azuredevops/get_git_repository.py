@@ -168,7 +168,7 @@ def get_git_repository(name: Optional[str] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
 
 
     :param str name: Name of the Git repository to retrieve
@@ -213,7 +213,7 @@ def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
 
 
     :param str name: Name of the Git repository to retrieve

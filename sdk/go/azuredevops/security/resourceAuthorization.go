@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages authorization of resources, e.g. for access in build pipelines.
@@ -64,7 +65,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
 //
 // Deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization
 type ResourceAuthorization struct {
@@ -200,6 +201,12 @@ func (i *ResourceAuthorization) ToResourceAuthorizationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationOutput)
 }
 
+func (i *ResourceAuthorization) ToOutput(ctx context.Context) pulumix.Output[*ResourceAuthorization] {
+	return pulumix.Output[*ResourceAuthorization]{
+		OutputState: i.ToResourceAuthorizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ResourceAuthorizationArrayInput is an input type that accepts ResourceAuthorizationArray and ResourceAuthorizationArrayOutput values.
 // You can construct a concrete instance of `ResourceAuthorizationArrayInput` via:
 //
@@ -223,6 +230,12 @@ func (i ResourceAuthorizationArray) ToResourceAuthorizationArrayOutput() Resourc
 
 func (i ResourceAuthorizationArray) ToResourceAuthorizationArrayOutputWithContext(ctx context.Context) ResourceAuthorizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationArrayOutput)
+}
+
+func (i ResourceAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceAuthorization] {
+	return pulumix.Output[[]*ResourceAuthorization]{
+		OutputState: i.ToResourceAuthorizationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ResourceAuthorizationMapInput is an input type that accepts ResourceAuthorizationMap and ResourceAuthorizationMapOutput values.
@@ -250,6 +263,12 @@ func (i ResourceAuthorizationMap) ToResourceAuthorizationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ResourceAuthorizationMapOutput)
 }
 
+func (i ResourceAuthorizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceAuthorization] {
+	return pulumix.Output[map[string]*ResourceAuthorization]{
+		OutputState: i.ToResourceAuthorizationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ResourceAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (ResourceAuthorizationOutput) ElementType() reflect.Type {
@@ -262,6 +281,12 @@ func (o ResourceAuthorizationOutput) ToResourceAuthorizationOutput() ResourceAut
 
 func (o ResourceAuthorizationOutput) ToResourceAuthorizationOutputWithContext(ctx context.Context) ResourceAuthorizationOutput {
 	return o
+}
+
+func (o ResourceAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[*ResourceAuthorization] {
+	return pulumix.Output[*ResourceAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Set to true to allow public access in the project. Type: boolean.
@@ -303,6 +328,12 @@ func (o ResourceAuthorizationArrayOutput) ToResourceAuthorizationArrayOutputWith
 	return o
 }
 
+func (o ResourceAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ResourceAuthorization] {
+	return pulumix.Output[[]*ResourceAuthorization]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ResourceAuthorizationArrayOutput) Index(i pulumi.IntInput) ResourceAuthorizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ResourceAuthorization {
 		return vs[0].([]*ResourceAuthorization)[vs[1].(int)]
@@ -321,6 +352,12 @@ func (o ResourceAuthorizationMapOutput) ToResourceAuthorizationMapOutput() Resou
 
 func (o ResourceAuthorizationMapOutput) ToResourceAuthorizationMapOutputWithContext(ctx context.Context) ResourceAuthorizationMapOutput {
 	return o
+}
+
+func (o ResourceAuthorizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ResourceAuthorization] {
+	return pulumix.Output[map[string]*ResourceAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ResourceAuthorizationMapOutput) MapIndex(k pulumi.StringInput) ResourceAuthorizationOutput {

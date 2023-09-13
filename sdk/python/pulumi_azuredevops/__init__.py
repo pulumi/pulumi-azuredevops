@@ -40,6 +40,7 @@ from .get_projects import *
 from .get_repositories import *
 from .get_service_endpoint_azure_rm import *
 from .get_service_endpoint_github import *
+from .get_serviceendpoint_azurecr import *
 from .get_serviceendpoint_npm import *
 from .get_serviceendpoint_sonarcloud import *
 from .get_team import *
@@ -51,6 +52,7 @@ from .git_permissions import *
 from .git_repository_branch import *
 from .git_repository_file import *
 from .group import *
+from .group_entitlement import *
 from .group_membership import *
 from .iterative_permissions import *
 from .pipeline_authorization import *
@@ -98,6 +100,7 @@ from .serviceendpoint_jfrog_platform_v2 import *
 from .serviceendpoint_jfrog_xray_v2 import *
 from .serviceendpoint_maven import *
 from .serviceendpoint_nexus import *
+from .serviceendpoint_nuget import *
 from .serviceendpoint_octopusdeploy import *
 from .serviceendpoint_permissions import *
 from .servicehook_permissions import *
@@ -490,6 +493,14 @@ _utilities.register(
  },
  {
   "pkg": "azuredevops",
+  "mod": "index/groupEntitlement",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/groupEntitlement:GroupEntitlement": "GroupEntitlement"
+  }
+ },
+ {
+  "pkg": "azuredevops",
   "mod": "index/groupMembership",
   "fqn": "pulumi_azuredevops",
   "classes": {
@@ -854,6 +865,14 @@ _utilities.register(
   "fqn": "pulumi_azuredevops",
   "classes": {
    "azuredevops:index/serviceendpointNexus:ServiceendpointNexus": "ServiceendpointNexus"
+  }
+ },
+ {
+  "pkg": "azuredevops",
+  "mod": "index/serviceendpointNuget",
+  "fqn": "pulumi_azuredevops",
+  "classes": {
+   "azuredevops:index/serviceendpointNuget:ServiceendpointNuget": "ServiceendpointNuget"
   }
  },
  {

@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
@@ -48,7 +49,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
 func GetGitRepository(ctx *pulumi.Context, args *GetGitRepositoryArgs, opts ...pulumi.InvokeOption) (*GetGitRepositoryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetGitRepositoryResult
@@ -128,6 +129,12 @@ func (o GetGitRepositoryResultOutput) ToGetGitRepositoryResultOutput() GetGitRep
 
 func (o GetGitRepositoryResultOutput) ToGetGitRepositoryResultOutputWithContext(ctx context.Context) GetGitRepositoryResultOutput {
 	return o
+}
+
+func (o GetGitRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetGitRepositoryResult] {
+	return pulumix.Output[GetGitRepositoryResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ref of the default branch.

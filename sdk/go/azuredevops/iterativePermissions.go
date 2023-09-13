@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages permissions for an Iteration (Sprint)
@@ -84,7 +85,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
+// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
 //
 // ## PAT Permissions Required
 //
@@ -261,6 +262,12 @@ func (i *IterativePermissions) ToIterativePermissionsOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(IterativePermissionsOutput)
 }
 
+func (i *IterativePermissions) ToOutput(ctx context.Context) pulumix.Output[*IterativePermissions] {
+	return pulumix.Output[*IterativePermissions]{
+		OutputState: i.ToIterativePermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // IterativePermissionsArrayInput is an input type that accepts IterativePermissionsArray and IterativePermissionsArrayOutput values.
 // You can construct a concrete instance of `IterativePermissionsArrayInput` via:
 //
@@ -284,6 +291,12 @@ func (i IterativePermissionsArray) ToIterativePermissionsArrayOutput() Iterative
 
 func (i IterativePermissionsArray) ToIterativePermissionsArrayOutputWithContext(ctx context.Context) IterativePermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(IterativePermissionsArrayOutput)
+}
+
+func (i IterativePermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*IterativePermissions] {
+	return pulumix.Output[[]*IterativePermissions]{
+		OutputState: i.ToIterativePermissionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // IterativePermissionsMapInput is an input type that accepts IterativePermissionsMap and IterativePermissionsMapOutput values.
@@ -311,6 +324,12 @@ func (i IterativePermissionsMap) ToIterativePermissionsMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(IterativePermissionsMapOutput)
 }
 
+func (i IterativePermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*IterativePermissions] {
+	return pulumix.Output[map[string]*IterativePermissions]{
+		OutputState: i.ToIterativePermissionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type IterativePermissionsOutput struct{ *pulumi.OutputState }
 
 func (IterativePermissionsOutput) ElementType() reflect.Type {
@@ -323,6 +342,12 @@ func (o IterativePermissionsOutput) ToIterativePermissionsOutput() IterativePerm
 
 func (o IterativePermissionsOutput) ToIterativePermissionsOutputWithContext(ctx context.Context) IterativePermissionsOutput {
 	return o
+}
+
+func (o IterativePermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*IterativePermissions] {
+	return pulumix.Output[*IterativePermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the branch to assign the permissions.
@@ -371,6 +396,12 @@ func (o IterativePermissionsArrayOutput) ToIterativePermissionsArrayOutputWithCo
 	return o
 }
 
+func (o IterativePermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*IterativePermissions] {
+	return pulumix.Output[[]*IterativePermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o IterativePermissionsArrayOutput) Index(i pulumi.IntInput) IterativePermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *IterativePermissions {
 		return vs[0].([]*IterativePermissions)[vs[1].(int)]
@@ -389,6 +420,12 @@ func (o IterativePermissionsMapOutput) ToIterativePermissionsMapOutput() Iterati
 
 func (o IterativePermissionsMapOutput) ToIterativePermissionsMapOutputWithContext(ctx context.Context) IterativePermissionsMapOutput {
 	return o
+}
+
+func (o IterativePermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*IterativePermissions] {
+	return pulumix.Output[map[string]*IterativePermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o IterativePermissionsMapOutput) MapIndex(k pulumi.StringInput) IterativePermissionsOutput {

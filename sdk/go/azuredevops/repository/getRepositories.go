@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
@@ -55,7 +56,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
 //
 // Deprecated: azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories
 func GetRepositories(ctx *pulumi.Context, args *GetRepositoriesArgs, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
@@ -131,6 +132,12 @@ func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutput() GetReposito
 
 func (o GetRepositoriesResultOutput) ToGetRepositoriesResultOutputWithContext(ctx context.Context) GetRepositoriesResultOutput {
 	return o
+}
+
+func (o GetRepositoriesResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoriesResult] {
+	return pulumix.Output[GetRepositoriesResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The provider-assigned unique ID for this managed resource.

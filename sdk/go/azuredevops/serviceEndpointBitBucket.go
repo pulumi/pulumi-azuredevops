@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Bitbucket service endpoint within Azure DevOps.
@@ -54,7 +55,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -214,6 +215,12 @@ func (i *ServiceEndpointBitBucket) ToServiceEndpointBitBucketOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketOutput)
 }
 
+func (i *ServiceEndpointBitBucket) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointBitBucket] {
+	return pulumix.Output[*ServiceEndpointBitBucket]{
+		OutputState: i.ToServiceEndpointBitBucketOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEndpointBitBucketArrayInput is an input type that accepts ServiceEndpointBitBucketArray and ServiceEndpointBitBucketArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointBitBucketArrayInput` via:
 //
@@ -237,6 +244,12 @@ func (i ServiceEndpointBitBucketArray) ToServiceEndpointBitBucketArrayOutput() S
 
 func (i ServiceEndpointBitBucketArray) ToServiceEndpointBitBucketArrayOutputWithContext(ctx context.Context) ServiceEndpointBitBucketArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketArrayOutput)
+}
+
+func (i ServiceEndpointBitBucketArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointBitBucket] {
+	return pulumix.Output[[]*ServiceEndpointBitBucket]{
+		OutputState: i.ToServiceEndpointBitBucketArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceEndpointBitBucketMapInput is an input type that accepts ServiceEndpointBitBucketMap and ServiceEndpointBitBucketMapOutput values.
@@ -264,6 +277,12 @@ func (i ServiceEndpointBitBucketMap) ToServiceEndpointBitBucketMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointBitBucketMapOutput)
 }
 
+func (i ServiceEndpointBitBucketMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointBitBucket] {
+	return pulumix.Output[map[string]*ServiceEndpointBitBucket]{
+		OutputState: i.ToServiceEndpointBitBucketMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEndpointBitBucketOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointBitBucketOutput) ElementType() reflect.Type {
@@ -276,6 +295,12 @@ func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketOutput() Servi
 
 func (o ServiceEndpointBitBucketOutput) ToServiceEndpointBitBucketOutputWithContext(ctx context.Context) ServiceEndpointBitBucketOutput {
 	return o
+}
+
+func (o ServiceEndpointBitBucketOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointBitBucket] {
+	return pulumix.Output[*ServiceEndpointBitBucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointBitBucketOutput) Authorization() pulumi.StringMapOutput {
@@ -320,6 +345,12 @@ func (o ServiceEndpointBitBucketArrayOutput) ToServiceEndpointBitBucketArrayOutp
 	return o
 }
 
+func (o ServiceEndpointBitBucketArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointBitBucket] {
+	return pulumix.Output[[]*ServiceEndpointBitBucket]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceEndpointBitBucketArrayOutput) Index(i pulumi.IntInput) ServiceEndpointBitBucketOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointBitBucket {
 		return vs[0].([]*ServiceEndpointBitBucket)[vs[1].(int)]
@@ -338,6 +369,12 @@ func (o ServiceEndpointBitBucketMapOutput) ToServiceEndpointBitBucketMapOutput()
 
 func (o ServiceEndpointBitBucketMapOutput) ToServiceEndpointBitBucketMapOutputWithContext(ctx context.Context) ServiceEndpointBitBucketMapOutput {
 	return o
+}
+
+func (o ServiceEndpointBitBucketMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointBitBucket] {
+	return pulumix.Output[map[string]*ServiceEndpointBitBucket]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointBitBucketMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointBitBucketOutput {

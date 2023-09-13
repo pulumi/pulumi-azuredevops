@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages permissions for Work Item Queries.
@@ -193,7 +194,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
+// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
 //
 // ## PAT Permissions Required
 //
@@ -370,6 +371,12 @@ func (i *WorkItemQueryPermissions) ToWorkItemQueryPermissionsOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(WorkItemQueryPermissionsOutput)
 }
 
+func (i *WorkItemQueryPermissions) ToOutput(ctx context.Context) pulumix.Output[*WorkItemQueryPermissions] {
+	return pulumix.Output[*WorkItemQueryPermissions]{
+		OutputState: i.ToWorkItemQueryPermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkItemQueryPermissionsArrayInput is an input type that accepts WorkItemQueryPermissionsArray and WorkItemQueryPermissionsArrayOutput values.
 // You can construct a concrete instance of `WorkItemQueryPermissionsArrayInput` via:
 //
@@ -393,6 +400,12 @@ func (i WorkItemQueryPermissionsArray) ToWorkItemQueryPermissionsArrayOutput() W
 
 func (i WorkItemQueryPermissionsArray) ToWorkItemQueryPermissionsArrayOutputWithContext(ctx context.Context) WorkItemQueryPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkItemQueryPermissionsArrayOutput)
+}
+
+func (i WorkItemQueryPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*WorkItemQueryPermissions] {
+	return pulumix.Output[[]*WorkItemQueryPermissions]{
+		OutputState: i.ToWorkItemQueryPermissionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkItemQueryPermissionsMapInput is an input type that accepts WorkItemQueryPermissionsMap and WorkItemQueryPermissionsMapOutput values.
@@ -420,6 +433,12 @@ func (i WorkItemQueryPermissionsMap) ToWorkItemQueryPermissionsMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(WorkItemQueryPermissionsMapOutput)
 }
 
+func (i WorkItemQueryPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkItemQueryPermissions] {
+	return pulumix.Output[map[string]*WorkItemQueryPermissions]{
+		OutputState: i.ToWorkItemQueryPermissionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkItemQueryPermissionsOutput struct{ *pulumi.OutputState }
 
 func (WorkItemQueryPermissionsOutput) ElementType() reflect.Type {
@@ -432,6 +451,12 @@ func (o WorkItemQueryPermissionsOutput) ToWorkItemQueryPermissionsOutput() WorkI
 
 func (o WorkItemQueryPermissionsOutput) ToWorkItemQueryPermissionsOutputWithContext(ctx context.Context) WorkItemQueryPermissionsOutput {
 	return o
+}
+
+func (o WorkItemQueryPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*WorkItemQueryPermissions] {
+	return pulumix.Output[*WorkItemQueryPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Path to a query or folder beneath `Shared Queries`
@@ -480,6 +505,12 @@ func (o WorkItemQueryPermissionsArrayOutput) ToWorkItemQueryPermissionsArrayOutp
 	return o
 }
 
+func (o WorkItemQueryPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*WorkItemQueryPermissions] {
+	return pulumix.Output[[]*WorkItemQueryPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkItemQueryPermissionsArrayOutput) Index(i pulumi.IntInput) WorkItemQueryPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *WorkItemQueryPermissions {
 		return vs[0].([]*WorkItemQueryPermissions)[vs[1].(int)]
@@ -498,6 +529,12 @@ func (o WorkItemQueryPermissionsMapOutput) ToWorkItemQueryPermissionsMapOutput()
 
 func (o WorkItemQueryPermissionsMapOutput) ToWorkItemQueryPermissionsMapOutputWithContext(ctx context.Context) WorkItemQueryPermissionsMapOutput {
 	return o
+}
+
+func (o WorkItemQueryPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*WorkItemQueryPermissions] {
+	return pulumix.Output[map[string]*WorkItemQueryPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkItemQueryPermissionsMapOutput) MapIndex(k pulumi.StringInput) WorkItemQueryPermissionsOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages permissions for a AzureDevOps project
@@ -65,7 +66,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
+// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
 //
 // ## PAT Permissions Required
 //
@@ -337,6 +338,12 @@ func (i *ProjectPermissions) ToProjectPermissionsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPermissionsOutput)
 }
 
+func (i *ProjectPermissions) ToOutput(ctx context.Context) pulumix.Output[*ProjectPermissions] {
+	return pulumix.Output[*ProjectPermissions]{
+		OutputState: i.ToProjectPermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ProjectPermissionsArrayInput is an input type that accepts ProjectPermissionsArray and ProjectPermissionsArrayOutput values.
 // You can construct a concrete instance of `ProjectPermissionsArrayInput` via:
 //
@@ -360,6 +367,12 @@ func (i ProjectPermissionsArray) ToProjectPermissionsArrayOutput() ProjectPermis
 
 func (i ProjectPermissionsArray) ToProjectPermissionsArrayOutputWithContext(ctx context.Context) ProjectPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPermissionsArrayOutput)
+}
+
+func (i ProjectPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProjectPermissions] {
+	return pulumix.Output[[]*ProjectPermissions]{
+		OutputState: i.ToProjectPermissionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ProjectPermissionsMapInput is an input type that accepts ProjectPermissionsMap and ProjectPermissionsMapOutput values.
@@ -387,6 +400,12 @@ func (i ProjectPermissionsMap) ToProjectPermissionsMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPermissionsMapOutput)
 }
 
+func (i ProjectPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProjectPermissions] {
+	return pulumix.Output[map[string]*ProjectPermissions]{
+		OutputState: i.ToProjectPermissionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ProjectPermissionsOutput struct{ *pulumi.OutputState }
 
 func (ProjectPermissionsOutput) ElementType() reflect.Type {
@@ -399,6 +418,12 @@ func (o ProjectPermissionsOutput) ToProjectPermissionsOutput() ProjectPermission
 
 func (o ProjectPermissionsOutput) ToProjectPermissionsOutputWithContext(ctx context.Context) ProjectPermissionsOutput {
 	return o
+}
+
+func (o ProjectPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectPermissions] {
+	return pulumix.Output[*ProjectPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // the permissions to assign. The following permissions are available
@@ -463,6 +488,12 @@ func (o ProjectPermissionsArrayOutput) ToProjectPermissionsArrayOutputWithContex
 	return o
 }
 
+func (o ProjectPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProjectPermissions] {
+	return pulumix.Output[[]*ProjectPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ProjectPermissionsArrayOutput) Index(i pulumi.IntInput) ProjectPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProjectPermissions {
 		return vs[0].([]*ProjectPermissions)[vs[1].(int)]
@@ -481,6 +512,12 @@ func (o ProjectPermissionsMapOutput) ToProjectPermissionsMapOutput() ProjectPerm
 
 func (o ProjectPermissionsMapOutput) ToProjectPermissionsMapOutputWithContext(ctx context.Context) ProjectPermissionsMapOutput {
 	return o
+}
+
+func (o ProjectPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProjectPermissions] {
+	return pulumix.Output[map[string]*ProjectPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ProjectPermissionsMapOutput) MapIndex(k pulumi.StringInput) ProjectPermissionsOutput {

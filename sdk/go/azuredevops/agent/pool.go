@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an agent pool within Azure DevOps.
@@ -41,7 +42,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -168,6 +169,12 @@ func (i *Pool) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolOutput)
 }
 
+func (i *Pool) ToOutput(ctx context.Context) pulumix.Output[*Pool] {
+	return pulumix.Output[*Pool]{
+		OutputState: i.ToPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PoolArrayInput is an input type that accepts PoolArray and PoolArrayOutput values.
 // You can construct a concrete instance of `PoolArrayInput` via:
 //
@@ -191,6 +198,12 @@ func (i PoolArray) ToPoolArrayOutput() PoolArrayOutput {
 
 func (i PoolArray) ToPoolArrayOutputWithContext(ctx context.Context) PoolArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolArrayOutput)
+}
+
+func (i PoolArray) ToOutput(ctx context.Context) pulumix.Output[[]*Pool] {
+	return pulumix.Output[[]*Pool]{
+		OutputState: i.ToPoolArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PoolMapInput is an input type that accepts PoolMap and PoolMapOutput values.
@@ -218,6 +231,12 @@ func (i PoolMap) ToPoolMapOutputWithContext(ctx context.Context) PoolMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PoolMapOutput)
 }
 
+func (i PoolMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pool] {
+	return pulumix.Output[map[string]*Pool]{
+		OutputState: i.ToPoolMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PoolOutput struct{ *pulumi.OutputState }
 
 func (PoolOutput) ElementType() reflect.Type {
@@ -230,6 +249,12 @@ func (o PoolOutput) ToPoolOutput() PoolOutput {
 
 func (o PoolOutput) ToPoolOutputWithContext(ctx context.Context) PoolOutput {
 	return o
+}
+
+func (o PoolOutput) ToOutput(ctx context.Context) pulumix.Output[*Pool] {
+	return pulumix.Output[*Pool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
@@ -266,6 +291,12 @@ func (o PoolArrayOutput) ToPoolArrayOutputWithContext(ctx context.Context) PoolA
 	return o
 }
 
+func (o PoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Pool] {
+	return pulumix.Output[[]*Pool]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PoolArrayOutput) Index(i pulumi.IntInput) PoolOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Pool {
 		return vs[0].([]*Pool)[vs[1].(int)]
@@ -284,6 +315,12 @@ func (o PoolMapOutput) ToPoolMapOutput() PoolMapOutput {
 
 func (o PoolMapOutput) ToPoolMapOutputWithContext(ctx context.Context) PoolMapOutput {
 	return o
+}
+
+func (o PoolMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Pool] {
+	return pulumix.Output[map[string]*Pool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PoolMapOutput) MapIndex(k pulumi.StringInput) PoolOutput {

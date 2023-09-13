@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -58,6 +59,12 @@ func (i GitInitializationArgs) ToGitInitializationOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GitInitializationOutput)
 }
 
+func (i GitInitializationArgs) ToOutput(ctx context.Context) pulumix.Output[GitInitialization] {
+	return pulumix.Output[GitInitialization]{
+		OutputState: i.ToGitInitializationOutputWithContext(ctx).OutputState,
+	}
+}
+
 func (i GitInitializationArgs) ToGitInitializationPtrOutput() GitInitializationPtrOutput {
 	return i.ToGitInitializationPtrOutputWithContext(context.Background())
 }
@@ -99,6 +106,12 @@ func (i *gitInitializationPtrType) ToGitInitializationPtrOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(GitInitializationPtrOutput)
 }
 
+func (i *gitInitializationPtrType) ToOutput(ctx context.Context) pulumix.Output[*GitInitialization] {
+	return pulumix.Output[*GitInitialization]{
+		OutputState: i.ToGitInitializationPtrOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GitInitializationOutput struct{ *pulumi.OutputState }
 
 func (GitInitializationOutput) ElementType() reflect.Type {
@@ -121,6 +134,12 @@ func (o GitInitializationOutput) ToGitInitializationPtrOutputWithContext(ctx con
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v GitInitialization) *GitInitialization {
 		return &v
 	}).(GitInitializationPtrOutput)
+}
+
+func (o GitInitializationOutput) ToOutput(ctx context.Context) pulumix.Output[GitInitialization] {
+	return pulumix.Output[GitInitialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The type of repository to create. Valid values: `Uninitialized`, `Clean` or `Import`.
@@ -155,6 +174,12 @@ func (o GitInitializationPtrOutput) ToGitInitializationPtrOutput() GitInitializa
 
 func (o GitInitializationPtrOutput) ToGitInitializationPtrOutputWithContext(ctx context.Context) GitInitializationPtrOutput {
 	return o
+}
+
+func (o GitInitializationPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*GitInitialization] {
+	return pulumix.Output[*GitInitialization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GitInitializationPtrOutput) Elem() GitInitializationOutput {
@@ -272,6 +297,12 @@ func (i GetRepositoriesRepositoryArgs) ToGetRepositoriesRepositoryOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoriesRepositoryOutput)
 }
 
+func (i GetRepositoriesRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[GetRepositoriesRepository] {
+	return pulumix.Output[GetRepositoriesRepository]{
+		OutputState: i.ToGetRepositoriesRepositoryOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetRepositoriesRepositoryArrayInput is an input type that accepts GetRepositoriesRepositoryArray and GetRepositoriesRepositoryArrayOutput values.
 // You can construct a concrete instance of `GetRepositoriesRepositoryArrayInput` via:
 //
@@ -297,6 +328,12 @@ func (i GetRepositoriesRepositoryArray) ToGetRepositoriesRepositoryArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(GetRepositoriesRepositoryArrayOutput)
 }
 
+func (i GetRepositoriesRepositoryArray) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoriesRepository] {
+	return pulumix.Output[[]GetRepositoriesRepository]{
+		OutputState: i.ToGetRepositoriesRepositoryArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetRepositoriesRepositoryOutput struct{ *pulumi.OutputState }
 
 func (GetRepositoriesRepositoryOutput) ElementType() reflect.Type {
@@ -309,6 +346,12 @@ func (o GetRepositoriesRepositoryOutput) ToGetRepositoriesRepositoryOutput() Get
 
 func (o GetRepositoriesRepositoryOutput) ToGetRepositoriesRepositoryOutputWithContext(ctx context.Context) GetRepositoriesRepositoryOutput {
 	return o
+}
+
+func (o GetRepositoriesRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[GetRepositoriesRepository] {
+	return pulumix.Output[GetRepositoriesRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ref of the default branch.
@@ -368,6 +411,12 @@ func (o GetRepositoriesRepositoryArrayOutput) ToGetRepositoriesRepositoryArrayOu
 
 func (o GetRepositoriesRepositoryArrayOutput) ToGetRepositoriesRepositoryArrayOutputWithContext(ctx context.Context) GetRepositoriesRepositoryArrayOutput {
 	return o
+}
+
+func (o GetRepositoriesRepositoryArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetRepositoriesRepository] {
+	return pulumix.Output[[]GetRepositoriesRepository]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetRepositoriesRepositoryArrayOutput) Index(i pulumi.IntInput) GetRepositoriesRepositoryOutput {

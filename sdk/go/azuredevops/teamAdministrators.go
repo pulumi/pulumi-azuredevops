@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages administrators of a team within a project in a Azure DevOps organization.
@@ -67,7 +68,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)
 //
 // ## PAT Permissions Required
 //
@@ -234,6 +235,12 @@ func (i *TeamAdministrators) ToTeamAdministratorsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TeamAdministratorsOutput)
 }
 
+func (i *TeamAdministrators) ToOutput(ctx context.Context) pulumix.Output[*TeamAdministrators] {
+	return pulumix.Output[*TeamAdministrators]{
+		OutputState: i.ToTeamAdministratorsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TeamAdministratorsArrayInput is an input type that accepts TeamAdministratorsArray and TeamAdministratorsArrayOutput values.
 // You can construct a concrete instance of `TeamAdministratorsArrayInput` via:
 //
@@ -257,6 +264,12 @@ func (i TeamAdministratorsArray) ToTeamAdministratorsArrayOutput() TeamAdministr
 
 func (i TeamAdministratorsArray) ToTeamAdministratorsArrayOutputWithContext(ctx context.Context) TeamAdministratorsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TeamAdministratorsArrayOutput)
+}
+
+func (i TeamAdministratorsArray) ToOutput(ctx context.Context) pulumix.Output[[]*TeamAdministrators] {
+	return pulumix.Output[[]*TeamAdministrators]{
+		OutputState: i.ToTeamAdministratorsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TeamAdministratorsMapInput is an input type that accepts TeamAdministratorsMap and TeamAdministratorsMapOutput values.
@@ -284,6 +297,12 @@ func (i TeamAdministratorsMap) ToTeamAdministratorsMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TeamAdministratorsMapOutput)
 }
 
+func (i TeamAdministratorsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamAdministrators] {
+	return pulumix.Output[map[string]*TeamAdministrators]{
+		OutputState: i.ToTeamAdministratorsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TeamAdministratorsOutput struct{ *pulumi.OutputState }
 
 func (TeamAdministratorsOutput) ElementType() reflect.Type {
@@ -296,6 +315,12 @@ func (o TeamAdministratorsOutput) ToTeamAdministratorsOutput() TeamAdministrator
 
 func (o TeamAdministratorsOutput) ToTeamAdministratorsOutputWithContext(ctx context.Context) TeamAdministratorsOutput {
 	return o
+}
+
+func (o TeamAdministratorsOutput) ToOutput(ctx context.Context) pulumix.Output[*TeamAdministrators] {
+	return pulumix.Output[*TeamAdministrators]{
+		OutputState: o.OutputState,
+	}
 }
 
 // List of subject descriptors to define adminitrators of the team.
@@ -339,6 +364,12 @@ func (o TeamAdministratorsArrayOutput) ToTeamAdministratorsArrayOutputWithContex
 	return o
 }
 
+func (o TeamAdministratorsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TeamAdministrators] {
+	return pulumix.Output[[]*TeamAdministrators]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TeamAdministratorsArrayOutput) Index(i pulumi.IntInput) TeamAdministratorsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TeamAdministrators {
 		return vs[0].([]*TeamAdministrators)[vs[1].(int)]
@@ -357,6 +388,12 @@ func (o TeamAdministratorsMapOutput) ToTeamAdministratorsMapOutput() TeamAdminis
 
 func (o TeamAdministratorsMapOutput) ToTeamAdministratorsMapOutputWithContext(ctx context.Context) TeamAdministratorsMapOutput {
 	return o
+}
+
+func (o TeamAdministratorsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TeamAdministrators] {
+	return pulumix.Output[map[string]*TeamAdministrators]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TeamAdministratorsMapOutput) MapIndex(k pulumi.StringInput) TeamAdministratorsOutput {

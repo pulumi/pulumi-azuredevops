@@ -102,7 +102,7 @@ def get_projects(name: Optional[str] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
 
 
     :param str name: Name of the Project, if not specified all projects will be returned.
@@ -145,7 +145,7 @@ def get_projects_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
 
 
     :param str name: Name of the Project, if not specified all projects will be returned.

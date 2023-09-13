@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a branch control check on a resource within Azure DevOps.
@@ -413,6 +414,12 @@ func (i *CheckBranchControl) ToCheckBranchControlOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CheckBranchControlOutput)
 }
 
+func (i *CheckBranchControl) ToOutput(ctx context.Context) pulumix.Output[*CheckBranchControl] {
+	return pulumix.Output[*CheckBranchControl]{
+		OutputState: i.ToCheckBranchControlOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CheckBranchControlArrayInput is an input type that accepts CheckBranchControlArray and CheckBranchControlArrayOutput values.
 // You can construct a concrete instance of `CheckBranchControlArrayInput` via:
 //
@@ -436,6 +443,12 @@ func (i CheckBranchControlArray) ToCheckBranchControlArrayOutput() CheckBranchCo
 
 func (i CheckBranchControlArray) ToCheckBranchControlArrayOutputWithContext(ctx context.Context) CheckBranchControlArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CheckBranchControlArrayOutput)
+}
+
+func (i CheckBranchControlArray) ToOutput(ctx context.Context) pulumix.Output[[]*CheckBranchControl] {
+	return pulumix.Output[[]*CheckBranchControl]{
+		OutputState: i.ToCheckBranchControlArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CheckBranchControlMapInput is an input type that accepts CheckBranchControlMap and CheckBranchControlMapOutput values.
@@ -463,6 +476,12 @@ func (i CheckBranchControlMap) ToCheckBranchControlMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CheckBranchControlMapOutput)
 }
 
+func (i CheckBranchControlMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckBranchControl] {
+	return pulumix.Output[map[string]*CheckBranchControl]{
+		OutputState: i.ToCheckBranchControlMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CheckBranchControlOutput struct{ *pulumi.OutputState }
 
 func (CheckBranchControlOutput) ElementType() reflect.Type {
@@ -475,6 +494,12 @@ func (o CheckBranchControlOutput) ToCheckBranchControlOutput() CheckBranchContro
 
 func (o CheckBranchControlOutput) ToCheckBranchControlOutputWithContext(ctx context.Context) CheckBranchControlOutput {
 	return o
+}
+
+func (o CheckBranchControlOutput) ToOutput(ctx context.Context) pulumix.Output[*CheckBranchControl] {
+	return pulumix.Output[*CheckBranchControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
@@ -531,6 +556,12 @@ func (o CheckBranchControlArrayOutput) ToCheckBranchControlArrayOutputWithContex
 	return o
 }
 
+func (o CheckBranchControlArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CheckBranchControl] {
+	return pulumix.Output[[]*CheckBranchControl]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CheckBranchControlArrayOutput) Index(i pulumi.IntInput) CheckBranchControlOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CheckBranchControl {
 		return vs[0].([]*CheckBranchControl)[vs[1].(int)]
@@ -549,6 +580,12 @@ func (o CheckBranchControlMapOutput) ToCheckBranchControlMapOutput() CheckBranch
 
 func (o CheckBranchControlMapOutput) ToCheckBranchControlMapOutputWithContext(ctx context.Context) CheckBranchControlMapOutput {
 	return o
+}
+
+func (o CheckBranchControlMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckBranchControl] {
+	return pulumix.Output[map[string]*CheckBranchControl]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CheckBranchControlMapOutput) MapIndex(k pulumi.StringInput) CheckBranchControlOutput {

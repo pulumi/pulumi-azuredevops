@@ -28,6 +28,7 @@ __all__ = [
     'BuildDefinitionCiTriggerOverrideArgs',
     'BuildDefinitionCiTriggerOverrideBranchFilterArgs',
     'BuildDefinitionCiTriggerOverridePathFilterArgs',
+    'BuildDefinitionFeatureArgs',
     'BuildDefinitionPullRequestTriggerArgs',
     'BuildDefinitionPullRequestTriggerForksArgs',
     'BuildDefinitionPullRequestTriggerOverrideArgs',
@@ -1269,8 +1270,8 @@ class BuildDefinitionCiTriggerOverridePathFilterArgs:
                  excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: List of branch patterns to include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: List of path patterns to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: List of path patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -1281,7 +1282,7 @@ class BuildDefinitionCiTriggerOverridePathFilterArgs:
     @pulumi.getter
     def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of branch patterns to exclude.
+        List of path patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
@@ -1293,13 +1294,40 @@ class BuildDefinitionCiTriggerOverridePathFilterArgs:
     @pulumi.getter
     def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of branch patterns to include.
+        List of path patterns to include.
         """
         return pulumi.get(self, "includes")
 
     @includes.setter
     def includes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
         pulumi.set(self, "includes", value)
+
+
+@pulumi.input_type
+class BuildDefinitionFeatureArgs:
+    def __init__(__self__, *,
+                 skip_first_run: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[bool] skip_first_run: Trigger the pipeline to run after the creation. Defaults to `true`.
+               
+               > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+        """
+        if skip_first_run is not None:
+            pulumi.set(__self__, "skip_first_run", skip_first_run)
+
+    @property
+    @pulumi.getter(name="skipFirstRun")
+    def skip_first_run(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Trigger the pipeline to run after the creation. Defaults to `true`.
+
+        > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+        """
+        return pulumi.get(self, "skip_first_run")
+
+    @skip_first_run.setter
+    def skip_first_run(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "skip_first_run", value)
 
 
 @pulumi.input_type
@@ -1517,8 +1545,8 @@ class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
                  excludes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  includes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: List of branch patterns to exclude.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: List of branch patterns to include.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excludes: List of path patterns to exclude.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] includes: List of path patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -1529,7 +1557,7 @@ class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
     @pulumi.getter
     def excludes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of branch patterns to exclude.
+        List of path patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
@@ -1541,7 +1569,7 @@ class BuildDefinitionPullRequestTriggerOverridePathFilterArgs:
     @pulumi.getter
     def includes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of branch patterns to include.
+        List of path patterns to include.
         """
         return pulumi.get(self, "includes")
 

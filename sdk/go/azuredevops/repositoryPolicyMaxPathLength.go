@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage a max path length repository policy within Azure DevOps project.
@@ -104,7 +105,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -245,6 +246,12 @@ func (i *RepositoryPolicyMaxPathLength) ToRepositoryPolicyMaxPathLengthOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxPathLengthOutput)
 }
 
+func (i *RepositoryPolicyMaxPathLength) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyMaxPathLength] {
+	return pulumix.Output[*RepositoryPolicyMaxPathLength]{
+		OutputState: i.ToRepositoryPolicyMaxPathLengthOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryPolicyMaxPathLengthArrayInput is an input type that accepts RepositoryPolicyMaxPathLengthArray and RepositoryPolicyMaxPathLengthArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyMaxPathLengthArrayInput` via:
 //
@@ -268,6 +275,12 @@ func (i RepositoryPolicyMaxPathLengthArray) ToRepositoryPolicyMaxPathLengthArray
 
 func (i RepositoryPolicyMaxPathLengthArray) ToRepositoryPolicyMaxPathLengthArrayOutputWithContext(ctx context.Context) RepositoryPolicyMaxPathLengthArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxPathLengthArrayOutput)
+}
+
+func (i RepositoryPolicyMaxPathLengthArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyMaxPathLength] {
+	return pulumix.Output[[]*RepositoryPolicyMaxPathLength]{
+		OutputState: i.ToRepositoryPolicyMaxPathLengthArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryPolicyMaxPathLengthMapInput is an input type that accepts RepositoryPolicyMaxPathLengthMap and RepositoryPolicyMaxPathLengthMapOutput values.
@@ -295,6 +308,12 @@ func (i RepositoryPolicyMaxPathLengthMap) ToRepositoryPolicyMaxPathLengthMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxPathLengthMapOutput)
 }
 
+func (i RepositoryPolicyMaxPathLengthMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyMaxPathLength] {
+	return pulumix.Output[map[string]*RepositoryPolicyMaxPathLength]{
+		OutputState: i.ToRepositoryPolicyMaxPathLengthMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryPolicyMaxPathLengthOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyMaxPathLengthOutput) ElementType() reflect.Type {
@@ -307,6 +326,12 @@ func (o RepositoryPolicyMaxPathLengthOutput) ToRepositoryPolicyMaxPathLengthOutp
 
 func (o RepositoryPolicyMaxPathLengthOutput) ToRepositoryPolicyMaxPathLengthOutputWithContext(ctx context.Context) RepositoryPolicyMaxPathLengthOutput {
 	return o
+}
+
+func (o RepositoryPolicyMaxPathLengthOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyMaxPathLength] {
+	return pulumix.Output[*RepositoryPolicyMaxPathLength]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -348,6 +373,12 @@ func (o RepositoryPolicyMaxPathLengthArrayOutput) ToRepositoryPolicyMaxPathLengt
 	return o
 }
 
+func (o RepositoryPolicyMaxPathLengthArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyMaxPathLength] {
+	return pulumix.Output[[]*RepositoryPolicyMaxPathLength]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryPolicyMaxPathLengthArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyMaxPathLengthOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicyMaxPathLength {
 		return vs[0].([]*RepositoryPolicyMaxPathLength)[vs[1].(int)]
@@ -366,6 +397,12 @@ func (o RepositoryPolicyMaxPathLengthMapOutput) ToRepositoryPolicyMaxPathLengthM
 
 func (o RepositoryPolicyMaxPathLengthMapOutput) ToRepositoryPolicyMaxPathLengthMapOutputWithContext(ctx context.Context) RepositoryPolicyMaxPathLengthMapOutput {
 	return o
+}
+
+func (o RepositoryPolicyMaxPathLengthMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyMaxPathLength] {
+	return pulumix.Output[map[string]*RepositoryPolicyMaxPathLength]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryPolicyMaxPathLengthMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyMaxPathLengthOutput {

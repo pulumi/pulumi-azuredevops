@@ -142,7 +142,7 @@ def get_team(name: Optional[str] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
 
     ## PAT Permissions Required
 
@@ -195,7 +195,7 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
 
     ## PAT Permissions Required
 

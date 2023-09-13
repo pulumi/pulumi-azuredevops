@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Agent Queue within Azure DevOps.
@@ -53,7 +54,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
 func GetAgentQueue(ctx *pulumi.Context, args *GetAgentQueueArgs, opts ...pulumi.InvokeOption) (*GetAgentQueueResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAgentQueueResult
@@ -122,6 +123,12 @@ func (o GetAgentQueueResultOutput) ToGetAgentQueueResultOutput() GetAgentQueueRe
 
 func (o GetAgentQueueResultOutput) ToGetAgentQueueResultOutputWithContext(ctx context.Context) GetAgentQueueResultOutput {
 	return o
+}
+
+func (o GetAgentQueueResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAgentQueueResult] {
+	return pulumix.Output[GetAgentQueueResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Agent pool identifier to which the agent queue belongs.

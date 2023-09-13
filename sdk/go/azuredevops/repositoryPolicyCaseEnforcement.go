@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a case enforcement repository policy within Azure DevOps project.
@@ -104,7 +105,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -245,6 +246,12 @@ func (i *RepositoryPolicyCaseEnforcement) ToRepositoryPolicyCaseEnforcementOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCaseEnforcementOutput)
 }
 
+func (i *RepositoryPolicyCaseEnforcement) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyCaseEnforcement] {
+	return pulumix.Output[*RepositoryPolicyCaseEnforcement]{
+		OutputState: i.ToRepositoryPolicyCaseEnforcementOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryPolicyCaseEnforcementArrayInput is an input type that accepts RepositoryPolicyCaseEnforcementArray and RepositoryPolicyCaseEnforcementArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyCaseEnforcementArrayInput` via:
 //
@@ -268,6 +275,12 @@ func (i RepositoryPolicyCaseEnforcementArray) ToRepositoryPolicyCaseEnforcementA
 
 func (i RepositoryPolicyCaseEnforcementArray) ToRepositoryPolicyCaseEnforcementArrayOutputWithContext(ctx context.Context) RepositoryPolicyCaseEnforcementArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCaseEnforcementArrayOutput)
+}
+
+func (i RepositoryPolicyCaseEnforcementArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyCaseEnforcement] {
+	return pulumix.Output[[]*RepositoryPolicyCaseEnforcement]{
+		OutputState: i.ToRepositoryPolicyCaseEnforcementArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryPolicyCaseEnforcementMapInput is an input type that accepts RepositoryPolicyCaseEnforcementMap and RepositoryPolicyCaseEnforcementMapOutput values.
@@ -295,6 +308,12 @@ func (i RepositoryPolicyCaseEnforcementMap) ToRepositoryPolicyCaseEnforcementMap
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCaseEnforcementMapOutput)
 }
 
+func (i RepositoryPolicyCaseEnforcementMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyCaseEnforcement] {
+	return pulumix.Output[map[string]*RepositoryPolicyCaseEnforcement]{
+		OutputState: i.ToRepositoryPolicyCaseEnforcementMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryPolicyCaseEnforcementOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyCaseEnforcementOutput) ElementType() reflect.Type {
@@ -307,6 +326,12 @@ func (o RepositoryPolicyCaseEnforcementOutput) ToRepositoryPolicyCaseEnforcement
 
 func (o RepositoryPolicyCaseEnforcementOutput) ToRepositoryPolicyCaseEnforcementOutputWithContext(ctx context.Context) RepositoryPolicyCaseEnforcementOutput {
 	return o
+}
+
+func (o RepositoryPolicyCaseEnforcementOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyCaseEnforcement] {
+	return pulumix.Output[*RepositoryPolicyCaseEnforcement]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -348,6 +373,12 @@ func (o RepositoryPolicyCaseEnforcementArrayOutput) ToRepositoryPolicyCaseEnforc
 	return o
 }
 
+func (o RepositoryPolicyCaseEnforcementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyCaseEnforcement] {
+	return pulumix.Output[[]*RepositoryPolicyCaseEnforcement]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryPolicyCaseEnforcementArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyCaseEnforcementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicyCaseEnforcement {
 		return vs[0].([]*RepositoryPolicyCaseEnforcement)[vs[1].(int)]
@@ -366,6 +397,12 @@ func (o RepositoryPolicyCaseEnforcementMapOutput) ToRepositoryPolicyCaseEnforcem
 
 func (o RepositoryPolicyCaseEnforcementMapOutput) ToRepositoryPolicyCaseEnforcementMapOutputWithContext(ctx context.Context) RepositoryPolicyCaseEnforcementMapOutput {
 	return o
+}
+
+func (o RepositoryPolicyCaseEnforcementMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyCaseEnforcement] {
+	return pulumix.Output[map[string]*RepositoryPolicyCaseEnforcement]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryPolicyCaseEnforcementMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyCaseEnforcementOutput {

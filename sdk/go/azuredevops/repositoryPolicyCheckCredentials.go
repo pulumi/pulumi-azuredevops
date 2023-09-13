@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage a credentials check repository policy within Azure DevOps project. Block pushes that introduce files, folders, or branch names that include platform reserved names or incompatible characters.
@@ -102,7 +103,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -230,6 +231,12 @@ func (i *RepositoryPolicyCheckCredentials) ToRepositoryPolicyCheckCredentialsOut
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCheckCredentialsOutput)
 }
 
+func (i *RepositoryPolicyCheckCredentials) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyCheckCredentials] {
+	return pulumix.Output[*RepositoryPolicyCheckCredentials]{
+		OutputState: i.ToRepositoryPolicyCheckCredentialsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryPolicyCheckCredentialsArrayInput is an input type that accepts RepositoryPolicyCheckCredentialsArray and RepositoryPolicyCheckCredentialsArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyCheckCredentialsArrayInput` via:
 //
@@ -253,6 +260,12 @@ func (i RepositoryPolicyCheckCredentialsArray) ToRepositoryPolicyCheckCredential
 
 func (i RepositoryPolicyCheckCredentialsArray) ToRepositoryPolicyCheckCredentialsArrayOutputWithContext(ctx context.Context) RepositoryPolicyCheckCredentialsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCheckCredentialsArrayOutput)
+}
+
+func (i RepositoryPolicyCheckCredentialsArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyCheckCredentials] {
+	return pulumix.Output[[]*RepositoryPolicyCheckCredentials]{
+		OutputState: i.ToRepositoryPolicyCheckCredentialsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryPolicyCheckCredentialsMapInput is an input type that accepts RepositoryPolicyCheckCredentialsMap and RepositoryPolicyCheckCredentialsMapOutput values.
@@ -280,6 +293,12 @@ func (i RepositoryPolicyCheckCredentialsMap) ToRepositoryPolicyCheckCredentialsM
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyCheckCredentialsMapOutput)
 }
 
+func (i RepositoryPolicyCheckCredentialsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyCheckCredentials] {
+	return pulumix.Output[map[string]*RepositoryPolicyCheckCredentials]{
+		OutputState: i.ToRepositoryPolicyCheckCredentialsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryPolicyCheckCredentialsOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyCheckCredentialsOutput) ElementType() reflect.Type {
@@ -292,6 +311,12 @@ func (o RepositoryPolicyCheckCredentialsOutput) ToRepositoryPolicyCheckCredentia
 
 func (o RepositoryPolicyCheckCredentialsOutput) ToRepositoryPolicyCheckCredentialsOutputWithContext(ctx context.Context) RepositoryPolicyCheckCredentialsOutput {
 	return o
+}
+
+func (o RepositoryPolicyCheckCredentialsOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyCheckCredentials] {
+	return pulumix.Output[*RepositoryPolicyCheckCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -328,6 +353,12 @@ func (o RepositoryPolicyCheckCredentialsArrayOutput) ToRepositoryPolicyCheckCred
 	return o
 }
 
+func (o RepositoryPolicyCheckCredentialsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyCheckCredentials] {
+	return pulumix.Output[[]*RepositoryPolicyCheckCredentials]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryPolicyCheckCredentialsArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyCheckCredentialsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicyCheckCredentials {
 		return vs[0].([]*RepositoryPolicyCheckCredentials)[vs[1].(int)]
@@ -346,6 +377,12 @@ func (o RepositoryPolicyCheckCredentialsMapOutput) ToRepositoryPolicyCheckCreden
 
 func (o RepositoryPolicyCheckCredentialsMapOutput) ToRepositoryPolicyCheckCredentialsMapOutputWithContext(ctx context.Context) RepositoryPolicyCheckCredentialsMapOutput {
 	return o
+}
+
+func (o RepositoryPolicyCheckCredentialsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyCheckCredentials] {
+	return pulumix.Output[map[string]*RepositoryPolicyCheckCredentials]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryPolicyCheckCredentialsMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyCheckCredentialsOutput {

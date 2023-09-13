@@ -69,6 +69,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &GitRepositoryFile{}
 	case "azuredevops:index/group:Group":
 		r = &Group{}
+	case "azuredevops:index/groupEntitlement:GroupEntitlement":
+		r = &GroupEntitlement{}
 	case "azuredevops:index/groupMembership:GroupMembership":
 		r = &GroupMembership{}
 	case "azuredevops:index/iterativePermissions:IterativePermissions":
@@ -161,6 +163,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ServiceendpointMaven{}
 	case "azuredevops:index/serviceendpointNexus:ServiceendpointNexus":
 		r = &ServiceendpointNexus{}
+	case "azuredevops:index/serviceendpointNuget:ServiceendpointNuget":
+		r = &ServiceendpointNuget{}
 	case "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy":
 		r = &ServiceendpointOctopusdeploy{}
 	case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
@@ -332,6 +336,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/group",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/groupEntitlement",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -562,6 +571,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azuredevops",
 		"index/serviceendpointNexus",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azuredevops",
+		"index/serviceendpointNuget",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

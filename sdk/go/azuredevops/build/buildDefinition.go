@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Build Definition within Azure DevOps.
@@ -209,7 +210,7 @@ import (
 //
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -237,13 +238,15 @@ type BuildDefinition struct {
 	AgentPoolName pulumi.StringPtrOutput `pulumi:"agentPoolName"`
 	// Continuous Integration trigger.
 	CiTrigger BuildDefinitionCiTriggerPtrOutput `pulumi:"ciTrigger"`
+	// A `features` blocks as documented below.
+	Features BuildDefinitionFeatureArrayOutput `pulumi:"features"`
 	// The name of the build definition.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The folder path of the build definition.
 	Path pulumi.StringPtrOutput `pulumi:"path"`
 	// The project ID or project name.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
-	// Pull Request Integration Integration trigger.
+	// Pull Request Integration trigger.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrOutput `pulumi:"pullRequestTrigger"`
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryOutput `pulumi:"repository"`
@@ -296,13 +299,15 @@ type buildDefinitionState struct {
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// Continuous Integration trigger.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
+	// A `features` blocks as documented below.
+	Features []BuildDefinitionFeature `pulumi:"features"`
 	// The name of the build definition.
 	Name *string `pulumi:"name"`
 	// The folder path of the build definition.
 	Path *string `pulumi:"path"`
 	// The project ID or project name.
 	ProjectId *string `pulumi:"projectId"`
-	// Pull Request Integration Integration trigger.
+	// Pull Request Integration trigger.
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
 	// A `repository` block as documented below.
 	Repository *BuildDefinitionRepository `pulumi:"repository"`
@@ -320,13 +325,15 @@ type BuildDefinitionState struct {
 	AgentPoolName pulumi.StringPtrInput
 	// Continuous Integration trigger.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
+	// A `features` blocks as documented below.
+	Features BuildDefinitionFeatureArrayInput
 	// The name of the build definition.
 	Name pulumi.StringPtrInput
 	// The folder path of the build definition.
 	Path pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringPtrInput
-	// Pull Request Integration Integration trigger.
+	// Pull Request Integration trigger.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryPtrInput
@@ -348,13 +355,15 @@ type buildDefinitionArgs struct {
 	AgentPoolName *string `pulumi:"agentPoolName"`
 	// Continuous Integration trigger.
 	CiTrigger *BuildDefinitionCiTrigger `pulumi:"ciTrigger"`
+	// A `features` blocks as documented below.
+	Features []BuildDefinitionFeature `pulumi:"features"`
 	// The name of the build definition.
 	Name *string `pulumi:"name"`
 	// The folder path of the build definition.
 	Path *string `pulumi:"path"`
 	// The project ID or project name.
 	ProjectId string `pulumi:"projectId"`
-	// Pull Request Integration Integration trigger.
+	// Pull Request Integration trigger.
 	PullRequestTrigger *BuildDefinitionPullRequestTrigger `pulumi:"pullRequestTrigger"`
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepository `pulumi:"repository"`
@@ -371,13 +380,15 @@ type BuildDefinitionArgs struct {
 	AgentPoolName pulumi.StringPtrInput
 	// Continuous Integration trigger.
 	CiTrigger BuildDefinitionCiTriggerPtrInput
+	// A `features` blocks as documented below.
+	Features BuildDefinitionFeatureArrayInput
 	// The name of the build definition.
 	Name pulumi.StringPtrInput
 	// The folder path of the build definition.
 	Path pulumi.StringPtrInput
 	// The project ID or project name.
 	ProjectId pulumi.StringInput
-	// Pull Request Integration Integration trigger.
+	// Pull Request Integration trigger.
 	PullRequestTrigger BuildDefinitionPullRequestTriggerPtrInput
 	// A `repository` block as documented below.
 	Repository BuildDefinitionRepositoryInput
@@ -411,6 +422,12 @@ func (i *BuildDefinition) ToBuildDefinitionOutputWithContext(ctx context.Context
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionOutput)
 }
 
+func (i *BuildDefinition) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinition] {
+	return pulumix.Output[*BuildDefinition]{
+		OutputState: i.ToBuildDefinitionOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BuildDefinitionArrayInput is an input type that accepts BuildDefinitionArray and BuildDefinitionArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionArrayInput` via:
 //
@@ -434,6 +451,12 @@ func (i BuildDefinitionArray) ToBuildDefinitionArrayOutput() BuildDefinitionArra
 
 func (i BuildDefinitionArray) ToBuildDefinitionArrayOutputWithContext(ctx context.Context) BuildDefinitionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionArrayOutput)
+}
+
+func (i BuildDefinitionArray) ToOutput(ctx context.Context) pulumix.Output[[]*BuildDefinition] {
+	return pulumix.Output[[]*BuildDefinition]{
+		OutputState: i.ToBuildDefinitionArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BuildDefinitionMapInput is an input type that accepts BuildDefinitionMap and BuildDefinitionMapOutput values.
@@ -461,6 +484,12 @@ func (i BuildDefinitionMap) ToBuildDefinitionMapOutputWithContext(ctx context.Co
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionMapOutput)
 }
 
+func (i BuildDefinitionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildDefinition] {
+	return pulumix.Output[map[string]*BuildDefinition]{
+		OutputState: i.ToBuildDefinitionMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BuildDefinitionOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionOutput) ElementType() reflect.Type {
@@ -475,6 +504,12 @@ func (o BuildDefinitionOutput) ToBuildDefinitionOutputWithContext(ctx context.Co
 	return o
 }
 
+func (o BuildDefinitionOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinition] {
+	return pulumix.Output[*BuildDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 // The agent pool that should execute the build. Defaults to `Azure Pipelines`.
 func (o BuildDefinitionOutput) AgentPoolName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BuildDefinition) pulumi.StringPtrOutput { return v.AgentPoolName }).(pulumi.StringPtrOutput)
@@ -483,6 +518,11 @@ func (o BuildDefinitionOutput) AgentPoolName() pulumi.StringPtrOutput {
 // Continuous Integration trigger.
 func (o BuildDefinitionOutput) CiTrigger() BuildDefinitionCiTriggerPtrOutput {
 	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionCiTriggerPtrOutput { return v.CiTrigger }).(BuildDefinitionCiTriggerPtrOutput)
+}
+
+// A `features` blocks as documented below.
+func (o BuildDefinitionOutput) Features() BuildDefinitionFeatureArrayOutput {
+	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionFeatureArrayOutput { return v.Features }).(BuildDefinitionFeatureArrayOutput)
 }
 
 // The name of the build definition.
@@ -500,7 +540,7 @@ func (o BuildDefinitionOutput) ProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *BuildDefinition) pulumi.StringOutput { return v.ProjectId }).(pulumi.StringOutput)
 }
 
-// Pull Request Integration Integration trigger.
+// Pull Request Integration trigger.
 func (o BuildDefinitionOutput) PullRequestTrigger() BuildDefinitionPullRequestTriggerPtrOutput {
 	return o.ApplyT(func(v *BuildDefinition) BuildDefinitionPullRequestTriggerPtrOutput { return v.PullRequestTrigger }).(BuildDefinitionPullRequestTriggerPtrOutput)
 }
@@ -543,6 +583,12 @@ func (o BuildDefinitionArrayOutput) ToBuildDefinitionArrayOutputWithContext(ctx 
 	return o
 }
 
+func (o BuildDefinitionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BuildDefinition] {
+	return pulumix.Output[[]*BuildDefinition]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BuildDefinitionArrayOutput) Index(i pulumi.IntInput) BuildDefinitionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BuildDefinition {
 		return vs[0].([]*BuildDefinition)[vs[1].(int)]
@@ -561,6 +607,12 @@ func (o BuildDefinitionMapOutput) ToBuildDefinitionMapOutput() BuildDefinitionMa
 
 func (o BuildDefinitionMapOutput) ToBuildDefinitionMapOutputWithContext(ctx context.Context) BuildDefinitionMapOutput {
 	return o
+}
+
+func (o BuildDefinitionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildDefinition] {
+	return pulumix.Output[map[string]*BuildDefinition]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BuildDefinitionMapOutput) MapIndex(k pulumi.StringInput) BuildDefinitionOutput {

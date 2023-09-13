@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing AzureRM service Endpoint.
@@ -179,6 +180,12 @@ func (o LookupServiceEndpointAzureRMResultOutput) ToLookupServiceEndpointAzureRM
 
 func (o LookupServiceEndpointAzureRMResultOutput) ToLookupServiceEndpointAzureRMResultOutputWithContext(ctx context.Context) LookupServiceEndpointAzureRMResultOutput {
 	return o
+}
+
+func (o LookupServiceEndpointAzureRMResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupServiceEndpointAzureRMResult] {
+	return pulumix.Output[LookupServiceEndpointAzureRMResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Authorization Scheme Map.

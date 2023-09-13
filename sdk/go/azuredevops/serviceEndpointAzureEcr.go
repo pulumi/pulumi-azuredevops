@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure Container Registry service endpoint within Azure DevOps.
@@ -56,7 +57,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 // - [Azure Container Registry REST API](https://docs.microsoft.com/en-us/rest/api/containerregistry/)
 //
 // ## Import
@@ -261,6 +262,12 @@ func (i *ServiceEndpointAzureEcr) ToServiceEndpointAzureEcrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrOutput)
 }
 
+func (i *ServiceEndpointAzureEcr) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointAzureEcr] {
+	return pulumix.Output[*ServiceEndpointAzureEcr]{
+		OutputState: i.ToServiceEndpointAzureEcrOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEndpointAzureEcrArrayInput is an input type that accepts ServiceEndpointAzureEcrArray and ServiceEndpointAzureEcrArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointAzureEcrArrayInput` via:
 //
@@ -284,6 +291,12 @@ func (i ServiceEndpointAzureEcrArray) ToServiceEndpointAzureEcrArrayOutput() Ser
 
 func (i ServiceEndpointAzureEcrArray) ToServiceEndpointAzureEcrArrayOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrArrayOutput)
+}
+
+func (i ServiceEndpointAzureEcrArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointAzureEcr] {
+	return pulumix.Output[[]*ServiceEndpointAzureEcr]{
+		OutputState: i.ToServiceEndpointAzureEcrArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceEndpointAzureEcrMapInput is an input type that accepts ServiceEndpointAzureEcrMap and ServiceEndpointAzureEcrMapOutput values.
@@ -311,6 +324,12 @@ func (i ServiceEndpointAzureEcrMap) ToServiceEndpointAzureEcrMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureEcrMapOutput)
 }
 
+func (i ServiceEndpointAzureEcrMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointAzureEcr] {
+	return pulumix.Output[map[string]*ServiceEndpointAzureEcr]{
+		OutputState: i.ToServiceEndpointAzureEcrMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEndpointAzureEcrOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureEcrOutput) ElementType() reflect.Type {
@@ -323,6 +342,12 @@ func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrOutput() Service
 
 func (o ServiceEndpointAzureEcrOutput) ToServiceEndpointAzureEcrOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrOutput {
 	return o
+}
+
+func (o ServiceEndpointAzureEcrOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointAzureEcr] {
+	return pulumix.Output[*ServiceEndpointAzureEcr]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointAzureEcrOutput) AppObjectId() pulumi.StringOutput {
@@ -403,6 +428,12 @@ func (o ServiceEndpointAzureEcrArrayOutput) ToServiceEndpointAzureEcrArrayOutput
 	return o
 }
 
+func (o ServiceEndpointAzureEcrArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointAzureEcr] {
+	return pulumix.Output[[]*ServiceEndpointAzureEcr]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceEndpointAzureEcrArrayOutput) Index(i pulumi.IntInput) ServiceEndpointAzureEcrOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointAzureEcr {
 		return vs[0].([]*ServiceEndpointAzureEcr)[vs[1].(int)]
@@ -421,6 +452,12 @@ func (o ServiceEndpointAzureEcrMapOutput) ToServiceEndpointAzureEcrMapOutput() S
 
 func (o ServiceEndpointAzureEcrMapOutput) ToServiceEndpointAzureEcrMapOutputWithContext(ctx context.Context) ServiceEndpointAzureEcrMapOutput {
 	return o
+}
+
+func (o ServiceEndpointAzureEcrMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointAzureEcr] {
+	return pulumix.Output[map[string]*ServiceEndpointAzureEcr]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointAzureEcrMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointAzureEcrOutput {

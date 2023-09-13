@@ -7,7 +7,8 @@ import * as utilities from "../utilities";
 // Export members:
 export { GetClientConfigResult } from "./getClientConfig";
 export const getClientConfig: typeof import("./getClientConfig").getClientConfig = null as any;
-utilities.lazyLoad(exports, ["getClientConfig"], () => require("./getClientConfig"));
+export const getClientConfigOutput: typeof import("./getClientConfig").getClientConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getClientConfig","getClientConfigOutput"], () => require("./getClientConfig"));
 
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;

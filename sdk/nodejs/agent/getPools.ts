@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+ * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
  */
 /** @deprecated azuredevops.agent.getPools has been deprecated in favor of azuredevops.getPools */
 export function getPools(opts?: pulumi.InvokeOptions): Promise<GetPoolsResult> {
@@ -46,4 +46,27 @@ export interface GetPoolsResult {
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+}
+/**
+ * Use this data source to access information about existing Agent Pools within Azure DevOps.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getPools({});
+ * export const agentPoolName = example.then(example => example.agentPools.map(__item => __item.name));
+ * export const autoProvision = example.then(example => example.agentPools.map(__item => __item.autoProvision));
+ * export const autoUpdate = example.then(example => example.agentPools.map(__item => __item.autoUpdate));
+ * export const poolType = example.then(example => example.agentPools.map(__item => __item.poolType));
+ * ```
+ * ## Relevant Links
+ *
+ * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+ */
+/** @deprecated azuredevops.agent.getPools has been deprecated in favor of azuredevops.getPools */
+export function getPoolsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetPoolsResult> {
+    return pulumi.output(getPools(opts))
 }

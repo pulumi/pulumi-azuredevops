@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a npm service endpoint within Azure DevOps.
@@ -54,7 +55,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 // - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
 // - [npm User Token](https://docs.npmjs.com/about-access-tokens)
 //
@@ -215,6 +216,12 @@ func (i *ServiceEndpointNpm) ToServiceEndpointNpmOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointNpmOutput)
 }
 
+func (i *ServiceEndpointNpm) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointNpm] {
+	return pulumix.Output[*ServiceEndpointNpm]{
+		OutputState: i.ToServiceEndpointNpmOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEndpointNpmArrayInput is an input type that accepts ServiceEndpointNpmArray and ServiceEndpointNpmArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointNpmArrayInput` via:
 //
@@ -238,6 +245,12 @@ func (i ServiceEndpointNpmArray) ToServiceEndpointNpmArrayOutput() ServiceEndpoi
 
 func (i ServiceEndpointNpmArray) ToServiceEndpointNpmArrayOutputWithContext(ctx context.Context) ServiceEndpointNpmArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointNpmArrayOutput)
+}
+
+func (i ServiceEndpointNpmArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointNpm] {
+	return pulumix.Output[[]*ServiceEndpointNpm]{
+		OutputState: i.ToServiceEndpointNpmArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceEndpointNpmMapInput is an input type that accepts ServiceEndpointNpmMap and ServiceEndpointNpmMapOutput values.
@@ -265,6 +278,12 @@ func (i ServiceEndpointNpmMap) ToServiceEndpointNpmMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointNpmMapOutput)
 }
 
+func (i ServiceEndpointNpmMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointNpm] {
+	return pulumix.Output[map[string]*ServiceEndpointNpm]{
+		OutputState: i.ToServiceEndpointNpmMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEndpointNpmOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointNpmOutput) ElementType() reflect.Type {
@@ -277,6 +296,12 @@ func (o ServiceEndpointNpmOutput) ToServiceEndpointNpmOutput() ServiceEndpointNp
 
 func (o ServiceEndpointNpmOutput) ToServiceEndpointNpmOutputWithContext(ctx context.Context) ServiceEndpointNpmOutput {
 	return o
+}
+
+func (o ServiceEndpointNpmOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointNpm] {
+	return pulumix.Output[*ServiceEndpointNpm]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The access token for npm registry.
@@ -322,6 +347,12 @@ func (o ServiceEndpointNpmArrayOutput) ToServiceEndpointNpmArrayOutputWithContex
 	return o
 }
 
+func (o ServiceEndpointNpmArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointNpm] {
+	return pulumix.Output[[]*ServiceEndpointNpm]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceEndpointNpmArrayOutput) Index(i pulumi.IntInput) ServiceEndpointNpmOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointNpm {
 		return vs[0].([]*ServiceEndpointNpm)[vs[1].(int)]
@@ -340,6 +371,12 @@ func (o ServiceEndpointNpmMapOutput) ToServiceEndpointNpmMapOutput() ServiceEndp
 
 func (o ServiceEndpointNpmMapOutput) ToServiceEndpointNpmMapOutputWithContext(ctx context.Context) ServiceEndpointNpmMapOutput {
 	return o
+}
+
+func (o ServiceEndpointNpmMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointNpm] {
+	return pulumix.Output[map[string]*ServiceEndpointNpm]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointNpmMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointNpmOutput {

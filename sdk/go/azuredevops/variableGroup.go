@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Example Usage
@@ -124,8 +125,8 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
-// - [Azure DevOps Service REST API 6.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
+// - [Azure DevOps Service REST API 7.0 - Authorized Resources](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/authorizedresources?view=azure-devops-rest-7.0)
 //
 // ## PAT Permissions Required
 //
@@ -301,6 +302,12 @@ func (i *VariableGroup) ToVariableGroupOutputWithContext(ctx context.Context) Va
 	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupOutput)
 }
 
+func (i *VariableGroup) ToOutput(ctx context.Context) pulumix.Output[*VariableGroup] {
+	return pulumix.Output[*VariableGroup]{
+		OutputState: i.ToVariableGroupOutputWithContext(ctx).OutputState,
+	}
+}
+
 // VariableGroupArrayInput is an input type that accepts VariableGroupArray and VariableGroupArrayOutput values.
 // You can construct a concrete instance of `VariableGroupArrayInput` via:
 //
@@ -324,6 +331,12 @@ func (i VariableGroupArray) ToVariableGroupArrayOutput() VariableGroupArrayOutpu
 
 func (i VariableGroupArray) ToVariableGroupArrayOutputWithContext(ctx context.Context) VariableGroupArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupArrayOutput)
+}
+
+func (i VariableGroupArray) ToOutput(ctx context.Context) pulumix.Output[[]*VariableGroup] {
+	return pulumix.Output[[]*VariableGroup]{
+		OutputState: i.ToVariableGroupArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // VariableGroupMapInput is an input type that accepts VariableGroupMap and VariableGroupMapOutput values.
@@ -351,6 +364,12 @@ func (i VariableGroupMap) ToVariableGroupMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupMapOutput)
 }
 
+func (i VariableGroupMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*VariableGroup] {
+	return pulumix.Output[map[string]*VariableGroup]{
+		OutputState: i.ToVariableGroupMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type VariableGroupOutput struct{ *pulumi.OutputState }
 
 func (VariableGroupOutput) ElementType() reflect.Type {
@@ -363,6 +382,12 @@ func (o VariableGroupOutput) ToVariableGroupOutput() VariableGroupOutput {
 
 func (o VariableGroupOutput) ToVariableGroupOutputWithContext(ctx context.Context) VariableGroupOutput {
 	return o
+}
+
+func (o VariableGroupOutput) ToOutput(ctx context.Context) pulumix.Output[*VariableGroup] {
+	return pulumix.Output[*VariableGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Boolean that indicate if this variable group is shared by all pipelines of this project.
@@ -409,6 +434,12 @@ func (o VariableGroupArrayOutput) ToVariableGroupArrayOutputWithContext(ctx cont
 	return o
 }
 
+func (o VariableGroupArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*VariableGroup] {
+	return pulumix.Output[[]*VariableGroup]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o VariableGroupArrayOutput) Index(i pulumi.IntInput) VariableGroupOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *VariableGroup {
 		return vs[0].([]*VariableGroup)[vs[1].(int)]
@@ -427,6 +458,12 @@ func (o VariableGroupMapOutput) ToVariableGroupMapOutput() VariableGroupMapOutpu
 
 func (o VariableGroupMapOutput) ToVariableGroupMapOutputWithContext(ctx context.Context) VariableGroupMapOutput {
 	return o
+}
+
+func (o VariableGroupMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*VariableGroup] {
+	return pulumix.Output[map[string]*VariableGroup]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o VariableGroupMapOutput) MapIndex(k pulumi.StringInput) VariableGroupOutput {

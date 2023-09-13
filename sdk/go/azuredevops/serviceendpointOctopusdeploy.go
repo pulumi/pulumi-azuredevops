@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Octopus Deploy service endpoint within Azure DevOps. Using this service endpoint requires you to install [Octopus Deploy](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
@@ -54,7 +55,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -211,6 +212,12 @@ func (i *ServiceendpointOctopusdeploy) ToServiceendpointOctopusdeployOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOctopusdeployOutput)
 }
 
+func (i *ServiceendpointOctopusdeploy) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointOctopusdeploy] {
+	return pulumix.Output[*ServiceendpointOctopusdeploy]{
+		OutputState: i.ToServiceendpointOctopusdeployOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceendpointOctopusdeployArrayInput is an input type that accepts ServiceendpointOctopusdeployArray and ServiceendpointOctopusdeployArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointOctopusdeployArrayInput` via:
 //
@@ -234,6 +241,12 @@ func (i ServiceendpointOctopusdeployArray) ToServiceendpointOctopusdeployArrayOu
 
 func (i ServiceendpointOctopusdeployArray) ToServiceendpointOctopusdeployArrayOutputWithContext(ctx context.Context) ServiceendpointOctopusdeployArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOctopusdeployArrayOutput)
+}
+
+func (i ServiceendpointOctopusdeployArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointOctopusdeploy] {
+	return pulumix.Output[[]*ServiceendpointOctopusdeploy]{
+		OutputState: i.ToServiceendpointOctopusdeployArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceendpointOctopusdeployMapInput is an input type that accepts ServiceendpointOctopusdeployMap and ServiceendpointOctopusdeployMapOutput values.
@@ -261,6 +274,12 @@ func (i ServiceendpointOctopusdeployMap) ToServiceendpointOctopusdeployMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointOctopusdeployMapOutput)
 }
 
+func (i ServiceendpointOctopusdeployMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointOctopusdeploy] {
+	return pulumix.Output[map[string]*ServiceendpointOctopusdeploy]{
+		OutputState: i.ToServiceendpointOctopusdeployMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceendpointOctopusdeployOutput struct{ *pulumi.OutputState }
 
 func (ServiceendpointOctopusdeployOutput) ElementType() reflect.Type {
@@ -273,6 +292,12 @@ func (o ServiceendpointOctopusdeployOutput) ToServiceendpointOctopusdeployOutput
 
 func (o ServiceendpointOctopusdeployOutput) ToServiceendpointOctopusdeployOutputWithContext(ctx context.Context) ServiceendpointOctopusdeployOutput {
 	return o
+}
+
+func (o ServiceendpointOctopusdeployOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointOctopusdeploy] {
+	return pulumix.Output[*ServiceendpointOctopusdeploy]{
+		OutputState: o.OutputState,
+	}
 }
 
 // API key to connect to Octopus Deploy.
@@ -322,6 +347,12 @@ func (o ServiceendpointOctopusdeployArrayOutput) ToServiceendpointOctopusdeployA
 	return o
 }
 
+func (o ServiceendpointOctopusdeployArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointOctopusdeploy] {
+	return pulumix.Output[[]*ServiceendpointOctopusdeploy]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceendpointOctopusdeployArrayOutput) Index(i pulumi.IntInput) ServiceendpointOctopusdeployOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceendpointOctopusdeploy {
 		return vs[0].([]*ServiceendpointOctopusdeploy)[vs[1].(int)]
@@ -340,6 +371,12 @@ func (o ServiceendpointOctopusdeployMapOutput) ToServiceendpointOctopusdeployMap
 
 func (o ServiceendpointOctopusdeployMapOutput) ToServiceendpointOctopusdeployMapOutputWithContext(ctx context.Context) ServiceendpointOctopusdeployMapOutput {
 	return o
+}
+
+func (o ServiceendpointOctopusdeployMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointOctopusdeploy] {
+	return pulumix.Output[map[string]*ServiceendpointOctopusdeploy]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceendpointOctopusdeployMapOutput) MapIndex(k pulumi.StringInput) ServiceendpointOctopusdeployOutput {

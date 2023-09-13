@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages required reviewer policy branch policy within Azure DevOps.
@@ -80,7 +81,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -211,6 +212,12 @@ func (i *BranchPolicyAutoReviewers) ToBranchPolicyAutoReviewersOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersOutput)
 }
 
+func (i *BranchPolicyAutoReviewers) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyAutoReviewers] {
+	return pulumix.Output[*BranchPolicyAutoReviewers]{
+		OutputState: i.ToBranchPolicyAutoReviewersOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BranchPolicyAutoReviewersArrayInput is an input type that accepts BranchPolicyAutoReviewersArray and BranchPolicyAutoReviewersArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyAutoReviewersArrayInput` via:
 //
@@ -234,6 +241,12 @@ func (i BranchPolicyAutoReviewersArray) ToBranchPolicyAutoReviewersArrayOutput()
 
 func (i BranchPolicyAutoReviewersArray) ToBranchPolicyAutoReviewersArrayOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersArrayOutput)
+}
+
+func (i BranchPolicyAutoReviewersArray) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyAutoReviewers] {
+	return pulumix.Output[[]*BranchPolicyAutoReviewers]{
+		OutputState: i.ToBranchPolicyAutoReviewersArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BranchPolicyAutoReviewersMapInput is an input type that accepts BranchPolicyAutoReviewersMap and BranchPolicyAutoReviewersMapOutput values.
@@ -261,6 +274,12 @@ func (i BranchPolicyAutoReviewersMap) ToBranchPolicyAutoReviewersMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyAutoReviewersMapOutput)
 }
 
+func (i BranchPolicyAutoReviewersMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyAutoReviewers] {
+	return pulumix.Output[map[string]*BranchPolicyAutoReviewers]{
+		OutputState: i.ToBranchPolicyAutoReviewersMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BranchPolicyAutoReviewersOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyAutoReviewersOutput) ElementType() reflect.Type {
@@ -273,6 +292,12 @@ func (o BranchPolicyAutoReviewersOutput) ToBranchPolicyAutoReviewersOutput() Bra
 
 func (o BranchPolicyAutoReviewersOutput) ToBranchPolicyAutoReviewersOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersOutput {
 	return o
+}
+
+func (o BranchPolicyAutoReviewersOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyAutoReviewers] {
+	return pulumix.Output[*BranchPolicyAutoReviewers]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A flag indicating if the policy should be blocking. This relates to the Azure DevOps terms "optional" and "required" reviewers. Defaults to `true`.
@@ -309,6 +334,12 @@ func (o BranchPolicyAutoReviewersArrayOutput) ToBranchPolicyAutoReviewersArrayOu
 	return o
 }
 
+func (o BranchPolicyAutoReviewersArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyAutoReviewers] {
+	return pulumix.Output[[]*BranchPolicyAutoReviewers]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BranchPolicyAutoReviewersArrayOutput) Index(i pulumi.IntInput) BranchPolicyAutoReviewersOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyAutoReviewers {
 		return vs[0].([]*BranchPolicyAutoReviewers)[vs[1].(int)]
@@ -327,6 +358,12 @@ func (o BranchPolicyAutoReviewersMapOutput) ToBranchPolicyAutoReviewersMapOutput
 
 func (o BranchPolicyAutoReviewersMapOutput) ToBranchPolicyAutoReviewersMapOutputWithContext(ctx context.Context) BranchPolicyAutoReviewersMapOutput {
 	return o
+}
+
+func (o BranchPolicyAutoReviewersMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyAutoReviewers] {
+	return pulumix.Output[map[string]*BranchPolicyAutoReviewers]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BranchPolicyAutoReviewersMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyAutoReviewersOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages permissions for a Build Folder
@@ -84,7 +85,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
+// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
 //
 // ## PAT Permissions Required
 //
@@ -319,6 +320,12 @@ func (i *BuildFolderPermissions) ToBuildFolderPermissionsOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BuildFolderPermissionsOutput)
 }
 
+func (i *BuildFolderPermissions) ToOutput(ctx context.Context) pulumix.Output[*BuildFolderPermissions] {
+	return pulumix.Output[*BuildFolderPermissions]{
+		OutputState: i.ToBuildFolderPermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BuildFolderPermissionsArrayInput is an input type that accepts BuildFolderPermissionsArray and BuildFolderPermissionsArrayOutput values.
 // You can construct a concrete instance of `BuildFolderPermissionsArrayInput` via:
 //
@@ -342,6 +349,12 @@ func (i BuildFolderPermissionsArray) ToBuildFolderPermissionsArrayOutput() Build
 
 func (i BuildFolderPermissionsArray) ToBuildFolderPermissionsArrayOutputWithContext(ctx context.Context) BuildFolderPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildFolderPermissionsArrayOutput)
+}
+
+func (i BuildFolderPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*BuildFolderPermissions] {
+	return pulumix.Output[[]*BuildFolderPermissions]{
+		OutputState: i.ToBuildFolderPermissionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BuildFolderPermissionsMapInput is an input type that accepts BuildFolderPermissionsMap and BuildFolderPermissionsMapOutput values.
@@ -369,6 +382,12 @@ func (i BuildFolderPermissionsMap) ToBuildFolderPermissionsMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BuildFolderPermissionsMapOutput)
 }
 
+func (i BuildFolderPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildFolderPermissions] {
+	return pulumix.Output[map[string]*BuildFolderPermissions]{
+		OutputState: i.ToBuildFolderPermissionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BuildFolderPermissionsOutput struct{ *pulumi.OutputState }
 
 func (BuildFolderPermissionsOutput) ElementType() reflect.Type {
@@ -381,6 +400,12 @@ func (o BuildFolderPermissionsOutput) ToBuildFolderPermissionsOutput() BuildFold
 
 func (o BuildFolderPermissionsOutput) ToBuildFolderPermissionsOutputWithContext(ctx context.Context) BuildFolderPermissionsOutput {
 	return o
+}
+
+func (o BuildFolderPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildFolderPermissions] {
+	return pulumix.Output[*BuildFolderPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The folder path to assign the permissions.
@@ -440,6 +465,12 @@ func (o BuildFolderPermissionsArrayOutput) ToBuildFolderPermissionsArrayOutputWi
 	return o
 }
 
+func (o BuildFolderPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BuildFolderPermissions] {
+	return pulumix.Output[[]*BuildFolderPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BuildFolderPermissionsArrayOutput) Index(i pulumi.IntInput) BuildFolderPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BuildFolderPermissions {
 		return vs[0].([]*BuildFolderPermissions)[vs[1].(int)]
@@ -458,6 +489,12 @@ func (o BuildFolderPermissionsMapOutput) ToBuildFolderPermissionsMapOutput() Bui
 
 func (o BuildFolderPermissionsMapOutput) ToBuildFolderPermissionsMapOutputWithContext(ctx context.Context) BuildFolderPermissionsMapOutput {
 	return o
+}
+
+func (o BuildFolderPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildFolderPermissions] {
+	return pulumix.Output[map[string]*BuildFolderPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BuildFolderPermissionsMapOutput) MapIndex(k pulumi.StringInput) BuildFolderPermissionsOutput {

@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a build validation branch policy within Azure DevOps.
@@ -92,7 +93,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -229,6 +230,12 @@ func (i *BranchPolicyBuildValidation) ToBranchPolicyBuildValidationOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationOutput)
 }
 
+func (i *BranchPolicyBuildValidation) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyBuildValidation] {
+	return pulumix.Output[*BranchPolicyBuildValidation]{
+		OutputState: i.ToBranchPolicyBuildValidationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BranchPolicyBuildValidationArrayInput is an input type that accepts BranchPolicyBuildValidationArray and BranchPolicyBuildValidationArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyBuildValidationArrayInput` via:
 //
@@ -252,6 +259,12 @@ func (i BranchPolicyBuildValidationArray) ToBranchPolicyBuildValidationArrayOutp
 
 func (i BranchPolicyBuildValidationArray) ToBranchPolicyBuildValidationArrayOutputWithContext(ctx context.Context) BranchPolicyBuildValidationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationArrayOutput)
+}
+
+func (i BranchPolicyBuildValidationArray) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyBuildValidation] {
+	return pulumix.Output[[]*BranchPolicyBuildValidation]{
+		OutputState: i.ToBranchPolicyBuildValidationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BranchPolicyBuildValidationMapInput is an input type that accepts BranchPolicyBuildValidationMap and BranchPolicyBuildValidationMapOutput values.
@@ -279,6 +292,12 @@ func (i BranchPolicyBuildValidationMap) ToBranchPolicyBuildValidationMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationMapOutput)
 }
 
+func (i BranchPolicyBuildValidationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyBuildValidation] {
+	return pulumix.Output[map[string]*BranchPolicyBuildValidation]{
+		OutputState: i.ToBranchPolicyBuildValidationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BranchPolicyBuildValidationOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyBuildValidationOutput) ElementType() reflect.Type {
@@ -291,6 +310,12 @@ func (o BranchPolicyBuildValidationOutput) ToBranchPolicyBuildValidationOutput()
 
 func (o BranchPolicyBuildValidationOutput) ToBranchPolicyBuildValidationOutputWithContext(ctx context.Context) BranchPolicyBuildValidationOutput {
 	return o
+}
+
+func (o BranchPolicyBuildValidationOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyBuildValidation] {
+	return pulumix.Output[*BranchPolicyBuildValidation]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -327,6 +352,12 @@ func (o BranchPolicyBuildValidationArrayOutput) ToBranchPolicyBuildValidationArr
 	return o
 }
 
+func (o BranchPolicyBuildValidationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyBuildValidation] {
+	return pulumix.Output[[]*BranchPolicyBuildValidation]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BranchPolicyBuildValidationArrayOutput) Index(i pulumi.IntInput) BranchPolicyBuildValidationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyBuildValidation {
 		return vs[0].([]*BranchPolicyBuildValidation)[vs[1].(int)]
@@ -345,6 +376,12 @@ func (o BranchPolicyBuildValidationMapOutput) ToBranchPolicyBuildValidationMapOu
 
 func (o BranchPolicyBuildValidationMapOutput) ToBranchPolicyBuildValidationMapOutputWithContext(ctx context.Context) BranchPolicyBuildValidationMapOutput {
 	return o
+}
+
+func (o BranchPolicyBuildValidationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyBuildValidation] {
+	return pulumix.Output[map[string]*BranchPolicyBuildValidation]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BranchPolicyBuildValidationMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyBuildValidationOutput {

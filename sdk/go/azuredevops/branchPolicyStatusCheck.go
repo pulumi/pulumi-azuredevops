@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a status check branch policy within Azure DevOps.
@@ -89,7 +90,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -220,6 +221,12 @@ func (i *BranchPolicyStatusCheck) ToBranchPolicyStatusCheckOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckOutput)
 }
 
+func (i *BranchPolicyStatusCheck) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyStatusCheck] {
+	return pulumix.Output[*BranchPolicyStatusCheck]{
+		OutputState: i.ToBranchPolicyStatusCheckOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BranchPolicyStatusCheckArrayInput is an input type that accepts BranchPolicyStatusCheckArray and BranchPolicyStatusCheckArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyStatusCheckArrayInput` via:
 //
@@ -243,6 +250,12 @@ func (i BranchPolicyStatusCheckArray) ToBranchPolicyStatusCheckArrayOutput() Bra
 
 func (i BranchPolicyStatusCheckArray) ToBranchPolicyStatusCheckArrayOutputWithContext(ctx context.Context) BranchPolicyStatusCheckArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckArrayOutput)
+}
+
+func (i BranchPolicyStatusCheckArray) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyStatusCheck] {
+	return pulumix.Output[[]*BranchPolicyStatusCheck]{
+		OutputState: i.ToBranchPolicyStatusCheckArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BranchPolicyStatusCheckMapInput is an input type that accepts BranchPolicyStatusCheckMap and BranchPolicyStatusCheckMapOutput values.
@@ -270,6 +283,12 @@ func (i BranchPolicyStatusCheckMap) ToBranchPolicyStatusCheckMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyStatusCheckMapOutput)
 }
 
+func (i BranchPolicyStatusCheckMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyStatusCheck] {
+	return pulumix.Output[map[string]*BranchPolicyStatusCheck]{
+		OutputState: i.ToBranchPolicyStatusCheckMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BranchPolicyStatusCheckOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyStatusCheckOutput) ElementType() reflect.Type {
@@ -282,6 +301,12 @@ func (o BranchPolicyStatusCheckOutput) ToBranchPolicyStatusCheckOutput() BranchP
 
 func (o BranchPolicyStatusCheckOutput) ToBranchPolicyStatusCheckOutputWithContext(ctx context.Context) BranchPolicyStatusCheckOutput {
 	return o
+}
+
+func (o BranchPolicyStatusCheckOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyStatusCheck] {
+	return pulumix.Output[*BranchPolicyStatusCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -318,6 +343,12 @@ func (o BranchPolicyStatusCheckArrayOutput) ToBranchPolicyStatusCheckArrayOutput
 	return o
 }
 
+func (o BranchPolicyStatusCheckArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyStatusCheck] {
+	return pulumix.Output[[]*BranchPolicyStatusCheck]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BranchPolicyStatusCheckArrayOutput) Index(i pulumi.IntInput) BranchPolicyStatusCheckOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyStatusCheck {
 		return vs[0].([]*BranchPolicyStatusCheck)[vs[1].(int)]
@@ -336,6 +367,12 @@ func (o BranchPolicyStatusCheckMapOutput) ToBranchPolicyStatusCheckMapOutput() B
 
 func (o BranchPolicyStatusCheckMapOutput) ToBranchPolicyStatusCheckMapOutputWithContext(ctx context.Context) BranchPolicyStatusCheckMapOutput {
 	return o
+}
+
+func (o BranchPolicyStatusCheckMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyStatusCheck] {
+	return pulumix.Output[map[string]*BranchPolicyStatusCheck]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BranchPolicyStatusCheckMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyStatusCheckOutput {

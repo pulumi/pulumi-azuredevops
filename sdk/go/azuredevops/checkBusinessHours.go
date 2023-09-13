@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a business hours check on a resource within Azure DevOps.
@@ -656,6 +657,12 @@ func (i *CheckBusinessHours) ToCheckBusinessHoursOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CheckBusinessHoursOutput)
 }
 
+func (i *CheckBusinessHours) ToOutput(ctx context.Context) pulumix.Output[*CheckBusinessHours] {
+	return pulumix.Output[*CheckBusinessHours]{
+		OutputState: i.ToCheckBusinessHoursOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CheckBusinessHoursArrayInput is an input type that accepts CheckBusinessHoursArray and CheckBusinessHoursArrayOutput values.
 // You can construct a concrete instance of `CheckBusinessHoursArrayInput` via:
 //
@@ -679,6 +686,12 @@ func (i CheckBusinessHoursArray) ToCheckBusinessHoursArrayOutput() CheckBusiness
 
 func (i CheckBusinessHoursArray) ToCheckBusinessHoursArrayOutputWithContext(ctx context.Context) CheckBusinessHoursArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CheckBusinessHoursArrayOutput)
+}
+
+func (i CheckBusinessHoursArray) ToOutput(ctx context.Context) pulumix.Output[[]*CheckBusinessHours] {
+	return pulumix.Output[[]*CheckBusinessHours]{
+		OutputState: i.ToCheckBusinessHoursArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CheckBusinessHoursMapInput is an input type that accepts CheckBusinessHoursMap and CheckBusinessHoursMapOutput values.
@@ -706,6 +719,12 @@ func (i CheckBusinessHoursMap) ToCheckBusinessHoursMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CheckBusinessHoursMapOutput)
 }
 
+func (i CheckBusinessHoursMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckBusinessHours] {
+	return pulumix.Output[map[string]*CheckBusinessHours]{
+		OutputState: i.ToCheckBusinessHoursMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CheckBusinessHoursOutput struct{ *pulumi.OutputState }
 
 func (CheckBusinessHoursOutput) ElementType() reflect.Type {
@@ -718,6 +737,12 @@ func (o CheckBusinessHoursOutput) ToCheckBusinessHoursOutput() CheckBusinessHour
 
 func (o CheckBusinessHoursOutput) ToCheckBusinessHoursOutputWithContext(ctx context.Context) CheckBusinessHoursOutput {
 	return o
+}
+
+func (o CheckBusinessHoursOutput) ToOutput(ctx context.Context) pulumix.Output[*CheckBusinessHours] {
+	return pulumix.Output[*CheckBusinessHours]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The name of the business hours check displayed in the web UI.
@@ -809,6 +834,12 @@ func (o CheckBusinessHoursArrayOutput) ToCheckBusinessHoursArrayOutputWithContex
 	return o
 }
 
+func (o CheckBusinessHoursArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CheckBusinessHours] {
+	return pulumix.Output[[]*CheckBusinessHours]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CheckBusinessHoursArrayOutput) Index(i pulumi.IntInput) CheckBusinessHoursOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CheckBusinessHours {
 		return vs[0].([]*CheckBusinessHours)[vs[1].(int)]
@@ -827,6 +858,12 @@ func (o CheckBusinessHoursMapOutput) ToCheckBusinessHoursMapOutput() CheckBusine
 
 func (o CheckBusinessHoursMapOutput) ToCheckBusinessHoursMapOutputWithContext(ctx context.Context) CheckBusinessHoursMapOutput {
 	return o
+}
+
+func (o CheckBusinessHoursMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckBusinessHours] {
+	return pulumix.Output[map[string]*CheckBusinessHours]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CheckBusinessHoursMapOutput) MapIndex(k pulumi.StringInput) CheckBusinessHoursOutput {

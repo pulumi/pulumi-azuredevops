@@ -117,7 +117,8 @@ utilities.lazyLoad(exports, ["getBuildDefinition","getBuildDefinitionOutput"], (
 
 export { GetClientConfigResult } from "./getClientConfig";
 export const getClientConfig: typeof import("./getClientConfig").getClientConfig = null as any;
-utilities.lazyLoad(exports, ["getClientConfig"], () => require("./getClientConfig"));
+export const getClientConfigOutput: typeof import("./getClientConfig").getClientConfigOutput = null as any;
+utilities.lazyLoad(exports, ["getClientConfig","getClientConfigOutput"], () => require("./getClientConfig"));
 
 export { GetEnvironmentArgs, GetEnvironmentResult, GetEnvironmentOutputArgs } from "./getEnvironment";
 export const getEnvironment: typeof import("./getEnvironment").getEnvironment = null as any;
@@ -151,7 +152,8 @@ utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPoo
 
 export { GetPoolsResult } from "./getPools";
 export const getPools: typeof import("./getPools").getPools = null as any;
-utilities.lazyLoad(exports, ["getPools"], () => require("./getPools"));
+export const getPoolsOutput: typeof import("./getPools").getPoolsOutput = null as any;
+utilities.lazyLoad(exports, ["getPools","getPoolsOutput"], () => require("./getPools"));
 
 export { GetProjectArgs, GetProjectResult, GetProjectOutputArgs } from "./getProject";
 export const getProject: typeof import("./getProject").getProject = null as any;
@@ -177,6 +179,11 @@ export { GetServiceEndpointGithubArgs, GetServiceEndpointGithubResult, GetServic
 export const getServiceEndpointGithub: typeof import("./getServiceEndpointGithub").getServiceEndpointGithub = null as any;
 export const getServiceEndpointGithubOutput: typeof import("./getServiceEndpointGithub").getServiceEndpointGithubOutput = null as any;
 utilities.lazyLoad(exports, ["getServiceEndpointGithub","getServiceEndpointGithubOutput"], () => require("./getServiceEndpointGithub"));
+
+export { GetServiceendpointAzurecrArgs, GetServiceendpointAzurecrResult, GetServiceendpointAzurecrOutputArgs } from "./getServiceendpointAzurecr";
+export const getServiceendpointAzurecr: typeof import("./getServiceendpointAzurecr").getServiceendpointAzurecr = null as any;
+export const getServiceendpointAzurecrOutput: typeof import("./getServiceendpointAzurecr").getServiceendpointAzurecrOutput = null as any;
+utilities.lazyLoad(exports, ["getServiceendpointAzurecr","getServiceendpointAzurecrOutput"], () => require("./getServiceendpointAzurecr"));
 
 export { GetServiceendpointNpmArgs, GetServiceendpointNpmResult, GetServiceendpointNpmOutputArgs } from "./getServiceendpointNpm";
 export const getServiceendpointNpm: typeof import("./getServiceendpointNpm").getServiceendpointNpm = null as any;
@@ -232,6 +239,11 @@ export { GroupArgs, GroupState } from "./group";
 export type Group = import("./group").Group;
 export const Group: typeof import("./group").Group = null as any;
 utilities.lazyLoad(exports, ["Group"], () => require("./group"));
+
+export { GroupEntitlementArgs, GroupEntitlementState } from "./groupEntitlement";
+export type GroupEntitlement = import("./groupEntitlement").GroupEntitlement;
+export const GroupEntitlement: typeof import("./groupEntitlement").GroupEntitlement = null as any;
+utilities.lazyLoad(exports, ["GroupEntitlement"], () => require("./groupEntitlement"));
 
 export { GroupMembershipArgs, GroupMembershipState } from "./groupMembership";
 export type GroupMembership = import("./groupMembership").GroupMembership;
@@ -468,6 +480,11 @@ export type ServiceendpointNexus = import("./serviceendpointNexus").Serviceendpo
 export const ServiceendpointNexus: typeof import("./serviceendpointNexus").ServiceendpointNexus = null as any;
 utilities.lazyLoad(exports, ["ServiceendpointNexus"], () => require("./serviceendpointNexus"));
 
+export { ServiceendpointNugetArgs, ServiceendpointNugetState } from "./serviceendpointNuget";
+export type ServiceendpointNuget = import("./serviceendpointNuget").ServiceendpointNuget;
+export const ServiceendpointNuget: typeof import("./serviceendpointNuget").ServiceendpointNuget = null as any;
+utilities.lazyLoad(exports, ["ServiceendpointNuget"], () => require("./serviceendpointNuget"));
+
 export { ServiceendpointOctopusdeployArgs, ServiceendpointOctopusdeployState } from "./serviceendpointOctopusdeploy";
 export type ServiceendpointOctopusdeploy = import("./serviceendpointOctopusdeploy").ServiceendpointOctopusdeploy;
 export const ServiceendpointOctopusdeploy: typeof import("./serviceendpointOctopusdeploy").ServiceendpointOctopusdeploy = null as any;
@@ -605,6 +622,8 @@ const _module = {
                 return new GitRepositoryFile(name, <any>undefined, { urn })
             case "azuredevops:index/group:Group":
                 return new Group(name, <any>undefined, { urn })
+            case "azuredevops:index/groupEntitlement:GroupEntitlement":
+                return new GroupEntitlement(name, <any>undefined, { urn })
             case "azuredevops:index/groupMembership:GroupMembership":
                 return new GroupMembership(name, <any>undefined, { urn })
             case "azuredevops:index/iterativePermissions:IterativePermissions":
@@ -697,6 +716,8 @@ const _module = {
                 return new ServiceendpointMaven(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointNexus:ServiceendpointNexus":
                 return new ServiceendpointNexus(name, <any>undefined, { urn })
+            case "azuredevops:index/serviceendpointNuget:ServiceendpointNuget":
+                return new ServiceendpointNuget(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy":
                 return new ServiceendpointOctopusdeploy(name, <any>undefined, { urn })
             case "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions":
@@ -748,6 +769,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/gitPermissions", _mo
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitRepositoryBranch", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/gitRepositoryFile", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/group", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/groupEntitlement", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/groupMembership", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/iterativePermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/pipelineAuthorization", _module)
@@ -794,6 +816,7 @@ pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJfrog
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointJfrogXrayV2", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointMaven", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointNexus", _module)
+pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointNuget", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointOctopusdeploy", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/serviceendpointPermissions", _module)
 pulumi.runtime.registerResourceModule("azuredevops", "index/servicehookPermissions", _module)

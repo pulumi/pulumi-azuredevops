@@ -135,7 +135,7 @@ def get_variable_group(name: Optional[str] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
 
 
     :param str name: The name of the Variable Group to retrieve.
@@ -179,7 +179,7 @@ def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
 
 
     :param str name: The name of the Variable Group to retrieve.
