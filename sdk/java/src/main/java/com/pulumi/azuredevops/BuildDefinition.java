@@ -7,6 +7,7 @@ import com.pulumi.azuredevops.BuildDefinitionArgs;
 import com.pulumi.azuredevops.Utilities;
 import com.pulumi.azuredevops.inputs.BuildDefinitionState;
 import com.pulumi.azuredevops.outputs.BuildDefinitionCiTrigger;
+import com.pulumi.azuredevops.outputs.BuildDefinitionFeature;
 import com.pulumi.azuredevops.outputs.BuildDefinitionPullRequestTrigger;
 import com.pulumi.azuredevops.outputs.BuildDefinitionRepository;
 import com.pulumi.azuredevops.outputs.BuildDefinitionSchedule;
@@ -219,7 +220,7 @@ import javax.annotation.Nullable;
  * 
  * ## Relevant Links
  * 
- * - [Azure DevOps Service REST API 6.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-6.0)
+ * - [Azure DevOps Service REST API 7.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-7.0)
  * 
  * ## Import
  * 
@@ -267,6 +268,20 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ciTrigger);
     }
     /**
+     * A `features` blocks as documented below.
+     * 
+     */
+    @Export(name="features", type=List.class, parameters={BuildDefinitionFeature.class})
+    private Output</* @Nullable */ List<BuildDefinitionFeature>> features;
+
+    /**
+     * @return A `features` blocks as documented below.
+     * 
+     */
+    public Output<Optional<List<BuildDefinitionFeature>>> features() {
+        return Codegen.optional(this.features);
+    }
+    /**
      * The name of the build definition.
      * 
      */
@@ -309,14 +324,14 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
         return this.projectId;
     }
     /**
-     * Pull Request Integration Integration trigger.
+     * Pull Request Integration trigger.
      * 
      */
     @Export(name="pullRequestTrigger", type=BuildDefinitionPullRequestTrigger.class, parameters={})
     private Output</* @Nullable */ BuildDefinitionPullRequestTrigger> pullRequestTrigger;
 
     /**
-     * @return Pull Request Integration Integration trigger.
+     * @return Pull Request Integration trigger.
      * 
      */
     public Output<Optional<BuildDefinitionPullRequestTrigger>> pullRequestTrigger() {

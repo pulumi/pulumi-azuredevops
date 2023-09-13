@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.Build.inputs;
 
 import com.pulumi.azuredevops.Build.inputs.BuildDefinitionCiTriggerArgs;
+import com.pulumi.azuredevops.Build.inputs.BuildDefinitionFeatureArgs;
 import com.pulumi.azuredevops.Build.inputs.BuildDefinitionPullRequestTriggerArgs;
 import com.pulumi.azuredevops.Build.inputs.BuildDefinitionRepositoryArgs;
 import com.pulumi.azuredevops.Build.inputs.BuildDefinitionScheduleArgs;
@@ -53,6 +54,21 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
+     * A `features` blocks as documented below.
+     * 
+     */
+    @Import(name="features")
+    private @Nullable Output<List<BuildDefinitionFeatureArgs>> features;
+
+    /**
+     * @return A `features` blocks as documented below.
+     * 
+     */
+    public Optional<Output<List<BuildDefinitionFeatureArgs>>> features() {
+        return Optional.ofNullable(this.features);
+    }
+
+    /**
      * The name of the build definition.
      * 
      */
@@ -98,14 +114,14 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Pull Request Integration Integration trigger.
+     * Pull Request Integration trigger.
      * 
      */
     @Import(name="pullRequestTrigger")
     private @Nullable Output<BuildDefinitionPullRequestTriggerArgs> pullRequestTrigger;
 
     /**
-     * @return Pull Request Integration Integration trigger.
+     * @return Pull Request Integration trigger.
      * 
      */
     public Optional<Output<BuildDefinitionPullRequestTriggerArgs>> pullRequestTrigger() {
@@ -184,6 +200,7 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
     private BuildDefinitionState(BuildDefinitionState $) {
         this.agentPoolName = $.agentPoolName;
         this.ciTrigger = $.ciTrigger;
+        this.features = $.features;
         this.name = $.name;
         this.path = $.path;
         this.projectId = $.projectId;
@@ -256,6 +273,37 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
+         * @param features A `features` blocks as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(@Nullable Output<List<BuildDefinitionFeatureArgs>> features) {
+            $.features = features;
+            return this;
+        }
+
+        /**
+         * @param features A `features` blocks as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(List<BuildDefinitionFeatureArgs> features) {
+            return features(Output.of(features));
+        }
+
+        /**
+         * @param features A `features` blocks as documented below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder features(BuildDefinitionFeatureArgs... features) {
+            return features(List.of(features));
+        }
+
+        /**
          * @param name The name of the build definition.
          * 
          * @return builder
@@ -319,7 +367,7 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param pullRequestTrigger Pull Request Integration Integration trigger.
+         * @param pullRequestTrigger Pull Request Integration trigger.
          * 
          * @return builder
          * 
@@ -330,7 +378,7 @@ public final class BuildDefinitionState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param pullRequestTrigger Pull Request Integration Integration trigger.
+         * @param pullRequestTrigger Pull Request Integration trigger.
          * 
          * @return builder
          * 

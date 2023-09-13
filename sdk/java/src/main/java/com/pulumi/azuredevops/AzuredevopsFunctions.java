@@ -32,6 +32,8 @@ import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointAzureRMPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubArgs;
 import com.pulumi.azuredevops.inputs.GetServiceEndpointGithubPlainArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
+import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointNpmPlainArgs;
 import com.pulumi.azuredevops.inputs.GetServiceendpointSonarcloudArgs;
@@ -60,6 +62,7 @@ import com.pulumi.azuredevops.outputs.GetProjectsResult;
 import com.pulumi.azuredevops.outputs.GetRepositoriesResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointAzureRMResult;
 import com.pulumi.azuredevops.outputs.GetServiceEndpointGithubResult;
+import com.pulumi.azuredevops.outputs.GetServiceendpointAzurecrResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointNpmResult;
 import com.pulumi.azuredevops.outputs.GetServiceendpointSonarcloudResult;
 import com.pulumi.azuredevops.outputs.GetTeamResult;
@@ -120,7 +123,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetAgentQueueResult> getAgentQueue(GetAgentQueueArgs args) {
@@ -172,7 +175,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetAgentQueueResult> getAgentQueuePlain(GetAgentQueuePlainArgs args) {
@@ -224,7 +227,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetAgentQueueResult> getAgentQueue(GetAgentQueueArgs args, InvokeOptions options) {
@@ -276,7 +279,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetAgentQueueResult> getAgentQueuePlain(GetAgentQueuePlainArgs args, InvokeOptions options) {
@@ -327,7 +330,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -382,7 +385,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -437,7 +440,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -492,7 +495,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -973,7 +976,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetGitRepositoryResult> getGitRepository(GetGitRepositoryArgs args) {
@@ -1020,7 +1023,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetGitRepositoryResult> getGitRepositoryPlain(GetGitRepositoryPlainArgs args) {
@@ -1067,7 +1070,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetGitRepositoryResult> getGitRepository(GetGitRepositoryArgs args, InvokeOptions options) {
@@ -1114,7 +1117,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetGitRepositoryResult> getGitRepositoryPlain(GetGitRepositoryPlainArgs args, InvokeOptions options) {
@@ -1168,7 +1171,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -1222,7 +1225,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -1276,7 +1279,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -1330,7 +1333,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {
@@ -1669,7 +1672,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -1730,7 +1733,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -1791,7 +1794,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -1852,7 +1855,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -1900,7 +1903,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args) {
@@ -1944,7 +1947,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args) {
@@ -1988,7 +1991,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetPoolResult> getPool(GetPoolArgs args, InvokeOptions options) {
@@ -2032,7 +2035,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetPoolResult> getPoolPlain(GetPoolPlainArgs args, InvokeOptions options) {
@@ -2073,7 +2076,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetPoolsResult> getPools() {
@@ -2114,7 +2117,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetPoolsResult> getPoolsPlain() {
@@ -2155,7 +2158,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetPoolsResult> getPools(InvokeArgs args) {
@@ -2196,7 +2199,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetPoolsResult> getPoolsPlain(InvokeArgs args) {
@@ -2237,7 +2240,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetPoolsResult> getPools(InvokeArgs args, InvokeOptions options) {
@@ -2278,7 +2281,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetPoolsResult> getPoolsPlain(InvokeArgs args, InvokeOptions options) {
@@ -2319,7 +2322,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetProjectResult> getProject() {
@@ -2360,7 +2363,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain() {
@@ -2401,7 +2404,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args) {
@@ -2442,7 +2445,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args) {
@@ -2483,7 +2486,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetProjectResult> getProject(GetProjectArgs args, InvokeOptions options) {
@@ -2524,7 +2527,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetProjectResult> getProjectPlain(GetProjectPlainArgs args, InvokeOptions options) {
@@ -2569,7 +2572,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetProjectsResult> getProjects() {
@@ -2614,7 +2617,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetProjectsResult> getProjectsPlain() {
@@ -2659,7 +2662,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetProjectsResult> getProjects(GetProjectsArgs args) {
@@ -2704,7 +2707,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetProjectsResult> getProjectsPlain(GetProjectsPlainArgs args) {
@@ -2749,7 +2752,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetProjectsResult> getProjects(GetProjectsArgs args, InvokeOptions options) {
@@ -2794,7 +2797,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetProjectsResult> getProjectsPlain(GetProjectsPlainArgs args, InvokeOptions options) {
@@ -2846,7 +2849,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories() {
@@ -2898,7 +2901,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain() {
@@ -2950,7 +2953,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args) {
@@ -3002,7 +3005,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args) {
@@ -3054,7 +3057,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetRepositoriesResult> getRepositories(GetRepositoriesArgs args, InvokeOptions options) {
@@ -3106,7 +3109,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetRepositoriesResult> getRepositoriesPlain(GetRepositoriesPlainArgs args, InvokeOptions options) {
@@ -3761,6 +3764,162 @@ public final class AzuredevopsFunctions {
         return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceEndpointGithub:getServiceEndpointGithub", TypeShape.of(GetServiceEndpointGithubResult.class), args, Utilities.withVersion(options));
     }
     /**
+     * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointAzurecrResult -&gt; getServiceendpointAzurecrResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServiceendpointAzurecrResult> getServiceendpointAzurecr(GetServiceendpointAzurecrArgs args) {
+        return getServiceendpointAzurecr(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointAzurecrResult -&gt; getServiceendpointAzurecrResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointAzurecrResult> getServiceendpointAzurecrPlain(GetServiceendpointAzurecrPlainArgs args) {
+        return getServiceendpointAzurecrPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointAzurecrResult -&gt; getServiceendpointAzurecrResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetServiceendpointAzurecrResult> getServiceendpointAzurecr(GetServiceendpointAzurecrArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", TypeShape.of(GetServiceendpointAzurecrResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azuredevops.AzuredevopsFunctions;
+     * import com.pulumi.azuredevops.inputs.GetServiceendpointAzurecrArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = AzuredevopsFunctions.getServiceendpointAzurecr(GetServiceendpointAzurecrArgs.builder()
+     *             .projectId(azuredevops_project.example().id())
+     *             .serviceEndpointName(&#34;Example Azure Container Registry&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;serviceEndpointId&#34;, example.applyValue(getServiceendpointAzurecrResult -&gt; getServiceendpointAzurecrResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetServiceendpointAzurecrResult> getServiceendpointAzurecrPlain(GetServiceendpointAzurecrPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", TypeShape.of(GetServiceendpointAzurecrResult.class), args, Utilities.withVersion(options));
+    }
+    /**
      * Use this data source to access information about an existing NPM Service Endpoint.
      * 
      * ## Example Usage
@@ -4116,7 +4275,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4170,7 +4329,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4224,7 +4383,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4278,7 +4437,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4324,7 +4483,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4370,7 +4529,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4416,7 +4575,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4462,7 +4621,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4508,7 +4667,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4554,7 +4713,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
      * 
      * ## PAT Permissions Required
      * 
@@ -4615,7 +4774,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetUsersResult> getUsers() {
@@ -4672,7 +4831,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain() {
@@ -4729,7 +4888,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args) {
@@ -4786,7 +4945,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args) {
@@ -4843,7 +5002,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetUsersResult> getUsers(GetUsersArgs args, InvokeOptions options) {
@@ -4900,7 +5059,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetUsersResult> getUsersPlain(GetUsersPlainArgs args, InvokeOptions options) {
@@ -4949,7 +5108,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetVariableGroupResult> getVariableGroup(GetVariableGroupArgs args) {
@@ -4998,7 +5157,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetVariableGroupResult> getVariableGroupPlain(GetVariableGroupPlainArgs args) {
@@ -5047,7 +5206,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
      * 
      */
     public static Output<GetVariableGroupResult> getVariableGroup(GetVariableGroupArgs args, InvokeOptions options) {
@@ -5096,7 +5255,7 @@ public final class AzuredevopsFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
      * 
      */
     public static CompletableFuture<GetVariableGroupResult> getVariableGroupPlain(GetVariableGroupPlainArgs args, InvokeOptions options) {

@@ -288,7 +288,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject
@@ -333,7 +333,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject
@@ -378,7 +378,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject
@@ -423,7 +423,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject
@@ -468,7 +468,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject
@@ -513,7 +513,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProject has been deprecated in favor of azuredevops.getProject
@@ -562,7 +562,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects
@@ -611,7 +611,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects
@@ -660,7 +660,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects
@@ -709,7 +709,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects
@@ -758,7 +758,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects
@@ -807,7 +807,7 @@ public final class CoreFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.core.getProjects has been deprecated in favor of azuredevops.getProjects

@@ -12,26 +12,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class BuildDefinitionPullRequestTriggerOverridePathFilter {
     /**
-     * @return List of branch patterns to exclude.
+     * @return List of path patterns to exclude.
      * 
      */
     private @Nullable List<String> excludes;
     /**
-     * @return List of branch patterns to include.
+     * @return List of path patterns to include.
      * 
      */
     private @Nullable List<String> includes;
 
     private BuildDefinitionPullRequestTriggerOverridePathFilter() {}
     /**
-     * @return List of branch patterns to exclude.
+     * @return List of path patterns to exclude.
      * 
      */
     public List<String> excludes() {
         return this.excludes == null ? List.of() : this.excludes;
     }
     /**
-     * @return List of branch patterns to include.
+     * @return List of path patterns to include.
      * 
      */
     public List<String> includes() {
