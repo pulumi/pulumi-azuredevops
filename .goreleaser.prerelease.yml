@@ -26,10 +26,13 @@ builds:
   - darwin
   - windows
   - linux
+  hooks:
+    post:
+    - env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -cache
+    - env GOOS={{ .Os }} GOARCH={{ .Arch }} go clean -modcache
   ignore: []
   ldflags:
-  - -X
-    github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version.Version={{.Tag}}
+  - -X github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version.Version={{.Tag}}
   main: ./cmd/pulumi-resource-azuredevops/
 changelog:
   skip: true

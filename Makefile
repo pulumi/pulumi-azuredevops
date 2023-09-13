@@ -34,26 +34,26 @@ build_dotnet:
 	pulumictl get version --language dotnet
 	$(WORKING_DIR)/bin/$(TFGEN) dotnet --out sdk/dotnet/
 	cd sdk/dotnet/ && \
-		echo "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
+		printf "module fake_dotnet_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
 		echo "$(DOTNET_VERSION)" >version.txt && \
 		dotnet build /p:Version=$(DOTNET_VERSION)
 
 build_go:
 	$(WORKING_DIR)/bin/$(TFGEN) go --out sdk/go/
-	cd sdk && go list `grep -e "^module" go.mod | cut -d ' ' -f 2`/go/... | xargs go build
+	cd sdk && go list "$$(grep -e "^module" go.mod | cut -d ' ' -f 2)/go/..." | xargs go build
 
 build_java: PACKAGE_VERSION := $(shell pulumictl get version --language generic)
 build_java: bin/pulumi-java-gen
 	$(WORKING_DIR)/bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java  --build gradle-nexus
 	cd sdk/java/ && \
-		echo "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
+		printf "module fake_java_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
 		gradle --console=plain build
 
 build_nodejs: VERSION := $(shell pulumictl get version --language javascript)
 build_nodejs:
 	$(WORKING_DIR)/bin/$(TFGEN) nodejs --out sdk/nodejs/
 	cd sdk/nodejs/ && \
-		echo "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
+		printf "module fake_nodejs_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
 		yarn install && \
 		yarn run tsc && \
 		cp ../../README.md ../../LICENSE* package.json yarn.lock ./bin/ && \
@@ -63,7 +63,7 @@ build_python: PYPI_VERSION := $(shell pulumictl get version --language python)
 build_python:
 	$(WORKING_DIR)/bin/$(TFGEN) python --out sdk/python/
 	cd sdk/python/ && \
-		echo "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17" > go.mod && \
+		printf "module fake_python_module // Exclude this directory from Go tools\n\ngo 1.17\n" > go.mod && \
 		cp ../../README.md . && \
 		python3 setup.py clean --all 2>/dev/null && \
 		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
@@ -91,19 +91,19 @@ install_nodejs_sdk:
 	yarn link --cwd $(WORKING_DIR)/sdk/nodejs/bin
 
 install_plugins:
-	[ -x "$(shell command -v pulumi)" ] || curl -fsSL https://get.pulumi.com | sh
+	[ -x "$(shell command -v pulumi 2>/dev/null)" ] || curl -fsSL https://get.pulumi.com | sh
 
 lint_provider: provider
 	cd provider && golangci-lint run -c ../.golangci.yml
 
 provider: tfgen install_plugins
-	(cd provider && go build -p 1 -o $(WORKING_DIR)/bin/$(PROVIDER) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER))
+	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(PROVIDER) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(PROVIDER))
 
 test:
 	cd examples && go test -v -tags=all -parallel $(TESTPARALLELISM) -timeout 2h
 
 tfgen: install_plugins
-	(cd provider && go build -p 1 -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
+	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
 
