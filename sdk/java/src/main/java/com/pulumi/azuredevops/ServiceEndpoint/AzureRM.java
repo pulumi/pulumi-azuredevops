@@ -167,7 +167,6 @@ import javax.annotation.Nullable;
  * }
  * ```
  * ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
- * 
  * ```java
  * package generated_program;
  * 
@@ -176,15 +175,15 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azuredevops.Project;
  * import com.pulumi.azuredevops.ProjectArgs;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.authorization.UserAssignedIdentity;
- * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azurerm.azurerm_resource_group;
+ * import com.pulumi.azurerm.Azurerm_resource_groupArgs;
+ * import com.pulumi.azurerm.azurerm_user_assigned_identity;
+ * import com.pulumi.azurerm.Azurerm_user_assigned_identityArgs;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRM;
  * import com.pulumi.azuredevops.ServiceEndpointAzureRMArgs;
  * import com.pulumi.azuredevops.inputs.ServiceEndpointAzureRMCredentialsArgs;
- * import com.pulumi.azure.armmsi.FederatedIdentityCredential;
- * import com.pulumi.azure.armmsi.FederatedIdentityCredentialArgs;
+ * import com.pulumi.azurerm.azurerm_federated_identity_credential;
+ * import com.pulumi.azurerm.Azurerm_federated_identity_credentialArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -207,12 +206,14 @@ import javax.annotation.Nullable;
  *             .description(&#34;Managed by Terraform&#34;)
  *             .build());
  * 
- *         var identity = new ResourceGroup(&#34;identity&#34;, ResourceGroupArgs.builder()        
+ *         var identity = new Azurerm_resource_group(&#34;identity&#34;, Azurerm_resource_groupArgs.builder()        
+ *             .name(&#34;identity&#34;)
  *             .location(&#34;UK South&#34;)
  *             .build());
  * 
- *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *         var exampleazurerm_user_assigned_identity = new Azurerm_user_assigned_identity(&#34;exampleazurerm_user_assigned_identity&#34;, Azurerm_user_assigned_identityArgs.builder()        
  *             .location(identity.location())
+ *             .name(&#34;example-identity&#34;)
  *             .resourceGroupName(&#34;azurerm_resource_group.identity.name&#34;)
  *             .build());
  * 
@@ -222,16 +223,17 @@ import javax.annotation.Nullable;
  *             .description(&#34;Managed by Terraform&#34;)
  *             .serviceEndpointAuthenticationScheme(&#34;WorkloadIdentityFederation&#34;)
  *             .credentials(ServiceEndpointAzureRMCredentialsArgs.builder()
- *                 .serviceprincipalid(exampleUserAssignedIdentity.clientId())
+ *                 .serviceprincipalid(exampleazurerm_user_assigned_identity.clientId())
  *                 .build())
  *             .azurermSpnTenantid(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .azurermSubscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .azurermSubscriptionName(&#34;Example Subscription Name&#34;)
  *             .build());
  * 
- *         var exampleFederatedIdentityCredential = new FederatedIdentityCredential(&#34;exampleFederatedIdentityCredential&#34;, FederatedIdentityCredentialArgs.builder()        
+ *         var exampleazurerm_federated_identity_credential = new Azurerm_federated_identity_credential(&#34;exampleazurerm_federated_identity_credential&#34;, Azurerm_federated_identity_credentialArgs.builder()        
+ *             .name(&#34;example-federated-credential&#34;)
  *             .resourceGroupName(identity.name())
- *             .parentId(exampleUserAssignedIdentity.id())
+ *             .parentId(exampleazurerm_user_assigned_identity.id())
  *             .audience(&#34;api://AzureADTokenExchange&#34;)
  *             .issuer(exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer())
  *             .subject(exampleServiceEndpointAzureRM.workloadIdentityFederationSubject())
