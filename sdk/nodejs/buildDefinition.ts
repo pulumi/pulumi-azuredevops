@@ -143,7 +143,7 @@ import * as utilities from "./utilities";
  *
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 6.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-6.0)
+ * - [Azure DevOps Service REST API 7.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-7.0)
  *
  * ## Import
  *
@@ -196,6 +196,10 @@ export class BuildDefinition extends pulumi.CustomResource {
      */
     public readonly ciTrigger!: pulumi.Output<outputs.BuildDefinitionCiTrigger | undefined>;
     /**
+     * A `features` blocks as documented below.
+     */
+    public readonly features!: pulumi.Output<outputs.BuildDefinitionFeature[] | undefined>;
+    /**
      * The name of the build definition.
      */
     public readonly name!: pulumi.Output<string>;
@@ -208,7 +212,7 @@ export class BuildDefinition extends pulumi.CustomResource {
      */
     public readonly projectId!: pulumi.Output<string>;
     /**
-     * Pull Request Integration Integration trigger.
+     * Pull Request Integration trigger.
      */
     public readonly pullRequestTrigger!: pulumi.Output<outputs.BuildDefinitionPullRequestTrigger | undefined>;
     /**
@@ -244,6 +248,7 @@ export class BuildDefinition extends pulumi.CustomResource {
             const state = argsOrState as BuildDefinitionState | undefined;
             resourceInputs["agentPoolName"] = state ? state.agentPoolName : undefined;
             resourceInputs["ciTrigger"] = state ? state.ciTrigger : undefined;
+            resourceInputs["features"] = state ? state.features : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["path"] = state ? state.path : undefined;
             resourceInputs["projectId"] = state ? state.projectId : undefined;
@@ -263,6 +268,7 @@ export class BuildDefinition extends pulumi.CustomResource {
             }
             resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
             resourceInputs["ciTrigger"] = args ? args.ciTrigger : undefined;
+            resourceInputs["features"] = args ? args.features : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["path"] = args ? args.path : undefined;
             resourceInputs["projectId"] = args ? args.projectId : undefined;
@@ -293,6 +299,10 @@ export interface BuildDefinitionState {
      */
     ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
     /**
+     * A `features` blocks as documented below.
+     */
+    features?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionFeature>[]>;
+    /**
      * The name of the build definition.
      */
     name?: pulumi.Input<string>;
@@ -305,7 +315,7 @@ export interface BuildDefinitionState {
      */
     projectId?: pulumi.Input<string>;
     /**
-     * Pull Request Integration Integration trigger.
+     * Pull Request Integration trigger.
      */
     pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
     /**
@@ -340,6 +350,10 @@ export interface BuildDefinitionArgs {
      */
     ciTrigger?: pulumi.Input<inputs.BuildDefinitionCiTrigger>;
     /**
+     * A `features` blocks as documented below.
+     */
+    features?: pulumi.Input<pulumi.Input<inputs.BuildDefinitionFeature>[]>;
+    /**
      * The name of the build definition.
      */
     name?: pulumi.Input<string>;
@@ -352,7 +366,7 @@ export interface BuildDefinitionArgs {
      */
     projectId: pulumi.Input<string>;
     /**
-     * Pull Request Integration Integration trigger.
+     * Pull Request Integration trigger.
      */
     pullRequestTrigger?: pulumi.Input<inputs.BuildDefinitionPullRequestTrigger>;
     /**

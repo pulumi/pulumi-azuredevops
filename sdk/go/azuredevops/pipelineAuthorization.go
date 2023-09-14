@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage pipeline access permissions to resources.
@@ -263,6 +264,12 @@ func (i *PipelineAuthorization) ToPipelineAuthorizationOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineAuthorizationOutput)
 }
 
+func (i *PipelineAuthorization) ToOutput(ctx context.Context) pulumix.Output[*PipelineAuthorization] {
+	return pulumix.Output[*PipelineAuthorization]{
+		OutputState: i.ToPipelineAuthorizationOutputWithContext(ctx).OutputState,
+	}
+}
+
 // PipelineAuthorizationArrayInput is an input type that accepts PipelineAuthorizationArray and PipelineAuthorizationArrayOutput values.
 // You can construct a concrete instance of `PipelineAuthorizationArrayInput` via:
 //
@@ -286,6 +293,12 @@ func (i PipelineAuthorizationArray) ToPipelineAuthorizationArrayOutput() Pipelin
 
 func (i PipelineAuthorizationArray) ToPipelineAuthorizationArrayOutputWithContext(ctx context.Context) PipelineAuthorizationArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineAuthorizationArrayOutput)
+}
+
+func (i PipelineAuthorizationArray) ToOutput(ctx context.Context) pulumix.Output[[]*PipelineAuthorization] {
+	return pulumix.Output[[]*PipelineAuthorization]{
+		OutputState: i.ToPipelineAuthorizationArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // PipelineAuthorizationMapInput is an input type that accepts PipelineAuthorizationMap and PipelineAuthorizationMapOutput values.
@@ -313,6 +326,12 @@ func (i PipelineAuthorizationMap) ToPipelineAuthorizationMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(PipelineAuthorizationMapOutput)
 }
 
+func (i PipelineAuthorizationMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*PipelineAuthorization] {
+	return pulumix.Output[map[string]*PipelineAuthorization]{
+		OutputState: i.ToPipelineAuthorizationMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type PipelineAuthorizationOutput struct{ *pulumi.OutputState }
 
 func (PipelineAuthorizationOutput) ElementType() reflect.Type {
@@ -325,6 +344,12 @@ func (o PipelineAuthorizationOutput) ToPipelineAuthorizationOutput() PipelineAut
 
 func (o PipelineAuthorizationOutput) ToPipelineAuthorizationOutputWithContext(ctx context.Context) PipelineAuthorizationOutput {
 	return o
+}
+
+func (o PipelineAuthorizationOutput) ToOutput(ctx context.Context) pulumix.Output[*PipelineAuthorization] {
+	return pulumix.Output[*PipelineAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
@@ -361,6 +386,12 @@ func (o PipelineAuthorizationArrayOutput) ToPipelineAuthorizationArrayOutputWith
 	return o
 }
 
+func (o PipelineAuthorizationArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*PipelineAuthorization] {
+	return pulumix.Output[[]*PipelineAuthorization]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o PipelineAuthorizationArrayOutput) Index(i pulumi.IntInput) PipelineAuthorizationOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *PipelineAuthorization {
 		return vs[0].([]*PipelineAuthorization)[vs[1].(int)]
@@ -379,6 +410,12 @@ func (o PipelineAuthorizationMapOutput) ToPipelineAuthorizationMapOutput() Pipel
 
 func (o PipelineAuthorizationMapOutput) ToPipelineAuthorizationMapOutputWithContext(ctx context.Context) PipelineAuthorizationMapOutput {
 	return o
+}
+
+func (o PipelineAuthorizationMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*PipelineAuthorization] {
+	return pulumix.Output[map[string]*PipelineAuthorization]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o PipelineAuthorizationMapOutput) MapIndex(k pulumi.StringInput) PipelineAuthorizationOutput {

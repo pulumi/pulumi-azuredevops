@@ -15,6 +15,7 @@ __all__ = [
     'BuildDefinitionCiTriggerOverride',
     'BuildDefinitionCiTriggerOverrideBranchFilter',
     'BuildDefinitionCiTriggerOverridePathFilter',
+    'BuildDefinitionFeature',
     'BuildDefinitionPullRequestTrigger',
     'BuildDefinitionPullRequestTriggerForks',
     'BuildDefinitionPullRequestTriggerOverride',
@@ -215,8 +216,8 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
                  excludes: Optional[Sequence[str]] = None,
                  includes: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] excludes: List of branch patterns to exclude.
-        :param Sequence[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of path patterns to exclude.
+        :param Sequence[str] includes: List of path patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -227,7 +228,7 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
     @pulumi.getter
     def excludes(self) -> Optional[Sequence[str]]:
         """
-        List of branch patterns to exclude.
+        List of path patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
@@ -235,9 +236,49 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
         """
-        List of branch patterns to include.
+        List of path patterns to include.
         """
         return pulumi.get(self, "includes")
+
+
+@pulumi.output_type
+class BuildDefinitionFeature(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "skipFirstRun":
+            suggest = "skip_first_run"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BuildDefinitionFeature. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BuildDefinitionFeature.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BuildDefinitionFeature.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 skip_first_run: Optional[bool] = None):
+        """
+        :param bool skip_first_run: Trigger the pipeline to run after the creation. Defaults to `true`.
+               
+               > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+        """
+        if skip_first_run is not None:
+            pulumi.set(__self__, "skip_first_run", skip_first_run)
+
+    @property
+    @pulumi.getter(name="skipFirstRun")
+    def skip_first_run(self) -> Optional[bool]:
+        """
+        Trigger the pipeline to run after the creation. Defaults to `true`.
+
+        > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
+        """
+        return pulumi.get(self, "skip_first_run")
 
 
 @pulumi.output_type
@@ -466,8 +507,8 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
                  excludes: Optional[Sequence[str]] = None,
                  includes: Optional[Sequence[str]] = None):
         """
-        :param Sequence[str] excludes: List of branch patterns to exclude.
-        :param Sequence[str] includes: List of branch patterns to include.
+        :param Sequence[str] excludes: List of path patterns to exclude.
+        :param Sequence[str] includes: List of path patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -478,7 +519,7 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
     @pulumi.getter
     def excludes(self) -> Optional[Sequence[str]]:
         """
-        List of branch patterns to exclude.
+        List of path patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
@@ -486,7 +527,7 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
         """
-        List of branch patterns to include.
+        List of path patterns to include.
         """
         return pulumi.get(self, "includes")
 

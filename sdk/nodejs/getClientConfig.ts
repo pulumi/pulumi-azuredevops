@@ -34,3 +34,19 @@ export interface GetClientConfigResult {
     readonly id: string;
     readonly organizationUrl: string;
 }
+/**
+ * Use this data source to access information about the Azure DevOps organization configured for the provider.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getClientConfig({});
+ * export const orgUrl = example.then(example => example.organizationUrl);
+ * ```
+ */
+export function getClientConfigOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClientConfigResult> {
+    return pulumi.output(getClientConfig(opts))
+}

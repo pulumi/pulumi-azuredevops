@@ -28,7 +28,7 @@ import * as utilities from "./utilities";
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
+ * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
  */
 export function getAgentQueue(args: GetAgentQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetAgentQueueResult> {
 
@@ -98,7 +98,7 @@ export interface GetAgentQueueResult {
  * ```
  * ## Relevant Links
  *
- * - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
+ * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
  */
 export function getAgentQueueOutput(args: GetAgentQueueOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgentQueueResult> {
     return pulumi.output(args).apply((a: any) => getAgentQueue(a, opts))

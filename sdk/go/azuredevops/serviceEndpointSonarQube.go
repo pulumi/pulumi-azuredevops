@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SonarQube service endpoint within Azure DevOps.
@@ -54,7 +55,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 // - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
 // - [SonarQube User Token](https://docs.sonarqube.org/latest/user-guide/user-token/)
 //
@@ -215,6 +216,12 @@ func (i *ServiceEndpointSonarQube) ToServiceEndpointSonarQubeOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSonarQubeOutput)
 }
 
+func (i *ServiceEndpointSonarQube) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointSonarQube] {
+	return pulumix.Output[*ServiceEndpointSonarQube]{
+		OutputState: i.ToServiceEndpointSonarQubeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEndpointSonarQubeArrayInput is an input type that accepts ServiceEndpointSonarQubeArray and ServiceEndpointSonarQubeArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointSonarQubeArrayInput` via:
 //
@@ -238,6 +245,12 @@ func (i ServiceEndpointSonarQubeArray) ToServiceEndpointSonarQubeArrayOutput() S
 
 func (i ServiceEndpointSonarQubeArray) ToServiceEndpointSonarQubeArrayOutputWithContext(ctx context.Context) ServiceEndpointSonarQubeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSonarQubeArrayOutput)
+}
+
+func (i ServiceEndpointSonarQubeArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointSonarQube] {
+	return pulumix.Output[[]*ServiceEndpointSonarQube]{
+		OutputState: i.ToServiceEndpointSonarQubeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceEndpointSonarQubeMapInput is an input type that accepts ServiceEndpointSonarQubeMap and ServiceEndpointSonarQubeMapOutput values.
@@ -265,6 +278,12 @@ func (i ServiceEndpointSonarQubeMap) ToServiceEndpointSonarQubeMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSonarQubeMapOutput)
 }
 
+func (i ServiceEndpointSonarQubeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointSonarQube] {
+	return pulumix.Output[map[string]*ServiceEndpointSonarQube]{
+		OutputState: i.ToServiceEndpointSonarQubeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEndpointSonarQubeOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointSonarQubeOutput) ElementType() reflect.Type {
@@ -277,6 +296,12 @@ func (o ServiceEndpointSonarQubeOutput) ToServiceEndpointSonarQubeOutput() Servi
 
 func (o ServiceEndpointSonarQubeOutput) ToServiceEndpointSonarQubeOutputWithContext(ctx context.Context) ServiceEndpointSonarQubeOutput {
 	return o
+}
+
+func (o ServiceEndpointSonarQubeOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointSonarQube] {
+	return pulumix.Output[*ServiceEndpointSonarQube]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointSonarQubeOutput) Authorization() pulumi.StringMapOutput {
@@ -322,6 +347,12 @@ func (o ServiceEndpointSonarQubeArrayOutput) ToServiceEndpointSonarQubeArrayOutp
 	return o
 }
 
+func (o ServiceEndpointSonarQubeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointSonarQube] {
+	return pulumix.Output[[]*ServiceEndpointSonarQube]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceEndpointSonarQubeArrayOutput) Index(i pulumi.IntInput) ServiceEndpointSonarQubeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointSonarQube {
 		return vs[0].([]*ServiceEndpointSonarQube)[vs[1].(int)]
@@ -340,6 +371,12 @@ func (o ServiceEndpointSonarQubeMapOutput) ToServiceEndpointSonarQubeMapOutput()
 
 func (o ServiceEndpointSonarQubeMapOutput) ToServiceEndpointSonarQubeMapOutputWithContext(ctx context.Context) ServiceEndpointSonarQubeMapOutput {
 	return o
+}
+
+func (o ServiceEndpointSonarQubeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointSonarQube] {
+	return pulumix.Output[map[string]*ServiceEndpointSonarQube]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointSonarQubeMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointSonarQubeOutput {

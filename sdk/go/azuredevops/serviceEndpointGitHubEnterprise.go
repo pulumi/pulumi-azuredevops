@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a GitHub Enterprise Server service endpoint within Azure DevOps.
@@ -56,7 +57,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -198,6 +199,12 @@ func (i *ServiceEndpointGitHubEnterprise) ToServiceEndpointGitHubEnterpriseOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseOutput)
 }
 
+func (i *ServiceEndpointGitHubEnterprise) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointGitHubEnterprise] {
+	return pulumix.Output[*ServiceEndpointGitHubEnterprise]{
+		OutputState: i.ToServiceEndpointGitHubEnterpriseOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEndpointGitHubEnterpriseArrayInput is an input type that accepts ServiceEndpointGitHubEnterpriseArray and ServiceEndpointGitHubEnterpriseArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointGitHubEnterpriseArrayInput` via:
 //
@@ -221,6 +228,12 @@ func (i ServiceEndpointGitHubEnterpriseArray) ToServiceEndpointGitHubEnterpriseA
 
 func (i ServiceEndpointGitHubEnterpriseArray) ToServiceEndpointGitHubEnterpriseArrayOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseArrayOutput)
+}
+
+func (i ServiceEndpointGitHubEnterpriseArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointGitHubEnterprise] {
+	return pulumix.Output[[]*ServiceEndpointGitHubEnterprise]{
+		OutputState: i.ToServiceEndpointGitHubEnterpriseArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceEndpointGitHubEnterpriseMapInput is an input type that accepts ServiceEndpointGitHubEnterpriseMap and ServiceEndpointGitHubEnterpriseMapOutput values.
@@ -248,6 +261,12 @@ func (i ServiceEndpointGitHubEnterpriseMap) ToServiceEndpointGitHubEnterpriseMap
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGitHubEnterpriseMapOutput)
 }
 
+func (i ServiceEndpointGitHubEnterpriseMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointGitHubEnterprise] {
+	return pulumix.Output[map[string]*ServiceEndpointGitHubEnterprise]{
+		OutputState: i.ToServiceEndpointGitHubEnterpriseMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEndpointGitHubEnterpriseOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGitHubEnterpriseOutput) ElementType() reflect.Type {
@@ -260,6 +279,12 @@ func (o ServiceEndpointGitHubEnterpriseOutput) ToServiceEndpointGitHubEnterprise
 
 func (o ServiceEndpointGitHubEnterpriseOutput) ToServiceEndpointGitHubEnterpriseOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseOutput {
 	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointGitHubEnterprise] {
+	return pulumix.Output[*ServiceEndpointGitHubEnterprise]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointGitHubEnterpriseOutput) AuthPersonal() ServiceEndpointGitHubEnterpriseAuthPersonalOutput {
@@ -305,6 +330,12 @@ func (o ServiceEndpointGitHubEnterpriseArrayOutput) ToServiceEndpointGitHubEnter
 	return o
 }
 
+func (o ServiceEndpointGitHubEnterpriseArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointGitHubEnterprise] {
+	return pulumix.Output[[]*ServiceEndpointGitHubEnterprise]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceEndpointGitHubEnterpriseArrayOutput) Index(i pulumi.IntInput) ServiceEndpointGitHubEnterpriseOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointGitHubEnterprise {
 		return vs[0].([]*ServiceEndpointGitHubEnterprise)[vs[1].(int)]
@@ -323,6 +354,12 @@ func (o ServiceEndpointGitHubEnterpriseMapOutput) ToServiceEndpointGitHubEnterpr
 
 func (o ServiceEndpointGitHubEnterpriseMapOutput) ToServiceEndpointGitHubEnterpriseMapOutputWithContext(ctx context.Context) ServiceEndpointGitHubEnterpriseMapOutput {
 	return o
+}
+
+func (o ServiceEndpointGitHubEnterpriseMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointGitHubEnterprise] {
+	return pulumix.Output[map[string]*ServiceEndpointGitHubEnterprise]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointGitHubEnterpriseMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointGitHubEnterpriseOutput {

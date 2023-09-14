@@ -17,14 +17,14 @@ public final class BuildDefinitionCiTriggerOverridePathFilterArgs extends com.pu
     public static final BuildDefinitionCiTriggerOverridePathFilterArgs Empty = new BuildDefinitionCiTriggerOverridePathFilterArgs();
 
     /**
-     * List of branch patterns to exclude.
+     * List of path patterns to exclude.
      * 
      */
     @Import(name="excludes")
     private @Nullable Output<List<String>> excludes;
 
     /**
-     * @return List of branch patterns to exclude.
+     * @return List of path patterns to exclude.
      * 
      */
     public Optional<Output<List<String>>> excludes() {
@@ -32,14 +32,14 @@ public final class BuildDefinitionCiTriggerOverridePathFilterArgs extends com.pu
     }
 
     /**
-     * List of branch patterns to include.
+     * List of path patterns to include.
      * 
      */
     @Import(name="includes")
     private @Nullable Output<List<String>> includes;
 
     /**
-     * @return List of branch patterns to include.
+     * @return List of path patterns to include.
      * 
      */
     public Optional<Output<List<String>>> includes() {
@@ -72,7 +72,7 @@ public final class BuildDefinitionCiTriggerOverridePathFilterArgs extends com.pu
         }
 
         /**
-         * @param excludes List of branch patterns to exclude.
+         * @param excludes List of path patterns to exclude.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class BuildDefinitionCiTriggerOverridePathFilterArgs extends com.pu
         }
 
         /**
-         * @param excludes List of branch patterns to exclude.
+         * @param excludes List of path patterns to exclude.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class BuildDefinitionCiTriggerOverridePathFilterArgs extends com.pu
         }
 
         /**
-         * @param excludes List of branch patterns to exclude.
+         * @param excludes List of path patterns to exclude.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class BuildDefinitionCiTriggerOverridePathFilterArgs extends com.pu
         }
 
         /**
-         * @param includes List of branch patterns to include.
+         * @param includes List of path patterns to include.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class BuildDefinitionCiTriggerOverridePathFilterArgs extends com.pu
         }
 
         /**
-         * @param includes List of branch patterns to include.
+         * @param includes List of path patterns to include.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class BuildDefinitionCiTriggerOverridePathFilterArgs extends com.pu
         }
 
         /**
-         * @param includes List of branch patterns to include.
+         * @param includes List of path patterns to include.
          * 
          * @return builder
          * 

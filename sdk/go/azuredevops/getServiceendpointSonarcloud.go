@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Sonar Cloud Service Endpoint.
@@ -117,6 +118,12 @@ func (o GetServiceendpointSonarcloudResultOutput) ToGetServiceendpointSonarcloud
 
 func (o GetServiceendpointSonarcloudResultOutput) ToGetServiceendpointSonarcloudResultOutputWithContext(ctx context.Context) GetServiceendpointSonarcloudResultOutput {
 	return o
+}
+
+func (o GetServiceendpointSonarcloudResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceendpointSonarcloudResult] {
+	return pulumix.Output[GetServiceendpointSonarcloudResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Authorization Scheme Map.

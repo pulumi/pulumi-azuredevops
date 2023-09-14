@@ -76,7 +76,7 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
     """
     pulumi.log.warn("""get_pools is deprecated: azuredevops.agent.getPools has been deprecated in favor of azuredevops.getPools""")
     __args__ = dict()

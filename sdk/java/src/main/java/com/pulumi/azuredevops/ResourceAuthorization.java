@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * ```
  * ## Relevant Links
  * 
- * - [Azure DevOps Service REST API 6.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-6.0)
+ * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
  * 
  */
 @ResourceType(type="azuredevops:index/resourceAuthorization:ResourceAuthorization")

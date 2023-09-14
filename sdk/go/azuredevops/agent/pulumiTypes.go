@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -60,6 +61,12 @@ func (i GetPoolsAgentPoolArgs) ToGetPoolsAgentPoolOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolsAgentPoolOutput)
 }
 
+func (i GetPoolsAgentPoolArgs) ToOutput(ctx context.Context) pulumix.Output[GetPoolsAgentPool] {
+	return pulumix.Output[GetPoolsAgentPool]{
+		OutputState: i.ToGetPoolsAgentPoolOutputWithContext(ctx).OutputState,
+	}
+}
+
 // GetPoolsAgentPoolArrayInput is an input type that accepts GetPoolsAgentPoolArray and GetPoolsAgentPoolArrayOutput values.
 // You can construct a concrete instance of `GetPoolsAgentPoolArrayInput` via:
 //
@@ -85,6 +92,12 @@ func (i GetPoolsAgentPoolArray) ToGetPoolsAgentPoolArrayOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GetPoolsAgentPoolArrayOutput)
 }
 
+func (i GetPoolsAgentPoolArray) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolsAgentPool] {
+	return pulumix.Output[[]GetPoolsAgentPool]{
+		OutputState: i.ToGetPoolsAgentPoolArrayOutputWithContext(ctx).OutputState,
+	}
+}
+
 type GetPoolsAgentPoolOutput struct{ *pulumi.OutputState }
 
 func (GetPoolsAgentPoolOutput) ElementType() reflect.Type {
@@ -97,6 +110,12 @@ func (o GetPoolsAgentPoolOutput) ToGetPoolsAgentPoolOutput() GetPoolsAgentPoolOu
 
 func (o GetPoolsAgentPoolOutput) ToGetPoolsAgentPoolOutputWithContext(ctx context.Context) GetPoolsAgentPoolOutput {
 	return o
+}
+
+func (o GetPoolsAgentPoolOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolsAgentPool] {
+	return pulumix.Output[GetPoolsAgentPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies whether or not a queue should be automatically provisioned for each project collection.
@@ -135,6 +154,12 @@ func (o GetPoolsAgentPoolArrayOutput) ToGetPoolsAgentPoolArrayOutput() GetPoolsA
 
 func (o GetPoolsAgentPoolArrayOutput) ToGetPoolsAgentPoolArrayOutputWithContext(ctx context.Context) GetPoolsAgentPoolArrayOutput {
 	return o
+}
+
+func (o GetPoolsAgentPoolArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetPoolsAgentPool] {
+	return pulumix.Output[[]GetPoolsAgentPool]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o GetPoolsAgentPoolArrayOutput) Index(i pulumi.IntInput) GetPoolsAgentPoolOutput {

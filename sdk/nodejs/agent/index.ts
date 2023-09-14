@@ -12,7 +12,8 @@ utilities.lazyLoad(exports, ["getPool","getPoolOutput"], () => require("./getPoo
 
 export { GetPoolsResult } from "./getPools";
 export const getPools: typeof import("./getPools").getPools = null as any;
-utilities.lazyLoad(exports, ["getPools"], () => require("./getPools"));
+export const getPoolsOutput: typeof import("./getPools").getPoolsOutput = null as any;
+utilities.lazyLoad(exports, ["getPools","getPoolsOutput"], () => require("./getPools"));
 
 export { PoolArgs, PoolState } from "./pool";
 export type Pool = import("./pool").Pool;

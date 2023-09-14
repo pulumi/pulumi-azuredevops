@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage a max file size repository policy within Azure DevOps project.
@@ -104,7 +105,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -245,6 +246,12 @@ func (i *RepositoryPolicyMaxFileSize) ToRepositoryPolicyMaxFileSizeOutputWithCon
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxFileSizeOutput)
 }
 
+func (i *RepositoryPolicyMaxFileSize) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyMaxFileSize] {
+	return pulumix.Output[*RepositoryPolicyMaxFileSize]{
+		OutputState: i.ToRepositoryPolicyMaxFileSizeOutputWithContext(ctx).OutputState,
+	}
+}
+
 // RepositoryPolicyMaxFileSizeArrayInput is an input type that accepts RepositoryPolicyMaxFileSizeArray and RepositoryPolicyMaxFileSizeArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyMaxFileSizeArrayInput` via:
 //
@@ -268,6 +275,12 @@ func (i RepositoryPolicyMaxFileSizeArray) ToRepositoryPolicyMaxFileSizeArrayOutp
 
 func (i RepositoryPolicyMaxFileSizeArray) ToRepositoryPolicyMaxFileSizeArrayOutputWithContext(ctx context.Context) RepositoryPolicyMaxFileSizeArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxFileSizeArrayOutput)
+}
+
+func (i RepositoryPolicyMaxFileSizeArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyMaxFileSize] {
+	return pulumix.Output[[]*RepositoryPolicyMaxFileSize]{
+		OutputState: i.ToRepositoryPolicyMaxFileSizeArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // RepositoryPolicyMaxFileSizeMapInput is an input type that accepts RepositoryPolicyMaxFileSizeMap and RepositoryPolicyMaxFileSizeMapOutput values.
@@ -295,6 +308,12 @@ func (i RepositoryPolicyMaxFileSizeMap) ToRepositoryPolicyMaxFileSizeMapOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyMaxFileSizeMapOutput)
 }
 
+func (i RepositoryPolicyMaxFileSizeMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyMaxFileSize] {
+	return pulumix.Output[map[string]*RepositoryPolicyMaxFileSize]{
+		OutputState: i.ToRepositoryPolicyMaxFileSizeMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type RepositoryPolicyMaxFileSizeOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyMaxFileSizeOutput) ElementType() reflect.Type {
@@ -307,6 +326,12 @@ func (o RepositoryPolicyMaxFileSizeOutput) ToRepositoryPolicyMaxFileSizeOutput()
 
 func (o RepositoryPolicyMaxFileSizeOutput) ToRepositoryPolicyMaxFileSizeOutputWithContext(ctx context.Context) RepositoryPolicyMaxFileSizeOutput {
 	return o
+}
+
+func (o RepositoryPolicyMaxFileSizeOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyMaxFileSize] {
+	return pulumix.Output[*RepositoryPolicyMaxFileSize]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -348,6 +373,12 @@ func (o RepositoryPolicyMaxFileSizeArrayOutput) ToRepositoryPolicyMaxFileSizeArr
 	return o
 }
 
+func (o RepositoryPolicyMaxFileSizeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyMaxFileSize] {
+	return pulumix.Output[[]*RepositoryPolicyMaxFileSize]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o RepositoryPolicyMaxFileSizeArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyMaxFileSizeOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicyMaxFileSize {
 		return vs[0].([]*RepositoryPolicyMaxFileSize)[vs[1].(int)]
@@ -366,6 +397,12 @@ func (o RepositoryPolicyMaxFileSizeMapOutput) ToRepositoryPolicyMaxFileSizeMapOu
 
 func (o RepositoryPolicyMaxFileSizeMapOutput) ToRepositoryPolicyMaxFileSizeMapOutputWithContext(ctx context.Context) RepositoryPolicyMaxFileSizeMapOutput {
 	return o
+}
+
+func (o RepositoryPolicyMaxFileSizeMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyMaxFileSize] {
+	return pulumix.Output[map[string]*RepositoryPolicyMaxFileSize]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o RepositoryPolicyMaxFileSizeMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyMaxFileSizeOutput {

@@ -104,7 +104,7 @@ def get_agent_queue(name: Optional[str] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
 
 
     :param str name: Name of the Agent Queue.
@@ -148,7 +148,7 @@ def get_agent_queue_output(name: Optional[pulumi.Input[str]] = None,
     ```
     ## Relevant Links
 
-    - [Azure DevOps Service REST API 6.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-6.0)
+    - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
 
 
     :param str name: Name of the Agent Queue.

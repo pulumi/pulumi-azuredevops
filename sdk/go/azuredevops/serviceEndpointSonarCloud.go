@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SonarCloud service endpoint within Azure DevOps.
@@ -53,7 +54,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 // - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
 // - [SonarCloud User Token](https://docs.sonarcloud.io/advanced-setup/user-accounts/)
 //
@@ -201,6 +202,12 @@ func (i *ServiceEndpointSonarCloud) ToServiceEndpointSonarCloudOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSonarCloudOutput)
 }
 
+func (i *ServiceEndpointSonarCloud) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointSonarCloud] {
+	return pulumix.Output[*ServiceEndpointSonarCloud]{
+		OutputState: i.ToServiceEndpointSonarCloudOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEndpointSonarCloudArrayInput is an input type that accepts ServiceEndpointSonarCloudArray and ServiceEndpointSonarCloudArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointSonarCloudArrayInput` via:
 //
@@ -224,6 +231,12 @@ func (i ServiceEndpointSonarCloudArray) ToServiceEndpointSonarCloudArrayOutput()
 
 func (i ServiceEndpointSonarCloudArray) ToServiceEndpointSonarCloudArrayOutputWithContext(ctx context.Context) ServiceEndpointSonarCloudArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSonarCloudArrayOutput)
+}
+
+func (i ServiceEndpointSonarCloudArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointSonarCloud] {
+	return pulumix.Output[[]*ServiceEndpointSonarCloud]{
+		OutputState: i.ToServiceEndpointSonarCloudArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceEndpointSonarCloudMapInput is an input type that accepts ServiceEndpointSonarCloudMap and ServiceEndpointSonarCloudMapOutput values.
@@ -251,6 +264,12 @@ func (i ServiceEndpointSonarCloudMap) ToServiceEndpointSonarCloudMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSonarCloudMapOutput)
 }
 
+func (i ServiceEndpointSonarCloudMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointSonarCloud] {
+	return pulumix.Output[map[string]*ServiceEndpointSonarCloud]{
+		OutputState: i.ToServiceEndpointSonarCloudMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEndpointSonarCloudOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointSonarCloudOutput) ElementType() reflect.Type {
@@ -263,6 +282,12 @@ func (o ServiceEndpointSonarCloudOutput) ToServiceEndpointSonarCloudOutput() Ser
 
 func (o ServiceEndpointSonarCloudOutput) ToServiceEndpointSonarCloudOutputWithContext(ctx context.Context) ServiceEndpointSonarCloudOutput {
 	return o
+}
+
+func (o ServiceEndpointSonarCloudOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointSonarCloud] {
+	return pulumix.Output[*ServiceEndpointSonarCloud]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointSonarCloudOutput) Authorization() pulumi.StringMapOutput {
@@ -303,6 +328,12 @@ func (o ServiceEndpointSonarCloudArrayOutput) ToServiceEndpointSonarCloudArrayOu
 	return o
 }
 
+func (o ServiceEndpointSonarCloudArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointSonarCloud] {
+	return pulumix.Output[[]*ServiceEndpointSonarCloud]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceEndpointSonarCloudArrayOutput) Index(i pulumi.IntInput) ServiceEndpointSonarCloudOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointSonarCloud {
 		return vs[0].([]*ServiceEndpointSonarCloud)[vs[1].(int)]
@@ -321,6 +352,12 @@ func (o ServiceEndpointSonarCloudMapOutput) ToServiceEndpointSonarCloudMapOutput
 
 func (o ServiceEndpointSonarCloudMapOutput) ToServiceEndpointSonarCloudMapOutputWithContext(ctx context.Context) ServiceEndpointSonarCloudMapOutput {
 	return o
+}
+
+func (o ServiceEndpointSonarCloudMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointSonarCloud] {
+	return pulumix.Output[map[string]*ServiceEndpointSonarCloud]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointSonarCloudMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointSonarCloudOutput {

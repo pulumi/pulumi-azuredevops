@@ -212,7 +212,7 @@ namespace Pulumi.AzureDevOps
     /// 
     /// ## Relevant Links
     /// 
-    /// - [Azure DevOps Service REST API 6.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-6.0)
+    /// - [Azure DevOps Service REST API 7.0 - Build Definitions](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/definitions?view=azure-devops-rest-7.0)
     /// 
     /// ## Import
     /// 
@@ -244,6 +244,12 @@ namespace Pulumi.AzureDevOps
         public Output<Outputs.BuildDefinitionCiTrigger?> CiTrigger { get; private set; } = null!;
 
         /// <summary>
+        /// A `features` blocks as documented below.
+        /// </summary>
+        [Output("features")]
+        public Output<ImmutableArray<Outputs.BuildDefinitionFeature>> Features { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the build definition.
         /// </summary>
         [Output("name")]
@@ -262,7 +268,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ProjectId { get; private set; } = null!;
 
         /// <summary>
-        /// Pull Request Integration Integration trigger.
+        /// Pull Request Integration trigger.
         /// </summary>
         [Output("pullRequestTrigger")]
         public Output<Outputs.BuildDefinitionPullRequestTrigger?> PullRequestTrigger { get; private set; } = null!;
@@ -356,6 +362,18 @@ namespace Pulumi.AzureDevOps
         [Input("ciTrigger")]
         public Input<Inputs.BuildDefinitionCiTriggerArgs>? CiTrigger { get; set; }
 
+        [Input("features")]
+        private InputList<Inputs.BuildDefinitionFeatureArgs>? _features;
+
+        /// <summary>
+        /// A `features` blocks as documented below.
+        /// </summary>
+        public InputList<Inputs.BuildDefinitionFeatureArgs> Features
+        {
+            get => _features ?? (_features = new InputList<Inputs.BuildDefinitionFeatureArgs>());
+            set => _features = value;
+        }
+
         /// <summary>
         /// The name of the build definition.
         /// </summary>
@@ -375,7 +393,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ProjectId { get; set; } = null!;
 
         /// <summary>
-        /// Pull Request Integration Integration trigger.
+        /// Pull Request Integration trigger.
         /// </summary>
         [Input("pullRequestTrigger")]
         public Input<Inputs.BuildDefinitionPullRequestTriggerArgs>? PullRequestTrigger { get; set; }
@@ -438,6 +456,18 @@ namespace Pulumi.AzureDevOps
         [Input("ciTrigger")]
         public Input<Inputs.BuildDefinitionCiTriggerGetArgs>? CiTrigger { get; set; }
 
+        [Input("features")]
+        private InputList<Inputs.BuildDefinitionFeatureGetArgs>? _features;
+
+        /// <summary>
+        /// A `features` blocks as documented below.
+        /// </summary>
+        public InputList<Inputs.BuildDefinitionFeatureGetArgs> Features
+        {
+            get => _features ?? (_features = new InputList<Inputs.BuildDefinitionFeatureGetArgs>());
+            set => _features = value;
+        }
+
         /// <summary>
         /// The name of the build definition.
         /// </summary>
@@ -457,7 +487,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ProjectId { get; set; }
 
         /// <summary>
-        /// Pull Request Integration Integration trigger.
+        /// Pull Request Integration trigger.
         /// </summary>
         [Input("pullRequestTrigger")]
         public Input<Inputs.BuildDefinitionPullRequestTriggerGetArgs>? PullRequestTrigger { get; set; }

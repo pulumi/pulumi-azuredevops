@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Maven service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Maven instance.
@@ -264,6 +265,12 @@ func (i *ServiceendpointMaven) ToServiceendpointMavenOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointMavenOutput)
 }
 
+func (i *ServiceendpointMaven) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointMaven] {
+	return pulumix.Output[*ServiceendpointMaven]{
+		OutputState: i.ToServiceendpointMavenOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceendpointMavenArrayInput is an input type that accepts ServiceendpointMavenArray and ServiceendpointMavenArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointMavenArrayInput` via:
 //
@@ -287,6 +294,12 @@ func (i ServiceendpointMavenArray) ToServiceendpointMavenArrayOutput() Serviceen
 
 func (i ServiceendpointMavenArray) ToServiceendpointMavenArrayOutputWithContext(ctx context.Context) ServiceendpointMavenArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointMavenArrayOutput)
+}
+
+func (i ServiceendpointMavenArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointMaven] {
+	return pulumix.Output[[]*ServiceendpointMaven]{
+		OutputState: i.ToServiceendpointMavenArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceendpointMavenMapInput is an input type that accepts ServiceendpointMavenMap and ServiceendpointMavenMapOutput values.
@@ -314,6 +327,12 @@ func (i ServiceendpointMavenMap) ToServiceendpointMavenMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointMavenMapOutput)
 }
 
+func (i ServiceendpointMavenMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointMaven] {
+	return pulumix.Output[map[string]*ServiceendpointMaven]{
+		OutputState: i.ToServiceendpointMavenMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceendpointMavenOutput struct{ *pulumi.OutputState }
 
 func (ServiceendpointMavenOutput) ElementType() reflect.Type {
@@ -326,6 +345,12 @@ func (o ServiceendpointMavenOutput) ToServiceendpointMavenOutput() Serviceendpoi
 
 func (o ServiceendpointMavenOutput) ToServiceendpointMavenOutputWithContext(ctx context.Context) ServiceendpointMavenOutput {
 	return o
+}
+
+func (o ServiceendpointMavenOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointMaven] {
+	return pulumix.Output[*ServiceendpointMaven]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A `authenticationBasic` block as documented below.
@@ -384,6 +409,12 @@ func (o ServiceendpointMavenArrayOutput) ToServiceendpointMavenArrayOutputWithCo
 	return o
 }
 
+func (o ServiceendpointMavenArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointMaven] {
+	return pulumix.Output[[]*ServiceendpointMaven]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceendpointMavenArrayOutput) Index(i pulumi.IntInput) ServiceendpointMavenOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceendpointMaven {
 		return vs[0].([]*ServiceendpointMaven)[vs[1].(int)]
@@ -402,6 +433,12 @@ func (o ServiceendpointMavenMapOutput) ToServiceendpointMavenMapOutput() Service
 
 func (o ServiceendpointMavenMapOutput) ToServiceendpointMavenMapOutputWithContext(ctx context.Context) ServiceendpointMavenMapOutput {
 	return o
+}
+
+func (o ServiceendpointMavenMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointMaven] {
+	return pulumix.Output[map[string]*ServiceendpointMaven]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceendpointMavenMapOutput) MapIndex(k pulumi.StringInput) ServiceendpointMavenOutput {

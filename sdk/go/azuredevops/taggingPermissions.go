@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages permissions for tagging
@@ -68,7 +69,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// * [Azure DevOps Service REST API 6.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-6.0)
+// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
 //
 // ## PAT Permissions Required
 //
@@ -232,6 +233,12 @@ func (i *TaggingPermissions) ToTaggingPermissionsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(TaggingPermissionsOutput)
 }
 
+func (i *TaggingPermissions) ToOutput(ctx context.Context) pulumix.Output[*TaggingPermissions] {
+	return pulumix.Output[*TaggingPermissions]{
+		OutputState: i.ToTaggingPermissionsOutputWithContext(ctx).OutputState,
+	}
+}
+
 // TaggingPermissionsArrayInput is an input type that accepts TaggingPermissionsArray and TaggingPermissionsArrayOutput values.
 // You can construct a concrete instance of `TaggingPermissionsArrayInput` via:
 //
@@ -255,6 +262,12 @@ func (i TaggingPermissionsArray) ToTaggingPermissionsArrayOutput() TaggingPermis
 
 func (i TaggingPermissionsArray) ToTaggingPermissionsArrayOutputWithContext(ctx context.Context) TaggingPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(TaggingPermissionsArrayOutput)
+}
+
+func (i TaggingPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*TaggingPermissions] {
+	return pulumix.Output[[]*TaggingPermissions]{
+		OutputState: i.ToTaggingPermissionsArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // TaggingPermissionsMapInput is an input type that accepts TaggingPermissionsMap and TaggingPermissionsMapOutput values.
@@ -282,6 +295,12 @@ func (i TaggingPermissionsMap) ToTaggingPermissionsMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(TaggingPermissionsMapOutput)
 }
 
+func (i TaggingPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaggingPermissions] {
+	return pulumix.Output[map[string]*TaggingPermissions]{
+		OutputState: i.ToTaggingPermissionsMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type TaggingPermissionsOutput struct{ *pulumi.OutputState }
 
 func (TaggingPermissionsOutput) ElementType() reflect.Type {
@@ -294,6 +313,12 @@ func (o TaggingPermissionsOutput) ToTaggingPermissionsOutput() TaggingPermission
 
 func (o TaggingPermissionsOutput) ToTaggingPermissionsOutputWithContext(ctx context.Context) TaggingPermissionsOutput {
 	return o
+}
+
+func (o TaggingPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*TaggingPermissions] {
+	return pulumix.Output[*TaggingPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 // the permissions to assign. The following permissions are available.
@@ -337,6 +362,12 @@ func (o TaggingPermissionsArrayOutput) ToTaggingPermissionsArrayOutputWithContex
 	return o
 }
 
+func (o TaggingPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*TaggingPermissions] {
+	return pulumix.Output[[]*TaggingPermissions]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o TaggingPermissionsArrayOutput) Index(i pulumi.IntInput) TaggingPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *TaggingPermissions {
 		return vs[0].([]*TaggingPermissions)[vs[1].(int)]
@@ -355,6 +386,12 @@ func (o TaggingPermissionsMapOutput) ToTaggingPermissionsMapOutput() TaggingPerm
 
 func (o TaggingPermissionsMapOutput) ToTaggingPermissionsMapOutputWithContext(ctx context.Context) TaggingPermissionsMapOutput {
 	return o
+}
+
+func (o TaggingPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*TaggingPermissions] {
+	return pulumix.Output[map[string]*TaggingPermissions]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o TaggingPermissionsMapOutput) MapIndex(k pulumi.StringInput) TaggingPermissionsOutput {

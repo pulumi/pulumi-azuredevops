@@ -42,10 +42,45 @@ namespace Pulumi.AzureDevOps.Agent
         /// {{% /examples %}}
         /// ## Relevant Links
         /// 
-        /// - [Azure DevOps Service REST API 6.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-6.0)
+        /// - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
         /// </summary>
         public static Task<GetPoolsResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPoolsResult>("azuredevops:Agent/getPools:getPools", InvokeArgs.Empty, options.WithDefaults());
+
+        /// <summary>
+        /// Use this data source to access information about existing Agent Pools within Azure DevOps.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetPools.Invoke();
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["agentPoolName"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["autoProvision"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.AutoProvision).ToList(),
+        ///         ["autoUpdate"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.AutoUpdate).ToList(),
+        ///         ["poolType"] = example.Apply(getPoolsResult =&gt; getPoolsResult.AgentPools).Select(__item =&gt; __item.PoolType).ToList(),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// ## Relevant Links
+        /// 
+        /// - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
+        /// </summary>
+        public static Output<GetPoolsResult> Invoke(InvokeOptions? options = null)
+            => global::Pulumi.Deployment.Instance.Invoke<GetPoolsResult>("azuredevops:Agent/getPools:getPools", InvokeArgs.Empty, options.WithDefaults());
     }
 
 

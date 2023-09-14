@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Work Item in Azure Devops.
@@ -265,6 +266,12 @@ func (i *Workitem) ToWorkitemOutputWithContext(ctx context.Context) WorkitemOutp
 	return pulumi.ToOutputWithContext(ctx, i).(WorkitemOutput)
 }
 
+func (i *Workitem) ToOutput(ctx context.Context) pulumix.Output[*Workitem] {
+	return pulumix.Output[*Workitem]{
+		OutputState: i.ToWorkitemOutputWithContext(ctx).OutputState,
+	}
+}
+
 // WorkitemArrayInput is an input type that accepts WorkitemArray and WorkitemArrayOutput values.
 // You can construct a concrete instance of `WorkitemArrayInput` via:
 //
@@ -288,6 +295,12 @@ func (i WorkitemArray) ToWorkitemArrayOutput() WorkitemArrayOutput {
 
 func (i WorkitemArray) ToWorkitemArrayOutputWithContext(ctx context.Context) WorkitemArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(WorkitemArrayOutput)
+}
+
+func (i WorkitemArray) ToOutput(ctx context.Context) pulumix.Output[[]*Workitem] {
+	return pulumix.Output[[]*Workitem]{
+		OutputState: i.ToWorkitemArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // WorkitemMapInput is an input type that accepts WorkitemMap and WorkitemMapOutput values.
@@ -315,6 +328,12 @@ func (i WorkitemMap) ToWorkitemMapOutputWithContext(ctx context.Context) Workite
 	return pulumi.ToOutputWithContext(ctx, i).(WorkitemMapOutput)
 }
 
+func (i WorkitemMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workitem] {
+	return pulumix.Output[map[string]*Workitem]{
+		OutputState: i.ToWorkitemMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type WorkitemOutput struct{ *pulumi.OutputState }
 
 func (WorkitemOutput) ElementType() reflect.Type {
@@ -327,6 +346,12 @@ func (o WorkitemOutput) ToWorkitemOutput() WorkitemOutput {
 
 func (o WorkitemOutput) ToWorkitemOutputWithContext(ctx context.Context) WorkitemOutput {
 	return o
+}
+
+func (o WorkitemOutput) ToOutput(ctx context.Context) pulumix.Output[*Workitem] {
+	return pulumix.Output[*Workitem]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the area where the Work Item is used.
@@ -383,6 +408,12 @@ func (o WorkitemArrayOutput) ToWorkitemArrayOutputWithContext(ctx context.Contex
 	return o
 }
 
+func (o WorkitemArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Workitem] {
+	return pulumix.Output[[]*Workitem]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o WorkitemArrayOutput) Index(i pulumi.IntInput) WorkitemOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Workitem {
 		return vs[0].([]*Workitem)[vs[1].(int)]
@@ -401,6 +432,12 @@ func (o WorkitemMapOutput) ToWorkitemMapOutput() WorkitemMapOutput {
 
 func (o WorkitemMapOutput) ToWorkitemMapOutputWithContext(ctx context.Context) WorkitemMapOutput {
 	return o
+}
+
+func (o WorkitemMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Workitem] {
+	return pulumix.Output[map[string]*Workitem]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o WorkitemMapOutput) MapIndex(k pulumi.StringInput) WorkitemOutput {

@@ -333,13 +333,22 @@ export interface BuildDefinitionCiTriggerOverrideBranchFilter {
 
 export interface BuildDefinitionCiTriggerOverridePathFilter {
     /**
-     * List of branch patterns to exclude.
+     * List of path patterns to exclude.
      */
     excludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of branch patterns to include.
+     * List of path patterns to include.
      */
     includes?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface BuildDefinitionFeature {
+    /**
+     * Trigger the pipeline to run after the creation. Defaults to `true`.
+     *
+     * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+     */
+    skipFirstRun?: pulumi.Input<boolean>;
 }
 
 export interface BuildDefinitionPullRequestTrigger {
@@ -398,11 +407,11 @@ export interface BuildDefinitionPullRequestTriggerOverrideBranchFilter {
 
 export interface BuildDefinitionPullRequestTriggerOverridePathFilter {
     /**
-     * List of branch patterns to exclude.
+     * List of path patterns to exclude.
      */
     excludes?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * List of branch patterns to include.
+     * List of path patterns to include.
      */
     includes?: pulumi.Input<pulumi.Input<string>[]>;
 }
@@ -1060,13 +1069,22 @@ export namespace Build {
 
     export interface BuildDefinitionCiTriggerOverridePathFilter {
         /**
-         * List of branch patterns to exclude.
+         * List of path patterns to exclude.
          */
         excludes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * List of branch patterns to include.
+         * List of path patterns to include.
          */
         includes?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface BuildDefinitionFeature {
+        /**
+         * Trigger the pipeline to run after the creation. Defaults to `true`.
+         *
+         * > **Note** The first run(`skipFirstRun = false`) will only be triggered on create.
+         */
+        skipFirstRun?: pulumi.Input<boolean>;
     }
 
     export interface BuildDefinitionPullRequestTrigger {
@@ -1125,11 +1143,11 @@ export namespace Build {
 
     export interface BuildDefinitionPullRequestTriggerOverridePathFilter {
         /**
-         * List of branch patterns to exclude.
+         * List of path patterns to exclude.
          */
         excludes?: pulumi.Input<pulumi.Input<string>[]>;
         /**
-         * List of branch patterns to include.
+         * List of path patterns to include.
          */
         includes?: pulumi.Input<pulumi.Input<string>[]>;
     }

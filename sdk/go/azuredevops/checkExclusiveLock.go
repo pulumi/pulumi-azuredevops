@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Exclusive Lock Check.
@@ -225,6 +226,12 @@ func (i *CheckExclusiveLock) ToCheckExclusiveLockOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(CheckExclusiveLockOutput)
 }
 
+func (i *CheckExclusiveLock) ToOutput(ctx context.Context) pulumix.Output[*CheckExclusiveLock] {
+	return pulumix.Output[*CheckExclusiveLock]{
+		OutputState: i.ToCheckExclusiveLockOutputWithContext(ctx).OutputState,
+	}
+}
+
 // CheckExclusiveLockArrayInput is an input type that accepts CheckExclusiveLockArray and CheckExclusiveLockArrayOutput values.
 // You can construct a concrete instance of `CheckExclusiveLockArrayInput` via:
 //
@@ -248,6 +255,12 @@ func (i CheckExclusiveLockArray) ToCheckExclusiveLockArrayOutput() CheckExclusiv
 
 func (i CheckExclusiveLockArray) ToCheckExclusiveLockArrayOutputWithContext(ctx context.Context) CheckExclusiveLockArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CheckExclusiveLockArrayOutput)
+}
+
+func (i CheckExclusiveLockArray) ToOutput(ctx context.Context) pulumix.Output[[]*CheckExclusiveLock] {
+	return pulumix.Output[[]*CheckExclusiveLock]{
+		OutputState: i.ToCheckExclusiveLockArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // CheckExclusiveLockMapInput is an input type that accepts CheckExclusiveLockMap and CheckExclusiveLockMapOutput values.
@@ -275,6 +288,12 @@ func (i CheckExclusiveLockMap) ToCheckExclusiveLockMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(CheckExclusiveLockMapOutput)
 }
 
+func (i CheckExclusiveLockMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckExclusiveLock] {
+	return pulumix.Output[map[string]*CheckExclusiveLock]{
+		OutputState: i.ToCheckExclusiveLockMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type CheckExclusiveLockOutput struct{ *pulumi.OutputState }
 
 func (CheckExclusiveLockOutput) ElementType() reflect.Type {
@@ -287,6 +306,12 @@ func (o CheckExclusiveLockOutput) ToCheckExclusiveLockOutput() CheckExclusiveLoc
 
 func (o CheckExclusiveLockOutput) ToCheckExclusiveLockOutputWithContext(ctx context.Context) CheckExclusiveLockOutput {
 	return o
+}
+
+func (o CheckExclusiveLockOutput) ToOutput(ctx context.Context) pulumix.Output[*CheckExclusiveLock] {
+	return pulumix.Output[*CheckExclusiveLock]{
+		OutputState: o.OutputState,
+	}
 }
 
 // The project ID. Changing this forces a new Exclusive Lock Check to be created.
@@ -323,6 +348,12 @@ func (o CheckExclusiveLockArrayOutput) ToCheckExclusiveLockArrayOutputWithContex
 	return o
 }
 
+func (o CheckExclusiveLockArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CheckExclusiveLock] {
+	return pulumix.Output[[]*CheckExclusiveLock]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o CheckExclusiveLockArrayOutput) Index(i pulumi.IntInput) CheckExclusiveLockOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CheckExclusiveLock {
 		return vs[0].([]*CheckExclusiveLock)[vs[1].(int)]
@@ -341,6 +372,12 @@ func (o CheckExclusiveLockMapOutput) ToCheckExclusiveLockMapOutput() CheckExclus
 
 func (o CheckExclusiveLockMapOutput) ToCheckExclusiveLockMapOutputWithContext(ctx context.Context) CheckExclusiveLockMapOutput {
 	return o
+}
+
+func (o CheckExclusiveLockMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckExclusiveLock] {
+	return pulumix.Output[map[string]*CheckExclusiveLock]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o CheckExclusiveLockMapOutput) MapIndex(k pulumi.StringInput) CheckExclusiveLockOutput {

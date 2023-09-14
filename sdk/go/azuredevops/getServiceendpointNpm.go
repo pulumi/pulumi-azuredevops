@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing NPM Service Endpoint.
@@ -119,6 +120,12 @@ func (o GetServiceendpointNpmResultOutput) ToGetServiceendpointNpmResultOutput()
 
 func (o GetServiceendpointNpmResultOutput) ToGetServiceendpointNpmResultOutputWithContext(ctx context.Context) GetServiceendpointNpmResultOutput {
 	return o
+}
+
+func (o GetServiceendpointNpmResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceendpointNpmResult] {
+	return pulumix.Output[GetServiceendpointNpmResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Specifies the Authorization Scheme Map.

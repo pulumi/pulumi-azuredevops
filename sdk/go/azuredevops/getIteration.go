@@ -9,6 +9,7 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
@@ -53,7 +54,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
 //
 // ## PAT Permissions Required
 //
@@ -135,6 +136,12 @@ func (o GetIterationResultOutput) ToGetIterationResultOutput() GetIterationResul
 
 func (o GetIterationResultOutput) ToGetIterationResultOutputWithContext(ctx context.Context) GetIterationResultOutput {
 	return o
+}
+
+func (o GetIterationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIterationResult] {
+	return pulumix.Output[GetIterationResult]{
+		OutputState: o.OutputState,
+	}
 }
 
 // A list of `children` blocks as defined below, empty if `hasChildren == false`

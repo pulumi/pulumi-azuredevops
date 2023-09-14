@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Azure DevOps Service Connection service endpoint within Azure DevOps. Allows to run downstream pipelines, monitoring their execution, collecting and consolidating artefacts produced in the delegate pipelines (yaml block `task: RunPipelines@1`). More details on Marketplace page: [RunPipelines](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines)
@@ -56,7 +57,7 @@ import (
 // ```
 // ## Relevant Links
 //
-// - [Azure DevOps Service REST API 6.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-6.0)
+// - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
 //
 // ## Import
 //
@@ -203,6 +204,12 @@ func (i *ServiceEndpointPipeline) ToServiceEndpointPipelineOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelineOutput)
 }
 
+func (i *ServiceEndpointPipeline) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointPipeline] {
+	return pulumix.Output[*ServiceEndpointPipeline]{
+		OutputState: i.ToServiceEndpointPipelineOutputWithContext(ctx).OutputState,
+	}
+}
+
 // ServiceEndpointPipelineArrayInput is an input type that accepts ServiceEndpointPipelineArray and ServiceEndpointPipelineArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointPipelineArrayInput` via:
 //
@@ -226,6 +233,12 @@ func (i ServiceEndpointPipelineArray) ToServiceEndpointPipelineArrayOutput() Ser
 
 func (i ServiceEndpointPipelineArray) ToServiceEndpointPipelineArrayOutputWithContext(ctx context.Context) ServiceEndpointPipelineArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelineArrayOutput)
+}
+
+func (i ServiceEndpointPipelineArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointPipeline] {
+	return pulumix.Output[[]*ServiceEndpointPipeline]{
+		OutputState: i.ToServiceEndpointPipelineArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // ServiceEndpointPipelineMapInput is an input type that accepts ServiceEndpointPipelineMap and ServiceEndpointPipelineMapOutput values.
@@ -253,6 +266,12 @@ func (i ServiceEndpointPipelineMap) ToServiceEndpointPipelineMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointPipelineMapOutput)
 }
 
+func (i ServiceEndpointPipelineMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointPipeline] {
+	return pulumix.Output[map[string]*ServiceEndpointPipeline]{
+		OutputState: i.ToServiceEndpointPipelineMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type ServiceEndpointPipelineOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointPipelineOutput) ElementType() reflect.Type {
@@ -265,6 +284,12 @@ func (o ServiceEndpointPipelineOutput) ToServiceEndpointPipelineOutput() Service
 
 func (o ServiceEndpointPipelineOutput) ToServiceEndpointPipelineOutputWithContext(ctx context.Context) ServiceEndpointPipelineOutput {
 	return o
+}
+
+func (o ServiceEndpointPipelineOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointPipeline] {
+	return pulumix.Output[*ServiceEndpointPipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 // An `authPersonal` block as documented below. Allows connecting using a personal access token.
@@ -309,6 +334,12 @@ func (o ServiceEndpointPipelineArrayOutput) ToServiceEndpointPipelineArrayOutput
 	return o
 }
 
+func (o ServiceEndpointPipelineArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointPipeline] {
+	return pulumix.Output[[]*ServiceEndpointPipeline]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o ServiceEndpointPipelineArrayOutput) Index(i pulumi.IntInput) ServiceEndpointPipelineOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointPipeline {
 		return vs[0].([]*ServiceEndpointPipeline)[vs[1].(int)]
@@ -327,6 +358,12 @@ func (o ServiceEndpointPipelineMapOutput) ToServiceEndpointPipelineMapOutput() S
 
 func (o ServiceEndpointPipelineMapOutput) ToServiceEndpointPipelineMapOutputWithContext(ctx context.Context) ServiceEndpointPipelineMapOutput {
 	return o
+}
+
+func (o ServiceEndpointPipelineMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointPipeline] {
+	return pulumix.Output[map[string]*ServiceEndpointPipeline]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o ServiceEndpointPipelineMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointPipelineOutput {

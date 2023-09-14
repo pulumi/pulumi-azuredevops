@@ -10,6 +10,7 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Build Folder.
@@ -177,6 +178,12 @@ func (i *BuildFolder) ToBuildFolderOutputWithContext(ctx context.Context) BuildF
 	return pulumi.ToOutputWithContext(ctx, i).(BuildFolderOutput)
 }
 
+func (i *BuildFolder) ToOutput(ctx context.Context) pulumix.Output[*BuildFolder] {
+	return pulumix.Output[*BuildFolder]{
+		OutputState: i.ToBuildFolderOutputWithContext(ctx).OutputState,
+	}
+}
+
 // BuildFolderArrayInput is an input type that accepts BuildFolderArray and BuildFolderArrayOutput values.
 // You can construct a concrete instance of `BuildFolderArrayInput` via:
 //
@@ -200,6 +207,12 @@ func (i BuildFolderArray) ToBuildFolderArrayOutput() BuildFolderArrayOutput {
 
 func (i BuildFolderArray) ToBuildFolderArrayOutputWithContext(ctx context.Context) BuildFolderArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildFolderArrayOutput)
+}
+
+func (i BuildFolderArray) ToOutput(ctx context.Context) pulumix.Output[[]*BuildFolder] {
+	return pulumix.Output[[]*BuildFolder]{
+		OutputState: i.ToBuildFolderArrayOutputWithContext(ctx).OutputState,
+	}
 }
 
 // BuildFolderMapInput is an input type that accepts BuildFolderMap and BuildFolderMapOutput values.
@@ -227,6 +240,12 @@ func (i BuildFolderMap) ToBuildFolderMapOutputWithContext(ctx context.Context) B
 	return pulumi.ToOutputWithContext(ctx, i).(BuildFolderMapOutput)
 }
 
+func (i BuildFolderMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildFolder] {
+	return pulumix.Output[map[string]*BuildFolder]{
+		OutputState: i.ToBuildFolderMapOutputWithContext(ctx).OutputState,
+	}
+}
+
 type BuildFolderOutput struct{ *pulumi.OutputState }
 
 func (BuildFolderOutput) ElementType() reflect.Type {
@@ -239,6 +258,12 @@ func (o BuildFolderOutput) ToBuildFolderOutput() BuildFolderOutput {
 
 func (o BuildFolderOutput) ToBuildFolderOutputWithContext(ctx context.Context) BuildFolderOutput {
 	return o
+}
+
+func (o BuildFolderOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildFolder] {
+	return pulumix.Output[*BuildFolder]{
+		OutputState: o.OutputState,
+	}
 }
 
 // Folder Description.
@@ -270,6 +295,12 @@ func (o BuildFolderArrayOutput) ToBuildFolderArrayOutputWithContext(ctx context.
 	return o
 }
 
+func (o BuildFolderArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BuildFolder] {
+	return pulumix.Output[[]*BuildFolder]{
+		OutputState: o.OutputState,
+	}
+}
+
 func (o BuildFolderArrayOutput) Index(i pulumi.IntInput) BuildFolderOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BuildFolder {
 		return vs[0].([]*BuildFolder)[vs[1].(int)]
@@ -288,6 +319,12 @@ func (o BuildFolderMapOutput) ToBuildFolderMapOutput() BuildFolderMapOutput {
 
 func (o BuildFolderMapOutput) ToBuildFolderMapOutputWithContext(ctx context.Context) BuildFolderMapOutput {
 	return o
+}
+
+func (o BuildFolderMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildFolder] {
+	return pulumix.Output[map[string]*BuildFolder]{
+		OutputState: o.OutputState,
+	}
 }
 
 func (o BuildFolderMapOutput) MapIndex(k pulumi.StringInput) BuildFolderOutput {

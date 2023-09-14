@@ -60,7 +60,7 @@ public final class RepositoryFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories
@@ -116,7 +116,7 @@ public final class RepositoryFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories
@@ -172,7 +172,7 @@ public final class RepositoryFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories
@@ -228,7 +228,7 @@ public final class RepositoryFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories
@@ -284,7 +284,7 @@ public final class RepositoryFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories
@@ -340,7 +340,7 @@ public final class RepositoryFunctions {
      * ```
      * ## Relevant Links
      * 
-     * - [Azure DevOps Service REST API 6.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-6.0)
+     * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
      * 
      * @deprecated
      * azuredevops.repository.getRepositories has been deprecated in favor of azuredevops.getRepositories
