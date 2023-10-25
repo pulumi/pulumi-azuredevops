@@ -13,12 +13,66 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetServiceendpointAzurecr.Invoke(new()
+        ///     {
+        ///         ProjectId = azuredevops_project.Example.Id,
+        ///         ServiceEndpointName = "Example Azure Container Registry",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["serviceEndpointId"] = example.Apply(getServiceendpointAzurecrResult =&gt; getServiceendpointAzurecrResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceendpointAzurecrResult> InvokeAsync(GetServiceendpointAzurecrArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceendpointAzurecrResult>("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", args ?? new GetServiceendpointAzurecrArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetServiceendpointAzurecr.Invoke(new()
+        ///     {
+        ///         ProjectId = azuredevops_project.Example.Id,
+        ///         ServiceEndpointName = "Example Azure Container Registry",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["serviceEndpointId"] = example.Apply(getServiceendpointAzurecrResult =&gt; getServiceendpointAzurecrResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceendpointAzurecrResult> Invoke(GetServiceendpointAzurecrInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceendpointAzurecrResult>("azuredevops:index/getServiceendpointAzurecr:getServiceendpointAzurecr", args ?? new GetServiceendpointAzurecrInvokeArgs(), options.WithDefaults());

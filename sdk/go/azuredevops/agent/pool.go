@@ -14,6 +14,32 @@ import (
 
 // Manages an agent pool within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := azuredevops.NewPool(ctx, "example", &azuredevops.PoolArgs{
+//				AutoProvision: pulumi.Bool(false),
+//				AutoUpdate:    pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-7.0)

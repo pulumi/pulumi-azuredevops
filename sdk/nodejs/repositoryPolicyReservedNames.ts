@@ -9,6 +9,49 @@ import * as utilities from "./utilities";
  *
  * > If both project and project policy are enabled, the project policy has high priority.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const exampleRepositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", {
+ *     projectId: exampleProject.id,
+ *     enabled: true,
+ *     blocking: true,
+ *     repositoryIds: [exampleGit.id],
+ * });
+ * ```
+ *
+ * # Set project level repository policy
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleRepositoryPolicyReservedNames = new azuredevops.RepositoryPolicyReservedNames("exampleRepositoryPolicyReservedNames", {
+ *     projectId: exampleProject.id,
+ *     enabled: true,
+ *     blocking: true,
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)

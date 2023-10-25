@@ -362,6 +362,25 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         """
         Manages Pipeline Settings for Azure DevOps projects
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_project_pipeline_settings = azuredevops.ProjectPipelineSettings("exampleProjectPipelineSettings",
+            project_id=example_project.id,
+            enforce_job_scope=True,
+            enforce_referenced_repo_scoped_token=False,
+            enforce_settable_var=True,
+            publish_pipeline_metadata=False,
+            status_badges_are_private=True)
+        ```
         ## Relevant Links
 
         No official documentation available
@@ -402,6 +421,25 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         """
         Manages Pipeline Settings for Azure DevOps projects
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_project_pipeline_settings = azuredevops.ProjectPipelineSettings("exampleProjectPipelineSettings",
+            project_id=example_project.id,
+            enforce_job_scope=True,
+            enforce_referenced_repo_scoped_token=False,
+            enforce_settable_var=True,
+            publish_pipeline_metadata=False,
+            status_badges_are_private=True)
+        ```
         ## Relevant Links
 
         No official documentation available

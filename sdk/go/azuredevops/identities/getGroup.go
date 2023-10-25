@@ -14,6 +14,48 @@ import (
 
 // Use this data source to access information about an existing Group within Azure DevOps
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//				Name: pulumi.StringRef("Example Project"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleGroup, err := azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//				ProjectId: pulumi.StringRef(exampleProject.Id),
+//				Name:      "Example Group",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("groupId", exampleGroup.Id)
+//			ctx.Export("groupDescriptor", exampleGroup.Descriptor)
+//			_, err = azuredevops.LookupGroup(ctx, &azuredevops.LookupGroupArgs{
+//				Name: "Project Collection Administrators",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("collectionGroupId", exampleGroup.Id)
+//			ctx.Export("collectionGroupDescriptor", exampleGroup.Descriptor)
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)

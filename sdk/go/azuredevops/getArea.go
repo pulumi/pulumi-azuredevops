@@ -14,6 +14,41 @@ import (
 
 // Use this data source to access information about an existing Area (Component) within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_ = exampleProject.ID().ApplyT(func(id string) (azuredevops.GetAreaResult, error) {
+//				return azuredevops.GetAreaOutput(ctx, azuredevops.GetAreaOutputArgs{
+//					ProjectId:     id,
+//					Path:          "/",
+//					FetchChildren: false,
+//				}, nil), nil
+//			}).(azuredevops.GetAreaResultOutput)
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)

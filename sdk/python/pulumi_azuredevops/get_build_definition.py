@@ -178,6 +178,18 @@ def get_build_definition(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Build Definition.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example_project = azuredevops.get_project(name="Example Project")
+    example_build_definition = azuredevops.get_build_definition(project_id=example_project.id,
+        name="existing")
+    pulumi.export("id", example_build_definition.id)
+    ```
+
 
     :param str name: The name of this Build Definition.
     :param str path: The path of the build definition. Default to `\\`.
@@ -212,6 +224,18 @@ def get_build_definition_output(name: Optional[pulumi.Input[str]] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBuildDefinitionResult]:
     """
     Use this data source to access information about an existing Build Definition.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example_project = azuredevops.get_project(name="Example Project")
+    example_build_definition = azuredevops.get_build_definition(project_id=example_project.id,
+        name="existing")
+    pulumi.export("id", example_build_definition.id)
+    ```
 
 
     :param str name: The name of this Build Definition.

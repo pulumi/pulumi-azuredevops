@@ -8,6 +8,138 @@ import * as utilities from "./utilities";
  * Manages a business hours check on a resource within Azure DevOps.
  *
  * ## Example Usage
+ * ### Protect a service connection
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleServiceEndpointGeneric = new azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric", {
+ *     projectId: exampleProject.id,
+ *     serverUrl: "https://some-server.example.com",
+ *     username: "username",
+ *     password: "password",
+ *     serviceEndpointName: "Example Generic",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
+ *     projectId: exampleProject.id,
+ *     displayName: "Managed by Terraform",
+ *     targetResourceId: exampleServiceEndpointGeneric.id,
+ *     targetResourceType: "endpoint",
+ *     startTime: "07:00",
+ *     endTime: "15:30",
+ *     timeZone: "UTC",
+ *     monday: true,
+ *     tuesday: true,
+ *     timeout: 1440,
+ * });
+ * ```
+ * ### Protect an environment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleEnvironment = new azuredevops.Environment("exampleEnvironment", {projectId: exampleProject.id});
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
+ *     projectId: exampleProject.id,
+ *     displayName: "Managed by Terraform",
+ *     targetResourceId: exampleEnvironment.id,
+ *     targetResourceType: "environment",
+ *     startTime: "07:00",
+ *     endTime: "15:30",
+ *     timeZone: "UTC",
+ *     monday: true,
+ *     tuesday: true,
+ * });
+ * ```
+ * ### Protect an agent queue
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const examplePool = new azuredevops.Pool("examplePool", {});
+ * const exampleQueue = new azuredevops.Queue("exampleQueue", {
+ *     projectId: exampleProject.id,
+ *     agentPoolId: examplePool.id,
+ * });
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
+ *     projectId: exampleProject.id,
+ *     displayName: "Managed by Terraform",
+ *     targetResourceId: exampleQueue.id,
+ *     targetResourceType: "queue",
+ *     startTime: "07:00",
+ *     endTime: "15:30",
+ *     timeZone: "UTC",
+ *     monday: true,
+ *     tuesday: true,
+ * });
+ * ```
+ * ### Protect a repository
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
+ *     projectId: exampleProject.id,
+ *     displayName: "Managed by Terraform",
+ *     targetResourceId: pulumi.interpolate`${exampleProject.id}.${exampleGit.id}`,
+ *     targetResourceType: "repository",
+ *     startTime: "07:00",
+ *     endTime: "15:30",
+ *     timeZone: "UTC",
+ *     monday: true,
+ *     tuesday: true,
+ * });
+ * ```
+ * ### Protect a variable group
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleVariableGroup = new azuredevops.VariableGroup("exampleVariableGroup", {
+ *     projectId: exampleProject.id,
+ *     description: "Example Variable Group Description",
+ *     allowAccess: true,
+ *     variables: [
+ *         {
+ *             name: "key1",
+ *             value: "val1",
+ *         },
+ *         {
+ *             name: "key2",
+ *             secretValue: "val2",
+ *             isSecret: true,
+ *         },
+ *     ],
+ * });
+ * const exampleCheckBusinessHours = new azuredevops.CheckBusinessHours("exampleCheckBusinessHours", {
+ *     projectId: exampleProject.id,
+ *     displayName: "Managed by Terraform",
+ *     targetResourceId: exampleVariableGroup.id,
+ *     targetResourceType: "variablegroup",
+ *     startTime: "07:00",
+ *     endTime: "15:30",
+ *     timeZone: "UTC",
+ *     monday: true,
+ *     tuesday: true,
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Define approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)

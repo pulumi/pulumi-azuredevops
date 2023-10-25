@@ -284,6 +284,24 @@ class ServiceEndpointNpm(pulumi.CustomResource):
         """
         Manages a npm service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_npm = azuredevops.ServiceEndpointNpm("exampleServiceEndpointNpm",
+            project_id=example_project.id,
+            service_endpoint_name="Example npm",
+            url="https://registry.npmjs.org",
+            access_token="00000000-0000-0000-0000-000000000000",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -315,6 +333,24 @@ class ServiceEndpointNpm(pulumi.CustomResource):
         """
         Manages a npm service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_npm = azuredevops.ServiceEndpointNpm("exampleServiceEndpointNpm",
+            project_id=example_project.id,
+            service_endpoint_name="Example npm",
+            url="https://registry.npmjs.org",
+            access_token="00000000-0000-0000-0000-000000000000",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

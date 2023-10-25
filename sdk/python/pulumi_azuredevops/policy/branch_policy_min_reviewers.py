@@ -215,6 +215,46 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         """
         Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_branch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers("exampleBranchPolicyMinReviewers",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(
+                reviewer_count=7,
+                submitter_can_vote=False,
+                last_pusher_cannot_approve=True,
+                allow_completion_with_rejects_or_waits=False,
+                on_push_reset_approved_votes=True,
+                on_last_iteration_require_vote=False,
+                scopes=[
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
+                        repository_id=None,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
@@ -243,6 +283,46 @@ class BranchPolicyMinReviewers(pulumi.CustomResource):
         """
         Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_branch_policy_min_reviewers = azuredevops.BranchPolicyMinReviewers("exampleBranchPolicyMinReviewers",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyMinReviewersSettingsArgs(
+                reviewer_count=7,
+                submitter_can_vote=False,
+                last_pusher_cannot_approve=True,
+                allow_completion_with_rejects_or_waits=False,
+                on_push_reset_approved_votes=True,
+                on_last_iteration_require_vote=False,
+                scopes=[
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
+                        repository_id=None,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyMinReviewersSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

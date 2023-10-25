@@ -375,6 +375,22 @@ class CheckApproval(pulumi.CustomResource):
         Manages a Approval Check.
 
         ## Example Usage
+        ### Protect an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_group = azuredevops.Group("exampleGroup", display_name="some-azdo-group")
+        example_check_approval = azuredevops.CheckApproval("exampleCheckApproval",
+            project_id=example_project.id,
+            target_resource_id=example_environment.id,
+            target_resource_type="environment",
+            requester_can_approve=True,
+            approvers=[example_group.origin_id])
+        ```
 
         ## Import
 
@@ -401,6 +417,22 @@ class CheckApproval(pulumi.CustomResource):
         Manages a Approval Check.
 
         ## Example Usage
+        ### Protect an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_group = azuredevops.Group("exampleGroup", display_name="some-azdo-group")
+        example_check_approval = azuredevops.CheckApproval("exampleCheckApproval",
+            project_id=example_project.id,
+            target_resource_id=example_environment.id,
+            target_resource_type="environment",
+            requester_can_approve=True,
+            approvers=[example_group.origin_id])
+        ```
 
         ## Import
 

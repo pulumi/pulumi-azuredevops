@@ -7,6 +7,32 @@ import * as utilities from "./utilities";
 /**
  * Manage files within an Azure DevOps Git repository.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const exampleGitRepositoryFile = new azuredevops.GitRepositoryFile("exampleGitRepositoryFile", {
+ *     repositoryId: exampleGit.id,
+ *     file: ".gitignore",
+ *     content: "**&#47;*.tfstate",
+ *     branch: "refs/heads/master",
+ *     commitMessage: "First commit",
+ *     overwriteOnCreate: false,
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)

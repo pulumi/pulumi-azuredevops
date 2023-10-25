@@ -15,6 +15,45 @@ import (
 
 // Manages Pipeline Settings for Azure DevOps projects
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewProjectPipelineSettings(ctx, "exampleProjectPipelineSettings", &azuredevops.ProjectPipelineSettingsArgs{
+//				ProjectId:                        exampleProject.ID(),
+//				EnforceJobScope:                  pulumi.Bool(true),
+//				EnforceReferencedRepoScopedToken: pulumi.Bool(false),
+//				EnforceSettableVar:               pulumi.Bool(true),
+//				PublishPipelineMetadata:          pulumi.Bool(false),
+//				StatusBadgesArePrivate:           pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // # No official documentation available

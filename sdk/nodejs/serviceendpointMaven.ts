@@ -9,6 +9,55 @@ import * as utilities from "./utilities";
 /**
  * Manages a Maven service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Maven instance.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceendpointMaven = new azuredevops.ServiceendpointMaven("exampleServiceendpointMaven", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "maven-example",
+ *     description: "Service Endpoint for 'Maven' (Managed by Terraform)",
+ *     url: "https://example.com",
+ *     repositoryId: "example",
+ *     authenticationToken: {
+ *         token: "0000000000000000000000000000000000000000",
+ *     },
+ * });
+ * ```
+ *
+ * Alternatively a username and password may be used.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceendpointMaven = new azuredevops.ServiceendpointMaven("exampleServiceendpointMaven", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "maven-example",
+ *     description: "Service Endpoint for 'Maven' (Managed by Terraform)",
+ *     url: "https://example.com",
+ *     repositoryId: "example",
+ *     authenticationBasic: {
+ *         username: "username",
+ *         password: "password",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Service Connection Maven can be imported using the `projectId/id` or or `projectName/id`, e.g.

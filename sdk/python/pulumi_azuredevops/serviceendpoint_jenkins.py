@@ -351,6 +351,27 @@ class ServiceendpointJenkins(pulumi.CustomResource):
         """
         Manages a Jenkins service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Jenkins instance.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_jenkins = azuredevops.ServiceendpointJenkins("exampleServiceendpointJenkins",
+            project_id=example_project.id,
+            service_endpoint_name="jenkins-example",
+            description="Service Endpoint for 'Jenkins' (Managed by Terraform)",
+            url="https://example.com",
+            accept_untrusted_certs=False,
+            username="username",
+            password="password")
+        ```
+
         ## Import
 
         Service Connection Jenkins can be imported using the `projectId/id` or or `projectName/id`, e.g.
@@ -376,6 +397,27 @@ class ServiceendpointJenkins(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Jenkins service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Jenkins instance.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_jenkins = azuredevops.ServiceendpointJenkins("exampleServiceendpointJenkins",
+            project_id=example_project.id,
+            service_endpoint_name="jenkins-example",
+            description="Service Endpoint for 'Jenkins' (Managed by Terraform)",
+            url="https://example.com",
+            accept_untrusted_certs=False,
+            username="username",
+            password="password")
+        ```
 
         ## Import
 

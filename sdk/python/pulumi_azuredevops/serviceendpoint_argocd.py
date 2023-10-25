@@ -334,6 +334,46 @@ class ServiceendpointArgocd(pulumi.CustomResource):
         """
         Manages a ArgoCD service endpoint within Azure DevOps. Using this service endpoint requires you to first install [Argo CD Extension](https://marketplace.visualstudio.com/items?itemName=scb-tomasmortensen.vsix-argocd).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_serviceendpoint_argocd = azuredevops.ServiceendpointArgocd("exampleServiceendpointArgocd",
+            project_id=example_project.id,
+            service_endpoint_name="Example ArgoCD",
+            description="Managed by Terraform",
+            url="https://argocd.my.com",
+            authentication_token=azuredevops.ServiceendpointArgocdAuthenticationTokenArgs(
+                token="0000000000000000000000000000000000000000",
+            ))
+        ```
+        Alternatively a username and password may be used.
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_argocd = azuredevops.ServiceendpointArgocd("exampleServiceendpointArgocd",
+            project_id=example_project.id,
+            service_endpoint_name="Example ArgoCD",
+            description="Managed by Terraform",
+            url="https://argocd.my.com",
+            authentication_basic=azuredevops.ServiceendpointArgocdAuthenticationBasicArgs(
+                username="username",
+                password="password",
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
@@ -368,6 +408,46 @@ class ServiceendpointArgocd(pulumi.CustomResource):
         """
         Manages a ArgoCD service endpoint within Azure DevOps. Using this service endpoint requires you to first install [Argo CD Extension](https://marketplace.visualstudio.com/items?itemName=scb-tomasmortensen.vsix-argocd).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_serviceendpoint_argocd = azuredevops.ServiceendpointArgocd("exampleServiceendpointArgocd",
+            project_id=example_project.id,
+            service_endpoint_name="Example ArgoCD",
+            description="Managed by Terraform",
+            url="https://argocd.my.com",
+            authentication_token=azuredevops.ServiceendpointArgocdAuthenticationTokenArgs(
+                token="0000000000000000000000000000000000000000",
+            ))
+        ```
+        Alternatively a username and password may be used.
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_argocd = azuredevops.ServiceendpointArgocd("exampleServiceendpointArgocd",
+            project_id=example_project.id,
+            service_endpoint_name="Example ArgoCD",
+            description="Managed by Terraform",
+            url="https://argocd.my.com",
+            authentication_basic=azuredevops.ServiceendpointArgocdAuthenticationBasicArgs(
+                username="username",
+                password="password",
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)

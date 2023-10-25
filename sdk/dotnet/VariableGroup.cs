@@ -10,6 +10,105 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Description = "Example Variable Group Description",
+    ///         AllowAccess = true,
+    ///         Variables = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///             {
+    ///                 Name = "key1",
+    ///                 Value = "val1",
+    ///             },
+    ///             new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///             {
+    ///                 Name = "key2",
+    ///                 SecretValue = "val2",
+    ///                 IsSecret = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With AzureRM Key Vault
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example AzureRM",
+    ///         Description = "Managed by Terraform",
+    ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
+    ///         {
+    ///             Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
+    ///             Serviceprincipalkey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+    ///         },
+    ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         AzurermSubscriptionName = "Example Subscription Name",
+    ///     });
+    /// 
+    ///     var exampleVariableGroup = new AzureDevOps.VariableGroup("exampleVariableGroup", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Description = "Example Variable Group Description",
+    ///         AllowAccess = true,
+    ///         KeyVault = new AzureDevOps.Inputs.VariableGroupKeyVaultArgs
+    ///         {
+    ///             Name = "example-kv",
+    ///             ServiceEndpointId = exampleServiceEndpointAzureRM.Id,
+    ///         },
+    ///         Variables = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///             {
+    ///                 Name = "key1",
+    ///             },
+    ///             new AzureDevOps.Inputs.VariableGroupVariableArgs
+    ///             {
+    ///                 Name = "key2",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)

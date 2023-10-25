@@ -1116,8 +1116,15 @@ export interface GetUsersUser {
      *
      * List of possible subject types
      *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      *
      * List of possible origins
+     *
+     * ```typescript
+     * import * as pulumi from "@pulumi/pulumi";
+     * ```
      */
     originId?: string;
     /**
@@ -1952,8 +1959,15 @@ export namespace Identities {
          *
          * List of possible subject types
          *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          *
          * List of possible origins
+         *
+         * ```typescript
+         * import * as pulumi from "@pulumi/pulumi";
+         * ```
          */
         originId?: string;
         /**

@@ -19,6 +19,152 @@ namespace Pulumi.AzureDevOps
     /// Permission for Work Item Queries within Azure DevOps can be applied on two different levels.
     /// Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
     /// 
+    /// ### Project level
+    /// 
+    /// Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+    /// 
+    /// #### Example usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var project_wiq_root_permissions = new AzureDevOps.WorkItemQueryPermissions("project-wiq-root-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "CreateRepository", "Deny" },
+    ///             { "DeleteRepository", "Deny" },
+    ///             { "RenameRepository", "NotSet" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Shared Queries folder level
+    /// 
+    /// Permissions for a specific folder inside Shared Queries are specified if the arguments `project_id` and `path` are set.
+    /// 
+    /// &gt; **Note** To set permissions for the Shared Queries folder itself use `/` as path value
+    /// 
+    /// #### Example usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.WorkItemQueryPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Path = "/Team",
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "Contribute", "Allow" },
+    ///             { "Delete", "Deny" },
+    ///             { "Read", "NotSet" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_contributors = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Contributors",
+    ///     });
+    /// 
+    ///     var example_project_permissions = new AzureDevOps.WorkItemQueryPermissions("example-project-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "Read", "Allow" },
+    ///             { "Delete", "Deny" },
+    ///             { "Contribute", "Deny" },
+    ///             { "ManagePermissions", "Deny" },
+    ///         },
+    ///     });
+    /// 
+    ///     var example_sharedqueries_permissions = new AzureDevOps.WorkItemQueryPermissions("example-sharedqueries-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Path = "/",
+    ///         Principal = example_contributors.Apply(example_contributors =&gt; example_contributors.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "Read", "Allow" },
+    ///             { "Delete", "Deny" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

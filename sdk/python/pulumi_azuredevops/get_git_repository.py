@@ -156,6 +156,16 @@ def get_git_repository(name: Optional[str] = None,
     Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
     To read information about **multiple** Git Repositories use the data source `get_repositories`
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_project(name="Example Project")
+    example_single_repo = azuredevops.get_git_repository(project_id=example.id,
+        name="Example Repository")
+    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -191,6 +201,16 @@ def get_git_repository_output(name: Optional[pulumi.Input[str]] = None,
     Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
     To read information about **multiple** Git Repositories use the data source `get_repositories`
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_project(name="Example Project")
+    example_single_repo = azuredevops.get_git_repository(project_id=example.id,
+        name="Example Repository")
+    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)

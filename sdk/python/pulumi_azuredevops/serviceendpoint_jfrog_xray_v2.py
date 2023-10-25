@@ -336,6 +336,47 @@ class ServiceendpointJfrogXrayV2(pulumi.CustomResource):
 
         > **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2",
+            project_id=example_project.id,
+            service_endpoint_name="Example Artifactory",
+            description="Managed by Terraform",
+            url="https://artifactory.my.com",
+            authentication_token=azuredevops.ServiceendpointJfrogXrayV2AuthenticationTokenArgs(
+                token="0000000000000000000000000000000000000000",
+            ))
+        ```
+        Alternatively a username and password may be used.
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2",
+            project_id=example_project.id,
+            service_endpoint_name="Example Artifactory",
+            description="Managed by Terraform",
+            url="https://artifactory.my.com",
+            authentication_basic=azuredevops.ServiceendpointJfrogXrayV2AuthenticationBasicArgs(
+                username="username",
+                password="password",
+            ))
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)
@@ -371,6 +412,47 @@ class ServiceendpointJfrogXrayV2(pulumi.CustomResource):
 
         > **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2",
+            project_id=example_project.id,
+            service_endpoint_name="Example Artifactory",
+            description="Managed by Terraform",
+            url="https://artifactory.my.com",
+            authentication_token=azuredevops.ServiceendpointJfrogXrayV2AuthenticationTokenArgs(
+                token="0000000000000000000000000000000000000000",
+            ))
+        ```
+        Alternatively a username and password may be used.
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_jfrog_xray_v2 = azuredevops.ServiceendpointJfrogXrayV2("exampleServiceendpointJfrogXrayV2",
+            project_id=example_project.id,
+            service_endpoint_name="Example Artifactory",
+            description="Managed by Terraform",
+            url="https://artifactory.my.com",
+            authentication_basic=azuredevops.ServiceendpointJfrogXrayV2AuthenticationBasicArgs(
+                username="username",
+                password="password",
+            ))
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)

@@ -328,6 +328,22 @@ class Project(pulumi.CustomResource):
         """
         Manages a project within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            description="Managed by Terraform",
+            features={
+                "artifacts": "disabled",
+                "testplans": "disabled",
+            },
+            version_control="Git",
+            visibility="private",
+            work_item_template="Agile")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-7.0)
@@ -374,6 +390,22 @@ class Project(pulumi.CustomResource):
         """
         Manages a project within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            description="Managed by Terraform",
+            features={
+                "artifacts": "disabled",
+                "testplans": "disabled",
+            },
+            version_control="Git",
+            visibility="private",
+            work_item_template="Agile")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-7.0)

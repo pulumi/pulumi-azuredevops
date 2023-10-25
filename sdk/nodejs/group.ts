@@ -7,6 +7,31 @@ import * as utilities from "./utilities";
 /**
  * Manages a group within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
+ *     name: "Readers",
+ * });
+ * const example-contributors = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
+ *     name: "Contributors",
+ * });
+ * const exampleGroup = new azuredevops.Group("exampleGroup", {
+ *     scope: exampleProject.id,
+ *     displayName: "Example group",
+ *     description: "Example description",
+ *     members: [
+ *         example_readers.apply(example_readers => example_readers.descriptor),
+ *         example_contributors.apply(example_contributors => example_contributors.descriptor),
+ *     ],
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-7.0)

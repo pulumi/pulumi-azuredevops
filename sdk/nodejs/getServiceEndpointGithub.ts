@@ -8,6 +8,36 @@ import * as utilities from "./utilities";
  * Use this data source to access information about an existing GitHub service Endpoint.
  *
  * ## Example Usage
+ * ### By Service Endpoint ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const sample = azuredevops.getProject({
+ *     name: "Sample Project",
+ * });
+ * const serviceendpoint = sample.then(sample => azuredevops.getServiceEndpointGithub({
+ *     projectId: sample.id,
+ *     serviceEndpointId: "00000000-0000-0000-0000-000000000000",
+ * }));
+ * export const serviceEndpointName = serviceendpoint.then(serviceendpoint => serviceendpoint.serviceEndpointName);
+ * ```
+ * ### By Service Endpoint Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const sample = azuredevops.getProject({
+ *     name: "Sample Project",
+ * });
+ * const serviceendpoint = sample.then(sample => azuredevops.getServiceEndpointGithub({
+ *     projectId: sample.id,
+ *     serviceEndpointName: "Example-Service-Endpoint",
+ * }));
+ * export const serviceEndpointId = serviceendpoint.then(serviceendpoint => serviceendpoint.id);
+ * ```
  */
 export function getServiceEndpointGithub(args: GetServiceEndpointGithubArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointGithubResult> {
 
@@ -64,6 +94,36 @@ export interface GetServiceEndpointGithubResult {
  * Use this data source to access information about an existing GitHub service Endpoint.
  *
  * ## Example Usage
+ * ### By Service Endpoint ID
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const sample = azuredevops.getProject({
+ *     name: "Sample Project",
+ * });
+ * const serviceendpoint = sample.then(sample => azuredevops.getServiceEndpointGithub({
+ *     projectId: sample.id,
+ *     serviceEndpointId: "00000000-0000-0000-0000-000000000000",
+ * }));
+ * export const serviceEndpointName = serviceendpoint.then(serviceendpoint => serviceendpoint.serviceEndpointName);
+ * ```
+ * ### By Service Endpoint Name
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const sample = azuredevops.getProject({
+ *     name: "Sample Project",
+ * });
+ * const serviceendpoint = sample.then(sample => azuredevops.getServiceEndpointGithub({
+ *     projectId: sample.id,
+ *     serviceEndpointName: "Example-Service-Endpoint",
+ * }));
+ * export const serviceEndpointId = serviceendpoint.then(serviceendpoint => serviceendpoint.id);
+ * ```
  */
 export function getServiceEndpointGithubOutput(args: GetServiceEndpointGithubOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointGithubResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointGithub(a, opts))

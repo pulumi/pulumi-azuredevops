@@ -15,6 +15,46 @@ import (
 
 // Manages a Azure Container Registry service endpoint within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointAzureEcr(ctx, "exampleServiceEndpointAzureEcr", &azuredevops.ServiceEndpointAzureEcrArgs{
+//				ProjectId:               exampleProject.ID(),
+//				ServiceEndpointName:     pulumi.String("Example AzureCR"),
+//				ResourceGroup:           pulumi.String("example-rg"),
+//				AzurecrSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurecrName:             pulumi.String("ExampleAcr"),
+//				AzurecrSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				AzurecrSubscriptionName: pulumi.String("subscription name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

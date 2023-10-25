@@ -12,6 +12,58 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Configure a comment resolution policy for your branch within Azure DevOps project.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBranchPolicyCommentResolution = new AzureDevOps.BranchPolicyCommentResolution("exampleBranchPolicyCommentResolution", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         Settings = new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsArgs
+    ///         {
+    ///             Scopes = new[]
+    ///             {
+    ///                 new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = exampleGit.DefaultBranch,
+    ///                     MatchType = "Exact",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = "refs/heads/releases",
+    ///                     MatchType = "Prefix",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyCommentResolutionSettingsScopeArgs
+    ///                 {
+    ///                     MatchType = "DefaultBranch",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

@@ -297,6 +297,30 @@ class AreaPermissions(pulumi.CustomResource):
         Permission for Areas within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_project_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_root_permissions = azuredevops.AreaPermissions("example-root-permissions",
+            project_id=example.id,
+            principal=example_project_readers.id,
+            path="/",
+            permissions={
+                "CREATE_CHILDREN": "Deny",
+                "GENERIC_READ": "Allow",
+                "DELETE": "Deny",
+                "WORK_ITEM_READ": "Allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -344,6 +368,30 @@ class AreaPermissions(pulumi.CustomResource):
         Permission for Areas within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_project_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_root_permissions = azuredevops.AreaPermissions("example-root-permissions",
+            project_id=example.id,
+            principal=example_project_readers.id,
+            path="/",
+            permissions={
+                "CREATE_CHILDREN": "Deny",
+                "GENERIC_READ": "Allow",
+                "DELETE": "Deny",
+                "WORK_ITEM_READ": "Allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

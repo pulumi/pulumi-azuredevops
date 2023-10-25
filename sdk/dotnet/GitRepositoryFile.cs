@@ -12,6 +12,44 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manage files within an Azure DevOps Git repository.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleGitRepositoryFile = new AzureDevOps.GitRepositoryFile("exampleGitRepositoryFile", new()
+    ///     {
+    ///         RepositoryId = exampleGit.Id,
+    ///         File = ".gitignore",
+    ///         Content = "**/*.tfstate",
+    ///         Branch = "refs/heads/master",
+    ///         CommitMessage = "First commit",
+    ///         OverwriteOnCreate = false,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)

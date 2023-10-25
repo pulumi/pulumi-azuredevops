@@ -15,6 +15,44 @@ import (
 
 // Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointAws(ctx, "exampleServiceEndpointAws", &azuredevops.ServiceEndpointAwsArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example AWS"),
+//				AccessKeyId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				SecretAccessKey:     pulumi.String("accesskey"),
+//				Description:         pulumi.String("Managed by AzureDevOps"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)

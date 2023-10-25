@@ -14,6 +14,44 @@ import (
 
 // Use this data source to access information about an existing Agent Queue within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAgentQueue := azuredevops.GetAgentQueueOutput(ctx, azuredevops.GetAgentQueueOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Example Agent Queue"),
+//			}, nil)
+//			ctx.Export("name", exampleAgentQueue.ApplyT(func(exampleAgentQueue azuredevops.GetAgentQueueResult) (*string, error) {
+//				return &exampleAgentQueue.Name, nil
+//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("poolId", exampleAgentQueue.ApplyT(func(exampleAgentQueue azuredevops.GetAgentQueueResult) (*int, error) {
+//				return &exampleAgentQueue.AgentPoolId, nil
+//			}).(pulumi.IntPtrOutput))
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)

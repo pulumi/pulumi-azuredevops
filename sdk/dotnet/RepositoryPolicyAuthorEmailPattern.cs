@@ -12,6 +12,84 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manage author email pattern repository policy within Azure DevOps project.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleRepositoryPolicyAuthorEmailPattern = new AzureDevOps.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         AuthorEmailPatterns = new[]
+    ///         {
+    ///             "user1@test.com",
+    ///             "user2@test.com",
+    ///         },
+    ///         RepositoryIds = new[]
+    ///         {
+    ///             exampleGit.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ## Set project level repository policy
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleRepositoryPolicyAuthorEmailPattern = new AzureDevOps.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         AuthorEmailPatterns = new[]
+    ///         {
+    ///             "user1@test.com",
+    ///             "user2@test.com",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)

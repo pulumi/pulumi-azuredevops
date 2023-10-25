@@ -325,6 +325,47 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
 
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=True,
+            ),
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=example_git.id,
+                branch_name=example_git.default_branch,
+                yml_path="azure-pipelines.yml",
+            ))
+        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions",
+            project_id=example_project.id,
+            principal=example_readers.id,
+            build_definition_id=example_build_definition.id,
+            permissions={
+                "ViewBuilds": "Allow",
+                "EditBuildQuality": "Deny",
+                "DeleteBuilds": "Deny",
+                "StopBuilds": "Allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -374,6 +415,47 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
 
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=True,
+            ),
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=example_git.id,
+                branch_name=example_git.default_branch,
+                yml_path="azure-pipelines.yml",
+            ))
+        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions",
+            project_id=example_project.id,
+            principal=example_readers.id,
+            build_definition_id=example_build_definition.id,
+            permissions={
+                "ViewBuilds": "Allow",
+                "EditBuildQuality": "Deny",
+                "DeleteBuilds": "Deny",
+                "StopBuilds": "Allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

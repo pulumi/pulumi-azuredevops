@@ -12,6 +12,37 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages an Incoming WebHook service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to subscribe to a webhook event.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleServiceendpointIncomingwebhook = new AzureDevOps.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         WebhookName = "example_webhook",
+    ///         Secret = "secret",
+    ///         HttpHeader = "X-Hub-Signature",
+    ///         ServiceEndpointName = "Example IncomingWebhook",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Azure DevOps Service Endpoint Incoming WebHook can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**

@@ -220,6 +220,40 @@ class CheckExclusiveLock(pulumi.CustomResource):
         Adding an exclusive lock will only allow a single stage to utilize this resource at a time. If multiple stages are waiting on the lock, only the latest will run. All others will be canceled.
 
         ## Example Usage
+        ### Add Exclusive Lock to an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
+            server_url="https://some-server.example.com",
+            username="username",
+            password="password",
+            service_endpoint_name="Example Generic",
+            description="Managed by Terraform")
+        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock",
+            project_id=example_project.id,
+            target_resource_id=example_service_endpoint_generic.id,
+            target_resource_type="endpoint",
+            timeout=43200)
+        ```
+        ### Protect an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock",
+            project_id=example_project.id,
+            target_resource_id=example_environment.id,
+            target_resource_type="environment",
+            timeout=43200)
+        ```
 
         ## Import
 
@@ -244,6 +278,40 @@ class CheckExclusiveLock(pulumi.CustomResource):
         Adding an exclusive lock will only allow a single stage to utilize this resource at a time. If multiple stages are waiting on the lock, only the latest will run. All others will be canceled.
 
         ## Example Usage
+        ### Add Exclusive Lock to an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
+            server_url="https://some-server.example.com",
+            username="username",
+            password="password",
+            service_endpoint_name="Example Generic",
+            description="Managed by Terraform")
+        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock",
+            project_id=example_project.id,
+            target_resource_id=example_service_endpoint_generic.id,
+            target_resource_type="endpoint",
+            timeout=43200)
+        ```
+        ### Protect an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock",
+            project_id=example_project.id,
+            target_resource_id=example_environment.id,
+            target_resource_type="environment",
+            timeout=43200)
+        ```
 
         ## Import
 

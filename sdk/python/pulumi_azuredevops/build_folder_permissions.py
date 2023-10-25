@@ -321,6 +321,44 @@ class BuildFolderPermissions(pulumi.CustomResource):
 
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_build_folder = azuredevops.BuildFolder("exampleBuildFolder",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            description="ExampleFolder description")
+        example_build_folder_permissions = azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            principal=example_readers.id,
+            permissions={
+                "ViewBuilds": "Allow",
+                "EditBuildQuality": "Allow",
+                "RetainIndefinitely": "Allow",
+                "DeleteBuilds": "Deny",
+                "ManageBuildQualities": "Deny",
+                "DestroyBuilds": "Deny",
+                "UpdateBuildInformation": "Deny",
+                "QueueBuilds": "Allow",
+                "ManageBuildQueue": "Deny",
+                "StopBuilds": "Allow",
+                "ViewBuildDefinition": "Allow",
+                "EditBuildDefinition": "Deny",
+                "DeleteBuildDefinition": "Deny",
+                "AdministerBuildPermissions": "NotSet",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -370,6 +408,44 @@ class BuildFolderPermissions(pulumi.CustomResource):
 
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_build_folder = azuredevops.BuildFolder("exampleBuildFolder",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            description="ExampleFolder description")
+        example_build_folder_permissions = azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            principal=example_readers.id,
+            permissions={
+                "ViewBuilds": "Allow",
+                "EditBuildQuality": "Allow",
+                "RetainIndefinitely": "Allow",
+                "DeleteBuilds": "Deny",
+                "ManageBuildQualities": "Deny",
+                "DestroyBuilds": "Deny",
+                "UpdateBuildInformation": "Deny",
+                "QueueBuilds": "Allow",
+                "ManageBuildQueue": "Deny",
+                "StopBuilds": "Allow",
+                "ViewBuildDefinition": "Allow",
+                "EditBuildDefinition": "Deny",
+                "DeleteBuildDefinition": "Deny",
+                "AdministerBuildPermissions": "NotSet",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

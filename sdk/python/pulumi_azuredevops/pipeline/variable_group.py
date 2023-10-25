@@ -295,6 +295,72 @@ class VariableGroup(pulumi.CustomResource):
                  variables: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VariableGroupVariableArgs']]]]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
+            project_id=example_project.id,
+            description="Example Variable Group Description",
+            allow_access=True,
+            variables=[
+                azuredevops.VariableGroupVariableArgs(
+                    name="key1",
+                    value="val1",
+                ),
+                azuredevops.VariableGroupVariableArgs(
+                    name="key2",
+                    secret_value="val2",
+                    is_secret=True,
+                ),
+            ])
+        ```
+        ### With AzureRM Key Vault
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
+            description="Managed by Terraform",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid="00000000-0000-0000-0000-000000000000",
+                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
+            project_id=example_project.id,
+            description="Example Variable Group Description",
+            allow_access=True,
+            key_vault=azuredevops.VariableGroupKeyVaultArgs(
+                name="example-kv",
+                service_endpoint_id=example_service_endpoint_azure_rm.id,
+            ),
+            variables=[
+                azuredevops.VariableGroupVariableArgs(
+                    name="key1",
+                ),
+                azuredevops.VariableGroupVariableArgs(
+                    name="key2",
+                ),
+            ])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -341,6 +407,72 @@ class VariableGroup(pulumi.CustomResource):
                  args: VariableGroupArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
+            project_id=example_project.id,
+            description="Example Variable Group Description",
+            allow_access=True,
+            variables=[
+                azuredevops.VariableGroupVariableArgs(
+                    name="key1",
+                    value="val1",
+                ),
+                azuredevops.VariableGroupVariableArgs(
+                    name="key2",
+                    secret_value="val2",
+                    is_secret=True,
+                ),
+            ])
+        ```
+        ### With AzureRM Key Vault
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureRM",
+            description="Managed by Terraform",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid="00000000-0000-0000-0000-000000000000",
+                serviceprincipalkey="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Example Subscription Name")
+        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
+            project_id=example_project.id,
+            description="Example Variable Group Description",
+            allow_access=True,
+            key_vault=azuredevops.VariableGroupKeyVaultArgs(
+                name="example-kv",
+                service_endpoint_id=example_service_endpoint_azure_rm.id,
+            ),
+            variables=[
+                azuredevops.VariableGroupVariableArgs(
+                    name="key1",
+                ),
+                azuredevops.VariableGroupVariableArgs(
+                    name="key2",
+                ),
+            ])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)

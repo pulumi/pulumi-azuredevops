@@ -7,6 +7,27 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to access information about an existing Group within Azure DevOps
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const exampleGroup = exampleProject.then(exampleProject => azuredevops.getGroup({
+ *     projectId: exampleProject.id,
+ *     name: "Example Group",
+ * }));
+ * export const groupId = exampleGroup.then(exampleGroup => exampleGroup.id);
+ * export const groupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * const example-collection-group = azuredevops.getGroup({
+ *     name: "Project Collection Administrators",
+ * });
+ * export const collectionGroupId = exampleGroup.then(exampleGroup => exampleGroup.id);
+ * export const collectionGroupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
@@ -60,6 +81,27 @@ export interface GetGroupResult {
 /**
  * Use this data source to access information about an existing Group within Azure DevOps
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const exampleGroup = exampleProject.then(exampleProject => azuredevops.getGroup({
+ *     projectId: exampleProject.id,
+ *     name: "Example Group",
+ * }));
+ * export const groupId = exampleGroup.then(exampleGroup => exampleGroup.id);
+ * export const groupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * const example-collection-group = azuredevops.getGroup({
+ *     name: "Project Collection Administrators",
+ * });
+ * export const collectionGroupId = exampleGroup.then(exampleGroup => exampleGroup.id);
+ * export const collectionGroupDescriptor = exampleGroup.then(exampleGroup => exampleGroup.descriptor);
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)

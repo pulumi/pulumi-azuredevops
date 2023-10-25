@@ -17,6 +17,102 @@ namespace Pulumi.AzureDevOps
     /// &gt; **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
     /// 
     /// ## Example Usage
+    /// ### Authorization for all pipelines
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var examplePool = new AzureDevOps.Pool("examplePool", new()
+    ///     {
+    ///         AutoProvision = false,
+    ///         AutoUpdate = false,
+    ///     });
+    /// 
+    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         AgentPoolId = examplePool.Id,
+    ///     });
+    /// 
+    ///     var examplePipelineAuthorization = new AzureDevOps.PipelineAuthorization("examplePipelineAuthorization", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ResourceId = exampleQueue.Id,
+    ///         Type = "queue",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Authorization for specific pipeline
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var examplePool = new AzureDevOps.Pool("examplePool", new()
+    ///     {
+    ///         AutoProvision = false,
+    ///         AutoUpdate = false,
+    ///     });
+    /// 
+    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         AgentPoolId = examplePool.Id,
+    ///     });
+    /// 
+    ///     var exampleGitRepository = AzureDevOps.GetGitRepository.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Example Project",
+    ///     });
+    /// 
+    ///     var exampleBuildDefinition = new AzureDevOps.BuildDefinition("exampleBuildDefinition", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Repository = new AzureDevOps.Inputs.BuildDefinitionRepositoryArgs
+    ///         {
+    ///             RepoType = "TfsGit",
+    ///             RepoId = exampleGitRepository.Apply(getGitRepositoryResult =&gt; getGitRepositoryResult.Id),
+    ///             YmlPath = "azure-pipelines.yml",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePipelineAuthorization = new AzureDevOps.PipelineAuthorization("examplePipelineAuthorization", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ResourceId = exampleQueue.Id,
+    ///         Type = "queue",
+    ///         PipelineId = exampleBuildDefinition.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)

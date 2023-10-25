@@ -12,6 +12,33 @@ import * as utilities from "./utilities";
  * Permissions for service hooks within Azure DevOps can be applied on the Organizational level or, if the optional attribute `projectId` is specified, on Project level.
  * Those levels are reflected by specifying (or omitting) values for the argument `projectId`.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: example.id,
+ *     name: "Readers",
+ * });
+ * const example_permissions = new azuredevops.ServicehookPermissions("example-permissions", {
+ *     projectId: example.id,
+ *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     permissions: {
+ *         ViewSubscriptions: "allow",
+ *         EditSubscriptions: "allow",
+ *         DeleteSubscriptions: "allow",
+ *         PublishEvents: "allow",
+ *     },
+ * });
+ * ```
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

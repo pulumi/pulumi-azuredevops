@@ -7,6 +7,17 @@ import * as utilities from "./utilities";
 /**
  * Manages an agent pool within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Pool("example", {
+ *     autoProvision: false,
+ *     autoUpdate: false,
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-7.0)

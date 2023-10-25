@@ -170,6 +170,19 @@ class Environment(pulumi.CustomResource):
         """
         Manages an Environment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
@@ -197,6 +210,19 @@ class Environment(pulumi.CustomResource):
         """
         Manages an Environment.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)

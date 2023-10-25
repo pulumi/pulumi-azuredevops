@@ -16,6 +16,39 @@ namespace Pulumi.AzureDevOps.Repository
         /// Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
         /// To read informations about a **single** Git Repository use the data source `azuredevops.Git`
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var example_all_repos = AzureDevOps.GetRepositories.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         IncludeHidden = true,
+        ///     });
+        /// 
+        ///     var example_single_repo = AzureDevOps.GetRepositories.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -27,6 +60,39 @@ namespace Pulumi.AzureDevOps.Repository
         /// Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
         /// To read informations about a **single** Git Repository use the data source `azuredevops.Git`
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var example_all_repos = AzureDevOps.GetRepositories.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         IncludeHidden = true,
+        ///     });
+        /// 
+        ///     var example_single_repo = AzureDevOps.GetRepositories.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Repository",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)

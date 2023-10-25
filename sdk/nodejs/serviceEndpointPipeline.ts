@@ -9,6 +9,28 @@ import * as utilities from "./utilities";
 /**
  * Manages a Azure DevOps Service Connection service endpoint within Azure DevOps. Allows to run downstream pipelines, monitoring their execution, collecting and consolidating artefacts produced in the delegate pipelines (yaml block `task: RunPipelines@1`). More details on Marketplace page: [RunPipelines](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines)
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointPipeline = new azuredevops.ServiceEndpointPipeline("exampleServiceEndpointPipeline", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example Pipeline Runner",
+ *     organizationName: "Organization Name",
+ *     authPersonal: {
+ *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *     },
+ *     description: "Managed by Terraform",
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

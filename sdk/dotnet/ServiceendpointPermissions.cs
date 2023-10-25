@@ -19,6 +19,71 @@ namespace Pulumi.AzureDevOps
     /// Permission for Service Endpoints within Azure DevOps can be applied on two different levels.
     /// Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `serviceendpoint_id`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_root_permissions = new AzureDevOps.ServiceendpointPermissions("example-root-permissions", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "Use", "allow" },
+    ///             { "Administer", "allow" },
+    ///             { "Create", "allow" },
+    ///             { "ViewAuthorization", "allow" },
+    ///             { "ViewEndpoint", "allow" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleServiceEndpointDockerRegistry = new AzureDevOps.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Docker Hub",
+    ///         DockerUsername = "username",
+    ///         DockerEmail = "email@example.com",
+    ///         DockerPassword = "password",
+    ///         RegistryType = "DockerHub",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.ServiceendpointPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         ServiceendpointId = exampleServiceEndpointDockerRegistry.Id,
+    ///         Permissions = 
+    ///         {
+    ///             { "Use", "allow" },
+    ///             { "Administer", "deny" },
+    ///             { "Create", "deny" },
+    ///             { "ViewAuthorization", "allow" },
+    ///             { "ViewEndpoint", "allow" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

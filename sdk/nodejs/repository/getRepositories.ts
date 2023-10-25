@@ -10,6 +10,24 @@ import * as utilities from "../utilities";
  * Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
  * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const example-all-repos = example.then(example => azuredevops.getRepositories({
+ *     projectId: example.id,
+ *     includeHidden: true,
+ * }));
+ * const example-single-repo = example.then(example => azuredevops.getRepositories({
+ *     projectId: example.id,
+ *     name: "Example Repository",
+ * }));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -71,6 +89,24 @@ export interface GetRepositoriesResult {
  * Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
  * To read informations about a **single** Git Repository use the data source `azuredevops.Git`
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const example-all-repos = example.then(example => azuredevops.getRepositories({
+ *     projectId: example.id,
+ *     includeHidden: true,
+ * }));
+ * const example-single-repo = example.then(example => azuredevops.getRepositories({
+ *     projectId: example.id,
+ *     name: "Example Repository",
+ * }));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)

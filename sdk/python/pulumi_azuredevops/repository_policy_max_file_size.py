@@ -255,6 +255,46 @@ class RepositoryPolicyMaxFileSize(pulumi.CustomResource):
 
         > If both project and project policy are enabled, the repository policy has high priority.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_repository_policy_max_file_size = azuredevops.RepositoryPolicyMaxFileSize("exampleRepositoryPolicyMaxFileSize",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            max_file_size=1,
+            repository_ids=[example_git.id])
+        ```
+
+        # Set project level repository policy
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_repository_policy_max_file_size = azuredevops.RepositoryPolicyMaxFileSize("exampleRepositoryPolicyMaxFileSize",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            max_file_size=1)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)
@@ -286,6 +326,46 @@ class RepositoryPolicyMaxFileSize(pulumi.CustomResource):
 
         > If both project and project policy are enabled, the repository policy has high priority.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_repository_policy_max_file_size = azuredevops.RepositoryPolicyMaxFileSize("exampleRepositoryPolicyMaxFileSize",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            max_file_size=1,
+            repository_ids=[example_git.id])
+        ```
+
+        # Set project level repository policy
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_repository_policy_max_file_size = azuredevops.RepositoryPolicyMaxFileSize("exampleRepositoryPolicyMaxFileSize",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            max_file_size=1)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)

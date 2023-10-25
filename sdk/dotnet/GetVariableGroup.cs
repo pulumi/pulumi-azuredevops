@@ -16,6 +16,37 @@ namespace Pulumi.AzureDevOps
         /// 
         /// &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var exampleVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Variable Group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleVariableGroup.Apply(getVariableGroupResult =&gt; getVariableGroupResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -28,6 +59,37 @@ namespace Pulumi.AzureDevOps
         /// 
         /// &gt; **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&amp;tabs=yaml%2Cbatch#secret-variables)
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var exampleVariableGroup = AzureDevOps.GetVariableGroup.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Variable Group",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = exampleVariableGroup.Apply(getVariableGroupResult =&gt; getVariableGroupResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)

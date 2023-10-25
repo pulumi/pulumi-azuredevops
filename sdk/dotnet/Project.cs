@@ -12,6 +12,31 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages a project within Azure DevOps.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         Description = "Managed by Terraform",
+    ///         Features = 
+    ///         {
+    ///             { "artifacts", "disabled" },
+    ///             { "testplans", "disabled" },
+    ///         },
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-7.0)

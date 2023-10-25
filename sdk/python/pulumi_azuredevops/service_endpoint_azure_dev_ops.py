@@ -326,6 +326,25 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
 
         > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_dev_ops = azuredevops.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps",
+            project_id=example_project.id,
+            service_endpoint_name="Example Azure DevOps",
+            org_url="https://dev.azure.com/testorganization",
+            release_api_url="https://vsrm.dev.azure.com/testorganization",
+            personal_access_token="0000000000000000000000000000000000000000000000000000",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -359,6 +378,25 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
 
         > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_dev_ops = azuredevops.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps",
+            project_id=example_project.id,
+            service_endpoint_name="Example Azure DevOps",
+            org_url="https://dev.azure.com/testorganization",
+            release_api_url="https://vsrm.dev.azure.com/testorganization",
+            personal_access_token="0000000000000000000000000000000000000000000000000000",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

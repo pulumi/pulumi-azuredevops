@@ -36,8 +36,15 @@ class GetUsersUserResult(dict):
                
                List of possible subject types
                
+               ```python
+               import pulumi
+               ```
                
                List of possible origins
+               
+               ```python
+               import pulumi
+               ```
         """
         GetUsersUserResult._configure(
             lambda key, value: pulumi.set(__self__, key, value),
@@ -149,8 +156,15 @@ class GetUsersUserResult(dict):
 
         List of possible subject types
 
+        ```python
+        import pulumi
+        ```
 
         List of possible origins
+
+        ```python
+        import pulumi
+        ```
         """
         return pulumi.get(self, "origin_id")
 

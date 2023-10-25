@@ -12,6 +12,71 @@ import * as utilities from "./utilities";
  * > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
  *
  * ## Example Usage
+ * ### Authorization for all pipelines
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const examplePool = new azuredevops.Pool("examplePool", {
+ *     autoProvision: false,
+ *     autoUpdate: false,
+ * });
+ * const exampleQueue = new azuredevops.Queue("exampleQueue", {
+ *     projectId: exampleProject.id,
+ *     agentPoolId: examplePool.id,
+ * });
+ * const examplePipelineAuthorization = new azuredevops.PipelineAuthorization("examplePipelineAuthorization", {
+ *     projectId: exampleProject.id,
+ *     resourceId: exampleQueue.id,
+ *     type: "queue",
+ * });
+ * ```
+ * ### Authorization for specific pipeline
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const examplePool = new azuredevops.Pool("examplePool", {
+ *     autoProvision: false,
+ *     autoUpdate: false,
+ * });
+ * const exampleQueue = new azuredevops.Queue("exampleQueue", {
+ *     projectId: exampleProject.id,
+ *     agentPoolId: examplePool.id,
+ * });
+ * const exampleGitRepository = azuredevops.getGitRepositoryOutput({
+ *     projectId: exampleProject.id,
+ *     name: "Example Project",
+ * });
+ * const exampleBuildDefinition = new azuredevops.BuildDefinition("exampleBuildDefinition", {
+ *     projectId: exampleProject.id,
+ *     repository: {
+ *         repoType: "TfsGit",
+ *         repoId: exampleGitRepository.apply(exampleGitRepository => exampleGitRepository.id),
+ *         ymlPath: "azure-pipelines.yml",
+ *     },
+ * });
+ * const examplePipelineAuthorization = new azuredevops.PipelineAuthorization("examplePipelineAuthorization", {
+ *     projectId: exampleProject.id,
+ *     resourceId: exampleQueue.id,
+ *     type: "queue",
+ *     pipelineId: exampleBuildDefinition.id,
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)

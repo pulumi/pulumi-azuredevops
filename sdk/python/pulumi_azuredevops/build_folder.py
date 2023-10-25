@@ -171,6 +171,22 @@ class BuildFolder(pulumi.CustomResource):
         """
         Manages a Build Folder.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_build_folder = azuredevops.BuildFolder("exampleBuildFolder",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            description="ExampleFolder description")
+        ```
+
         ## Import
 
         Build Folders can be imported using the `project name/path` or `project id/path`, e.g.
@@ -199,6 +215,22 @@ class BuildFolder(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Build Folder.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_build_folder = azuredevops.BuildFolder("exampleBuildFolder",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            description="ExampleFolder description")
+        ```
 
         ## Import
 

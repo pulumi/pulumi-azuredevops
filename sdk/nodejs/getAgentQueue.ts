@@ -7,6 +7,25 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to access information about an existing Agent Queue within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleAgentQueue = azuredevops.getAgentQueueOutput({
+ *     projectId: exampleProject.id,
+ *     name: "Example Agent Queue",
+ * });
+ * export const name = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.name);
+ * export const poolId = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.agentPoolId);
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)
@@ -58,6 +77,25 @@ export interface GetAgentQueueResult {
 /**
  * Use this data source to access information about an existing Agent Queue within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleAgentQueue = azuredevops.getAgentQueueOutput({
+ *     projectId: exampleProject.id,
+ *     name: "Example Agent Queue",
+ * });
+ * export const name = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.name);
+ * export const poolId = exampleAgentQueue.apply(exampleAgentQueue => exampleAgentQueue.agentPoolId);
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Queues - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues/get?view=azure-devops-rest-7.0)

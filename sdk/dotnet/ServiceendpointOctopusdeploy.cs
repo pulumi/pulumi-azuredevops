@@ -12,6 +12,35 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages an Octopus Deploy service endpoint within Azure DevOps. Using this service endpoint requires you to install [Octopus Deploy](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleServiceendpointOctopusdeploy = new AzureDevOps.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Url = "https://octopus.com",
+    ///         ApiKey = "000000000000000000000000000000000000",
+    ///         ServiceEndpointName = "Example Octopus Deploy",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

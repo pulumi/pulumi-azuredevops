@@ -14,6 +14,71 @@ namespace Pulumi.AzureDevOps
     /// 
     /// &gt; **Note:** Using this service endpoint requires you to first install [JFrog Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-azure-devops-extension).
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleServiceendpointJfrogArtifactoryV2 = new AzureDevOps.ServiceendpointJfrogArtifactoryV2("exampleServiceendpointJfrogArtifactoryV2", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example JFrog Artifactory V2",
+    ///         Description = "Managed by Terraform",
+    ///         Url = "https://artifactory.my.com",
+    ///         AuthenticationToken = new AzureDevOps.Inputs.ServiceendpointJfrogArtifactoryV2AuthenticationTokenArgs
+    ///         {
+    ///             Token = "0000000000000000000000000000000000000000",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// Alternatively a username and password may be used.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleServiceendpointJfrogArtifactoryV2 = new AzureDevOps.ServiceendpointJfrogArtifactoryV2("exampleServiceendpointJfrogArtifactoryV2", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example JFrog Artifactory V2",
+    ///         Description = "Managed by Terraform",
+    ///         Url = "https://artifactory.my.com",
+    ///         AuthenticationBasic = new AzureDevOps.Inputs.ServiceendpointJfrogArtifactoryV2AuthenticationBasicArgs
+    ///         {
+    ///             Username = "username",
+    ///             Password = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&amp;tabs=yaml)

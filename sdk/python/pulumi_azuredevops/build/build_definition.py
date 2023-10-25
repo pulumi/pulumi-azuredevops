@@ -501,6 +501,119 @@ class BuildDefinition(pulumi.CustomResource):
         Manages a Build Definition within Azure DevOps.
 
         ## Example Usage
+        ### Tfs
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
+            project_id=example_project.id,
+            description="Managed by Terraform",
+            allow_access=True,
+            variables=[azuredevops.VariableGroupVariableArgs(
+                name="FOO",
+                value="BAR",
+            )])
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=False,
+            ),
+            schedules=[azuredevops.BuildDefinitionScheduleArgs(
+                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
+                    includes=["master"],
+                    excludes=[
+                        "test",
+                        "regression",
+                    ],
+                )],
+                days_to_builds=[
+                    "Wed",
+                    "Sun",
+                ],
+                schedule_only_with_changes=True,
+                start_hours=10,
+                start_minutes=59,
+                time_zone="(UTC) Coordinated Universal Time",
+            )],
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=example_git.id,
+                branch_name=example_git.default_branch,
+                yml_path="azure-pipelines.yml",
+            ),
+            variable_groups=[example_variable_group.id],
+            variables=[
+                azuredevops.BuildDefinitionVariableArgs(
+                    name="PipelineVariable",
+                    value="Go Microsoft!",
+                ),
+                azuredevops.BuildDefinitionVariableArgs(
+                    name="PipelineSecret",
+                    secret_value="ZGV2cw",
+                    is_secret=True,
+                ),
+            ])
+        ```
+        ### GitHub Enterprise
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Enterprise",
+            url="https://github.contoso.com",
+            description="Managed by Terraform",
+            auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
+                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ))
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=False,
+            ),
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="GitHubEnterprise",
+                repo_id="<GitHub Org>/<Repo Name>",
+                github_enterprise_url="https://github.company.com",
+                branch_name="master",
+                yml_path="azure-pipelines.yml",
+                service_connection_id=example_service_endpoint_git_hub_enterprise.id,
+            ),
+            schedules=[azuredevops.BuildDefinitionScheduleArgs(
+                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
+                    includes=["main"],
+                    excludes=[
+                        "test",
+                        "regression",
+                    ],
+                )],
+                days_to_builds=[
+                    "Wed",
+                    "Sun",
+                ],
+                schedule_only_with_changes=True,
+                start_hours=10,
+                start_minutes=59,
+                time_zone="(UTC) Coordinated Universal Time",
+            )])
+        ```
         ## Remarks
 
         The path attribute can not end in `\\` unless the path is the root value of `\\`.
@@ -553,6 +666,119 @@ class BuildDefinition(pulumi.CustomResource):
         Manages a Build Definition within Azure DevOps.
 
         ## Example Usage
+        ### Tfs
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
+            project_id=example_project.id,
+            description="Managed by Terraform",
+            allow_access=True,
+            variables=[azuredevops.VariableGroupVariableArgs(
+                name="FOO",
+                value="BAR",
+            )])
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=False,
+            ),
+            schedules=[azuredevops.BuildDefinitionScheduleArgs(
+                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
+                    includes=["master"],
+                    excludes=[
+                        "test",
+                        "regression",
+                    ],
+                )],
+                days_to_builds=[
+                    "Wed",
+                    "Sun",
+                ],
+                schedule_only_with_changes=True,
+                start_hours=10,
+                start_minutes=59,
+                time_zone="(UTC) Coordinated Universal Time",
+            )],
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=example_git.id,
+                branch_name=example_git.default_branch,
+                yml_path="azure-pipelines.yml",
+            ),
+            variable_groups=[example_variable_group.id],
+            variables=[
+                azuredevops.BuildDefinitionVariableArgs(
+                    name="PipelineVariable",
+                    value="Go Microsoft!",
+                ),
+                azuredevops.BuildDefinitionVariableArgs(
+                    name="PipelineSecret",
+                    secret_value="ZGV2cw",
+                    is_secret=True,
+                ),
+            ])
+        ```
+        ### GitHub Enterprise
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Enterprise",
+            url="https://github.contoso.com",
+            description="Managed by Terraform",
+            auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
+                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ))
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            path="\\\\ExampleFolder",
+            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
+                use_yaml=False,
+            ),
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="GitHubEnterprise",
+                repo_id="<GitHub Org>/<Repo Name>",
+                github_enterprise_url="https://github.company.com",
+                branch_name="master",
+                yml_path="azure-pipelines.yml",
+                service_connection_id=example_service_endpoint_git_hub_enterprise.id,
+            ),
+            schedules=[azuredevops.BuildDefinitionScheduleArgs(
+                branch_filters=[azuredevops.BuildDefinitionScheduleBranchFilterArgs(
+                    includes=["main"],
+                    excludes=[
+                        "test",
+                        "regression",
+                    ],
+                )],
+                days_to_builds=[
+                    "Wed",
+                    "Sun",
+                ],
+                schedule_only_with_changes=True,
+                start_hours=10,
+                start_minutes=59,
+                time_zone="(UTC) Coordinated Universal Time",
+            )])
+        ```
         ## Remarks
 
         The path attribute can not end in `\\` unless the path is the root value of `\\`.

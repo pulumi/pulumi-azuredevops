@@ -14,6 +14,49 @@ import (
 
 // Use this data source to access information about existing Agent Pools within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.GetPools(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var splat0 []*string
+//			for _, val0 := range example.AgentPools {
+//				splat0 = append(splat0, val0.Name)
+//			}
+//			ctx.Export("agentPoolName", splat0)
+//			var splat1 []*bool
+//			for _, val0 := range example.AgentPools {
+//				splat1 = append(splat1, val0.AutoProvision)
+//			}
+//			ctx.Export("autoProvision", splat1)
+//			var splat2 []*bool
+//			for _, val0 := range example.AgentPools {
+//				splat2 = append(splat2, val0.AutoUpdate)
+//			}
+//			ctx.Export("autoUpdate", splat2)
+//			var splat3 []*string
+//			for _, val0 := range example.AgentPools {
+//				splat3 = append(splat3, val0.PoolType)
+//			}
+//			ctx.Export("poolType", splat3)
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)

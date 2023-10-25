@@ -272,6 +272,56 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         """
         Manages a GitHub service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Personal Access Token",
+            auth_personal=azuredevops.ServiceEndpointGitHubAuthPersonalArgs(
+                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ))
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub",
+            auth_oauth=azuredevops.ServiceEndpointGitHubAuthOauthArgs(
+                oauth_configuration_id="00000000-0000-0000-0000-000000000000",
+            ))
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Apps: Azure Pipelines",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -299,6 +349,56 @@ class ServiceEndpointGitHub(pulumi.CustomResource):
         """
         Manages a GitHub service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Personal Access Token",
+            auth_personal=azuredevops.ServiceEndpointGitHubAuthPersonalArgs(
+                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ))
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub",
+            auth_oauth=azuredevops.ServiceEndpointGitHubAuthOauthArgs(
+                oauth_configuration_id="00000000-0000-0000-0000-000000000000",
+            ))
+        ```
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub = azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Apps: Azure Pipelines",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

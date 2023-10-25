@@ -20,6 +20,53 @@ import (
 // Permissions for service hooks within Azure DevOps can be applied on the Organizational level or, if the optional attribute `projectId` is specified, on Project level.
 // Those levels are reflected by specifying (or omitting) values for the argument `projectId`.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			_, err = azuredevops.NewServicehookPermissions(ctx, "example-permissions", &azuredevops.ServicehookPermissionsArgs{
+//				ProjectId: example.ID(),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Permissions: pulumi.StringMap{
+//					"ViewSubscriptions":   pulumi.String("allow"),
+//					"EditSubscriptions":   pulumi.String("allow"),
+//					"DeleteSubscriptions": pulumi.String("allow"),
+//					"PublishEvents":       pulumi.String("allow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

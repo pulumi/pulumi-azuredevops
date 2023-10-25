@@ -210,6 +210,40 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         """
         Require associations between branches and a work item within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("exampleBranchPolicyWorkItemLinking",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyWorkItemLinkingSettingsArgs(
+                scopes=[
+                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
@@ -238,6 +272,40 @@ class BranchPolicyWorkItemLinking(pulumi.CustomResource):
         """
         Require associations between branches and a work item within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_branch_policy_work_item_linking = azuredevops.BranchPolicyWorkItemLinking("exampleBranchPolicyWorkItemLinking",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyWorkItemLinkingSettingsArgs(
+                scopes=[
+                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

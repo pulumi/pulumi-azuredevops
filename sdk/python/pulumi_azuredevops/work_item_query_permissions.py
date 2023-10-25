@@ -281,6 +281,96 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         Permission for Work Item Queries within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
 
+        ### Project level
+
+        Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        project_wiq_root_permissions = azuredevops.WorkItemQueryPermissions("project-wiq-root-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "CreateRepository": "Deny",
+                "DeleteRepository": "Deny",
+                "RenameRepository": "NotSet",
+            })
+        ```
+
+        ### Shared Queries folder level
+
+        Permissions for a specific folder inside Shared Queries are specified if the arguments `project_id` and `path` are set.
+
+        > **Note** To set permissions for the Shared Queries folder itself use `/` as path value
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.WorkItemQueryPermissions("example-permissions",
+            project_id=example.id,
+            path="/Team",
+            principal=example_readers.id,
+            permissions={
+                "Contribute": "Allow",
+                "Delete": "Deny",
+                "Read": "NotSet",
+            })
+        ```
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_contributors = azuredevops.get_group_output(project_id=example.id,
+            name="Contributors")
+        example_project_permissions = azuredevops.WorkItemQueryPermissions("example-project-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "Read": "Allow",
+                "Delete": "Deny",
+                "Contribute": "Deny",
+                "ManagePermissions": "Deny",
+            })
+        example_sharedqueries_permissions = azuredevops.WorkItemQueryPermissions("example-sharedqueries-permissions",
+            project_id=example.id,
+            path="/",
+            principal=example_contributors.id,
+            permissions={
+                "Read": "Allow",
+                "Delete": "Deny",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -324,6 +414,96 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         Permission for Work Item Queries within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
 
+        ### Project level
+
+        Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        project_wiq_root_permissions = azuredevops.WorkItemQueryPermissions("project-wiq-root-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "CreateRepository": "Deny",
+                "DeleteRepository": "Deny",
+                "RenameRepository": "NotSet",
+            })
+        ```
+
+        ### Shared Queries folder level
+
+        Permissions for a specific folder inside Shared Queries are specified if the arguments `project_id` and `path` are set.
+
+        > **Note** To set permissions for the Shared Queries folder itself use `/` as path value
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.WorkItemQueryPermissions("example-permissions",
+            project_id=example.id,
+            path="/Team",
+            principal=example_readers.id,
+            permissions={
+                "Contribute": "Allow",
+                "Delete": "Deny",
+                "Read": "NotSet",
+            })
+        ```
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_contributors = azuredevops.get_group_output(project_id=example.id,
+            name="Contributors")
+        example_project_permissions = azuredevops.WorkItemQueryPermissions("example-project-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "Read": "Allow",
+                "Delete": "Deny",
+                "Contribute": "Deny",
+                "ManagePermissions": "Deny",
+            })
+        example_sharedqueries_permissions = azuredevops.WorkItemQueryPermissions("example-sharedqueries-permissions",
+            project_id=example.id,
+            path="/",
+            principal=example_contributors.id,
+            permissions={
+                "Read": "Allow",
+                "Delete": "Deny",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

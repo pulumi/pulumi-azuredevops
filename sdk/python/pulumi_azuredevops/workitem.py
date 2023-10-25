@@ -370,6 +370,45 @@ class Workitem(pulumi.CustomResource):
         Manages a Work Item in Azure Devops.
 
         ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_workitem = azuredevops.Workitem("exampleWorkitem",
+            project_id=example_project.id,
+            title="Example Work Item",
+            type="Issue",
+            state="Active",
+            tags=["Tag"])
+        ```
+        ### With custom fields
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_workitem = azuredevops.Workitem("exampleWorkitem",
+            project_id=example_project.id,
+            title="Example Work Item",
+            type="Issue",
+            state="Active",
+            tags=["Tag"],
+            custom_fields={
+                "example": "example",
+            })
+        ```
 
         ## Import
 
@@ -396,6 +435,45 @@ class Workitem(pulumi.CustomResource):
         Manages a Work Item in Azure Devops.
 
         ## Example Usage
+        ### Basic usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_workitem = azuredevops.Workitem("exampleWorkitem",
+            project_id=example_project.id,
+            title="Example Work Item",
+            type="Issue",
+            state="Active",
+            tags=["Tag"])
+        ```
+        ### With custom fields
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_workitem = azuredevops.Workitem("exampleWorkitem",
+            project_id=example_project.id,
+            title="Example Work Item",
+            type="Issue",
+            state="Active",
+            tags=["Tag"],
+            custom_fields={
+                "example": "example",
+            })
+        ```
 
         ## Import
 

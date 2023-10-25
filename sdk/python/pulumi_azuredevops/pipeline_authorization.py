@@ -222,6 +222,60 @@ class PipelineAuthorization(pulumi.CustomResource):
         > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
 
         ## Example Usage
+        ### Authorization for all pipelines
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_pool = azuredevops.Pool("examplePool",
+            auto_provision=False,
+            auto_update=False)
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
+            project_id=example_project.id,
+            resource_id=example_queue.id,
+            type="queue")
+        ```
+        ### Authorization for specific pipeline
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_pool = azuredevops.Pool("examplePool",
+            auto_provision=False,
+            auto_update=False)
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        example_git_repository = azuredevops.get_git_repository_output(project_id=example_project.id,
+            name="Example Project")
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=example_git_repository.id,
+                yml_path="azure-pipelines.yml",
+            ))
+        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
+            project_id=example_project.id,
+            resource_id=example_queue.id,
+            type="queue",
+            pipeline_id=example_build_definition.id)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)
@@ -247,6 +301,60 @@ class PipelineAuthorization(pulumi.CustomResource):
         > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
 
         ## Example Usage
+        ### Authorization for all pipelines
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_pool = azuredevops.Pool("examplePool",
+            auto_provision=False,
+            auto_update=False)
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
+            project_id=example_project.id,
+            resource_id=example_queue.id,
+            type="queue")
+        ```
+        ### Authorization for specific pipeline
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_pool = azuredevops.Pool("examplePool",
+            auto_provision=False,
+            auto_update=False)
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        example_git_repository = azuredevops.get_git_repository_output(project_id=example_project.id,
+            name="Example Project")
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=example_git_repository.id,
+                yml_path="azure-pipelines.yml",
+            ))
+        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
+            project_id=example_project.id,
+            resource_id=example_queue.id,
+            type="queue",
+            pipeline_id=example_build_definition.id)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)

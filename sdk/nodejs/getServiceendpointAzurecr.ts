@@ -6,6 +6,19 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getServiceendpointAzurecr({
+ *     projectId: azuredevops_project.example.id,
+ *     serviceEndpointName: "Example Azure Container Registry",
+ * });
+ * export const serviceEndpointId = example.then(example => example.id);
+ * ```
  */
 export function getServiceendpointAzurecr(args: GetServiceendpointAzurecrArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceendpointAzurecrResult> {
 
@@ -99,6 +112,19 @@ export interface GetServiceendpointAzurecrResult {
 }
 /**
  * Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getServiceendpointAzurecr({
+ *     projectId: azuredevops_project.example.id,
+ *     serviceEndpointName: "Example Azure Container Registry",
+ * });
+ * export const serviceEndpointId = example.then(example => example.id);
+ * ```
  */
 export function getServiceendpointAzurecrOutput(args: GetServiceendpointAzurecrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointAzurecrResult> {
     return pulumi.output(args).apply((a: any) => getServiceendpointAzurecr(a, opts))

@@ -223,6 +223,28 @@ def get_service_endpoint_azure_rm(project_id: Optional[str] = None,
     Use this data source to access information about an existing AzureRM service Endpoint.
 
     ## Example Usage
+    ### By Service Endpoint ID
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    sample = azuredevops.get_project(name="Sample Project")
+    serviceendpoint = azuredevops.get_service_endpoint_azure_rm(project_id=sample.id,
+        service_endpoint_id="00000000-0000-0000-0000-000000000000")
+    pulumi.export("serviceEndpointName", serviceendpoint.service_endpoint_name)
+    ```
+    ### By Service Endpoint Name
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    sample = azuredevops.get_project(name="Sample Project")
+    serviceendpoint = azuredevops.get_service_endpoint_azure_rm(project_id=sample.id,
+        service_endpoint_name="Example-Service-Endpoint")
+    pulumi.export("serviceEndpointId", serviceendpoint.id)
+    ```
 
 
     :param str project_id: The ID of the project.
@@ -267,6 +289,28 @@ def get_service_endpoint_azure_rm_output(project_id: Optional[pulumi.Input[str]]
     Use this data source to access information about an existing AzureRM service Endpoint.
 
     ## Example Usage
+    ### By Service Endpoint ID
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    sample = azuredevops.get_project(name="Sample Project")
+    serviceendpoint = azuredevops.get_service_endpoint_azure_rm(project_id=sample.id,
+        service_endpoint_id="00000000-0000-0000-0000-000000000000")
+    pulumi.export("serviceEndpointName", serviceendpoint.service_endpoint_name)
+    ```
+    ### By Service Endpoint Name
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    sample = azuredevops.get_project(name="Sample Project")
+    serviceendpoint = azuredevops.get_service_endpoint_azure_rm(project_id=sample.id,
+        service_endpoint_name="Example-Service-Endpoint")
+    pulumi.export("serviceEndpointId", serviceendpoint.id)
+    ```
 
 
     :param str project_id: The ID of the project.

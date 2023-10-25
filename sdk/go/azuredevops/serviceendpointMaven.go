@@ -15,6 +15,91 @@ import (
 
 // Manages a Maven service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Maven instance.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceendpointMaven(ctx, "exampleServiceendpointMaven", &azuredevops.ServiceendpointMavenArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("maven-example"),
+//				Description:         pulumi.String("Service Endpoint for 'Maven' (Managed by Terraform)"),
+//				Url:                 pulumi.String("https://example.com"),
+//				RepositoryId:        pulumi.String("example"),
+//				AuthenticationToken: &azuredevops.ServiceendpointMavenAuthenticationTokenArgs{
+//					Token: pulumi.String("0000000000000000000000000000000000000000"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// Alternatively a username and password may be used.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceendpointMaven(ctx, "exampleServiceendpointMaven", &azuredevops.ServiceendpointMavenArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("maven-example"),
+//				Description:         pulumi.String("Service Endpoint for 'Maven' (Managed by Terraform)"),
+//				Url:                 pulumi.String("https://example.com"),
+//				RepositoryId:        pulumi.String("example"),
+//				AuthenticationBasic: &azuredevops.ServiceendpointMavenAuthenticationBasicArgs{
+//					Username: pulumi.String("username"),
+//					Password: pulumi.String("password"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Service Connection Maven can be imported using the `projectId/id` or or `projectName/id`, e.g.

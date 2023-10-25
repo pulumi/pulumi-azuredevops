@@ -9,6 +9,28 @@ import * as utilities from "./utilities";
 /**
  * Manages a GitHub Enterprise Server service endpoint within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointGitHubEnterprise = new azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example GitHub Enterprise",
+ *     url: "https://github.contoso.com",
+ *     description: "Managed by Terraform",
+ *     authPersonal: {
+ *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *     },
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

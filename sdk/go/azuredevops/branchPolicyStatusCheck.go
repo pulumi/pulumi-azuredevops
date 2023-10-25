@@ -15,6 +15,79 @@ import (
 
 // Manages a status check branch policy within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Features: pulumi.StringMap{
+//					"testplans": pulumi.String("disabled"),
+//					"artifacts": pulumi.String("disabled"),
+//				},
+//				Description: pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
+//				ProjectId: exampleProject.ID(),
+//				Initialization: &azuredevops.GitInitializationArgs{
+//					InitType: pulumi.String("Clean"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
+//				PrincipalName:      pulumi.String("mail@email.com"),
+//				AccountLicenseType: pulumi.String("basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewBranchPolicyStatusCheck(ctx, "exampleBranchPolicyStatusCheck", &azuredevops.BranchPolicyStatusCheckArgs{
+//				ProjectId: exampleProject.ID(),
+//				Enabled:   pulumi.Bool(true),
+//				Blocking:  pulumi.Bool(true),
+//				Settings: &azuredevops.BranchPolicyStatusCheckSettingsArgs{
+//					Name:               pulumi.String("Release"),
+//					AuthorId:           exampleUser.ID(),
+//					InvalidateOnUpdate: pulumi.Bool(true),
+//					Applicability:      pulumi.String("conditional"),
+//					DisplayName:        pulumi.String("PreCheck"),
+//					Scopes: azuredevops.BranchPolicyStatusCheckSettingsScopeArray{
+//						&azuredevops.BranchPolicyStatusCheckSettingsScopeArgs{
+//							RepositoryId:  exampleGit.ID(),
+//							RepositoryRef: exampleGit.DefaultBranch,
+//							MatchType:     pulumi.String("Exact"),
+//						},
+//						&azuredevops.BranchPolicyStatusCheckSettingsScopeArgs{
+//							MatchType: pulumi.String("DefaultBranch"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

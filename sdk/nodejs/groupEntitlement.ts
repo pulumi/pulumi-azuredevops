@@ -8,6 +8,23 @@ import * as utilities from "./utilities";
  * Manages a group entitlement within Azure DevOps.
  *
  * ## Example Usage
+ * ### With an Azure DevOps local group managed by this resource
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.GroupEntitlement("example", {displayName: "Group Name"});
+ * ```
+ * ### With group origin ID
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.GroupEntitlement("example", {
+ *     origin: "aad",
+ *     originId: "00000000-0000-0000-0000-000000000000",
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Group Entitlements](https://learn.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group-entitlements?view=azure-devops-rest-7.1)

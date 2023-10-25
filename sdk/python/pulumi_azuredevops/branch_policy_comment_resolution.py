@@ -210,6 +210,40 @@ class BranchPolicyCommentResolution(pulumi.CustomResource):
         """
         Configure a comment resolution policy for your branch within Azure DevOps project.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_branch_policy_comment_resolution = azuredevops.BranchPolicyCommentResolution("exampleBranchPolicyCommentResolution",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyCommentResolutionSettingsArgs(
+                scopes=[
+                    azuredevops.BranchPolicyCommentResolutionSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyCommentResolutionSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyCommentResolutionSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
@@ -238,6 +272,40 @@ class BranchPolicyCommentResolution(pulumi.CustomResource):
         """
         Configure a comment resolution policy for your branch within Azure DevOps project.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_branch_policy_comment_resolution = azuredevops.BranchPolicyCommentResolution("exampleBranchPolicyCommentResolution",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyCommentResolutionSettingsArgs(
+                scopes=[
+                    azuredevops.BranchPolicyCommentResolutionSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyCommentResolutionSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyCommentResolutionSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

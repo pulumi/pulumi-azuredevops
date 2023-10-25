@@ -12,6 +12,38 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages a Azure Container Registry service endpoint within Azure DevOps.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     // azure container registry service connection
+    ///     var exampleServiceEndpointAzureEcr = new AzureDevOps.ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example AzureCR",
+    ///         ResourceGroup = "example-rg",
+    ///         AzurecrSpnTenantid = "00000000-0000-0000-0000-000000000000",
+    ///         AzurecrName = "ExampleAcr",
+    ///         AzurecrSubscriptionId = "00000000-0000-0000-0000-000000000000",
+    ///         AzurecrSubscriptionName = "subscription name",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

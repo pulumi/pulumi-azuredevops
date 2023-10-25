@@ -12,6 +12,58 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Require associations between branches and a work item within Azure DevOps.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleBranchPolicyWorkItemLinking = new AzureDevOps.BranchPolicyWorkItemLinking("exampleBranchPolicyWorkItemLinking", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Enabled = true,
+    ///         Blocking = true,
+    ///         Settings = new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsArgs
+    ///         {
+    ///             Scopes = new[]
+    ///             {
+    ///                 new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = exampleGit.DefaultBranch,
+    ///                     MatchType = "Exact",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs
+    ///                 {
+    ///                     RepositoryId = exampleGit.Id,
+    ///                     RepositoryRef = "refs/heads/releases",
+    ///                     MatchType = "Prefix",
+    ///                 },
+    ///                 new AzureDevOps.Inputs.BranchPolicyWorkItemLinkingSettingsScopeArgs
+    ///                 {
+    ///                     MatchType = "DefaultBranch",
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

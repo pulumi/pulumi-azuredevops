@@ -17,6 +17,45 @@ namespace Pulumi.AzureDevOps
     /// Permissions for service hooks within Azure DevOps can be applied on the Organizational level or, if the optional attribute `project_id` is specified, on Project level.
     /// Those levels are reflected by specifying (or omitting) values for the argument `project_id`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.ServicehookPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "ViewSubscriptions", "allow" },
+    ///             { "EditSubscriptions", "allow" },
+    ///             { "DeleteSubscriptions", "allow" },
+    ///             { "PublishEvents", "allow" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

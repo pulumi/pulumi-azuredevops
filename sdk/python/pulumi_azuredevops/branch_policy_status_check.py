@@ -210,6 +210,51 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         """
         Manages a status check branch policy within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            features={
+                "testplans": "disabled",
+                "artifacts": "disabled",
+            },
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_user = azuredevops.User("exampleUser",
+            principal_name="mail@email.com",
+            account_license_type="basic")
+        example_branch_policy_status_check = azuredevops.BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyStatusCheckSettingsArgs(
+                name="Release",
+                author_id=example_user.id,
+                invalidate_on_update=True,
+                applicability="conditional",
+                display_name="PreCheck",
+                scopes=[
+                    azuredevops.BranchPolicyStatusCheckSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyStatusCheckSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
@@ -238,6 +283,51 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         """
         Manages a status check branch policy within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            features={
+                "testplans": "disabled",
+                "artifacts": "disabled",
+            },
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_user = azuredevops.User("exampleUser",
+            principal_name="mail@email.com",
+            account_license_type="basic")
+        example_branch_policy_status_check = azuredevops.BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyStatusCheckSettingsArgs(
+                name="Release",
+                author_id=example_user.id,
+                invalidate_on_update=True,
+                applicability="conditional",
+                display_name="PreCheck",
+                scopes=[
+                    azuredevops.BranchPolicyStatusCheckSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyStatusCheckSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

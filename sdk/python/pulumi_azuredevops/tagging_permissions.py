@@ -241,6 +241,29 @@ class TaggingPermissions(pulumi.CustomResource):
         Permissions for tagging within Azure DevOps can be applied only on Organizational and Project level.
         The project level is reflected by specifying the argument `project_id`, otherwise the permissions are set on the organizational level.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.TaggingPermissions("example-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "Enumerate": "allow",
+                "Create": "allow",
+                "Update": "allow",
+                "Delete": "allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -281,6 +304,29 @@ class TaggingPermissions(pulumi.CustomResource):
         Permissions for tagging within Azure DevOps can be applied only on Organizational and Project level.
         The project level is reflected by specifying the argument `project_id`, otherwise the permissions are set on the organizational level.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.TaggingPermissions("example-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "Enumerate": "allow",
+                "Create": "allow",
+                "Update": "allow",
+                "Delete": "allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

@@ -15,6 +15,35 @@ namespace Pulumi.AzureDevOps.Core
         /// <summary>
         /// Use this data source to access information about existing Projects within Azure DevOps.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProjects.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///         State = "wellFormed",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["projectId"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.ProjectId).ToList(),
+        ///         ["name"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["projectUrl"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.ProjectUrl).ToList(),
+        ///         ["state"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.State).ToList(),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -25,6 +54,35 @@ namespace Pulumi.AzureDevOps.Core
         /// <summary>
         /// Use this data source to access information about existing Projects within Azure DevOps.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetProjects.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///         State = "wellFormed",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["projectId"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.ProjectId).ToList(),
+        ///         ["name"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.Name).ToList(),
+        ///         ["projectUrl"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.ProjectUrl).ToList(),
+        ///         ["state"] = example.Apply(getProjectsResult =&gt; getProjectsResult.Projects).Select(__item =&gt; __item.State).ToList(),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)

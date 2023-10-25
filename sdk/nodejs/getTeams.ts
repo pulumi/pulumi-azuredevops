@@ -9,6 +9,18 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getTeams({});
+ * export const projectId = example.then(example => example.teams.map(__item => __item.projectId));
+ * export const name = example.then(example => example.teams.map(__item => __item.name));
+ * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
+ * export const administrators = example.then(example => example.teams.map(__item => __item.members));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -63,6 +75,18 @@ export interface GetTeamsResult {
 /**
  * Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getTeams({});
+ * export const projectId = example.then(example => example.teams.map(__item => __item.projectId));
+ * export const name = example.then(example => example.teams.map(__item => __item.name));
+ * export const alladministrators = example.then(example => example.teams.map(__item => __item.administrators));
+ * export const administrators = example.then(example => example.teams.map(__item => __item.members));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)

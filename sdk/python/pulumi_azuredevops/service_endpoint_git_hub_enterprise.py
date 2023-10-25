@@ -270,6 +270,26 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         """
         Manages a GitHub Enterprise Server service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Enterprise",
+            url="https://github.contoso.com",
+            description="Managed by Terraform",
+            auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
+                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -297,6 +317,26 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         """
         Manages a GitHub Enterprise Server service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_git_hub_enterprise = azuredevops.ServiceEndpointGitHubEnterprise("exampleServiceEndpointGitHubEnterprise",
+            project_id=example_project.id,
+            service_endpoint_name="Example GitHub Enterprise",
+            url="https://github.contoso.com",
+            description="Managed by Terraform",
+            auth_personal=azuredevops.ServiceEndpointGitHubEnterpriseAuthPersonalArgs(
+                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

@@ -15,6 +15,47 @@ import (
 
 // Manages a Jenkins service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Jenkins instance.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceendpointJenkins(ctx, "exampleServiceendpointJenkins", &azuredevops.ServiceendpointJenkinsArgs{
+//				ProjectId:            exampleProject.ID(),
+//				ServiceEndpointName:  pulumi.String("jenkins-example"),
+//				Description:          pulumi.String("Service Endpoint for 'Jenkins' (Managed by Terraform)"),
+//				Url:                  pulumi.String("https://example.com"),
+//				AcceptUntrustedCerts: pulumi.Bool(false),
+//				Username:             pulumi.String("username"),
+//				Password:             pulumi.String("password"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Service Connection Jenkins can be imported using the `projectId/id` or or `projectName/id`, e.g.

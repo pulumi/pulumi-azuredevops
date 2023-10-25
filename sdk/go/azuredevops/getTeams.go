@@ -14,6 +14,49 @@ import (
 
 // Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.GetTeams(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var splat0 []*string
+//			for _, val0 := range example.Teams {
+//				splat0 = append(splat0, val0.ProjectId)
+//			}
+//			ctx.Export("projectId", splat0)
+//			var splat1 []*string
+//			for _, val0 := range example.Teams {
+//				splat1 = append(splat1, val0.Name)
+//			}
+//			ctx.Export("name", splat1)
+//			var splat2 []interface{}
+//			for _, val0 := range example.Teams {
+//				splat2 = append(splat2, val0.Administrators)
+//			}
+//			ctx.Export("alladministrators", splat2)
+//			var splat3 []interface{}
+//			for _, val0 := range example.Teams {
+//				splat3 = append(splat3, val0.Members)
+//			}
+//			ctx.Export("administrators", splat3)
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)

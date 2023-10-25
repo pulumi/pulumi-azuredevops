@@ -19,6 +19,46 @@ namespace Pulumi.AzureDevOps
     /// Permission for Areas within Azure DevOps can be applied on two different levels.
     /// Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_project_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_root_permissions = new AzureDevOps.AreaPermissions("example-root-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Path = "/",
+    ///         Permissions = 
+    ///         {
+    ///             { "CREATE_CHILDREN", "Deny" },
+    ///             { "GENERIC_READ", "Allow" },
+    ///             { "DELETE", "Deny" },
+    ///             { "WORK_ITEM_READ", "Allow" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

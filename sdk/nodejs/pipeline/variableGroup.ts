@@ -7,6 +7,77 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleVariableGroup = new azuredevops.VariableGroup("exampleVariableGroup", {
+ *     projectId: exampleProject.id,
+ *     description: "Example Variable Group Description",
+ *     allowAccess: true,
+ *     variables: [
+ *         {
+ *             name: "key1",
+ *             value: "val1",
+ *         },
+ *         {
+ *             name: "key2",
+ *             secretValue: "val2",
+ *             isSecret: true,
+ *         },
+ *     ],
+ * });
+ * ```
+ * ### With AzureRM Key Vault
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     description: "Managed by Terraform",
+ *     credentials: {
+ *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
+ *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *     },
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * const exampleVariableGroup = new azuredevops.VariableGroup("exampleVariableGroup", {
+ *     projectId: exampleProject.id,
+ *     description: "Example Variable Group Description",
+ *     allowAccess: true,
+ *     keyVault: {
+ *         name: "example-kv",
+ *         serviceEndpointId: exampleServiceEndpointAzureRM.id,
+ *     },
+ *     variables: [
+ *         {
+ *             name: "key1",
+ *         },
+ *         {
+ *             name: "key2",
+ *         },
+ *     ],
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)

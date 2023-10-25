@@ -241,6 +241,26 @@ class TeamAdministrators(pulumi.CustomResource):
         """
         Manages administrators of a team within a project in a Azure DevOps organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
+            name="Contributors")
+        example_team = azuredevops.Team("exampleTeam", project_id=example_project.id)
+        example_team_administrators = azuredevops.TeamAdministrators("example-team-administrators",
+            project_id=example_team.project_id,
+            team_id=example_team.id,
+            mode="overwrite",
+            administrators=[example_project_contributors.descriptor])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)
@@ -276,6 +296,26 @@ class TeamAdministrators(pulumi.CustomResource):
         """
         Manages administrators of a team within a project in a Azure DevOps organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
+            name="Contributors")
+        example_team = azuredevops.Team("exampleTeam", project_id=example_project.id)
+        example_team_administrators = azuredevops.TeamAdministrators("example-team-administrators",
+            project_id=example_team.project_id,
+            team_id=example_team.id,
+            mode="overwrite",
+            administrators=[example_project_contributors.descriptor])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)

@@ -280,6 +280,24 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         """
         Manages a SonarQube service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_sonar_qube = azuredevops.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube",
+            project_id=example_project.id,
+            service_endpoint_name="Example SonarQube",
+            url="https://sonarqube.my.com",
+            token="0000000000000000000000000000000000000000",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -311,6 +329,24 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         """
         Manages a SonarQube service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_sonar_qube = azuredevops.ServiceEndpointSonarQube("exampleServiceEndpointSonarQube",
+            project_id=example_project.id,
+            service_endpoint_name="Example SonarQube",
+            url="https://sonarqube.my.com",
+            token="0000000000000000000000000000000000000000",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

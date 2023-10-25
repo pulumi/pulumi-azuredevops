@@ -16,6 +16,45 @@ import (
 // Manages a generic service endpoint within Azure DevOps, which can be used to authenticate to any external git service
 // using basic authentication via a username and password. This is mostly useful for importing private git repositories.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				Visibility:       pulumi.String("private"),
+//				VersionControl:   pulumi.String("Git"),
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceEndpointGenericGit(ctx, "exampleServiceEndpointGenericGit", &azuredevops.ServiceEndpointGenericGitArgs{
+//				ProjectId:           exampleProject.ID(),
+//				RepositoryUrl:       pulumi.String("https://dev.azure.com/org/project/_git/repository"),
+//				Username:            pulumi.String("username"),
+//				Password:            pulumi.String("password"),
+//				ServiceEndpointName: pulumi.String("Example Generic Git"),
+//				Description:         pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

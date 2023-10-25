@@ -8,6 +8,27 @@ import * as utilities from "./utilities";
  * Manages a generic service endpoint within Azure DevOps, which can be used to authenticate to any external git service
  * using basic authentication via a username and password. This is mostly useful for importing private git repositories.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointGenericGit = new azuredevops.ServiceEndpointGenericGit("exampleServiceEndpointGenericGit", {
+ *     projectId: exampleProject.id,
+ *     repositoryUrl: "https://dev.azure.com/org/project/_git/repository",
+ *     username: "username",
+ *     password: "password",
+ *     serviceEndpointName: "Example Generic Git",
+ *     description: "Managed by Terraform",
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

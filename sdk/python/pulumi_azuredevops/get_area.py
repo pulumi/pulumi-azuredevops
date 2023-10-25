@@ -121,6 +121,21 @@ def get_area(fetch_children: Optional[bool] = None,
     """
     Use this data source to access information about an existing Area (Component) within Azure DevOps.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example_project = azuredevops.Project("exampleProject",
+        work_item_template="Agile",
+        version_control="Git",
+        visibility="private",
+        description="Managed by Terraform")
+    example_area = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
+        path="/",
+        fetch_children=False))
+    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
@@ -159,6 +174,21 @@ def get_area_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] = Non
     """
     Use this data source to access information about an existing Area (Component) within Azure DevOps.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example_project = azuredevops.Project("exampleProject",
+        work_item_template="Agile",
+        version_control="Git",
+        visibility="private",
+        description="Managed by Terraform")
+    example_area = example_project.id.apply(lambda id: azuredevops.get_area_output(project_id=id,
+        path="/",
+        fetch_children=False))
+    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)

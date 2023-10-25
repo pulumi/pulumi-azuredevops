@@ -16,6 +16,162 @@ import * as utilities from "../utilities";
  * For detailed steps to create a service principal with Azure cli see the [documentation](https://docs.microsoft.com/en-us/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest)
  *
  * ## Example Usage
+ * ### Service Principal Manual AzureRM Service Endpoint (Subscription Scoped)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     description: "Managed by Terraform",
+ *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
+ *     credentials: {
+ *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
+ *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *     },
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * ```
+ * ### Service Principal Manual AzureRM Service Endpoint (ManagementGroup Scoped)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     description: "Managed by Terraform",
+ *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
+ *     credentials: {
+ *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
+ *         serviceprincipalkey: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
+ *     },
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermManagementGroupId: "managementGroup",
+ *     azurermManagementGroupName: "managementGroup",
+ * });
+ * ```
+ * ### Service Principal Automatic AzureRM Service Endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * ```
+ * ### Workload Identity Federation Manual AzureRM Service Endpoint (Subscription Scoped)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const serviceConnectionName = "example-federated-sc";
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const identity = new azurerm.index.Azurerm_resource_group("identity", {
+ *     name: "identity",
+ *     location: "UK South",
+ * });
+ * const exampleazurerm_user_assigned_identity = new azurerm.index.Azurerm_user_assigned_identity("exampleazurerm_user_assigned_identity", {
+ *     location: identity.location,
+ *     name: "example-identity",
+ *     resourceGroupName: "azurerm_resource_group.identity.name",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: serviceConnectionName,
+ *     description: "Managed by Terraform",
+ *     serviceEndpointAuthenticationScheme: "WorkloadIdentityFederation",
+ *     credentials: {
+ *         serviceprincipalid: exampleazurerm_user_assigned_identity.clientId,
+ *     },
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * const exampleazurerm_federated_identity_credential = new azurerm.index.Azurerm_federated_identity_credential("exampleazurerm_federated_identity_credential", {
+ *     name: "example-federated-credential",
+ *     resourceGroupName: identity.name,
+ *     parentId: exampleazurerm_user_assigned_identity.id,
+ *     audience: ["api://AzureADTokenExchange"],
+ *     issuer: exampleServiceEndpointAzureRM.workloadIdentityFederationIssuer,
+ *     subject: exampleServiceEndpointAzureRM.workloadIdentityFederationSubject,
+ * });
+ * ```
+ * ### Workload Identity Federation Automatic AzureRM Service Endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     serviceEndpointAuthenticationScheme: "WorkloadIdentityFederation",
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * ```
+ * ### Managed Identity AzureRM Service Endpoint
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
+ *     projectId: exampleProject.id,
+ *     serviceEndpointName: "Example AzureRM",
+ *     serviceEndpointAuthenticationScheme: "ManagedServiceIdentity",
+ *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
+ *     azurermSubscriptionName: "Example Subscription Name",
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Service End points](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

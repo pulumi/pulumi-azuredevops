@@ -281,6 +281,37 @@ class IterativePermissions(pulumi.CustomResource):
         Permission for Iterations within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_root_permissions = azuredevops.IterativePermissions("example-root-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "CREATE_CHILDREN": "Deny",
+                "GENERIC_READ": "NotSet",
+                "DELETE": "Deny",
+            })
+        example_iteration_permissions = azuredevops.IterativePermissions("example-iteration-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            path="Iteration 1",
+            permissions={
+                "CREATE_CHILDREN": "Allow",
+                "GENERIC_READ": "NotSet",
+                "DELETE": "Allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -324,6 +355,37 @@ class IterativePermissions(pulumi.CustomResource):
         Permission for Iterations within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_root_permissions = azuredevops.IterativePermissions("example-root-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "CREATE_CHILDREN": "Deny",
+                "GENERIC_READ": "NotSet",
+                "DELETE": "Deny",
+            })
+        example_iteration_permissions = azuredevops.IterativePermissions("example-iteration-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            path="Iteration 1",
+            permissions={
+                "CREATE_CHILDREN": "Allow",
+                "GENERIC_READ": "NotSet",
+                "DELETE": "Allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

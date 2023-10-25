@@ -215,6 +215,55 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         """
         Manages a build validation branch policy within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=example_git.id,
+                yml_path="azure-pipelines.yml",
+            ))
+        example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyBuildValidationSettingsArgs(
+                display_name="Example build validation policy",
+                build_definition_id=example_build_definition.id,
+                valid_duration=720,
+                filename_patterns=[
+                    "/WebApp/*",
+                    "!/WebApp/Tests/*",
+                    "*.cs",
+                ],
+                scopes=[
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
@@ -243,6 +292,55 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
         """
         Manages a build validation branch policy within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
+            project_id=example_project.id,
+            repository=azuredevops.BuildDefinitionRepositoryArgs(
+                repo_type="TfsGit",
+                repo_id=example_git.id,
+                yml_path="azure-pipelines.yml",
+            ))
+        example_branch_policy_build_validation = azuredevops.BranchPolicyBuildValidation("exampleBranchPolicyBuildValidation",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyBuildValidationSettingsArgs(
+                display_name="Example build validation policy",
+                build_definition_id=example_build_definition.id,
+                valid_duration=720,
+                filename_patterns=[
+                    "/WebApp/*",
+                    "!/WebApp/Tests/*",
+                    "*.cs",
+                ],
+                scopes=[
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyBuildValidationSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

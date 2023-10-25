@@ -6,6 +6,33 @@ import * as utilities from "./utilities";
 
 /**
  * Manages a Git Repository Branch.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const exampleGitRepositoryBranch = new azuredevops.GitRepositoryBranch("exampleGitRepositoryBranch", {
+ *     repositoryId: exampleGit.id,
+ *     refBranch: exampleGit.defaultBranch,
+ * });
+ * const exampleFromCommitId = new azuredevops.GitRepositoryBranch("exampleFromCommitId", {
+ *     repositoryId: exampleGit.id,
+ *     refCommitId: exampleGitRepositoryBranch.lastCommitId,
+ * });
+ * ```
  */
 export class GitRepositoryBranch extends pulumi.CustomResource {
     /**

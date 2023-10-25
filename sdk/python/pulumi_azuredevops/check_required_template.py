@@ -225,6 +225,56 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         Manages a Required Template Check.
 
         ## Example Usage
+        ### Protect a service connection
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
+            server_url="https://some-server.example.com",
+            username="username",
+            password="password",
+            service_endpoint_name="Example Generic",
+            description="Managed by Terraform")
+        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
+            project_id=example_project.id,
+            target_resource_id=example_service_endpoint_generic.id,
+            target_resource_type="endpoint",
+            required_templates=[azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
+                repository_type="azuregit",
+                repository_name="project/repository",
+                repository_ref="refs/heads/main",
+                template_path="template/path.yml",
+            )])
+        ```
+        ### Protect an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
+            project_id=example_project.id,
+            target_resource_id=example_environment.id,
+            target_resource_type="environment",
+            required_templates=[
+                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
+                    repository_name="project/repository",
+                    repository_ref="refs/heads/main",
+                    template_path="template/path.yml",
+                ),
+                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
+                    repository_name="project/repository",
+                    repository_ref="refs/heads/main",
+                    template_path="template/alternate-path.yml",
+                ),
+            ])
+        ```
 
         ## Import
 
@@ -247,6 +297,56 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         Manages a Required Template Check.
 
         ## Example Usage
+        ### Protect a service connection
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
+            server_url="https://some-server.example.com",
+            username="username",
+            password="password",
+            service_endpoint_name="Example Generic",
+            description="Managed by Terraform")
+        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
+            project_id=example_project.id,
+            target_resource_id=example_service_endpoint_generic.id,
+            target_resource_type="endpoint",
+            required_templates=[azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
+                repository_type="azuregit",
+                repository_name="project/repository",
+                repository_ref="refs/heads/main",
+                template_path="template/path.yml",
+            )])
+        ```
+        ### Protect an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
+            project_id=example_project.id,
+            target_resource_id=example_environment.id,
+            target_resource_type="environment",
+            required_templates=[
+                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
+                    repository_name="project/repository",
+                    repository_ref="refs/heads/main",
+                    template_path="template/path.yml",
+                ),
+                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
+                    repository_name="project/repository",
+                    repository_ref="refs/heads/main",
+                    template_path="template/alternate-path.yml",
+                ),
+            ])
+        ```
 
         ## Import
 
