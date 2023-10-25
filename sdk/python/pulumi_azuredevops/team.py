@@ -302,6 +302,26 @@ class Team(pulumi.CustomResource):
         """
         Manages a team within a project in a Azure DevOps organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
+            name="Contributors")
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_team = azuredevops.Team("exampleTeam",
+            project_id=example_project.id,
+            administrators=[example_project_contributors.descriptor],
+            members=[example_project_readers.descriptor])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)
@@ -345,6 +365,26 @@ class Team(pulumi.CustomResource):
         """
         Manages a team within a project in a Azure DevOps organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
+            name="Contributors")
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_team = azuredevops.Team("exampleTeam",
+            project_id=example_project.id,
+            administrators=[example_project_contributors.descriptor],
+            members=[example_project_readers.descriptor])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)

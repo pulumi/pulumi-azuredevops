@@ -317,6 +317,24 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
         """
         Manages an Octopus Deploy service endpoint within Azure DevOps. Using this service endpoint requires you to install [Octopus Deploy](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_octopusdeploy = azuredevops.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy",
+            project_id=example_project.id,
+            url="https://octopus.com",
+            api_key="000000000000000000000000000000000000",
+            service_endpoint_name="Example Octopus Deploy",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -346,6 +364,24 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
         """
         Manages an Octopus Deploy service endpoint within Azure DevOps. Using this service endpoint requires you to install [Octopus Deploy](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_octopusdeploy = azuredevops.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy",
+            project_id=example_project.id,
+            url="https://octopus.com",
+            api_key="000000000000000000000000000000000000",
+            service_endpoint_name="Example Octopus Deploy",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

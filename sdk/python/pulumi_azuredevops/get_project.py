@@ -122,6 +122,15 @@ def get_project(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Project within Azure DevOps.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_project(name="Example Project")
+    pulumi.export("project", example)
+    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -155,6 +164,15 @@ def get_project_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Use this data source to access information about an existing Project within Azure DevOps.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_project(name="Example Project")
+    pulumi.export("project", example)
+    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)

@@ -241,6 +241,26 @@ class TeamMembers(pulumi.CustomResource):
         """
         Manages members of a team within a project in a Azure DevOps organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_team = azuredevops.Team("exampleTeam", project_id=example_project.id)
+        example_team_members = azuredevops.TeamMembers("example-team-members",
+            project_id=example_team.project_id,
+            team_id=example_team.id,
+            mode="overwrite",
+            members=[example_project_readers.descriptor])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)
@@ -276,6 +296,26 @@ class TeamMembers(pulumi.CustomResource):
         """
         Manages members of a team within a project in a Azure DevOps organization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_team = azuredevops.Team("exampleTeam", project_id=example_project.id)
+        example_team_members = azuredevops.TeamMembers("example-team-members",
+            project_id=example_team.project_id,
+            team_id=example_team.id,
+            mode="overwrite",
+            members=[example_project_readers.descriptor])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)

@@ -12,6 +12,75 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages a Maven service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Maven instance.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleServiceendpointMaven = new AzureDevOps.ServiceendpointMaven("exampleServiceendpointMaven", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "maven-example",
+    ///         Description = "Service Endpoint for 'Maven' (Managed by Terraform)",
+    ///         Url = "https://example.com",
+    ///         RepositoryId = "example",
+    ///         AuthenticationToken = new AzureDevOps.Inputs.ServiceendpointMavenAuthenticationTokenArgs
+    ///         {
+    ///             Token = "0000000000000000000000000000000000000000",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// Alternatively a username and password may be used.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleServiceendpointMaven = new AzureDevOps.ServiceendpointMaven("exampleServiceendpointMaven", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "maven-example",
+    ///         Description = "Service Endpoint for 'Maven' (Managed by Terraform)",
+    ///         Url = "https://example.com",
+    ///         RepositoryId = "example",
+    ///         AuthenticationBasic = new AzureDevOps.Inputs.ServiceendpointMavenAuthenticationBasicArgs
+    ///         {
+    ///             Username = "username",
+    ///             Password = "password",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service Connection Maven can be imported using the `projectId/id` or or `projectName/id`, e.g.

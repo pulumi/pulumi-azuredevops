@@ -276,6 +276,29 @@ class GitRepositoryBranch(pulumi.CustomResource):
         """
         Manages a Git Repository Branch.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_git_repository_branch = azuredevops.GitRepositoryBranch("exampleGitRepositoryBranch",
+            repository_id=example_git.id,
+            ref_branch=example_git.default_branch)
+        example_from_commit_id = azuredevops.GitRepositoryBranch("exampleFromCommitId",
+            repository_id=example_git.id,
+            ref_commit_id=example_git_repository_branch.last_commit_id)
+        ```
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] name: The name of the branch in short format not prefixed with `refs/heads/`.
@@ -292,6 +315,29 @@ class GitRepositoryBranch(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Git Repository Branch.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_git_repository_branch = azuredevops.GitRepositoryBranch("exampleGitRepositoryBranch",
+            repository_id=example_git.id,
+            ref_branch=example_git.default_branch)
+        example_from_commit_id = azuredevops.GitRepositoryBranch("exampleFromCommitId",
+            repository_id=example_git.id,
+            ref_commit_id=example_git_repository_branch.last_commit_id)
+        ```
 
         :param str resource_name: The name of the resource.
         :param GitRepositoryBranchArgs args: The arguments to use to populate this resource's properties.

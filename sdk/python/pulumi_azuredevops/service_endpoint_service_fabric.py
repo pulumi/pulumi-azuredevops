@@ -332,6 +332,72 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         Manages a Service Fabric service endpoint within Azure DevOps.
 
         ## Example Usage
+        ### Client Certificate Authentication
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_service_fabric = azuredevops.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric",
+            project_id=example_project.id,
+            service_endpoint_name="Example Service Fabric",
+            description="Managed by Terraform",
+            cluster_endpoint="tcp://test",
+            certificate=azuredevops.ServiceEndpointServiceFabricCertificateArgs(
+                server_certificate_lookup="Thumbprint",
+                server_certificate_thumbprint="0000000000000000000000000000000000000000",
+                client_certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+                client_certificate_password="password",
+            ))
+        ```
+        ### Azure Active Directory Authentication
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        test = azuredevops.ServiceEndpointServiceFabric("test",
+            project_id=project.id,
+            service_endpoint_name="Sample Service Fabric",
+            description="Managed by Terraform",
+            cluster_endpoint="tcp://test",
+            azure_active_directory=azuredevops.ServiceEndpointServiceFabricAzureActiveDirectoryArgs(
+                server_certificate_lookup="Thumbprint",
+                server_certificate_thumbprint="0000000000000000000000000000000000000000",
+                username="username",
+                password="password",
+            ))
+        ```
+        ### Windows Authentication
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        test = azuredevops.ServiceEndpointServiceFabric("test",
+            project_id=project.id,
+            service_endpoint_name="Sample Service Fabric",
+            description="Managed by Terraform",
+            cluster_endpoint="tcp://test",
+            none=azuredevops.ServiceEndpointServiceFabricNoneArgs(
+                unsecured=False,
+                cluster_spn="HTTP/www.contoso.com",
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -360,6 +426,72 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         Manages a Service Fabric service endpoint within Azure DevOps.
 
         ## Example Usage
+        ### Client Certificate Authentication
+
+        ```python
+        import pulumi
+        import base64
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_service_fabric = azuredevops.ServiceEndpointServiceFabric("exampleServiceEndpointServiceFabric",
+            project_id=example_project.id,
+            service_endpoint_name="Example Service Fabric",
+            description="Managed by Terraform",
+            cluster_endpoint="tcp://test",
+            certificate=azuredevops.ServiceEndpointServiceFabricCertificateArgs(
+                server_certificate_lookup="Thumbprint",
+                server_certificate_thumbprint="0000000000000000000000000000000000000000",
+                client_certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+                client_certificate_password="password",
+            ))
+        ```
+        ### Azure Active Directory Authentication
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        test = azuredevops.ServiceEndpointServiceFabric("test",
+            project_id=project.id,
+            service_endpoint_name="Sample Service Fabric",
+            description="Managed by Terraform",
+            cluster_endpoint="tcp://test",
+            azure_active_directory=azuredevops.ServiceEndpointServiceFabricAzureActiveDirectoryArgs(
+                server_certificate_lookup="Thumbprint",
+                server_certificate_thumbprint="0000000000000000000000000000000000000000",
+                username="username",
+                password="password",
+            ))
+        ```
+        ### Windows Authentication
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        project = azuredevops.Project("project",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        test = azuredevops.ServiceEndpointServiceFabric("test",
+            project_id=project.id,
+            service_endpoint_name="Sample Service Fabric",
+            description="Managed by Terraform",
+            cluster_endpoint="tcp://test",
+            none=azuredevops.ServiceEndpointServiceFabricNoneArgs(
+                unsecured=False,
+                cluster_spn="HTTP/www.contoso.com",
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

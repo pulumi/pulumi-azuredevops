@@ -323,6 +323,29 @@ class ProjectPermissions(pulumi.CustomResource):
 
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permission = azuredevops.ProjectPermissions("example-permission",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "DELETE": "Deny",
+                "EDIT_BUILD_STATUS": "NotSet",
+                "WORK_ITEM_MOVE": "Allow",
+                "DELETE_TEST_RESULTS": "Deny",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -381,6 +404,29 @@ class ProjectPermissions(pulumi.CustomResource):
 
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permission = azuredevops.ProjectPermissions("example-permission",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "DELETE": "Deny",
+                "EDIT_BUILD_STATUS": "NotSet",
+                "WORK_ITEM_MOVE": "Allow",
+                "DELETE_TEST_RESULTS": "Deny",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

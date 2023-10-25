@@ -14,6 +14,52 @@ import (
 
 // Use this data source to access information about existing Projects within Azure DevOps.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.GetProjects(ctx, &azuredevops.GetProjectsArgs{
+//				Name:  pulumi.StringRef("Example Project"),
+//				State: pulumi.StringRef("wellFormed"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			var splat0 []*string
+//			for _, val0 := range example.Projects {
+//				splat0 = append(splat0, val0.ProjectId)
+//			}
+//			ctx.Export("projectId", splat0)
+//			var splat1 []*string
+//			for _, val0 := range example.Projects {
+//				splat1 = append(splat1, val0.Name)
+//			}
+//			ctx.Export("name", splat1)
+//			var splat2 []*string
+//			for _, val0 := range example.Projects {
+//				splat2 = append(splat2, val0.ProjectUrl)
+//			}
+//			ctx.Export("projectUrl", splat2)
+//			var splat3 []*string
+//			for _, val0 := range example.Projects {
+//				splat3 = append(splat3, val0.State)
+//			}
+//			ctx.Export("state", splat3)
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)

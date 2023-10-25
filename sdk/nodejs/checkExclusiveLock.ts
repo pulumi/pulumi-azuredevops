@@ -10,6 +10,43 @@ import * as utilities from "./utilities";
  * Adding an exclusive lock will only allow a single stage to utilize this resource at a time. If multiple stages are waiting on the lock, only the latest will run. All others will be canceled.
  *
  * ## Example Usage
+ * ### Add Exclusive Lock to an environment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleServiceEndpointGeneric = new azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric", {
+ *     projectId: exampleProject.id,
+ *     serverUrl: "https://some-server.example.com",
+ *     username: "username",
+ *     password: "password",
+ *     serviceEndpointName: "Example Generic",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleCheckExclusiveLock = new azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock", {
+ *     projectId: exampleProject.id,
+ *     targetResourceId: exampleServiceEndpointGeneric.id,
+ *     targetResourceType: "endpoint",
+ *     timeout: 43200,
+ * });
+ * ```
+ * ### Protect an environment
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleEnvironment = new azuredevops.Environment("exampleEnvironment", {projectId: exampleProject.id});
+ * const exampleCheckExclusiveLock = new azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock", {
+ *     projectId: exampleProject.id,
+ *     targetResourceId: exampleEnvironment.id,
+ *     targetResourceType: "environment",
+ *     timeout: 43200,
+ * });
+ * ```
  *
  * ## Import
  *

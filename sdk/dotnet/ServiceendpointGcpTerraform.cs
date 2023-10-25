@@ -10,6 +10,37 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureDevOps
 {
     /// <summary>
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleServiceendpointGcpTerraform = new AzureDevOps.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         TokenUri = "https://oauth2.example.com/token",
+    ///         ClientEmail = "gcp-sa-example@example.iam.gserviceaccount.com",
+    ///         PrivateKey = "0000000000000000000000000000000000000",
+    ///         ServiceEndpointName = "Example GCP Terraform extension",
+    ///         GcpProjectId = "Example GCP Project",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.1)

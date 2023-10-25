@@ -210,6 +210,37 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
         """
         Manages required reviewer policy branch policy within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_user = azuredevops.User("exampleUser",
+            principal_name="mail@email.com",
+            account_license_type="basic")
+        example_branch_policy_auto_reviewers = azuredevops.BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyAutoReviewersSettingsArgs(
+                auto_reviewer_ids=[example_user.id],
+                submitter_can_vote=False,
+                message="Auto reviewer",
+                path_filters=["*/src/*.ts"],
+                scopes=[azuredevops.BranchPolicyAutoReviewersSettingsScopeArgs(
+                    repository_id=example_git.id,
+                    repository_ref=example_git.default_branch,
+                    match_type="Exact",
+                )],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
@@ -238,6 +269,37 @@ class BranchPolicyAutoReviewers(pulumi.CustomResource):
         """
         Manages required reviewer policy branch policy within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_user = azuredevops.User("exampleUser",
+            principal_name="mail@email.com",
+            account_license_type="basic")
+        example_branch_policy_auto_reviewers = azuredevops.BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyAutoReviewersSettingsArgs(
+                auto_reviewer_ids=[example_user.id],
+                submitter_can_vote=False,
+                message="Auto reviewer",
+                path_filters=["*/src/*.ts"],
+                scopes=[azuredevops.BranchPolicyAutoReviewersSettingsScopeArgs(
+                    repository_id=example_git.id,
+                    repository_ref=example_git.default_branch,
+                    match_type="Exact",
+                )],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

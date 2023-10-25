@@ -9,6 +9,21 @@ import * as utilities from "../utilities";
 /**
  * Use this data source to access information about existing Projects within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProjects({
+ *     name: "Example Project",
+ *     state: "wellFormed",
+ * });
+ * export const projectId = example.then(example => example.projects.map(__item => __item.projectId));
+ * export const name = example.then(example => example.projects.map(__item => __item.name));
+ * export const projectUrl = example.then(example => example.projects.map(__item => __item.projectUrl));
+ * export const state = example.then(example => example.projects.map(__item => __item.state));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)
@@ -65,6 +80,21 @@ export interface GetProjectsResult {
 /**
  * Use this data source to access information about existing Projects within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProjects({
+ *     name: "Example Project",
+ *     state: "wellFormed",
+ * });
+ * export const projectId = example.then(example => example.projects.map(__item => __item.projectId));
+ * export const name = example.then(example => example.projects.map(__item => __item.name));
+ * export const projectUrl = example.then(example => example.projects.map(__item => __item.projectUrl));
+ * export const state = example.then(example => example.projects.map(__item => __item.state));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Projects - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects/get?view=azure-devops-rest-7.0)

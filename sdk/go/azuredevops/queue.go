@@ -19,6 +19,51 @@ import (
 // The created queue is not authorized for use by all pipelines in the project. However,
 // the `ResourceAuthorization` resource can be used to grant authorization.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
+//			if err != nil {
+//				return err
+//			}
+//			examplePool, err := azuredevops.LookupPool(ctx, &azuredevops.LookupPoolArgs{
+//				Name: "example-pool",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleQueue, err := azuredevops.NewQueue(ctx, "exampleQueue", &azuredevops.QueueArgs{
+//				ProjectId:   exampleProject.ID(),
+//				AgentPoolId: *pulumi.String(examplePool.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewResourceAuthorization(ctx, "exampleResourceAuthorization", &azuredevops.ResourceAuthorizationArgs{
+//				ProjectId:  exampleProject.ID(),
+//				ResourceId: exampleQueue.ID(),
+//				Type:       pulumi.String("queue"),
+//				Authorized: pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)

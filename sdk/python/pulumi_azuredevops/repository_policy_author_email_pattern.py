@@ -257,6 +257,53 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
         """
         Manage author email pattern repository policy within Azure DevOps project.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_repository_policy_author_email_pattern = azuredevops.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            author_email_patterns=[
+                "user1@test.com",
+                "user2@test.com",
+            ],
+            repository_ids=[example_git.id])
+        ```
+        ## Set project level repository policy
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_repository_policy_author_email_pattern = azuredevops.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            author_email_patterns=[
+                "user1@test.com",
+                "user2@test.com",
+            ])
+        ```
+
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)
@@ -286,6 +333,53 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manage author email pattern repository policy within Azure DevOps project.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_repository_policy_author_email_pattern = azuredevops.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            author_email_patterns=[
+                "user1@test.com",
+                "user2@test.com",
+            ],
+            repository_ids=[example_git.id])
+        ```
+        ## Set project level repository policy
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_repository_policy_author_email_pattern = azuredevops.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            author_email_patterns=[
+                "user1@test.com",
+                "user2@test.com",
+            ])
+        ```
 
         ## Relevant Links
 

@@ -401,6 +401,26 @@ class Group(pulumi.CustomResource):
         """
         Manages a group within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_contributors = azuredevops.get_group_output(project_id=example_project.id,
+            name="Contributors")
+        example_group = azuredevops.Group("exampleGroup",
+            scope=example_project.id,
+            display_name="Example group",
+            description="Example description",
+            members=[
+                example_readers.descriptor,
+                example_contributors.descriptor,
+            ])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-7.0)
@@ -435,6 +455,26 @@ class Group(pulumi.CustomResource):
         """
         Manages a group within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_contributors = azuredevops.get_group_output(project_id=example_project.id,
+            name="Contributors")
+        example_group = azuredevops.Group("exampleGroup",
+            scope=example_project.id,
+            display_name="Example group",
+            description="Example description",
+            members=[
+                example_readers.descriptor,
+                example_contributors.descriptor,
+            ])
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-7.0)

@@ -12,6 +12,33 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages a Build Folder.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleBuildFolder = new AzureDevOps.BuildFolder("exampleBuildFolder", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Path = "\\ExampleFolder",
+    ///         Description = "ExampleFolder description",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Build Folders can be imported using the `project name/path` or `project id/path`, e.g.

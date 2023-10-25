@@ -22,6 +22,82 @@ import (
 // Permission for Service Endpoints within Azure DevOps can be applied on two different levels.
 // Those levels are reflected by specifying (or omitting) values for the arguments `projectId` and `serviceendpointId`.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-root-permissions", &azuredevops.ServiceendpointPermissionsArgs{
+//				ProjectId: exampleProject.ID(),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Permissions: pulumi.StringMap{
+//					"Use":               pulumi.String("allow"),
+//					"Administer":        pulumi.String("allow"),
+//					"Create":            pulumi.String("allow"),
+//					"ViewAuthorization": pulumi.String("allow"),
+//					"ViewEndpoint":      pulumi.String("allow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleServiceEndpointDockerRegistry, err := azuredevops.NewServiceEndpointDockerRegistry(ctx, "exampleServiceEndpointDockerRegistry", &azuredevops.ServiceEndpointDockerRegistryArgs{
+//				ProjectId:           exampleProject.ID(),
+//				ServiceEndpointName: pulumi.String("Example Docker Hub"),
+//				DockerUsername:      pulumi.String("username"),
+//				DockerEmail:         pulumi.String("email@example.com"),
+//				DockerPassword:      pulumi.String("password"),
+//				RegistryType:        pulumi.String("DockerHub"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewServiceendpointPermissions(ctx, "example-permissions", &azuredevops.ServiceendpointPermissionsArgs{
+//				ProjectId: exampleProject.ID(),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				ServiceendpointId: exampleServiceEndpointDockerRegistry.ID(),
+//				Permissions: pulumi.StringMap{
+//					"Use":               pulumi.String("allow"),
+//					"Administer":        pulumi.String("deny"),
+//					"Create":            pulumi.String("deny"),
+//					"ViewAuthorization": pulumi.String("allow"),
+//					"ViewEndpoint":      pulumi.String("allow"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

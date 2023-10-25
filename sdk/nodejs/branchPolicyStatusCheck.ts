@@ -9,6 +9,55 @@ import * as utilities from "./utilities";
 /**
  * Manages a status check branch policy within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     features: {
+ *         testplans: "disabled",
+ *         artifacts: "disabled",
+ *     },
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const exampleUser = new azuredevops.User("exampleUser", {
+ *     principalName: "mail@email.com",
+ *     accountLicenseType: "basic",
+ * });
+ * const exampleBranchPolicyStatusCheck = new azuredevops.BranchPolicyStatusCheck("exampleBranchPolicyStatusCheck", {
+ *     projectId: exampleProject.id,
+ *     enabled: true,
+ *     blocking: true,
+ *     settings: {
+ *         name: "Release",
+ *         authorId: exampleUser.id,
+ *         invalidateOnUpdate: true,
+ *         applicability: "conditional",
+ *         displayName: "PreCheck",
+ *         scopes: [
+ *             {
+ *                 repositoryId: exampleGit.id,
+ *                 repositoryRef: exampleGit.defaultBranch,
+ *                 matchType: "Exact",
+ *             },
+ *             {
+ *                 matchType: "DefaultBranch",
+ *             },
+ *         ],
+ *     },
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

@@ -219,6 +219,16 @@ class Pool(pulumi.CustomResource):
         """
         Manages an agent pool within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Pool("example",
+            auto_provision=False,
+            auto_update=False)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-7.0)
@@ -247,6 +257,16 @@ class Pool(pulumi.CustomResource):
         """
         Manages an agent pool within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Pool("example",
+            auto_provision=False,
+            auto_update=False)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools?view=azure-devops-rest-7.0)

@@ -14,6 +14,44 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new AzureDevOps.Project("example", new()
+        ///     {
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Terraform",
+        ///     });
+        /// 
+        ///     var example_root_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Id,
+        ///         Path = "/",
+        ///         FetchChildren = true,
+        ///     });
+        /// 
+        ///     var example_child_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Id,
+        ///         Path = "/Iteration 1",
+        ///         FetchChildren = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
@@ -28,6 +66,44 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new AzureDevOps.Project("example", new()
+        ///     {
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Terraform",
+        ///     });
+        /// 
+        ///     var example_root_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Id,
+        ///         Path = "/",
+        ///         FetchChildren = true,
+        ///     });
+        /// 
+        ///     var example_child_iteration = AzureDevOps.GetIteration.Invoke(new()
+        ///     {
+        ///         ProjectId = example.Id,
+        ///         Path = "/Iteration 1",
+        ///         FetchChildren = true,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)

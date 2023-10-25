@@ -289,6 +289,48 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         Permission for Service Endpoints within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `serviceendpoint_id`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_root_permissions = azuredevops.ServiceendpointPermissions("example-root-permissions",
+            project_id=example_project.id,
+            principal=example_readers.id,
+            permissions={
+                "Use": "allow",
+                "Administer": "allow",
+                "Create": "allow",
+                "ViewAuthorization": "allow",
+                "ViewEndpoint": "allow",
+            })
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Hub",
+            docker_username="username",
+            docker_email="email@example.com",
+            docker_password="password",
+            registry_type="DockerHub")
+        example_permissions = azuredevops.ServiceendpointPermissions("example-permissions",
+            project_id=example_project.id,
+            principal=example_readers.id,
+            serviceendpoint_id=example_service_endpoint_docker_registry.id,
+            permissions={
+                "Use": "allow",
+                "Administer": "deny",
+                "Create": "deny",
+                "ViewAuthorization": "allow",
+                "ViewEndpoint": "allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -333,6 +375,48 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         Permission for Service Endpoints within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `serviceendpoint_id`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_root_permissions = azuredevops.ServiceendpointPermissions("example-root-permissions",
+            project_id=example_project.id,
+            principal=example_readers.id,
+            permissions={
+                "Use": "allow",
+                "Administer": "allow",
+                "Create": "allow",
+                "ViewAuthorization": "allow",
+                "ViewEndpoint": "allow",
+            })
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Hub",
+            docker_username="username",
+            docker_email="email@example.com",
+            docker_password="password",
+            registry_type="DockerHub")
+        example_permissions = azuredevops.ServiceendpointPermissions("example-permissions",
+            project_id=example_project.id,
+            principal=example_readers.id,
+            serviceendpoint_id=example_service_endpoint_docker_registry.id,
+            permissions={
+                "Use": "allow",
+                "Administer": "deny",
+                "Create": "deny",
+                "ViewAuthorization": "allow",
+                "ViewEndpoint": "allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

@@ -19,6 +19,241 @@ namespace Pulumi.AzureDevOps
     /// Permission for Git Repositories within Azure DevOps can be applied on three different levels.
     /// Those levels are reflected by specifying (or omitting) values for the arguments `project_id`, `repository_id` and `branch_name`.
     /// 
+    /// ### Project level
+    /// 
+    /// Permissions for all Git Repositories inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+    /// 
+    /// #### Example usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.Project("example", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = example.Id,
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "CreateRepository", "Deny" },
+    ///             { "DeleteRepository", "Deny" },
+    ///             { "RenameRepository", "NotSet" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Repository level
+    /// 
+    /// Permissions for a specific Git Repository and all existing or newly created branches are specified if the arguments `project_id` and `repository_id` are set.
+    /// 
+    /// #### Example usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_group = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         Name = "Project Collection Administrators",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = exampleGit.ProjectId,
+    ///         RepositoryId = exampleGit.Id,
+    ///         Principal = example_group.Apply(example_group =&gt; example_group.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "RemoveOthersLocks", "Allow" },
+    ///             { "ManagePermissions", "Deny" },
+    ///             { "CreateTag", "Deny" },
+    ///             { "CreateBranch", "NotSet" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Branch level
+    /// 
+    /// Permissions for a specific branch inside a Git Repository are specified if all above mentioned the arguments are set.
+    /// 
+    /// #### Example usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_group = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         Name = "Project Collection Administrators",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = exampleGit.ProjectId,
+    ///         RepositoryId = exampleGit.Id,
+    ///         BranchName = "refs/heads/master",
+    ///         Principal = example_group.Apply(example_group =&gt; example_group.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "RemoveOthersLocks", "Allow" },
+    ///             { "ForcePush", "Deny" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_project_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var example_project_contributors = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Contributors",
+    ///     });
+    /// 
+    ///     var example_project_administrators = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Project administrators",
+    ///     });
+    /// 
+    ///     var example_permissions = new AzureDevOps.GitPermissions("example-permissions", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Principal = example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "CreateRepository", "Deny" },
+    ///             { "DeleteRepository", "Deny" },
+    ///             { "RenameRepository", "NotSet" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         DefaultBranch = "refs/heads/master",
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var example_repo_permissions = new AzureDevOps.GitPermissions("example-repo-permissions", new()
+    ///     {
+    ///         ProjectId = exampleGit.ProjectId,
+    ///         RepositoryId = exampleGit.Id,
+    ///         Principal = example_project_administrators.Apply(example_project_administrators =&gt; example_project_administrators.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "RemoveOthersLocks", "Allow" },
+    ///             { "ManagePermissions", "Deny" },
+    ///             { "CreateTag", "Deny" },
+    ///             { "CreateBranch", "NotSet" },
+    ///         },
+    ///     });
+    /// 
+    ///     var example_branch_permissions = new AzureDevOps.GitPermissions("example-branch-permissions", new()
+    ///     {
+    ///         ProjectId = exampleGit.ProjectId,
+    ///         RepositoryId = exampleGit.Id,
+    ///         BranchName = "master",
+    ///         Principal = example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "RemoveOthersLocks", "Allow" },
+    ///             { "ForcePush", "Deny" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

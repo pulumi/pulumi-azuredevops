@@ -386,6 +386,149 @@ class GitPermissions(pulumi.CustomResource):
         Permission for Git Repositories within Azure DevOps can be applied on three different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id`, `repository_id` and `branch_name`.
 
+        ### Project level
+
+        Permissions for all Git Repositories inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "CreateRepository": "Deny",
+                "DeleteRepository": "Deny",
+                "RenameRepository": "NotSet",
+            })
+        ```
+
+        ### Repository level
+
+        Permissions for a specific Git Repository and all existing or newly created branches are specified if the arguments `project_id` and `repository_id` are set.
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_group = azuredevops.get_group(name="Project Collection Administrators")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            principal=example_group.id,
+            permissions={
+                "RemoveOthersLocks": "Allow",
+                "ManagePermissions": "Deny",
+                "CreateTag": "Deny",
+                "CreateBranch": "NotSet",
+            })
+        ```
+
+        ### Branch level
+
+        Permissions for a specific branch inside a Git Repository are specified if all above mentioned the arguments are set.
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_group = azuredevops.get_group(name="Project Collection Administrators")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            branch_name="refs/heads/master",
+            principal=example_group.id,
+            permissions={
+                "RemoveOthersLocks": "Allow",
+                "ForcePush": "Deny",
+            })
+        ```
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
+            name="Contributors")
+        example_project_administrators = azuredevops.get_group_output(project_id=example_project.id,
+            name="Project administrators")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_project.id,
+            principal=example_project_readers.id,
+            permissions={
+                "CreateRepository": "Deny",
+                "DeleteRepository": "Deny",
+                "RenameRepository": "NotSet",
+            })
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            default_branch="refs/heads/master",
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_repo_permissions = azuredevops.GitPermissions("example-repo-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            principal=example_project_administrators.id,
+            permissions={
+                "RemoveOthersLocks": "Allow",
+                "ManagePermissions": "Deny",
+                "CreateTag": "Deny",
+                "CreateBranch": "NotSet",
+            })
+        example_branch_permissions = azuredevops.GitPermissions("example-branch-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            branch_name="master",
+            principal=example_project_contributors.id,
+            permissions={
+                "RemoveOthersLocks": "Allow",
+                "ForcePush": "Deny",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -445,6 +588,149 @@ class GitPermissions(pulumi.CustomResource):
         Permission for Git Repositories within Azure DevOps can be applied on three different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id`, `repository_id` and `branch_name`.
 
+        ### Project level
+
+        Permissions for all Git Repositories inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "CreateRepository": "Deny",
+                "DeleteRepository": "Deny",
+                "RenameRepository": "NotSet",
+            })
+        ```
+
+        ### Repository level
+
+        Permissions for a specific Git Repository and all existing or newly created branches are specified if the arguments `project_id` and `repository_id` are set.
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_group = azuredevops.get_group(name="Project Collection Administrators")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            principal=example_group.id,
+            permissions={
+                "RemoveOthersLocks": "Allow",
+                "ManagePermissions": "Deny",
+                "CreateTag": "Deny",
+                "CreateBranch": "NotSet",
+            })
+        ```
+
+        ### Branch level
+
+        Permissions for a specific branch inside a Git Repository are specified if all above mentioned the arguments are set.
+
+        #### Example usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_group = azuredevops.get_group(name="Project Collection Administrators")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            branch_name="refs/heads/master",
+            principal=example_group.id,
+            permissions={
+                "RemoveOthersLocks": "Allow",
+                "ForcePush": "Deny",
+            })
+        ```
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
+            name="Contributors")
+        example_project_administrators = azuredevops.get_group_output(project_id=example_project.id,
+            name="Project administrators")
+        example_permissions = azuredevops.GitPermissions("example-permissions",
+            project_id=example_project.id,
+            principal=example_project_readers.id,
+            permissions={
+                "CreateRepository": "Deny",
+                "DeleteRepository": "Deny",
+                "RenameRepository": "NotSet",
+            })
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            default_branch="refs/heads/master",
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_repo_permissions = azuredevops.GitPermissions("example-repo-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            principal=example_project_administrators.id,
+            permissions={
+                "RemoveOthersLocks": "Allow",
+                "ManagePermissions": "Deny",
+                "CreateTag": "Deny",
+                "CreateBranch": "NotSet",
+            })
+        example_branch_permissions = azuredevops.GitPermissions("example-branch-permissions",
+            project_id=example_git.project_id,
+            repository_id=example_git.id,
+            branch_name="master",
+            principal=example_project_contributors.id,
+            permissions={
+                "RemoveOthersLocks": "Allow",
+                "ForcePush": "Deny",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

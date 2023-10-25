@@ -12,6 +12,48 @@ namespace Pulumi.AzureDevOps.ServiceEndpoint
     /// <summary>
     /// Manages a Docker Registry service endpoint within Azure DevOps.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     // dockerhub registry service connection
+    ///     var exampleServiceEndpointDockerRegistry = new AzureDevOps.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Docker Hub",
+    ///         DockerUsername = "example",
+    ///         DockerEmail = "email@example.com",
+    ///         DockerPassword = "12345",
+    ///         RegistryType = "DockerHub",
+    ///     });
+    /// 
+    ///     // other docker registry service connection
+    ///     var example_other = new AzureDevOps.ServiceEndpointDockerRegistry("example-other", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "Example Docker Registry",
+    ///         DockerRegistryUrl = "https://sample.azurecr.io/v1",
+    ///         DockerUsername = "sample",
+    ///         DockerPassword = "12345",
+    ///         RegistryType = "Others",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

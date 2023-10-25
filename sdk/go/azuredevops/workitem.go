@@ -16,6 +16,89 @@ import (
 // Manages a Work Item in Azure Devops.
 //
 // ## Example Usage
+// ### Basic usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewWorkitem(ctx, "exampleWorkitem", &azuredevops.WorkitemArgs{
+//				ProjectId: exampleProject.ID(),
+//				Title:     pulumi.String("Example Work Item"),
+//				Type:      pulumi.String("Issue"),
+//				State:     pulumi.String("Active"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("Tag"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### With custom fields
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewWorkitem(ctx, "exampleWorkitem", &azuredevops.WorkitemArgs{
+//				ProjectId: exampleProject.ID(),
+//				Title:     pulumi.String("Example Work Item"),
+//				Type:      pulumi.String("Issue"),
+//				State:     pulumi.String("Active"),
+//				Tags: pulumi.StringArray{
+//					pulumi.String("Tag"),
+//				},
+//				CustomFields: pulumi.StringMap{
+//					"example": pulumi.String("example"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 //
 // ## Import
 //

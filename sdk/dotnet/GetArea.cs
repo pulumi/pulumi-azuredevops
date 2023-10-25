@@ -14,6 +14,37 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Area (Component) within Azure DevOps.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+        ///     {
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Terraform",
+        ///     });
+        /// 
+        ///     var exampleArea = AzureDevOps.GetArea.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Path = "/",
+        ///         FetchChildren = false,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
@@ -28,6 +59,37 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Area (Component) within Azure DevOps.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+        ///     {
+        ///         WorkItemTemplate = "Agile",
+        ///         VersionControl = "Git",
+        ///         Visibility = "private",
+        ///         Description = "Managed by Terraform",
+        ///     });
+        /// 
+        ///     var exampleArea = AzureDevOps.GetArea.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Id,
+        ///         Path = "/",
+        ///         FetchChildren = false,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)

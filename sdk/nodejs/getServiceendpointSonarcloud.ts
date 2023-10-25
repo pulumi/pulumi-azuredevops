@@ -6,6 +6,19 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getServiceendpointSonarcloud({
+ *     projectId: azuredevops_project.example.id,
+ *     serviceEndpointName: "Example Sonar Cloud",
+ * });
+ * export const serviceEndpointId = example.then(example => example.id);
+ * ```
  */
 export function getServiceendpointSonarcloud(args: GetServiceendpointSonarcloudArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceendpointSonarcloudResult> {
 
@@ -59,6 +72,19 @@ export interface GetServiceendpointSonarcloudResult {
 }
 /**
  * Use this data source to access information about an existing Sonar Cloud Service Endpoint.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getServiceendpointSonarcloud({
+ *     projectId: azuredevops_project.example.id,
+ *     serviceEndpointName: "Example Sonar Cloud",
+ * });
+ * export const serviceEndpointId = example.then(example => example.id);
+ * ```
  */
 export function getServiceendpointSonarcloudOutput(args: GetServiceendpointSonarcloudOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointSonarcloudResult> {
     return pulumi.output(args).apply((a: any) => getServiceendpointSonarcloud(a, opts))

@@ -398,6 +398,26 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
                  token_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_gcp_terraform = azuredevops.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform",
+            project_id=example_project.id,
+            token_uri="https://oauth2.example.com/token",
+            client_email="gcp-sa-example@example.iam.gserviceaccount.com",
+            private_key="0000000000000000000000000000000000000",
+            service_endpoint_name="Example GCP Terraform extension",
+            gcp_project_id="Example GCP Project",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.1)
@@ -427,6 +447,26 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
                  args: ServiceendpointGcpTerraformArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_gcp_terraform = azuredevops.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform",
+            project_id=example_project.id,
+            token_uri="https://oauth2.example.com/token",
+            client_email="gcp-sa-example@example.iam.gserviceaccount.com",
+            private_key="0000000000000000000000000000000000000",
+            service_endpoint_name="Example GCP Terraform extension",
+            gcp_project_id="Example GCP Project",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.1)

@@ -114,6 +114,17 @@ def get_serviceendpoint_npm(project_id: Optional[str] = None,
     """
     Use this data source to access information about an existing NPM Service Endpoint.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_serviceendpoint_npm(project_id=azuredevops_project["example"]["id"],
+        service_endpoint_name="Example npm")
+    pulumi.export("serviceEndpointId", example.id)
+    ```
+
 
     :param str project_id: The ID of the project.
     :param str service_endpoint_id: the ID of the Service Endpoint.
@@ -145,6 +156,17 @@ def get_serviceendpoint_npm_output(project_id: Optional[pulumi.Input[str]] = Non
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceendpointNpmResult]:
     """
     Use this data source to access information about an existing NPM Service Endpoint.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_serviceendpoint_npm(project_id=azuredevops_project["example"]["id"],
+        service_endpoint_name="Example npm")
+    pulumi.export("serviceEndpointId", example.id)
+    ```
 
 
     :param str project_id: The ID of the project.

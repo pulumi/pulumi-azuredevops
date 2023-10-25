@@ -13,6 +13,39 @@ namespace Pulumi.AzureDevOps
     /// Manages a group entitlement within Azure DevOps.
     /// 
     /// ## Example Usage
+    /// ### With an Azure DevOps local group managed by this resource
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.GroupEntitlement("example", new()
+    ///     {
+    ///         DisplayName = "Group Name",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With group origin ID
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new AzureDevOps.GroupEntitlement("example", new()
+    ///     {
+    ///         Origin = "aad",
+    ///         OriginId = "00000000-0000-0000-0000-000000000000",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Group Entitlements](https://learn.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group-entitlements?view=azure-devops-rest-7.1)

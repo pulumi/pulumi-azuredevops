@@ -15,6 +15,65 @@ namespace Pulumi.AzureDevOps
     /// Adding an exclusive lock will only allow a single stage to utilize this resource at a time. If multiple stages are waiting on the lock, only the latest will run. All others will be canceled.
     /// 
     /// ## Example Usage
+    /// ### Add Exclusive Lock to an environment
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("exampleServiceEndpointGeneric", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServerUrl = "https://some-server.example.com",
+    ///         Username = "username",
+    ///         Password = "password",
+    ///         ServiceEndpointName = "Example Generic",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("exampleCheckExclusiveLock", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         TargetResourceId = exampleServiceEndpointGeneric.Id,
+    ///         TargetResourceType = "endpoint",
+    ///         Timeout = 43200,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Protect an environment
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///     });
+    /// 
+    ///     var exampleCheckExclusiveLock = new AzureDevOps.CheckExclusiveLock("exampleCheckExclusiveLock", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         TargetResourceId = exampleEnvironment.Id,
+    ///         TargetResourceType = "environment",
+    ///         Timeout = 43200,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

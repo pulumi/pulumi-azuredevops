@@ -15,6 +15,49 @@ namespace Pulumi.AzureDevOps.Identities
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         PrincipalName = "contoso-user@contoso.onmicrosoft.com",
+        ///     });
+        /// 
+        ///     var example_all_users = AzureDevOps.GetUsers.Invoke();
+        /// 
+        ///     var example_all_from_origin = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Origin = "aad",
+        ///     });
+        /// 
+        ///     var example_all_from_subjectTypes = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         SubjectTypes = new[]
+        ///         {
+        ///             "aad",
+        ///             "msa",
+        ///         },
+        ///     });
+        /// 
+        ///     var example_all_from_origin_id = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Origin = "aad",
+        ///         OriginId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -25,6 +68,49 @@ namespace Pulumi.AzureDevOps.Identities
         /// <summary>
         /// Use this data source to access information about an existing users within Azure DevOps.
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         PrincipalName = "contoso-user@contoso.onmicrosoft.com",
+        ///     });
+        /// 
+        ///     var example_all_users = AzureDevOps.GetUsers.Invoke();
+        /// 
+        ///     var example_all_from_origin = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Origin = "aad",
+        ///     });
+        /// 
+        ///     var example_all_from_subjectTypes = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         SubjectTypes = new[]
+        ///         {
+        ///             "aad",
+        ///             "msa",
+        ///         },
+        ///     });
+        /// 
+        ///     var example_all_from_origin_id = AzureDevOps.GetUsers.Invoke(new()
+        ///     {
+        ///         Origin = "aad",
+        ///         OriginId = "00000000-0000-0000-0000-000000000000",
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -49,8 +135,27 @@ namespace Pulumi.AzureDevOps.Identities
         /// 
         /// List of possible subject types
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// 
         /// List of possible origins
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("originId")]
         public string? OriginId { get; set; }
@@ -94,8 +199,27 @@ namespace Pulumi.AzureDevOps.Identities
         /// 
         /// List of possible subject types
         /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// 
         /// List of possible origins
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        /// });
+        /// ```
         /// </summary>
         [Input("originId")]
         public Input<string>? OriginId { get; set; }

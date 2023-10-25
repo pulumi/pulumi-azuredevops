@@ -9,6 +9,40 @@ import * as utilities from "./utilities";
 /**
  * Manages required reviewer policy branch policy within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {});
+ * const exampleGit = new azuredevops.Git("exampleGit", {
+ *     projectId: exampleProject.id,
+ *     initialization: {
+ *         initType: "Clean",
+ *     },
+ * });
+ * const exampleUser = new azuredevops.User("exampleUser", {
+ *     principalName: "mail@email.com",
+ *     accountLicenseType: "basic",
+ * });
+ * const exampleBranchPolicyAutoReviewers = new azuredevops.BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers", {
+ *     projectId: exampleProject.id,
+ *     enabled: true,
+ *     blocking: true,
+ *     settings: {
+ *         autoReviewerIds: [exampleUser.id],
+ *         submitterCanVote: false,
+ *         message: "Auto reviewer",
+ *         pathFilters: ["*&#47;src/*.ts"],
+ *         scopes: [{
+ *             repositoryId: exampleGit.id,
+ *             repositoryRef: exampleGit.defaultBranch,
+ *             matchType: "Exact",
+ *         }],
+ *     },
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

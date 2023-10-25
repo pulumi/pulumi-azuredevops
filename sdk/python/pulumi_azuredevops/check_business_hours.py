@@ -644,6 +644,129 @@ class CheckBusinessHours(pulumi.CustomResource):
         Manages a business hours check on a resource within Azure DevOps.
 
         ## Example Usage
+        ### Protect a service connection
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
+            server_url="https://some-server.example.com",
+            username="username",
+            password="password",
+            service_endpoint_name="Example Generic",
+            description="Managed by Terraform")
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=example_service_endpoint_generic.id,
+            target_resource_type="endpoint",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True,
+            timeout=1440)
+        ```
+        ### Protect an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=example_environment.id,
+            target_resource_type="environment",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True)
+        ```
+        ### Protect an agent queue
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_pool = azuredevops.Pool("examplePool")
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=example_queue.id,
+            target_resource_type="queue",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True)
+        ```
+        ### Protect a repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=pulumi.Output.all(example_project.id, example_git.id).apply(lambda exampleProjectId, exampleGitId: f"{example_project_id}.{example_git_id}"),
+            target_resource_type="repository",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True)
+        ```
+        ### Protect a variable group
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
+            project_id=example_project.id,
+            description="Example Variable Group Description",
+            allow_access=True,
+            variables=[
+                azuredevops.VariableGroupVariableArgs(
+                    name="key1",
+                    value="val1",
+                ),
+                azuredevops.VariableGroupVariableArgs(
+                    name="key2",
+                    secret_value="val2",
+                    is_secret=True,
+                ),
+            ])
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=example_variable_group.id,
+            target_resource_type="variablegroup",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True)
+        ```
         ## Relevant Links
 
         - [Define approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)
@@ -824,6 +947,129 @@ class CheckBusinessHours(pulumi.CustomResource):
         Manages a business hours check on a resource within Azure DevOps.
 
         ## Example Usage
+        ### Protect a service connection
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
+            server_url="https://some-server.example.com",
+            username="username",
+            password="password",
+            service_endpoint_name="Example Generic",
+            description="Managed by Terraform")
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=example_service_endpoint_generic.id,
+            target_resource_type="endpoint",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True,
+            timeout=1440)
+        ```
+        ### Protect an environment
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=example_environment.id,
+            target_resource_type="environment",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True)
+        ```
+        ### Protect an agent queue
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_pool = azuredevops.Pool("examplePool")
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=example_queue.id,
+            target_resource_type="queue",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True)
+        ```
+        ### Protect a repository
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=pulumi.Output.all(example_project.id, example_git.id).apply(lambda exampleProjectId, exampleGitId: f"{example_project_id}.{example_git_id}"),
+            target_resource_type="repository",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True)
+        ```
+        ### Protect a variable group
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
+            project_id=example_project.id,
+            description="Example Variable Group Description",
+            allow_access=True,
+            variables=[
+                azuredevops.VariableGroupVariableArgs(
+                    name="key1",
+                    value="val1",
+                ),
+                azuredevops.VariableGroupVariableArgs(
+                    name="key2",
+                    secret_value="val2",
+                    is_secret=True,
+                ),
+            ])
+        example_check_business_hours = azuredevops.CheckBusinessHours("exampleCheckBusinessHours",
+            project_id=example_project.id,
+            display_name="Managed by Terraform",
+            target_resource_id=example_variable_group.id,
+            target_resource_type="variablegroup",
+            start_time="07:00",
+            end_time="15:30",
+            time_zone="UTC",
+            monday=True,
+            tuesday=True)
+        ```
         ## Relevant Links
 
         - [Define approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)

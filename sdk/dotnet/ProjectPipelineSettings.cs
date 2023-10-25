@@ -12,6 +12,36 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages Pipeline Settings for Azure DevOps projects
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleProjectPipelineSettings = new AzureDevOps.ProjectPipelineSettings("exampleProjectPipelineSettings", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         EnforceJobScope = true,
+    ///         EnforceReferencedRepoScopedToken = false,
+    ///         EnforceSettableVar = true,
+    ///         PublishPipelineMetadata = false,
+    ///         StatusBadgesArePrivate = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// ## Relevant Links
     /// 
     /// No official documentation available

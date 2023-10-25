@@ -13,6 +13,74 @@ namespace Pulumi.AzureDevOps
     /// Manages a Work Item in Azure Devops.
     /// 
     /// ## Example Usage
+    /// ### Basic usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleWorkitem = new AzureDevOps.Workitem("exampleWorkitem", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Title = "Example Work Item",
+    ///         Type = "Issue",
+    ///         State = "Active",
+    ///         Tags = new[]
+    ///         {
+    ///             "Tag",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### With custom fields
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleWorkitem = new AzureDevOps.Workitem("exampleWorkitem", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Title = "Example Work Item",
+    ///         Type = "Issue",
+    ///         State = "Active",
+    ///         Tags = new[]
+    ///         {
+    ///             "Tag",
+    ///         },
+    ///         CustomFields = 
+    ///         {
+    ///             { "example", "example" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

@@ -150,6 +150,24 @@ class ProjectFeatures(pulumi.CustomResource):
         """
         Manages features for Azure DevOps projects
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_features = azuredevops.ProjectFeatures("example-features",
+            project_id=example.id,
+            features={
+                "testplans": "disabled",
+                "artifacts": "enabled",
+            })
+        ```
         ## Relevant Links
 
         No official documentation available
@@ -185,6 +203,24 @@ class ProjectFeatures(pulumi.CustomResource):
         """
         Manages features for Azure DevOps projects
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_features = azuredevops.ProjectFeatures("example-features",
+            project_id=example.id,
+            features={
+                "testplans": "disabled",
+                "artifacts": "enabled",
+            })
+        ```
         ## Relevant Links
 
         No official documentation available

@@ -15,6 +15,72 @@ import (
 // Use this data source to access information about an existing AzureRM service Endpoint.
 //
 // ## Example Usage
+// ### By Service Endpoint ID
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			sample, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//				Name: pulumi.StringRef("Sample Project"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			serviceendpoint, err := azuredevops.LookupServiceEndpointAzureRM(ctx, &azuredevops.LookupServiceEndpointAzureRMArgs{
+//				ProjectId:         sample.Id,
+//				ServiceEndpointId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("serviceEndpointName", serviceendpoint.ServiceEndpointName)
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### By Service Endpoint Name
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			sample, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//				Name: pulumi.StringRef("Sample Project"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			serviceendpoint, err := azuredevops.LookupServiceEndpointAzureRM(ctx, &azuredevops.LookupServiceEndpointAzureRMArgs{
+//				ProjectId:           sample.Id,
+//				ServiceEndpointName: pulumi.StringRef("Example-Service-Endpoint"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("serviceEndpointId", serviceendpoint.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupServiceEndpointAzureRM(ctx *pulumi.Context, args *LookupServiceEndpointAzureRMArgs, opts ...pulumi.InvokeOption) (*LookupServiceEndpointAzureRMResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServiceEndpointAzureRMResult

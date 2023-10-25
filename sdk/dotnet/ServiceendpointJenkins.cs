@@ -12,6 +12,38 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages a Jenkins service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Jenkins instance.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleServiceendpointJenkins = new AzureDevOps.ServiceendpointJenkins("exampleServiceendpointJenkins", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServiceEndpointName = "jenkins-example",
+    ///         Description = "Service Endpoint for 'Jenkins' (Managed by Terraform)",
+    ///         Url = "https://example.com",
+    ///         AcceptUntrustedCerts = false,
+    ///         Username = "username",
+    ///         Password = "password",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Service Connection Jenkins can be imported using the `projectId/id` or or `projectName/id`, e.g.

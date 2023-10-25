@@ -490,6 +490,27 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         """
         Manages a Azure Container Registry service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        # azure container registry service connection
+        example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureCR",
+            resource_group="example-rg",
+            azurecr_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurecr_name="ExampleAcr",
+            azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurecr_subscription_name="subscription name")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -522,6 +543,27 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         """
         Manages a Azure Container Registry service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        # azure container registry service connection
+        example_service_endpoint_azure_ecr = azuredevops.ServiceEndpointAzureEcr("exampleServiceEndpointAzureEcr",
+            project_id=example_project.id,
+            service_endpoint_name="Example AzureCR",
+            resource_group="example-rg",
+            azurecr_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurecr_name="ExampleAcr",
+            azurecr_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurecr_subscription_name="subscription name")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

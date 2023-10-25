@@ -13,6 +13,34 @@ import (
 )
 
 // Use this data source to access information about an existing NPM Service Endpoint.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.GetServiceendpointNpm(ctx, &azuredevops.GetServiceendpointNpmArgs{
+//				ProjectId:           azuredevops_project.Example.Id,
+//				ServiceEndpointName: pulumi.StringRef("Example npm"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("serviceEndpointId", example.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetServiceendpointNpm(ctx *pulumi.Context, args *GetServiceendpointNpmArgs, opts ...pulumi.InvokeOption) (*GetServiceendpointNpmResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceendpointNpmResult

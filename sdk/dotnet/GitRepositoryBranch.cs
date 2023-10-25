@@ -11,6 +11,47 @@ namespace Pulumi.AzureDevOps
 {
     /// <summary>
     /// Manages a Git Repository Branch.
+    /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         Visibility = "private",
+    ///         VersionControl = "Git",
+    ///         WorkItemTemplate = "Agile",
+    ///     });
+    /// 
+    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
+    ///         {
+    ///             InitType = "Clean",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleGitRepositoryBranch = new AzureDevOps.GitRepositoryBranch("exampleGitRepositoryBranch", new()
+    ///     {
+    ///         RepositoryId = exampleGit.Id,
+    ///         RefBranch = exampleGit.DefaultBranch,
+    ///     });
+    /// 
+    ///     var exampleFromCommitId = new AzureDevOps.GitRepositoryBranch("exampleFromCommitId", new()
+    ///     {
+    ///         RepositoryId = exampleGit.Id,
+    ///         RefCommitId = exampleGitRepositoryBranch.LastCommitId,
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// </summary>
     [AzureDevOpsResourceType("azuredevops:index/gitRepositoryBranch:GitRepositoryBranch")]
     public partial class GitRepositoryBranch : global::Pulumi.CustomResource

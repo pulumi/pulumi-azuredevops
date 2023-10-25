@@ -9,6 +9,31 @@ import * as utilities from "../utilities";
  *
  * Currently supported resources: service endpoint (aka service connection, endpoint).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceEndpointBitBucket = new azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket", {
+ *     projectId: exampleProject.id,
+ *     username: "username",
+ *     password: "password",
+ *     serviceEndpointName: "example-bitbucket",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("exampleResourceAuthorization", {
+ *     projectId: exampleProject.id,
+ *     resourceId: exampleServiceEndpointBitBucket.id,
+ *     authorized: true,
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)

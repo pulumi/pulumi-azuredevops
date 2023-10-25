@@ -14,6 +14,34 @@ import * as utilities from "./utilities";
  * Permission for Areas within Azure DevOps can be applied on two different levels.
  * Those levels are reflected by specifying (or omitting) values for the arguments `projectId` and `path`.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const example-project-readers = azuredevops.getGroupOutput({
+ *     projectId: example.id,
+ *     name: "Readers",
+ * });
+ * const example_root_permissions = new azuredevops.AreaPermissions("example-root-permissions", {
+ *     projectId: example.id,
+ *     principal: example_project_readers.apply(example_project_readers => example_project_readers.id),
+ *     path: "/",
+ *     permissions: {
+ *         CREATE_CHILDREN: "Deny",
+ *         GENERIC_READ: "Allow",
+ *         DELETE: "Deny",
+ *         WORK_ITEM_READ: "Allow",
+ *     },
+ * });
+ * ```
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

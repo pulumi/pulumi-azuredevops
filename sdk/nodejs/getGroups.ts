@@ -9,6 +9,20 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to access information about existing Groups within Azure DevOps
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const example-all-groups = azuredevops.getGroups({});
+ * const example-project-groups = example.then(example => azuredevops.getGroups({
+ *     projectId: example.id,
+ * }));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
@@ -49,6 +63,20 @@ export interface GetGroupsResult {
 /**
  * Use this data source to access information about existing Groups within Azure DevOps
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = azuredevops.getProject({
+ *     name: "Example Project",
+ * });
+ * const example-all-groups = azuredevops.getGroups({});
+ * const example-project-groups = example.then(example => azuredevops.getGroups({
+ *     projectId: example.id,
+ * }));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)

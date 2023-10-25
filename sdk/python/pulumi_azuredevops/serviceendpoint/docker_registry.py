@@ -408,6 +408,34 @@ class DockerRegistry(pulumi.CustomResource):
         """
         Manages a Docker Registry service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        # dockerhub registry service connection
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Hub",
+            docker_username="example",
+            docker_email="email@example.com",
+            docker_password="12345",
+            registry_type="DockerHub")
+        # other docker registry service connection
+        example_other = azuredevops.ServiceEndpointDockerRegistry("example-other",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Registry",
+            docker_registry="https://sample.azurecr.io/v1",
+            docker_username="sample",
+            docker_password="12345",
+            registry_type="Others")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -440,6 +468,34 @@ class DockerRegistry(pulumi.CustomResource):
         """
         Manages a Docker Registry service endpoint within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        # dockerhub registry service connection
+        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Hub",
+            docker_username="example",
+            docker_email="email@example.com",
+            docker_password="12345",
+            registry_type="DockerHub")
+        # other docker registry service connection
+        example_other = azuredevops.ServiceEndpointDockerRegistry("example-other",
+            project_id=example_project.id,
+            service_endpoint_name="Example Docker Registry",
+            docker_registry="https://sample.azurecr.io/v1",
+            docker_username="sample",
+            docker_password="12345",
+            registry_type="Others")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

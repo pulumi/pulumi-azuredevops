@@ -316,6 +316,26 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
         """
         Manages an Incoming WebHook service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to subscribe to a webhook event.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_incomingwebhook = azuredevops.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook",
+            project_id=example_project.id,
+            webhook_name="example_webhook",
+            secret="secret",
+            http_header="X-Hub-Signature",
+            service_endpoint_name="Example IncomingWebhook",
+            description="Managed by Terraform")
+        ```
+
         ## Import
 
         Azure DevOps Service Endpoint Incoming WebHook can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
@@ -340,6 +360,26 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an Incoming WebHook service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to subscribe to a webhook event.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_incomingwebhook = azuredevops.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook",
+            project_id=example_project.id,
+            webhook_name="example_webhook",
+            secret="secret",
+            http_header="X-Hub-Signature",
+            service_endpoint_name="Example IncomingWebhook",
+            description="Managed by Terraform")
+        ```
 
         ## Import
 

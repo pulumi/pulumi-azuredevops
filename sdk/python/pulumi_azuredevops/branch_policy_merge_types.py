@@ -210,6 +210,44 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         """
         Branch policy for merge types allowed on a specified branch.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("exampleBranchPolicyMergeTypes",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyMergeTypesSettingsArgs(
+                allow_squash=True,
+                allow_rebase_and_fast_forward=True,
+                allow_basic_no_fast_forward=True,
+                allow_rebase_with_merge=True,
+                scopes=[
+                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
+                        repository_id=None,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)
@@ -238,6 +276,44 @@ class BranchPolicyMergeTypes(pulumi.CustomResource):
         """
         Branch policy for merge types allowed on a specified branch.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_branch_policy_merge_types = azuredevops.BranchPolicyMergeTypes("exampleBranchPolicyMergeTypes",
+            project_id=example_project.id,
+            enabled=True,
+            blocking=True,
+            settings=azuredevops.BranchPolicyMergeTypesSettingsArgs(
+                allow_squash=True,
+                allow_rebase_and_fast_forward=True,
+                allow_basic_no_fast_forward=True,
+                allow_rebase_with_merge=True,
+                scopes=[
+                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
+                        repository_id=example_git.id,
+                        repository_ref=example_git.default_branch,
+                        match_type="Exact",
+                    ),
+                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
+                        repository_id=None,
+                        repository_ref="refs/heads/releases",
+                        match_type="Prefix",
+                    ),
+                    azuredevops.BranchPolicyMergeTypesSettingsScopeArgs(
+                        match_type="DefaultBranch",
+                    ),
+                ],
+            ))
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

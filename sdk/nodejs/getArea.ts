@@ -9,6 +9,24 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to access information about an existing Area (Component) within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleArea = exampleProject.id.apply(id => azuredevops.getAreaOutput({
+ *     projectId: id,
+ *     path: "/",
+ *     fetchChildren: false,
+ * }));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)
@@ -78,6 +96,24 @@ export interface GetAreaResult {
 /**
  * Use this data source to access information about an existing Area (Component) within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleArea = exampleProject.id.apply(id => azuredevops.getAreaOutput({
+ *     projectId: id,
+ *     path: "/",
+ *     fetchChildren: false,
+ * }));
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/create-or-update?view=azure-devops-rest-7.0)

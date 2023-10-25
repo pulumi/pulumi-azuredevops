@@ -7,6 +7,23 @@ import * as utilities from "../utilities";
 /**
  * Manages a project within Azure DevOps.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const example = new azuredevops.Project("example", {
+ *     description: "Managed by Terraform",
+ *     features: {
+ *         artifacts: "disabled",
+ *         testplans: "disabled",
+ *     },
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     workItemTemplate: "Agile",
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Projects](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/projects?view=azure-devops-rest-7.0)

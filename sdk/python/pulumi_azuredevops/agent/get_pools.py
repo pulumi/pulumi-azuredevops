@@ -63,6 +63,18 @@ def get_pools(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPoolsR
     """
     Use this data source to access information about existing Agent Pools within Azure DevOps.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_pools()
+    pulumi.export("agentPoolName", [__item.name for __item in example.agent_pools])
+    pulumi.export("autoProvision", [__item.auto_provision for __item in example.agent_pools])
+    pulumi.export("autoUpdate", [__item.auto_update for __item in example.agent_pools])
+    pulumi.export("poolType", [__item.pool_type for __item in example.agent_pools])
+    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -82,6 +94,18 @@ def get_pools_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Outp
     """
     Use this data source to access information about existing Agent Pools within Azure DevOps.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_pools()
+    pulumi.export("agentPoolName", [__item.name for __item in example.agent_pools])
+    pulumi.export("autoProvision", [__item.auto_provision for __item in example.agent_pools])
+    pulumi.export("autoUpdate", [__item.auto_update for __item in example.agent_pools])
+    pulumi.export("poolType", [__item.pool_type for __item in example.agent_pools])
+    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)

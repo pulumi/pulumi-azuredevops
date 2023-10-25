@@ -302,6 +302,22 @@ class GroupEntitlement(pulumi.CustomResource):
         Manages a group entitlement within Azure DevOps.
 
         ## Example Usage
+        ### With an Azure DevOps local group managed by this resource
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.GroupEntitlement("example", display_name="Group Name")
+        ```
+        ### With group origin ID
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.GroupEntitlement("example",
+            origin="aad",
+            origin_id="00000000-0000-0000-0000-000000000000")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Group Entitlements](https://learn.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group-entitlements?view=azure-devops-rest-7.1)
@@ -339,6 +355,22 @@ class GroupEntitlement(pulumi.CustomResource):
         Manages a group entitlement within Azure DevOps.
 
         ## Example Usage
+        ### With an Azure DevOps local group managed by this resource
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.GroupEntitlement("example", display_name="Group Name")
+        ```
+        ### With group origin ID
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.GroupEntitlement("example",
+            origin="aad",
+            origin_id="00000000-0000-0000-0000-000000000000")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Group Entitlements](https://learn.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/group-entitlements?view=azure-devops-rest-7.1)

@@ -506,6 +506,36 @@ class ElasticPool(pulumi.CustomResource):
         """
         Manages Elastic pool within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example Azure Connection",
+            description="Managed by Terraform",
+            service_endpoint_authentication_scheme="ServicePrincipal",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid="00000000-0000-0000-0000-000000000000",
+                serviceprincipalkey="00000000-0000-0000-0000-000000000000",
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Subscription Name")
+        example_elastic_pool = azuredevops.ElasticPool("exampleElasticPool",
+            service_endpoint_id=example_service_endpoint_azure_rm.id,
+            service_endpoint_scope=example_project.id,
+            desired_idle=2,
+            max_capacity=3,
+            azure_resource_id="/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Elastic Pools](https://learn.microsoft.com/en-us/rest/api/azure/devops/distributedtask/elasticpools/create?view=azure-devops-rest-7.0)
@@ -541,6 +571,36 @@ class ElasticPool(pulumi.CustomResource):
         """
         Manages Elastic pool within Azure DevOps.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_azure_rm = azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM",
+            project_id=example_project.id,
+            service_endpoint_name="Example Azure Connection",
+            description="Managed by Terraform",
+            service_endpoint_authentication_scheme="ServicePrincipal",
+            credentials=azuredevops.ServiceEndpointAzureRMCredentialsArgs(
+                serviceprincipalid="00000000-0000-0000-0000-000000000000",
+                serviceprincipalkey="00000000-0000-0000-0000-000000000000",
+            ),
+            azurerm_spn_tenantid="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_id="00000000-0000-0000-0000-000000000000",
+            azurerm_subscription_name="Subscription Name")
+        example_elastic_pool = azuredevops.ElasticPool("exampleElasticPool",
+            service_endpoint_id=example_service_endpoint_azure_rm.id,
+            service_endpoint_scope=example_project.id,
+            desired_idle=2,
+            max_capacity=3,
+            azure_resource_id="/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Elastic Pools](https://learn.microsoft.com/en-us/rest/api/azure/devops/distributedtask/elasticpools/create?view=azure-devops-rest-7.0)

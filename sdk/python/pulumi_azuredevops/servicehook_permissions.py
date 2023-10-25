@@ -241,6 +241,29 @@ class ServicehookPermissions(pulumi.CustomResource):
         Permissions for service hooks within Azure DevOps can be applied on the Organizational level or, if the optional attribute `project_id` is specified, on Project level.
         Those levels are reflected by specifying (or omitting) values for the argument `project_id`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.ServicehookPermissions("example-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "ViewSubscriptions": "allow",
+                "EditSubscriptions": "allow",
+                "DeleteSubscriptions": "allow",
+                "PublishEvents": "allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -281,6 +304,29 @@ class ServicehookPermissions(pulumi.CustomResource):
         Permissions for service hooks within Azure DevOps can be applied on the Organizational level or, if the optional attribute `project_id` is specified, on Project level.
         Those levels are reflected by specifying (or omitting) values for the argument `project_id`.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example = azuredevops.Project("example",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example.id,
+            name="Readers")
+        example_permissions = azuredevops.ServicehookPermissions("example-permissions",
+            project_id=example.id,
+            principal=example_readers.id,
+            permissions={
+                "ViewSubscriptions": "allow",
+                "EditSubscriptions": "allow",
+                "DeleteSubscriptions": "allow",
+                "PublishEvents": "allow",
+            })
+        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

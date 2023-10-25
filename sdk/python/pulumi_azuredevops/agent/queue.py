@@ -147,6 +147,24 @@ class Queue(pulumi.CustomResource):
         The created queue is not authorized for use by all pipelines in the project. However,
         the `ResourceAuthorization` resource can be used to grant authorization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_pool = azuredevops.get_pool(name="example-pool")
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        # Grant access to queue to all pipelines in the project
+        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+            project_id=example_project.id,
+            resource_id=example_queue.id,
+            type="queue",
+            authorized=True)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)
@@ -177,6 +195,24 @@ class Queue(pulumi.CustomResource):
         The created queue is not authorized for use by all pipelines in the project. However,
         the `ResourceAuthorization` resource can be used to grant authorization.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject")
+        example_pool = azuredevops.get_pool(name="example-pool")
+        example_queue = azuredevops.Queue("exampleQueue",
+            project_id=example_project.id,
+            agent_pool_id=example_pool.id)
+        # Grant access to queue to all pipelines in the project
+        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+            project_id=example_project.id,
+            resource_id=example_queue.id,
+            type="queue",
+            authorized=True)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)

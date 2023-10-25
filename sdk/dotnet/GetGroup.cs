@@ -14,6 +14,45 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Group within Azure DevOps
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var exampleGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Group",
+        ///     });
+        /// 
+        ///     var example_collection_group = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = "Project Collection Administrators",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["groupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["groupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///         ["collectionGroupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["collectionGroupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)
@@ -24,6 +63,45 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Group within Azure DevOps
         /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using AzureDevOps = Pulumi.AzureDevOps;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleProject = AzureDevOps.GetProject.Invoke(new()
+        ///     {
+        ///         Name = "Example Project",
+        ///     });
+        /// 
+        ///     var exampleGroup = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         ProjectId = exampleProject.Apply(getProjectResult =&gt; getProjectResult.Id),
+        ///         Name = "Example Group",
+        ///     });
+        /// 
+        ///     var example_collection_group = AzureDevOps.GetGroup.Invoke(new()
+        ///     {
+        ///         Name = "Project Collection Administrators",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["groupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["groupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///         ["collectionGroupId"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+        ///         ["collectionGroupDescriptor"] = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Groups - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/get?view=azure-devops-rest-7.0)

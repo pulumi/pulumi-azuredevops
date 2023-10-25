@@ -13,6 +13,88 @@ namespace Pulumi.AzureDevOps
     /// Manages a Required Template Check.
     /// 
     /// ## Example Usage
+    /// ### Protect a service connection
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleServiceEndpointGeneric = new AzureDevOps.ServiceEndpointGeneric("exampleServiceEndpointGeneric", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         ServerUrl = "https://some-server.example.com",
+    ///         Username = "username",
+    ///         Password = "password",
+    ///         ServiceEndpointName = "Example Generic",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var exampleCheckRequiredTemplate = new AzureDevOps.CheckRequiredTemplate("exampleCheckRequiredTemplate", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         TargetResourceId = exampleServiceEndpointGeneric.Id,
+    ///         TargetResourceType = "endpoint",
+    ///         RequiredTemplates = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.CheckRequiredTemplateRequiredTemplateArgs
+    ///             {
+    ///                 RepositoryType = "azuregit",
+    ///                 RepositoryName = "project/repository",
+    ///                 RepositoryRef = "refs/heads/main",
+    ///                 TemplatePath = "template/path.yml",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Protect an environment
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
+    /// 
+    ///     var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///     });
+    /// 
+    ///     var exampleCheckRequiredTemplate = new AzureDevOps.CheckRequiredTemplate("exampleCheckRequiredTemplate", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         TargetResourceId = exampleEnvironment.Id,
+    ///         TargetResourceType = "environment",
+    ///         RequiredTemplates = new[]
+    ///         {
+    ///             new AzureDevOps.Inputs.CheckRequiredTemplateRequiredTemplateArgs
+    ///             {
+    ///                 RepositoryName = "project/repository",
+    ///                 RepositoryRef = "refs/heads/main",
+    ///                 TemplatePath = "template/path.yml",
+    ///             },
+    ///             new AzureDevOps.Inputs.CheckRequiredTemplateRequiredTemplateArgs
+    ///             {
+    ///                 RepositoryName = "project/repository",
+    ///                 RepositoryRef = "refs/heads/main",
+    ///                 TemplatePath = "template/alternate-path.yml",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 

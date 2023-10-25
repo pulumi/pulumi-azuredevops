@@ -7,6 +7,26 @@ import * as utilities from "./utilities";
 /**
  * Manages an Octopus Deploy service endpoint within Azure DevOps. Using this service endpoint requires you to install [Octopus Deploy](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ *     description: "Managed by Terraform",
+ * });
+ * const exampleServiceendpointOctopusdeploy = new azuredevops.ServiceendpointOctopusdeploy("exampleServiceendpointOctopusdeploy", {
+ *     projectId: exampleProject.id,
+ *     url: "https://octopus.com",
+ *     apiKey: "000000000000000000000000000000000000",
+ *     serviceEndpointName: "Example Octopus Deploy",
+ *     description: "Managed by Terraform",
+ * });
+ * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

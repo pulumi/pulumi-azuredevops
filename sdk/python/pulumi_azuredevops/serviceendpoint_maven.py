@@ -360,6 +360,51 @@ class ServiceendpointMaven(pulumi.CustomResource):
         """
         Manages a Maven service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Maven instance.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_maven = azuredevops.ServiceendpointMaven("exampleServiceendpointMaven",
+            project_id=example_project.id,
+            service_endpoint_name="maven-example",
+            description="Service Endpoint for 'Maven' (Managed by Terraform)",
+            url="https://example.com",
+            repository_id="example",
+            authentication_token=azuredevops.ServiceendpointMavenAuthenticationTokenArgs(
+                token="0000000000000000000000000000000000000000",
+            ))
+        ```
+
+        Alternatively a username and password may be used.
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_maven = azuredevops.ServiceendpointMaven("exampleServiceendpointMaven",
+            project_id=example_project.id,
+            service_endpoint_name="maven-example",
+            description="Service Endpoint for 'Maven' (Managed by Terraform)",
+            url="https://example.com",
+            repository_id="example",
+            authentication_basic=azuredevops.ServiceendpointMavenAuthenticationBasicArgs(
+                username="username",
+                password="password",
+            ))
+        ```
+
         ## Import
 
         Service Connection Maven can be imported using the `projectId/id` or or `projectName/id`, e.g.
@@ -385,6 +430,51 @@ class ServiceendpointMaven(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Maven service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Maven instance.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_maven = azuredevops.ServiceendpointMaven("exampleServiceendpointMaven",
+            project_id=example_project.id,
+            service_endpoint_name="maven-example",
+            description="Service Endpoint for 'Maven' (Managed by Terraform)",
+            url="https://example.com",
+            repository_id="example",
+            authentication_token=azuredevops.ServiceendpointMavenAuthenticationTokenArgs(
+                token="0000000000000000000000000000000000000000",
+            ))
+        ```
+
+        Alternatively a username and password may be used.
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_serviceendpoint_maven = azuredevops.ServiceendpointMaven("exampleServiceendpointMaven",
+            project_id=example_project.id,
+            service_endpoint_name="maven-example",
+            description="Service Endpoint for 'Maven' (Managed by Terraform)",
+            url="https://example.com",
+            repository_id="example",
+            authentication_basic=azuredevops.ServiceendpointMavenAuthenticationBasicArgs(
+                username="username",
+                password="password",
+            ))
+        ```
 
         ## Import
 

@@ -7,6 +7,24 @@ import * as utilities from "./utilities";
 /**
  * Manages a Build Folder.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     visibility: "private",
+ *     versionControl: "Git",
+ *     workItemTemplate: "Agile",
+ * });
+ * const exampleBuildFolder = new azuredevops.BuildFolder("exampleBuildFolder", {
+ *     projectId: exampleProject.id,
+ *     path: "\\ExampleFolder",
+ *     description: "ExampleFolder description",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Build Folders can be imported using the `project name/path` or `project id/path`, e.g.

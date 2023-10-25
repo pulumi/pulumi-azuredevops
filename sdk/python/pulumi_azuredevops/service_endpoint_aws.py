@@ -444,6 +444,24 @@ class ServiceEndpointAws(pulumi.CustomResource):
         """
         Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("exampleServiceEndpointAws",
+            project_id=example_project.id,
+            service_endpoint_name="Example AWS",
+            access_key_id="00000000-0000-0000-0000-000000000000",
+            secret_access_key="accesskey",
+            description="Managed by AzureDevOps")
+        ```
         ## Relevant Links
 
         * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
@@ -477,6 +495,24 @@ class ServiceEndpointAws(pulumi.CustomResource):
         """
         Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("exampleServiceEndpointAws",
+            project_id=example_project.id,
+            service_endpoint_name="Example AWS",
+            access_key_id="00000000-0000-0000-0000-000000000000",
+            secret_access_key="accesskey",
+            description="Managed by AzureDevOps")
+        ```
         ## Relevant Links
 
         * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)

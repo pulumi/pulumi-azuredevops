@@ -13,6 +13,40 @@ import (
 )
 
 // Use this data source to access information about an existing Build Definition.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
+//				Name: pulumi.StringRef("Example Project"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleBuildDefinition, err := azuredevops.LookupBuildDefinition(ctx, &azuredevops.LookupBuildDefinitionArgs{
+//				ProjectId: exampleProject.Id,
+//				Name:      "existing",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("id", exampleBuildDefinition.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupBuildDefinition(ctx *pulumi.Context, args *LookupBuildDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupBuildDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupBuildDefinitionResult

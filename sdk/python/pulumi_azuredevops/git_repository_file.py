@@ -295,6 +295,29 @@ class GitRepositoryFile(pulumi.CustomResource):
         """
         Manage files within an Azure DevOps Git repository.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_git_repository_file = azuredevops.GitRepositoryFile("exampleGitRepositoryFile",
+            repository_id=example_git.id,
+            file=".gitignore",
+            content="**/*.tfstate",
+            branch="refs/heads/master",
+            commit_message="First commit",
+            overwrite_on_create=False)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -332,6 +355,29 @@ class GitRepositoryFile(pulumi.CustomResource):
         """
         Manage files within an Azure DevOps Git repository.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile")
+        example_git = azuredevops.Git("exampleGit",
+            project_id=example_project.id,
+            initialization=azuredevops.GitInitializationArgs(
+                init_type="Clean",
+            ))
+        example_git_repository_file = azuredevops.GitRepositoryFile("exampleGitRepositoryFile",
+            repository_id=example_git.id,
+            file=".gitignore",
+            content="**/*.tfstate",
+            branch="refs/heads/master",
+            commit_message="First commit",
+            overwrite_on_create=False)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)

@@ -261,6 +261,28 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         Currently supported resources: service endpoint (aka service connection, endpoint).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
+            project_id=example_project.id,
+            username="username",
+            password="password",
+            service_endpoint_name="example-bitbucket",
+            description="Managed by Terraform")
+        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+            project_id=example_project.id,
+            resource_id=example_service_endpoint_bit_bucket.id,
+            authorized=True)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
@@ -284,6 +306,28 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         Currently supported resources: service endpoint (aka service connection, endpoint).
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
+            project_id=example_project.id,
+            username="username",
+            password="password",
+            service_endpoint_name="example-bitbucket",
+            description="Managed by Terraform")
+        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
+            project_id=example_project.id,
+            resource_id=example_service_endpoint_bit_bucket.id,
+            authorized=True)
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)

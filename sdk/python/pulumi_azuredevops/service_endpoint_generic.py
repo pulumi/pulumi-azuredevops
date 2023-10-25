@@ -313,6 +313,25 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         Manages a generic service endpoint within Azure DevOps, which can be used to authenticate to any external server using
         basic authentication via a username and password.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
+            server_url="https://some-server.example.com",
+            username="username",
+            password="password",
+            service_endpoint_name="Example Generic",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -343,6 +362,25 @@ class ServiceEndpointGeneric(pulumi.CustomResource):
         Manages a generic service endpoint within Azure DevOps, which can be used to authenticate to any external server using
         basic authentication via a username and password.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            visibility="private",
+            version_control="Git",
+            work_item_template="Agile",
+            description="Managed by Terraform")
+        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
+            project_id=example_project.id,
+            server_url="https://some-server.example.com",
+            username="username",
+            password="password",
+            service_endpoint_name="Example Generic",
+            description="Managed by Terraform")
+        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

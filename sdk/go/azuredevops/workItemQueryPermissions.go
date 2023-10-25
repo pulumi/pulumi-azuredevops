@@ -22,6 +22,176 @@ import (
 // Permission for Work Item Queries within Azure DevOps can be applied on two different levels.
 // Those levels are reflected by specifying (or omitting) values for the arguments `projectId` and `path`.
 //
+// ### Project level
+//
+// Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `projectId` has a value.
+//
+// #### Example usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "project-wiq-root-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+//				ProjectId: example.ID(),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Permissions: pulumi.StringMap{
+//					"CreateRepository": pulumi.String("Deny"),
+//					"DeleteRepository": pulumi.String("Deny"),
+//					"RenameRepository": pulumi.String("NotSet"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ### Shared Queries folder level
+//
+// Permissions for a specific folder inside Shared Queries are specified if the arguments `projectId` and `path` are set.
+//
+// > **Note** To set permissions for the Shared Queries folder itself use `/` as path value
+//
+// #### Example usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+//				ProjectId: example.ID(),
+//				Path:      pulumi.String("/Team"),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Permissions: pulumi.StringMap{
+//					"Contribute": pulumi.String("Allow"),
+//					"Delete":     pulumi.String("Deny"),
+//					"Read":       pulumi.String("NotSet"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := azuredevops.NewProject(ctx, "example", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			example_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//				ProjectId: example.ID(),
+//				Name:      pulumi.String("Contributors"),
+//			}, nil)
+//			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-project-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+//				ProjectId: example.ID(),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Permissions: pulumi.StringMap{
+//					"Read":              pulumi.String("Allow"),
+//					"Delete":            pulumi.String("Deny"),
+//					"Contribute":        pulumi.String("Deny"),
+//					"ManagePermissions": pulumi.String("Deny"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = azuredevops.NewWorkItemQueryPermissions(ctx, "example-sharedqueries-permissions", &azuredevops.WorkItemQueryPermissionsArgs{
+//				ProjectId: example.ID(),
+//				Path:      pulumi.String("/"),
+//				Principal: example_contributors.ApplyT(func(example_contributors azuredevops.GetGroupResult) (*string, error) {
+//					return &example_contributors.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Permissions: pulumi.StringMap{
+//					"Read":   pulumi.String("Allow"),
+//					"Delete": pulumi.String("Deny"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Relevant Links
 //
 // * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

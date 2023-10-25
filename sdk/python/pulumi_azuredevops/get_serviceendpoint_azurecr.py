@@ -222,6 +222,17 @@ def get_serviceendpoint_azurecr(project_id: Optional[str] = None,
     """
     Use this data source to access information about an existing Azure Container Registry Service Endpoint.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_serviceendpoint_azurecr(project_id=azuredevops_project["example"]["id"],
+        service_endpoint_name="Example Azure Container Registry")
+    pulumi.export("serviceEndpointId", example.id)
+    ```
+
 
     :param str project_id: The ID of the project.
     :param str service_endpoint_id: the ID of the Service Endpoint.
@@ -262,6 +273,17 @@ def get_serviceendpoint_azurecr_output(project_id: Optional[pulumi.Input[str]] =
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceendpointAzurecrResult]:
     """
     Use this data source to access information about an existing Azure Container Registry Service Endpoint.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azuredevops as azuredevops
+
+    example = azuredevops.get_serviceendpoint_azurecr(project_id=azuredevops_project["example"]["id"],
+        service_endpoint_name="Example Azure Container Registry")
+    pulumi.export("serviceEndpointId", example.id)
+    ```
 
 
     :param str project_id: The ID of the project.
