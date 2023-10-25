@@ -15,43 +15,6 @@ import (
 
 // Manages a NuGet service endpoint within Azure DevOps.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-//				Visibility:       pulumi.String("private"),
-//				VersionControl:   pulumi.String("Git"),
-//				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewServiceendpointNuget(ctx, "exampleServiceendpointNuget", &azuredevops.ServiceendpointNugetArgs{
-//				ProjectId:           exampleProject.ID(),
-//				ApiKey:              pulumi.String("apikey"),
-//				ServiceEndpointName: pulumi.String("Example NuGet"),
-//				Description:         pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

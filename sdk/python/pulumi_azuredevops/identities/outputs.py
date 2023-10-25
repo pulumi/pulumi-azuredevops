@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -36,24 +36,60 @@ class GetUsersUserResult(dict):
                
                List of possible subject types
                
-               ```python
-               import pulumi
-               ```
                
                List of possible origins
-               
-               ```python
-               import pulumi
-               ```
         """
-        pulumi.set(__self__, "descriptor", descriptor)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "mail_address", mail_address)
-        pulumi.set(__self__, "origin", origin)
-        pulumi.set(__self__, "principal_name", principal_name)
+        GetUsersUserResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            descriptor=descriptor,
+            display_name=display_name,
+            id=id,
+            mail_address=mail_address,
+            origin=origin,
+            principal_name=principal_name,
+            origin_id=origin_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             descriptor: Optional[str] = None,
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             mail_address: Optional[str] = None,
+             origin: Optional[str] = None,
+             principal_name: Optional[str] = None,
+             origin_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if descriptor is None:
+            raise TypeError("Missing 'descriptor' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if mail_address is None and 'mailAddress' in kwargs:
+            mail_address = kwargs['mailAddress']
+        if mail_address is None:
+            raise TypeError("Missing 'mail_address' argument")
+        if origin is None:
+            raise TypeError("Missing 'origin' argument")
+        if principal_name is None and 'principalName' in kwargs:
+            principal_name = kwargs['principalName']
+        if principal_name is None:
+            raise TypeError("Missing 'principal_name' argument")
+        if origin_id is None and 'originId' in kwargs:
+            origin_id = kwargs['originId']
+
+        _setter("descriptor", descriptor)
+        _setter("display_name", display_name)
+        _setter("id", id)
+        _setter("mail_address", mail_address)
+        _setter("origin", origin)
+        _setter("principal_name", principal_name)
         if origin_id is not None:
-            pulumi.set(__self__, "origin_id", origin_id)
+            _setter("origin_id", origin_id)
 
     @property
     @pulumi.getter
@@ -113,15 +149,8 @@ class GetUsersUserResult(dict):
 
         List of possible subject types
 
-        ```python
-        import pulumi
-        ```
 
         List of possible origins
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "origin_id")
 

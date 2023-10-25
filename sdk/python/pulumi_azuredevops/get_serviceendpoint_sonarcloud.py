@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -102,17 +102,6 @@ def get_serviceendpoint_sonarcloud(project_id: Optional[str] = None,
     """
     Use this data source to access information about an existing Sonar Cloud Service Endpoint.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_serviceendpoint_sonarcloud(project_id=azuredevops_project["example"]["id"],
-        service_endpoint_name="Example Sonar Cloud")
-    pulumi.export("serviceEndpointId", example.id)
-    ```
-
 
     :param str project_id: The ID of the project.
     :param str service_endpoint_id: the ID of the Service Endpoint.
@@ -143,17 +132,6 @@ def get_serviceendpoint_sonarcloud_output(project_id: Optional[pulumi.Input[str]
                                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceendpointSonarcloudResult]:
     """
     Use this data source to access information about an existing Sonar Cloud Service Endpoint.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_serviceendpoint_sonarcloud(project_id=azuredevops_project["example"]["id"],
-        service_endpoint_name="Example Sonar Cloud")
-    pulumi.export("serviceEndpointId", example.id)
-    ```
 
 
     :param str project_id: The ID of the project.

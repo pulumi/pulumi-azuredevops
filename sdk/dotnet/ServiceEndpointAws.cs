@@ -12,35 +12,6 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var exampleServiceEndpointAws = new AzureDevOps.ServiceEndpointAws("exampleServiceEndpointAws", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         ServiceEndpointName = "Example AWS",
-    ///         AccessKeyId = "00000000-0000-0000-0000-000000000000",
-    ///         SecretAccessKey = "accesskey",
-    ///         Description = "Managed by AzureDevOps",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)

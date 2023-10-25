@@ -11,21 +11,6 @@ import * as utilities from "./utilities";
  *
  * > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = azuredevops.getProject({
- *     name: "Example Project",
- * });
- * const exampleVariableGroup = exampleProject.then(exampleProject => azuredevops.getVariableGroup({
- *     projectId: exampleProject.id,
- *     name: "Example Variable Group",
- * }));
- * export const id = exampleVariableGroup.then(exampleVariableGroup => exampleVariableGroup.id);
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -88,21 +73,6 @@ export interface GetVariableGroupResult {
  *
  * > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = azuredevops.getProject({
- *     name: "Example Project",
- * });
- * const exampleVariableGroup = exampleProject.then(exampleProject => azuredevops.getVariableGroup({
- *     projectId: exampleProject.id,
- *     name: "Example Variable Group",
- * }));
- * export const id = exampleVariableGroup.then(exampleVariableGroup => exampleVariableGroup.id);
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)

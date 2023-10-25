@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = [
@@ -126,20 +126,6 @@ def get_team(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Team in a Project within Azure DevOps.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example_project = azuredevops.Project("exampleProject",
-        work_item_template="Agile",
-        version_control="Git",
-        visibility="private",
-        description="Managed by Terraform")
-    example_team = azuredevops.get_team_output(project_id=example_project.id,
-        name="Example Project Team")
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -179,20 +165,6 @@ def get_team_output(name: Optional[pulumi.Input[str]] = None,
     """
     Use this data source to access information about an existing Team in a Project within Azure DevOps.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example_project = azuredevops.Project("exampleProject",
-        work_item_template="Agile",
-        version_control="Git",
-        visibility="private",
-        description="Managed by Terraform")
-    example_team = azuredevops.get_team_output(project_id=example_project.id,
-        name="Example Project Team")
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)

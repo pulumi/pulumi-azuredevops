@@ -9,49 +9,6 @@ import * as utilities from "./utilities";
  *
  * > **Note** Permissions can be assigned to group principals and not to single user principals.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const example-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
- *     name: "Readers",
- * });
- * const exampleBuildFolder = new azuredevops.BuildFolder("exampleBuildFolder", {
- *     projectId: exampleProject.id,
- *     path: "\\ExampleFolder",
- *     description: "ExampleFolder description",
- * });
- * const exampleBuildFolderPermissions = new azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions", {
- *     projectId: exampleProject.id,
- *     path: "\\ExampleFolder",
- *     principal: example_readers.apply(example_readers => example_readers.id),
- *     permissions: {
- *         ViewBuilds: "Allow",
- *         EditBuildQuality: "Allow",
- *         RetainIndefinitely: "Allow",
- *         DeleteBuilds: "Deny",
- *         ManageBuildQualities: "Deny",
- *         DestroyBuilds: "Deny",
- *         UpdateBuildInformation: "Deny",
- *         QueueBuilds: "Allow",
- *         ManageBuildQueue: "Deny",
- *         StopBuilds: "Allow",
- *         ViewBuildDefinition: "Allow",
- *         EditBuildDefinition: "Deny",
- *         DeleteBuildDefinition: "Deny",
- *         AdministerBuildPermissions: "NotSet",
- *     },
- * });
- * ```
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

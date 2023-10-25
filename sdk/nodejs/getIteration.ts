@@ -9,29 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = new azuredevops.Project("example", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const example-root-iteration = azuredevops.getIterationOutput({
- *     projectId: example.id,
- *     path: "/",
- *     fetchChildren: true,
- * });
- * const example-child-iteration = azuredevops.getIterationOutput({
- *     projectId: example.id,
- *     path: "/Iteration 1",
- *     fetchChildren: true,
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
@@ -101,29 +78,6 @@ export interface GetIterationResult {
 /**
  * Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = new azuredevops.Project("example", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const example-root-iteration = azuredevops.getIterationOutput({
- *     projectId: example.id,
- *     path: "/",
- *     fetchChildren: true,
- * });
- * const example-child-iteration = azuredevops.getIterationOutput({
- *     projectId: example.id,
- *     path: "/Iteration 1",
- *     fetchChildren: true,
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)

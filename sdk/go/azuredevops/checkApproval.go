@@ -16,53 +16,6 @@ import (
 // Manages a Approval Check.
 //
 // ## Example Usage
-// ### Protect an environment
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleEnvironment, err := azuredevops.NewEnvironment(ctx, "exampleEnvironment", &azuredevops.EnvironmentArgs{
-//				ProjectId: exampleProject.ID(),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroup, err := azuredevops.NewGroup(ctx, "exampleGroup", &azuredevops.GroupArgs{
-//				DisplayName: pulumi.String("some-azdo-group"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewCheckApproval(ctx, "exampleCheckApproval", &azuredevops.CheckApprovalArgs{
-//				ProjectId:           exampleProject.ID(),
-//				TargetResourceId:    exampleEnvironment.ID(),
-//				TargetResourceType:  pulumi.String("environment"),
-//				RequesterCanApprove: pulumi.Bool(true),
-//				Approvers: pulumi.StringArray{
-//					exampleGroup.OriginId,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //

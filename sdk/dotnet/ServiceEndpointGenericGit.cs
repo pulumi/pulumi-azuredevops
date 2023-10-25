@@ -13,36 +13,6 @@ namespace Pulumi.AzureDevOps
     /// Manages a generic service endpoint within Azure DevOps, which can be used to authenticate to any external git service
     /// using basic authentication via a username and password. This is mostly useful for importing private git repositories.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var exampleServiceEndpointGenericGit = new AzureDevOps.ServiceEndpointGenericGit("exampleServiceEndpointGenericGit", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         RepositoryUrl = "https://dev.azure.com/org/project/_git/repository",
-    ///         Username = "username",
-    ///         Password = "password",
-    ///         ServiceEndpointName = "Example Generic Git",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

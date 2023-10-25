@@ -12,34 +12,6 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages a NuGet service endpoint within Azure DevOps.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var exampleServiceendpointNuget = new AzureDevOps.ServiceendpointNuget("exampleServiceendpointNuget", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         ApiKey = "apikey",
-    ///         ServiceEndpointName = "Example NuGet",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

@@ -15,50 +15,6 @@ import (
 
 // Manages group membership within Azure DevOps.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := azuredevops.NewUser(ctx, "exampleUser", &azuredevops.UserArgs{
-//				PrincipalName: pulumi.String("foo@contoso.com"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroup := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
-//				Name:      pulumi.String("Build Administrators"),
-//			}, nil)
-//			_, err = azuredevops.NewGroupMembership(ctx, "exampleGroupMembership", &azuredevops.GroupMembershipArgs{
-//				Group: exampleGroup.ApplyT(func(exampleGroup azuredevops.GetGroupResult) (*string, error) {
-//					return &exampleGroup.Descriptor, nil
-//				}).(pulumi.StringPtrOutput),
-//				Members: pulumi.StringArray{
-//					exampleUser.Descriptor,
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-7.0)

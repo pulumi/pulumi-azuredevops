@@ -8,36 +8,6 @@ import * as utilities from "./utilities";
  * Use this data source to access information about an existing AzureRM service Endpoint.
  *
  * ## Example Usage
- * ### By Service Endpoint ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const sample = azuredevops.getProject({
- *     name: "Sample Project",
- * });
- * const serviceendpoint = sample.then(sample => azuredevops.getServiceEndpointAzureRM({
- *     projectId: sample.id,
- *     serviceEndpointId: "00000000-0000-0000-0000-000000000000",
- * }));
- * export const serviceEndpointName = serviceendpoint.then(serviceendpoint => serviceendpoint.serviceEndpointName);
- * ```
- * ### By Service Endpoint Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const sample = azuredevops.getProject({
- *     name: "Sample Project",
- * });
- * const serviceendpoint = sample.then(sample => azuredevops.getServiceEndpointAzureRM({
- *     projectId: sample.id,
- *     serviceEndpointName: "Example-Service-Endpoint",
- * }));
- * export const serviceEndpointId = serviceendpoint.then(serviceendpoint => serviceendpoint.id);
- * ```
  */
 export function getServiceEndpointAzureRM(args: GetServiceEndpointAzureRMArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceEndpointAzureRMResult> {
 
@@ -134,36 +104,6 @@ export interface GetServiceEndpointAzureRMResult {
  * Use this data source to access information about an existing AzureRM service Endpoint.
  *
  * ## Example Usage
- * ### By Service Endpoint ID
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const sample = azuredevops.getProject({
- *     name: "Sample Project",
- * });
- * const serviceendpoint = sample.then(sample => azuredevops.getServiceEndpointAzureRM({
- *     projectId: sample.id,
- *     serviceEndpointId: "00000000-0000-0000-0000-000000000000",
- * }));
- * export const serviceEndpointName = serviceendpoint.then(serviceendpoint => serviceendpoint.serviceEndpointName);
- * ```
- * ### By Service Endpoint Name
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const sample = azuredevops.getProject({
- *     name: "Sample Project",
- * });
- * const serviceendpoint = sample.then(sample => azuredevops.getServiceEndpointAzureRM({
- *     projectId: sample.id,
- *     serviceEndpointName: "Example-Service-Endpoint",
- * }));
- * export const serviceEndpointId = serviceendpoint.then(serviceendpoint => serviceendpoint.id);
- * ```
  */
 export function getServiceEndpointAzureRMOutput(args: GetServiceEndpointAzureRMOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceEndpointAzureRMResult> {
     return pulumi.output(args).apply((a: any) => getServiceEndpointAzureRM(a, opts))

@@ -9,30 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to access information about an existing users within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = azuredevops.getUsers({
- *     principalName: "contoso-user@contoso.onmicrosoft.com",
- * });
- * const example-all-users = azuredevops.getUsers({});
- * const example-all-from-origin = azuredevops.getUsers({
- *     origin: "aad",
- * });
- * const example-all-from-subjectTypes = azuredevops.getUsers({
- *     subjectTypes: [
- *         "aad",
- *         "msa",
- *     ],
- * });
- * const example-all-from-origin-id = azuredevops.getUsers({
- *     origin: "aad",
- *     originId: "00000000-0000-0000-0000-000000000000",
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -64,15 +40,8 @@ export interface GetUsersArgs {
      *
      * List of possible subject types
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      *
      * List of possible origins
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     originId?: string;
     /**
@@ -114,30 +83,6 @@ export interface GetUsersResult {
 /**
  * Use this data source to access information about an existing users within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = azuredevops.getUsers({
- *     principalName: "contoso-user@contoso.onmicrosoft.com",
- * });
- * const example-all-users = azuredevops.getUsers({});
- * const example-all-from-origin = azuredevops.getUsers({
- *     origin: "aad",
- * });
- * const example-all-from-subjectTypes = azuredevops.getUsers({
- *     subjectTypes: [
- *         "aad",
- *         "msa",
- *     ],
- * });
- * const example-all-from-origin-id = azuredevops.getUsers({
- *     origin: "aad",
- *     originId: "00000000-0000-0000-0000-000000000000",
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -161,15 +106,8 @@ export interface GetUsersOutputArgs {
      *
      * List of possible subject types
      *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      *
      * List of possible origins
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     originId?: pulumi.Input<string>;
     /**

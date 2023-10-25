@@ -14,42 +14,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// Currently supported resources: service endpoint (aka service connection, endpoint).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var exampleServiceEndpointBitBucket = new AzureDevOps.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Username = "username",
-    ///         Password = "password",
-    ///         ServiceEndpointName = "example-bitbucket",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("exampleResourceAuthorization", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         ResourceId = exampleServiceEndpointBitBucket.Id,
-    ///         Authorized = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)

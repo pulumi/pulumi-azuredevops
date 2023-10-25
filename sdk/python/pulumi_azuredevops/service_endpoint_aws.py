@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceEndpointAwsArgs', 'ServiceEndpointAws']
@@ -35,22 +35,75 @@ class ServiceEndpointAwsArgs:
         :param pulumi.Input[str] role_to_assume: The Amazon Resource Name (ARN) of the role to assume.
         :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
         """
-        pulumi.set(__self__, "access_key_id", access_key_id)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "secret_access_key", secret_access_key)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        ServiceEndpointAwsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key_id=access_key_id,
+            project_id=project_id,
+            secret_access_key=secret_access_key,
+            service_endpoint_name=service_endpoint_name,
+            authorization=authorization,
+            description=description,
+            external_id=external_id,
+            role_session_name=role_session_name,
+            role_to_assume=role_to_assume,
+            session_token=session_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key_id: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             secret_access_key: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             external_id: Optional[pulumi.Input[str]] = None,
+             role_session_name: Optional[pulumi.Input[str]] = None,
+             role_to_assume: Optional[pulumi.Input[str]] = None,
+             session_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key_id is None and 'accessKeyId' in kwargs:
+            access_key_id = kwargs['accessKeyId']
+        if access_key_id is None:
+            raise TypeError("Missing 'access_key_id' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if secret_access_key is None and 'secretAccessKey' in kwargs:
+            secret_access_key = kwargs['secretAccessKey']
+        if secret_access_key is None:
+            raise TypeError("Missing 'secret_access_key' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if external_id is None and 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if role_session_name is None and 'roleSessionName' in kwargs:
+            role_session_name = kwargs['roleSessionName']
+        if role_to_assume is None and 'roleToAssume' in kwargs:
+            role_to_assume = kwargs['roleToAssume']
+        if session_token is None and 'sessionToken' in kwargs:
+            session_token = kwargs['sessionToken']
+
+        _setter("access_key_id", access_key_id)
+        _setter("project_id", project_id)
+        _setter("secret_access_key", secret_access_key)
+        _setter("service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if role_session_name is not None:
-            pulumi.set(__self__, "role_session_name", role_session_name)
+            _setter("role_session_name", role_session_name)
         if role_to_assume is not None:
-            pulumi.set(__self__, "role_to_assume", role_to_assume)
+            _setter("role_to_assume", role_to_assume)
         if session_token is not None:
-            pulumi.set(__self__, "session_token", session_token)
+            _setter("session_token", session_token)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -191,26 +244,71 @@ class _ServiceEndpointAwsState:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] session_token: The AWS session token for signing programmatic requests.
         """
+        _ServiceEndpointAwsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            access_key_id=access_key_id,
+            authorization=authorization,
+            description=description,
+            external_id=external_id,
+            project_id=project_id,
+            role_session_name=role_session_name,
+            role_to_assume=role_to_assume,
+            secret_access_key=secret_access_key,
+            service_endpoint_name=service_endpoint_name,
+            session_token=session_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             access_key_id: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             external_id: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             role_session_name: Optional[pulumi.Input[str]] = None,
+             role_to_assume: Optional[pulumi.Input[str]] = None,
+             secret_access_key: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             session_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if access_key_id is None and 'accessKeyId' in kwargs:
+            access_key_id = kwargs['accessKeyId']
+        if external_id is None and 'externalId' in kwargs:
+            external_id = kwargs['externalId']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if role_session_name is None and 'roleSessionName' in kwargs:
+            role_session_name = kwargs['roleSessionName']
+        if role_to_assume is None and 'roleToAssume' in kwargs:
+            role_to_assume = kwargs['roleToAssume']
+        if secret_access_key is None and 'secretAccessKey' in kwargs:
+            secret_access_key = kwargs['secretAccessKey']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if session_token is None and 'sessionToken' in kwargs:
+            session_token = kwargs['sessionToken']
+
         if access_key_id is not None:
-            pulumi.set(__self__, "access_key_id", access_key_id)
+            _setter("access_key_id", access_key_id)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if external_id is not None:
-            pulumi.set(__self__, "external_id", external_id)
+            _setter("external_id", external_id)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if role_session_name is not None:
-            pulumi.set(__self__, "role_session_name", role_session_name)
+            _setter("role_session_name", role_session_name)
         if role_to_assume is not None:
-            pulumi.set(__self__, "role_to_assume", role_to_assume)
+            _setter("role_to_assume", role_to_assume)
         if secret_access_key is not None:
-            pulumi.set(__self__, "secret_access_key", secret_access_key)
+            _setter("secret_access_key", secret_access_key)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
         if session_token is not None:
-            pulumi.set(__self__, "session_token", session_token)
+            _setter("session_token", session_token)
 
     @property
     @pulumi.getter(name="accessKeyId")
@@ -346,24 +444,6 @@ class ServiceEndpointAws(pulumi.CustomResource):
         """
         Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("exampleServiceEndpointAws",
-            project_id=example_project.id,
-            service_endpoint_name="Example AWS",
-            access_key_id="00000000-0000-0000-0000-000000000000",
-            secret_access_key="accesskey",
-            description="Managed by AzureDevOps")
-        ```
         ## Relevant Links
 
         * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
@@ -397,24 +477,6 @@ class ServiceEndpointAws(pulumi.CustomResource):
         """
         Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_aws = azuredevops.ServiceEndpointAws("exampleServiceEndpointAws",
-            project_id=example_project.id,
-            service_endpoint_name="Example AWS",
-            access_key_id="00000000-0000-0000-0000-000000000000",
-            secret_access_key="accesskey",
-            description="Managed by AzureDevOps")
-        ```
         ## Relevant Links
 
         * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)
@@ -438,6 +500,10 @@ class ServiceEndpointAws(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEndpointAwsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

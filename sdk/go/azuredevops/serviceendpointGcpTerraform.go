@@ -13,46 +13,6 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-//				Visibility:       pulumi.String("private"),
-//				VersionControl:   pulumi.String("Git"),
-//				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewServiceendpointGcpTerraform(ctx, "exampleServiceendpointGcpTerraform", &azuredevops.ServiceendpointGcpTerraformArgs{
-//				ProjectId:           exampleProject.ID(),
-//				TokenUri:            pulumi.String("https://oauth2.example.com/token"),
-//				ClientEmail:         pulumi.String("gcp-sa-example@example.iam.gserviceaccount.com"),
-//				PrivateKey:          pulumi.String("0000000000000000000000000000000000000"),
-//				ServiceEndpointName: pulumi.String("Example GCP Terraform extension"),
-//				GcpProjectId:        pulumi.String("Example GCP Project"),
-//				Description:         pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.1)

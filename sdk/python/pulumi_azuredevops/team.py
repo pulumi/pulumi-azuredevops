@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamArgs', 'Team']
@@ -37,15 +37,38 @@ class TeamArgs:
                > both methods to manage team members, since there'll be conflicts.
         :param pulumi.Input[str] name: The name of the Team.
         """
-        pulumi.set(__self__, "project_id", project_id)
+        TeamArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            administrators=administrators,
+            description=description,
+            members=members,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("project_id", project_id)
         if administrators is not None:
-            pulumi.set(__self__, "administrators", administrators)
+            _setter("administrators", administrators)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="projectId")
@@ -146,18 +169,41 @@ class _TeamState:
         :param pulumi.Input[str] name: The name of the Team.
         :param pulumi.Input[str] project_id: The Project ID.
         """
+        _TeamState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrators=administrators,
+            description=description,
+            descriptor=descriptor,
+            members=members,
+            name=name,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             descriptor: Optional[pulumi.Input[str]] = None,
+             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if administrators is not None:
-            pulumi.set(__self__, "administrators", administrators)
+            _setter("administrators", administrators)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if descriptor is not None:
-            pulumi.set(__self__, "descriptor", descriptor)
+            _setter("descriptor", descriptor)
         if members is not None:
-            pulumi.set(__self__, "members", members)
+            _setter("members", members)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
 
     @property
     @pulumi.getter
@@ -256,26 +302,6 @@ class Team(pulumi.CustomResource):
         """
         Manages a team within a project in a Azure DevOps organization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
-            name="Contributors")
-        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
-            name="Readers")
-        example_team = azuredevops.Team("exampleTeam",
-            project_id=example_project.id,
-            administrators=[example_project_contributors.descriptor],
-            members=[example_project_readers.descriptor])
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)
@@ -319,26 +345,6 @@ class Team(pulumi.CustomResource):
         """
         Manages a team within a project in a Azure DevOps organization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
-            name="Contributors")
-        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
-            name="Readers")
-        example_team = azuredevops.Team("exampleTeam",
-            project_id=example_project.id,
-            administrators=[example_project_contributors.descriptor],
-            members=[example_project_readers.descriptor])
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)
@@ -365,6 +371,10 @@ class Team(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TeamArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

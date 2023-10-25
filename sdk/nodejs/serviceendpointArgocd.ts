@@ -9,50 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Manages a ArgoCD service endpoint within Azure DevOps. Using this service endpoint requires you to first install [Argo CD Extension](https://marketplace.visualstudio.com/items?itemName=scb-tomasmortensen.vsix-argocd).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- * });
- * const exampleServiceendpointArgocd = new azuredevops.ServiceendpointArgocd("exampleServiceendpointArgocd", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example ArgoCD",
- *     description: "Managed by Terraform",
- *     url: "https://argocd.my.com",
- *     authenticationToken: {
- *         token: "0000000000000000000000000000000000000000",
- *     },
- * });
- * ```
- * Alternatively a username and password may be used.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceendpointArgocd = new azuredevops.ServiceendpointArgocd("exampleServiceendpointArgocd", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example ArgoCD",
- *     description: "Managed by Terraform",
- *     url: "https://argocd.my.com",
- *     authenticationBasic: {
- *         username: "username",
- *         password: "password",
- *     },
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)

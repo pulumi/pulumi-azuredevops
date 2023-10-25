@@ -14,36 +14,6 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Team in a Project within Azure DevOps.
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-        ///     {
-        ///         WorkItemTemplate = "Agile",
-        ///         VersionControl = "Git",
-        ///         Visibility = "private",
-        ///         Description = "Managed by Terraform",
-        ///     });
-        /// 
-        ///     var exampleTeam = AzureDevOps.GetTeam.Invoke(new()
-        ///     {
-        ///         ProjectId = exampleProject.Id,
-        ///         Name = "Example Project Team",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -58,36 +28,6 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about an existing Team in a Project within Azure DevOps.
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-        ///     {
-        ///         WorkItemTemplate = "Agile",
-        ///         VersionControl = "Git",
-        ///         Visibility = "private",
-        ///         Description = "Managed by Terraform",
-        ///     });
-        /// 
-        ///     var exampleTeam = AzureDevOps.GetTeam.Invoke(new()
-        ///     {
-        ///         ProjectId = exampleProject.Id,
-        ///         Name = "Example Project Team",
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)

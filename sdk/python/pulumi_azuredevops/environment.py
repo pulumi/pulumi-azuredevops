@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['EnvironmentArgs', 'Environment']
@@ -23,11 +23,30 @@ class EnvironmentArgs:
         :param pulumi.Input[str] description: A description for the Environment.
         :param pulumi.Input[str] name: The name which should be used for this Environment.
         """
-        pulumi.set(__self__, "project_id", project_id)
+        EnvironmentArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            description=description,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("project_id", project_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="projectId")
@@ -78,12 +97,29 @@ class _EnvironmentState:
         :param pulumi.Input[str] name: The name which should be used for this Environment.
         :param pulumi.Input[str] project_id: The ID of the project. Changing this forces a new Environment to be created.
         """
+        _EnvironmentState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            name=name,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
 
     @property
     @pulumi.getter
@@ -134,19 +170,6 @@ class Environment(pulumi.CustomResource):
         """
         Manages an Environment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
@@ -174,19 +197,6 @@ class Environment(pulumi.CustomResource):
         """
         Manages an Environment.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)
@@ -209,6 +219,10 @@ class Environment(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            EnvironmentArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

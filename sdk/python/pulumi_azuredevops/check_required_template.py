@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,10 +27,43 @@ class CheckRequiredTemplateArgs:
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "required_templates", required_templates)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "target_resource_type", target_resource_type)
+        CheckRequiredTemplateArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            required_templates=required_templates,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             required_templates: Optional[pulumi.Input[Sequence[pulumi.Input['CheckRequiredTemplateRequiredTemplateArgs']]]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if required_templates is None and 'requiredTemplates' in kwargs:
+            required_templates = kwargs['requiredTemplates']
+        if required_templates is None:
+            raise TypeError("Missing 'required_templates' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if target_resource_type is None:
+            raise TypeError("Missing 'target_resource_type' argument")
+
+        _setter("project_id", project_id)
+        _setter("required_templates", required_templates)
+        _setter("target_resource_id", target_resource_id)
+        _setter("target_resource_type", target_resource_type)
 
     @property
     @pulumi.getter(name="projectId")
@@ -95,14 +128,39 @@ class _CheckRequiredTemplateState:
         :param pulumi.Input[str] target_resource_id: The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
         """
+        _CheckRequiredTemplateState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            required_templates=required_templates,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             required_templates: Optional[pulumi.Input[Sequence[pulumi.Input['CheckRequiredTemplateRequiredTemplateArgs']]]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if required_templates is None and 'requiredTemplates' in kwargs:
+            required_templates = kwargs['requiredTemplates']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if required_templates is not None:
-            pulumi.set(__self__, "required_templates", required_templates)
+            _setter("required_templates", required_templates)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
 
     @property
     @pulumi.getter(name="projectId")
@@ -167,56 +225,6 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         Manages a Required Template Check.
 
         ## Example Usage
-        ### Protect a service connection
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
-            server_url="https://some-server.example.com",
-            username="username",
-            password="password",
-            service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
-        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
-            project_id=example_project.id,
-            target_resource_id=example_service_endpoint_generic.id,
-            target_resource_type="endpoint",
-            required_templates=[azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                repository_type="azuregit",
-                repository_name="project/repository",
-                repository_ref="refs/heads/main",
-                template_path="template/path.yml",
-            )])
-        ```
-        ### Protect an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
-            project_id=example_project.id,
-            target_resource_id=example_environment.id,
-            target_resource_type="environment",
-            required_templates=[
-                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                    repository_name="project/repository",
-                    repository_ref="refs/heads/main",
-                    template_path="template/path.yml",
-                ),
-                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                    repository_name="project/repository",
-                    repository_ref="refs/heads/main",
-                    template_path="template/alternate-path.yml",
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -239,56 +247,6 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         Manages a Required Template Check.
 
         ## Example Usage
-        ### Protect a service connection
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
-            server_url="https://some-server.example.com",
-            username="username",
-            password="password",
-            service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
-        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
-            project_id=example_project.id,
-            target_resource_id=example_service_endpoint_generic.id,
-            target_resource_type="endpoint",
-            required_templates=[azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                repository_type="azuregit",
-                repository_name="project/repository",
-                repository_ref="refs/heads/main",
-                template_path="template/path.yml",
-            )])
-        ```
-        ### Protect an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_check_required_template = azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate",
-            project_id=example_project.id,
-            target_resource_id=example_environment.id,
-            target_resource_type="environment",
-            required_templates=[
-                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                    repository_name="project/repository",
-                    repository_ref="refs/heads/main",
-                    template_path="template/path.yml",
-                ),
-                azuredevops.CheckRequiredTemplateRequiredTemplateArgs(
-                    repository_name="project/repository",
-                    repository_ref="refs/heads/main",
-                    template_path="template/alternate-path.yml",
-                ),
-            ])
-        ```
 
         ## Import
 
@@ -304,6 +262,10 @@ class CheckRequiredTemplate(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CheckRequiredTemplateArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

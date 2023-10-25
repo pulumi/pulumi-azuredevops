@@ -12,35 +12,6 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages a SSH service endpoint within Azure DevOps.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var exampleServiceEndpointSsh = new AzureDevOps.ServiceEndpointSsh("exampleServiceEndpointSsh", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         ServiceEndpointName = "Example SSH",
-    ///         Host = "1.2.3.4",
-    ///         Username = "username",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -85,18 +85,6 @@ def get_teams(project_id: Optional[str] = None,
     """
     Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_teams()
-    pulumi.export("projectId", [__item.project_id for __item in example.teams])
-    pulumi.export("name", [__item.name for __item in example.teams])
-    pulumi.export("alladministrators", [__item.administrators for __item in example.teams])
-    pulumi.export("administrators", [__item.members for __item in example.teams])
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)
@@ -129,18 +117,6 @@ def get_teams_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_teams()
-    pulumi.export("projectId", [__item.project_id for __item in example.teams])
-    pulumi.export("name", [__item.name for __item in example.teams])
-    pulumi.export("alladministrators", [__item.administrators for __item in example.teams])
-    pulumi.export("administrators", [__item.members for __item in example.teams])
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)

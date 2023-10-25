@@ -15,44 +15,6 @@ import (
 
 // Manages an Octopus Deploy service endpoint within Azure DevOps. Using this service endpoint requires you to install [Octopus Deploy](https://marketplace.visualstudio.com/items?itemName=octopusdeploy.octopus-deploy-build-release-tasks).
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-//				Visibility:       pulumi.String("private"),
-//				VersionControl:   pulumi.String("Git"),
-//				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewServiceendpointOctopusdeploy(ctx, "exampleServiceendpointOctopusdeploy", &azuredevops.ServiceendpointOctopusdeployArgs{
-//				ProjectId:           exampleProject.ID(),
-//				Url:                 pulumi.String("https://octopus.com"),
-//				ApiKey:              pulumi.String("000000000000000000000000000000000000"),
-//				ServiceEndpointName: pulumi.String("Example Octopus Deploy"),
-//				Description:         pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

@@ -9,48 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
- *     initialization: {
- *         initType: "Clean",
- *     },
- * });
- * const exampleBranchPolicyMinReviewers = new azuredevops.BranchPolicyMinReviewers("exampleBranchPolicyMinReviewers", {
- *     projectId: exampleProject.id,
- *     enabled: true,
- *     blocking: true,
- *     settings: {
- *         reviewerCount: 7,
- *         submitterCanVote: false,
- *         lastPusherCannotApprove: true,
- *         allowCompletionWithRejectsOrWaits: false,
- *         onPushResetApprovedVotes: true,
- *         onLastIterationRequireVote: false,
- *         scopes: [
- *             {
- *                 repositoryId: exampleGit.id,
- *                 repositoryRef: exampleGit.defaultBranch,
- *                 matchType: "Exact",
- *             },
- *             {
- *                 repositoryId: undefined,
- *                 repositoryRef: "refs/heads/releases",
- *                 matchType: "Prefix",
- *             },
- *             {
- *                 matchType: "DefaultBranch",
- *             },
- *         ],
- *     },
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

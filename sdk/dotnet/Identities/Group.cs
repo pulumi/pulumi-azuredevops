@@ -12,44 +12,6 @@ namespace Pulumi.AzureDevOps.Identities
     /// <summary>
     /// Manages a group within Azure DevOps.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Name = "Readers",
-    ///     });
-    /// 
-    ///     var example_contributors = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Name = "Contributors",
-    ///     });
-    /// 
-    ///     var exampleGroup = new AzureDevOps.Group("exampleGroup", new()
-    ///     {
-    ///         Scope = exampleProject.Id,
-    ///         DisplayName = "Example group",
-    ///         Description = "Example description",
-    ///         Members = new[]
-    ///         {
-    ///             example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
-    ///             example_contributors.Apply(example_contributors =&gt; example_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-7.0)

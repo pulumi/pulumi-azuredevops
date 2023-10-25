@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -136,16 +136,49 @@ class BranchPolicyAutoReviewersSettings(dict):
         :param Sequence[str] path_filters: Filter path(s) on which the policy is applied. Supports absolute paths, wildcards and multiple paths. Example: /WebApp/Models/Data.cs, /WebApp/* or *.cs,/WebApp/Models/Data.cs;ClientApp/Models/Data.cs.
         :param bool submitter_can_vote: Controls whether or not the submitter's vote counts. Defaults to `false`.
         """
-        pulumi.set(__self__, "auto_reviewer_ids", auto_reviewer_ids)
-        pulumi.set(__self__, "scopes", scopes)
+        BranchPolicyAutoReviewersSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_reviewer_ids=auto_reviewer_ids,
+            scopes=scopes,
+            message=message,
+            minimum_number_of_reviewers=minimum_number_of_reviewers,
+            path_filters=path_filters,
+            submitter_can_vote=submitter_can_vote,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_reviewer_ids: Optional[Sequence[str]] = None,
+             scopes: Optional[Sequence['outputs.BranchPolicyAutoReviewersSettingsScope']] = None,
+             message: Optional[str] = None,
+             minimum_number_of_reviewers: Optional[int] = None,
+             path_filters: Optional[Sequence[str]] = None,
+             submitter_can_vote: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_reviewer_ids is None and 'autoReviewerIds' in kwargs:
+            auto_reviewer_ids = kwargs['autoReviewerIds']
+        if auto_reviewer_ids is None:
+            raise TypeError("Missing 'auto_reviewer_ids' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if minimum_number_of_reviewers is None and 'minimumNumberOfReviewers' in kwargs:
+            minimum_number_of_reviewers = kwargs['minimumNumberOfReviewers']
+        if path_filters is None and 'pathFilters' in kwargs:
+            path_filters = kwargs['pathFilters']
+        if submitter_can_vote is None and 'submitterCanVote' in kwargs:
+            submitter_can_vote = kwargs['submitterCanVote']
+
+        _setter("auto_reviewer_ids", auto_reviewer_ids)
+        _setter("scopes", scopes)
         if message is not None:
-            pulumi.set(__self__, "message", message)
+            _setter("message", message)
         if minimum_number_of_reviewers is not None:
-            pulumi.set(__self__, "minimum_number_of_reviewers", minimum_number_of_reviewers)
+            _setter("minimum_number_of_reviewers", minimum_number_of_reviewers)
         if path_filters is not None:
-            pulumi.set(__self__, "path_filters", path_filters)
+            _setter("path_filters", path_filters)
         if submitter_can_vote is not None:
-            pulumi.set(__self__, "submitter_can_vote", submitter_can_vote)
+            _setter("submitter_can_vote", submitter_can_vote)
 
     @property
     @pulumi.getter(name="autoReviewerIds")
@@ -230,12 +263,33 @@ class BranchPolicyAutoReviewersSettingsScope(dict):
         :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
+        BranchPolicyAutoReviewersSettingsScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            repository_id=repository_id,
+            repository_ref=repository_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             repository_id: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
 
     @property
     @pulumi.getter(name="matchType")
@@ -308,17 +362,58 @@ class BranchPolicyBuildValidationSettings(dict):
         :param bool queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
         :param int valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
         """
-        pulumi.set(__self__, "build_definition_id", build_definition_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "scopes", scopes)
+        BranchPolicyBuildValidationSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_definition_id=build_definition_id,
+            display_name=display_name,
+            scopes=scopes,
+            filename_patterns=filename_patterns,
+            manual_queue_only=manual_queue_only,
+            queue_on_source_update_only=queue_on_source_update_only,
+            valid_duration=valid_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_definition_id: Optional[int] = None,
+             display_name: Optional[str] = None,
+             scopes: Optional[Sequence['outputs.BranchPolicyBuildValidationSettingsScope']] = None,
+             filename_patterns: Optional[Sequence[str]] = None,
+             manual_queue_only: Optional[bool] = None,
+             queue_on_source_update_only: Optional[bool] = None,
+             valid_duration: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if build_definition_id is None and 'buildDefinitionId' in kwargs:
+            build_definition_id = kwargs['buildDefinitionId']
+        if build_definition_id is None:
+            raise TypeError("Missing 'build_definition_id' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if filename_patterns is None and 'filenamePatterns' in kwargs:
+            filename_patterns = kwargs['filenamePatterns']
+        if manual_queue_only is None and 'manualQueueOnly' in kwargs:
+            manual_queue_only = kwargs['manualQueueOnly']
+        if queue_on_source_update_only is None and 'queueOnSourceUpdateOnly' in kwargs:
+            queue_on_source_update_only = kwargs['queueOnSourceUpdateOnly']
+        if valid_duration is None and 'validDuration' in kwargs:
+            valid_duration = kwargs['validDuration']
+
+        _setter("build_definition_id", build_definition_id)
+        _setter("display_name", display_name)
+        _setter("scopes", scopes)
         if filename_patterns is not None:
-            pulumi.set(__self__, "filename_patterns", filename_patterns)
+            _setter("filename_patterns", filename_patterns)
         if manual_queue_only is not None:
-            pulumi.set(__self__, "manual_queue_only", manual_queue_only)
+            _setter("manual_queue_only", manual_queue_only)
         if queue_on_source_update_only is not None:
-            pulumi.set(__self__, "queue_on_source_update_only", queue_on_source_update_only)
+            _setter("queue_on_source_update_only", queue_on_source_update_only)
         if valid_duration is not None:
-            pulumi.set(__self__, "valid_duration", valid_duration)
+            _setter("valid_duration", valid_duration)
 
     @property
     @pulumi.getter(name="buildDefinitionId")
@@ -409,12 +504,33 @@ class BranchPolicyBuildValidationSettingsScope(dict):
         :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
+        BranchPolicyBuildValidationSettingsScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            repository_id=repository_id,
+            repository_ref=repository_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             repository_id: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
 
     @property
     @pulumi.getter(name="matchType")
@@ -448,7 +564,20 @@ class BranchPolicyCommentResolutionSettings(dict):
         """
         :param Sequence['BranchPolicyCommentResolutionSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
-        pulumi.set(__self__, "scopes", scopes)
+        BranchPolicyCommentResolutionSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scopes: Optional[Sequence['outputs.BranchPolicyCommentResolutionSettingsScope']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+
+        _setter("scopes", scopes)
 
     @property
     @pulumi.getter
@@ -491,12 +620,33 @@ class BranchPolicyCommentResolutionSettingsScope(dict):
         :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
+        BranchPolicyCommentResolutionSettingsScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            repository_id=repository_id,
+            repository_ref=repository_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             repository_id: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
 
     @property
     @pulumi.getter(name="matchType")
@@ -561,15 +711,44 @@ class BranchPolicyMergeTypesSettings(dict):
         :param bool allow_rebase_with_merge: Allow rebase with merge commit. Defaults to `false`.
         :param bool allow_squash: Allow squash merge. Defaults to `false`
         """
-        pulumi.set(__self__, "scopes", scopes)
+        BranchPolicyMergeTypesSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scopes=scopes,
+            allow_basic_no_fast_forward=allow_basic_no_fast_forward,
+            allow_rebase_and_fast_forward=allow_rebase_and_fast_forward,
+            allow_rebase_with_merge=allow_rebase_with_merge,
+            allow_squash=allow_squash,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scopes: Optional[Sequence['outputs.BranchPolicyMergeTypesSettingsScope']] = None,
+             allow_basic_no_fast_forward: Optional[bool] = None,
+             allow_rebase_and_fast_forward: Optional[bool] = None,
+             allow_rebase_with_merge: Optional[bool] = None,
+             allow_squash: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if allow_basic_no_fast_forward is None and 'allowBasicNoFastForward' in kwargs:
+            allow_basic_no_fast_forward = kwargs['allowBasicNoFastForward']
+        if allow_rebase_and_fast_forward is None and 'allowRebaseAndFastForward' in kwargs:
+            allow_rebase_and_fast_forward = kwargs['allowRebaseAndFastForward']
+        if allow_rebase_with_merge is None and 'allowRebaseWithMerge' in kwargs:
+            allow_rebase_with_merge = kwargs['allowRebaseWithMerge']
+        if allow_squash is None and 'allowSquash' in kwargs:
+            allow_squash = kwargs['allowSquash']
+
+        _setter("scopes", scopes)
         if allow_basic_no_fast_forward is not None:
-            pulumi.set(__self__, "allow_basic_no_fast_forward", allow_basic_no_fast_forward)
+            _setter("allow_basic_no_fast_forward", allow_basic_no_fast_forward)
         if allow_rebase_and_fast_forward is not None:
-            pulumi.set(__self__, "allow_rebase_and_fast_forward", allow_rebase_and_fast_forward)
+            _setter("allow_rebase_and_fast_forward", allow_rebase_and_fast_forward)
         if allow_rebase_with_merge is not None:
-            pulumi.set(__self__, "allow_rebase_with_merge", allow_rebase_with_merge)
+            _setter("allow_rebase_with_merge", allow_rebase_with_merge)
         if allow_squash is not None:
-            pulumi.set(__self__, "allow_squash", allow_squash)
+            _setter("allow_squash", allow_squash)
 
     @property
     @pulumi.getter
@@ -644,12 +823,33 @@ class BranchPolicyMergeTypesSettingsScope(dict):
         :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
+        BranchPolicyMergeTypesSettingsScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            repository_id=repository_id,
+            repository_ref=repository_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             repository_id: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
 
     @property
     @pulumi.getter(name="matchType")
@@ -728,21 +928,62 @@ class BranchPolicyMinReviewersSettings(dict):
         :param int reviewer_count: The number of reviewers needed to approve.
         :param bool submitter_can_vote: Allow requesters to approve their own changes. Defaults to `false`.
         """
-        pulumi.set(__self__, "scopes", scopes)
+        BranchPolicyMinReviewersSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scopes=scopes,
+            allow_completion_with_rejects_or_waits=allow_completion_with_rejects_or_waits,
+            last_pusher_cannot_approve=last_pusher_cannot_approve,
+            on_last_iteration_require_vote=on_last_iteration_require_vote,
+            on_push_reset_all_votes=on_push_reset_all_votes,
+            on_push_reset_approved_votes=on_push_reset_approved_votes,
+            reviewer_count=reviewer_count,
+            submitter_can_vote=submitter_can_vote,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scopes: Optional[Sequence['outputs.BranchPolicyMinReviewersSettingsScope']] = None,
+             allow_completion_with_rejects_or_waits: Optional[bool] = None,
+             last_pusher_cannot_approve: Optional[bool] = None,
+             on_last_iteration_require_vote: Optional[bool] = None,
+             on_push_reset_all_votes: Optional[bool] = None,
+             on_push_reset_approved_votes: Optional[bool] = None,
+             reviewer_count: Optional[int] = None,
+             submitter_can_vote: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if allow_completion_with_rejects_or_waits is None and 'allowCompletionWithRejectsOrWaits' in kwargs:
+            allow_completion_with_rejects_or_waits = kwargs['allowCompletionWithRejectsOrWaits']
+        if last_pusher_cannot_approve is None and 'lastPusherCannotApprove' in kwargs:
+            last_pusher_cannot_approve = kwargs['lastPusherCannotApprove']
+        if on_last_iteration_require_vote is None and 'onLastIterationRequireVote' in kwargs:
+            on_last_iteration_require_vote = kwargs['onLastIterationRequireVote']
+        if on_push_reset_all_votes is None and 'onPushResetAllVotes' in kwargs:
+            on_push_reset_all_votes = kwargs['onPushResetAllVotes']
+        if on_push_reset_approved_votes is None and 'onPushResetApprovedVotes' in kwargs:
+            on_push_reset_approved_votes = kwargs['onPushResetApprovedVotes']
+        if reviewer_count is None and 'reviewerCount' in kwargs:
+            reviewer_count = kwargs['reviewerCount']
+        if submitter_can_vote is None and 'submitterCanVote' in kwargs:
+            submitter_can_vote = kwargs['submitterCanVote']
+
+        _setter("scopes", scopes)
         if allow_completion_with_rejects_or_waits is not None:
-            pulumi.set(__self__, "allow_completion_with_rejects_or_waits", allow_completion_with_rejects_or_waits)
+            _setter("allow_completion_with_rejects_or_waits", allow_completion_with_rejects_or_waits)
         if last_pusher_cannot_approve is not None:
-            pulumi.set(__self__, "last_pusher_cannot_approve", last_pusher_cannot_approve)
+            _setter("last_pusher_cannot_approve", last_pusher_cannot_approve)
         if on_last_iteration_require_vote is not None:
-            pulumi.set(__self__, "on_last_iteration_require_vote", on_last_iteration_require_vote)
+            _setter("on_last_iteration_require_vote", on_last_iteration_require_vote)
         if on_push_reset_all_votes is not None:
-            pulumi.set(__self__, "on_push_reset_all_votes", on_push_reset_all_votes)
+            _setter("on_push_reset_all_votes", on_push_reset_all_votes)
         if on_push_reset_approved_votes is not None:
-            pulumi.set(__self__, "on_push_reset_approved_votes", on_push_reset_approved_votes)
+            _setter("on_push_reset_approved_votes", on_push_reset_approved_votes)
         if reviewer_count is not None:
-            pulumi.set(__self__, "reviewer_count", reviewer_count)
+            _setter("reviewer_count", reviewer_count)
         if submitter_can_vote is not None:
-            pulumi.set(__self__, "submitter_can_vote", submitter_can_vote)
+            _setter("submitter_can_vote", submitter_can_vote)
 
     @property
     @pulumi.getter
@@ -843,12 +1084,33 @@ class BranchPolicyMinReviewersSettingsScope(dict):
         :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
+        BranchPolicyMinReviewersSettingsScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            repository_id=repository_id,
+            repository_ref=repository_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             repository_id: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
 
     @property
     @pulumi.getter(name="matchType")
@@ -922,20 +1184,57 @@ class BranchPolicyStatusCheckSettings(dict):
         :param str genre: The genre of the status to check (see [Microsoft Documentation](https://docs.microsoft.com/en-us/azure/devops/repos/git/pull-request-status?view=azure-devops#status-policy))
         :param bool invalidate_on_update: Reset status whenever there are new changes.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "scopes", scopes)
+        BranchPolicyStatusCheckSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            scopes=scopes,
+            applicability=applicability,
+            author_id=author_id,
+            display_name=display_name,
+            filename_patterns=filename_patterns,
+            genre=genre,
+            invalidate_on_update=invalidate_on_update,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             scopes: Optional[Sequence['outputs.BranchPolicyStatusCheckSettingsScope']] = None,
+             applicability: Optional[str] = None,
+             author_id: Optional[str] = None,
+             display_name: Optional[str] = None,
+             filename_patterns: Optional[Sequence[str]] = None,
+             genre: Optional[str] = None,
+             invalidate_on_update: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if author_id is None and 'authorId' in kwargs:
+            author_id = kwargs['authorId']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if filename_patterns is None and 'filenamePatterns' in kwargs:
+            filename_patterns = kwargs['filenamePatterns']
+        if invalidate_on_update is None and 'invalidateOnUpdate' in kwargs:
+            invalidate_on_update = kwargs['invalidateOnUpdate']
+
+        _setter("name", name)
+        _setter("scopes", scopes)
         if applicability is not None:
-            pulumi.set(__self__, "applicability", applicability)
+            _setter("applicability", applicability)
         if author_id is not None:
-            pulumi.set(__self__, "author_id", author_id)
+            _setter("author_id", author_id)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if filename_patterns is not None:
-            pulumi.set(__self__, "filename_patterns", filename_patterns)
+            _setter("filename_patterns", filename_patterns)
         if genre is not None:
-            pulumi.set(__self__, "genre", genre)
+            _setter("genre", genre)
         if invalidate_on_update is not None:
-            pulumi.set(__self__, "invalidate_on_update", invalidate_on_update)
+            _setter("invalidate_on_update", invalidate_on_update)
 
     @property
     @pulumi.getter
@@ -1037,12 +1336,33 @@ class BranchPolicyStatusCheckSettingsScope(dict):
         :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
+        BranchPolicyStatusCheckSettingsScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            repository_id=repository_id,
+            repository_ref=repository_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             repository_id: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
 
     @property
     @pulumi.getter(name="matchType")
@@ -1076,7 +1396,20 @@ class BranchPolicyWorkItemLinkingSettings(dict):
         """
         :param Sequence['BranchPolicyWorkItemLinkingSettingsScopeArgs'] scopes: Controls which repositories and branches the policy will be enabled for. This block must be defined at least once.
         """
-        pulumi.set(__self__, "scopes", scopes)
+        BranchPolicyWorkItemLinkingSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scopes=scopes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scopes: Optional[Sequence['outputs.BranchPolicyWorkItemLinkingSettingsScope']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+
+        _setter("scopes", scopes)
 
     @property
     @pulumi.getter
@@ -1119,12 +1452,33 @@ class BranchPolicyWorkItemLinkingSettingsScope(dict):
         :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
+        BranchPolicyWorkItemLinkingSettingsScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            repository_id=repository_id,
+            repository_ref=repository_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             repository_id: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
 
     @property
     @pulumi.getter(name="matchType")
@@ -1177,10 +1531,25 @@ class BuildDefinitionCiTrigger(dict):
         :param 'BuildDefinitionCiTriggerOverrideArgs' override: Override the azure-pipeline file and use a this configuration for all builds.
         :param bool use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
+        BuildDefinitionCiTrigger._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            override=override,
+            use_yaml=use_yaml,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             override: Optional['outputs.BuildDefinitionCiTriggerOverride'] = None,
+             use_yaml: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if use_yaml is None and 'useYaml' in kwargs:
+            use_yaml = kwargs['useYaml']
+
         if override is not None:
-            pulumi.set(__self__, "override", override)
+            _setter("override", override)
         if use_yaml is not None:
-            pulumi.set(__self__, "use_yaml", use_yaml)
+            _setter("use_yaml", use_yaml)
 
     @property
     @pulumi.getter
@@ -1241,18 +1610,49 @@ class BuildDefinitionCiTriggerOverride(dict):
         :param int polling_interval: How often the external repository is polled. Defaults to `0`.
         :param str polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
+        BuildDefinitionCiTriggerOverride._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch=batch,
+            branch_filters=branch_filters,
+            max_concurrent_builds_per_branch=max_concurrent_builds_per_branch,
+            path_filters=path_filters,
+            polling_interval=polling_interval,
+            polling_job_id=polling_job_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch: Optional[bool] = None,
+             branch_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']] = None,
+             max_concurrent_builds_per_branch: Optional[int] = None,
+             path_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']] = None,
+             polling_interval: Optional[int] = None,
+             polling_job_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_filters is None and 'branchFilters' in kwargs:
+            branch_filters = kwargs['branchFilters']
+        if max_concurrent_builds_per_branch is None and 'maxConcurrentBuildsPerBranch' in kwargs:
+            max_concurrent_builds_per_branch = kwargs['maxConcurrentBuildsPerBranch']
+        if path_filters is None and 'pathFilters' in kwargs:
+            path_filters = kwargs['pathFilters']
+        if polling_interval is None and 'pollingInterval' in kwargs:
+            polling_interval = kwargs['pollingInterval']
+        if polling_job_id is None and 'pollingJobId' in kwargs:
+            polling_job_id = kwargs['pollingJobId']
+
         if batch is not None:
-            pulumi.set(__self__, "batch", batch)
+            _setter("batch", batch)
         if branch_filters is not None:
-            pulumi.set(__self__, "branch_filters", branch_filters)
+            _setter("branch_filters", branch_filters)
         if max_concurrent_builds_per_branch is not None:
-            pulumi.set(__self__, "max_concurrent_builds_per_branch", max_concurrent_builds_per_branch)
+            _setter("max_concurrent_builds_per_branch", max_concurrent_builds_per_branch)
         if path_filters is not None:
-            pulumi.set(__self__, "path_filters", path_filters)
+            _setter("path_filters", path_filters)
         if polling_interval is not None:
-            pulumi.set(__self__, "polling_interval", polling_interval)
+            _setter("polling_interval", polling_interval)
         if polling_job_id is not None:
-            pulumi.set(__self__, "polling_job_id", polling_job_id)
+            _setter("polling_job_id", polling_job_id)
 
     @property
     @pulumi.getter
@@ -1312,10 +1712,23 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
         :param Sequence[str] excludes: List of branch patterns to exclude.
         :param Sequence[str] includes: List of branch patterns to include.
         """
+        BuildDefinitionCiTriggerOverrideBranchFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if excludes is not None:
-            pulumi.set(__self__, "excludes", excludes)
+            _setter("excludes", excludes)
         if includes is not None:
-            pulumi.set(__self__, "includes", includes)
+            _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -1343,10 +1756,23 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
         :param Sequence[str] excludes: List of path patterns to exclude.
         :param Sequence[str] includes: List of path patterns to include.
         """
+        BuildDefinitionCiTriggerOverridePathFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if excludes is not None:
-            pulumi.set(__self__, "excludes", excludes)
+            _setter("excludes", excludes)
         if includes is not None:
-            pulumi.set(__self__, "includes", includes)
+            _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -1391,8 +1817,21 @@ class BuildDefinitionFeature(dict):
                
                > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
         """
+        BuildDefinitionFeature._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            skip_first_run=skip_first_run,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             skip_first_run: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if skip_first_run is None and 'skipFirstRun' in kwargs:
+            skip_first_run = kwargs['skipFirstRun']
+
         if skip_first_run is not None:
-            pulumi.set(__self__, "skip_first_run", skip_first_run)
+            _setter("skip_first_run", skip_first_run)
 
     @property
     @pulumi.getter(name="skipFirstRun")
@@ -1439,15 +1878,42 @@ class BuildDefinitionPullRequestTrigger(dict):
         :param 'BuildDefinitionPullRequestTriggerOverrideArgs' override: Override the azure-pipeline file and use this configuration for all builds.
         :param bool use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
-        pulumi.set(__self__, "forks", forks)
+        BuildDefinitionPullRequestTrigger._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            forks=forks,
+            comment_required=comment_required,
+            initial_branch=initial_branch,
+            override=override,
+            use_yaml=use_yaml,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             forks: Optional['outputs.BuildDefinitionPullRequestTriggerForks'] = None,
+             comment_required: Optional[str] = None,
+             initial_branch: Optional[str] = None,
+             override: Optional['outputs.BuildDefinitionPullRequestTriggerOverride'] = None,
+             use_yaml: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if forks is None:
+            raise TypeError("Missing 'forks' argument")
+        if comment_required is None and 'commentRequired' in kwargs:
+            comment_required = kwargs['commentRequired']
+        if initial_branch is None and 'initialBranch' in kwargs:
+            initial_branch = kwargs['initialBranch']
+        if use_yaml is None and 'useYaml' in kwargs:
+            use_yaml = kwargs['useYaml']
+
+        _setter("forks", forks)
         if comment_required is not None:
-            pulumi.set(__self__, "comment_required", comment_required)
+            _setter("comment_required", comment_required)
         if initial_branch is not None:
-            pulumi.set(__self__, "initial_branch", initial_branch)
+            _setter("initial_branch", initial_branch)
         if override is not None:
-            pulumi.set(__self__, "override", override)
+            _setter("override", override)
         if use_yaml is not None:
-            pulumi.set(__self__, "use_yaml", use_yaml)
+            _setter("use_yaml", use_yaml)
 
     @property
     @pulumi.getter
@@ -1510,8 +1976,27 @@ class BuildDefinitionPullRequestTriggerForks(dict):
         :param bool enabled: Build pull requests from forks of this repository.
         :param bool share_secrets: Make secrets available to builds of forks.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "share_secrets", share_secrets)
+        BuildDefinitionPullRequestTriggerForks._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            share_secrets=share_secrets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             share_secrets: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if share_secrets is None and 'shareSecrets' in kwargs:
+            share_secrets = kwargs['shareSecrets']
+        if share_secrets is None:
+            raise TypeError("Missing 'share_secrets' argument")
+
+        _setter("enabled", enabled)
+        _setter("share_secrets", share_secrets)
 
     @property
     @pulumi.getter
@@ -1562,12 +2047,33 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
         :param Sequence['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
         :param Sequence['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
+        BuildDefinitionPullRequestTriggerOverride._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_cancel=auto_cancel,
+            branch_filters=branch_filters,
+            path_filters=path_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_cancel: Optional[bool] = None,
+             branch_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
+             path_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_cancel is None and 'autoCancel' in kwargs:
+            auto_cancel = kwargs['autoCancel']
+        if branch_filters is None and 'branchFilters' in kwargs:
+            branch_filters = kwargs['branchFilters']
+        if path_filters is None and 'pathFilters' in kwargs:
+            path_filters = kwargs['pathFilters']
+
         if auto_cancel is not None:
-            pulumi.set(__self__, "auto_cancel", auto_cancel)
+            _setter("auto_cancel", auto_cancel)
         if branch_filters is not None:
-            pulumi.set(__self__, "branch_filters", branch_filters)
+            _setter("branch_filters", branch_filters)
         if path_filters is not None:
-            pulumi.set(__self__, "path_filters", path_filters)
+            _setter("path_filters", path_filters)
 
     @property
     @pulumi.getter(name="autoCancel")
@@ -1603,10 +2109,23 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
         :param Sequence[str] excludes: List of branch patterns to exclude.
         :param Sequence[str] includes: List of branch patterns to include.
         """
+        BuildDefinitionPullRequestTriggerOverrideBranchFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if excludes is not None:
-            pulumi.set(__self__, "excludes", excludes)
+            _setter("excludes", excludes)
         if includes is not None:
-            pulumi.set(__self__, "includes", includes)
+            _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -1634,10 +2153,23 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
         :param Sequence[str] excludes: List of path patterns to exclude.
         :param Sequence[str] includes: List of path patterns to include.
         """
+        BuildDefinitionPullRequestTriggerOverridePathFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if excludes is not None:
-            pulumi.set(__self__, "excludes", excludes)
+            _setter("excludes", excludes)
         if includes is not None:
-            pulumi.set(__self__, "includes", includes)
+            _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -1704,17 +2236,60 @@ class BuildDefinitionRepository(dict):
         :param bool report_build_status: Report build status. Default is true.
         :param str service_connection_id: The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
-        pulumi.set(__self__, "repo_id", repo_id)
-        pulumi.set(__self__, "repo_type", repo_type)
-        pulumi.set(__self__, "yml_path", yml_path)
+        BuildDefinitionRepository._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repo_id=repo_id,
+            repo_type=repo_type,
+            yml_path=yml_path,
+            branch_name=branch_name,
+            github_enterprise_url=github_enterprise_url,
+            report_build_status=report_build_status,
+            service_connection_id=service_connection_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repo_id: Optional[str] = None,
+             repo_type: Optional[str] = None,
+             yml_path: Optional[str] = None,
+             branch_name: Optional[str] = None,
+             github_enterprise_url: Optional[str] = None,
+             report_build_status: Optional[bool] = None,
+             service_connection_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repo_id is None and 'repoId' in kwargs:
+            repo_id = kwargs['repoId']
+        if repo_id is None:
+            raise TypeError("Missing 'repo_id' argument")
+        if repo_type is None and 'repoType' in kwargs:
+            repo_type = kwargs['repoType']
+        if repo_type is None:
+            raise TypeError("Missing 'repo_type' argument")
+        if yml_path is None and 'ymlPath' in kwargs:
+            yml_path = kwargs['ymlPath']
+        if yml_path is None:
+            raise TypeError("Missing 'yml_path' argument")
+        if branch_name is None and 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if github_enterprise_url is None and 'githubEnterpriseUrl' in kwargs:
+            github_enterprise_url = kwargs['githubEnterpriseUrl']
+        if report_build_status is None and 'reportBuildStatus' in kwargs:
+            report_build_status = kwargs['reportBuildStatus']
+        if service_connection_id is None and 'serviceConnectionId' in kwargs:
+            service_connection_id = kwargs['serviceConnectionId']
+
+        _setter("repo_id", repo_id)
+        _setter("repo_type", repo_type)
+        _setter("yml_path", yml_path)
         if branch_name is not None:
-            pulumi.set(__self__, "branch_name", branch_name)
+            _setter("branch_name", branch_name)
         if github_enterprise_url is not None:
-            pulumi.set(__self__, "github_enterprise_url", github_enterprise_url)
+            _setter("github_enterprise_url", github_enterprise_url)
         if report_build_status is not None:
-            pulumi.set(__self__, "report_build_status", report_build_status)
+            _setter("report_build_status", report_build_status)
         if service_connection_id is not None:
-            pulumi.set(__self__, "service_connection_id", service_connection_id)
+            _setter("service_connection_id", service_connection_id)
 
     @property
     @pulumi.getter(name="repoId")
@@ -1962,19 +2537,58 @@ class BuildDefinitionSchedule(dict):
                `(UTC+13:00) Samoa`,
                `(UTC+14:00) Kiritimati Island`.
         """
-        pulumi.set(__self__, "days_to_builds", days_to_builds)
+        BuildDefinitionSchedule._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            days_to_builds=days_to_builds,
+            branch_filters=branch_filters,
+            schedule_job_id=schedule_job_id,
+            schedule_only_with_changes=schedule_only_with_changes,
+            start_hours=start_hours,
+            start_minutes=start_minutes,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             days_to_builds: Optional[Sequence[str]] = None,
+             branch_filters: Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']] = None,
+             schedule_job_id: Optional[str] = None,
+             schedule_only_with_changes: Optional[bool] = None,
+             start_hours: Optional[int] = None,
+             start_minutes: Optional[int] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if days_to_builds is None and 'daysToBuilds' in kwargs:
+            days_to_builds = kwargs['daysToBuilds']
+        if days_to_builds is None:
+            raise TypeError("Missing 'days_to_builds' argument")
+        if branch_filters is None and 'branchFilters' in kwargs:
+            branch_filters = kwargs['branchFilters']
+        if schedule_job_id is None and 'scheduleJobId' in kwargs:
+            schedule_job_id = kwargs['scheduleJobId']
+        if schedule_only_with_changes is None and 'scheduleOnlyWithChanges' in kwargs:
+            schedule_only_with_changes = kwargs['scheduleOnlyWithChanges']
+        if start_hours is None and 'startHours' in kwargs:
+            start_hours = kwargs['startHours']
+        if start_minutes is None and 'startMinutes' in kwargs:
+            start_minutes = kwargs['startMinutes']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
+        _setter("days_to_builds", days_to_builds)
         if branch_filters is not None:
-            pulumi.set(__self__, "branch_filters", branch_filters)
+            _setter("branch_filters", branch_filters)
         if schedule_job_id is not None:
-            pulumi.set(__self__, "schedule_job_id", schedule_job_id)
+            _setter("schedule_job_id", schedule_job_id)
         if schedule_only_with_changes is not None:
-            pulumi.set(__self__, "schedule_only_with_changes", schedule_only_with_changes)
+            _setter("schedule_only_with_changes", schedule_only_with_changes)
         if start_hours is not None:
-            pulumi.set(__self__, "start_hours", start_hours)
+            _setter("start_hours", start_hours)
         if start_minutes is not None:
-            pulumi.set(__self__, "start_minutes", start_minutes)
+            _setter("start_minutes", start_minutes)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="daysToBuilds")
@@ -2183,10 +2797,23 @@ class BuildDefinitionScheduleBranchFilter(dict):
         :param Sequence[str] excludes: List of branch patterns to exclude.
         :param Sequence[str] includes: List of branch patterns to include.
         """
+        BuildDefinitionScheduleBranchFilter._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+
         if excludes is not None:
-            pulumi.set(__self__, "excludes", excludes)
+            _setter("excludes", excludes)
         if includes is not None:
-            pulumi.set(__self__, "includes", includes)
+            _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -2241,15 +2868,42 @@ class BuildDefinitionVariable(dict):
         :param str secret_value: The secret value of the variable. Used when `is_secret` set to `true`.
         :param str value: The value of the variable.
         """
-        pulumi.set(__self__, "name", name)
+        BuildDefinitionVariable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            allow_override=allow_override,
+            is_secret=is_secret,
+            secret_value=secret_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             allow_override: Optional[bool] = None,
+             is_secret: Optional[bool] = None,
+             secret_value: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if allow_override is None and 'allowOverride' in kwargs:
+            allow_override = kwargs['allowOverride']
+        if is_secret is None and 'isSecret' in kwargs:
+            is_secret = kwargs['isSecret']
+        if secret_value is None and 'secretValue' in kwargs:
+            secret_value = kwargs['secretValue']
+
+        _setter("name", name)
         if allow_override is not None:
-            pulumi.set(__self__, "allow_override", allow_override)
+            _setter("allow_override", allow_override)
         if is_secret is not None:
-            pulumi.set(__self__, "is_secret", is_secret)
+            _setter("is_secret", is_secret)
         if secret_value is not None:
-            pulumi.set(__self__, "secret_value", secret_value)
+            _setter("secret_value", secret_value)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -2328,11 +2982,42 @@ class CheckRequiredTemplateRequiredTemplate(dict):
         :param str template_path: The path to the template yaml.
         :param str repository_type: The type of the repository storing the template. Valid values: `azuregit`, `github`, `bitbucket`. Defaults to `azuregit`.
         """
-        pulumi.set(__self__, "repository_name", repository_name)
-        pulumi.set(__self__, "repository_ref", repository_ref)
-        pulumi.set(__self__, "template_path", template_path)
+        CheckRequiredTemplateRequiredTemplate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            repository_name=repository_name,
+            repository_ref=repository_ref,
+            template_path=template_path,
+            repository_type=repository_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             repository_name: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             template_path: Optional[str] = None,
+             repository_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if repository_name is None and 'repositoryName' in kwargs:
+            repository_name = kwargs['repositoryName']
+        if repository_name is None:
+            raise TypeError("Missing 'repository_name' argument")
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+        if repository_ref is None:
+            raise TypeError("Missing 'repository_ref' argument")
+        if template_path is None and 'templatePath' in kwargs:
+            template_path = kwargs['templatePath']
+        if template_path is None:
+            raise TypeError("Missing 'template_path' argument")
+        if repository_type is None and 'repositoryType' in kwargs:
+            repository_type = kwargs['repositoryType']
+
+        _setter("repository_name", repository_name)
+        _setter("repository_ref", repository_ref)
+        _setter("template_path", template_path)
         if repository_type is not None:
-            pulumi.set(__self__, "repository_type", repository_type)
+            _setter("repository_type", repository_type)
 
     @property
     @pulumi.getter(name="repositoryName")
@@ -2403,13 +3088,40 @@ class GitInitialization(dict):
         :param str source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param str source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         """
-        pulumi.set(__self__, "init_type", init_type)
+        GitInitialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            init_type=init_type,
+            service_connection_id=service_connection_id,
+            source_type=source_type,
+            source_url=source_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             init_type: Optional[str] = None,
+             service_connection_id: Optional[str] = None,
+             source_type: Optional[str] = None,
+             source_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if init_type is None and 'initType' in kwargs:
+            init_type = kwargs['initType']
+        if init_type is None:
+            raise TypeError("Missing 'init_type' argument")
+        if service_connection_id is None and 'serviceConnectionId' in kwargs:
+            service_connection_id = kwargs['serviceConnectionId']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if source_url is None and 'sourceUrl' in kwargs:
+            source_url = kwargs['sourceUrl']
+
+        _setter("init_type", init_type)
         if service_connection_id is not None:
-            pulumi.set(__self__, "service_connection_id", service_connection_id)
+            _setter("service_connection_id", service_connection_id)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if source_url is not None:
-            pulumi.set(__self__, "source_url", source_url)
+            _setter("source_url", source_url)
 
     @property
     @pulumi.getter(name="initType")
@@ -2453,8 +3165,25 @@ class ServiceEndpointArtifactoryAuthenticationBasic(dict):
         :param str password: Artifactory Password.
         :param str username: Artifactory Username.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ServiceEndpointArtifactoryAuthenticationBasic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -2480,7 +3209,20 @@ class ServiceEndpointArtifactoryAuthenticationToken(dict):
         """
         :param str token: Authentication Token generated through Artifactory.
         """
-        pulumi.set(__self__, "token", token)
+        ServiceEndpointArtifactoryAuthenticationToken._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("token", token)
 
     @property
     @pulumi.getter
@@ -2500,9 +3242,24 @@ class ServiceEndpointAzureRMCredentials(dict):
         :param str serviceprincipalid: The service principal application Id
         :param str serviceprincipalkey: The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
-        pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
+        ServiceEndpointAzureRMCredentials._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            serviceprincipalid=serviceprincipalid,
+            serviceprincipalkey=serviceprincipalkey,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             serviceprincipalid: Optional[str] = None,
+             serviceprincipalkey: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if serviceprincipalid is None:
+            raise TypeError("Missing 'serviceprincipalid' argument")
+
+        _setter("serviceprincipalid", serviceprincipalid)
         if serviceprincipalkey is not None:
-            pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
+            _setter("serviceprincipalkey", serviceprincipalkey)
 
     @property
     @pulumi.getter
@@ -2542,7 +3299,22 @@ class ServiceEndpointGitHubAuthOauth(dict):
 
     def __init__(__self__, *,
                  oauth_configuration_id: str):
-        pulumi.set(__self__, "oauth_configuration_id", oauth_configuration_id)
+        ServiceEndpointGitHubAuthOauth._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oauth_configuration_id=oauth_configuration_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oauth_configuration_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if oauth_configuration_id is None and 'oauthConfigurationId' in kwargs:
+            oauth_configuration_id = kwargs['oauthConfigurationId']
+        if oauth_configuration_id is None:
+            raise TypeError("Missing 'oauth_configuration_id' argument")
+
+        _setter("oauth_configuration_id", oauth_configuration_id)
 
     @property
     @pulumi.getter(name="oauthConfigurationId")
@@ -2574,7 +3346,22 @@ class ServiceEndpointGitHubAuthPersonal(dict):
         """
         :param str personal_access_token: The Personal Access Token for GitHub.
         """
-        pulumi.set(__self__, "personal_access_token", personal_access_token)
+        ServiceEndpointGitHubAuthPersonal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            personal_access_token=personal_access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             personal_access_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if personal_access_token is None and 'personalAccessToken' in kwargs:
+            personal_access_token = kwargs['personalAccessToken']
+        if personal_access_token is None:
+            raise TypeError("Missing 'personal_access_token' argument")
+
+        _setter("personal_access_token", personal_access_token)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -2609,7 +3396,22 @@ class ServiceEndpointGitHubEnterpriseAuthPersonal(dict):
         """
         :param str personal_access_token: The Personal Access Token for GitHub.
         """
-        pulumi.set(__self__, "personal_access_token", personal_access_token)
+        ServiceEndpointGitHubEnterpriseAuthPersonal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            personal_access_token=personal_access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             personal_access_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if personal_access_token is None and 'personalAccessToken' in kwargs:
+            personal_access_token = kwargs['personalAccessToken']
+        if personal_access_token is None:
+            raise TypeError("Missing 'personal_access_token' argument")
+
+        _setter("personal_access_token", personal_access_token)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -2670,17 +3472,66 @@ class ServiceEndpointKubernetesAzureSubscription(dict):
         :param bool cluster_admin: Set this option to allow use cluster admin credentials.
         :param str namespace: The Kubernetes namespace. Default value is "default".
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resourcegroup_id", resourcegroup_id)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "subscription_name", subscription_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        ServiceEndpointKubernetesAzureSubscription._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resourcegroup_id=resourcegroup_id,
+            subscription_id=subscription_id,
+            subscription_name=subscription_name,
+            tenant_id=tenant_id,
+            azure_environment=azure_environment,
+            cluster_admin=cluster_admin,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[str] = None,
+             resourcegroup_id: Optional[str] = None,
+             subscription_id: Optional[str] = None,
+             subscription_name: Optional[str] = None,
+             tenant_id: Optional[str] = None,
+             azure_environment: Optional[str] = None,
+             cluster_admin: Optional[bool] = None,
+             namespace: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resourcegroup_id is None and 'resourcegroupId' in kwargs:
+            resourcegroup_id = kwargs['resourcegroupId']
+        if resourcegroup_id is None:
+            raise TypeError("Missing 'resourcegroup_id' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if subscription_name is None and 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+        if subscription_name is None:
+            raise TypeError("Missing 'subscription_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if azure_environment is None and 'azureEnvironment' in kwargs:
+            azure_environment = kwargs['azureEnvironment']
+        if cluster_admin is None and 'clusterAdmin' in kwargs:
+            cluster_admin = kwargs['clusterAdmin']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resourcegroup_id", resourcegroup_id)
+        _setter("subscription_id", subscription_id)
+        _setter("subscription_name", subscription_name)
+        _setter("tenant_id", tenant_id)
         if azure_environment is not None:
-            pulumi.set(__self__, "azure_environment", azure_environment)
+            _setter("azure_environment", azure_environment)
         if cluster_admin is not None:
-            pulumi.set(__self__, "cluster_admin", cluster_admin)
+            _setter("cluster_admin", cluster_admin)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -2779,11 +3630,34 @@ class ServiceEndpointKubernetesKubeconfig(dict):
         :param bool accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate.
         :param str cluster_context: Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
         """
-        pulumi.set(__self__, "kube_config", kube_config)
+        ServiceEndpointKubernetesKubeconfig._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kube_config=kube_config,
+            accept_untrusted_certs=accept_untrusted_certs,
+            cluster_context=cluster_context,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kube_config: Optional[str] = None,
+             accept_untrusted_certs: Optional[bool] = None,
+             cluster_context: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kube_config is None and 'kubeConfig' in kwargs:
+            kube_config = kwargs['kubeConfig']
+        if kube_config is None:
+            raise TypeError("Missing 'kube_config' argument")
+        if accept_untrusted_certs is None and 'acceptUntrustedCerts' in kwargs:
+            accept_untrusted_certs = kwargs['acceptUntrustedCerts']
+        if cluster_context is None and 'clusterContext' in kwargs:
+            cluster_context = kwargs['clusterContext']
+
+        _setter("kube_config", kube_config)
         if accept_untrusted_certs is not None:
-            pulumi.set(__self__, "accept_untrusted_certs", accept_untrusted_certs)
+            _setter("accept_untrusted_certs", accept_untrusted_certs)
         if cluster_context is not None:
-            pulumi.set(__self__, "cluster_context", cluster_context)
+            _setter("cluster_context", cluster_context)
 
     @property
     @pulumi.getter(name="kubeConfig")
@@ -2836,8 +3710,27 @@ class ServiceEndpointKubernetesServiceAccount(dict):
         :param str ca_cert: The certificate from a Kubernetes secret object.
         :param str token: The token from a Kubernetes secret object.
         """
-        pulumi.set(__self__, "ca_cert", ca_cert)
-        pulumi.set(__self__, "token", token)
+        ServiceEndpointKubernetesServiceAccount._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ca_cert=ca_cert,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ca_cert: Optional[str] = None,
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ca_cert is None and 'caCert' in kwargs:
+            ca_cert = kwargs['caCert']
+        if ca_cert is None:
+            raise TypeError("Missing 'ca_cert' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("ca_cert", ca_cert)
+        _setter("token", token)
 
     @property
     @pulumi.getter(name="caCert")
@@ -2880,7 +3773,22 @@ class ServiceEndpointPipelineAuthPersonal(dict):
         """
         :param str personal_access_token: The Personal Access Token for Azure DevOps Pipeline. It also can be set with AZDO_PERSONAL_ACCESS_TOKEN environment variable.
         """
-        pulumi.set(__self__, "personal_access_token", personal_access_token)
+        ServiceEndpointPipelineAuthPersonal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            personal_access_token=personal_access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             personal_access_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if personal_access_token is None and 'personalAccessToken' in kwargs:
+            personal_access_token = kwargs['personalAccessToken']
+        if personal_access_token is None:
+            raise TypeError("Missing 'personal_access_token' argument")
+
+        _setter("personal_access_token", personal_access_token)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -2927,13 +3835,44 @@ class ServiceEndpointServiceFabricAzureActiveDirectory(dict):
         :param str server_certificate_common_name: The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         :param str server_certificate_thumbprint: The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "server_certificate_lookup", server_certificate_lookup)
-        pulumi.set(__self__, "username", username)
+        ServiceEndpointServiceFabricAzureActiveDirectory._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            server_certificate_lookup=server_certificate_lookup,
+            username=username,
+            server_certificate_common_name=server_certificate_common_name,
+            server_certificate_thumbprint=server_certificate_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             server_certificate_lookup: Optional[str] = None,
+             username: Optional[str] = None,
+             server_certificate_common_name: Optional[str] = None,
+             server_certificate_thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if server_certificate_lookup is None and 'serverCertificateLookup' in kwargs:
+            server_certificate_lookup = kwargs['serverCertificateLookup']
+        if server_certificate_lookup is None:
+            raise TypeError("Missing 'server_certificate_lookup' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+        if server_certificate_common_name is None and 'serverCertificateCommonName' in kwargs:
+            server_certificate_common_name = kwargs['serverCertificateCommonName']
+        if server_certificate_thumbprint is None and 'serverCertificateThumbprint' in kwargs:
+            server_certificate_thumbprint = kwargs['serverCertificateThumbprint']
+
+        _setter("password", password)
+        _setter("server_certificate_lookup", server_certificate_lookup)
+        _setter("username", username)
         if server_certificate_common_name is not None:
-            pulumi.set(__self__, "server_certificate_common_name", server_certificate_common_name)
+            _setter("server_certificate_common_name", server_certificate_common_name)
         if server_certificate_thumbprint is not None:
-            pulumi.set(__self__, "server_certificate_thumbprint", server_certificate_thumbprint)
+            _setter("server_certificate_thumbprint", server_certificate_thumbprint)
 
     @property
     @pulumi.getter
@@ -3016,14 +3955,47 @@ class ServiceEndpointServiceFabricCertificate(dict):
         :param str server_certificate_common_name: The common name(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple common names with a comma (',')
         :param str server_certificate_thumbprint: The thumbprint(s) of the cluster's certificate(s). This is used to verify the identity of the cluster. This value overrides the publish profile. Separate multiple thumbprints with a comma (',')
         """
-        pulumi.set(__self__, "client_certificate", client_certificate)
-        pulumi.set(__self__, "server_certificate_lookup", server_certificate_lookup)
+        ServiceEndpointServiceFabricCertificate._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            client_certificate=client_certificate,
+            server_certificate_lookup=server_certificate_lookup,
+            client_certificate_password=client_certificate_password,
+            server_certificate_common_name=server_certificate_common_name,
+            server_certificate_thumbprint=server_certificate_thumbprint,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             client_certificate: Optional[str] = None,
+             server_certificate_lookup: Optional[str] = None,
+             client_certificate_password: Optional[str] = None,
+             server_certificate_common_name: Optional[str] = None,
+             server_certificate_thumbprint: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_certificate is None and 'clientCertificate' in kwargs:
+            client_certificate = kwargs['clientCertificate']
+        if client_certificate is None:
+            raise TypeError("Missing 'client_certificate' argument")
+        if server_certificate_lookup is None and 'serverCertificateLookup' in kwargs:
+            server_certificate_lookup = kwargs['serverCertificateLookup']
+        if server_certificate_lookup is None:
+            raise TypeError("Missing 'server_certificate_lookup' argument")
+        if client_certificate_password is None and 'clientCertificatePassword' in kwargs:
+            client_certificate_password = kwargs['clientCertificatePassword']
+        if server_certificate_common_name is None and 'serverCertificateCommonName' in kwargs:
+            server_certificate_common_name = kwargs['serverCertificateCommonName']
+        if server_certificate_thumbprint is None and 'serverCertificateThumbprint' in kwargs:
+            server_certificate_thumbprint = kwargs['serverCertificateThumbprint']
+
+        _setter("client_certificate", client_certificate)
+        _setter("server_certificate_lookup", server_certificate_lookup)
         if client_certificate_password is not None:
-            pulumi.set(__self__, "client_certificate_password", client_certificate_password)
+            _setter("client_certificate_password", client_certificate_password)
         if server_certificate_common_name is not None:
-            pulumi.set(__self__, "server_certificate_common_name", server_certificate_common_name)
+            _setter("server_certificate_common_name", server_certificate_common_name)
         if server_certificate_thumbprint is not None:
-            pulumi.set(__self__, "server_certificate_thumbprint", server_certificate_thumbprint)
+            _setter("server_certificate_thumbprint", server_certificate_thumbprint)
 
     @property
     @pulumi.getter(name="clientCertificate")
@@ -3092,10 +4064,25 @@ class ServiceEndpointServiceFabricNone(dict):
         :param str cluster_spn: Fully qualified domain SPN for gMSA account. This is applicable only if `unsecured` option is disabled.
         :param bool unsecured: Skip using windows security for authentication.
         """
+        ServiceEndpointServiceFabricNone._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_spn=cluster_spn,
+            unsecured=unsecured,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_spn: Optional[str] = None,
+             unsecured: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_spn is None and 'clusterSpn' in kwargs:
+            cluster_spn = kwargs['clusterSpn']
+
         if cluster_spn is not None:
-            pulumi.set(__self__, "cluster_spn", cluster_spn)
+            _setter("cluster_spn", cluster_spn)
         if unsecured is not None:
-            pulumi.set(__self__, "unsecured", unsecured)
+            _setter("unsecured", unsecured)
 
     @property
     @pulumi.getter(name="clusterSpn")
@@ -3123,8 +4110,25 @@ class ServiceendpointArgocdAuthenticationBasic(dict):
         :param str password: ArgoCD Password.
         :param str username: ArgoCD Username.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ServiceendpointArgocdAuthenticationBasic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -3150,7 +4154,20 @@ class ServiceendpointArgocdAuthenticationToken(dict):
         """
         :param str token: Authentication Token generated through ArgoCD.
         """
-        pulumi.set(__self__, "token", token)
+        ServiceendpointArgocdAuthenticationToken._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("token", token)
 
     @property
     @pulumi.getter
@@ -3185,7 +4202,22 @@ class ServiceendpointExternaltfsAuthPersonal(dict):
         """
         :param str personal_access_token: The Personal Access Token for Azure DevOps Organization.
         """
-        pulumi.set(__self__, "personal_access_token", personal_access_token)
+        ServiceendpointExternaltfsAuthPersonal._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            personal_access_token=personal_access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             personal_access_token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if personal_access_token is None and 'personalAccessToken' in kwargs:
+            personal_access_token = kwargs['personalAccessToken']
+        if personal_access_token is None:
+            raise TypeError("Missing 'personal_access_token' argument")
+
+        _setter("personal_access_token", personal_access_token)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -3205,8 +4237,25 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationBasic(dict):
         :param str password: Artifactory Password.
         :param str username: Artifactory Username.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ServiceendpointJfrogArtifactoryV2AuthenticationBasic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -3232,7 +4281,20 @@ class ServiceendpointJfrogArtifactoryV2AuthenticationToken(dict):
         """
         :param str token: Authentication Token generated through Artifactory.
         """
-        pulumi.set(__self__, "token", token)
+        ServiceendpointJfrogArtifactoryV2AuthenticationToken._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("token", token)
 
     @property
     @pulumi.getter
@@ -3252,8 +4314,25 @@ class ServiceendpointJfrogDistributionV2AuthenticationBasic(dict):
         :param str password: Artifactory Password.
         :param str username: Artifactory Username.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ServiceendpointJfrogDistributionV2AuthenticationBasic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -3279,7 +4358,20 @@ class ServiceendpointJfrogDistributionV2AuthenticationToken(dict):
         """
         :param str token: Authentication Token generated through Artifactory.
         """
-        pulumi.set(__self__, "token", token)
+        ServiceendpointJfrogDistributionV2AuthenticationToken._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("token", token)
 
     @property
     @pulumi.getter
@@ -3299,8 +4391,25 @@ class ServiceendpointJfrogPlatformV2AuthenticationBasic(dict):
         :param str password: Artifactory Password.
         :param str username: Artifactory Username.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ServiceendpointJfrogPlatformV2AuthenticationBasic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -3326,7 +4435,20 @@ class ServiceendpointJfrogPlatformV2AuthenticationToken(dict):
         """
         :param str token: Authentication Token generated through Artifactory.
         """
-        pulumi.set(__self__, "token", token)
+        ServiceendpointJfrogPlatformV2AuthenticationToken._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("token", token)
 
     @property
     @pulumi.getter
@@ -3346,8 +4468,25 @@ class ServiceendpointJfrogXrayV2AuthenticationBasic(dict):
         :param str password: Artifactory Password.
         :param str username: Artifactory Username.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ServiceendpointJfrogXrayV2AuthenticationBasic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -3373,7 +4512,20 @@ class ServiceendpointJfrogXrayV2AuthenticationToken(dict):
         """
         :param str token: Authentication Token generated through Artifactory.
         """
-        pulumi.set(__self__, "token", token)
+        ServiceendpointJfrogXrayV2AuthenticationToken._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("token", token)
 
     @property
     @pulumi.getter
@@ -3393,8 +4545,25 @@ class ServiceendpointMavenAuthenticationBasic(dict):
         :param str password: The password Maven Repository.
         :param str username: The Username of the Maven Repository.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
+        ServiceendpointMavenAuthenticationBasic._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[str] = None,
+             username: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("username", username)
 
     @property
     @pulumi.getter
@@ -3420,7 +4589,20 @@ class ServiceendpointMavenAuthenticationToken(dict):
         """
         :param str token: Authentication Token generated through maven repository.
         """
-        pulumi.set(__self__, "token", token)
+        ServiceendpointMavenAuthenticationToken._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             token: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("token", token)
 
     @property
     @pulumi.getter
@@ -3461,10 +4643,33 @@ class VariableGroupKeyVault(dict):
         :param str service_endpoint_id: The id of the Azure subscription endpoint to access the key vault.
         :param int search_depth: Set the Azure Key Vault Secret search depth. Defaults to `20`.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "service_endpoint_id", service_endpoint_id)
+        VariableGroupKeyVault._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            service_endpoint_id=service_endpoint_id,
+            search_depth=search_depth,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             service_endpoint_id: Optional[str] = None,
+             search_depth: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if service_endpoint_id is None and 'serviceEndpointId' in kwargs:
+            service_endpoint_id = kwargs['serviceEndpointId']
+        if service_endpoint_id is None:
+            raise TypeError("Missing 'service_endpoint_id' argument")
+        if search_depth is None and 'searchDepth' in kwargs:
+            search_depth = kwargs['searchDepth']
+
+        _setter("name", name)
+        _setter("service_endpoint_id", service_endpoint_id)
         if search_depth is not None:
-            pulumi.set(__self__, "search_depth", search_depth)
+            _setter("search_depth", search_depth)
 
     @property
     @pulumi.getter
@@ -3528,19 +4733,50 @@ class VariableGroupVariable(dict):
         :param str secret_value: The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
         :param str value: The value of the variable. If omitted, it will default to empty string.
         """
-        pulumi.set(__self__, "name", name)
+        VariableGroupVariable._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            content_type=content_type,
+            enabled=enabled,
+            expires=expires,
+            is_secret=is_secret,
+            secret_value=secret_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             content_type: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             expires: Optional[str] = None,
+             is_secret: Optional[bool] = None,
+             secret_value: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if is_secret is None and 'isSecret' in kwargs:
+            is_secret = kwargs['isSecret']
+        if secret_value is None and 'secretValue' in kwargs:
+            secret_value = kwargs['secretValue']
+
+        _setter("name", name)
         if content_type is not None:
-            pulumi.set(__self__, "content_type", content_type)
+            _setter("content_type", content_type)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if expires is not None:
-            pulumi.set(__self__, "expires", expires)
+            _setter("expires", expires)
         if is_secret is not None:
-            pulumi.set(__self__, "is_secret", is_secret)
+            _setter("is_secret", is_secret)
         if secret_value is not None:
-            pulumi.set(__self__, "secret_value", secret_value)
+            _setter("secret_value", secret_value)
         if value is not None:
-            pulumi.set(__self__, "value", value)
+            _setter("value", value)
 
     @property
     @pulumi.getter
@@ -3605,11 +4841,44 @@ class GetAreaChildrenResult(dict):
         :param str path: The path to the Area; _Format_: URL relative; if omitted, or value `"/"` is used, the root Area will be returned
         :param str project_id: The project ID.
         """
-        pulumi.set(__self__, "has_children", has_children)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "project_id", project_id)
+        GetAreaChildrenResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            has_children=has_children,
+            id=id,
+            name=name,
+            path=path,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             has_children: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             path: Optional[str] = None,
+             project_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if has_children is None and 'hasChildren' in kwargs:
+            has_children = kwargs['hasChildren']
+        if has_children is None:
+            raise TypeError("Missing 'has_children' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("has_children", has_children)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("path", path)
+        _setter("project_id", project_id)
 
     @property
     @pulumi.getter(name="hasChildren")
@@ -3661,8 +4930,27 @@ class GetBuildDefinitionCiTriggerResult(dict):
         :param Sequence['GetBuildDefinitionCiTriggerOverrideArgs'] overrides: A `override` block as defined below.
         :param bool use_yaml: Use the azure-pipeline file for the build configuration.
         """
-        pulumi.set(__self__, "overrides", overrides)
-        pulumi.set(__self__, "use_yaml", use_yaml)
+        GetBuildDefinitionCiTriggerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            overrides=overrides,
+            use_yaml=use_yaml,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             overrides: Optional[Sequence['outputs.GetBuildDefinitionCiTriggerOverrideResult']] = None,
+             use_yaml: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if overrides is None:
+            raise TypeError("Missing 'overrides' argument")
+        if use_yaml is None and 'useYaml' in kwargs:
+            use_yaml = kwargs['useYaml']
+        if use_yaml is None:
+            raise TypeError("Missing 'use_yaml' argument")
+
+        _setter("overrides", overrides)
+        _setter("use_yaml", use_yaml)
 
     @property
     @pulumi.getter
@@ -3698,12 +4986,55 @@ class GetBuildDefinitionCiTriggerOverrideResult(dict):
         :param int polling_interval: How often the external repository is polled.
         :param str polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
-        pulumi.set(__self__, "batch", batch)
-        pulumi.set(__self__, "branch_filters", branch_filters)
-        pulumi.set(__self__, "max_concurrent_builds_per_branch", max_concurrent_builds_per_branch)
-        pulumi.set(__self__, "path_filters", path_filters)
-        pulumi.set(__self__, "polling_interval", polling_interval)
-        pulumi.set(__self__, "polling_job_id", polling_job_id)
+        GetBuildDefinitionCiTriggerOverrideResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            batch=batch,
+            branch_filters=branch_filters,
+            max_concurrent_builds_per_branch=max_concurrent_builds_per_branch,
+            path_filters=path_filters,
+            polling_interval=polling_interval,
+            polling_job_id=polling_job_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             batch: Optional[bool] = None,
+             branch_filters: Optional[Sequence['outputs.GetBuildDefinitionCiTriggerOverrideBranchFilterResult']] = None,
+             max_concurrent_builds_per_branch: Optional[int] = None,
+             path_filters: Optional[Sequence['outputs.GetBuildDefinitionCiTriggerOverridePathFilterResult']] = None,
+             polling_interval: Optional[int] = None,
+             polling_job_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if batch is None:
+            raise TypeError("Missing 'batch' argument")
+        if branch_filters is None and 'branchFilters' in kwargs:
+            branch_filters = kwargs['branchFilters']
+        if branch_filters is None:
+            raise TypeError("Missing 'branch_filters' argument")
+        if max_concurrent_builds_per_branch is None and 'maxConcurrentBuildsPerBranch' in kwargs:
+            max_concurrent_builds_per_branch = kwargs['maxConcurrentBuildsPerBranch']
+        if max_concurrent_builds_per_branch is None:
+            raise TypeError("Missing 'max_concurrent_builds_per_branch' argument")
+        if path_filters is None and 'pathFilters' in kwargs:
+            path_filters = kwargs['pathFilters']
+        if path_filters is None:
+            raise TypeError("Missing 'path_filters' argument")
+        if polling_interval is None and 'pollingInterval' in kwargs:
+            polling_interval = kwargs['pollingInterval']
+        if polling_interval is None:
+            raise TypeError("Missing 'polling_interval' argument")
+        if polling_job_id is None and 'pollingJobId' in kwargs:
+            polling_job_id = kwargs['pollingJobId']
+        if polling_job_id is None:
+            raise TypeError("Missing 'polling_job_id' argument")
+
+        _setter("batch", batch)
+        _setter("branch_filters", branch_filters)
+        _setter("max_concurrent_builds_per_branch", max_concurrent_builds_per_branch)
+        _setter("path_filters", path_filters)
+        _setter("polling_interval", polling_interval)
+        _setter("polling_job_id", polling_job_id)
 
     @property
     @pulumi.getter
@@ -3763,8 +5094,25 @@ class GetBuildDefinitionCiTriggerOverrideBranchFilterResult(dict):
         :param Sequence[str] excludes: (Optional) List of path patterns to exclude.
         :param Sequence[str] includes: (Optional) List of path patterns to include.
         """
-        pulumi.set(__self__, "excludes", excludes)
-        pulumi.set(__self__, "includes", includes)
+        GetBuildDefinitionCiTriggerOverrideBranchFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
+        _setter("excludes", excludes)
+        _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -3792,8 +5140,25 @@ class GetBuildDefinitionCiTriggerOverridePathFilterResult(dict):
         :param Sequence[str] excludes: (Optional) List of path patterns to exclude.
         :param Sequence[str] includes: (Optional) List of path patterns to include.
         """
-        pulumi.set(__self__, "excludes", excludes)
-        pulumi.set(__self__, "includes", includes)
+        GetBuildDefinitionCiTriggerOverridePathFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
+        _setter("excludes", excludes)
+        _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -3827,11 +5192,46 @@ class GetBuildDefinitionPullRequestTriggerResult(dict):
         :param Sequence['GetBuildDefinitionPullRequestTriggerOverrideArgs'] overrides: A `override` block as defined below.
         :param bool use_yaml: Use the azure-pipeline file for the build configuration.
         """
-        pulumi.set(__self__, "comment_required", comment_required)
-        pulumi.set(__self__, "forks", forks)
-        pulumi.set(__self__, "initial_branch", initial_branch)
-        pulumi.set(__self__, "overrides", overrides)
-        pulumi.set(__self__, "use_yaml", use_yaml)
+        GetBuildDefinitionPullRequestTriggerResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            comment_required=comment_required,
+            forks=forks,
+            initial_branch=initial_branch,
+            overrides=overrides,
+            use_yaml=use_yaml,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             comment_required: Optional[str] = None,
+             forks: Optional[Sequence['outputs.GetBuildDefinitionPullRequestTriggerForkResult']] = None,
+             initial_branch: Optional[str] = None,
+             overrides: Optional[Sequence['outputs.GetBuildDefinitionPullRequestTriggerOverrideResult']] = None,
+             use_yaml: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if comment_required is None and 'commentRequired' in kwargs:
+            comment_required = kwargs['commentRequired']
+        if comment_required is None:
+            raise TypeError("Missing 'comment_required' argument")
+        if forks is None:
+            raise TypeError("Missing 'forks' argument")
+        if initial_branch is None and 'initialBranch' in kwargs:
+            initial_branch = kwargs['initialBranch']
+        if initial_branch is None:
+            raise TypeError("Missing 'initial_branch' argument")
+        if overrides is None:
+            raise TypeError("Missing 'overrides' argument")
+        if use_yaml is None and 'useYaml' in kwargs:
+            use_yaml = kwargs['useYaml']
+        if use_yaml is None:
+            raise TypeError("Missing 'use_yaml' argument")
+
+        _setter("comment_required", comment_required)
+        _setter("forks", forks)
+        _setter("initial_branch", initial_branch)
+        _setter("overrides", overrides)
+        _setter("use_yaml", use_yaml)
 
     @property
     @pulumi.getter(name="commentRequired")
@@ -3883,8 +5283,27 @@ class GetBuildDefinitionPullRequestTriggerForkResult(dict):
         :param bool enabled: Build pull requests from forks of this repository.
         :param bool share_secrets: Make secrets available to builds of forks.
         """
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "share_secrets", share_secrets)
+        GetBuildDefinitionPullRequestTriggerForkResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enabled=enabled,
+            share_secrets=share_secrets,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enabled: Optional[bool] = None,
+             share_secrets: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if share_secrets is None and 'shareSecrets' in kwargs:
+            share_secrets = kwargs['shareSecrets']
+        if share_secrets is None:
+            raise TypeError("Missing 'share_secrets' argument")
+
+        _setter("enabled", enabled)
+        _setter("share_secrets", share_secrets)
 
     @property
     @pulumi.getter
@@ -3914,9 +5333,36 @@ class GetBuildDefinitionPullRequestTriggerOverrideResult(dict):
         :param Sequence['GetBuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: A `branch_filter` block as defined above.
         :param Sequence['GetBuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: block supports the following:
         """
-        pulumi.set(__self__, "auto_cancel", auto_cancel)
-        pulumi.set(__self__, "branch_filters", branch_filters)
-        pulumi.set(__self__, "path_filters", path_filters)
+        GetBuildDefinitionPullRequestTriggerOverrideResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_cancel=auto_cancel,
+            branch_filters=branch_filters,
+            path_filters=path_filters,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_cancel: Optional[bool] = None,
+             branch_filters: Optional[Sequence['outputs.GetBuildDefinitionPullRequestTriggerOverrideBranchFilterResult']] = None,
+             path_filters: Optional[Sequence['outputs.GetBuildDefinitionPullRequestTriggerOverridePathFilterResult']] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_cancel is None and 'autoCancel' in kwargs:
+            auto_cancel = kwargs['autoCancel']
+        if auto_cancel is None:
+            raise TypeError("Missing 'auto_cancel' argument")
+        if branch_filters is None and 'branchFilters' in kwargs:
+            branch_filters = kwargs['branchFilters']
+        if branch_filters is None:
+            raise TypeError("Missing 'branch_filters' argument")
+        if path_filters is None and 'pathFilters' in kwargs:
+            path_filters = kwargs['pathFilters']
+        if path_filters is None:
+            raise TypeError("Missing 'path_filters' argument")
+
+        _setter("auto_cancel", auto_cancel)
+        _setter("branch_filters", branch_filters)
+        _setter("path_filters", path_filters)
 
     @property
     @pulumi.getter(name="autoCancel")
@@ -3952,8 +5398,25 @@ class GetBuildDefinitionPullRequestTriggerOverrideBranchFilterResult(dict):
         :param Sequence[str] excludes: (Optional) List of path patterns to exclude.
         :param Sequence[str] includes: (Optional) List of path patterns to include.
         """
-        pulumi.set(__self__, "excludes", excludes)
-        pulumi.set(__self__, "includes", includes)
+        GetBuildDefinitionPullRequestTriggerOverrideBranchFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
+        _setter("excludes", excludes)
+        _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -3981,8 +5444,25 @@ class GetBuildDefinitionPullRequestTriggerOverridePathFilterResult(dict):
         :param Sequence[str] excludes: (Optional) List of path patterns to exclude.
         :param Sequence[str] includes: (Optional) List of path patterns to include.
         """
-        pulumi.set(__self__, "excludes", excludes)
-        pulumi.set(__self__, "includes", includes)
+        GetBuildDefinitionPullRequestTriggerOverridePathFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
+        _setter("excludes", excludes)
+        _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -4020,13 +5500,64 @@ class GetBuildDefinitionRepositoryResult(dict):
         :param str service_connection_id: The service connection ID.
         :param str yml_path: The path of the Yaml file describing the build definition.
         """
-        pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "github_enterprise_url", github_enterprise_url)
-        pulumi.set(__self__, "repo_id", repo_id)
-        pulumi.set(__self__, "repo_type", repo_type)
-        pulumi.set(__self__, "report_build_status", report_build_status)
-        pulumi.set(__self__, "service_connection_id", service_connection_id)
-        pulumi.set(__self__, "yml_path", yml_path)
+        GetBuildDefinitionRepositoryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_name=branch_name,
+            github_enterprise_url=github_enterprise_url,
+            repo_id=repo_id,
+            repo_type=repo_type,
+            report_build_status=report_build_status,
+            service_connection_id=service_connection_id,
+            yml_path=yml_path,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_name: Optional[str] = None,
+             github_enterprise_url: Optional[str] = None,
+             repo_id: Optional[str] = None,
+             repo_type: Optional[str] = None,
+             report_build_status: Optional[bool] = None,
+             service_connection_id: Optional[str] = None,
+             yml_path: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_name is None and 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if branch_name is None:
+            raise TypeError("Missing 'branch_name' argument")
+        if github_enterprise_url is None and 'githubEnterpriseUrl' in kwargs:
+            github_enterprise_url = kwargs['githubEnterpriseUrl']
+        if github_enterprise_url is None:
+            raise TypeError("Missing 'github_enterprise_url' argument")
+        if repo_id is None and 'repoId' in kwargs:
+            repo_id = kwargs['repoId']
+        if repo_id is None:
+            raise TypeError("Missing 'repo_id' argument")
+        if repo_type is None and 'repoType' in kwargs:
+            repo_type = kwargs['repoType']
+        if repo_type is None:
+            raise TypeError("Missing 'repo_type' argument")
+        if report_build_status is None and 'reportBuildStatus' in kwargs:
+            report_build_status = kwargs['reportBuildStatus']
+        if report_build_status is None:
+            raise TypeError("Missing 'report_build_status' argument")
+        if service_connection_id is None and 'serviceConnectionId' in kwargs:
+            service_connection_id = kwargs['serviceConnectionId']
+        if service_connection_id is None:
+            raise TypeError("Missing 'service_connection_id' argument")
+        if yml_path is None and 'ymlPath' in kwargs:
+            yml_path = kwargs['ymlPath']
+        if yml_path is None:
+            raise TypeError("Missing 'yml_path' argument")
+
+        _setter("branch_name", branch_name)
+        _setter("github_enterprise_url", github_enterprise_url)
+        _setter("repo_id", repo_id)
+        _setter("repo_type", repo_type)
+        _setter("report_build_status", report_build_status)
+        _setter("service_connection_id", service_connection_id)
+        _setter("yml_path", yml_path)
 
     @property
     @pulumi.getter(name="branchName")
@@ -4104,13 +5635,64 @@ class GetBuildDefinitionScheduleResult(dict):
         :param int start_minutes: Build start minute.
         :param str time_zone: Build time zone.
         """
-        pulumi.set(__self__, "branch_filters", branch_filters)
-        pulumi.set(__self__, "days_to_builds", days_to_builds)
-        pulumi.set(__self__, "schedule_job_id", schedule_job_id)
-        pulumi.set(__self__, "schedule_only_with_changes", schedule_only_with_changes)
-        pulumi.set(__self__, "start_hours", start_hours)
-        pulumi.set(__self__, "start_minutes", start_minutes)
-        pulumi.set(__self__, "time_zone", time_zone)
+        GetBuildDefinitionScheduleResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_filters=branch_filters,
+            days_to_builds=days_to_builds,
+            schedule_job_id=schedule_job_id,
+            schedule_only_with_changes=schedule_only_with_changes,
+            start_hours=start_hours,
+            start_minutes=start_minutes,
+            time_zone=time_zone,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_filters: Optional[Sequence['outputs.GetBuildDefinitionScheduleBranchFilterResult']] = None,
+             days_to_builds: Optional[Sequence[str]] = None,
+             schedule_job_id: Optional[str] = None,
+             schedule_only_with_changes: Optional[bool] = None,
+             start_hours: Optional[int] = None,
+             start_minutes: Optional[int] = None,
+             time_zone: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_filters is None and 'branchFilters' in kwargs:
+            branch_filters = kwargs['branchFilters']
+        if branch_filters is None:
+            raise TypeError("Missing 'branch_filters' argument")
+        if days_to_builds is None and 'daysToBuilds' in kwargs:
+            days_to_builds = kwargs['daysToBuilds']
+        if days_to_builds is None:
+            raise TypeError("Missing 'days_to_builds' argument")
+        if schedule_job_id is None and 'scheduleJobId' in kwargs:
+            schedule_job_id = kwargs['scheduleJobId']
+        if schedule_job_id is None:
+            raise TypeError("Missing 'schedule_job_id' argument")
+        if schedule_only_with_changes is None and 'scheduleOnlyWithChanges' in kwargs:
+            schedule_only_with_changes = kwargs['scheduleOnlyWithChanges']
+        if schedule_only_with_changes is None:
+            raise TypeError("Missing 'schedule_only_with_changes' argument")
+        if start_hours is None and 'startHours' in kwargs:
+            start_hours = kwargs['startHours']
+        if start_hours is None:
+            raise TypeError("Missing 'start_hours' argument")
+        if start_minutes is None and 'startMinutes' in kwargs:
+            start_minutes = kwargs['startMinutes']
+        if start_minutes is None:
+            raise TypeError("Missing 'start_minutes' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+
+        _setter("branch_filters", branch_filters)
+        _setter("days_to_builds", days_to_builds)
+        _setter("schedule_job_id", schedule_job_id)
+        _setter("schedule_only_with_changes", schedule_only_with_changes)
+        _setter("start_hours", start_hours)
+        _setter("start_minutes", start_minutes)
+        _setter("time_zone", time_zone)
 
     @property
     @pulumi.getter(name="branchFilters")
@@ -4178,8 +5760,25 @@ class GetBuildDefinitionScheduleBranchFilterResult(dict):
         :param Sequence[str] excludes: (Optional) List of path patterns to exclude.
         :param Sequence[str] includes: (Optional) List of path patterns to include.
         """
-        pulumi.set(__self__, "excludes", excludes)
-        pulumi.set(__self__, "includes", includes)
+        GetBuildDefinitionScheduleBranchFilterResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            excludes=excludes,
+            includes=includes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             excludes: Optional[Sequence[str]] = None,
+             includes: Optional[Sequence[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if excludes is None:
+            raise TypeError("Missing 'excludes' argument")
+        if includes is None:
+            raise TypeError("Missing 'includes' argument")
+
+        _setter("excludes", excludes)
+        _setter("includes", includes)
 
     @property
     @pulumi.getter
@@ -4213,11 +5812,46 @@ class GetBuildDefinitionVariableResult(dict):
         :param str secret_value: The secret value of the variable.
         :param str value: The value of the variable.
         """
-        pulumi.set(__self__, "allow_override", allow_override)
-        pulumi.set(__self__, "is_secret", is_secret)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_value", secret_value)
-        pulumi.set(__self__, "value", value)
+        GetBuildDefinitionVariableResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_override=allow_override,
+            is_secret=is_secret,
+            name=name,
+            secret_value=secret_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_override: Optional[bool] = None,
+             is_secret: Optional[bool] = None,
+             name: Optional[str] = None,
+             secret_value: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allow_override is None and 'allowOverride' in kwargs:
+            allow_override = kwargs['allowOverride']
+        if allow_override is None:
+            raise TypeError("Missing 'allow_override' argument")
+        if is_secret is None and 'isSecret' in kwargs:
+            is_secret = kwargs['isSecret']
+        if is_secret is None:
+            raise TypeError("Missing 'is_secret' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secret_value is None and 'secretValue' in kwargs:
+            secret_value = kwargs['secretValue']
+        if secret_value is None:
+            raise TypeError("Missing 'secret_value' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("allow_override", allow_override)
+        _setter("is_secret", is_secret)
+        _setter("name", name)
+        _setter("secret_value", secret_value)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="allowOverride")
@@ -4283,19 +5917,64 @@ class GetGroupsGroupResult(dict):
         :param str mail_address: The email address of record for a given graph member. This may be different than the principal name.
         :param str origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. Linking and unlinking operations can cause this value to change for a user because the user is not backed by a different provider and has a different unique id in the new provider.
         """
-        pulumi.set(__self__, "descriptor", descriptor)
-        pulumi.set(__self__, "domain", domain)
-        pulumi.set(__self__, "origin", origin)
-        pulumi.set(__self__, "principal_name", principal_name)
-        pulumi.set(__self__, "url", url)
+        GetGroupsGroupResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            descriptor=descriptor,
+            domain=domain,
+            origin=origin,
+            principal_name=principal_name,
+            url=url,
+            description=description,
+            display_name=display_name,
+            mail_address=mail_address,
+            origin_id=origin_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             descriptor: Optional[str] = None,
+             domain: Optional[str] = None,
+             origin: Optional[str] = None,
+             principal_name: Optional[str] = None,
+             url: Optional[str] = None,
+             description: Optional[str] = None,
+             display_name: Optional[str] = None,
+             mail_address: Optional[str] = None,
+             origin_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if descriptor is None:
+            raise TypeError("Missing 'descriptor' argument")
+        if domain is None:
+            raise TypeError("Missing 'domain' argument")
+        if origin is None:
+            raise TypeError("Missing 'origin' argument")
+        if principal_name is None and 'principalName' in kwargs:
+            principal_name = kwargs['principalName']
+        if principal_name is None:
+            raise TypeError("Missing 'principal_name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if mail_address is None and 'mailAddress' in kwargs:
+            mail_address = kwargs['mailAddress']
+        if origin_id is None and 'originId' in kwargs:
+            origin_id = kwargs['originId']
+
+        _setter("descriptor", descriptor)
+        _setter("domain", domain)
+        _setter("origin", origin)
+        _setter("principal_name", principal_name)
+        _setter("url", url)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if mail_address is not None:
-            pulumi.set(__self__, "mail_address", mail_address)
+            _setter("mail_address", mail_address)
         if origin_id is not None:
-            pulumi.set(__self__, "origin_id", origin_id)
+            _setter("origin_id", origin_id)
 
     @property
     @pulumi.getter
@@ -4385,11 +6064,44 @@ class GetIterationChildrenResult(dict):
         :param str path: The path to the Iteration, _Format_: URL relative; if omitted, or value `"/"` is used, the root Iteration will be returned
         :param str project_id: The project ID.
         """
-        pulumi.set(__self__, "has_children", has_children)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "project_id", project_id)
+        GetIterationChildrenResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            has_children=has_children,
+            id=id,
+            name=name,
+            path=path,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             has_children: Optional[bool] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             path: Optional[str] = None,
+             project_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if has_children is None and 'hasChildren' in kwargs:
+            has_children = kwargs['hasChildren']
+        if has_children is None:
+            raise TypeError("Missing 'has_children' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("has_children", has_children)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("path", path)
+        _setter("project_id", project_id)
 
     @property
     @pulumi.getter(name="hasChildren")
@@ -4446,11 +6158,46 @@ class GetPoolsAgentPoolResult(dict):
         :param str name: The name of the agent pool
         :param str pool_type: Specifies whether the agent pool type is Automation or Deployment.
         """
-        pulumi.set(__self__, "auto_provision", auto_provision)
-        pulumi.set(__self__, "auto_update", auto_update)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "pool_type", pool_type)
+        GetPoolsAgentPoolResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_provision=auto_provision,
+            auto_update=auto_update,
+            id=id,
+            name=name,
+            pool_type=pool_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_provision: Optional[bool] = None,
+             auto_update: Optional[bool] = None,
+             id: Optional[int] = None,
+             name: Optional[str] = None,
+             pool_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auto_provision is None and 'autoProvision' in kwargs:
+            auto_provision = kwargs['autoProvision']
+        if auto_provision is None:
+            raise TypeError("Missing 'auto_provision' argument")
+        if auto_update is None and 'autoUpdate' in kwargs:
+            auto_update = kwargs['autoUpdate']
+        if auto_update is None:
+            raise TypeError("Missing 'auto_update' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if pool_type is None and 'poolType' in kwargs:
+            pool_type = kwargs['poolType']
+        if pool_type is None:
+            raise TypeError("Missing 'pool_type' argument")
+
+        _setter("auto_provision", auto_provision)
+        _setter("auto_update", auto_update)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("pool_type", pool_type)
 
     @property
     @pulumi.getter(name="autoProvision")
@@ -4505,10 +6252,39 @@ class GetProjectsProjectResult(dict):
                
                DataSource without specifying any arguments will return all projects.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "project_url", project_url)
-        pulumi.set(__self__, "state", state)
+        GetProjectsProjectResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            project_id=project_id,
+            project_url=project_url,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             project_id: Optional[str] = None,
+             project_url: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if project_url is None and 'projectUrl' in kwargs:
+            project_url = kwargs['projectUrl']
+        if project_url is None:
+            raise TypeError("Missing 'project_url' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("name", name)
+        _setter("project_id", project_id)
+        _setter("project_url", project_url)
+        _setter("state", state)
 
     @property
     @pulumi.getter
@@ -4568,15 +6344,70 @@ class GetRepositoriesRepositoryResult(dict):
         :param str url: Details REST API endpoint for the Git Repository.
         :param str web_url: Url of the Git repository web view
         """
-        pulumi.set(__self__, "default_branch", default_branch)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "remote_url", remote_url)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "ssh_url", ssh_url)
-        pulumi.set(__self__, "url", url)
-        pulumi.set(__self__, "web_url", web_url)
+        GetRepositoriesRepositoryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_branch=default_branch,
+            id=id,
+            name=name,
+            project_id=project_id,
+            remote_url=remote_url,
+            size=size,
+            ssh_url=ssh_url,
+            url=url,
+            web_url=web_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_branch: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             project_id: Optional[str] = None,
+             remote_url: Optional[str] = None,
+             size: Optional[int] = None,
+             ssh_url: Optional[str] = None,
+             url: Optional[str] = None,
+             web_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if default_branch is None and 'defaultBranch' in kwargs:
+            default_branch = kwargs['defaultBranch']
+        if default_branch is None:
+            raise TypeError("Missing 'default_branch' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if remote_url is None and 'remoteUrl' in kwargs:
+            remote_url = kwargs['remoteUrl']
+        if remote_url is None:
+            raise TypeError("Missing 'remote_url' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if ssh_url is None and 'sshUrl' in kwargs:
+            ssh_url = kwargs['sshUrl']
+        if ssh_url is None:
+            raise TypeError("Missing 'ssh_url' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if web_url is None and 'webUrl' in kwargs:
+            web_url = kwargs['webUrl']
+        if web_url is None:
+            raise TypeError("Missing 'web_url' argument")
+
+        _setter("default_branch", default_branch)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("project_id", project_id)
+        _setter("remote_url", remote_url)
+        _setter("size", size)
+        _setter("ssh_url", ssh_url)
+        _setter("url", url)
+        _setter("web_url", web_url)
 
     @property
     @pulumi.getter(name="defaultBranch")
@@ -4667,12 +6498,47 @@ class GetTeamsTeamResult(dict):
         :param str name: Team name.
         :param str project_id: The Project ID. If no project ID all teams of the organization will be returned.
         """
-        pulumi.set(__self__, "administrators", administrators)
-        pulumi.set(__self__, "description", description)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "members", members)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "project_id", project_id)
+        GetTeamsTeamResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrators=administrators,
+            description=description,
+            id=id,
+            members=members,
+            name=name,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrators: Optional[Sequence[str]] = None,
+             description: Optional[str] = None,
+             id: Optional[str] = None,
+             members: Optional[Sequence[str]] = None,
+             name: Optional[str] = None,
+             project_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if administrators is None:
+            raise TypeError("Missing 'administrators' argument")
+        if description is None:
+            raise TypeError("Missing 'description' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if members is None:
+            raise TypeError("Missing 'members' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("administrators", administrators)
+        _setter("description", description)
+        _setter("id", id)
+        _setter("members", members)
+        _setter("name", name)
+        _setter("project_id", project_id)
 
     @property
     @pulumi.getter
@@ -4743,24 +6609,60 @@ class GetUsersUserResult(dict):
                
                List of possible subject types
                
-               ```python
-               import pulumi
-               ```
                
                List of possible origins
-               
-               ```python
-               import pulumi
-               ```
         """
-        pulumi.set(__self__, "descriptor", descriptor)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "mail_address", mail_address)
-        pulumi.set(__self__, "origin", origin)
-        pulumi.set(__self__, "principal_name", principal_name)
+        GetUsersUserResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            descriptor=descriptor,
+            display_name=display_name,
+            id=id,
+            mail_address=mail_address,
+            origin=origin,
+            principal_name=principal_name,
+            origin_id=origin_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             descriptor: Optional[str] = None,
+             display_name: Optional[str] = None,
+             id: Optional[str] = None,
+             mail_address: Optional[str] = None,
+             origin: Optional[str] = None,
+             principal_name: Optional[str] = None,
+             origin_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if descriptor is None:
+            raise TypeError("Missing 'descriptor' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if mail_address is None and 'mailAddress' in kwargs:
+            mail_address = kwargs['mailAddress']
+        if mail_address is None:
+            raise TypeError("Missing 'mail_address' argument")
+        if origin is None:
+            raise TypeError("Missing 'origin' argument")
+        if principal_name is None and 'principalName' in kwargs:
+            principal_name = kwargs['principalName']
+        if principal_name is None:
+            raise TypeError("Missing 'principal_name' argument")
+        if origin_id is None and 'originId' in kwargs:
+            origin_id = kwargs['originId']
+
+        _setter("descriptor", descriptor)
+        _setter("display_name", display_name)
+        _setter("id", id)
+        _setter("mail_address", mail_address)
+        _setter("origin", origin)
+        _setter("principal_name", principal_name)
         if origin_id is not None:
-            pulumi.set(__self__, "origin_id", origin_id)
+            _setter("origin_id", origin_id)
 
     @property
     @pulumi.getter
@@ -4820,15 +6722,8 @@ class GetUsersUserResult(dict):
 
         List of possible subject types
 
-        ```python
-        import pulumi
-        ```
 
         List of possible origins
-
-        ```python
-        import pulumi
-        ```
         """
         return pulumi.get(self, "origin_id")
 
@@ -4842,8 +6737,27 @@ class GetVariableGroupKeyVaultResult(dict):
         :param str name: The name of the Variable Group to retrieve.
         :param str service_endpoint_id: The id of the Azure subscription endpoint to access the key vault.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "service_endpoint_id", service_endpoint_id)
+        GetVariableGroupKeyVaultResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            service_endpoint_id=service_endpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             service_endpoint_id: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if service_endpoint_id is None and 'serviceEndpointId' in kwargs:
+            service_endpoint_id = kwargs['serviceEndpointId']
+        if service_endpoint_id is None:
+            raise TypeError("Missing 'service_endpoint_id' argument")
+
+        _setter("name", name)
+        _setter("service_endpoint_id", service_endpoint_id)
 
     @property
     @pulumi.getter
@@ -4878,13 +6792,56 @@ class GetVariableGroupVariableResult(dict):
         :param str secret_value: The secret value of the variable.
         :param str value: The value of the variable.
         """
-        pulumi.set(__self__, "content_type", content_type)
-        pulumi.set(__self__, "enabled", enabled)
-        pulumi.set(__self__, "expires", expires)
-        pulumi.set(__self__, "is_secret", is_secret)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "secret_value", secret_value)
-        pulumi.set(__self__, "value", value)
+        GetVariableGroupVariableResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content_type=content_type,
+            enabled=enabled,
+            expires=expires,
+            is_secret=is_secret,
+            name=name,
+            secret_value=secret_value,
+            value=value,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content_type: Optional[str] = None,
+             enabled: Optional[bool] = None,
+             expires: Optional[str] = None,
+             is_secret: Optional[bool] = None,
+             name: Optional[str] = None,
+             secret_value: Optional[str] = None,
+             value: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if content_type is None and 'contentType' in kwargs:
+            content_type = kwargs['contentType']
+        if content_type is None:
+            raise TypeError("Missing 'content_type' argument")
+        if enabled is None:
+            raise TypeError("Missing 'enabled' argument")
+        if expires is None:
+            raise TypeError("Missing 'expires' argument")
+        if is_secret is None and 'isSecret' in kwargs:
+            is_secret = kwargs['isSecret']
+        if is_secret is None:
+            raise TypeError("Missing 'is_secret' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if secret_value is None and 'secretValue' in kwargs:
+            secret_value = kwargs['secretValue']
+        if secret_value is None:
+            raise TypeError("Missing 'secret_value' argument")
+        if value is None:
+            raise TypeError("Missing 'value' argument")
+
+        _setter("content_type", content_type)
+        _setter("enabled", enabled)
+        _setter("expires", expires)
+        _setter("is_secret", is_secret)
+        _setter("name", name)
+        _setter("secret_value", secret_value)
+        _setter("value", value)
 
     @property
     @pulumi.getter(name="contentType")

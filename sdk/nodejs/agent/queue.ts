@@ -11,28 +11,6 @@ import * as utilities from "../utilities";
  * The created queue is not authorized for use by all pipelines in the project. However,
  * the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const examplePool = azuredevops.getPool({
- *     name: "example-pool",
- * });
- * const exampleQueue = new azuredevops.Queue("exampleQueue", {
- *     projectId: exampleProject.id,
- *     agentPoolId: examplePool.then(examplePool => examplePool.id),
- * });
- * // Grant access to queue to all pipelines in the project
- * const exampleResourceAuthorization = new azuredevops.ResourceAuthorization("exampleResourceAuthorization", {
- *     projectId: exampleProject.id,
- *     resourceId: exampleQueue.id,
- *     type: "queue",
- *     authorized: true,
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)

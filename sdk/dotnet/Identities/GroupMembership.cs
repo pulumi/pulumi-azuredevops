@@ -12,40 +12,6 @@ namespace Pulumi.AzureDevOps.Identities
     /// <summary>
     /// Manages group membership within Azure DevOps.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleUser = new AzureDevOps.User("exampleUser", new()
-    ///     {
-    ///         PrincipalName = "foo@contoso.com",
-    ///     });
-    /// 
-    ///     var exampleGroup = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Name = "Build Administrators",
-    ///     });
-    /// 
-    ///     var exampleGroupMembership = new AzureDevOps.GroupMembership("exampleGroupMembership", new()
-    ///     {
-    ///         Group = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Descriptor),
-    ///         Members = new[]
-    ///         {
-    ///             exampleUser.Descriptor,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-7.0)

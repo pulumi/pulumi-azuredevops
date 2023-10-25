@@ -7,30 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages members of a team within a project in a Azure DevOps organization.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const example-project-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
- *     name: "Readers",
- * });
- * const exampleTeam = new azuredevops.Team("exampleTeam", {projectId: exampleProject.id});
- * const example_team_members = new azuredevops.TeamMembers("example-team-members", {
- *     projectId: exampleTeam.projectId,
- *     teamId: exampleTeam.id,
- *     mode: "overwrite",
- *     members: [example_project_readers.apply(example_project_readers => example_project_readers.descriptor)],
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)

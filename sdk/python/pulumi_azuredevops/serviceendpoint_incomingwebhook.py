@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceendpointIncomingwebhookArgs', 'ServiceendpointIncomingwebhook']
@@ -29,17 +29,54 @@ class ServiceendpointIncomingwebhookArgs:
         :param pulumi.Input[str] http_header: Http header name on which checksum will be sent.
         :param pulumi.Input[str] secret: Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        pulumi.set(__self__, "webhook_name", webhook_name)
+        ServiceendpointIncomingwebhookArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            webhook_name=webhook_name,
+            authorization=authorization,
+            description=description,
+            http_header=http_header,
+            secret=secret,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             webhook_name: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             http_header: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if webhook_name is None and 'webhookName' in kwargs:
+            webhook_name = kwargs['webhookName']
+        if webhook_name is None:
+            raise TypeError("Missing 'webhook_name' argument")
+        if http_header is None and 'httpHeader' in kwargs:
+            http_header = kwargs['httpHeader']
+
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
+        _setter("webhook_name", webhook_name)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if http_header is not None:
-            pulumi.set(__self__, "http_header", http_header)
+            _setter("http_header", http_header)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
 
     @property
     @pulumi.getter(name="projectId")
@@ -138,20 +175,51 @@ class _ServiceendpointIncomingwebhookState:
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint. Changing this forces a new Service Connection Incoming WebHook to be created.
         :param pulumi.Input[str] webhook_name: The name of the WebHook.
         """
+        _ServiceendpointIncomingwebhookState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            description=description,
+            http_header=http_header,
+            project_id=project_id,
+            secret=secret,
+            service_endpoint_name=service_endpoint_name,
+            webhook_name=webhook_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             http_header: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             secret: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             webhook_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if http_header is None and 'httpHeader' in kwargs:
+            http_header = kwargs['httpHeader']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if webhook_name is None and 'webhookName' in kwargs:
+            webhook_name = kwargs['webhookName']
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if http_header is not None:
-            pulumi.set(__self__, "http_header", http_header)
+            _setter("http_header", http_header)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if secret is not None:
-            pulumi.set(__self__, "secret", secret)
+            _setter("secret", secret)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
         if webhook_name is not None:
-            pulumi.set(__self__, "webhook_name", webhook_name)
+            _setter("webhook_name", webhook_name)
 
     @property
     @pulumi.getter
@@ -248,26 +316,6 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
         """
         Manages an Incoming WebHook service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to subscribe to a webhook event.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_serviceendpoint_incomingwebhook = azuredevops.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook",
-            project_id=example_project.id,
-            webhook_name="example_webhook",
-            secret="secret",
-            http_header="X-Hub-Signature",
-            service_endpoint_name="Example IncomingWebhook",
-            description="Managed by Terraform")
-        ```
-
         ## Import
 
         Azure DevOps Service Endpoint Incoming WebHook can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
@@ -293,26 +341,6 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
         """
         Manages an Incoming WebHook service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to subscribe to a webhook event.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_serviceendpoint_incomingwebhook = azuredevops.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook",
-            project_id=example_project.id,
-            webhook_name="example_webhook",
-            secret="secret",
-            http_header="X-Hub-Signature",
-            service_endpoint_name="Example IncomingWebhook",
-            description="Managed by Terraform")
-        ```
-
         ## Import
 
         Azure DevOps Service Endpoint Incoming WebHook can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**
@@ -331,6 +359,10 @@ class ServiceendpointIncomingwebhook(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceendpointIncomingwebhookArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

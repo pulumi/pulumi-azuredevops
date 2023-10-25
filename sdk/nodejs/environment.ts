@@ -7,20 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages an Environment.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const exampleEnvironment = new azuredevops.Environment("exampleEnvironment", {projectId: exampleProject.id});
- * ```
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 7.0 - Environments](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/environments?view=azure-devops-rest-7.0)

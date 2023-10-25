@@ -14,63 +14,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// &gt; **Note** Permissions can be assigned to group principals and not to single user principals.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         WorkItemTemplate = "Agile",
-    ///         VersionControl = "Git",
-    ///         Visibility = "private",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Name = "Readers",
-    ///     });
-    /// 
-    ///     var exampleBuildFolder = new AzureDevOps.BuildFolder("exampleBuildFolder", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Path = "\\ExampleFolder",
-    ///         Description = "ExampleFolder description",
-    ///     });
-    /// 
-    ///     var exampleBuildFolderPermissions = new AzureDevOps.BuildFolderPermissions("exampleBuildFolderPermissions", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Path = "\\ExampleFolder",
-    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
-    ///         Permissions = 
-    ///         {
-    ///             { "ViewBuilds", "Allow" },
-    ///             { "EditBuildQuality", "Allow" },
-    ///             { "RetainIndefinitely", "Allow" },
-    ///             { "DeleteBuilds", "Deny" },
-    ///             { "ManageBuildQualities", "Deny" },
-    ///             { "DestroyBuilds", "Deny" },
-    ///             { "UpdateBuildInformation", "Deny" },
-    ///             { "QueueBuilds", "Allow" },
-    ///             { "ManageBuildQueue", "Deny" },
-    ///             { "StopBuilds", "Allow" },
-    ///             { "ViewBuildDefinition", "Allow" },
-    ///             { "EditBuildDefinition", "Deny" },
-    ///             { "DeleteBuildDefinition", "Deny" },
-    ///             { "AdministerBuildPermissions", "NotSet" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

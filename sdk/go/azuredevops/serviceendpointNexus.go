@@ -16,46 +16,6 @@ import (
 // Manages a Nexus IQ service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Nexus IQ instance.
 // Nexus IQ is not supported by default, to manage a nexus service connection resource, it is necessary to install the [Nexus Extension](https://marketplace.visualstudio.com/items?itemName=SonatypeIntegrations.nexus-iq-azure-extension) in Azure DevOps.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-//				Visibility:       pulumi.String("private"),
-//				VersionControl:   pulumi.String("Git"),
-//				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewServiceendpointNexus(ctx, "exampleServiceendpointNexus", &azuredevops.ServiceendpointNexusArgs{
-//				ProjectId:           exampleProject.ID(),
-//				ServiceEndpointName: pulumi.String("nexus-example"),
-//				Description:         pulumi.String("Service Endpoint for 'Nexus IQ' (Managed by Terraform)"),
-//				Url:                 pulumi.String("https://example.com"),
-//				Username:            pulumi.String("username"),
-//				Password:            pulumi.String("password"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Service Connection Nexus can be imported using the `projectId/id` or or `projectName/id`, e.g.

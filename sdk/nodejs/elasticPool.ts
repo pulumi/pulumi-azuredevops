@@ -7,39 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages Elastic pool within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointAzureRM = new azuredevops.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example Azure Connection",
- *     description: "Managed by Terraform",
- *     serviceEndpointAuthenticationScheme: "ServicePrincipal",
- *     credentials: {
- *         serviceprincipalid: "00000000-0000-0000-0000-000000000000",
- *         serviceprincipalkey: "00000000-0000-0000-0000-000000000000",
- *     },
- *     azurermSpnTenantid: "00000000-0000-0000-0000-000000000000",
- *     azurermSubscriptionId: "00000000-0000-0000-0000-000000000000",
- *     azurermSubscriptionName: "Subscription Name",
- * });
- * const exampleElasticPool = new azuredevops.ElasticPool("exampleElasticPool", {
- *     serviceEndpointId: exampleServiceEndpointAzureRM.id,
- *     serviceEndpointScope: exampleProject.id,
- *     desiredIdle: 2,
- *     maxCapacity: 3,
- *     azureResourceId: "/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>",
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Elastic Pools](https://learn.microsoft.com/en-us/rest/api/azure/devops/distributedtask/elasticpools/create?view=azure-devops-rest-7.0)

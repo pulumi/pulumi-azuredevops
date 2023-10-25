@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CheckBranchControlArgs', 'CheckBranchControl']
@@ -33,19 +33,64 @@ class CheckBranchControlArgs:
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
         :param pulumi.Input[bool] verify_branch_protection: Validate the branches being deployed are protected. Defaults to `false`.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "target_resource_type", target_resource_type)
+        CheckBranchControlArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            allowed_branches=allowed_branches,
+            display_name=display_name,
+            ignore_unknown_protection_status=ignore_unknown_protection_status,
+            timeout=timeout,
+            verify_branch_protection=verify_branch_protection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             allowed_branches: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             ignore_unknown_protection_status: Optional[pulumi.Input[bool]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             verify_branch_protection: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if target_resource_type is None:
+            raise TypeError("Missing 'target_resource_type' argument")
+        if allowed_branches is None and 'allowedBranches' in kwargs:
+            allowed_branches = kwargs['allowedBranches']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if ignore_unknown_protection_status is None and 'ignoreUnknownProtectionStatus' in kwargs:
+            ignore_unknown_protection_status = kwargs['ignoreUnknownProtectionStatus']
+        if verify_branch_protection is None and 'verifyBranchProtection' in kwargs:
+            verify_branch_protection = kwargs['verifyBranchProtection']
+
+        _setter("project_id", project_id)
+        _setter("target_resource_id", target_resource_id)
+        _setter("target_resource_type", target_resource_type)
         if allowed_branches is not None:
-            pulumi.set(__self__, "allowed_branches", allowed_branches)
+            _setter("allowed_branches", allowed_branches)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if ignore_unknown_protection_status is not None:
-            pulumi.set(__self__, "ignore_unknown_protection_status", ignore_unknown_protection_status)
+            _setter("ignore_unknown_protection_status", ignore_unknown_protection_status)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if verify_branch_protection is not None:
-            pulumi.set(__self__, "verify_branch_protection", verify_branch_protection)
+            _setter("verify_branch_protection", verify_branch_protection)
 
     @property
     @pulumi.getter(name="projectId")
@@ -166,22 +211,61 @@ class _CheckBranchControlState:
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
         :param pulumi.Input[bool] verify_branch_protection: Validate the branches being deployed are protected. Defaults to `false`.
         """
+        _CheckBranchControlState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allowed_branches=allowed_branches,
+            display_name=display_name,
+            ignore_unknown_protection_status=ignore_unknown_protection_status,
+            project_id=project_id,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            timeout=timeout,
+            verify_branch_protection=verify_branch_protection,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allowed_branches: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             ignore_unknown_protection_status: Optional[pulumi.Input[bool]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             verify_branch_protection: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if allowed_branches is None and 'allowedBranches' in kwargs:
+            allowed_branches = kwargs['allowedBranches']
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if ignore_unknown_protection_status is None and 'ignoreUnknownProtectionStatus' in kwargs:
+            ignore_unknown_protection_status = kwargs['ignoreUnknownProtectionStatus']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if verify_branch_protection is None and 'verifyBranchProtection' in kwargs:
+            verify_branch_protection = kwargs['verifyBranchProtection']
+
         if allowed_branches is not None:
-            pulumi.set(__self__, "allowed_branches", allowed_branches)
+            _setter("allowed_branches", allowed_branches)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if ignore_unknown_protection_status is not None:
-            pulumi.set(__self__, "ignore_unknown_protection_status", ignore_unknown_protection_status)
+            _setter("ignore_unknown_protection_status", ignore_unknown_protection_status)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if verify_branch_protection is not None:
-            pulumi.set(__self__, "verify_branch_protection", verify_branch_protection)
+            _setter("verify_branch_protection", verify_branch_protection)
 
     @property
     @pulumi.getter(name="allowedBranches")
@@ -298,109 +382,6 @@ class CheckBranchControl(pulumi.CustomResource):
         Manages a branch control check on a resource within Azure DevOps.
 
         ## Example Usage
-        ### Protect a service connection
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
-            server_url="https://some-server.example.com",
-            username="username",
-            password="password",
-            service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=example_service_endpoint_generic.id,
-            target_resource_type="endpoint",
-            allowed_branches="refs/heads/main, refs/heads/features/*",
-            timeout=1440)
-        ```
-        ### Protect an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=example_environment.id,
-            target_resource_type="environment",
-            allowed_branches="refs/heads/main, refs/heads/features/*")
-        ```
-        ### Protect an agent queue
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_pool = azuredevops.Pool("examplePool")
-        example_queue = azuredevops.Queue("exampleQueue",
-            project_id=example_project.id,
-            agent_pool_id=example_pool.id)
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=example_queue.id,
-            target_resource_type="queue",
-            allowed_branches="refs/heads/main, refs/heads/features/*")
-        ```
-        ### Protect a repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=pulumi.Output.all(example_project.id, example_git.id).apply(lambda exampleProjectId, exampleGitId: f"{example_project_id}.{example_git_id}"),
-            target_resource_type="repository",
-            allowed_branches="refs/heads/main, refs/heads/features/*")
-        ```
-        ### Protect a variable group
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
-            project_id=example_project.id,
-            description="Example Variable Group Description",
-            allow_access=True,
-            variables=[
-                azuredevops.VariableGroupVariableArgs(
-                    name="key1",
-                    value="val1",
-                ),
-                azuredevops.VariableGroupVariableArgs(
-                    name="key2",
-                    secret_value="val2",
-                    is_secret=True,
-                ),
-            ])
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=example_variable_group.id,
-            target_resource_type="variablegroup",
-            allowed_branches="refs/heads/main, refs/heads/features/*")
-        ```
         ## Relevant Links
 
         - [Define approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)
@@ -430,109 +411,6 @@ class CheckBranchControl(pulumi.CustomResource):
         Manages a branch control check on a resource within Azure DevOps.
 
         ## Example Usage
-        ### Protect a service connection
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
-            server_url="https://some-server.example.com",
-            username="username",
-            password="password",
-            service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=example_service_endpoint_generic.id,
-            target_resource_type="endpoint",
-            allowed_branches="refs/heads/main, refs/heads/features/*",
-            timeout=1440)
-        ```
-        ### Protect an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=example_environment.id,
-            target_resource_type="environment",
-            allowed_branches="refs/heads/main, refs/heads/features/*")
-        ```
-        ### Protect an agent queue
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_pool = azuredevops.Pool("examplePool")
-        example_queue = azuredevops.Queue("exampleQueue",
-            project_id=example_project.id,
-            agent_pool_id=example_pool.id)
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=example_queue.id,
-            target_resource_type="queue",
-            allowed_branches="refs/heads/main, refs/heads/features/*")
-        ```
-        ### Protect a repository
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=pulumi.Output.all(example_project.id, example_git.id).apply(lambda exampleProjectId, exampleGitId: f"{example_project_id}.{example_git_id}"),
-            target_resource_type="repository",
-            allowed_branches="refs/heads/main, refs/heads/features/*")
-        ```
-        ### Protect a variable group
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_variable_group = azuredevops.VariableGroup("exampleVariableGroup",
-            project_id=example_project.id,
-            description="Example Variable Group Description",
-            allow_access=True,
-            variables=[
-                azuredevops.VariableGroupVariableArgs(
-                    name="key1",
-                    value="val1",
-                ),
-                azuredevops.VariableGroupVariableArgs(
-                    name="key2",
-                    secret_value="val2",
-                    is_secret=True,
-                ),
-            ])
-        example_check_branch_control = azuredevops.CheckBranchControl("exampleCheckBranchControl",
-            project_id=example_project.id,
-            display_name="Managed by Terraform",
-            target_resource_id=example_variable_group.id,
-            target_resource_type="variablegroup",
-            allowed_branches="refs/heads/main, refs/heads/features/*")
-        ```
         ## Relevant Links
 
         - [Define approvals and checks](https://learn.microsoft.com/en-us/azure/devops/pipelines/process/approvals?view=azure-devops&tabs=check-pass)
@@ -551,6 +429,10 @@ class CheckBranchControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CheckBranchControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

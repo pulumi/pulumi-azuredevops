@@ -16,39 +16,6 @@ import (
 //
 // > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.LookupProject(ctx, &azuredevops.LookupProjectArgs{
-//				Name: pulumi.StringRef("Example Project"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVariableGroup, err := azuredevops.LookupVariableGroup(ctx, &azuredevops.LookupVariableGroupArgs{
-//				ProjectId: exampleProject.Id,
-//				Name:      "Example Variable Group",
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("id", exampleVariableGroup.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)

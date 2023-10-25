@@ -8,23 +8,6 @@ import * as utilities from "./utilities";
  * Manages a Approval Check.
  *
  * ## Example Usage
- * ### Protect an environment
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleEnvironment = new azuredevops.Environment("exampleEnvironment", {projectId: exampleProject.id});
- * const exampleGroup = new azuredevops.Group("exampleGroup", {displayName: "some-azdo-group"});
- * const exampleCheckApproval = new azuredevops.CheckApproval("exampleCheckApproval", {
- *     projectId: exampleProject.id,
- *     targetResourceId: exampleEnvironment.id,
- *     targetResourceType: "environment",
- *     requesterCanApprove: true,
- *     approvers: [exampleGroup.originId],
- * });
- * ```
  *
  * ## Import
  *

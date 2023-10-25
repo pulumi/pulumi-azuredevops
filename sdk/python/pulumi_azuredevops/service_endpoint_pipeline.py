@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,14 +29,51 @@ class ServiceEndpointPipelineArgs:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
-        pulumi.set(__self__, "auth_personal", auth_personal)
-        pulumi.set(__self__, "organization_name", organization_name)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        ServiceEndpointPipelineArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_personal=auth_personal,
+            organization_name=organization_name,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            authorization=authorization,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_personal: Optional[pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs']] = None,
+             organization_name: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_personal is None and 'authPersonal' in kwargs:
+            auth_personal = kwargs['authPersonal']
+        if auth_personal is None:
+            raise TypeError("Missing 'auth_personal' argument")
+        if organization_name is None and 'organizationName' in kwargs:
+            organization_name = kwargs['organizationName']
+        if organization_name is None:
+            raise TypeError("Missing 'organization_name' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+
+        _setter("auth_personal", auth_personal)
+        _setter("organization_name", organization_name)
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="authPersonal")
@@ -121,18 +158,47 @@ class _ServiceEndpointPipelineState:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
+        _ServiceEndpointPipelineState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_personal=auth_personal,
+            authorization=authorization,
+            description=description,
+            organization_name=organization_name,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_personal: Optional[pulumi.Input['ServiceEndpointPipelineAuthPersonalArgs']] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             organization_name: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if auth_personal is None and 'authPersonal' in kwargs:
+            auth_personal = kwargs['authPersonal']
+        if organization_name is None and 'organizationName' in kwargs:
+            organization_name = kwargs['organizationName']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+
         if auth_personal is not None:
-            pulumi.set(__self__, "auth_personal", auth_personal)
+            _setter("auth_personal", auth_personal)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if organization_name is not None:
-            pulumi.set(__self__, "organization_name", organization_name)
+            _setter("organization_name", organization_name)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
 
     @property
     @pulumi.getter(name="authPersonal")
@@ -216,26 +282,6 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         """
         Manages a Azure DevOps Service Connection service endpoint within Azure DevOps. Allows to run downstream pipelines, monitoring their execution, collecting and consolidating artefacts produced in the delegate pipelines (yaml block `task: RunPipelines@1`). More details on Marketplace page: [RunPipelines](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("exampleServiceEndpointPipeline",
-            project_id=example_project.id,
-            service_endpoint_name="Example Pipeline Runner",
-            organization_name="Organization Name",
-            auth_personal=azuredevops.ServiceEndpointPipelineAuthPersonalArgs(
-                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ),
-            description="Managed by Terraform")
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -264,26 +310,6 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         """
         Manages a Azure DevOps Service Connection service endpoint within Azure DevOps. Allows to run downstream pipelines, monitoring their execution, collecting and consolidating artefacts produced in the delegate pipelines (yaml block `task: RunPipelines@1`). More details on Marketplace page: [RunPipelines](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines)
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_pipeline = azuredevops.ServiceEndpointPipeline("exampleServiceEndpointPipeline",
-            project_id=example_project.id,
-            service_endpoint_name="Example Pipeline Runner",
-            organization_name="Organization Name",
-            auth_personal=azuredevops.ServiceEndpointPipelineAuthPersonalArgs(
-                personal_access_token="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-            ),
-            description="Managed by Terraform")
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Agent Pools](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -306,6 +332,10 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEndpointPipelineArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -326,6 +356,7 @@ class ServiceEndpointPipeline(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointPipelineArgs.__new__(ServiceEndpointPipelineArgs)
 
+            auth_personal = _utilities.configure(auth_personal, ServiceEndpointPipelineAuthPersonalArgs, True)
             if auth_personal is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_personal'")
             __props__.__dict__["auth_personal"] = auth_personal

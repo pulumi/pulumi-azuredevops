@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -110,22 +110,6 @@ def get_users(origin: Optional[str] = None,
     """
     Use this data source to access information about an existing users within Azure DevOps.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
-    example_all_users = azuredevops.get_users()
-    example_all_from_origin = azuredevops.get_users(origin="aad")
-    example_all_from_subject_types = azuredevops.get_users(subject_types=[
-        "aad",
-        "msa",
-    ])
-    example_all_from_origin_id = azuredevops.get_users(origin="aad",
-        origin_id="00000000-0000-0000-0000-000000000000")
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -138,15 +122,8 @@ def get_users(origin: Optional[str] = None,
            
            List of possible subject types
            
-           ```python
-           import pulumi
-           ```
            
            List of possible origins
-           
-           ```python
-           import pulumi
-           ```
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """
@@ -176,22 +153,6 @@ def get_users_output(origin: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Use this data source to access information about an existing users within Azure DevOps.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_users(principal_name="contoso-user@contoso.onmicrosoft.com")
-    example_all_users = azuredevops.get_users()
-    example_all_from_origin = azuredevops.get_users(origin="aad")
-    example_all_from_subject_types = azuredevops.get_users(subject_types=[
-        "aad",
-        "msa",
-    ])
-    example_all_from_origin_id = azuredevops.get_users(origin="aad",
-        origin_id="00000000-0000-0000-0000-000000000000")
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -204,15 +165,8 @@ def get_users_output(origin: Optional[pulumi.Input[Optional[str]]] = None,
            
            List of possible subject types
            
-           ```python
-           import pulumi
-           ```
            
            List of possible origins
-           
-           ```python
-           import pulumi
-           ```
     :param str principal_name: The PrincipalName of this graph member from the source provider.
     :param Sequence[str] subject_types: A list of user subject subtypes to reduce the retrieved results, e.g. `msa`, `aad`, `svc` (service identity), `imp` (imported identity), etc. The supported subject types are listed below.
     """

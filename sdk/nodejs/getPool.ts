@@ -7,20 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Use this data source to access information about an existing Agent Pool within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = azuredevops.getPool({
- *     name: "Example Agent Pool",
- * });
- * export const name = example.then(example => example.name);
- * export const poolType = example.then(example => example.poolType);
- * export const autoProvision = example.then(example => example.autoProvision);
- * export const autoUpdate = example.then(example => example.autoUpdate);
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)
@@ -59,20 +45,6 @@ export interface GetPoolResult {
 /**
  * Use this data source to access information about an existing Agent Pool within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = azuredevops.getPool({
- *     name: "Example Agent Pool",
- * });
- * export const name = example.then(example => example.name);
- * export const poolType = example.then(example => example.poolType);
- * export const autoProvision = example.then(example => example.autoProvision);
- * export const autoUpdate = example.then(example => example.autoUpdate);
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Agent Pools - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/pools/get?view=azure-devops-rest-7.0)

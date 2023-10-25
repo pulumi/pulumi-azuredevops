@@ -5,28 +5,6 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 /**
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceendpointGcpTerraform = new azuredevops.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform", {
- *     projectId: exampleProject.id,
- *     tokenUri: "https://oauth2.example.com/token",
- *     clientEmail: "gcp-sa-example@example.iam.gserviceaccount.com",
- *     privateKey: "0000000000000000000000000000000000000",
- *     serviceEndpointName: "Example GCP Terraform extension",
- *     gcpProjectId: "Example GCP Project",
- *     description: "Managed by Terraform",
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.1)

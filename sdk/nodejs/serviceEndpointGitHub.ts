@@ -9,62 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Manages a GitHub service endpoint within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointGitHub = new azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example GitHub Personal Access Token",
- *     authPersonal: {
- *         personalAccessToken: "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointGitHub = new azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example GitHub",
- *     authOauth: {
- *         oauthConfigurationId: "00000000-0000-0000-0000-000000000000",
- *     },
- * });
- * ```
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointGitHub = new azuredevops.ServiceEndpointGitHub("exampleServiceEndpointGitHub", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example GitHub Apps: Azure Pipelines",
- *     description: "Managed by Terraform",
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

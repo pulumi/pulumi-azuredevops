@@ -15,69 +15,6 @@ import (
 
 // Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-//				ProjectId: exampleProject.ID(),
-//				Initialization: &azuredevops.GitInitializationArgs{
-//					InitType: pulumi.String("Clean"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewBranchPolicyMinReviewers(ctx, "exampleBranchPolicyMinReviewers", &azuredevops.BranchPolicyMinReviewersArgs{
-//				ProjectId: exampleProject.ID(),
-//				Enabled:   pulumi.Bool(true),
-//				Blocking:  pulumi.Bool(true),
-//				Settings: &azuredevops.BranchPolicyMinReviewersSettingsArgs{
-//					ReviewerCount:                     pulumi.Int(7),
-//					SubmitterCanVote:                  pulumi.Bool(false),
-//					LastPusherCannotApprove:           pulumi.Bool(true),
-//					AllowCompletionWithRejectsOrWaits: pulumi.Bool(false),
-//					OnPushResetApprovedVotes:          pulumi.Bool(true),
-//					OnLastIterationRequireVote:        pulumi.Bool(false),
-//					Scopes: azuredevops.BranchPolicyMinReviewersSettingsScopeArray{
-//						&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
-//							RepositoryId:  exampleGit.ID(),
-//							RepositoryRef: exampleGit.DefaultBranch,
-//							MatchType:     pulumi.String("Exact"),
-//						},
-//						&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
-//							RepositoryId:  nil,
-//							RepositoryRef: pulumi.String("refs/heads/releases"),
-//							MatchType:     pulumi.String("Prefix"),
-//						},
-//						&azuredevops.BranchPolicyMinReviewersSettingsScopeArgs{
-//							MatchType: pulumi.String("DefaultBranch"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

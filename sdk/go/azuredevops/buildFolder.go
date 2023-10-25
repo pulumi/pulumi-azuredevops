@@ -15,42 +15,6 @@ import (
 
 // Manages a Build Folder.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-//				Visibility:       pulumi.String("private"),
-//				VersionControl:   pulumi.String("Git"),
-//				WorkItemTemplate: pulumi.String("Agile"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewBuildFolder(ctx, "exampleBuildFolder", &azuredevops.BuildFolderArgs{
-//				ProjectId:   exampleProject.ID(),
-//				Path:        pulumi.String("\\ExampleFolder"),
-//				Description: pulumi.String("ExampleFolder description"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Build Folders can be imported using the `project name/path` or `project id/path`, e.g.

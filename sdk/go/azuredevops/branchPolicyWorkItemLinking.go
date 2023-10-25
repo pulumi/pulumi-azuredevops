@@ -15,63 +15,6 @@ import (
 
 // Require associations between branches and a work item within Azure DevOps.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGit, err := azuredevops.NewGit(ctx, "exampleGit", &azuredevops.GitArgs{
-//				ProjectId: exampleProject.ID(),
-//				Initialization: &azuredevops.GitInitializationArgs{
-//					InitType: pulumi.String("Clean"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewBranchPolicyWorkItemLinking(ctx, "exampleBranchPolicyWorkItemLinking", &azuredevops.BranchPolicyWorkItemLinkingArgs{
-//				ProjectId: exampleProject.ID(),
-//				Enabled:   pulumi.Bool(true),
-//				Blocking:  pulumi.Bool(true),
-//				Settings: &azuredevops.BranchPolicyWorkItemLinkingSettingsArgs{
-//					Scopes: azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArray{
-//						&azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{
-//							RepositoryId:  exampleGit.ID(),
-//							RepositoryRef: exampleGit.DefaultBranch,
-//							MatchType:     pulumi.String("Exact"),
-//						},
-//						&azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{
-//							RepositoryId:  exampleGit.ID(),
-//							RepositoryRef: pulumi.String("refs/heads/releases"),
-//							MatchType:     pulumi.String("Prefix"),
-//						},
-//						&azuredevops.BranchPolicyWorkItemLinkingSettingsScopeArgs{
-//							MatchType: pulumi.String("DefaultBranch"),
-//						},
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

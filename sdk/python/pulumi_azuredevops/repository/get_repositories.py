@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -100,18 +100,6 @@ def get_repositories(include_hidden: Optional[bool] = None,
     Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
     To read informations about a **single** Git Repository use the data source `Git`
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_project(name="Example Project")
-    example_all_repos = azuredevops.get_repositories(project_id=example.id,
-        include_hidden=True)
-    example_single_repo = azuredevops.get_repositories(project_id=example.id,
-        name="Example Repository")
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
@@ -146,18 +134,6 @@ def get_repositories_output(include_hidden: Optional[pulumi.Input[Optional[bool]
     Use this data source to access information about **multiple** existing Git Repositories within Azure DevOps.
     To read informations about a **single** Git Repository use the data source `Git`
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_project(name="Example Project")
-    example_all_repos = azuredevops.get_repositories(project_id=example.id,
-        include_hidden=True)
-    example_single_repo = azuredevops.get_repositories(project_id=example.id,
-        name="Example Repository")
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Git API](https://docs.microsoft.com/en-us/rest/api/azure/devops/git/?view=azure-devops-rest-7.0)
