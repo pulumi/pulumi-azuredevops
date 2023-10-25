@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['WorkItemQueryPermissionsArgs', 'WorkItemQueryPermissions']
@@ -34,13 +34,40 @@ class WorkItemQueryPermissionsArgs:
         :param pulumi.Input[str] path: Path to a query or folder beneath `Shared Queries`
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "project_id", project_id)
+        WorkItemQueryPermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            path=path,
+            replace=replace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("permissions", permissions)
+        _setter("principal", principal)
+        _setter("project_id", project_id)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
 
     @property
     @pulumi.getter
@@ -133,16 +160,37 @@ class _WorkItemQueryPermissionsState:
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         """
+        _WorkItemQueryPermissionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            replace=replace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
 
     @property
     @pulumi.getter
@@ -233,96 +281,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         Permission for Work Item Queries within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
 
-        ### Project level
-
-        Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example.id,
-            name="Readers")
-        project_wiq_root_permissions = azuredevops.WorkItemQueryPermissions("project-wiq-root-permissions",
-            project_id=example.id,
-            principal=example_readers.id,
-            permissions={
-                "CreateRepository": "Deny",
-                "DeleteRepository": "Deny",
-                "RenameRepository": "NotSet",
-            })
-        ```
-
-        ### Shared Queries folder level
-
-        Permissions for a specific folder inside Shared Queries are specified if the arguments `project_id` and `path` are set.
-
-        > **Note** To set permissions for the Shared Queries folder itself use `/` as path value
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example.id,
-            name="Readers")
-        example_permissions = azuredevops.WorkItemQueryPermissions("example-permissions",
-            project_id=example.id,
-            path="/Team",
-            principal=example_readers.id,
-            permissions={
-                "Contribute": "Allow",
-                "Delete": "Deny",
-                "Read": "NotSet",
-            })
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example.id,
-            name="Readers")
-        example_contributors = azuredevops.get_group_output(project_id=example.id,
-            name="Contributors")
-        example_project_permissions = azuredevops.WorkItemQueryPermissions("example-project-permissions",
-            project_id=example.id,
-            principal=example_readers.id,
-            permissions={
-                "Read": "Allow",
-                "Delete": "Deny",
-                "Contribute": "Deny",
-                "ManagePermissions": "Deny",
-            })
-        example_sharedqueries_permissions = azuredevops.WorkItemQueryPermissions("example-sharedqueries-permissions",
-            project_id=example.id,
-            path="/",
-            principal=example_contributors.id,
-            permissions={
-                "Read": "Allow",
-                "Delete": "Deny",
-            })
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -366,96 +324,6 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         Permission for Work Item Queries within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
 
-        ### Project level
-
-        Permissions for all Work Item Queries inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example.id,
-            name="Readers")
-        project_wiq_root_permissions = azuredevops.WorkItemQueryPermissions("project-wiq-root-permissions",
-            project_id=example.id,
-            principal=example_readers.id,
-            permissions={
-                "CreateRepository": "Deny",
-                "DeleteRepository": "Deny",
-                "RenameRepository": "NotSet",
-            })
-        ```
-
-        ### Shared Queries folder level
-
-        Permissions for a specific folder inside Shared Queries are specified if the arguments `project_id` and `path` are set.
-
-        > **Note** To set permissions for the Shared Queries folder itself use `/` as path value
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example.id,
-            name="Readers")
-        example_permissions = azuredevops.WorkItemQueryPermissions("example-permissions",
-            project_id=example.id,
-            path="/Team",
-            principal=example_readers.id,
-            permissions={
-                "Contribute": "Allow",
-                "Delete": "Deny",
-                "Read": "NotSet",
-            })
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example.id,
-            name="Readers")
-        example_contributors = azuredevops.get_group_output(project_id=example.id,
-            name="Contributors")
-        example_project_permissions = azuredevops.WorkItemQueryPermissions("example-project-permissions",
-            project_id=example.id,
-            principal=example_readers.id,
-            permissions={
-                "Read": "Allow",
-                "Delete": "Deny",
-                "Contribute": "Deny",
-                "ManagePermissions": "Deny",
-            })
-        example_sharedqueries_permissions = azuredevops.WorkItemQueryPermissions("example-sharedqueries-permissions",
-            project_id=example.id,
-            path="/",
-            principal=example_contributors.id,
-            permissions={
-                "Read": "Allow",
-                "Delete": "Deny",
-            })
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -478,6 +346,10 @@ class WorkItemQueryPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            WorkItemQueryPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -8,49 +8,6 @@ import * as utilities from "./utilities";
  * Manages a Work Item in Azure Devops.
  *
  * ## Example Usage
- * ### Basic usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const exampleWorkitem = new azuredevops.Workitem("exampleWorkitem", {
- *     projectId: exampleProject.id,
- *     title: "Example Work Item",
- *     type: "Issue",
- *     state: "Active",
- *     tags: ["Tag"],
- * });
- * ```
- * ### With custom fields
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const exampleWorkitem = new azuredevops.Workitem("exampleWorkitem", {
- *     projectId: exampleProject.id,
- *     title: "Example Work Item",
- *     type: "Issue",
- *     state: "Active",
- *     tags: ["Tag"],
- *     customFields: {
- *         example: "example",
- *     },
- * });
- * ```
  *
  * ## Import
  *

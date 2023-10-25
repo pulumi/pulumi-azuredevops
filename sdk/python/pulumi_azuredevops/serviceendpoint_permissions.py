@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceendpointPermissionsArgs', 'ServiceendpointPermissions']
@@ -35,13 +35,42 @@ class ServiceendpointPermissionsArgs:
                | ViewEndpoint      | View service endpoint properties    |
         :param pulumi.Input[str] serviceendpoint_id: The id of the service endpoint to assign the permissions.
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "project_id", project_id)
+        ServiceendpointPermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            replace=replace,
+            serviceendpoint_id=serviceendpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             serviceendpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if serviceendpoint_id is None and 'serviceendpointId' in kwargs:
+            serviceendpoint_id = kwargs['serviceendpointId']
+
+        _setter("permissions", permissions)
+        _setter("principal", principal)
+        _setter("project_id", project_id)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
         if serviceendpoint_id is not None:
-            pulumi.set(__self__, "serviceendpoint_id", serviceendpoint_id)
+            _setter("serviceendpoint_id", serviceendpoint_id)
 
     @property
     @pulumi.getter
@@ -136,16 +165,39 @@ class _ServiceendpointPermissionsState:
                | ViewEndpoint      | View service endpoint properties    |
         :param pulumi.Input[str] serviceendpoint_id: The id of the service endpoint to assign the permissions.
         """
+        _ServiceendpointPermissionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            replace=replace,
+            serviceendpoint_id=serviceendpoint_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             serviceendpoint_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if serviceendpoint_id is None and 'serviceendpointId' in kwargs:
+            serviceendpoint_id = kwargs['serviceendpointId']
+
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
         if serviceendpoint_id is not None:
-            pulumi.set(__self__, "serviceendpoint_id", serviceendpoint_id)
+            _setter("serviceendpoint_id", serviceendpoint_id)
 
     @property
     @pulumi.getter
@@ -237,48 +289,6 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         Permission for Service Endpoints within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `serviceendpoint_id`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
-            name="Readers")
-        example_root_permissions = azuredevops.ServiceendpointPermissions("example-root-permissions",
-            project_id=example_project.id,
-            principal=example_readers.id,
-            permissions={
-                "Use": "allow",
-                "Administer": "allow",
-                "Create": "allow",
-                "ViewAuthorization": "allow",
-                "ViewEndpoint": "allow",
-            })
-        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
-            project_id=example_project.id,
-            service_endpoint_name="Example Docker Hub",
-            docker_username="username",
-            docker_email="email@example.com",
-            docker_password="password",
-            registry_type="DockerHub")
-        example_permissions = azuredevops.ServiceendpointPermissions("example-permissions",
-            project_id=example_project.id,
-            principal=example_readers.id,
-            serviceendpoint_id=example_service_endpoint_docker_registry.id,
-            permissions={
-                "Use": "allow",
-                "Administer": "deny",
-                "Create": "deny",
-                "ViewAuthorization": "allow",
-                "ViewEndpoint": "allow",
-            })
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -323,48 +333,6 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         Permission for Service Endpoints within Azure DevOps can be applied on two different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `serviceendpoint_id`.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
-            name="Readers")
-        example_root_permissions = azuredevops.ServiceendpointPermissions("example-root-permissions",
-            project_id=example_project.id,
-            principal=example_readers.id,
-            permissions={
-                "Use": "allow",
-                "Administer": "allow",
-                "Create": "allow",
-                "ViewAuthorization": "allow",
-                "ViewEndpoint": "allow",
-            })
-        example_service_endpoint_docker_registry = azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry",
-            project_id=example_project.id,
-            service_endpoint_name="Example Docker Hub",
-            docker_username="username",
-            docker_email="email@example.com",
-            docker_password="password",
-            registry_type="DockerHub")
-        example_permissions = azuredevops.ServiceendpointPermissions("example-permissions",
-            project_id=example_project.id,
-            principal=example_readers.id,
-            serviceendpoint_id=example_service_endpoint_docker_registry.id,
-            permissions={
-                "Use": "allow",
-                "Administer": "deny",
-                "Create": "deny",
-                "ViewAuthorization": "allow",
-                "ViewEndpoint": "allow",
-            })
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -387,6 +355,10 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceendpointPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

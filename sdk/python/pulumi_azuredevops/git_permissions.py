@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['GitPermissionsArgs', 'GitPermissions']
@@ -51,15 +51,48 @@ class GitPermissionsArgs:
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         :param pulumi.Input[str] repository_id: The ID of the GIT repository to assign the permissions
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "project_id", project_id)
+        GitPermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            branch_name=branch_name,
+            replace=replace,
+            repository_id=repository_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             branch_name: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             repository_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if branch_name is None and 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+
+        _setter("permissions", permissions)
+        _setter("principal", principal)
+        _setter("project_id", project_id)
         if branch_name is not None:
-            pulumi.set(__self__, "branch_name", branch_name)
+            _setter("branch_name", branch_name)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
 
     @property
     @pulumi.getter
@@ -196,18 +229,45 @@ class _GitPermissionsState:
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         :param pulumi.Input[str] repository_id: The ID of the GIT repository to assign the permissions
         """
+        _GitPermissionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch_name=branch_name,
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            replace=replace,
+            repository_id=repository_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch_name: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             repository_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if branch_name is None and 'branchName' in kwargs:
+            branch_name = kwargs['branchName']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+
         if branch_name is not None:
-            pulumi.set(__self__, "branch_name", branch_name)
+            _setter("branch_name", branch_name)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
 
     @property
     @pulumi.getter(name="branchName")
@@ -326,149 +386,6 @@ class GitPermissions(pulumi.CustomResource):
         Permission for Git Repositories within Azure DevOps can be applied on three different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id`, `repository_id` and `branch_name`.
 
-        ### Project level
-
-        Permissions for all Git Repositories inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example.id,
-            name="Readers")
-        example_permissions = azuredevops.GitPermissions("example-permissions",
-            project_id=example.id,
-            principal=example_readers.id,
-            permissions={
-                "CreateRepository": "Deny",
-                "DeleteRepository": "Deny",
-                "RenameRepository": "NotSet",
-            })
-        ```
-
-        ### Repository level
-
-        Permissions for a specific Git Repository and all existing or newly created branches are specified if the arguments `project_id` and `repository_id` are set.
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_group = azuredevops.get_group(name="Project Collection Administrators")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_permissions = azuredevops.GitPermissions("example-permissions",
-            project_id=example_git.project_id,
-            repository_id=example_git.id,
-            principal=example_group.id,
-            permissions={
-                "RemoveOthersLocks": "Allow",
-                "ManagePermissions": "Deny",
-                "CreateTag": "Deny",
-                "CreateBranch": "NotSet",
-            })
-        ```
-
-        ### Branch level
-
-        Permissions for a specific branch inside a Git Repository are specified if all above mentioned the arguments are set.
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_group = azuredevops.get_group(name="Project Collection Administrators")
-        example_permissions = azuredevops.GitPermissions("example-permissions",
-            project_id=example_git.project_id,
-            repository_id=example_git.id,
-            branch_name="refs/heads/master",
-            principal=example_group.id,
-            permissions={
-                "RemoveOthersLocks": "Allow",
-                "ForcePush": "Deny",
-            })
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
-            name="Readers")
-        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
-            name="Contributors")
-        example_project_administrators = azuredevops.get_group_output(project_id=example_project.id,
-            name="Project administrators")
-        example_permissions = azuredevops.GitPermissions("example-permissions",
-            project_id=example_project.id,
-            principal=example_project_readers.id,
-            permissions={
-                "CreateRepository": "Deny",
-                "DeleteRepository": "Deny",
-                "RenameRepository": "NotSet",
-            })
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            default_branch="refs/heads/master",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_repo_permissions = azuredevops.GitPermissions("example-repo-permissions",
-            project_id=example_git.project_id,
-            repository_id=example_git.id,
-            principal=example_project_administrators.id,
-            permissions={
-                "RemoveOthersLocks": "Allow",
-                "ManagePermissions": "Deny",
-                "CreateTag": "Deny",
-                "CreateBranch": "NotSet",
-            })
-        example_branch_permissions = azuredevops.GitPermissions("example-branch-permissions",
-            project_id=example_git.project_id,
-            repository_id=example_git.id,
-            branch_name="master",
-            principal=example_project_contributors.id,
-            permissions={
-                "RemoveOthersLocks": "Allow",
-                "ForcePush": "Deny",
-            })
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -528,149 +445,6 @@ class GitPermissions(pulumi.CustomResource):
         Permission for Git Repositories within Azure DevOps can be applied on three different levels.
         Those levels are reflected by specifying (or omitting) values for the arguments `project_id`, `repository_id` and `branch_name`.
 
-        ### Project level
-
-        Permissions for all Git Repositories inside a project (existing or newly created ones) are specified, if only the argument `project_id` has a value.
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example.id,
-            name="Readers")
-        example_permissions = azuredevops.GitPermissions("example-permissions",
-            project_id=example.id,
-            principal=example_readers.id,
-            permissions={
-                "CreateRepository": "Deny",
-                "DeleteRepository": "Deny",
-                "RenameRepository": "NotSet",
-            })
-        ```
-
-        ### Repository level
-
-        Permissions for a specific Git Repository and all existing or newly created branches are specified if the arguments `project_id` and `repository_id` are set.
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_group = azuredevops.get_group(name="Project Collection Administrators")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_permissions = azuredevops.GitPermissions("example-permissions",
-            project_id=example_git.project_id,
-            repository_id=example_git.id,
-            principal=example_group.id,
-            permissions={
-                "RemoveOthersLocks": "Allow",
-                "ManagePermissions": "Deny",
-                "CreateTag": "Deny",
-                "CreateBranch": "NotSet",
-            })
-        ```
-
-        ### Branch level
-
-        Permissions for a specific branch inside a Git Repository are specified if all above mentioned the arguments are set.
-
-        #### Example usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_group = azuredevops.get_group(name="Project Collection Administrators")
-        example_permissions = azuredevops.GitPermissions("example-permissions",
-            project_id=example_git.project_id,
-            repository_id=example_git.id,
-            branch_name="refs/heads/master",
-            principal=example_group.id,
-            permissions={
-                "RemoveOthersLocks": "Allow",
-                "ForcePush": "Deny",
-            })
-        ```
-
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_project_readers = azuredevops.get_group_output(project_id=example_project.id,
-            name="Readers")
-        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
-            name="Contributors")
-        example_project_administrators = azuredevops.get_group_output(project_id=example_project.id,
-            name="Project administrators")
-        example_permissions = azuredevops.GitPermissions("example-permissions",
-            project_id=example_project.id,
-            principal=example_project_readers.id,
-            permissions={
-                "CreateRepository": "Deny",
-                "DeleteRepository": "Deny",
-                "RenameRepository": "NotSet",
-            })
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            default_branch="refs/heads/master",
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_repo_permissions = azuredevops.GitPermissions("example-repo-permissions",
-            project_id=example_git.project_id,
-            repository_id=example_git.id,
-            principal=example_project_administrators.id,
-            permissions={
-                "RemoveOthersLocks": "Allow",
-                "ManagePermissions": "Deny",
-                "CreateTag": "Deny",
-                "CreateBranch": "NotSet",
-            })
-        example_branch_permissions = azuredevops.GitPermissions("example-branch-permissions",
-            project_id=example_git.project_id,
-            repository_id=example_git.id,
-            branch_name="master",
-            principal=example_project_contributors.id,
-            permissions={
-                "RemoveOthersLocks": "Allow",
-                "ForcePush": "Deny",
-            })
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -693,6 +467,10 @@ class GitPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GitPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

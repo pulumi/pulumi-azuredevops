@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceendpointGcpTerraformArgs', 'ServiceendpointGcpTerraform']
@@ -33,19 +33,68 @@ class ServiceendpointGcpTerraformArgs:
         :param pulumi.Input[str] client_email: The client email field in the JSON key file for creating the JSON Web Token.
         :param pulumi.Input[str] scope: Scope to be provided.
         """
-        pulumi.set(__self__, "gcp_project_id", gcp_project_id)
-        pulumi.set(__self__, "private_key", private_key)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        pulumi.set(__self__, "token_uri", token_uri)
+        ServiceendpointGcpTerraformArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            gcp_project_id=gcp_project_id,
+            private_key=private_key,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            token_uri=token_uri,
+            authorization=authorization,
+            client_email=client_email,
+            description=description,
+            scope=scope,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             gcp_project_id: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             token_uri: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             client_email: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if gcp_project_id is None and 'gcpProjectId' in kwargs:
+            gcp_project_id = kwargs['gcpProjectId']
+        if gcp_project_id is None:
+            raise TypeError("Missing 'gcp_project_id' argument")
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if private_key is None:
+            raise TypeError("Missing 'private_key' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if token_uri is None and 'tokenUri' in kwargs:
+            token_uri = kwargs['tokenUri']
+        if token_uri is None:
+            raise TypeError("Missing 'token_uri' argument")
+        if client_email is None and 'clientEmail' in kwargs:
+            client_email = kwargs['clientEmail']
+
+        _setter("gcp_project_id", gcp_project_id)
+        _setter("private_key", private_key)
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
+        _setter("token_uri", token_uri)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if client_email is not None:
-            pulumi.set(__self__, "client_email", client_email)
+            _setter("client_email", client_email)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
 
     @property
     @pulumi.getter(name="gcpProjectId")
@@ -172,24 +221,63 @@ class _ServiceendpointGcpTerraformState:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] token_uri: The token uri field in the JSON key file for creating the JSON Web Token.
         """
+        _ServiceendpointGcpTerraformState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            client_email=client_email,
+            description=description,
+            gcp_project_id=gcp_project_id,
+            private_key=private_key,
+            project_id=project_id,
+            scope=scope,
+            service_endpoint_name=service_endpoint_name,
+            token_uri=token_uri,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             client_email: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             gcp_project_id: Optional[pulumi.Input[str]] = None,
+             private_key: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             scope: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             token_uri: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if client_email is None and 'clientEmail' in kwargs:
+            client_email = kwargs['clientEmail']
+        if gcp_project_id is None and 'gcpProjectId' in kwargs:
+            gcp_project_id = kwargs['gcpProjectId']
+        if private_key is None and 'privateKey' in kwargs:
+            private_key = kwargs['privateKey']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if token_uri is None and 'tokenUri' in kwargs:
+            token_uri = kwargs['tokenUri']
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if client_email is not None:
-            pulumi.set(__self__, "client_email", client_email)
+            _setter("client_email", client_email)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if gcp_project_id is not None:
-            pulumi.set(__self__, "gcp_project_id", gcp_project_id)
+            _setter("gcp_project_id", gcp_project_id)
         if private_key is not None:
-            pulumi.set(__self__, "private_key", private_key)
+            _setter("private_key", private_key)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if scope is not None:
-            pulumi.set(__self__, "scope", scope)
+            _setter("scope", scope)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
         if token_uri is not None:
-            pulumi.set(__self__, "token_uri", token_uri)
+            _setter("token_uri", token_uri)
 
     @property
     @pulumi.getter
@@ -310,26 +398,6 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
                  token_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_serviceendpoint_gcp_terraform = azuredevops.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform",
-            project_id=example_project.id,
-            token_uri="https://oauth2.example.com/token",
-            client_email="gcp-sa-example@example.iam.gserviceaccount.com",
-            private_key="0000000000000000000000000000000000000",
-            service_endpoint_name="Example GCP Terraform extension",
-            gcp_project_id="Example GCP Project",
-            description="Managed by Terraform")
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.1)
@@ -359,26 +427,6 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
                  args: ServiceendpointGcpTerraformArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_serviceendpoint_gcp_terraform = azuredevops.ServiceendpointGcpTerraform("exampleServiceendpointGcpTerraform",
-            project_id=example_project.id,
-            token_uri="https://oauth2.example.com/token",
-            client_email="gcp-sa-example@example.iam.gserviceaccount.com",
-            private_key="0000000000000000000000000000000000000",
-            service_endpoint_name="Example GCP Terraform extension",
-            gcp_project_id="Example GCP Project",
-            description="Managed by Terraform")
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.1)
@@ -401,6 +449,10 @@ class ServiceendpointGcpTerraform(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceendpointGcpTerraformArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

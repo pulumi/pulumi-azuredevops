@@ -19,57 +19,6 @@ namespace Pulumi.AzureDevOps
     /// Permission for Iterations within Azure DevOps can be applied on two different levels.
     /// Those levels are reflected by specifying (or omitting) values for the arguments `project_id` and `path`.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new AzureDevOps.Project("example", new()
-    ///     {
-    ///         WorkItemTemplate = "Agile",
-    ///         VersionControl = "Git",
-    ///         Visibility = "private",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = example.Id,
-    ///         Name = "Readers",
-    ///     });
-    /// 
-    ///     var example_root_permissions = new AzureDevOps.IterativePermissions("example-root-permissions", new()
-    ///     {
-    ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
-    ///         Permissions = 
-    ///         {
-    ///             { "CREATE_CHILDREN", "Deny" },
-    ///             { "GENERIC_READ", "NotSet" },
-    ///             { "DELETE", "Deny" },
-    ///         },
-    ///     });
-    /// 
-    ///     var example_iteration_permissions = new AzureDevOps.IterativePermissions("example-iteration-permissions", new()
-    ///     {
-    ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
-    ///         Path = "Iteration 1",
-    ///         Permissions = 
-    ///         {
-    ///             { "CREATE_CHILDREN", "Allow" },
-    ///             { "GENERIC_READ", "NotSet" },
-    ///             { "DELETE", "Allow" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

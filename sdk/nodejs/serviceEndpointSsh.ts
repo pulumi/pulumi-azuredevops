@@ -7,26 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages a SSH service endpoint within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointSsh = new azuredevops.ServiceEndpointSsh("exampleServiceEndpointSsh", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example SSH",
- *     host: "1.2.3.4",
- *     username: "username",
- *     description: "Managed by Terraform",
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

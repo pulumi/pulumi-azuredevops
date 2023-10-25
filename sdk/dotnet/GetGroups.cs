@@ -14,34 +14,6 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about existing Groups within Azure DevOps
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
-        ///     {
-        ///         Name = "Example Project",
-        ///     });
-        /// 
-        ///     var example_all_groups = AzureDevOps.GetGroups.Invoke();
-        /// 
-        ///     var example_project_groups = AzureDevOps.GetGroups.Invoke(new()
-        ///     {
-        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
@@ -52,34 +24,6 @@ namespace Pulumi.AzureDevOps
         /// <summary>
         /// Use this data source to access information about existing Groups within Azure DevOps
         /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = AzureDevOps.GetProject.Invoke(new()
-        ///     {
-        ///         Name = "Example Project",
-        ///     });
-        /// 
-        ///     var example_all_groups = AzureDevOps.GetGroups.Invoke();
-        /// 
-        ///     var example_project_groups = AzureDevOps.GetGroups.Invoke(new()
-        ///     {
-        ///         ProjectId = example.Apply(getProjectResult =&gt; getProjectResult.Id),
-        ///     });
-        /// 
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// ## Relevant Links
         /// 
         /// - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)

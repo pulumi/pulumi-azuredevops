@@ -9,51 +9,6 @@ import * as utilities from "./utilities";
 /**
  * Manages an Artifactory server endpoint within an Azure DevOps organization. Using this service endpoint requires you to first install [JFrog Artifactory Extension](https://marketplace.visualstudio.com/items?itemName=JFrog.jfrog-artifactory-vsts-extension).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example Artifactory",
- *     description: "Managed by Terraform",
- *     url: "https://artifactory.my.com",
- *     authenticationToken: {
- *         token: "0000000000000000000000000000000000000000",
- *     },
- * });
- * ```
- * Alternatively a username and password may be used.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointArtifactory = new azuredevops.ServiceEndpointArtifactory("exampleServiceEndpointArtifactory", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example Artifactory",
- *     description: "Managed by Terraform",
- *     url: "https://artifactory.my.com",
- *     authenticationBasic: {
- *         username: "username",
- *         password: "password",
- *     },
- * });
- * ```
  * ## Relevant Links
  *
  * * [Azure DevOps Service Connections](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml)

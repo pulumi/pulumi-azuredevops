@@ -14,38 +14,6 @@ import (
 
 // Use this data source to access information about an existing Team in a Project within Azure DevOps.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-//				WorkItemTemplate: pulumi.String("Agile"),
-//				VersionControl:   pulumi.String("Git"),
-//				Visibility:       pulumi.String("private"),
-//				Description:      pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_ = azuredevops.LookupTeamOutput(ctx, azuredevops.GetTeamOutputArgs{
-//				ProjectId: exampleProject.ID(),
-//				Name:      pulumi.String("Example Project Team"),
-//			}, nil)
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Teams - Get](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/get?view=azure-devops-rest-7.0)

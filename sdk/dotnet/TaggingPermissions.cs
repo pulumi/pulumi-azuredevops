@@ -17,45 +17,6 @@ namespace Pulumi.AzureDevOps
     /// Permissions for tagging within Azure DevOps can be applied only on Organizational and Project level.
     /// The project level is reflected by specifying the argument `project_id`, otherwise the permissions are set on the organizational level.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new AzureDevOps.Project("example", new()
-    ///     {
-    ///         WorkItemTemplate = "Agile",
-    ///         VersionControl = "Git",
-    ///         Visibility = "private",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = example.Id,
-    ///         Name = "Readers",
-    ///     });
-    /// 
-    ///     var example_permissions = new AzureDevOps.TaggingPermissions("example-permissions", new()
-    ///     {
-    ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
-    ///         Permissions = 
-    ///         {
-    ///             { "Enumerate", "allow" },
-    ///             { "Create", "allow" },
-    ///             { "Update", "allow" },
-    ///             { "Delete", "allow" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

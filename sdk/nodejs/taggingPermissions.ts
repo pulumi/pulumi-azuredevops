@@ -12,33 +12,6 @@ import * as utilities from "./utilities";
  * Permissions for tagging within Azure DevOps can be applied only on Organizational and Project level.
  * The project level is reflected by specifying the argument `projectId`, otherwise the permissions are set on the organizational level.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = new azuredevops.Project("example", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const example-readers = azuredevops.getGroupOutput({
- *     projectId: example.id,
- *     name: "Readers",
- * });
- * const example_permissions = new azuredevops.TaggingPermissions("example-permissions", {
- *     projectId: example.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
- *     permissions: {
- *         Enumerate: "allow",
- *         Create: "allow",
- *         Update: "allow",
- *         Delete: "allow",
- *     },
- * });
- * ```
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

@@ -11,27 +11,6 @@ import * as utilities from "./utilities";
  *
  * > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointAzureDevOps = new azuredevops.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example Azure DevOps",
- *     orgUrl: "https://dev.azure.com/testorganization",
- *     releaseApiUrl: "https://vsrm.dev.azure.com/testorganization",
- *     personalAccessToken: "0000000000000000000000000000000000000000000000000000",
- *     description: "Managed by Terraform",
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

@@ -14,45 +14,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// &gt; **Note** Permissions can be assigned to group principals and not to single user principals.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new AzureDevOps.Project("example", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = example.Id,
-    ///         Name = "Readers",
-    ///     });
-    /// 
-    ///     var example_permission = new AzureDevOps.ProjectPermissions("example-permission", new()
-    ///     {
-    ///         ProjectId = example.Id,
-    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
-    ///         Permissions = 
-    ///         {
-    ///             { "DELETE", "Deny" },
-    ///             { "EDIT_BUILD_STATUS", "NotSet" },
-    ///             { "WORK_ITEM_MOVE", "Allow" },
-    ///             { "DELETE_TEST_RESULTS", "Deny" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

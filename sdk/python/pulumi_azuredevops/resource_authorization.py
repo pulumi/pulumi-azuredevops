@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ResourceAuthorizationArgs', 'ResourceAuthorization']
@@ -27,13 +27,44 @@ class ResourceAuthorizationArgs:
         :param pulumi.Input[int] definition_id: The ID of the build definition to authorize. Type: string.
         :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
         """
-        pulumi.set(__self__, "authorized", authorized)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "resource_id", resource_id)
+        ResourceAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorized=authorized,
+            project_id=project_id,
+            resource_id=resource_id,
+            definition_id=definition_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorized: Optional[pulumi.Input[bool]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             definition_id: Optional[pulumi.Input[int]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if authorized is None:
+            raise TypeError("Missing 'authorized' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if definition_id is None and 'definitionId' in kwargs:
+            definition_id = kwargs['definitionId']
+
+        _setter("authorized", authorized)
+        _setter("project_id", project_id)
+        _setter("resource_id", resource_id)
         if definition_id is not None:
-            pulumi.set(__self__, "definition_id", definition_id)
+            _setter("definition_id", definition_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -112,16 +143,41 @@ class _ResourceAuthorizationState:
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Type: string.
         :param pulumi.Input[str] type: The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
         """
+        _ResourceAuthorizationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorized=authorized,
+            definition_id=definition_id,
+            project_id=project_id,
+            resource_id=resource_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorized: Optional[pulumi.Input[bool]] = None,
+             definition_id: Optional[pulumi.Input[int]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if definition_id is None and 'definitionId' in kwargs:
+            definition_id = kwargs['definitionId']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if authorized is not None:
-            pulumi.set(__self__, "authorized", authorized)
+            _setter("authorized", authorized)
         if definition_id is not None:
-            pulumi.set(__self__, "definition_id", definition_id)
+            _setter("definition_id", definition_id)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter
@@ -200,28 +256,6 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         Currently supported resources: service endpoint (aka service connection, endpoint).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
-            project_id=example_project.id,
-            username="username",
-            password="password",
-            service_endpoint_name="example-bitbucket",
-            description="Managed by Terraform")
-        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
-            project_id=example_project.id,
-            resource_id=example_service_endpoint_bit_bucket.id,
-            authorized=True)
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
@@ -245,28 +279,6 @@ class ResourceAuthorization(pulumi.CustomResource):
 
         Currently supported resources: service endpoint (aka service connection, endpoint).
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_bit_bucket = azuredevops.ServiceEndpointBitBucket("exampleServiceEndpointBitBucket",
-            project_id=example_project.id,
-            username="username",
-            password="password",
-            service_endpoint_name="example-bitbucket",
-            description="Managed by Terraform")
-        example_resource_authorization = azuredevops.ResourceAuthorization("exampleResourceAuthorization",
-            project_id=example_project.id,
-            resource_id=example_service_endpoint_bit_bucket.id,
-            authorized=True)
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
@@ -281,6 +293,10 @@ class ResourceAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ResourceAuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

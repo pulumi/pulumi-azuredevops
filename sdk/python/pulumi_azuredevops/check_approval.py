@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CheckApprovalArgs', 'CheckApproval']
@@ -33,18 +33,61 @@ class CheckApprovalArgs:
         :param pulumi.Input[bool] requester_can_approve: Can the requestor approve? Defaults to `false`.
         :param pulumi.Input[int] timeout: The timeout in minutes for the approval.  Defaults to `43200`.
         """
-        pulumi.set(__self__, "approvers", approvers)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "target_resource_type", target_resource_type)
+        CheckApprovalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approvers=approvers,
+            project_id=project_id,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            instructions=instructions,
+            minimum_required_approvers=minimum_required_approvers,
+            requester_can_approve=requester_can_approve,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approvers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             instructions: Optional[pulumi.Input[str]] = None,
+             minimum_required_approvers: Optional[pulumi.Input[int]] = None,
+             requester_can_approve: Optional[pulumi.Input[bool]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if approvers is None:
+            raise TypeError("Missing 'approvers' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if target_resource_type is None:
+            raise TypeError("Missing 'target_resource_type' argument")
+        if minimum_required_approvers is None and 'minimumRequiredApprovers' in kwargs:
+            minimum_required_approvers = kwargs['minimumRequiredApprovers']
+        if requester_can_approve is None and 'requesterCanApprove' in kwargs:
+            requester_can_approve = kwargs['requesterCanApprove']
+
+        _setter("approvers", approvers)
+        _setter("project_id", project_id)
+        _setter("target_resource_id", target_resource_id)
+        _setter("target_resource_type", target_resource_type)
         if instructions is not None:
-            pulumi.set(__self__, "instructions", instructions)
+            _setter("instructions", instructions)
         if minimum_required_approvers is not None:
-            pulumi.set(__self__, "minimum_required_approvers", minimum_required_approvers)
+            _setter("minimum_required_approvers", minimum_required_approvers)
         if requester_can_approve is not None:
-            pulumi.set(__self__, "requester_can_approve", requester_can_approve)
+            _setter("requester_can_approve", requester_can_approve)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -165,22 +208,57 @@ class _CheckApprovalState:
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Approval Check to be created.
         :param pulumi.Input[int] timeout: The timeout in minutes for the approval.  Defaults to `43200`.
         """
+        _CheckApprovalState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            approvers=approvers,
+            instructions=instructions,
+            minimum_required_approvers=minimum_required_approvers,
+            project_id=project_id,
+            requester_can_approve=requester_can_approve,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             approvers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             instructions: Optional[pulumi.Input[str]] = None,
+             minimum_required_approvers: Optional[pulumi.Input[int]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             requester_can_approve: Optional[pulumi.Input[bool]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if minimum_required_approvers is None and 'minimumRequiredApprovers' in kwargs:
+            minimum_required_approvers = kwargs['minimumRequiredApprovers']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if requester_can_approve is None and 'requesterCanApprove' in kwargs:
+            requester_can_approve = kwargs['requesterCanApprove']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
         if approvers is not None:
-            pulumi.set(__self__, "approvers", approvers)
+            _setter("approvers", approvers)
         if instructions is not None:
-            pulumi.set(__self__, "instructions", instructions)
+            _setter("instructions", instructions)
         if minimum_required_approvers is not None:
-            pulumi.set(__self__, "minimum_required_approvers", minimum_required_approvers)
+            _setter("minimum_required_approvers", minimum_required_approvers)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if requester_can_approve is not None:
-            pulumi.set(__self__, "requester_can_approve", requester_can_approve)
+            _setter("requester_can_approve", requester_can_approve)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter
@@ -297,22 +375,6 @@ class CheckApproval(pulumi.CustomResource):
         Manages a Approval Check.
 
         ## Example Usage
-        ### Protect an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_group = azuredevops.Group("exampleGroup", display_name="some-azdo-group")
-        example_check_approval = azuredevops.CheckApproval("exampleCheckApproval",
-            project_id=example_project.id,
-            target_resource_id=example_environment.id,
-            target_resource_type="environment",
-            requester_can_approve=True,
-            approvers=[example_group.origin_id])
-        ```
 
         ## Import
 
@@ -339,22 +401,6 @@ class CheckApproval(pulumi.CustomResource):
         Manages a Approval Check.
 
         ## Example Usage
-        ### Protect an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_group = azuredevops.Group("exampleGroup", display_name="some-azdo-group")
-        example_check_approval = azuredevops.CheckApproval("exampleCheckApproval",
-            project_id=example_project.id,
-            target_resource_id=example_environment.id,
-            target_resource_type="environment",
-            requester_can_approve=True,
-            approvers=[example_group.origin_id])
-        ```
 
         ## Import
 
@@ -370,6 +416,10 @@ class CheckApproval(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CheckApprovalArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

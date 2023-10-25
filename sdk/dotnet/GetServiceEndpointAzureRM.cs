@@ -16,64 +16,6 @@ namespace Pulumi.AzureDevOps
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Service Endpoint ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var sample = AzureDevOps.GetProject.Invoke(new()
-        ///     {
-        ///         Name = "Sample Project",
-        ///     });
-        /// 
-        ///     var serviceendpoint = AzureDevOps.GetServiceEndpointAzureRM.Invoke(new()
-        ///     {
-        ///         ProjectId = sample.Apply(getProjectResult =&gt; getProjectResult.Id),
-        ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["serviceEndpointName"] = serviceendpoint.Apply(getServiceEndpointAzureRMResult =&gt; getServiceEndpointAzureRMResult.ServiceEndpointName),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Service Endpoint Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var sample = AzureDevOps.GetProject.Invoke(new()
-        ///     {
-        ///         Name = "Sample Project",
-        ///     });
-        /// 
-        ///     var serviceendpoint = AzureDevOps.GetServiceEndpointAzureRM.Invoke(new()
-        ///     {
-        ///         ProjectId = sample.Apply(getProjectResult =&gt; getProjectResult.Id),
-        ///         ServiceEndpointName = "Example-Service-Endpoint",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["serviceEndpointId"] = serviceendpoint.Apply(getServiceEndpointAzureRMResult =&gt; getServiceEndpointAzureRMResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceEndpointAzureRMResult> InvokeAsync(GetServiceEndpointAzureRMArgs args, InvokeOptions? options = null)
@@ -84,64 +26,6 @@ namespace Pulumi.AzureDevOps
         /// 
         /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
-        /// ### By Service Endpoint ID
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var sample = AzureDevOps.GetProject.Invoke(new()
-        ///     {
-        ///         Name = "Sample Project",
-        ///     });
-        /// 
-        ///     var serviceendpoint = AzureDevOps.GetServiceEndpointAzureRM.Invoke(new()
-        ///     {
-        ///         ProjectId = sample.Apply(getProjectResult =&gt; getProjectResult.Id),
-        ///         ServiceEndpointId = "00000000-0000-0000-0000-000000000000",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["serviceEndpointName"] = serviceendpoint.Apply(getServiceEndpointAzureRMResult =&gt; getServiceEndpointAzureRMResult.ServiceEndpointName),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### By Service Endpoint Name
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var sample = AzureDevOps.GetProject.Invoke(new()
-        ///     {
-        ///         Name = "Sample Project",
-        ///     });
-        /// 
-        ///     var serviceendpoint = AzureDevOps.GetServiceEndpointAzureRM.Invoke(new()
-        ///     {
-        ///         ProjectId = sample.Apply(getProjectResult =&gt; getProjectResult.Id),
-        ///         ServiceEndpointName = "Example-Service-Endpoint",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["serviceEndpointId"] = serviceendpoint.Apply(getServiceEndpointAzureRMResult =&gt; getServiceEndpointAzureRMResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
         /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceEndpointAzureRMResult> Invoke(GetServiceEndpointAzureRMInvokeArgs args, InvokeOptions? options = null)

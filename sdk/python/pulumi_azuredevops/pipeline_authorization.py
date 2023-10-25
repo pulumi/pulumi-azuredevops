@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['PipelineAuthorizationArgs', 'PipelineAuthorization']
@@ -25,11 +25,40 @@ class PipelineAuthorizationArgs:
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
         :param pulumi.Input[int] pipeline_id: The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "resource_id", resource_id)
-        pulumi.set(__self__, "type", type)
+        PipelineAuthorizationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            resource_id=resource_id,
+            type=type,
+            pipeline_id=pipeline_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             pipeline_id: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+        if resource_id is None:
+            raise TypeError("Missing 'resource_id' argument")
+        if type is None:
+            raise TypeError("Missing 'type' argument")
+        if pipeline_id is None and 'pipelineId' in kwargs:
+            pipeline_id = kwargs['pipelineId']
+
+        _setter("project_id", project_id)
+        _setter("resource_id", resource_id)
+        _setter("type", type)
         if pipeline_id is not None:
-            pulumi.set(__self__, "pipeline_id", pipeline_id)
+            _setter("pipeline_id", pipeline_id)
 
     @property
     @pulumi.getter(name="projectId")
@@ -94,14 +123,37 @@ class _PipelineAuthorizationState:
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
         """
+        _PipelineAuthorizationState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            pipeline_id=pipeline_id,
+            project_id=project_id,
+            resource_id=resource_id,
+            type=type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             pipeline_id: Optional[pulumi.Input[int]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             resource_id: Optional[pulumi.Input[str]] = None,
+             type: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if pipeline_id is None and 'pipelineId' in kwargs:
+            pipeline_id = kwargs['pipelineId']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if resource_id is None and 'resourceId' in kwargs:
+            resource_id = kwargs['resourceId']
+
         if pipeline_id is not None:
-            pulumi.set(__self__, "pipeline_id", pipeline_id)
+            _setter("pipeline_id", pipeline_id)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
+            _setter("resource_id", resource_id)
         if type is not None:
-            pulumi.set(__self__, "type", type)
+            _setter("type", type)
 
     @property
     @pulumi.getter(name="pipelineId")
@@ -170,60 +222,6 @@ class PipelineAuthorization(pulumi.CustomResource):
         > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
 
         ## Example Usage
-        ### Authorization for all pipelines
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_pool = azuredevops.Pool("examplePool",
-            auto_provision=False,
-            auto_update=False)
-        example_queue = azuredevops.Queue("exampleQueue",
-            project_id=example_project.id,
-            agent_pool_id=example_pool.id)
-        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
-            project_id=example_project.id,
-            resource_id=example_queue.id,
-            type="queue")
-        ```
-        ### Authorization for specific pipeline
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_pool = azuredevops.Pool("examplePool",
-            auto_provision=False,
-            auto_update=False)
-        example_queue = azuredevops.Queue("exampleQueue",
-            project_id=example_project.id,
-            agent_pool_id=example_pool.id)
-        example_git_repository = azuredevops.get_git_repository_output(project_id=example_project.id,
-            name="Example Project")
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example_git_repository.id,
-                yml_path="azure-pipelines.yml",
-            ))
-        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
-            project_id=example_project.id,
-            resource_id=example_queue.id,
-            type="queue",
-            pipeline_id=example_build_definition.id)
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)
@@ -249,60 +247,6 @@ class PipelineAuthorization(pulumi.CustomResource):
         > **Note** If both "All Pipeline Authorization" and "Custom Pipeline Authorization" are configured, "All Pipeline Authorization" has higher priority.
 
         ## Example Usage
-        ### Authorization for all pipelines
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_pool = azuredevops.Pool("examplePool",
-            auto_provision=False,
-            auto_update=False)
-        example_queue = azuredevops.Queue("exampleQueue",
-            project_id=example_project.id,
-            agent_pool_id=example_pool.id)
-        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
-            project_id=example_project.id,
-            resource_id=example_queue.id,
-            type="queue")
-        ```
-        ### Authorization for specific pipeline
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_pool = azuredevops.Pool("examplePool",
-            auto_provision=False,
-            auto_update=False)
-        example_queue = azuredevops.Queue("exampleQueue",
-            project_id=example_project.id,
-            agent_pool_id=example_pool.id)
-        example_git_repository = azuredevops.get_git_repository_output(project_id=example_project.id,
-            name="Example Project")
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example_git_repository.id,
-                yml_path="azure-pipelines.yml",
-            ))
-        example_pipeline_authorization = azuredevops.PipelineAuthorization("examplePipelineAuthorization",
-            project_id=example_project.id,
-            resource_id=example_queue.id,
-            type="queue",
-            pipeline_id=example_build_definition.id)
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.1 - Pipeline Permissions](https://learn.microsoft.com/en-us/rest/api/azure/devops/approvalsandchecks/pipeline-permissions?view=azure-devops-rest-7.1)
@@ -317,6 +261,10 @@ class PipelineAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            PipelineAuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -13,34 +13,6 @@ import (
 )
 
 // Use this data source to access information about an existing Azure Container Registry Service Endpoint.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.GetServiceendpointAzurecr(ctx, &azuredevops.GetServiceendpointAzurecrArgs{
-//				ProjectId:           azuredevops_project.Example.Id,
-//				ServiceEndpointName: pulumi.StringRef("Example Azure Container Registry"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("serviceEndpointId", example.Id)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetServiceendpointAzurecr(ctx *pulumi.Context, args *GetServiceendpointAzurecrArgs, opts ...pulumi.InvokeOption) (*GetServiceendpointAzurecrResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetServiceendpointAzurecrResult

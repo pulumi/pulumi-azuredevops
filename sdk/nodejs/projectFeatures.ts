@@ -7,26 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages features for Azure DevOps projects
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = new azuredevops.Project("example", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const example_features = new azuredevops.ProjectFeatures("example-features", {
- *     projectId: example.id,
- *     features: {
- *         testplans: "disabled",
- *         artifacts: "enabled",
- *     },
- * });
- * ```
  * ## Relevant Links
  *
  * No official documentation available

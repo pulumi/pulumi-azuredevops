@@ -7,23 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages group membership within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleUser = new azuredevops.User("exampleUser", {principalName: "foo@contoso.com"});
- * const exampleGroup = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
- *     name: "Build Administrators",
- * });
- * const exampleGroupMembership = new azuredevops.GroupMembership("exampleGroupMembership", {
- *     group: exampleGroup.apply(exampleGroup => exampleGroup.descriptor),
- *     members: [exampleUser.descriptor],
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Memberships](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/memberships?view=azure-devops-rest-7.0)

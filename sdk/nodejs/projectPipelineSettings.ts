@@ -7,27 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages Pipeline Settings for Azure DevOps projects
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleProjectPipelineSettings = new azuredevops.ProjectPipelineSettings("exampleProjectPipelineSettings", {
- *     projectId: exampleProject.id,
- *     enforceJobScope: true,
- *     enforceReferencedRepoScopedToken: false,
- *     enforceSettableVar: true,
- *     publishPipelineMetadata: false,
- *     statusBadgesArePrivate: true,
- * });
- * ```
  * ## Relevant Links
  *
  * No official documentation available

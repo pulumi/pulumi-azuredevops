@@ -7,29 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages a Jenkins service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Jenkins instance.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceendpointJenkins = new azuredevops.ServiceendpointJenkins("exampleServiceendpointJenkins", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "jenkins-example",
- *     description: "Service Endpoint for 'Jenkins' (Managed by Terraform)",
- *     url: "https://example.com",
- *     acceptUntrustedCerts: false,
- *     username: "username",
- *     password: "password",
- * });
- * ```
- *
  * ## Import
  *
  * Service Connection Jenkins can be imported using the `projectId/id` or or `projectName/id`, e.g.

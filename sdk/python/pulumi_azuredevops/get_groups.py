@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -71,16 +71,6 @@ def get_groups(project_id: Optional[str] = None,
     """
     Use this data source to access information about existing Groups within Azure DevOps
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_project(name="Example Project")
-    example_all_groups = azuredevops.get_groups()
-    example_project_groups = azuredevops.get_groups(project_id=example.id)
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)
@@ -105,16 +95,6 @@ def get_groups_output(project_id: Optional[pulumi.Input[Optional[str]]] = None,
     """
     Use this data source to access information about existing Groups within Azure DevOps
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_project(name="Example Project")
-    example_all_groups = azuredevops.get_groups()
-    example_project_groups = azuredevops.get_groups(project_id=example.id)
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Groups - List](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups/list?view=azure-devops-rest-7.0)

@@ -4,36 +4,15 @@
 package azuredevops
 
 import (
+	"context"
+	"reflect"
+
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about the Azure DevOps organization configured for the provider.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := azuredevops.GetClientConfig(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("orgUrl", example.OrganizationUrl)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetClientConfig(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClientConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClientConfigResult
@@ -49,4 +28,49 @@ type GetClientConfigResult struct {
 	// The provider-assigned unique ID for this managed resource.
 	Id              string `pulumi:"id"`
 	OrganizationUrl string `pulumi:"organizationUrl"`
+}
+
+func GetClientConfigOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetClientConfigResultOutput {
+	return pulumi.ToOutput(0).ApplyT(func(int) (GetClientConfigResult, error) {
+		r, err := GetClientConfig(ctx, opts...)
+		var s GetClientConfigResult
+		if r != nil {
+			s = *r
+		}
+		return s, err
+	}).(GetClientConfigResultOutput)
+}
+
+// A collection of values returned by getClientConfig.
+type GetClientConfigResultOutput struct{ *pulumi.OutputState }
+
+func (GetClientConfigResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetClientConfigResult)(nil)).Elem()
+}
+
+func (o GetClientConfigResultOutput) ToGetClientConfigResultOutput() GetClientConfigResultOutput {
+	return o
+}
+
+func (o GetClientConfigResultOutput) ToGetClientConfigResultOutputWithContext(ctx context.Context) GetClientConfigResultOutput {
+	return o
+}
+
+func (o GetClientConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClientConfigResult] {
+	return pulumix.Output[GetClientConfigResult]{
+		OutputState: o.OutputState,
+	}
+}
+
+// The provider-assigned unique ID for this managed resource.
+func (o GetClientConfigResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetClientConfigResultOutput) OrganizationUrl() pulumi.StringOutput {
+	return o.ApplyT(func(v GetClientConfigResult) string { return v.OrganizationUrl }).(pulumi.StringOutput)
+}
+
+func init() {
+	pulumi.RegisterOutputType(GetClientConfigResultOutput{})
 }

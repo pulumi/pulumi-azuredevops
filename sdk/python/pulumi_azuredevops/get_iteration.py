@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -121,24 +121,6 @@ def get_iteration(fetch_children: Optional[bool] = None,
     """
     Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.Project("example",
-        work_item_template="Agile",
-        version_control="Git",
-        visibility="private",
-        description="Managed by Terraform")
-    example_root_iteration = azuredevops.get_iteration_output(project_id=example.id,
-        path="/",
-        fetch_children=True)
-    example_child_iteration = azuredevops.get_iteration_output(project_id=example.id,
-        path="/Iteration 1",
-        fetch_children=True)
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)
@@ -177,24 +159,6 @@ def get_iteration_output(fetch_children: Optional[pulumi.Input[Optional[bool]]] 
     """
     Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.Project("example",
-        work_item_template="Agile",
-        version_control="Git",
-        visibility="private",
-        description="Managed by Terraform")
-    example_root_iteration = azuredevops.get_iteration_output(project_id=example.id,
-        path="/",
-        fetch_children=True)
-    example_child_iteration = azuredevops.get_iteration_output(project_id=example.id,
-        path="/Iteration 1",
-        fetch_children=True)
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Classification Nodes - Get Classification Nodes](https://docs.microsoft.com/en-us/rest/api/azure/devops/wit/classification-nodes/get-classification-nodes?view=azure-devops-rest-7.0)

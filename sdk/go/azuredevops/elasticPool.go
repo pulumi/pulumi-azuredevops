@@ -15,60 +15,6 @@ import (
 
 // Manages Elastic pool within Azure DevOps.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-//				Visibility:       pulumi.String("private"),
-//				VersionControl:   pulumi.String("Git"),
-//				WorkItemTemplate: pulumi.String("Agile"),
-//				Description:      pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleServiceEndpointAzureRM, err := azuredevops.NewServiceEndpointAzureRM(ctx, "exampleServiceEndpointAzureRM", &azuredevops.ServiceEndpointAzureRMArgs{
-//				ProjectId:                           exampleProject.ID(),
-//				ServiceEndpointName:                 pulumi.String("Example Azure Connection"),
-//				Description:                         pulumi.String("Managed by Terraform"),
-//				ServiceEndpointAuthenticationScheme: pulumi.String("ServicePrincipal"),
-//				Credentials: &azuredevops.ServiceEndpointAzureRMCredentialsArgs{
-//					Serviceprincipalid:  pulumi.String("00000000-0000-0000-0000-000000000000"),
-//					Serviceprincipalkey: pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				},
-//				AzurermSpnTenantid:      pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				AzurermSubscriptionId:   pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				AzurermSubscriptionName: pulumi.String("Subscription Name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.NewElasticPool(ctx, "exampleElasticPool", &azuredevops.ElasticPoolArgs{
-//				ServiceEndpointId:    exampleServiceEndpointAzureRM.ID(),
-//				ServiceEndpointScope: exampleProject.ID(),
-//				DesiredIdle:          pulumi.Int(2),
-//				MaxCapacity:          pulumi.Int(3),
-//				AzureResourceId:      pulumi.String("/subscriptions/<Subscription Id>/resourceGroups/<Resource Name>/providers/Microsoft.Compute/virtualMachineScaleSets/<VMSS Name>"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Elastic Pools](https://learn.microsoft.com/en-us/rest/api/azure/devops/distributedtask/elasticpools/create?view=azure-devops-rest-7.0)

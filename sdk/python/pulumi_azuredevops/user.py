@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['UserArgs', 'User']
@@ -29,16 +29,43 @@ class UserArgs:
         :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
         """
+        UserArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_license_type=account_license_type,
+            licensing_source=licensing_source,
+            origin=origin,
+            origin_id=origin_id,
+            principal_name=principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_license_type: Optional[pulumi.Input[str]] = None,
+             licensing_source: Optional[pulumi.Input[str]] = None,
+             origin: Optional[pulumi.Input[str]] = None,
+             origin_id: Optional[pulumi.Input[str]] = None,
+             principal_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_license_type is None and 'accountLicenseType' in kwargs:
+            account_license_type = kwargs['accountLicenseType']
+        if licensing_source is None and 'licensingSource' in kwargs:
+            licensing_source = kwargs['licensingSource']
+        if origin_id is None and 'originId' in kwargs:
+            origin_id = kwargs['originId']
+        if principal_name is None and 'principalName' in kwargs:
+            principal_name = kwargs['principalName']
+
         if account_license_type is not None:
-            pulumi.set(__self__, "account_license_type", account_license_type)
+            _setter("account_license_type", account_license_type)
         if licensing_source is not None:
-            pulumi.set(__self__, "licensing_source", licensing_source)
+            _setter("licensing_source", licensing_source)
         if origin is not None:
-            pulumi.set(__self__, "origin", origin)
+            _setter("origin", origin)
         if origin_id is not None:
-            pulumi.set(__self__, "origin_id", origin_id)
+            _setter("origin_id", origin_id)
         if principal_name is not None:
-            pulumi.set(__self__, "principal_name", principal_name)
+            _setter("principal_name", principal_name)
 
     @property
     @pulumi.getter(name="accountLicenseType")
@@ -123,18 +150,47 @@ class _UserState:
         :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
         """
+        _UserState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            account_license_type=account_license_type,
+            descriptor=descriptor,
+            licensing_source=licensing_source,
+            origin=origin,
+            origin_id=origin_id,
+            principal_name=principal_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             account_license_type: Optional[pulumi.Input[str]] = None,
+             descriptor: Optional[pulumi.Input[str]] = None,
+             licensing_source: Optional[pulumi.Input[str]] = None,
+             origin: Optional[pulumi.Input[str]] = None,
+             origin_id: Optional[pulumi.Input[str]] = None,
+             principal_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if account_license_type is None and 'accountLicenseType' in kwargs:
+            account_license_type = kwargs['accountLicenseType']
+        if licensing_source is None and 'licensingSource' in kwargs:
+            licensing_source = kwargs['licensingSource']
+        if origin_id is None and 'originId' in kwargs:
+            origin_id = kwargs['originId']
+        if principal_name is None and 'principalName' in kwargs:
+            principal_name = kwargs['principalName']
+
         if account_license_type is not None:
-            pulumi.set(__self__, "account_license_type", account_license_type)
+            _setter("account_license_type", account_license_type)
         if descriptor is not None:
-            pulumi.set(__self__, "descriptor", descriptor)
+            _setter("descriptor", descriptor)
         if licensing_source is not None:
-            pulumi.set(__self__, "licensing_source", licensing_source)
+            _setter("licensing_source", licensing_source)
         if origin is not None:
-            pulumi.set(__self__, "origin", origin)
+            _setter("origin", origin)
         if origin_id is not None:
-            pulumi.set(__self__, "origin_id", origin_id)
+            _setter("origin_id", origin_id)
         if principal_name is not None:
-            pulumi.set(__self__, "principal_name", principal_name)
+            _setter("principal_name", principal_name)
 
     @property
     @pulumi.getter(name="accountLicenseType")
@@ -225,14 +281,6 @@ class User(pulumi.CustomResource):
         """
         Manages a user entitlement within Azure DevOps.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.User("example", principal_name="foo@contoso.com")
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user-entitlements/add?view=azure-devops-rest-7.0)
@@ -265,14 +313,6 @@ class User(pulumi.CustomResource):
         """
         Manages a user entitlement within Azure DevOps.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.User("example", principal_name="foo@contoso.com")
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - User Entitlements - Add](https://docs.microsoft.com/en-us/rest/api/azure/devops/memberentitlementmanagement/user-entitlements/add?view=azure-devops-rest-7.0)
@@ -296,6 +336,10 @@ class User(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            UserArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

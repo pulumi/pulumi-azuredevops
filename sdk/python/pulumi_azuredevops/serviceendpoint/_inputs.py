@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,9 +27,24 @@ class AzureRMCredentialsArgs:
         :param pulumi.Input[str] serviceprincipalid: The service principal application Id
         :param pulumi.Input[str] serviceprincipalkey: The service principal secret. This not required if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`.
         """
-        pulumi.set(__self__, "serviceprincipalid", serviceprincipalid)
+        AzureRMCredentialsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            serviceprincipalid=serviceprincipalid,
+            serviceprincipalkey=serviceprincipalkey,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             serviceprincipalid: Optional[pulumi.Input[str]] = None,
+             serviceprincipalkey: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if serviceprincipalid is None:
+            raise TypeError("Missing 'serviceprincipalid' argument")
+
+        _setter("serviceprincipalid", serviceprincipalid)
         if serviceprincipalkey is not None:
-            pulumi.set(__self__, "serviceprincipalkey", serviceprincipalkey)
+            _setter("serviceprincipalkey", serviceprincipalkey)
 
     @property
     @pulumi.getter
@@ -60,7 +75,22 @@ class AzureRMCredentialsArgs:
 class GitHubAuthOauthArgs:
     def __init__(__self__, *,
                  oauth_configuration_id: pulumi.Input[str]):
-        pulumi.set(__self__, "oauth_configuration_id", oauth_configuration_id)
+        GitHubAuthOauthArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            oauth_configuration_id=oauth_configuration_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             oauth_configuration_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if oauth_configuration_id is None and 'oauthConfigurationId' in kwargs:
+            oauth_configuration_id = kwargs['oauthConfigurationId']
+        if oauth_configuration_id is None:
+            raise TypeError("Missing 'oauth_configuration_id' argument")
+
+        _setter("oauth_configuration_id", oauth_configuration_id)
 
     @property
     @pulumi.getter(name="oauthConfigurationId")
@@ -79,7 +109,22 @@ class GitHubAuthPersonalArgs:
         """
         :param pulumi.Input[str] personal_access_token: The Personal Access Token for GitHub.
         """
-        pulumi.set(__self__, "personal_access_token", personal_access_token)
+        GitHubAuthPersonalArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            personal_access_token=personal_access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             personal_access_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if personal_access_token is None and 'personalAccessToken' in kwargs:
+            personal_access_token = kwargs['personalAccessToken']
+        if personal_access_token is None:
+            raise TypeError("Missing 'personal_access_token' argument")
+
+        _setter("personal_access_token", personal_access_token)
 
     @property
     @pulumi.getter(name="personalAccessToken")
@@ -115,17 +160,66 @@ class KubernetesAzureSubscriptionArgs:
         :param pulumi.Input[bool] cluster_admin: Set this option to allow use cluster admin credentials.
         :param pulumi.Input[str] namespace: The Kubernetes namespace. Default value is "default".
         """
-        pulumi.set(__self__, "cluster_name", cluster_name)
-        pulumi.set(__self__, "resourcegroup_id", resourcegroup_id)
-        pulumi.set(__self__, "subscription_id", subscription_id)
-        pulumi.set(__self__, "subscription_name", subscription_name)
-        pulumi.set(__self__, "tenant_id", tenant_id)
+        KubernetesAzureSubscriptionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_name=cluster_name,
+            resourcegroup_id=resourcegroup_id,
+            subscription_id=subscription_id,
+            subscription_name=subscription_name,
+            tenant_id=tenant_id,
+            azure_environment=azure_environment,
+            cluster_admin=cluster_admin,
+            namespace=namespace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_name: Optional[pulumi.Input[str]] = None,
+             resourcegroup_id: Optional[pulumi.Input[str]] = None,
+             subscription_id: Optional[pulumi.Input[str]] = None,
+             subscription_name: Optional[pulumi.Input[str]] = None,
+             tenant_id: Optional[pulumi.Input[str]] = None,
+             azure_environment: Optional[pulumi.Input[str]] = None,
+             cluster_admin: Optional[pulumi.Input[bool]] = None,
+             namespace: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if cluster_name is None and 'clusterName' in kwargs:
+            cluster_name = kwargs['clusterName']
+        if cluster_name is None:
+            raise TypeError("Missing 'cluster_name' argument")
+        if resourcegroup_id is None and 'resourcegroupId' in kwargs:
+            resourcegroup_id = kwargs['resourcegroupId']
+        if resourcegroup_id is None:
+            raise TypeError("Missing 'resourcegroup_id' argument")
+        if subscription_id is None and 'subscriptionId' in kwargs:
+            subscription_id = kwargs['subscriptionId']
+        if subscription_id is None:
+            raise TypeError("Missing 'subscription_id' argument")
+        if subscription_name is None and 'subscriptionName' in kwargs:
+            subscription_name = kwargs['subscriptionName']
+        if subscription_name is None:
+            raise TypeError("Missing 'subscription_name' argument")
+        if tenant_id is None and 'tenantId' in kwargs:
+            tenant_id = kwargs['tenantId']
+        if tenant_id is None:
+            raise TypeError("Missing 'tenant_id' argument")
+        if azure_environment is None and 'azureEnvironment' in kwargs:
+            azure_environment = kwargs['azureEnvironment']
+        if cluster_admin is None and 'clusterAdmin' in kwargs:
+            cluster_admin = kwargs['clusterAdmin']
+
+        _setter("cluster_name", cluster_name)
+        _setter("resourcegroup_id", resourcegroup_id)
+        _setter("subscription_id", subscription_id)
+        _setter("subscription_name", subscription_name)
+        _setter("tenant_id", tenant_id)
         if azure_environment is not None:
-            pulumi.set(__self__, "azure_environment", azure_environment)
+            _setter("azure_environment", azure_environment)
         if cluster_admin is not None:
-            pulumi.set(__self__, "cluster_admin", cluster_admin)
+            _setter("cluster_admin", cluster_admin)
         if namespace is not None:
-            pulumi.set(__self__, "namespace", namespace)
+            _setter("namespace", namespace)
 
     @property
     @pulumi.getter(name="clusterName")
@@ -235,11 +329,34 @@ class KubernetesKubeconfigArgs:
         :param pulumi.Input[bool] accept_untrusted_certs: Set this option to allow clients to accept a self-signed certificate.
         :param pulumi.Input[str] cluster_context: Context within the kubeconfig file that is to be used for identifying the cluster. Default value is the current-context set in kubeconfig.
         """
-        pulumi.set(__self__, "kube_config", kube_config)
+        KubernetesKubeconfigArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            kube_config=kube_config,
+            accept_untrusted_certs=accept_untrusted_certs,
+            cluster_context=cluster_context,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             kube_config: Optional[pulumi.Input[str]] = None,
+             accept_untrusted_certs: Optional[pulumi.Input[bool]] = None,
+             cluster_context: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if kube_config is None and 'kubeConfig' in kwargs:
+            kube_config = kwargs['kubeConfig']
+        if kube_config is None:
+            raise TypeError("Missing 'kube_config' argument")
+        if accept_untrusted_certs is None and 'acceptUntrustedCerts' in kwargs:
+            accept_untrusted_certs = kwargs['acceptUntrustedCerts']
+        if cluster_context is None and 'clusterContext' in kwargs:
+            cluster_context = kwargs['clusterContext']
+
+        _setter("kube_config", kube_config)
         if accept_untrusted_certs is not None:
-            pulumi.set(__self__, "accept_untrusted_certs", accept_untrusted_certs)
+            _setter("accept_untrusted_certs", accept_untrusted_certs)
         if cluster_context is not None:
-            pulumi.set(__self__, "cluster_context", cluster_context)
+            _setter("cluster_context", cluster_context)
 
     @property
     @pulumi.getter(name="kubeConfig")
@@ -287,8 +404,27 @@ class KubernetesServiceAccountArgs:
         :param pulumi.Input[str] ca_cert: The certificate from a Kubernetes secret object.
         :param pulumi.Input[str] token: The token from a Kubernetes secret object.
         """
-        pulumi.set(__self__, "ca_cert", ca_cert)
-        pulumi.set(__self__, "token", token)
+        KubernetesServiceAccountArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            ca_cert=ca_cert,
+            token=token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             ca_cert: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if ca_cert is None and 'caCert' in kwargs:
+            ca_cert = kwargs['caCert']
+        if ca_cert is None:
+            raise TypeError("Missing 'ca_cert' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+
+        _setter("ca_cert", ca_cert)
+        _setter("token", token)
 
     @property
     @pulumi.getter(name="caCert")

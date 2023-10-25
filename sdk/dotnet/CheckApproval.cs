@@ -13,42 +13,6 @@ namespace Pulumi.AzureDevOps
     /// Manages a Approval Check.
     /// 
     /// ## Example Usage
-    /// ### Protect an environment
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleEnvironment = new AzureDevOps.Environment("exampleEnvironment", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///     });
-    /// 
-    ///     var exampleGroup = new AzureDevOps.Group("exampleGroup", new()
-    ///     {
-    ///         DisplayName = "some-azdo-group",
-    ///     });
-    /// 
-    ///     var exampleCheckApproval = new AzureDevOps.CheckApproval("exampleCheckApproval", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         TargetResourceId = exampleEnvironment.Id,
-    ///         TargetResourceType = "environment",
-    ///         RequesterCanApprove = true,
-    ///         Approvers = new[]
-    ///         {
-    ///             exampleGroup.OriginId,
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 

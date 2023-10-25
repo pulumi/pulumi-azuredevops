@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceEndpointAzureDevOpsArgs', 'ServiceEndpointAzureDevOps']
@@ -29,15 +29,58 @@ class ServiceEndpointAzureDevOpsArgs:
         :param pulumi.Input[str] release_api_url: The URL of the release API.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
-        pulumi.set(__self__, "org_url", org_url)
-        pulumi.set(__self__, "personal_access_token", personal_access_token)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "release_api_url", release_api_url)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        ServiceEndpointAzureDevOpsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            org_url=org_url,
+            personal_access_token=personal_access_token,
+            project_id=project_id,
+            release_api_url=release_api_url,
+            service_endpoint_name=service_endpoint_name,
+            authorization=authorization,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             org_url: Optional[pulumi.Input[str]] = None,
+             personal_access_token: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             release_api_url: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if org_url is None and 'orgUrl' in kwargs:
+            org_url = kwargs['orgUrl']
+        if org_url is None:
+            raise TypeError("Missing 'org_url' argument")
+        if personal_access_token is None and 'personalAccessToken' in kwargs:
+            personal_access_token = kwargs['personalAccessToken']
+        if personal_access_token is None:
+            raise TypeError("Missing 'personal_access_token' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if release_api_url is None and 'releaseApiUrl' in kwargs:
+            release_api_url = kwargs['releaseApiUrl']
+        if release_api_url is None:
+            raise TypeError("Missing 'release_api_url' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+
+        _setter("org_url", org_url)
+        _setter("personal_access_token", personal_access_token)
+        _setter("project_id", project_id)
+        _setter("release_api_url", release_api_url)
+        _setter("service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="orgUrl")
@@ -136,20 +179,53 @@ class _ServiceEndpointAzureDevOpsState:
         :param pulumi.Input[str] release_api_url: The URL of the release API.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
+        _ServiceEndpointAzureDevOpsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            description=description,
+            org_url=org_url,
+            personal_access_token=personal_access_token,
+            project_id=project_id,
+            release_api_url=release_api_url,
+            service_endpoint_name=service_endpoint_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             org_url: Optional[pulumi.Input[str]] = None,
+             personal_access_token: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             release_api_url: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if org_url is None and 'orgUrl' in kwargs:
+            org_url = kwargs['orgUrl']
+        if personal_access_token is None and 'personalAccessToken' in kwargs:
+            personal_access_token = kwargs['personalAccessToken']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if release_api_url is None and 'releaseApiUrl' in kwargs:
+            release_api_url = kwargs['releaseApiUrl']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if org_url is not None:
-            pulumi.set(__self__, "org_url", org_url)
+            _setter("org_url", org_url)
         if personal_access_token is not None:
-            pulumi.set(__self__, "personal_access_token", personal_access_token)
+            _setter("personal_access_token", personal_access_token)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if release_api_url is not None:
-            pulumi.set(__self__, "release_api_url", release_api_url)
+            _setter("release_api_url", release_api_url)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
 
     @property
     @pulumi.getter
@@ -250,25 +326,6 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
 
         > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_azure_dev_ops = azuredevops.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps",
-            project_id=example_project.id,
-            service_endpoint_name="Example Azure DevOps",
-            org_url="https://dev.azure.com/testorganization",
-            release_api_url="https://vsrm.dev.azure.com/testorganization",
-            personal_access_token="0000000000000000000000000000000000000000000000000000",
-            description="Managed by Terraform")
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -302,25 +359,6 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
 
         > **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_service_endpoint_azure_dev_ops = azuredevops.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps",
-            project_id=example_project.id,
-            service_endpoint_name="Example Azure DevOps",
-            org_url="https://dev.azure.com/testorganization",
-            release_api_url="https://vsrm.dev.azure.com/testorganization",
-            personal_access_token="0000000000000000000000000000000000000000000000000000",
-            description="Managed by Terraform")
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)
@@ -343,6 +381,10 @@ class ServiceEndpointAzureDevOps(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEndpointAzureDevOpsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

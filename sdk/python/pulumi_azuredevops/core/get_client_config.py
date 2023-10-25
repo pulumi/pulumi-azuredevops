@@ -6,13 +6,14 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
     'GetClientConfigResult',
     'AwaitableGetClientConfigResult',
     'get_client_config',
+    'get_client_config_output',
 ]
 
 warnings.warn("""azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig""", DeprecationWarning)
@@ -57,16 +58,6 @@ class AwaitableGetClientConfigResult(GetClientConfigResult):
 def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetClientConfigResult:
     """
     Use this data source to access information about the Azure DevOps organization configured for the provider.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example = azuredevops.get_client_config()
-    pulumi.export("orgUrl", example.organization_url)
-    ```
     """
     pulumi.log.warn("""get_client_config is deprecated: azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig""")
     __args__ = dict()
@@ -76,3 +67,12 @@ def get_client_config(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableG
     return AwaitableGetClientConfigResult(
         id=pulumi.get(__ret__, 'id'),
         organization_url=pulumi.get(__ret__, 'organization_url'))
+
+
+@_utilities.lift_output_func(get_client_config)
+def get_client_config_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetClientConfigResult]:
+    """
+    Use this data source to access information about the Azure DevOps organization configured for the provider.
+    """
+    pulumi.log.warn("""get_client_config is deprecated: azuredevops.core.getClientConfig has been deprecated in favor of azuredevops.getClientConfig""")
+    ...

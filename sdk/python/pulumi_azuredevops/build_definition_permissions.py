@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BuildDefinitionPermissionsArgs', 'BuildDefinitionPermissions']
@@ -45,12 +45,43 @@ class BuildDefinitionPermissionsArgs:
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
         """
-        pulumi.set(__self__, "build_definition_id", build_definition_id)
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "project_id", project_id)
+        BuildDefinitionPermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_definition_id=build_definition_id,
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            replace=replace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_definition_id: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if build_definition_id is None and 'buildDefinitionId' in kwargs:
+            build_definition_id = kwargs['buildDefinitionId']
+        if build_definition_id is None:
+            raise TypeError("Missing 'build_definition_id' argument")
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("build_definition_id", build_definition_id)
+        _setter("permissions", permissions)
+        _setter("principal", principal)
+        _setter("project_id", project_id)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
 
     @property
     @pulumi.getter(name="buildDefinitionId")
@@ -165,16 +196,39 @@ class _BuildDefinitionPermissionsState:
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
         """
+        _BuildDefinitionPermissionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_definition_id=build_definition_id,
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            replace=replace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_definition_id: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if build_definition_id is None and 'buildDefinitionId' in kwargs:
+            build_definition_id = kwargs['buildDefinitionId']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if build_definition_id is not None:
-            pulumi.set(__self__, "build_definition_id", build_definition_id)
+            _setter("build_definition_id", build_definition_id)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
 
     @property
     @pulumi.getter(name="buildDefinitionId")
@@ -271,47 +325,6 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
 
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
-            name="Readers")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
-            path="\\\\ExampleFolder",
-            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=True,
-            ),
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example_git.id,
-                branch_name=example_git.default_branch,
-                yml_path="azure-pipelines.yml",
-            ))
-        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions",
-            project_id=example_project.id,
-            principal=example_readers.id,
-            build_definition_id=example_build_definition.id,
-            permissions={
-                "ViewBuilds": "Allow",
-                "EditBuildQuality": "Deny",
-                "DeleteBuilds": "Deny",
-                "StopBuilds": "Allow",
-            })
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -361,47 +374,6 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
 
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_readers = azuredevops.get_group_output(project_id=example_project.id,
-            name="Readers")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_build_definition = azuredevops.BuildDefinition("exampleBuildDefinition",
-            project_id=example_project.id,
-            path="\\\\ExampleFolder",
-            ci_trigger=azuredevops.BuildDefinitionCiTriggerArgs(
-                use_yaml=True,
-            ),
-            repository=azuredevops.BuildDefinitionRepositoryArgs(
-                repo_type="TfsGit",
-                repo_id=example_git.id,
-                branch_name=example_git.default_branch,
-                yml_path="azure-pipelines.yml",
-            ))
-        example_build_definition_permissions = azuredevops.BuildDefinitionPermissions("exampleBuildDefinitionPermissions",
-            project_id=example_project.id,
-            principal=example_readers.id,
-            build_definition_id=example_build_definition.id,
-            permissions={
-                "ViewBuilds": "Allow",
-                "EditBuildQuality": "Deny",
-                "DeleteBuilds": "Deny",
-                "StopBuilds": "Allow",
-            })
-        ```
         ## Relevant Links
 
         * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -424,6 +396,10 @@ class BuildDefinitionPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BuildDefinitionPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -15,58 +15,6 @@ import (
 
 // Manages a team within a project in a Azure DevOps organization.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
-//				WorkItemTemplate: pulumi.String("Agile"),
-//				VersionControl:   pulumi.String("Git"),
-//				Visibility:       pulumi.String("private"),
-//				Description:      pulumi.String("Managed by Terraform"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			example_project_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
-//				Name:      pulumi.String("Contributors"),
-//			}, nil)
-//			example_project_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
-//				Name:      pulumi.String("Readers"),
-//			}, nil)
-//			_, err = azuredevops.NewTeam(ctx, "exampleTeam", &azuredevops.TeamArgs{
-//				ProjectId: exampleProject.ID(),
-//				Administrators: pulumi.StringArray{
-//					example_project_contributors.ApplyT(func(example_project_contributors azuredevops.GetGroupResult) (*string, error) {
-//						return &example_project_contributors.Descriptor, nil
-//					}).(pulumi.StringPtrOutput),
-//				},
-//				Members: pulumi.StringArray{
-//					example_project_readers.ApplyT(func(example_project_readers azuredevops.GetGroupResult) (*string, error) {
-//						return &example_project_readers.Descriptor, nil
-//					}).(pulumi.StringPtrOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)

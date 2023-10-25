@@ -7,26 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointAws = new azuredevops.ServiceEndpointAws("exampleServiceEndpointAws", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example AWS",
- *     accessKeyId: "00000000-0000-0000-0000-000000000000",
- *     secretAccessKey: "accesskey",
- *     description: "Managed by AzureDevOps",
- * });
- * ```
  * ## Relevant Links
  *
  * * [aws-toolkit-azure-devops](https://github.com/aws/aws-toolkit-azure-devops)

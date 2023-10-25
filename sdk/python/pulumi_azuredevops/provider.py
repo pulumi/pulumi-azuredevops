@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProviderArgs', 'Provider']
@@ -21,12 +21,29 @@ class ProviderArgs:
         :param pulumi.Input[str] org_service_url: The url of the Azure DevOps instance which should be used.
         :param pulumi.Input[str] personal_access_token: The personal access token which should be used.
         """
+        ProviderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            org_service_url=org_service_url,
+            personal_access_token=personal_access_token,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             org_service_url: Optional[pulumi.Input[str]] = None,
+             personal_access_token: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if org_service_url is None and 'orgServiceUrl' in kwargs:
+            org_service_url = kwargs['orgServiceUrl']
+        if personal_access_token is None and 'personalAccessToken' in kwargs:
+            personal_access_token = kwargs['personalAccessToken']
+
         if org_service_url is None:
             org_service_url = _utilities.get_env('AZDO_ORG_SERVICE_URL')
         if org_service_url is not None:
-            pulumi.set(__self__, "org_service_url", org_service_url)
+            _setter("org_service_url", org_service_url)
         if personal_access_token is not None:
-            pulumi.set(__self__, "personal_access_token", personal_access_token)
+            _setter("personal_access_token", personal_access_token)
 
     @property
     @pulumi.getter(name="orgServiceUrl")
@@ -94,6 +111,10 @@ class Provider(pulumi.ProviderResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProviderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

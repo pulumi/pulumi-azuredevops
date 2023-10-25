@@ -7,28 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages an Incoming WebHook service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to subscribe to a webhook event.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceendpointIncomingwebhook = new azuredevops.ServiceendpointIncomingwebhook("exampleServiceendpointIncomingwebhook", {
- *     projectId: exampleProject.id,
- *     webhookName: "example_webhook",
- *     secret: "secret",
- *     httpHeader: "X-Hub-Signature",
- *     serviceEndpointName: "Example IncomingWebhook",
- *     description: "Managed by Terraform",
- * });
- * ```
- *
  * ## Import
  *
  * Azure DevOps Service Endpoint Incoming WebHook can be imported using **projectID/serviceEndpointID** or **projectName/serviceEndpointID**

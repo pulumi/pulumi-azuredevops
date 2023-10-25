@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 
@@ -122,17 +122,6 @@ def get_variable_group(name: Optional[str] = None,
 
     > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example_project = azuredevops.get_project(name="Example Project")
-    example_variable_group = azuredevops.get_variable_group(project_id=example_project.id,
-        name="Example Variable Group")
-    pulumi.export("id", example_variable_group.id)
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)
@@ -166,17 +155,6 @@ def get_variable_group_output(name: Optional[pulumi.Input[str]] = None,
 
     > **Note:** Secret values are masked by service and cannot be obtained through API. [Set secret variables](https://docs.microsoft.com/en-us/azure/devops/pipelines/process/variables?view=azure-devops&tabs=yaml%2Cbatch#secret-variables)
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_azuredevops as azuredevops
-
-    example_project = azuredevops.get_project(name="Example Project")
-    example_variable_group = azuredevops.get_variable_group(project_id=example_project.id,
-        name="Example Variable Group")
-    pulumi.export("id", example_variable_group.id)
-    ```
     ## Relevant Links
 
     - [Azure DevOps Service REST API 7.0 - Variable Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/variablegroups?view=azure-devops-rest-7.0)

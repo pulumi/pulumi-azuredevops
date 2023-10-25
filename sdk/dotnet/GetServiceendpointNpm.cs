@@ -13,66 +13,12 @@ namespace Pulumi.AzureDevOps
     {
         /// <summary>
         /// Use this data source to access information about an existing NPM Service Endpoint.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = AzureDevOps.GetServiceendpointNpm.Invoke(new()
-        ///     {
-        ///         ProjectId = azuredevops_project.Example.Id,
-        ///         ServiceEndpointName = "Example npm",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["serviceEndpointId"] = example.Apply(getServiceendpointNpmResult =&gt; getServiceendpointNpmResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetServiceendpointNpmResult> InvokeAsync(GetServiceendpointNpmArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceendpointNpmResult>("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", args ?? new GetServiceendpointNpmArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing NPM Service Endpoint.
-        /// 
-        /// {{% examples %}}
-        /// ## Example Usage
-        /// {{% example %}}
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// using AzureDevOps = Pulumi.AzureDevOps;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     var example = AzureDevOps.GetServiceendpointNpm.Invoke(new()
-        ///     {
-        ///         ProjectId = azuredevops_project.Example.Id,
-        ///         ServiceEndpointName = "Example npm",
-        ///     });
-        /// 
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["serviceEndpointId"] = example.Apply(getServiceendpointNpmResult =&gt; getServiceendpointNpmResult.Id),
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetServiceendpointNpmResult> Invoke(GetServiceendpointNpmInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceendpointNpmResult>("azuredevops:index/getServiceendpointNpm:getServiceendpointNpm", args ?? new GetServiceendpointNpmInvokeArgs(), options.WithDefaults());

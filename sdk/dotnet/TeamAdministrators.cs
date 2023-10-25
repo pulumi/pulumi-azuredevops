@@ -12,48 +12,6 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages administrators of a team within a project in a Azure DevOps organization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         WorkItemTemplate = "Agile",
-    ///         VersionControl = "Git",
-    ///         Visibility = "private",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var example_project_contributors = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Name = "Contributors",
-    ///     });
-    /// 
-    ///     var exampleTeam = new AzureDevOps.Team("exampleTeam", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///     });
-    /// 
-    ///     var example_team_administrators = new AzureDevOps.TeamAdministrators("example-team-administrators", new()
-    ///     {
-    ///         ProjectId = exampleTeam.ProjectId,
-    ///         TeamId = exampleTeam.Id,
-    ///         Mode = "overwrite",
-    ///         Administrators = new[]
-    ///         {
-    ///             example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)

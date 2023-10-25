@@ -14,54 +14,6 @@ import * as utilities from "./utilities";
  * Permission for Service Endpoints within Azure DevOps can be applied on two different levels.
  * Those levels are reflected by specifying (or omitting) values for the arguments `projectId` and `serviceendpointId`.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const example-readers = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
- *     name: "Readers",
- * });
- * const example_root_permissions = new azuredevops.ServiceendpointPermissions("example-root-permissions", {
- *     projectId: exampleProject.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
- *     permissions: {
- *         Use: "allow",
- *         Administer: "allow",
- *         Create: "allow",
- *         ViewAuthorization: "allow",
- *         ViewEndpoint: "allow",
- *     },
- * });
- * const exampleServiceEndpointDockerRegistry = new azuredevops.ServiceEndpointDockerRegistry("exampleServiceEndpointDockerRegistry", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example Docker Hub",
- *     dockerUsername: "username",
- *     dockerEmail: "email@example.com",
- *     dockerPassword: "password",
- *     registryType: "DockerHub",
- * });
- * const example_permissions = new azuredevops.ServiceendpointPermissions("example-permissions", {
- *     projectId: exampleProject.id,
- *     principal: example_readers.apply(example_readers => example_readers.id),
- *     serviceendpointId: exampleServiceEndpointDockerRegistry.id,
- *     permissions: {
- *         Use: "allow",
- *         Administer: "deny",
- *         Create: "deny",
- *         ViewAuthorization: "allow",
- *         ViewEndpoint: "allow",
- *     },
- * });
- * ```
  * ## Relevant Links
  *
  * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)

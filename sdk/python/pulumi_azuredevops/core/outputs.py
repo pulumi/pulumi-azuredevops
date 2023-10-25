@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -28,10 +28,39 @@ class GetProjectsProjectResult(dict):
                
                DataSource without specifying any arguments will return all projects.
         """
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "project_url", project_url)
-        pulumi.set(__self__, "state", state)
+        GetProjectsProjectResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            name=name,
+            project_id=project_id,
+            project_url=project_url,
+            state=state,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             name: Optional[str] = None,
+             project_id: Optional[str] = None,
+             project_url: Optional[str] = None,
+             state: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if project_url is None and 'projectUrl' in kwargs:
+            project_url = kwargs['projectUrl']
+        if project_url is None:
+            raise TypeError("Missing 'project_url' argument")
+        if state is None:
+            raise TypeError("Missing 'state' argument")
+
+        _setter("name", name)
+        _setter("project_id", project_id)
+        _setter("project_url", project_url)
+        _setter("state", state)
 
     @property
     @pulumi.getter

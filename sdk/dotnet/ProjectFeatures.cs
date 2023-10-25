@@ -12,36 +12,6 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages features for Azure DevOps projects
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new AzureDevOps.Project("example", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var example_features = new AzureDevOps.ProjectFeatures("example-features", new()
-    ///     {
-    ///         ProjectId = example.Id,
-    ///         Features = 
-    ///         {
-    ///             { "testplans", "disabled" },
-    ///             { "artifacts", "enabled" },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// No official documentation available

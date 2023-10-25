@@ -12,64 +12,6 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages required reviewer policy branch policy within Azure DevOps.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var exampleGit = new AzureDevOps.Git("exampleGit", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Initialization = new AzureDevOps.Inputs.GitInitializationArgs
-    ///         {
-    ///             InitType = "Clean",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleUser = new AzureDevOps.User("exampleUser", new()
-    ///     {
-    ///         PrincipalName = "mail@email.com",
-    ///         AccountLicenseType = "basic",
-    ///     });
-    /// 
-    ///     var exampleBranchPolicyAutoReviewers = new AzureDevOps.BranchPolicyAutoReviewers("exampleBranchPolicyAutoReviewers", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Enabled = true,
-    ///         Blocking = true,
-    ///         Settings = new AzureDevOps.Inputs.BranchPolicyAutoReviewersSettingsArgs
-    ///         {
-    ///             AutoReviewerIds = new[]
-    ///             {
-    ///                 exampleUser.Id,
-    ///             },
-    ///             SubmitterCanVote = false,
-    ///             Message = "Auto reviewer",
-    ///             PathFilters = new[]
-    ///             {
-    ///                 "*/src/*.ts",
-    ///             },
-    ///             Scopes = new[]
-    ///             {
-    ///                 new AzureDevOps.Inputs.BranchPolicyAutoReviewersSettingsScopeArgs
-    ///                 {
-    ///                     RepositoryId = exampleGit.Id,
-    ///                     RepositoryRef = exampleGit.DefaultBranch,
-    ///                     MatchType = "Exact",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations/create?view=azure-devops-rest-7.0)

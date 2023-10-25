@@ -12,51 +12,6 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages a team within a project in a Azure DevOps organization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         WorkItemTemplate = "Agile",
-    ///         VersionControl = "Git",
-    ///         Visibility = "private",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var example_project_contributors = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Name = "Contributors",
-    ///     });
-    /// 
-    ///     var example_project_readers = AzureDevOps.GetGroup.Invoke(new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Name = "Readers",
-    ///     });
-    /// 
-    ///     var exampleTeam = new AzureDevOps.Team("exampleTeam", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         Administrators = new[]
-    ///         {
-    ///             example_project_contributors.Apply(example_project_contributors =&gt; example_project_contributors.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
-    ///         },
-    ///         Members = new[]
-    ///         {
-    ///             example_project_readers.Apply(example_project_readers =&gt; example_project_readers.Apply(getGroupResult =&gt; getGroupResult.Descriptor)),
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Teams - Create](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/create?view=azure-devops-rest-7.0)

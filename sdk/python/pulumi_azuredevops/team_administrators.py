@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamAdministratorsArgs', 'TeamAdministrators']
@@ -32,11 +32,38 @@ class TeamAdministratorsArgs:
                - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
                - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         """
-        pulumi.set(__self__, "administrators", administrators)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "team_id", team_id)
+        TeamAdministratorsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrators=administrators,
+            project_id=project_id,
+            team_id=team_id,
+            mode=mode,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if administrators is None:
+            raise TypeError("Missing 'administrators' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+        if team_id is None:
+            raise TypeError("Missing 'team_id' argument")
+
+        _setter("administrators", administrators)
+        _setter("project_id", project_id)
+        _setter("team_id", team_id)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
 
     @property
     @pulumi.getter
@@ -115,14 +142,35 @@ class _TeamAdministratorsState:
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
         """
+        _TeamAdministratorsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            administrators=administrators,
+            mode=mode,
+            project_id=project_id,
+            team_id=team_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             administrators: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             mode: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             team_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if team_id is None and 'teamId' in kwargs:
+            team_id = kwargs['teamId']
+
         if administrators is not None:
-            pulumi.set(__self__, "administrators", administrators)
+            _setter("administrators", administrators)
         if mode is not None:
-            pulumi.set(__self__, "mode", mode)
+            _setter("mode", mode)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if team_id is not None:
-            pulumi.set(__self__, "team_id", team_id)
+            _setter("team_id", team_id)
 
     @property
     @pulumi.getter
@@ -193,26 +241,6 @@ class TeamAdministrators(pulumi.CustomResource):
         """
         Manages administrators of a team within a project in a Azure DevOps organization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
-            name="Contributors")
-        example_team = azuredevops.Team("exampleTeam", project_id=example_project.id)
-        example_team_administrators = azuredevops.TeamAdministrators("example-team-administrators",
-            project_id=example_team.project_id,
-            team_id=example_team.id,
-            mode="overwrite",
-            administrators=[example_project_contributors.descriptor])
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)
@@ -248,26 +276,6 @@ class TeamAdministrators(pulumi.CustomResource):
         """
         Manages administrators of a team within a project in a Azure DevOps organization.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            work_item_template="Agile",
-            version_control="Git",
-            visibility="private",
-            description="Managed by Terraform")
-        example_project_contributors = azuredevops.get_group_output(project_id=example_project.id,
-            name="Contributors")
-        example_team = azuredevops.Team("exampleTeam", project_id=example_project.id)
-        example_team_administrators = azuredevops.TeamAdministrators("example-team-administrators",
-            project_id=example_team.project_id,
-            team_id=example_team.id,
-            mode="overwrite",
-            administrators=[example_project_contributors.descriptor])
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)
@@ -290,6 +298,10 @@ class TeamAdministrators(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            TeamAdministratorsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

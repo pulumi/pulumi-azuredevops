@@ -16,40 +16,6 @@ namespace Pulumi.AzureDevOps
     /// The created queue is not authorized for use by all pipelines in the project. However,
     /// the `azuredevops.ResourceAuthorization` resource can be used to grant authorization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject");
-    /// 
-    ///     var examplePool = AzureDevOps.GetPool.Invoke(new()
-    ///     {
-    ///         Name = "example-pool",
-    ///     });
-    /// 
-    ///     var exampleQueue = new AzureDevOps.Queue("exampleQueue", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         AgentPoolId = examplePool.Apply(getPoolResult =&gt; getPoolResult.Id),
-    ///     });
-    /// 
-    ///     // Grant access to queue to all pipelines in the project
-    ///     var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization("exampleResourceAuthorization", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         ResourceId = exampleQueue.Id,
-    ///         Type = "queue",
-    ///         Authorized = true,
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)

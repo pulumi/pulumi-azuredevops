@@ -7,30 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages administrators of a team within a project in a Azure DevOps organization.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     workItemTemplate: "Agile",
- *     versionControl: "Git",
- *     visibility: "private",
- *     description: "Managed by Terraform",
- * });
- * const example-project-contributors = azuredevops.getGroupOutput({
- *     projectId: exampleProject.id,
- *     name: "Contributors",
- * });
- * const exampleTeam = new azuredevops.Team("exampleTeam", {projectId: exampleProject.id});
- * const example_team_administrators = new azuredevops.TeamAdministrators("example-team-administrators", {
- *     projectId: exampleTeam.projectId,
- *     teamId: exampleTeam.id,
- *     mode: "overwrite",
- *     administrators: [example_project_contributors.apply(example_project_contributors => example_project_contributors.descriptor)],
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Teams - Update](https://docs.microsoft.com/en-us/rest/api/azure/devops/core/teams/update?view=azure-devops-rest-7.0)

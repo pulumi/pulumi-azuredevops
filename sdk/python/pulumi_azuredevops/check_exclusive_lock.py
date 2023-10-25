@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CheckExclusiveLockArgs', 'CheckExclusiveLock']
@@ -25,11 +25,40 @@ class CheckExclusiveLockArgs:
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         :param pulumi.Input[int] timeout: The timeout in minutes for the exclusive lock. Defaults to `43200`.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "target_resource_type", target_resource_type)
+        CheckExclusiveLockArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if target_resource_type is None:
+            raise TypeError("Missing 'target_resource_type' argument")
+
+        _setter("project_id", project_id)
+        _setter("target_resource_id", target_resource_id)
+        _setter("target_resource_type", target_resource_type)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="projectId")
@@ -94,14 +123,37 @@ class _CheckExclusiveLockState:
         :param pulumi.Input[str] target_resource_type: The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
         :param pulumi.Input[int] timeout: The timeout in minutes for the exclusive lock. Defaults to `43200`.
         """
+        _CheckExclusiveLockState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            timeout=timeout,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
 
     @property
     @pulumi.getter(name="projectId")
@@ -168,40 +220,6 @@ class CheckExclusiveLock(pulumi.CustomResource):
         Adding an exclusive lock will only allow a single stage to utilize this resource at a time. If multiple stages are waiting on the lock, only the latest will run. All others will be canceled.
 
         ## Example Usage
-        ### Add Exclusive Lock to an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
-            server_url="https://some-server.example.com",
-            username="username",
-            password="password",
-            service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
-        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock",
-            project_id=example_project.id,
-            target_resource_id=example_service_endpoint_generic.id,
-            target_resource_type="endpoint",
-            timeout=43200)
-        ```
-        ### Protect an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock",
-            project_id=example_project.id,
-            target_resource_id=example_environment.id,
-            target_resource_type="environment",
-            timeout=43200)
-        ```
 
         ## Import
 
@@ -226,40 +244,6 @@ class CheckExclusiveLock(pulumi.CustomResource):
         Adding an exclusive lock will only allow a single stage to utilize this resource at a time. If multiple stages are waiting on the lock, only the latest will run. All others will be canceled.
 
         ## Example Usage
-        ### Add Exclusive Lock to an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_service_endpoint_generic = azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric",
-            project_id=example_project.id,
-            server_url="https://some-server.example.com",
-            username="username",
-            password="password",
-            service_endpoint_name="Example Generic",
-            description="Managed by Terraform")
-        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock",
-            project_id=example_project.id,
-            target_resource_id=example_service_endpoint_generic.id,
-            target_resource_type="endpoint",
-            timeout=43200)
-        ```
-        ### Protect an environment
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject")
-        example_environment = azuredevops.Environment("exampleEnvironment", project_id=example_project.id)
-        example_check_exclusive_lock = azuredevops.CheckExclusiveLock("exampleCheckExclusiveLock",
-            project_id=example_project.id,
-            target_resource_id=example_environment.id,
-            target_resource_type="environment",
-            timeout=43200)
-        ```
 
         ## Import
 
@@ -275,6 +259,10 @@ class CheckExclusiveLock(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CheckExclusiveLockArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -16,36 +16,6 @@ namespace Pulumi.AzureDevOps
     /// 
     /// &gt; **Note** Prerequisite: Extension [Configurable Pipeline Runner](https://marketplace.visualstudio.com/items?itemName=CSE-DevOps.RunPipelines) has been installed for the organization.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var exampleServiceEndpointAzureDevOps = new AzureDevOps.ServiceEndpointAzureDevOps("exampleServiceEndpointAzureDevOps", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         ServiceEndpointName = "Example Azure DevOps",
-    ///         OrgUrl = "https://dev.azure.com/testorganization",
-    ///         ReleaseApiUrl = "https://vsrm.dev.azure.com/testorganization",
-    ///         PersonalAccessToken = "0000000000000000000000000000000000000000000000000000",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Service Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

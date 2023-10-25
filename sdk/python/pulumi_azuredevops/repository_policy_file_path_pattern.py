@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryPolicyFilePathPatternArgs', 'RepositoryPolicyFilePathPattern']
@@ -27,14 +27,43 @@ class RepositoryPolicyFilePathPatternArgs:
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
-        pulumi.set(__self__, "filepath_patterns", filepath_patterns)
-        pulumi.set(__self__, "project_id", project_id)
+        RepositoryPolicyFilePathPatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            filepath_patterns=filepath_patterns,
+            project_id=project_id,
+            blocking=blocking,
+            enabled=enabled,
+            repository_ids=repository_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             filepath_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             blocking: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filepath_patterns is None and 'filepathPatterns' in kwargs:
+            filepath_patterns = kwargs['filepathPatterns']
+        if filepath_patterns is None:
+            raise TypeError("Missing 'filepath_patterns' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if repository_ids is None and 'repositoryIds' in kwargs:
+            repository_ids = kwargs['repositoryIds']
+
+        _setter("filepath_patterns", filepath_patterns)
+        _setter("project_id", project_id)
         if blocking is not None:
-            pulumi.set(__self__, "blocking", blocking)
+            _setter("blocking", blocking)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if repository_ids is not None:
-            pulumi.set(__self__, "repository_ids", repository_ids)
+            _setter("repository_ids", repository_ids)
 
     @property
     @pulumi.getter(name="filepathPatterns")
@@ -113,16 +142,41 @@ class _RepositoryPolicyFilePathPatternState:
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
+        _RepositoryPolicyFilePathPatternState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            blocking=blocking,
+            enabled=enabled,
+            filepath_patterns=filepath_patterns,
+            project_id=project_id,
+            repository_ids=repository_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             blocking: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             filepath_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions] = None,
+             **kwargs):
+        if filepath_patterns is None and 'filepathPatterns' in kwargs:
+            filepath_patterns = kwargs['filepathPatterns']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if repository_ids is None and 'repositoryIds' in kwargs:
+            repository_ids = kwargs['repositoryIds']
+
         if blocking is not None:
-            pulumi.set(__self__, "blocking", blocking)
+            _setter("blocking", blocking)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if filepath_patterns is not None:
-            pulumi.set(__self__, "filepath_patterns", filepath_patterns)
+            _setter("filepath_patterns", filepath_patterns)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if repository_ids is not None:
-            pulumi.set(__self__, "repository_ids", repository_ids)
+            _setter("repository_ids", repository_ids)
 
     @property
     @pulumi.getter
@@ -199,52 +253,6 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         """
         Manage a file path pattern repository policy within Azure DevOps project.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_repository_policy_file_path_pattern = azuredevops.RepositoryPolicyFilePathPattern("exampleRepositoryPolicyFilePathPattern",
-            project_id=example_project.id,
-            enabled=True,
-            blocking=True,
-            filepath_patterns=[
-                "*.go",
-                "/home/test/*.ts",
-            ],
-            repository_ids=[example_git.id])
-        ```
-
-        # Set project level repository policy
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        examplep = azuredevops.RepositoryPolicyFilePathPattern("examplep",
-            project_id=example.id,
-            enabled=True,
-            blocking=True,
-            filepath_patterns=[
-                "*.go",
-                "/home/test/*.ts",
-            ])
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)
@@ -274,52 +282,6 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         """
         Manage a file path pattern repository policy within Azure DevOps project.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example_project = azuredevops.Project("exampleProject",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        example_git = azuredevops.Git("exampleGit",
-            project_id=example_project.id,
-            initialization=azuredevops.GitInitializationArgs(
-                init_type="Clean",
-            ))
-        example_repository_policy_file_path_pattern = azuredevops.RepositoryPolicyFilePathPattern("exampleRepositoryPolicyFilePathPattern",
-            project_id=example_project.id,
-            enabled=True,
-            blocking=True,
-            filepath_patterns=[
-                "*.go",
-                "/home/test/*.ts",
-            ],
-            repository_ids=[example_git.id])
-        ```
-
-        # Set project level repository policy
-        ```python
-        import pulumi
-        import pulumi_azuredevops as azuredevops
-
-        example = azuredevops.Project("example",
-            visibility="private",
-            version_control="Git",
-            work_item_template="Agile",
-            description="Managed by Terraform")
-        examplep = azuredevops.RepositoryPolicyFilePathPattern("examplep",
-            project_id=example.id,
-            enabled=True,
-            blocking=True,
-            filepath_patterns=[
-                "*.go",
-                "/home/test/*.ts",
-            ])
-        ```
         ## Relevant Links
 
         - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)
@@ -342,6 +304,10 @@ class RepositoryPolicyFilePathPattern(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryPolicyFilePathPatternArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

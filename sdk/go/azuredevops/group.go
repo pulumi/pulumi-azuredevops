@@ -14,53 +14,6 @@ import (
 
 // Manages a group within Azure DevOps.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", nil)
-//			if err != nil {
-//				return err
-//			}
-//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
-//				Name:      pulumi.String("Readers"),
-//			}, nil)
-//			example_contributors := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
-//				ProjectId: exampleProject.ID(),
-//				Name:      pulumi.String("Contributors"),
-//			}, nil)
-//			_, err = azuredevops.NewGroup(ctx, "exampleGroup", &azuredevops.GroupArgs{
-//				Scope:       exampleProject.ID(),
-//				DisplayName: pulumi.String("Example group"),
-//				Description: pulumi.String("Example description"),
-//				Members: pulumi.StringArray{
-//					example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
-//						return &example_readers.Descriptor, nil
-//					}).(pulumi.StringPtrOutput),
-//					example_contributors.ApplyT(func(example_contributors azuredevops.GetGroupResult) (*string, error) {
-//						return &example_contributors.Descriptor, nil
-//					}).(pulumi.StringPtrOutput),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Groups](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/groups?view=azure-devops-rest-7.0)

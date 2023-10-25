@@ -10,59 +10,6 @@ import * as utilities from "./utilities";
  * Manages a Required Template Check.
  *
  * ## Example Usage
- * ### Protect a service connection
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleServiceEndpointGeneric = new azuredevops.ServiceEndpointGeneric("exampleServiceEndpointGeneric", {
- *     projectId: exampleProject.id,
- *     serverUrl: "https://some-server.example.com",
- *     username: "username",
- *     password: "password",
- *     serviceEndpointName: "Example Generic",
- *     description: "Managed by Terraform",
- * });
- * const exampleCheckRequiredTemplate = new azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate", {
- *     projectId: exampleProject.id,
- *     targetResourceId: exampleServiceEndpointGeneric.id,
- *     targetResourceType: "endpoint",
- *     requiredTemplates: [{
- *         repositoryType: "azuregit",
- *         repositoryName: "project/repository",
- *         repositoryRef: "refs/heads/main",
- *         templatePath: "template/path.yml",
- *     }],
- * });
- * ```
- * ### Protect an environment
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {});
- * const exampleEnvironment = new azuredevops.Environment("exampleEnvironment", {projectId: exampleProject.id});
- * const exampleCheckRequiredTemplate = new azuredevops.CheckRequiredTemplate("exampleCheckRequiredTemplate", {
- *     projectId: exampleProject.id,
- *     targetResourceId: exampleEnvironment.id,
- *     targetResourceType: "environment",
- *     requiredTemplates: [
- *         {
- *             repositoryName: "project/repository",
- *             repositoryRef: "refs/heads/main",
- *             templatePath: "template/path.yml",
- *         },
- *         {
- *             repositoryName: "project/repository",
- *             repositoryRef: "refs/heads/main",
- *             templatePath: "template/alternate-path.yml",
- *         },
- *     ],
- * });
- * ```
  *
  * ## Import
  *

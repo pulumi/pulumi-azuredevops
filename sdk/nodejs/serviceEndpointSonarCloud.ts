@@ -7,25 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manages a SonarCloud service endpoint within Azure DevOps.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleServiceEndpointSonarCloud = new azuredevops.ServiceEndpointSonarCloud("exampleServiceEndpointSonarCloud", {
- *     projectId: exampleProject.id,
- *     serviceEndpointName: "Example SonarCloud",
- *     token: "0000000000000000000000000000000000000000",
- *     description: "Managed by Terraform",
- * });
- * ```
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Endpoints](https://docs.microsoft.com/en-us/rest/api/azure/devops/serviceendpoint/endpoints?view=azure-devops-rest-7.0)

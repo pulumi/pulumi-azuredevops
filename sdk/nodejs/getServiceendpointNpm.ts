@@ -6,19 +6,6 @@ import * as utilities from "./utilities";
 
 /**
  * Use this data source to access information about an existing NPM Service Endpoint.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = azuredevops.getServiceendpointNpm({
- *     projectId: azuredevops_project.example.id,
- *     serviceEndpointName: "Example npm",
- * });
- * export const serviceEndpointId = example.then(example => example.id);
- * ```
  */
 export function getServiceendpointNpm(args: GetServiceendpointNpmArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceendpointNpmResult> {
 
@@ -76,19 +63,6 @@ export interface GetServiceendpointNpmResult {
 }
 /**
  * Use this data source to access information about an existing NPM Service Endpoint.
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const example = azuredevops.getServiceendpointNpm({
- *     projectId: azuredevops_project.example.id,
- *     serviceEndpointName: "Example npm",
- * });
- * export const serviceEndpointId = example.then(example => example.id);
- * ```
  */
 export function getServiceendpointNpmOutput(args: GetServiceendpointNpmOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceendpointNpmResult> {
     return pulumi.output(args).apply((a: any) => getServiceendpointNpm(a, opts))

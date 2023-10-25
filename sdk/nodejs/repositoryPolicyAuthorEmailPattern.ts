@@ -7,58 +7,6 @@ import * as utilities from "./utilities";
 /**
  * Manage author email pattern repository policy within Azure DevOps project.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleGit = new azuredevops.Git("exampleGit", {
- *     projectId: exampleProject.id,
- *     initialization: {
- *         initType: "Clean",
- *     },
- * });
- * const exampleRepositoryPolicyAuthorEmailPattern = new azuredevops.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern", {
- *     projectId: exampleProject.id,
- *     enabled: true,
- *     blocking: true,
- *     authorEmailPatterns: [
- *         "user1@test.com",
- *         "user2@test.com",
- *     ],
- *     repositoryIds: [exampleGit.id],
- * });
- * ```
- * ## Set project level repository policy
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azuredevops from "@pulumi/azuredevops";
- *
- * const exampleProject = new azuredevops.Project("exampleProject", {
- *     visibility: "private",
- *     versionControl: "Git",
- *     workItemTemplate: "Agile",
- *     description: "Managed by Terraform",
- * });
- * const exampleRepositoryPolicyAuthorEmailPattern = new azuredevops.RepositoryPolicyAuthorEmailPattern("exampleRepositoryPolicyAuthorEmailPattern", {
- *     projectId: exampleProject.id,
- *     enabled: true,
- *     blocking: true,
- *     authorEmailPatterns: [
- *         "user1@test.com",
- *         "user2@test.com",
- *     ],
- * });
- * ```
- *
  * ## Relevant Links
  *
  * - [Azure DevOps Service REST API 7.0 - Policy Configurations](https://docs.microsoft.com/en-us/rest/api/azure/devops/policy/configurations?view=azure-devops-rest-7.0)

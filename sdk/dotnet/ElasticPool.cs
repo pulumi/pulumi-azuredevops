@@ -12,51 +12,6 @@ namespace Pulumi.AzureDevOps
     /// <summary>
     /// Manages Elastic pool within Azure DevOps.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using AzureDevOps = Pulumi.AzureDevOps;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
-    ///     {
-    ///         Visibility = "private",
-    ///         VersionControl = "Git",
-    ///         WorkItemTemplate = "Agile",
-    ///         Description = "Managed by Terraform",
-    ///     });
-    /// 
-    ///     var exampleServiceEndpointAzureRM = new AzureDevOps.ServiceEndpointAzureRM("exampleServiceEndpointAzureRM", new()
-    ///     {
-    ///         ProjectId = exampleProject.Id,
-    ///         ServiceEndpointName = "Example Azure Connection",
-    ///         Description = "Managed by Terraform",
-    ///         ServiceEndpointAuthenticationScheme = "ServicePrincipal",
-    ///         Credentials = new AzureDevOps.Inputs.ServiceEndpointAzureRMCredentialsArgs
-    ///         {
-    ///             Serviceprincipalid = "00000000-0000-0000-0000-000000000000",
-    ///             Serviceprincipalkey = "00000000-0000-0000-0000-000000000000",
-    ///         },
-    ///         AzurermSpnTenantid = "00000000-0000-0000-0000-000000000000",
-    ///         AzurermSubscriptionId = "00000000-0000-0000-0000-000000000000",
-    ///         AzurermSubscriptionName = "Subscription Name",
-    ///     });
-    /// 
-    ///     var exampleElasticPool = new AzureDevOps.ElasticPool("exampleElasticPool", new()
-    ///     {
-    ///         ServiceEndpointId = exampleServiceEndpointAzureRM.Id,
-    ///         ServiceEndpointScope = exampleProject.Id,
-    ///         DesiredIdle = 2,
-    ///         MaxCapacity = 3,
-    ///         AzureResourceId = "/subscriptions/&lt;Subscription Id&gt;/resourceGroups/&lt;Resource Name&gt;/providers/Microsoft.Compute/virtualMachineScaleSets/&lt;VMSS Name&gt;",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ## Relevant Links
     /// 
     /// - [Azure DevOps Service REST API 7.0 - Elastic Pools](https://learn.microsoft.com/en-us/rest/api/azure/devops/distributedtask/elasticpools/create?view=azure-devops-rest-7.0)

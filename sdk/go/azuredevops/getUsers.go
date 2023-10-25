@@ -14,57 +14,6 @@ import (
 
 // Use this data source to access information about an existing users within Azure DevOps.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
-//				PrincipalName: pulumi.StringRef("contoso-user@contoso.onmicrosoft.com"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.GetUsers(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
-//				Origin: pulumi.StringRef("aad"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
-//				SubjectTypes: []string{
-//					"aad",
-//					"msa",
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = azuredevops.GetUsers(ctx, &azuredevops.GetUsersArgs{
-//				Origin:   pulumi.StringRef("aad"),
-//				OriginId: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ## Relevant Links
 //
 // - [Azure DevOps Service REST API 7.0 - Graph Users API](https://docs.microsoft.com/en-us/rest/api/azure/devops/graph/users?view=azure-devops-rest-7.0)
@@ -88,35 +37,7 @@ type GetUsersArgs struct {
 	//
 	// List of possible subject types
 	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
 	// List of possible origins
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	OriginId *string `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName *string `pulumi:"principalName"`
@@ -162,35 +83,7 @@ type GetUsersOutputArgs struct {
 	//
 	// List of possible subject types
 	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
-	//
 	// List of possible origins
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	OriginId pulumi.StringPtrInput `pulumi:"originId"`
 	// The PrincipalName of this graph member from the source provider.
 	PrincipalName pulumi.StringPtrInput `pulumi:"principalName"`
