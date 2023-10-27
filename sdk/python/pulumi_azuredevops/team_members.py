@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TeamMembersArgs', 'TeamMembers']
@@ -32,38 +32,11 @@ class TeamMembersArgs:
                - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
                - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         """
-        TeamMembersArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            members=members,
-            project_id=project_id,
-            team_id=team_id,
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             team_id: Optional[pulumi.Input[str]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if members is None:
-            raise TypeError("Missing 'members' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-        if team_id is None:
-            raise TypeError("Missing 'team_id' argument")
-
-        _setter("members", members)
-        _setter("project_id", project_id)
-        _setter("team_id", team_id)
+        pulumi.set(__self__, "members", members)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "team_id", team_id)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -142,35 +115,14 @@ class _TeamMembersState:
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
         """
-        _TeamMembersState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            members=members,
-            mode=mode,
-            project_id=project_id,
-            team_id=team_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             team_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if team_id is None and 'teamId' in kwargs:
-            team_id = kwargs['teamId']
-
         if members is not None:
-            _setter("members", members)
+            pulumi.set(__self__, "members", members)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if team_id is not None:
-            _setter("team_id", team_id)
+            pulumi.set(__self__, "team_id", team_id)
 
     @property
     @pulumi.getter
@@ -338,10 +290,6 @@ class TeamMembers(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TeamMembersArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

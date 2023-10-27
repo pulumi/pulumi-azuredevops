@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceEndpointDockerRegistryArgs', 'ServiceEndpointDockerRegistry']
@@ -33,69 +33,20 @@ class ServiceEndpointDockerRegistryArgs:
         :param pulumi.Input[str] docker_password: The password for the account user identified above.
         :param pulumi.Input[str] docker_username: The identifier of the Docker account user.
         """
-        ServiceEndpointDockerRegistryArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            docker_registry=docker_registry,
-            project_id=project_id,
-            registry_type=registry_type,
-            service_endpoint_name=service_endpoint_name,
-            authorization=authorization,
-            description=description,
-            docker_email=docker_email,
-            docker_password=docker_password,
-            docker_username=docker_username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             docker_registry: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             registry_type: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             docker_email: Optional[pulumi.Input[str]] = None,
-             docker_password: Optional[pulumi.Input[str]] = None,
-             docker_username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if docker_registry is None and 'dockerRegistry' in kwargs:
-            docker_registry = kwargs['dockerRegistry']
-        if docker_registry is None:
-            raise TypeError("Missing 'docker_registry' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if registry_type is None and 'registryType' in kwargs:
-            registry_type = kwargs['registryType']
-        if registry_type is None:
-            raise TypeError("Missing 'registry_type' argument")
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-        if service_endpoint_name is None:
-            raise TypeError("Missing 'service_endpoint_name' argument")
-        if docker_email is None and 'dockerEmail' in kwargs:
-            docker_email = kwargs['dockerEmail']
-        if docker_password is None and 'dockerPassword' in kwargs:
-            docker_password = kwargs['dockerPassword']
-        if docker_username is None and 'dockerUsername' in kwargs:
-            docker_username = kwargs['dockerUsername']
-
-        _setter("docker_registry", docker_registry)
-        _setter("project_id", project_id)
-        _setter("registry_type", registry_type)
-        _setter("service_endpoint_name", service_endpoint_name)
+        pulumi.set(__self__, "docker_registry", docker_registry)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "registry_type", registry_type)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if docker_email is not None:
-            _setter("docker_email", docker_email)
+            pulumi.set(__self__, "docker_email", docker_email)
         if docker_password is not None:
-            _setter("docker_password", docker_password)
+            pulumi.set(__self__, "docker_password", docker_password)
         if docker_username is not None:
-            _setter("docker_username", docker_username)
+            pulumi.set(__self__, "docker_username", docker_username)
 
     @property
     @pulumi.getter(name="dockerRegistry")
@@ -222,65 +173,24 @@ class _ServiceEndpointDockerRegistryState:
         :param pulumi.Input[str] registry_type: Can be "DockerHub" or "Others" (Default "DockerHub")
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
-        _ServiceEndpointDockerRegistryState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorization=authorization,
-            description=description,
-            docker_email=docker_email,
-            docker_password=docker_password,
-            docker_registry=docker_registry,
-            docker_username=docker_username,
-            project_id=project_id,
-            registry_type=registry_type,
-            service_endpoint_name=service_endpoint_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             docker_email: Optional[pulumi.Input[str]] = None,
-             docker_password: Optional[pulumi.Input[str]] = None,
-             docker_registry: Optional[pulumi.Input[str]] = None,
-             docker_username: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             registry_type: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if docker_email is None and 'dockerEmail' in kwargs:
-            docker_email = kwargs['dockerEmail']
-        if docker_password is None and 'dockerPassword' in kwargs:
-            docker_password = kwargs['dockerPassword']
-        if docker_registry is None and 'dockerRegistry' in kwargs:
-            docker_registry = kwargs['dockerRegistry']
-        if docker_username is None and 'dockerUsername' in kwargs:
-            docker_username = kwargs['dockerUsername']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if registry_type is None and 'registryType' in kwargs:
-            registry_type = kwargs['registryType']
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if docker_email is not None:
-            _setter("docker_email", docker_email)
+            pulumi.set(__self__, "docker_email", docker_email)
         if docker_password is not None:
-            _setter("docker_password", docker_password)
+            pulumi.set(__self__, "docker_password", docker_password)
         if docker_registry is not None:
-            _setter("docker_registry", docker_registry)
+            pulumi.set(__self__, "docker_registry", docker_registry)
         if docker_username is not None:
-            _setter("docker_username", docker_username)
+            pulumi.set(__self__, "docker_username", docker_username)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if registry_type is not None:
-            _setter("registry_type", registry_type)
+            pulumi.set(__self__, "registry_type", registry_type)
         if service_endpoint_name is not None:
-            _setter("service_endpoint_name", service_endpoint_name)
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
 
     @property
     @pulumi.getter
@@ -514,10 +424,6 @@ class ServiceEndpointDockerRegistry(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceEndpointDockerRegistryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

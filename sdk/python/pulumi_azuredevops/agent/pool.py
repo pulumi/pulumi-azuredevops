@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['PoolArgs', 'Pool']
@@ -25,37 +25,14 @@ class PoolArgs:
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
-        PoolArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_provision=auto_provision,
-            auto_update=auto_update,
-            name=name,
-            pool_type=pool_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_provision: Optional[pulumi.Input[bool]] = None,
-             auto_update: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             pool_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_provision is None and 'autoProvision' in kwargs:
-            auto_provision = kwargs['autoProvision']
-        if auto_update is None and 'autoUpdate' in kwargs:
-            auto_update = kwargs['autoUpdate']
-        if pool_type is None and 'poolType' in kwargs:
-            pool_type = kwargs['poolType']
-
         if auto_provision is not None:
-            _setter("auto_provision", auto_provision)
+            pulumi.set(__self__, "auto_provision", auto_provision)
         if auto_update is not None:
-            _setter("auto_update", auto_update)
+            pulumi.set(__self__, "auto_update", auto_update)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if pool_type is not None:
-            _setter("pool_type", pool_type)
+            pulumi.set(__self__, "pool_type", pool_type)
 
     @property
     @pulumi.getter(name="autoProvision")
@@ -120,37 +97,14 @@ class _PoolState:
         :param pulumi.Input[str] name: The name of the agent pool.
         :param pulumi.Input[str] pool_type: Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
         """
-        _PoolState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_provision=auto_provision,
-            auto_update=auto_update,
-            name=name,
-            pool_type=pool_type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_provision: Optional[pulumi.Input[bool]] = None,
-             auto_update: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             pool_type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_provision is None and 'autoProvision' in kwargs:
-            auto_provision = kwargs['autoProvision']
-        if auto_update is None and 'autoUpdate' in kwargs:
-            auto_update = kwargs['autoUpdate']
-        if pool_type is None and 'poolType' in kwargs:
-            pool_type = kwargs['poolType']
-
         if auto_provision is not None:
-            _setter("auto_provision", auto_provision)
+            pulumi.set(__self__, "auto_provision", auto_provision)
         if auto_update is not None:
-            _setter("auto_update", auto_update)
+            pulumi.set(__self__, "auto_update", auto_update)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if pool_type is not None:
-            _setter("pool_type", pool_type)
+            pulumi.set(__self__, "pool_type", pool_type)
 
     @property
     @pulumi.getter(name="autoProvision")
@@ -289,10 +243,6 @@ class Pool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

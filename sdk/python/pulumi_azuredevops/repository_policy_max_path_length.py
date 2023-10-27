@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryPolicyMaxPathLengthArgs', 'RepositoryPolicyMaxPathLength']
@@ -27,43 +27,14 @@ class RepositoryPolicyMaxPathLengthArgs:
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
-        RepositoryPolicyMaxPathLengthArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            max_path_length=max_path_length,
-            project_id=project_id,
-            blocking=blocking,
-            enabled=enabled,
-            repository_ids=repository_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             max_path_length: Optional[pulumi.Input[int]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             blocking: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_path_length is None and 'maxPathLength' in kwargs:
-            max_path_length = kwargs['maxPathLength']
-        if max_path_length is None:
-            raise TypeError("Missing 'max_path_length' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if repository_ids is None and 'repositoryIds' in kwargs:
-            repository_ids = kwargs['repositoryIds']
-
-        _setter("max_path_length", max_path_length)
-        _setter("project_id", project_id)
+        pulumi.set(__self__, "max_path_length", max_path_length)
+        pulumi.set(__self__, "project_id", project_id)
         if blocking is not None:
-            _setter("blocking", blocking)
+            pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if repository_ids is not None:
-            _setter("repository_ids", repository_ids)
+            pulumi.set(__self__, "repository_ids", repository_ids)
 
     @property
     @pulumi.getter(name="maxPathLength")
@@ -142,41 +113,16 @@ class _RepositoryPolicyMaxPathLengthState:
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
-        _RepositoryPolicyMaxPathLengthState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            blocking=blocking,
-            enabled=enabled,
-            max_path_length=max_path_length,
-            project_id=project_id,
-            repository_ids=repository_ids,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             blocking: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             max_path_length: Optional[pulumi.Input[int]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if max_path_length is None and 'maxPathLength' in kwargs:
-            max_path_length = kwargs['maxPathLength']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if repository_ids is None and 'repositoryIds' in kwargs:
-            repository_ids = kwargs['repositoryIds']
-
         if blocking is not None:
-            _setter("blocking", blocking)
+            pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if max_path_length is not None:
-            _setter("max_path_length", max_path_length)
+            pulumi.set(__self__, "max_path_length", max_path_length)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if repository_ids is not None:
-            _setter("repository_ids", repository_ids)
+            pulumi.set(__self__, "repository_ids", repository_ids)
 
     @property
     @pulumi.getter
@@ -388,10 +334,6 @@ class RepositoryPolicyMaxPathLength(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            RepositoryPolicyMaxPathLengthArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

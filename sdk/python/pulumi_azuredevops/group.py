@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['GroupArgs', 'Group']
@@ -29,43 +29,18 @@ class GroupArgs:
         :param pulumi.Input[str] origin_id: The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
         :param pulumi.Input[str] scope: The scope of the group. A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization.x
         """
-        GroupArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            display_name=display_name,
-            mail=mail,
-            members=members,
-            origin_id=origin_id,
-            scope=scope,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             mail: Optional[pulumi.Input[str]] = None,
-             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             origin_id: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if origin_id is None and 'originId' in kwargs:
-            origin_id = kwargs['originId']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if mail is not None:
-            _setter("mail", mail)
+            pulumi.set(__self__, "mail", mail)
         if members is not None:
-            _setter("members", members)
+            pulumi.set(__self__, "members", members)
         if origin_id is not None:
-            _setter("origin_id", origin_id)
+            pulumi.set(__self__, "origin_id", origin_id)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
 
     @property
     @pulumi.getter
@@ -170,71 +145,30 @@ class _GroupState:
         :param pulumi.Input[str] subject_kind: This field identifies the type of the graph subject (ex: Group, Scope, User).
         :param pulumi.Input[str] url: This url is the full route to the source resource of this graph subject.
         """
-        _GroupState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            description=description,
-            descriptor=descriptor,
-            display_name=display_name,
-            domain=domain,
-            mail=mail,
-            members=members,
-            origin=origin,
-            origin_id=origin_id,
-            principal_name=principal_name,
-            scope=scope,
-            subject_kind=subject_kind,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             description: Optional[pulumi.Input[str]] = None,
-             descriptor: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             domain: Optional[pulumi.Input[str]] = None,
-             mail: Optional[pulumi.Input[str]] = None,
-             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             origin: Optional[pulumi.Input[str]] = None,
-             origin_id: Optional[pulumi.Input[str]] = None,
-             principal_name: Optional[pulumi.Input[str]] = None,
-             scope: Optional[pulumi.Input[str]] = None,
-             subject_kind: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if origin_id is None and 'originId' in kwargs:
-            origin_id = kwargs['originId']
-        if principal_name is None and 'principalName' in kwargs:
-            principal_name = kwargs['principalName']
-        if subject_kind is None and 'subjectKind' in kwargs:
-            subject_kind = kwargs['subjectKind']
-
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if descriptor is not None:
-            _setter("descriptor", descriptor)
+            pulumi.set(__self__, "descriptor", descriptor)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if domain is not None:
-            _setter("domain", domain)
+            pulumi.set(__self__, "domain", domain)
         if mail is not None:
-            _setter("mail", mail)
+            pulumi.set(__self__, "mail", mail)
         if members is not None:
-            _setter("members", members)
+            pulumi.set(__self__, "members", members)
         if origin is not None:
-            _setter("origin", origin)
+            pulumi.set(__self__, "origin", origin)
         if origin_id is not None:
-            _setter("origin_id", origin_id)
+            pulumi.set(__self__, "origin_id", origin_id)
         if principal_name is not None:
-            _setter("principal_name", principal_name)
+            pulumi.set(__self__, "principal_name", principal_name)
         if scope is not None:
-            _setter("scope", scope)
+            pulumi.set(__self__, "scope", scope)
         if subject_kind is not None:
-            _setter("subject_kind", subject_kind)
+            pulumi.set(__self__, "subject_kind", subject_kind)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter
@@ -496,10 +430,6 @@ class Group(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CheckBranchControlArgs', 'CheckBranchControl']
@@ -33,64 +33,19 @@ class CheckBranchControlArgs:
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
         :param pulumi.Input[bool] verify_branch_protection: Validate the branches being deployed are protected. Defaults to `false`.
         """
-        CheckBranchControlArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project_id=project_id,
-            target_resource_id=target_resource_id,
-            target_resource_type=target_resource_type,
-            allowed_branches=allowed_branches,
-            display_name=display_name,
-            ignore_unknown_protection_status=ignore_unknown_protection_status,
-            timeout=timeout,
-            verify_branch_protection=verify_branch_protection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project_id: Optional[pulumi.Input[str]] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             target_resource_type: Optional[pulumi.Input[str]] = None,
-             allowed_branches: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             ignore_unknown_protection_status: Optional[pulumi.Input[bool]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             verify_branch_protection: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-        if target_resource_id is None:
-            raise TypeError("Missing 'target_resource_id' argument")
-        if target_resource_type is None and 'targetResourceType' in kwargs:
-            target_resource_type = kwargs['targetResourceType']
-        if target_resource_type is None:
-            raise TypeError("Missing 'target_resource_type' argument")
-        if allowed_branches is None and 'allowedBranches' in kwargs:
-            allowed_branches = kwargs['allowedBranches']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if ignore_unknown_protection_status is None and 'ignoreUnknownProtectionStatus' in kwargs:
-            ignore_unknown_protection_status = kwargs['ignoreUnknownProtectionStatus']
-        if verify_branch_protection is None and 'verifyBranchProtection' in kwargs:
-            verify_branch_protection = kwargs['verifyBranchProtection']
-
-        _setter("project_id", project_id)
-        _setter("target_resource_id", target_resource_id)
-        _setter("target_resource_type", target_resource_type)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "target_resource_id", target_resource_id)
+        pulumi.set(__self__, "target_resource_type", target_resource_type)
         if allowed_branches is not None:
-            _setter("allowed_branches", allowed_branches)
+            pulumi.set(__self__, "allowed_branches", allowed_branches)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if ignore_unknown_protection_status is not None:
-            _setter("ignore_unknown_protection_status", ignore_unknown_protection_status)
+            pulumi.set(__self__, "ignore_unknown_protection_status", ignore_unknown_protection_status)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if verify_branch_protection is not None:
-            _setter("verify_branch_protection", verify_branch_protection)
+            pulumi.set(__self__, "verify_branch_protection", verify_branch_protection)
 
     @property
     @pulumi.getter(name="projectId")
@@ -211,61 +166,22 @@ class _CheckBranchControlState:
         :param pulumi.Input[int] timeout: The timeout in minutes for the branch control check. Defaults to `1440`.
         :param pulumi.Input[bool] verify_branch_protection: Validate the branches being deployed are protected. Defaults to `false`.
         """
-        _CheckBranchControlState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            allowed_branches=allowed_branches,
-            display_name=display_name,
-            ignore_unknown_protection_status=ignore_unknown_protection_status,
-            project_id=project_id,
-            target_resource_id=target_resource_id,
-            target_resource_type=target_resource_type,
-            timeout=timeout,
-            verify_branch_protection=verify_branch_protection,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             allowed_branches: Optional[pulumi.Input[str]] = None,
-             display_name: Optional[pulumi.Input[str]] = None,
-             ignore_unknown_protection_status: Optional[pulumi.Input[bool]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             target_resource_id: Optional[pulumi.Input[str]] = None,
-             target_resource_type: Optional[pulumi.Input[str]] = None,
-             timeout: Optional[pulumi.Input[int]] = None,
-             verify_branch_protection: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if allowed_branches is None and 'allowedBranches' in kwargs:
-            allowed_branches = kwargs['allowedBranches']
-        if display_name is None and 'displayName' in kwargs:
-            display_name = kwargs['displayName']
-        if ignore_unknown_protection_status is None and 'ignoreUnknownProtectionStatus' in kwargs:
-            ignore_unknown_protection_status = kwargs['ignoreUnknownProtectionStatus']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if target_resource_id is None and 'targetResourceId' in kwargs:
-            target_resource_id = kwargs['targetResourceId']
-        if target_resource_type is None and 'targetResourceType' in kwargs:
-            target_resource_type = kwargs['targetResourceType']
-        if verify_branch_protection is None and 'verifyBranchProtection' in kwargs:
-            verify_branch_protection = kwargs['verifyBranchProtection']
-
         if allowed_branches is not None:
-            _setter("allowed_branches", allowed_branches)
+            pulumi.set(__self__, "allowed_branches", allowed_branches)
         if display_name is not None:
-            _setter("display_name", display_name)
+            pulumi.set(__self__, "display_name", display_name)
         if ignore_unknown_protection_status is not None:
-            _setter("ignore_unknown_protection_status", ignore_unknown_protection_status)
+            pulumi.set(__self__, "ignore_unknown_protection_status", ignore_unknown_protection_status)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if target_resource_id is not None:
-            _setter("target_resource_id", target_resource_id)
+            pulumi.set(__self__, "target_resource_id", target_resource_id)
         if target_resource_type is not None:
-            _setter("target_resource_type", target_resource_type)
+            pulumi.set(__self__, "target_resource_type", target_resource_type)
         if timeout is not None:
-            _setter("timeout", timeout)
+            pulumi.set(__self__, "timeout", timeout)
         if verify_branch_protection is not None:
-            _setter("verify_branch_protection", verify_branch_protection)
+            pulumi.set(__self__, "verify_branch_protection", verify_branch_protection)
 
     @property
     @pulumi.getter(name="allowedBranches")
@@ -635,10 +551,6 @@ class CheckBranchControl(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            CheckBranchControlArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

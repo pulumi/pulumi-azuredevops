@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceendpointPermissionsArgs', 'ServiceendpointPermissions']
@@ -35,42 +35,13 @@ class ServiceendpointPermissionsArgs:
                | ViewEndpoint      | View service endpoint properties    |
         :param pulumi.Input[str] serviceendpoint_id: The id of the service endpoint to assign the permissions.
         """
-        ServiceendpointPermissionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permissions=permissions,
-            principal=principal,
-            project_id=project_id,
-            replace=replace,
-            serviceendpoint_id=serviceendpoint_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             principal: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             replace: Optional[pulumi.Input[bool]] = None,
-             serviceendpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-        if principal is None:
-            raise TypeError("Missing 'principal' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if serviceendpoint_id is None and 'serviceendpointId' in kwargs:
-            serviceendpoint_id = kwargs['serviceendpointId']
-
-        _setter("permissions", permissions)
-        _setter("principal", principal)
-        _setter("project_id", project_id)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "project_id", project_id)
         if replace is not None:
-            _setter("replace", replace)
+            pulumi.set(__self__, "replace", replace)
         if serviceendpoint_id is not None:
-            _setter("serviceendpoint_id", serviceendpoint_id)
+            pulumi.set(__self__, "serviceendpoint_id", serviceendpoint_id)
 
     @property
     @pulumi.getter
@@ -165,39 +136,16 @@ class _ServiceendpointPermissionsState:
                | ViewEndpoint      | View service endpoint properties    |
         :param pulumi.Input[str] serviceendpoint_id: The id of the service endpoint to assign the permissions.
         """
-        _ServiceendpointPermissionsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permissions=permissions,
-            principal=principal,
-            project_id=project_id,
-            replace=replace,
-            serviceendpoint_id=serviceendpoint_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             principal: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             replace: Optional[pulumi.Input[bool]] = None,
-             serviceendpoint_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if serviceendpoint_id is None and 'serviceendpointId' in kwargs:
-            serviceendpoint_id = kwargs['serviceendpointId']
-
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if principal is not None:
-            _setter("principal", principal)
+            pulumi.set(__self__, "principal", principal)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if replace is not None:
-            _setter("replace", replace)
+            pulumi.set(__self__, "replace", replace)
         if serviceendpoint_id is not None:
-            _setter("serviceendpoint_id", serviceendpoint_id)
+            pulumi.set(__self__, "serviceendpoint_id", serviceendpoint_id)
 
     @property
     @pulumi.getter
@@ -439,10 +387,6 @@ class ServiceendpointPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceendpointPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
