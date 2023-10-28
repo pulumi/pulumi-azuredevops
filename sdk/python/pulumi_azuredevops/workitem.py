@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['WorkitemArgs', 'Workitem']
@@ -33,58 +33,19 @@ class WorkitemArgs:
         :param pulumi.Input[str] state: The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&tabs=agile-process#workflow-states) for more details.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tags: Specifies a list of Tags.
         """
-        WorkitemArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project_id=project_id,
-            title=title,
-            type=type,
-            area_path=area_path,
-            custom_fields=custom_fields,
-            iteration_path=iteration_path,
-            state=state,
-            tags=tags,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project_id: Optional[pulumi.Input[str]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             area_path: Optional[pulumi.Input[str]] = None,
-             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             iteration_path: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if title is None:
-            raise TypeError("Missing 'title' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if area_path is None and 'areaPath' in kwargs:
-            area_path = kwargs['areaPath']
-        if custom_fields is None and 'customFields' in kwargs:
-            custom_fields = kwargs['customFields']
-        if iteration_path is None and 'iterationPath' in kwargs:
-            iteration_path = kwargs['iterationPath']
-
-        _setter("project_id", project_id)
-        _setter("title", title)
-        _setter("type", type)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "title", title)
+        pulumi.set(__self__, "type", type)
         if area_path is not None:
-            _setter("area_path", area_path)
+            pulumi.set(__self__, "area_path", area_path)
         if custom_fields is not None:
-            _setter("custom_fields", custom_fields)
+            pulumi.set(__self__, "custom_fields", custom_fields)
         if iteration_path is not None:
-            _setter("iteration_path", iteration_path)
+            pulumi.set(__self__, "iteration_path", iteration_path)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter(name="projectId")
@@ -205,55 +166,22 @@ class _WorkitemState:
         :param pulumi.Input[str] title: The Title of the Work Item.
         :param pulumi.Input[str] type: The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
         """
-        _WorkitemState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            area_path=area_path,
-            custom_fields=custom_fields,
-            iteration_path=iteration_path,
-            project_id=project_id,
-            state=state,
-            tags=tags,
-            title=title,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             area_path: Optional[pulumi.Input[str]] = None,
-             custom_fields: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             iteration_path: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             state: Optional[pulumi.Input[str]] = None,
-             tags: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             title: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if area_path is None and 'areaPath' in kwargs:
-            area_path = kwargs['areaPath']
-        if custom_fields is None and 'customFields' in kwargs:
-            custom_fields = kwargs['customFields']
-        if iteration_path is None and 'iterationPath' in kwargs:
-            iteration_path = kwargs['iterationPath']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-
         if area_path is not None:
-            _setter("area_path", area_path)
+            pulumi.set(__self__, "area_path", area_path)
         if custom_fields is not None:
-            _setter("custom_fields", custom_fields)
+            pulumi.set(__self__, "custom_fields", custom_fields)
         if iteration_path is not None:
-            _setter("iteration_path", iteration_path)
+            pulumi.set(__self__, "iteration_path", iteration_path)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if state is not None:
-            _setter("state", state)
+            pulumi.set(__self__, "state", state)
         if tags is not None:
-            _setter("tags", tags)
+            pulumi.set(__self__, "tags", tags)
         if title is not None:
-            _setter("title", title)
+            pulumi.set(__self__, "title", title)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="areaPath")
@@ -489,10 +417,6 @@ class Workitem(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            WorkitemArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

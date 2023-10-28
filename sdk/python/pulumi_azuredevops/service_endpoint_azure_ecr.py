@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceEndpointAzureEcrArgs', 'ServiceEndpointAzureEcr']
@@ -33,72 +33,17 @@ class ServiceEndpointAzureEcrArgs:
         :param pulumi.Input[str] resource_group: The resource group to which the container registry belongs.
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         """
-        ServiceEndpointAzureEcrArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            azurecr_name=azurecr_name,
-            azurecr_spn_tenantid=azurecr_spn_tenantid,
-            azurecr_subscription_id=azurecr_subscription_id,
-            azurecr_subscription_name=azurecr_subscription_name,
-            project_id=project_id,
-            resource_group=resource_group,
-            service_endpoint_name=service_endpoint_name,
-            authorization=authorization,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             azurecr_name: Optional[pulumi.Input[str]] = None,
-             azurecr_spn_tenantid: Optional[pulumi.Input[str]] = None,
-             azurecr_subscription_id: Optional[pulumi.Input[str]] = None,
-             azurecr_subscription_name: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             resource_group: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if azurecr_name is None and 'azurecrName' in kwargs:
-            azurecr_name = kwargs['azurecrName']
-        if azurecr_name is None:
-            raise TypeError("Missing 'azurecr_name' argument")
-        if azurecr_spn_tenantid is None and 'azurecrSpnTenantid' in kwargs:
-            azurecr_spn_tenantid = kwargs['azurecrSpnTenantid']
-        if azurecr_spn_tenantid is None:
-            raise TypeError("Missing 'azurecr_spn_tenantid' argument")
-        if azurecr_subscription_id is None and 'azurecrSubscriptionId' in kwargs:
-            azurecr_subscription_id = kwargs['azurecrSubscriptionId']
-        if azurecr_subscription_id is None:
-            raise TypeError("Missing 'azurecr_subscription_id' argument")
-        if azurecr_subscription_name is None and 'azurecrSubscriptionName' in kwargs:
-            azurecr_subscription_name = kwargs['azurecrSubscriptionName']
-        if azurecr_subscription_name is None:
-            raise TypeError("Missing 'azurecr_subscription_name' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if resource_group is None and 'resourceGroup' in kwargs:
-            resource_group = kwargs['resourceGroup']
-        if resource_group is None:
-            raise TypeError("Missing 'resource_group' argument")
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-        if service_endpoint_name is None:
-            raise TypeError("Missing 'service_endpoint_name' argument")
-
-        _setter("azurecr_name", azurecr_name)
-        _setter("azurecr_spn_tenantid", azurecr_spn_tenantid)
-        _setter("azurecr_subscription_id", azurecr_subscription_id)
-        _setter("azurecr_subscription_name", azurecr_subscription_name)
-        _setter("project_id", project_id)
-        _setter("resource_group", resource_group)
-        _setter("service_endpoint_name", service_endpoint_name)
+        pulumi.set(__self__, "azurecr_name", azurecr_name)
+        pulumi.set(__self__, "azurecr_spn_tenantid", azurecr_spn_tenantid)
+        pulumi.set(__self__, "azurecr_subscription_id", azurecr_subscription_id)
+        pulumi.set(__self__, "azurecr_subscription_name", azurecr_subscription_name)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "resource_group", resource_group)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="azurecrName")
@@ -231,95 +176,34 @@ class _ServiceEndpointAzureEcrState:
         :param pulumi.Input[str] service_endpoint_name: The name you will use to refer to this service connection in task inputs.
         :param pulumi.Input[str] service_principal_id: The service principal ID.
         """
-        _ServiceEndpointAzureEcrState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            app_object_id=app_object_id,
-            authorization=authorization,
-            az_spn_role_assignment_id=az_spn_role_assignment_id,
-            az_spn_role_permissions=az_spn_role_permissions,
-            azurecr_name=azurecr_name,
-            azurecr_spn_tenantid=azurecr_spn_tenantid,
-            azurecr_subscription_id=azurecr_subscription_id,
-            azurecr_subscription_name=azurecr_subscription_name,
-            description=description,
-            project_id=project_id,
-            resource_group=resource_group,
-            service_endpoint_name=service_endpoint_name,
-            service_principal_id=service_principal_id,
-            spn_object_id=spn_object_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             app_object_id: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             az_spn_role_assignment_id: Optional[pulumi.Input[str]] = None,
-             az_spn_role_permissions: Optional[pulumi.Input[str]] = None,
-             azurecr_name: Optional[pulumi.Input[str]] = None,
-             azurecr_spn_tenantid: Optional[pulumi.Input[str]] = None,
-             azurecr_subscription_id: Optional[pulumi.Input[str]] = None,
-             azurecr_subscription_name: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             resource_group: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             service_principal_id: Optional[pulumi.Input[str]] = None,
-             spn_object_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if app_object_id is None and 'appObjectId' in kwargs:
-            app_object_id = kwargs['appObjectId']
-        if az_spn_role_assignment_id is None and 'azSpnRoleAssignmentId' in kwargs:
-            az_spn_role_assignment_id = kwargs['azSpnRoleAssignmentId']
-        if az_spn_role_permissions is None and 'azSpnRolePermissions' in kwargs:
-            az_spn_role_permissions = kwargs['azSpnRolePermissions']
-        if azurecr_name is None and 'azurecrName' in kwargs:
-            azurecr_name = kwargs['azurecrName']
-        if azurecr_spn_tenantid is None and 'azurecrSpnTenantid' in kwargs:
-            azurecr_spn_tenantid = kwargs['azurecrSpnTenantid']
-        if azurecr_subscription_id is None and 'azurecrSubscriptionId' in kwargs:
-            azurecr_subscription_id = kwargs['azurecrSubscriptionId']
-        if azurecr_subscription_name is None and 'azurecrSubscriptionName' in kwargs:
-            azurecr_subscription_name = kwargs['azurecrSubscriptionName']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if resource_group is None and 'resourceGroup' in kwargs:
-            resource_group = kwargs['resourceGroup']
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-        if service_principal_id is None and 'servicePrincipalId' in kwargs:
-            service_principal_id = kwargs['servicePrincipalId']
-        if spn_object_id is None and 'spnObjectId' in kwargs:
-            spn_object_id = kwargs['spnObjectId']
-
         if app_object_id is not None:
-            _setter("app_object_id", app_object_id)
+            pulumi.set(__self__, "app_object_id", app_object_id)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if az_spn_role_assignment_id is not None:
-            _setter("az_spn_role_assignment_id", az_spn_role_assignment_id)
+            pulumi.set(__self__, "az_spn_role_assignment_id", az_spn_role_assignment_id)
         if az_spn_role_permissions is not None:
-            _setter("az_spn_role_permissions", az_spn_role_permissions)
+            pulumi.set(__self__, "az_spn_role_permissions", az_spn_role_permissions)
         if azurecr_name is not None:
-            _setter("azurecr_name", azurecr_name)
+            pulumi.set(__self__, "azurecr_name", azurecr_name)
         if azurecr_spn_tenantid is not None:
-            _setter("azurecr_spn_tenantid", azurecr_spn_tenantid)
+            pulumi.set(__self__, "azurecr_spn_tenantid", azurecr_spn_tenantid)
         if azurecr_subscription_id is not None:
-            _setter("azurecr_subscription_id", azurecr_subscription_id)
+            pulumi.set(__self__, "azurecr_subscription_id", azurecr_subscription_id)
         if azurecr_subscription_name is not None:
-            _setter("azurecr_subscription_name", azurecr_subscription_name)
+            pulumi.set(__self__, "azurecr_subscription_name", azurecr_subscription_name)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if resource_group is not None:
-            _setter("resource_group", resource_group)
+            pulumi.set(__self__, "resource_group", resource_group)
         if service_endpoint_name is not None:
-            _setter("service_endpoint_name", service_endpoint_name)
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if service_principal_id is not None:
-            _setter("service_principal_id", service_principal_id)
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
         if spn_object_id is not None:
-            _setter("spn_object_id", spn_object_id)
+            pulumi.set(__self__, "spn_object_id", spn_object_id)
 
     @property
     @pulumi.getter(name="appObjectId")
@@ -587,10 +471,6 @@ class ServiceEndpointAzureEcr(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceEndpointAzureEcrArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -44,33 +44,10 @@ class VariableGroupKeyVault(dict):
         :param str service_endpoint_id: The id of the Azure subscription endpoint to access the key vault.
         :param int search_depth: Set the Azure Key Vault Secret search depth. Defaults to `20`.
         """
-        VariableGroupKeyVault._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            service_endpoint_id=service_endpoint_id,
-            search_depth=search_depth,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             service_endpoint_id: Optional[str] = None,
-             search_depth: Optional[int] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if service_endpoint_id is None and 'serviceEndpointId' in kwargs:
-            service_endpoint_id = kwargs['serviceEndpointId']
-        if service_endpoint_id is None:
-            raise TypeError("Missing 'service_endpoint_id' argument")
-        if search_depth is None and 'searchDepth' in kwargs:
-            search_depth = kwargs['searchDepth']
-
-        _setter("name", name)
-        _setter("service_endpoint_id", service_endpoint_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "service_endpoint_id", service_endpoint_id)
         if search_depth is not None:
-            _setter("search_depth", search_depth)
+            pulumi.set(__self__, "search_depth", search_depth)
 
     @property
     @pulumi.getter
@@ -134,50 +111,19 @@ class VariableGroupVariable(dict):
         :param str secret_value: The secret value of the variable. If omitted, it will default to empty string. Used when `is_secret` set to `true`.
         :param str value: The value of the variable. If omitted, it will default to empty string.
         """
-        VariableGroupVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            content_type=content_type,
-            enabled=enabled,
-            expires=expires,
-            is_secret=is_secret,
-            secret_value=secret_value,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             content_type: Optional[str] = None,
-             enabled: Optional[bool] = None,
-             expires: Optional[str] = None,
-             is_secret: Optional[bool] = None,
-             secret_value: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if content_type is None and 'contentType' in kwargs:
-            content_type = kwargs['contentType']
-        if is_secret is None and 'isSecret' in kwargs:
-            is_secret = kwargs['isSecret']
-        if secret_value is None and 'secretValue' in kwargs:
-            secret_value = kwargs['secretValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if content_type is not None:
-            _setter("content_type", content_type)
+            pulumi.set(__self__, "content_type", content_type)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if expires is not None:
-            _setter("expires", expires)
+            pulumi.set(__self__, "expires", expires)
         if is_secret is not None:
-            _setter("is_secret", is_secret)
+            pulumi.set(__self__, "is_secret", is_secret)
         if secret_value is not None:
-            _setter("secret_value", secret_value)
+            pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter

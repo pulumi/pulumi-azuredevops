@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['TaggingPermissionsArgs', 'TaggingPermissions']
@@ -32,35 +32,12 @@ class TaggingPermissionsArgs:
                | Update             | Update tag definition      |
                | Delete             | Delete tag definition      |
         """
-        TaggingPermissionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permissions=permissions,
-            principal=principal,
-            project_id=project_id,
-            replace=replace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             principal: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             replace: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-        if principal is None:
-            raise TypeError("Missing 'principal' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-
-        _setter("permissions", permissions)
-        _setter("principal", principal)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "principal", principal)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if replace is not None:
-            _setter("replace", replace)
+            pulumi.set(__self__, "replace", replace)
 
     @property
     @pulumi.getter
@@ -139,33 +116,14 @@ class _TaggingPermissionsState:
                | Update             | Update tag definition      |
                | Delete             | Delete tag definition      |
         """
-        _TaggingPermissionsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permissions=permissions,
-            principal=principal,
-            project_id=project_id,
-            replace=replace,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             principal: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             replace: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if principal is not None:
-            _setter("principal", principal)
+            pulumi.set(__self__, "principal", principal)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if replace is not None:
-            _setter("replace", replace)
+            pulumi.set(__self__, "replace", replace)
 
     @property
     @pulumi.getter
@@ -349,10 +307,6 @@ class TaggingPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            TaggingPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

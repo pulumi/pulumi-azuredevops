@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceEndpointSshArgs', 'ServiceEndpointSsh']
@@ -33,61 +33,20 @@ class ServiceEndpointSshArgs:
         :param pulumi.Input[int] port: Port number on the remote machine to use for connecting. Defaults to `22`.
         :param pulumi.Input[str] private_key: Private Key for connecting to the endpoint.
         """
-        ServiceEndpointSshArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            host=host,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-            username=username,
-            authorization=authorization,
-            description=description,
-            password=password,
-            port=port,
-            private_key=private_key,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             host: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if host is None:
-            raise TypeError("Missing 'host' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-        if service_endpoint_name is None:
-            raise TypeError("Missing 'service_endpoint_name' argument")
-        if username is None:
-            raise TypeError("Missing 'username' argument")
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-
-        _setter("host", host)
-        _setter("project_id", project_id)
-        _setter("service_endpoint_name", service_endpoint_name)
-        _setter("username", username)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        pulumi.set(__self__, "username", username)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if private_key is not None:
-            _setter("private_key", private_key)
+            pulumi.set(__self__, "private_key", private_key)
 
     @property
     @pulumi.getter
@@ -214,57 +173,24 @@ class _ServiceEndpointSshState:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: Username for connecting to the endpoint.
         """
-        _ServiceEndpointSshState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            authorization=authorization,
-            description=description,
-            host=host,
-            password=password,
-            port=port,
-            private_key=private_key,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             host: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             port: Optional[pulumi.Input[int]] = None,
-             private_key: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if private_key is None and 'privateKey' in kwargs:
-            private_key = kwargs['privateKey']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if host is not None:
-            _setter("host", host)
+            pulumi.set(__self__, "host", host)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if port is not None:
-            _setter("port", port)
+            pulumi.set(__self__, "port", port)
         if private_key is not None:
-            _setter("private_key", private_key)
+            pulumi.set(__self__, "private_key", private_key)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if service_endpoint_name is not None:
-            _setter("service_endpoint_name", service_endpoint_name)
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -476,10 +402,6 @@ class ServiceEndpointSsh(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceEndpointSshArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

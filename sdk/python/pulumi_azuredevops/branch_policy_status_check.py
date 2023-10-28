@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -27,35 +27,12 @@ class BranchPolicyStatusCheckArgs:
         :param pulumi.Input[bool] blocking: A flag indicating if the policy should be blocking. Defaults to `true`.
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         """
-        BranchPolicyStatusCheckArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project_id=project_id,
-            settings=settings,
-            blocking=blocking,
-            enabled=enabled,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project_id: Optional[pulumi.Input[str]] = None,
-             settings: Optional[pulumi.Input['BranchPolicyStatusCheckSettingsArgs']] = None,
-             blocking: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if settings is None:
-            raise TypeError("Missing 'settings' argument")
-
-        _setter("project_id", project_id)
-        _setter("settings", settings)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "settings", settings)
         if blocking is not None:
-            _setter("blocking", blocking)
+            pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
 
     @property
     @pulumi.getter(name="projectId")
@@ -120,33 +97,14 @@ class _BranchPolicyStatusCheckState:
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input['BranchPolicyStatusCheckSettingsArgs'] settings: Configuration for the policy. This block must be defined exactly once.
         """
-        _BranchPolicyStatusCheckState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            blocking=blocking,
-            enabled=enabled,
-            project_id=project_id,
-            settings=settings,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             blocking: Optional[pulumi.Input[bool]] = None,
-             enabled: Optional[pulumi.Input[bool]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             settings: Optional[pulumi.Input['BranchPolicyStatusCheckSettingsArgs']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-
         if blocking is not None:
-            _setter("blocking", blocking)
+            pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
-            _setter("enabled", enabled)
+            pulumi.set(__self__, "enabled", enabled)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if settings is not None:
-            _setter("settings", settings)
+            pulumi.set(__self__, "settings", settings)
 
     @property
     @pulumi.getter
@@ -350,10 +308,6 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            BranchPolicyStatusCheckArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -377,7 +331,6 @@ class BranchPolicyStatusCheck(pulumi.CustomResource):
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
-            settings = _utilities.configure(settings, BranchPolicyStatusCheckSettingsArgs, True)
             if settings is None and not opts.urn:
                 raise TypeError("Missing required property 'settings'")
             __props__.__dict__["settings"] = settings

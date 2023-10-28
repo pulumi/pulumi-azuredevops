@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceendpointNugetArgs', 'ServiceendpointNuget']
@@ -35,64 +35,21 @@ class ServiceendpointNugetArgs:
         :param pulumi.Input[str] personal_access_token: The Personal access token used to  connect to the endpoint. Personal access tokens are applicable only for NuGet feeds hosted on other Azure DevOps Services organizations or Azure DevOps Server 2019 (or later).
         :param pulumi.Input[str] username: The account username used to connect to the endpoint.
         """
-        ServiceendpointNugetArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            feed_url=feed_url,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-            api_key=api_key,
-            authorization=authorization,
-            description=description,
-            password=password,
-            personal_access_token=personal_access_token,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             feed_url: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             api_key: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             personal_access_token: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if feed_url is None and 'feedUrl' in kwargs:
-            feed_url = kwargs['feedUrl']
-        if feed_url is None:
-            raise TypeError("Missing 'feed_url' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-        if service_endpoint_name is None:
-            raise TypeError("Missing 'service_endpoint_name' argument")
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if personal_access_token is None and 'personalAccessToken' in kwargs:
-            personal_access_token = kwargs['personalAccessToken']
-
-        _setter("feed_url", feed_url)
-        _setter("project_id", project_id)
-        _setter("service_endpoint_name", service_endpoint_name)
+        pulumi.set(__self__, "feed_url", feed_url)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if api_key is not None:
-            _setter("api_key", api_key)
+            pulumi.set(__self__, "api_key", api_key)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if personal_access_token is not None:
-            _setter("personal_access_token", personal_access_token)
+            pulumi.set(__self__, "personal_access_token", personal_access_token)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="feedUrl")
@@ -223,61 +180,24 @@ class _ServiceendpointNugetState:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] username: The account username used to connect to the endpoint.
         """
-        _ServiceendpointNugetState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-            authorization=authorization,
-            description=description,
-            feed_url=feed_url,
-            password=password,
-            personal_access_token=personal_access_token,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-            username=username,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             feed_url: Optional[pulumi.Input[str]] = None,
-             password: Optional[pulumi.Input[str]] = None,
-             personal_access_token: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             username: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if feed_url is None and 'feedUrl' in kwargs:
-            feed_url = kwargs['feedUrl']
-        if personal_access_token is None and 'personalAccessToken' in kwargs:
-            personal_access_token = kwargs['personalAccessToken']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-
         if api_key is not None:
-            _setter("api_key", api_key)
+            pulumi.set(__self__, "api_key", api_key)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if feed_url is not None:
-            _setter("feed_url", feed_url)
+            pulumi.set(__self__, "feed_url", feed_url)
         if password is not None:
-            _setter("password", password)
+            pulumi.set(__self__, "password", password)
         if personal_access_token is not None:
-            _setter("personal_access_token", personal_access_token)
+            pulumi.set(__self__, "personal_access_token", personal_access_token)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if service_endpoint_name is not None:
-            _setter("service_endpoint_name", service_endpoint_name)
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if username is not None:
-            _setter("username", username)
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -491,10 +411,6 @@ class ServiceendpointNuget(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceendpointNugetArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

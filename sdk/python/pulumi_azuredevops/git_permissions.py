@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['GitPermissionsArgs', 'GitPermissions']
@@ -51,48 +51,15 @@ class GitPermissionsArgs:
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         :param pulumi.Input[str] repository_id: The ID of the GIT repository to assign the permissions
         """
-        GitPermissionsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            permissions=permissions,
-            principal=principal,
-            project_id=project_id,
-            branch_name=branch_name,
-            replace=replace,
-            repository_id=repository_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             principal: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             branch_name: Optional[pulumi.Input[str]] = None,
-             replace: Optional[pulumi.Input[bool]] = None,
-             repository_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if permissions is None:
-            raise TypeError("Missing 'permissions' argument")
-        if principal is None:
-            raise TypeError("Missing 'principal' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if branch_name is None and 'branchName' in kwargs:
-            branch_name = kwargs['branchName']
-        if repository_id is None and 'repositoryId' in kwargs:
-            repository_id = kwargs['repositoryId']
-
-        _setter("permissions", permissions)
-        _setter("principal", principal)
-        _setter("project_id", project_id)
+        pulumi.set(__self__, "permissions", permissions)
+        pulumi.set(__self__, "principal", principal)
+        pulumi.set(__self__, "project_id", project_id)
         if branch_name is not None:
-            _setter("branch_name", branch_name)
+            pulumi.set(__self__, "branch_name", branch_name)
         if replace is not None:
-            _setter("replace", replace)
+            pulumi.set(__self__, "replace", replace)
         if repository_id is not None:
-            _setter("repository_id", repository_id)
+            pulumi.set(__self__, "repository_id", repository_id)
 
     @property
     @pulumi.getter
@@ -229,45 +196,18 @@ class _GitPermissionsState:
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
         :param pulumi.Input[str] repository_id: The ID of the GIT repository to assign the permissions
         """
-        _GitPermissionsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            branch_name=branch_name,
-            permissions=permissions,
-            principal=principal,
-            project_id=project_id,
-            replace=replace,
-            repository_id=repository_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             branch_name: Optional[pulumi.Input[str]] = None,
-             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             principal: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             replace: Optional[pulumi.Input[bool]] = None,
-             repository_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if branch_name is None and 'branchName' in kwargs:
-            branch_name = kwargs['branchName']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if repository_id is None and 'repositoryId' in kwargs:
-            repository_id = kwargs['repositoryId']
-
         if branch_name is not None:
-            _setter("branch_name", branch_name)
+            pulumi.set(__self__, "branch_name", branch_name)
         if permissions is not None:
-            _setter("permissions", permissions)
+            pulumi.set(__self__, "permissions", permissions)
         if principal is not None:
-            _setter("principal", principal)
+            pulumi.set(__self__, "principal", principal)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if replace is not None:
-            _setter("replace", replace)
+            pulumi.set(__self__, "replace", replace)
         if repository_id is not None:
-            _setter("repository_id", repository_id)
+            pulumi.set(__self__, "repository_id", repository_id)
 
     @property
     @pulumi.getter(name="branchName")
@@ -753,10 +693,6 @@ class GitPermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GitPermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

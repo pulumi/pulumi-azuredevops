@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['PipelineAuthorizationArgs', 'PipelineAuthorization']
@@ -25,40 +25,11 @@ class PipelineAuthorizationArgs:
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
         :param pulumi.Input[int] pipeline_id: The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
         """
-        PipelineAuthorizationArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            project_id=project_id,
-            resource_id=resource_id,
-            type=type,
-            pipeline_id=pipeline_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             project_id: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             pipeline_id: Optional[pulumi.Input[int]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-        if resource_id is None:
-            raise TypeError("Missing 'resource_id' argument")
-        if type is None:
-            raise TypeError("Missing 'type' argument")
-        if pipeline_id is None and 'pipelineId' in kwargs:
-            pipeline_id = kwargs['pipelineId']
-
-        _setter("project_id", project_id)
-        _setter("resource_id", resource_id)
-        _setter("type", type)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "resource_id", resource_id)
+        pulumi.set(__self__, "type", type)
         if pipeline_id is not None:
-            _setter("pipeline_id", pipeline_id)
+            pulumi.set(__self__, "pipeline_id", pipeline_id)
 
     @property
     @pulumi.getter(name="projectId")
@@ -123,37 +94,14 @@ class _PipelineAuthorizationState:
         :param pulumi.Input[str] resource_id: The ID of the resource to authorize. Changing this forces a new resource to be created
         :param pulumi.Input[str] type: The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
         """
-        _PipelineAuthorizationState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            pipeline_id=pipeline_id,
-            project_id=project_id,
-            resource_id=resource_id,
-            type=type,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             pipeline_id: Optional[pulumi.Input[int]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             resource_id: Optional[pulumi.Input[str]] = None,
-             type: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if pipeline_id is None and 'pipelineId' in kwargs:
-            pipeline_id = kwargs['pipelineId']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if resource_id is None and 'resourceId' in kwargs:
-            resource_id = kwargs['resourceId']
-
         if pipeline_id is not None:
-            _setter("pipeline_id", pipeline_id)
+            pulumi.set(__self__, "pipeline_id", pipeline_id)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if resource_id is not None:
-            _setter("resource_id", resource_id)
+            pulumi.set(__self__, "resource_id", resource_id)
         if type is not None:
-            _setter("type", type)
+            pulumi.set(__self__, "type", type)
 
     @property
     @pulumi.getter(name="pipelineId")
@@ -369,10 +317,6 @@ class PipelineAuthorization(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            PipelineAuthorizationArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

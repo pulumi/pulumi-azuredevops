@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,49 +28,14 @@ class ServiceEndpointGitHubEnterpriseArgs:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: GitHub Enterprise Server Url.
         """
-        ServiceEndpointGitHubEnterpriseArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auth_personal=auth_personal,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-            url=url,
-            authorization=authorization,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auth_personal: Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auth_personal is None and 'authPersonal' in kwargs:
-            auth_personal = kwargs['authPersonal']
-        if auth_personal is None:
-            raise TypeError("Missing 'auth_personal' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-        if service_endpoint_name is None:
-            raise TypeError("Missing 'service_endpoint_name' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-
-        _setter("auth_personal", auth_personal)
-        _setter("project_id", project_id)
-        _setter("service_endpoint_name", service_endpoint_name)
-        _setter("url", url)
+        pulumi.set(__self__, "auth_personal", auth_personal)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        pulumi.set(__self__, "url", url)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="authPersonal")
@@ -151,45 +116,18 @@ class _ServiceEndpointGitHubEnterpriseState:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: GitHub Enterprise Server Url.
         """
-        _ServiceEndpointGitHubEnterpriseState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auth_personal=auth_personal,
-            authorization=authorization,
-            description=description,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auth_personal: Optional[pulumi.Input['ServiceEndpointGitHubEnterpriseAuthPersonalArgs']] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auth_personal is None and 'authPersonal' in kwargs:
-            auth_personal = kwargs['authPersonal']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-
         if auth_personal is not None:
-            _setter("auth_personal", auth_personal)
+            pulumi.set(__self__, "auth_personal", auth_personal)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if service_endpoint_name is not None:
-            _setter("service_endpoint_name", service_endpoint_name)
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="authPersonal")
@@ -359,10 +297,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceEndpointGitHubEnterpriseArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -383,7 +317,6 @@ class ServiceEndpointGitHubEnterprise(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointGitHubEnterpriseArgs.__new__(ServiceEndpointGitHubEnterpriseArgs)
 
-            auth_personal = _utilities.configure(auth_personal, ServiceEndpointGitHubEnterpriseAuthPersonalArgs, True)
             if auth_personal is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_personal'")
             __props__.__dict__["auth_personal"] = auth_personal
