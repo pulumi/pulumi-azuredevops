@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = ['GroupMembershipArgs', 'GroupMembership']
@@ -27,29 +27,10 @@ class GroupMembershipArgs:
                - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
                > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
-        GroupMembershipArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group=group,
-            members=members,
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group: Optional[pulumi.Input[str]] = None,
-             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if group is None:
-            raise TypeError("Missing 'group' argument")
-        if members is None:
-            raise TypeError("Missing 'members' argument")
-
-        _setter("group", group)
-        _setter("members", members)
+        pulumi.set(__self__, "group", group)
+        pulumi.set(__self__, "members", members)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -108,27 +89,12 @@ class _GroupMembershipState:
                - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
                > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
         """
-        _GroupMembershipState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            group=group,
-            members=members,
-            mode=mode,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             group: Optional[pulumi.Input[str]] = None,
-             members: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-             mode: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if group is not None:
-            _setter("group", group)
+            pulumi.set(__self__, "group", group)
         if members is not None:
-            _setter("members", members)
+            pulumi.set(__self__, "members", members)
         if mode is not None:
-            _setter("mode", mode)
+            pulumi.set(__self__, "mode", mode)
 
     @property
     @pulumi.getter
@@ -269,10 +235,6 @@ class GroupMembership(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GroupMembershipArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

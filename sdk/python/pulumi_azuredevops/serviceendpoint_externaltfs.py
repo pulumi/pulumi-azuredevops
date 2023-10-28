@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,51 +29,14 @@ class ServiceendpointExternaltfsArgs:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
-        ServiceendpointExternaltfsArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auth_personal=auth_personal,
-            connection_url=connection_url,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-            authorization=authorization,
-            description=description,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auth_personal: Optional[pulumi.Input['ServiceendpointExternaltfsAuthPersonalArgs']] = None,
-             connection_url: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auth_personal is None and 'authPersonal' in kwargs:
-            auth_personal = kwargs['authPersonal']
-        if auth_personal is None:
-            raise TypeError("Missing 'auth_personal' argument")
-        if connection_url is None and 'connectionUrl' in kwargs:
-            connection_url = kwargs['connectionUrl']
-        if connection_url is None:
-            raise TypeError("Missing 'connection_url' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-        if service_endpoint_name is None:
-            raise TypeError("Missing 'service_endpoint_name' argument")
-
-        _setter("auth_personal", auth_personal)
-        _setter("connection_url", connection_url)
-        _setter("project_id", project_id)
-        _setter("service_endpoint_name", service_endpoint_name)
+        pulumi.set(__self__, "auth_personal", auth_personal)
+        pulumi.set(__self__, "connection_url", connection_url)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
 
     @property
     @pulumi.getter(name="authPersonal")
@@ -158,47 +121,18 @@ class _ServiceendpointExternaltfsState:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
-        _ServiceendpointExternaltfsState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auth_personal=auth_personal,
-            authorization=authorization,
-            connection_url=connection_url,
-            description=description,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auth_personal: Optional[pulumi.Input['ServiceendpointExternaltfsAuthPersonalArgs']] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             connection_url: Optional[pulumi.Input[str]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auth_personal is None and 'authPersonal' in kwargs:
-            auth_personal = kwargs['authPersonal']
-        if connection_url is None and 'connectionUrl' in kwargs:
-            connection_url = kwargs['connectionUrl']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-
         if auth_personal is not None:
-            _setter("auth_personal", auth_personal)
+            pulumi.set(__self__, "auth_personal", auth_personal)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if connection_url is not None:
-            _setter("connection_url", connection_url)
+            pulumi.set(__self__, "connection_url", connection_url)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if service_endpoint_name is not None:
-            _setter("service_endpoint_name", service_endpoint_name)
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
 
     @property
     @pulumi.getter(name="authPersonal")
@@ -332,10 +266,6 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceendpointExternaltfsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -356,7 +286,6 @@ class ServiceendpointExternaltfs(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceendpointExternaltfsArgs.__new__(ServiceendpointExternaltfsArgs)
 
-            auth_personal = _utilities.configure(auth_personal, ServiceendpointExternaltfsAuthPersonalArgs, True)
             if auth_personal is None and not opts.urn:
                 raise TypeError("Missing required property 'auth_personal'")
             __props__.__dict__["auth_personal"] = auth_personal

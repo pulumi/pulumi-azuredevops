@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['GitRepositoryBranchArgs', 'GitRepositoryBranch']
@@ -27,44 +27,15 @@ class GitRepositoryBranchArgs:
         :param pulumi.Input[str] ref_commit_id: The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
         :param pulumi.Input[str] ref_tag: The reference to the tag to create the branch from, in `<name>` or `refs/tags/<name>` format. Conflict with `ref_branch`, `ref_commit_id`.
         """
-        GitRepositoryBranchArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repository_id=repository_id,
-            name=name,
-            ref_branch=ref_branch,
-            ref_commit_id=ref_commit_id,
-            ref_tag=ref_tag,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repository_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             ref_branch: Optional[pulumi.Input[str]] = None,
-             ref_commit_id: Optional[pulumi.Input[str]] = None,
-             ref_tag: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repository_id is None and 'repositoryId' in kwargs:
-            repository_id = kwargs['repositoryId']
-        if repository_id is None:
-            raise TypeError("Missing 'repository_id' argument")
-        if ref_branch is None and 'refBranch' in kwargs:
-            ref_branch = kwargs['refBranch']
-        if ref_commit_id is None and 'refCommitId' in kwargs:
-            ref_commit_id = kwargs['refCommitId']
-        if ref_tag is None and 'refTag' in kwargs:
-            ref_tag = kwargs['refTag']
-
-        _setter("repository_id", repository_id)
+        pulumi.set(__self__, "repository_id", repository_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if ref_branch is not None:
-            _setter("ref_branch", ref_branch)
+            pulumi.set(__self__, "ref_branch", ref_branch)
         if ref_commit_id is not None:
-            _setter("ref_commit_id", ref_commit_id)
+            pulumi.set(__self__, "ref_commit_id", ref_commit_id)
         if ref_tag is not None:
-            _setter("ref_tag", ref_tag)
+            pulumi.set(__self__, "ref_tag", ref_tag)
 
     @property
     @pulumi.getter(name="repositoryId")
@@ -145,49 +116,18 @@ class _GitRepositoryBranchState:
         :param pulumi.Input[str] ref_tag: The reference to the tag to create the branch from, in `<name>` or `refs/tags/<name>` format. Conflict with `ref_branch`, `ref_commit_id`.
         :param pulumi.Input[str] repository_id: The ID of the repository the branch is created against.
         """
-        _GitRepositoryBranchState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            last_commit_id=last_commit_id,
-            name=name,
-            ref_branch=ref_branch,
-            ref_commit_id=ref_commit_id,
-            ref_tag=ref_tag,
-            repository_id=repository_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             last_commit_id: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             ref_branch: Optional[pulumi.Input[str]] = None,
-             ref_commit_id: Optional[pulumi.Input[str]] = None,
-             ref_tag: Optional[pulumi.Input[str]] = None,
-             repository_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if last_commit_id is None and 'lastCommitId' in kwargs:
-            last_commit_id = kwargs['lastCommitId']
-        if ref_branch is None and 'refBranch' in kwargs:
-            ref_branch = kwargs['refBranch']
-        if ref_commit_id is None and 'refCommitId' in kwargs:
-            ref_commit_id = kwargs['refCommitId']
-        if ref_tag is None and 'refTag' in kwargs:
-            ref_tag = kwargs['refTag']
-        if repository_id is None and 'repositoryId' in kwargs:
-            repository_id = kwargs['repositoryId']
-
         if last_commit_id is not None:
-            _setter("last_commit_id", last_commit_id)
+            pulumi.set(__self__, "last_commit_id", last_commit_id)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if ref_branch is not None:
-            _setter("ref_branch", ref_branch)
+            pulumi.set(__self__, "ref_branch", ref_branch)
         if ref_commit_id is not None:
-            _setter("ref_commit_id", ref_commit_id)
+            pulumi.set(__self__, "ref_commit_id", ref_commit_id)
         if ref_tag is not None:
-            _setter("ref_tag", ref_tag)
+            pulumi.set(__self__, "ref_tag", ref_tag)
         if repository_id is not None:
-            _setter("repository_id", repository_id)
+            pulumi.set(__self__, "repository_id", repository_id)
 
     @property
     @pulumi.getter(name="lastCommitId")
@@ -349,10 +289,6 @@ class GitRepositoryBranch(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GitRepositoryBranchArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

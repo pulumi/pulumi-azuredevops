@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -29,43 +29,14 @@ class GitArgs:
         :param pulumi.Input[str] name: The name of the git repository.
         :param pulumi.Input[str] parent_repository_id: The ID of a Git project from which a fork is to be created.
         """
-        GitArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            initialization=initialization,
-            project_id=project_id,
-            default_branch=default_branch,
-            name=name,
-            parent_repository_id=parent_repository_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             initialization: Optional[pulumi.Input['GitInitializationArgs']] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             default_branch: Optional[pulumi.Input[str]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_repository_id: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if initialization is None:
-            raise TypeError("Missing 'initialization' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if default_branch is None and 'defaultBranch' in kwargs:
-            default_branch = kwargs['defaultBranch']
-        if parent_repository_id is None and 'parentRepositoryId' in kwargs:
-            parent_repository_id = kwargs['parentRepositoryId']
-
-        _setter("initialization", initialization)
-        _setter("project_id", project_id)
+        pulumi.set(__self__, "initialization", initialization)
+        pulumi.set(__self__, "project_id", project_id)
         if default_branch is not None:
-            _setter("default_branch", default_branch)
+            pulumi.set(__self__, "default_branch", default_branch)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_repository_id is not None:
-            _setter("parent_repository_id", parent_repository_id)
+            pulumi.set(__self__, "parent_repository_id", parent_repository_id)
 
     @property
     @pulumi.getter
@@ -156,73 +127,28 @@ class _GitState:
         :param pulumi.Input[str] url: REST API URL of the repository.
         :param pulumi.Input[str] web_url: Web link to the repository.
         """
-        _GitState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            default_branch=default_branch,
-            initialization=initialization,
-            is_fork=is_fork,
-            name=name,
-            parent_repository_id=parent_repository_id,
-            project_id=project_id,
-            remote_url=remote_url,
-            size=size,
-            ssh_url=ssh_url,
-            url=url,
-            web_url=web_url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             default_branch: Optional[pulumi.Input[str]] = None,
-             initialization: Optional[pulumi.Input['GitInitializationArgs']] = None,
-             is_fork: Optional[pulumi.Input[bool]] = None,
-             name: Optional[pulumi.Input[str]] = None,
-             parent_repository_id: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             remote_url: Optional[pulumi.Input[str]] = None,
-             size: Optional[pulumi.Input[int]] = None,
-             ssh_url: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             web_url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if default_branch is None and 'defaultBranch' in kwargs:
-            default_branch = kwargs['defaultBranch']
-        if is_fork is None and 'isFork' in kwargs:
-            is_fork = kwargs['isFork']
-        if parent_repository_id is None and 'parentRepositoryId' in kwargs:
-            parent_repository_id = kwargs['parentRepositoryId']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if remote_url is None and 'remoteUrl' in kwargs:
-            remote_url = kwargs['remoteUrl']
-        if ssh_url is None and 'sshUrl' in kwargs:
-            ssh_url = kwargs['sshUrl']
-        if web_url is None and 'webUrl' in kwargs:
-            web_url = kwargs['webUrl']
-
         if default_branch is not None:
-            _setter("default_branch", default_branch)
+            pulumi.set(__self__, "default_branch", default_branch)
         if initialization is not None:
-            _setter("initialization", initialization)
+            pulumi.set(__self__, "initialization", initialization)
         if is_fork is not None:
-            _setter("is_fork", is_fork)
+            pulumi.set(__self__, "is_fork", is_fork)
         if name is not None:
-            _setter("name", name)
+            pulumi.set(__self__, "name", name)
         if parent_repository_id is not None:
-            _setter("parent_repository_id", parent_repository_id)
+            pulumi.set(__self__, "parent_repository_id", parent_repository_id)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if remote_url is not None:
-            _setter("remote_url", remote_url)
+            pulumi.set(__self__, "remote_url", remote_url)
         if size is not None:
-            _setter("size", size)
+            pulumi.set(__self__, "size", size)
         if ssh_url is not None:
-            _setter("ssh_url", ssh_url)
+            pulumi.set(__self__, "ssh_url", ssh_url)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
         if web_url is not None:
-            _setter("web_url", web_url)
+            pulumi.set(__self__, "web_url", web_url)
 
     @property
     @pulumi.getter(name="defaultBranch")
@@ -518,10 +444,6 @@ class Git(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            GitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -542,7 +464,6 @@ class Git(pulumi.CustomResource):
             __props__ = GitArgs.__new__(GitArgs)
 
             __props__.__dict__["default_branch"] = default_branch
-            initialization = _utilities.configure(initialization, GitInitializationArgs, True)
             if initialization is None and not opts.urn:
                 raise TypeError("Missing required property 'initialization'")
             __props__.__dict__["initialization"] = initialization

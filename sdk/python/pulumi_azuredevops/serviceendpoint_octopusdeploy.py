@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceendpointOctopusdeployArgs', 'ServiceendpointOctopusdeploy']
@@ -29,55 +29,16 @@ class ServiceendpointOctopusdeployArgs:
         :param pulumi.Input[str] url: Octopus Server url.
         :param pulumi.Input[bool] ignore_ssl_error: Whether to ignore SSL errors when connecting to the Octopus server from the agent. Default to `false`.
         """
-        ServiceendpointOctopusdeployArgs._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-            url=url,
-            authorization=authorization,
-            description=description,
-            ignore_ssl_error=ignore_ssl_error,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: Optional[pulumi.Input[str]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             ignore_ssl_error: Optional[pulumi.Input[bool]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if api_key is None:
-            raise TypeError("Missing 'api_key' argument")
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if project_id is None:
-            raise TypeError("Missing 'project_id' argument")
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-        if service_endpoint_name is None:
-            raise TypeError("Missing 'service_endpoint_name' argument")
-        if url is None:
-            raise TypeError("Missing 'url' argument")
-        if ignore_ssl_error is None and 'ignoreSslError' in kwargs:
-            ignore_ssl_error = kwargs['ignoreSslError']
-
-        _setter("api_key", api_key)
-        _setter("project_id", project_id)
-        _setter("service_endpoint_name", service_endpoint_name)
-        _setter("url", url)
+        pulumi.set(__self__, "api_key", api_key)
+        pulumi.set(__self__, "project_id", project_id)
+        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        pulumi.set(__self__, "url", url)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ignore_ssl_error is not None:
-            _setter("ignore_ssl_error", ignore_ssl_error)
+            pulumi.set(__self__, "ignore_ssl_error", ignore_ssl_error)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -176,51 +137,20 @@ class _ServiceendpointOctopusdeployState:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input[str] url: Octopus Server url.
         """
-        _ServiceendpointOctopusdeployState._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            api_key=api_key,
-            authorization=authorization,
-            description=description,
-            ignore_ssl_error=ignore_ssl_error,
-            project_id=project_id,
-            service_endpoint_name=service_endpoint_name,
-            url=url,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             api_key: Optional[pulumi.Input[str]] = None,
-             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-             description: Optional[pulumi.Input[str]] = None,
-             ignore_ssl_error: Optional[pulumi.Input[bool]] = None,
-             project_id: Optional[pulumi.Input[str]] = None,
-             service_endpoint_name: Optional[pulumi.Input[str]] = None,
-             url: Optional[pulumi.Input[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if api_key is None and 'apiKey' in kwargs:
-            api_key = kwargs['apiKey']
-        if ignore_ssl_error is None and 'ignoreSslError' in kwargs:
-            ignore_ssl_error = kwargs['ignoreSslError']
-        if project_id is None and 'projectId' in kwargs:
-            project_id = kwargs['projectId']
-        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
-            service_endpoint_name = kwargs['serviceEndpointName']
-
         if api_key is not None:
-            _setter("api_key", api_key)
+            pulumi.set(__self__, "api_key", api_key)
         if authorization is not None:
-            _setter("authorization", authorization)
+            pulumi.set(__self__, "authorization", authorization)
         if description is not None:
-            _setter("description", description)
+            pulumi.set(__self__, "description", description)
         if ignore_ssl_error is not None:
-            _setter("ignore_ssl_error", ignore_ssl_error)
+            pulumi.set(__self__, "ignore_ssl_error", ignore_ssl_error)
         if project_id is not None:
-            _setter("project_id", project_id)
+            pulumi.set(__self__, "project_id", project_id)
         if service_endpoint_name is not None:
-            _setter("service_endpoint_name", service_endpoint_name)
+            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
         if url is not None:
-            _setter("url", url)
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="apiKey")
@@ -404,10 +334,6 @@ class ServiceendpointOctopusdeploy(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
-            kwargs = kwargs or {}
-            def _setter(key, value):
-                kwargs[key] = value
-            ServiceendpointOctopusdeployArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

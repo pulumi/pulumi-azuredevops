@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -53,25 +53,10 @@ class BuildDefinitionCiTrigger(dict):
         :param 'BuildDefinitionCiTriggerOverrideArgs' override: Override the azure-pipeline file and use a this configuration for all builds.
         :param bool use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
-        BuildDefinitionCiTrigger._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            override=override,
-            use_yaml=use_yaml,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             override: Optional['outputs.BuildDefinitionCiTriggerOverride'] = None,
-             use_yaml: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if use_yaml is None and 'useYaml' in kwargs:
-            use_yaml = kwargs['useYaml']
-
         if override is not None:
-            _setter("override", override)
+            pulumi.set(__self__, "override", override)
         if use_yaml is not None:
-            _setter("use_yaml", use_yaml)
+            pulumi.set(__self__, "use_yaml", use_yaml)
 
     @property
     @pulumi.getter
@@ -132,49 +117,18 @@ class BuildDefinitionCiTriggerOverride(dict):
         :param int polling_interval: How often the external repository is polled. Defaults to `0`.
         :param str polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
-        BuildDefinitionCiTriggerOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            batch=batch,
-            branch_filters=branch_filters,
-            max_concurrent_builds_per_branch=max_concurrent_builds_per_branch,
-            path_filters=path_filters,
-            polling_interval=polling_interval,
-            polling_job_id=polling_job_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             batch: Optional[bool] = None,
-             branch_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']] = None,
-             max_concurrent_builds_per_branch: Optional[int] = None,
-             path_filters: Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']] = None,
-             polling_interval: Optional[int] = None,
-             polling_job_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if branch_filters is None and 'branchFilters' in kwargs:
-            branch_filters = kwargs['branchFilters']
-        if max_concurrent_builds_per_branch is None and 'maxConcurrentBuildsPerBranch' in kwargs:
-            max_concurrent_builds_per_branch = kwargs['maxConcurrentBuildsPerBranch']
-        if path_filters is None and 'pathFilters' in kwargs:
-            path_filters = kwargs['pathFilters']
-        if polling_interval is None and 'pollingInterval' in kwargs:
-            polling_interval = kwargs['pollingInterval']
-        if polling_job_id is None and 'pollingJobId' in kwargs:
-            polling_job_id = kwargs['pollingJobId']
-
         if batch is not None:
-            _setter("batch", batch)
+            pulumi.set(__self__, "batch", batch)
         if branch_filters is not None:
-            _setter("branch_filters", branch_filters)
+            pulumi.set(__self__, "branch_filters", branch_filters)
         if max_concurrent_builds_per_branch is not None:
-            _setter("max_concurrent_builds_per_branch", max_concurrent_builds_per_branch)
+            pulumi.set(__self__, "max_concurrent_builds_per_branch", max_concurrent_builds_per_branch)
         if path_filters is not None:
-            _setter("path_filters", path_filters)
+            pulumi.set(__self__, "path_filters", path_filters)
         if polling_interval is not None:
-            _setter("polling_interval", polling_interval)
+            pulumi.set(__self__, "polling_interval", polling_interval)
         if polling_job_id is not None:
-            _setter("polling_job_id", polling_job_id)
+            pulumi.set(__self__, "polling_job_id", polling_job_id)
 
     @property
     @pulumi.getter
@@ -234,23 +188,10 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
         :param Sequence[str] excludes: List of branch patterns to exclude.
         :param Sequence[str] includes: List of branch patterns to include.
         """
-        BuildDefinitionCiTriggerOverrideBranchFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            excludes=excludes,
-            includes=includes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             excludes: Optional[Sequence[str]] = None,
-             includes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if excludes is not None:
-            _setter("excludes", excludes)
+            pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
-            _setter("includes", includes)
+            pulumi.set(__self__, "includes", includes)
 
     @property
     @pulumi.getter
@@ -278,23 +219,10 @@ class BuildDefinitionCiTriggerOverridePathFilter(dict):
         :param Sequence[str] excludes: List of path patterns to exclude.
         :param Sequence[str] includes: List of path patterns to include.
         """
-        BuildDefinitionCiTriggerOverridePathFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            excludes=excludes,
-            includes=includes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             excludes: Optional[Sequence[str]] = None,
-             includes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if excludes is not None:
-            _setter("excludes", excludes)
+            pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
-            _setter("includes", includes)
+            pulumi.set(__self__, "includes", includes)
 
     @property
     @pulumi.getter
@@ -339,21 +267,8 @@ class BuildDefinitionFeature(dict):
                
                > **Note** The first run(`skip_first_run = false`) will only be triggered on create.
         """
-        BuildDefinitionFeature._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            skip_first_run=skip_first_run,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             skip_first_run: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if skip_first_run is None and 'skipFirstRun' in kwargs:
-            skip_first_run = kwargs['skipFirstRun']
-
         if skip_first_run is not None:
-            _setter("skip_first_run", skip_first_run)
+            pulumi.set(__self__, "skip_first_run", skip_first_run)
 
     @property
     @pulumi.getter(name="skipFirstRun")
@@ -400,42 +315,15 @@ class BuildDefinitionPullRequestTrigger(dict):
         :param 'BuildDefinitionPullRequestTriggerOverrideArgs' override: Override the azure-pipeline file and use this configuration for all builds.
         :param bool use_yaml: Use the azure-pipeline file for the build configuration. Defaults to `false`.
         """
-        BuildDefinitionPullRequestTrigger._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            forks=forks,
-            comment_required=comment_required,
-            initial_branch=initial_branch,
-            override=override,
-            use_yaml=use_yaml,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             forks: Optional['outputs.BuildDefinitionPullRequestTriggerForks'] = None,
-             comment_required: Optional[str] = None,
-             initial_branch: Optional[str] = None,
-             override: Optional['outputs.BuildDefinitionPullRequestTriggerOverride'] = None,
-             use_yaml: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if forks is None:
-            raise TypeError("Missing 'forks' argument")
-        if comment_required is None and 'commentRequired' in kwargs:
-            comment_required = kwargs['commentRequired']
-        if initial_branch is None and 'initialBranch' in kwargs:
-            initial_branch = kwargs['initialBranch']
-        if use_yaml is None and 'useYaml' in kwargs:
-            use_yaml = kwargs['useYaml']
-
-        _setter("forks", forks)
+        pulumi.set(__self__, "forks", forks)
         if comment_required is not None:
-            _setter("comment_required", comment_required)
+            pulumi.set(__self__, "comment_required", comment_required)
         if initial_branch is not None:
-            _setter("initial_branch", initial_branch)
+            pulumi.set(__self__, "initial_branch", initial_branch)
         if override is not None:
-            _setter("override", override)
+            pulumi.set(__self__, "override", override)
         if use_yaml is not None:
-            _setter("use_yaml", use_yaml)
+            pulumi.set(__self__, "use_yaml", use_yaml)
 
     @property
     @pulumi.getter
@@ -498,27 +386,8 @@ class BuildDefinitionPullRequestTriggerForks(dict):
         :param bool enabled: Build pull requests from forks of this repository.
         :param bool share_secrets: Make secrets available to builds of forks.
         """
-        BuildDefinitionPullRequestTriggerForks._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            enabled=enabled,
-            share_secrets=share_secrets,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             enabled: Optional[bool] = None,
-             share_secrets: Optional[bool] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if enabled is None:
-            raise TypeError("Missing 'enabled' argument")
-        if share_secrets is None and 'shareSecrets' in kwargs:
-            share_secrets = kwargs['shareSecrets']
-        if share_secrets is None:
-            raise TypeError("Missing 'share_secrets' argument")
-
-        _setter("enabled", enabled)
-        _setter("share_secrets", share_secrets)
+        pulumi.set(__self__, "enabled", enabled)
+        pulumi.set(__self__, "share_secrets", share_secrets)
 
     @property
     @pulumi.getter
@@ -569,33 +438,12 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
         :param Sequence['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
         :param Sequence['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
-        BuildDefinitionPullRequestTriggerOverride._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            auto_cancel=auto_cancel,
-            branch_filters=branch_filters,
-            path_filters=path_filters,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             auto_cancel: Optional[bool] = None,
-             branch_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']] = None,
-             path_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if auto_cancel is None and 'autoCancel' in kwargs:
-            auto_cancel = kwargs['autoCancel']
-        if branch_filters is None and 'branchFilters' in kwargs:
-            branch_filters = kwargs['branchFilters']
-        if path_filters is None and 'pathFilters' in kwargs:
-            path_filters = kwargs['pathFilters']
-
         if auto_cancel is not None:
-            _setter("auto_cancel", auto_cancel)
+            pulumi.set(__self__, "auto_cancel", auto_cancel)
         if branch_filters is not None:
-            _setter("branch_filters", branch_filters)
+            pulumi.set(__self__, "branch_filters", branch_filters)
         if path_filters is not None:
-            _setter("path_filters", path_filters)
+            pulumi.set(__self__, "path_filters", path_filters)
 
     @property
     @pulumi.getter(name="autoCancel")
@@ -631,23 +479,10 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
         :param Sequence[str] excludes: List of branch patterns to exclude.
         :param Sequence[str] includes: List of branch patterns to include.
         """
-        BuildDefinitionPullRequestTriggerOverrideBranchFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            excludes=excludes,
-            includes=includes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             excludes: Optional[Sequence[str]] = None,
-             includes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if excludes is not None:
-            _setter("excludes", excludes)
+            pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
-            _setter("includes", includes)
+            pulumi.set(__self__, "includes", includes)
 
     @property
     @pulumi.getter
@@ -675,23 +510,10 @@ class BuildDefinitionPullRequestTriggerOverridePathFilter(dict):
         :param Sequence[str] excludes: List of path patterns to exclude.
         :param Sequence[str] includes: List of path patterns to include.
         """
-        BuildDefinitionPullRequestTriggerOverridePathFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            excludes=excludes,
-            includes=includes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             excludes: Optional[Sequence[str]] = None,
-             includes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if excludes is not None:
-            _setter("excludes", excludes)
+            pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
-            _setter("includes", includes)
+            pulumi.set(__self__, "includes", includes)
 
     @property
     @pulumi.getter
@@ -758,60 +580,17 @@ class BuildDefinitionRepository(dict):
         :param bool report_build_status: Report build status. Default is true.
         :param str service_connection_id: The service connection ID. Used if the `repo_type` is `GitHub` or `GitHubEnterprise`.
         """
-        BuildDefinitionRepository._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            repo_id=repo_id,
-            repo_type=repo_type,
-            yml_path=yml_path,
-            branch_name=branch_name,
-            github_enterprise_url=github_enterprise_url,
-            report_build_status=report_build_status,
-            service_connection_id=service_connection_id,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             repo_id: Optional[str] = None,
-             repo_type: Optional[str] = None,
-             yml_path: Optional[str] = None,
-             branch_name: Optional[str] = None,
-             github_enterprise_url: Optional[str] = None,
-             report_build_status: Optional[bool] = None,
-             service_connection_id: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if repo_id is None and 'repoId' in kwargs:
-            repo_id = kwargs['repoId']
-        if repo_id is None:
-            raise TypeError("Missing 'repo_id' argument")
-        if repo_type is None and 'repoType' in kwargs:
-            repo_type = kwargs['repoType']
-        if repo_type is None:
-            raise TypeError("Missing 'repo_type' argument")
-        if yml_path is None and 'ymlPath' in kwargs:
-            yml_path = kwargs['ymlPath']
-        if yml_path is None:
-            raise TypeError("Missing 'yml_path' argument")
-        if branch_name is None and 'branchName' in kwargs:
-            branch_name = kwargs['branchName']
-        if github_enterprise_url is None and 'githubEnterpriseUrl' in kwargs:
-            github_enterprise_url = kwargs['githubEnterpriseUrl']
-        if report_build_status is None and 'reportBuildStatus' in kwargs:
-            report_build_status = kwargs['reportBuildStatus']
-        if service_connection_id is None and 'serviceConnectionId' in kwargs:
-            service_connection_id = kwargs['serviceConnectionId']
-
-        _setter("repo_id", repo_id)
-        _setter("repo_type", repo_type)
-        _setter("yml_path", yml_path)
+        pulumi.set(__self__, "repo_id", repo_id)
+        pulumi.set(__self__, "repo_type", repo_type)
+        pulumi.set(__self__, "yml_path", yml_path)
         if branch_name is not None:
-            _setter("branch_name", branch_name)
+            pulumi.set(__self__, "branch_name", branch_name)
         if github_enterprise_url is not None:
-            _setter("github_enterprise_url", github_enterprise_url)
+            pulumi.set(__self__, "github_enterprise_url", github_enterprise_url)
         if report_build_status is not None:
-            _setter("report_build_status", report_build_status)
+            pulumi.set(__self__, "report_build_status", report_build_status)
         if service_connection_id is not None:
-            _setter("service_connection_id", service_connection_id)
+            pulumi.set(__self__, "service_connection_id", service_connection_id)
 
     @property
     @pulumi.getter(name="repoId")
@@ -1059,58 +838,19 @@ class BuildDefinitionSchedule(dict):
                `(UTC+13:00) Samoa`,
                `(UTC+14:00) Kiritimati Island`.
         """
-        BuildDefinitionSchedule._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            days_to_builds=days_to_builds,
-            branch_filters=branch_filters,
-            schedule_job_id=schedule_job_id,
-            schedule_only_with_changes=schedule_only_with_changes,
-            start_hours=start_hours,
-            start_minutes=start_minutes,
-            time_zone=time_zone,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             days_to_builds: Optional[Sequence[str]] = None,
-             branch_filters: Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']] = None,
-             schedule_job_id: Optional[str] = None,
-             schedule_only_with_changes: Optional[bool] = None,
-             start_hours: Optional[int] = None,
-             start_minutes: Optional[int] = None,
-             time_zone: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if days_to_builds is None and 'daysToBuilds' in kwargs:
-            days_to_builds = kwargs['daysToBuilds']
-        if days_to_builds is None:
-            raise TypeError("Missing 'days_to_builds' argument")
-        if branch_filters is None and 'branchFilters' in kwargs:
-            branch_filters = kwargs['branchFilters']
-        if schedule_job_id is None and 'scheduleJobId' in kwargs:
-            schedule_job_id = kwargs['scheduleJobId']
-        if schedule_only_with_changes is None and 'scheduleOnlyWithChanges' in kwargs:
-            schedule_only_with_changes = kwargs['scheduleOnlyWithChanges']
-        if start_hours is None and 'startHours' in kwargs:
-            start_hours = kwargs['startHours']
-        if start_minutes is None and 'startMinutes' in kwargs:
-            start_minutes = kwargs['startMinutes']
-        if time_zone is None and 'timeZone' in kwargs:
-            time_zone = kwargs['timeZone']
-
-        _setter("days_to_builds", days_to_builds)
+        pulumi.set(__self__, "days_to_builds", days_to_builds)
         if branch_filters is not None:
-            _setter("branch_filters", branch_filters)
+            pulumi.set(__self__, "branch_filters", branch_filters)
         if schedule_job_id is not None:
-            _setter("schedule_job_id", schedule_job_id)
+            pulumi.set(__self__, "schedule_job_id", schedule_job_id)
         if schedule_only_with_changes is not None:
-            _setter("schedule_only_with_changes", schedule_only_with_changes)
+            pulumi.set(__self__, "schedule_only_with_changes", schedule_only_with_changes)
         if start_hours is not None:
-            _setter("start_hours", start_hours)
+            pulumi.set(__self__, "start_hours", start_hours)
         if start_minutes is not None:
-            _setter("start_minutes", start_minutes)
+            pulumi.set(__self__, "start_minutes", start_minutes)
         if time_zone is not None:
-            _setter("time_zone", time_zone)
+            pulumi.set(__self__, "time_zone", time_zone)
 
     @property
     @pulumi.getter(name="daysToBuilds")
@@ -1319,23 +1059,10 @@ class BuildDefinitionScheduleBranchFilter(dict):
         :param Sequence[str] excludes: List of branch patterns to exclude.
         :param Sequence[str] includes: List of branch patterns to include.
         """
-        BuildDefinitionScheduleBranchFilter._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            excludes=excludes,
-            includes=includes,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             excludes: Optional[Sequence[str]] = None,
-             includes: Optional[Sequence[str]] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-
         if excludes is not None:
-            _setter("excludes", excludes)
+            pulumi.set(__self__, "excludes", excludes)
         if includes is not None:
-            _setter("includes", includes)
+            pulumi.set(__self__, "includes", includes)
 
     @property
     @pulumi.getter
@@ -1390,42 +1117,15 @@ class BuildDefinitionVariable(dict):
         :param str secret_value: The secret value of the variable. Used when `is_secret` set to `true`.
         :param str value: The value of the variable.
         """
-        BuildDefinitionVariable._configure(
-            lambda key, value: pulumi.set(__self__, key, value),
-            name=name,
-            allow_override=allow_override,
-            is_secret=is_secret,
-            secret_value=secret_value,
-            value=value,
-        )
-    @staticmethod
-    def _configure(
-             _setter: Callable[[Any, Any], None],
-             name: Optional[str] = None,
-             allow_override: Optional[bool] = None,
-             is_secret: Optional[bool] = None,
-             secret_value: Optional[str] = None,
-             value: Optional[str] = None,
-             opts: Optional[pulumi.ResourceOptions] = None,
-             **kwargs):
-        if name is None:
-            raise TypeError("Missing 'name' argument")
-        if allow_override is None and 'allowOverride' in kwargs:
-            allow_override = kwargs['allowOverride']
-        if is_secret is None and 'isSecret' in kwargs:
-            is_secret = kwargs['isSecret']
-        if secret_value is None and 'secretValue' in kwargs:
-            secret_value = kwargs['secretValue']
-
-        _setter("name", name)
+        pulumi.set(__self__, "name", name)
         if allow_override is not None:
-            _setter("allow_override", allow_override)
+            pulumi.set(__self__, "allow_override", allow_override)
         if is_secret is not None:
-            _setter("is_secret", is_secret)
+            pulumi.set(__self__, "is_secret", is_secret)
         if secret_value is not None:
-            _setter("secret_value", secret_value)
+            pulumi.set(__self__, "secret_value", secret_value)
         if value is not None:
-            _setter("value", value)
+            pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter
