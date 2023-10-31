@@ -98,7 +98,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * both methods to manage team administrators, since there&#39;ll be conflicts.
      * 
      */
-    @Export(name="administrators", type=List.class, parameters={String.class})
+    @Export(name="administrators", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> administrators;
 
     /**
@@ -117,7 +117,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The description of the Team.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -131,7 +131,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The descriptor of the Team.
      * 
      */
-    @Export(name="descriptor", type=String.class, parameters={})
+    @Export(name="descriptor", refs={String.class}, tree="[0]")
     private Output<String> descriptor;
 
     /**
@@ -150,7 +150,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * both methods to manage team members, since there&#39;ll be conflicts.
      * 
      */
-    @Export(name="members", type=List.class, parameters={String.class})
+    @Export(name="members", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> members;
 
     /**
@@ -169,7 +169,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The name of the Team.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -183,7 +183,7 @@ public class Team extends com.pulumi.resources.CustomResource {
      * The Project ID.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**

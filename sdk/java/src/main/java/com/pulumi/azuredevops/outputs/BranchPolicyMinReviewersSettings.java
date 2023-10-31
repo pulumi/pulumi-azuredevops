@@ -191,16 +191,16 @@ public final class BranchPolicyMinReviewersSettings {
             return this;
         }
         public BranchPolicyMinReviewersSettings build() {
-            final var o = new BranchPolicyMinReviewersSettings();
-            o.allowCompletionWithRejectsOrWaits = allowCompletionWithRejectsOrWaits;
-            o.lastPusherCannotApprove = lastPusherCannotApprove;
-            o.onLastIterationRequireVote = onLastIterationRequireVote;
-            o.onPushResetAllVotes = onPushResetAllVotes;
-            o.onPushResetApprovedVotes = onPushResetApprovedVotes;
-            o.reviewerCount = reviewerCount;
-            o.scopes = scopes;
-            o.submitterCanVote = submitterCanVote;
-            return o;
+            final var _resultValue = new BranchPolicyMinReviewersSettings();
+            _resultValue.allowCompletionWithRejectsOrWaits = allowCompletionWithRejectsOrWaits;
+            _resultValue.lastPusherCannotApprove = lastPusherCannotApprove;
+            _resultValue.onLastIterationRequireVote = onLastIterationRequireVote;
+            _resultValue.onPushResetAllVotes = onPushResetAllVotes;
+            _resultValue.onPushResetApprovedVotes = onPushResetApprovedVotes;
+            _resultValue.reviewerCount = reviewerCount;
+            _resultValue.scopes = scopes;
+            _resultValue.submitterCanVote = submitterCanVote;
+            return _resultValue;
         }
     }
 }

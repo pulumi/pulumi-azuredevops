@@ -163,15 +163,15 @@ public final class BuildDefinitionRepository {
             return this;
         }
         public BuildDefinitionRepository build() {
-            final var o = new BuildDefinitionRepository();
-            o.branchName = branchName;
-            o.githubEnterpriseUrl = githubEnterpriseUrl;
-            o.repoId = repoId;
-            o.repoType = repoType;
-            o.reportBuildStatus = reportBuildStatus;
-            o.serviceConnectionId = serviceConnectionId;
-            o.ymlPath = ymlPath;
-            return o;
+            final var _resultValue = new BuildDefinitionRepository();
+            _resultValue.branchName = branchName;
+            _resultValue.githubEnterpriseUrl = githubEnterpriseUrl;
+            _resultValue.repoId = repoId;
+            _resultValue.repoType = repoType;
+            _resultValue.reportBuildStatus = reportBuildStatus;
+            _resultValue.serviceConnectionId = serviceConnectionId;
+            _resultValue.ymlPath = ymlPath;
+            return _resultValue;
         }
     }
 }

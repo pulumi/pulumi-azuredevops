@@ -139,15 +139,15 @@ public final class VariableGroupVariable {
             return this;
         }
         public VariableGroupVariable build() {
-            final var o = new VariableGroupVariable();
-            o.contentType = contentType;
-            o.enabled = enabled;
-            o.expires = expires;
-            o.isSecret = isSecret;
-            o.name = name;
-            o.secretValue = secretValue;
-            o.value = value;
-            return o;
+            final var _resultValue = new VariableGroupVariable();
+            _resultValue.contentType = contentType;
+            _resultValue.enabled = enabled;
+            _resultValue.expires = expires;
+            _resultValue.isSecret = isSecret;
+            _resultValue.name = name;
+            _resultValue.secretValue = secretValue;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

@@ -262,15 +262,15 @@ public final class GetUsersUser {
             return this;
         }
         public GetUsersUser build() {
-            final var o = new GetUsersUser();
-            o.descriptor = descriptor;
-            o.displayName = displayName;
-            o.id = id;
-            o.mailAddress = mailAddress;
-            o.origin = origin;
-            o.originId = originId;
-            o.principalName = principalName;
-            return o;
+            final var _resultValue = new GetUsersUser();
+            _resultValue.descriptor = descriptor;
+            _resultValue.displayName = displayName;
+            _resultValue.id = id;
+            _resultValue.mailAddress = mailAddress;
+            _resultValue.origin = origin;
+            _resultValue.originId = originId;
+            _resultValue.principalName = principalName;
+            return _resultValue;
         }
     }
 }

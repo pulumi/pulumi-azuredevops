@@ -118,14 +118,14 @@ public final class GetServiceendpointSonarcloudResult {
             return this;
         }
         public GetServiceendpointSonarcloudResult build() {
-            final var o = new GetServiceendpointSonarcloudResult();
-            o.authorization = authorization;
-            o.description = description;
-            o.id = id;
-            o.projectId = projectId;
-            o.serviceEndpointId = serviceEndpointId;
-            o.serviceEndpointName = serviceEndpointName;
-            return o;
+            final var _resultValue = new GetServiceendpointSonarcloudResult();
+            _resultValue.authorization = authorization;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.projectId = projectId;
+            _resultValue.serviceEndpointId = serviceEndpointId;
+            _resultValue.serviceEndpointName = serviceEndpointName;
+            return _resultValue;
         }
     }
 }

@@ -124,13 +124,13 @@ public final class ServiceEndpointServiceFabricCertificate {
             return this;
         }
         public ServiceEndpointServiceFabricCertificate build() {
-            final var o = new ServiceEndpointServiceFabricCertificate();
-            o.clientCertificate = clientCertificate;
-            o.clientCertificatePassword = clientCertificatePassword;
-            o.serverCertificateCommonName = serverCertificateCommonName;
-            o.serverCertificateLookup = serverCertificateLookup;
-            o.serverCertificateThumbprint = serverCertificateThumbprint;
-            return o;
+            final var _resultValue = new ServiceEndpointServiceFabricCertificate();
+            _resultValue.clientCertificate = clientCertificate;
+            _resultValue.clientCertificatePassword = clientCertificatePassword;
+            _resultValue.serverCertificateCommonName = serverCertificateCommonName;
+            _resultValue.serverCertificateLookup = serverCertificateLookup;
+            _resultValue.serverCertificateThumbprint = serverCertificateThumbprint;
+            return _resultValue;
         }
     }
 }

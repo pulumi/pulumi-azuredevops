@@ -105,12 +105,12 @@ public final class GetTeamsResult {
             return this;
         }
         public GetTeamsResult build() {
-            final var o = new GetTeamsResult();
-            o.id = id;
-            o.projectId = projectId;
-            o.teams = teams;
-            o.top = top;
-            return o;
+            final var _resultValue = new GetTeamsResult();
+            _resultValue.id = id;
+            _resultValue.projectId = projectId;
+            _resultValue.teams = teams;
+            _resultValue.top = top;
+            return _resultValue;
         }
     }
 }

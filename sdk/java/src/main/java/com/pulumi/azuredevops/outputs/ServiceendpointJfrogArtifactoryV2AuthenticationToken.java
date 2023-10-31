@@ -46,9 +46,9 @@ public final class ServiceendpointJfrogArtifactoryV2AuthenticationToken {
             return this;
         }
         public ServiceendpointJfrogArtifactoryV2AuthenticationToken build() {
-            final var o = new ServiceendpointJfrogArtifactoryV2AuthenticationToken();
-            o.token = token;
-            return o;
+            final var _resultValue = new ServiceendpointJfrogArtifactoryV2AuthenticationToken();
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

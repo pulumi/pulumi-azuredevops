@@ -272,6 +272,7 @@ class BuildFolderPermissions(pulumi.CustomResource):
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
         ## Example Usage
+        ### Set specific folder permissions
 
         ```python
         import pulumi
@@ -307,6 +308,26 @@ class BuildFolderPermissions(pulumi.CustomResource):
                 "EditBuildDefinition": "Deny",
                 "DeleteBuildDefinition": "Deny",
                 "AdministerBuildPermissions": "NotSet",
+            })
+        ```
+        ### Set root folder permissions
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_build_folder_permissions = azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions",
+            project_id=example_project.id,
+            path="\\\\",
+            principal=example_readers.id,
+            permissions={
+                "RetainIndefinitely": "Allow",
             })
         ```
         ## Relevant Links
@@ -359,6 +380,7 @@ class BuildFolderPermissions(pulumi.CustomResource):
         > **Note** Permissions can be assigned to group principals and not to single user principals.
 
         ## Example Usage
+        ### Set specific folder permissions
 
         ```python
         import pulumi
@@ -394,6 +416,26 @@ class BuildFolderPermissions(pulumi.CustomResource):
                 "EditBuildDefinition": "Deny",
                 "DeleteBuildDefinition": "Deny",
                 "AdministerBuildPermissions": "NotSet",
+            })
+        ```
+        ### Set root folder permissions
+        ```python
+        import pulumi
+        import pulumi_azuredevops as azuredevops
+
+        example_project = azuredevops.Project("exampleProject",
+            work_item_template="Agile",
+            version_control="Git",
+            visibility="private",
+            description="Managed by Terraform")
+        example_readers = azuredevops.get_group_output(project_id=example_project.id,
+            name="Readers")
+        example_build_folder_permissions = azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions",
+            project_id=example_project.id,
+            path="\\\\",
+            principal=example_readers.id,
+            permissions={
+                "RetainIndefinitely": "Allow",
             })
         ```
         ## Relevant Links

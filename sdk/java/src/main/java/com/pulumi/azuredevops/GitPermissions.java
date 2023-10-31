@@ -331,7 +331,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
      * &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
      * 
      */
-    @Export(name="branchName", type=String.class, parameters={})
+    @Export(name="branchName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> branchName;
 
     /**
@@ -366,7 +366,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
      * | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
      * 
      */
-    @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
@@ -399,7 +399,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
      * The **group** principal to assign the permissions.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -413,7 +413,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
      * The ID of the project to assign the permissions.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -427,7 +427,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
      */
-    @Export(name="replace", type=Boolean.class, parameters={})
+    @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**
@@ -441,7 +441,7 @@ public class GitPermissions extends com.pulumi.resources.CustomResource {
      * The ID of the GIT repository to assign the permissions
      * 
      */
-    @Export(name="repositoryId", type=String.class, parameters={})
+    @Export(name="repositoryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> repositoryId;
 
     /**

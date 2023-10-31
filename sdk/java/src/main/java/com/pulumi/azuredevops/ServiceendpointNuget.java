@@ -79,7 +79,7 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
      * The API Key used to connect to the endpoint.
      * 
      */
-    @Export(name="apiKey", type=String.class, parameters={})
+    @Export(name="apiKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> apiKey;
 
     /**
@@ -89,13 +89,13 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
     public Output<Optional<String>> apiKey() {
         return Codegen.optional(this.apiKey);
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -105,7 +105,7 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
      * The URL for the feed. This will generally end with `index.json`.
      * 
      */
-    @Export(name="feedUrl", type=String.class, parameters={})
+    @Export(name="feedUrl", refs={String.class}, tree="[0]")
     private Output<String> feedUrl;
 
     /**
@@ -121,7 +121,7 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
      * &gt; **Note** Only one of `api_key` or `personal_access_token` or  `username`, `password` can be set at the same time.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -137,7 +137,7 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
      * The Personal access token used to  connect to the endpoint. Personal access tokens are applicable only for NuGet feeds hosted on other Azure DevOps Services organizations or Azure DevOps Server 2019 (or later).
      * 
      */
-    @Export(name="personalAccessToken", type=String.class, parameters={})
+    @Export(name="personalAccessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> personalAccessToken;
 
     /**
@@ -151,7 +151,7 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -165,7 +165,7 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -179,7 +179,7 @@ public class ServiceendpointNuget extends com.pulumi.resources.CustomResource {
      * The account username used to connect to the endpoint.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

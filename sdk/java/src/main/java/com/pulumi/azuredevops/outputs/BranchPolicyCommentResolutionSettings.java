@@ -50,9 +50,9 @@ public final class BranchPolicyCommentResolutionSettings {
             return scopes(List.of(scopes));
         }
         public BranchPolicyCommentResolutionSettings build() {
-            final var o = new BranchPolicyCommentResolutionSettings();
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new BranchPolicyCommentResolutionSettings();
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }

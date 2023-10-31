@@ -110,12 +110,12 @@ public final class GetProjectsResult {
             return this;
         }
         public GetProjectsResult build() {
-            final var o = new GetProjectsResult();
-            o.id = id;
-            o.name = name;
-            o.projects = projects;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetProjectsResult();
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.projects = projects;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

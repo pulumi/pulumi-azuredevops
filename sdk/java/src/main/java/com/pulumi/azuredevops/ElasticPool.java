@@ -97,7 +97,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Set whether agents should be configured to run with interactive UI. Defaults to `false`.
      * 
      */
-    @Export(name="agentInteractiveUi", type=Boolean.class, parameters={})
+    @Export(name="agentInteractiveUi", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> agentInteractiveUi;
 
     /**
@@ -111,7 +111,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      * 
      */
-    @Export(name="autoProvision", type=Boolean.class, parameters={})
+    @Export(name="autoProvision", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoProvision;
 
     /**
@@ -125,7 +125,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
      * 
      */
-    @Export(name="autoUpdate", type=Boolean.class, parameters={})
+    @Export(name="autoUpdate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoUpdate;
 
     /**
@@ -139,7 +139,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The ID of the Azure resource.
      * 
      */
-    @Export(name="azureResourceId", type=String.class, parameters={})
+    @Export(name="azureResourceId", refs={String.class}, tree="[0]")
     private Output<String> azureResourceId;
 
     /**
@@ -153,7 +153,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Number of agents to keep on standby.
      * 
      */
-    @Export(name="desiredIdle", type=Integer.class, parameters={})
+    @Export(name="desiredIdle", refs={Integer.class}, tree="[0]")
     private Output<Integer> desiredIdle;
 
     /**
@@ -167,7 +167,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Maximum number of virtual machines in the scale set.
      * 
      */
-    @Export(name="maxCapacity", type=Integer.class, parameters={})
+    @Export(name="maxCapacity", refs={Integer.class}, tree="[0]")
     private Output<Integer> maxCapacity;
 
     /**
@@ -181,7 +181,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The name of the Elastic pool.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -195,7 +195,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Tear down virtual machines after every use. Defaults to `false`.
      * 
      */
-    @Export(name="recycleAfterEachUse", type=Boolean.class, parameters={})
+    @Export(name="recycleAfterEachUse", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> recycleAfterEachUse;
 
     /**
@@ -209,7 +209,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The ID of Service Endpoint used to connect to Azure.
      * 
      */
-    @Export(name="serviceEndpointId", type=String.class, parameters={})
+    @Export(name="serviceEndpointId", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointId;
 
     /**
@@ -223,7 +223,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * The Project ID of Service Endpoint belongs to.
      * 
      */
-    @Export(name="serviceEndpointScope", type=String.class, parameters={})
+    @Export(name="serviceEndpointScope", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointScope;
 
     /**
@@ -237,7 +237,7 @@ public class ElasticPool extends com.pulumi.resources.CustomResource {
      * Delay in minutes before deleting excess idle agents. Defaults to `30`.
      * 
      */
-    @Export(name="timeToLiveMinutes", type=Integer.class, parameters={})
+    @Export(name="timeToLiveMinutes", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeToLiveMinutes;
 
     /**

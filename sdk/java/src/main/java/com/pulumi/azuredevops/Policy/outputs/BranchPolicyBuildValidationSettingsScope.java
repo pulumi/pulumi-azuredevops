@@ -86,11 +86,11 @@ public final class BranchPolicyBuildValidationSettingsScope {
             return this;
         }
         public BranchPolicyBuildValidationSettingsScope build() {
-            final var o = new BranchPolicyBuildValidationSettingsScope();
-            o.matchType = matchType;
-            o.repositoryId = repositoryId;
-            o.repositoryRef = repositoryRef;
-            return o;
+            final var _resultValue = new BranchPolicyBuildValidationSettingsScope();
+            _resultValue.matchType = matchType;
+            _resultValue.repositoryId = repositoryId;
+            _resultValue.repositoryRef = repositoryRef;
+            return _resultValue;
         }
     }
 }

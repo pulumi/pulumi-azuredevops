@@ -101,16 +101,17 @@ export class AreaPermissions extends pulumi.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      *
-     * | Permission         | Description                    |
-     * |--------------------|--------------------------------|
-     * | GENERIC_READ       | View permissions for this node |
-     * | GENERIC_WRITE      | Edit this node                 |
-     * | CREATE_CHILDREN    | Create child nodes             |
-     * | DELETE             | Delete this node               |
-     * | WORK_ITEM_READ     | View work items in this node   |
-     * | WORK_ITEM_WRITE    | Edit work items in this node   |
-     * | MANAGE_TEST_PLANS  | Manage test plans              |
-     * | MANAGE_TEST_SUITES | Manage test suites             |
+     * | Permission             | Description                          |
+     * |------------------------|--------------------------------------|
+     * | GENERIC_READ           | View permissions for this node       |
+     * | GENERIC_WRITE          | Edit this node                       |
+     * | CREATE_CHILDREN        | Create child nodes                   |
+     * | DELETE                 | Delete this node                     |
+     * | WORK_ITEM_READ         | View work items in this node         |
+     * | WORK_ITEM_WRITE        | Edit work items in this node         |
+     * | MANAGE_TEST_PLANS      | Manage test plans                    |
+     * | MANAGE_TEST_SUITES     | Manage test suites                   |
+     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
 
@@ -177,16 +178,17 @@ export interface AreaPermissionsState {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      *
-     * | Permission         | Description                    |
-     * |--------------------|--------------------------------|
-     * | GENERIC_READ       | View permissions for this node |
-     * | GENERIC_WRITE      | Edit this node                 |
-     * | CREATE_CHILDREN    | Create child nodes             |
-     * | DELETE             | Delete this node               |
-     * | WORK_ITEM_READ     | View work items in this node   |
-     * | WORK_ITEM_WRITE    | Edit work items in this node   |
-     * | MANAGE_TEST_PLANS  | Manage test plans              |
-     * | MANAGE_TEST_SUITES | Manage test suites             |
+     * | Permission             | Description                          |
+     * |------------------------|--------------------------------------|
+     * | GENERIC_READ           | View permissions for this node       |
+     * | GENERIC_WRITE          | Edit this node                       |
+     * | CREATE_CHILDREN        | Create child nodes                   |
+     * | DELETE                 | Delete this node                     |
+     * | WORK_ITEM_READ         | View work items in this node         |
+     * | WORK_ITEM_WRITE        | Edit work items in this node         |
+     * | MANAGE_TEST_PLANS      | Manage test plans                    |
+     * | MANAGE_TEST_SUITES     | Manage test suites                   |
+     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
      */
     replace?: pulumi.Input<boolean>;
 }
@@ -214,16 +216,17 @@ export interface AreaPermissionsArgs {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      *
-     * | Permission         | Description                    |
-     * |--------------------|--------------------------------|
-     * | GENERIC_READ       | View permissions for this node |
-     * | GENERIC_WRITE      | Edit this node                 |
-     * | CREATE_CHILDREN    | Create child nodes             |
-     * | DELETE             | Delete this node               |
-     * | WORK_ITEM_READ     | View work items in this node   |
-     * | WORK_ITEM_WRITE    | Edit work items in this node   |
-     * | MANAGE_TEST_PLANS  | Manage test plans              |
-     * | MANAGE_TEST_SUITES | Manage test suites             |
+     * | Permission             | Description                          |
+     * |------------------------|--------------------------------------|
+     * | GENERIC_READ           | View permissions for this node       |
+     * | GENERIC_WRITE          | Edit this node                       |
+     * | CREATE_CHILDREN        | Create child nodes                   |
+     * | DELETE                 | Delete this node                     |
+     * | WORK_ITEM_READ         | View work items in this node         |
+     * | WORK_ITEM_WRITE        | Edit work items in this node         |
+     * | MANAGE_TEST_PLANS      | Manage test plans                    |
+     * | MANAGE_TEST_SUITES     | Manage test suites                   |
+     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
      */
     replace?: pulumi.Input<boolean>;
 }

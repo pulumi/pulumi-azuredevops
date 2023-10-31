@@ -124,13 +124,13 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectory {
             return this;
         }
         public ServiceEndpointServiceFabricAzureActiveDirectory build() {
-            final var o = new ServiceEndpointServiceFabricAzureActiveDirectory();
-            o.password = password;
-            o.serverCertificateCommonName = serverCertificateCommonName;
-            o.serverCertificateLookup = serverCertificateLookup;
-            o.serverCertificateThumbprint = serverCertificateThumbprint;
-            o.username = username;
-            return o;
+            final var _resultValue = new ServiceEndpointServiceFabricAzureActiveDirectory();
+            _resultValue.password = password;
+            _resultValue.serverCertificateCommonName = serverCertificateCommonName;
+            _resultValue.serverCertificateLookup = serverCertificateLookup;
+            _resultValue.serverCertificateThumbprint = serverCertificateThumbprint;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

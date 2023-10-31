@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointSonarQube:ServiceEndpointSonarQube")
 public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -88,7 +88,7 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
      * The Service Endpoint description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -102,7 +102,7 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -116,7 +116,7 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -130,7 +130,7 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
      * Authentication Token generated through SonarQube (go to My Account &gt; Security &gt; Generate Tokens).
      * 
      */
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
     /**
@@ -144,7 +144,7 @@ public class ServiceEndpointSonarQube extends com.pulumi.resources.CustomResourc
      * URL of the SonarQube server to connect with.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

@@ -135,7 +135,7 @@ public class CheckRequiredTemplate extends com.pulumi.resources.CustomResource {
      * The project ID. Changing this forces a new Required Template Check to be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -149,7 +149,7 @@ public class CheckRequiredTemplate extends com.pulumi.resources.CustomResource {
      * One or more `required_template` blocks documented below.
      * 
      */
-    @Export(name="requiredTemplates", type=List.class, parameters={CheckRequiredTemplateRequiredTemplate.class})
+    @Export(name="requiredTemplates", refs={List.class,CheckRequiredTemplateRequiredTemplate.class}, tree="[0,1]")
     private Output<List<CheckRequiredTemplateRequiredTemplate>> requiredTemplates;
 
     /**
@@ -163,7 +163,7 @@ public class CheckRequiredTemplate extends com.pulumi.resources.CustomResource {
      * The ID of the resource being protected by the check. Changing this forces a new Required Template Check to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
@@ -177,7 +177,7 @@ public class CheckRequiredTemplate extends com.pulumi.resources.CustomResource {
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Required Template Check to be created.
      * 
      */
-    @Export(name="targetResourceType", type=String.class, parameters={})
+    @Export(name="targetResourceType", refs={String.class}, tree="[0]")
     private Output<String> targetResourceType;
 
     /**

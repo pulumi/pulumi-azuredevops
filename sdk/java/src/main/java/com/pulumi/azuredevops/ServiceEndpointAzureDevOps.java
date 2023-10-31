@@ -81,13 +81,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointAzureDevOps:ServiceEndpointAzureDevOps")
 public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -97,7 +97,7 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
      * The organization URL.
      * 
      */
-    @Export(name="orgUrl", type=String.class, parameters={})
+    @Export(name="orgUrl", refs={String.class}, tree="[0]")
     private Output<String> orgUrl;
 
     /**
@@ -111,7 +111,7 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
      * The Azure DevOps personal access token.
      * 
      */
-    @Export(name="personalAccessToken", type=String.class, parameters={})
+    @Export(name="personalAccessToken", refs={String.class}, tree="[0]")
     private Output<String> personalAccessToken;
 
     /**
@@ -125,7 +125,7 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -139,7 +139,7 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
      * The URL of the release API.
      * 
      */
-    @Export(name="releaseApiUrl", type=String.class, parameters={})
+    @Export(name="releaseApiUrl", refs={String.class}, tree="[0]")
     private Output<String> releaseApiUrl;
 
     /**
@@ -153,7 +153,7 @@ public class ServiceEndpointAzureDevOps extends com.pulumi.resources.CustomResou
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**

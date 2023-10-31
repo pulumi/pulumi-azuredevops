@@ -65,10 +65,10 @@ public final class ServiceEndpointArtifactoryAuthenticationBasic {
             return this;
         }
         public ServiceEndpointArtifactoryAuthenticationBasic build() {
-            final var o = new ServiceEndpointArtifactoryAuthenticationBasic();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new ServiceEndpointArtifactoryAuthenticationBasic();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

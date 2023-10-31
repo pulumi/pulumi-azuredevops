@@ -22,6 +22,7 @@ import javax.annotation.Nullable;
  * &gt; **Note** Permissions can be assigned to group principals and not to single user principals.
  * 
  * ## Example Usage
+ * ### Set specific folder permissions
  * ```java
  * package generated_program;
  * 
@@ -92,6 +93,54 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * ### Set root folder permissions
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azuredevops.Project;
+ * import com.pulumi.azuredevops.ProjectArgs;
+ * import com.pulumi.azuredevops.AzuredevopsFunctions;
+ * import com.pulumi.azuredevops.inputs.GetGroupArgs;
+ * import com.pulumi.azuredevops.BuildFolderPermissions;
+ * import com.pulumi.azuredevops.BuildFolderPermissionsArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .workItemTemplate(&#34;Agile&#34;)
+ *             .versionControl(&#34;Git&#34;)
+ *             .visibility(&#34;private&#34;)
+ *             .description(&#34;Managed by Terraform&#34;)
+ *             .build());
+ * 
+ *         final var example-readers = AzuredevopsFunctions.getGroup(GetGroupArgs.builder()
+ *             .projectId(exampleProject.id())
+ *             .name(&#34;Readers&#34;)
+ *             .build());
+ * 
+ *         var exampleBuildFolderPermissions = new BuildFolderPermissions(&#34;exampleBuildFolderPermissions&#34;, BuildFolderPermissionsArgs.builder()        
+ *             .projectId(exampleProject.id())
+ *             .path(&#34;\\&#34;)
+ *             .principal(example_readers.applyValue(example_readers -&gt; example_readers.id()))
+ *             .permissions(Map.of(&#34;RetainIndefinitely&#34;, &#34;Allow&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
  * ## Relevant Links
  * 
  * * [Azure DevOps Service REST API 7.0 - Security](https://docs.microsoft.com/en-us/rest/api/azure/devops/security/?view=azure-devops-rest-7.0)
@@ -111,7 +160,7 @@ public class BuildFolderPermissions extends com.pulumi.resources.CustomResource 
      * The folder path to assign the permissions.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output<String> path;
 
     /**
@@ -143,7 +192,7 @@ public class BuildFolderPermissions extends com.pulumi.resources.CustomResource 
      * | AdministerBuildPermissions     | Administer build permissions          |
      * 
      */
-    @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
@@ -175,7 +224,7 @@ public class BuildFolderPermissions extends com.pulumi.resources.CustomResource 
      * The **group** principal to assign the permissions.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -189,7 +238,7 @@ public class BuildFolderPermissions extends com.pulumi.resources.CustomResource 
      * The ID of the project to assign the permissions.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -203,7 +252,7 @@ public class BuildFolderPermissions extends com.pulumi.resources.CustomResource 
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      * 
      */
-    @Export(name="replace", type=Boolean.class, parameters={})
+    @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**

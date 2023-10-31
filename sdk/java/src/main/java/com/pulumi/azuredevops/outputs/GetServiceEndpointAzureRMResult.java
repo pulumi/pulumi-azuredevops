@@ -308,24 +308,24 @@ public final class GetServiceEndpointAzureRMResult {
             return this;
         }
         public GetServiceEndpointAzureRMResult build() {
-            final var o = new GetServiceEndpointAzureRMResult();
-            o.authorization = authorization;
-            o.azurermManagementGroupId = azurermManagementGroupId;
-            o.azurermManagementGroupName = azurermManagementGroupName;
-            o.azurermSpnTenantid = azurermSpnTenantid;
-            o.azurermSubscriptionId = azurermSubscriptionId;
-            o.azurermSubscriptionName = azurermSubscriptionName;
-            o.description = description;
-            o.environment = environment;
-            o.id = id;
-            o.projectId = projectId;
-            o.resourceGroup = resourceGroup;
-            o.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
-            o.serviceEndpointId = serviceEndpointId;
-            o.serviceEndpointName = serviceEndpointName;
-            o.workloadIdentityFederationIssuer = workloadIdentityFederationIssuer;
-            o.workloadIdentityFederationSubject = workloadIdentityFederationSubject;
-            return o;
+            final var _resultValue = new GetServiceEndpointAzureRMResult();
+            _resultValue.authorization = authorization;
+            _resultValue.azurermManagementGroupId = azurermManagementGroupId;
+            _resultValue.azurermManagementGroupName = azurermManagementGroupName;
+            _resultValue.azurermSpnTenantid = azurermSpnTenantid;
+            _resultValue.azurermSubscriptionId = azurermSubscriptionId;
+            _resultValue.azurermSubscriptionName = azurermSubscriptionName;
+            _resultValue.description = description;
+            _resultValue.environment = environment;
+            _resultValue.id = id;
+            _resultValue.projectId = projectId;
+            _resultValue.resourceGroup = resourceGroup;
+            _resultValue.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
+            _resultValue.serviceEndpointId = serviceEndpointId;
+            _resultValue.serviceEndpointName = serviceEndpointName;
+            _resultValue.workloadIdentityFederationIssuer = workloadIdentityFederationIssuer;
+            _resultValue.workloadIdentityFederationSubject = workloadIdentityFederationSubject;
+            return _resultValue;
         }
     }
 }

@@ -72,10 +72,10 @@ public final class GetBuildDefinitionScheduleBranchFilter {
             return includes(List.of(includes));
         }
         public GetBuildDefinitionScheduleBranchFilter build() {
-            final var o = new GetBuildDefinitionScheduleBranchFilter();
-            o.excludes = excludes;
-            o.includes = includes;
-            return o;
+            final var _resultValue = new GetBuildDefinitionScheduleBranchFilter();
+            _resultValue.excludes = excludes;
+            _resultValue.includes = includes;
+            return _resultValue;
         }
     }
 }

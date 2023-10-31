@@ -68,10 +68,10 @@ public final class ServiceEndpointServiceFabricNone {
             return this;
         }
         public ServiceEndpointServiceFabricNone build() {
-            final var o = new ServiceEndpointServiceFabricNone();
-            o.clusterSpn = clusterSpn;
-            o.unsecured = unsecured;
-            return o;
+            final var _resultValue = new ServiceEndpointServiceFabricNone();
+            _resultValue.clusterSpn = clusterSpn;
+            _resultValue.unsecured = unsecured;
+            return _resultValue;
         }
     }
 }

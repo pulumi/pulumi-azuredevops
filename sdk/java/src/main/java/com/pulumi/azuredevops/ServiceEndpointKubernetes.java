@@ -42,7 +42,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * The hostname (in form of URI) of the Kubernetes API.
      * 
      */
-    @Export(name="apiserverUrl", type=String.class, parameters={})
+    @Export(name="apiserverUrl", refs={String.class}, tree="[0]")
     private Output<String> apiserverUrl;
 
     /**
@@ -52,7 +52,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
     public Output<String> apiserverUrl() {
         return this.apiserverUrl;
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -62,7 +62,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * The authentication method used to authenticate on the Kubernetes cluster. The value should be one of AzureSubscription, Kubeconfig, ServiceAccount.
      * 
      */
-    @Export(name="authorizationType", type=String.class, parameters={})
+    @Export(name="authorizationType", refs={String.class}, tree="[0]")
     private Output<String> authorizationType;
 
     /**
@@ -76,7 +76,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * A `azure_subscription` block defined blow.
      * 
      */
-    @Export(name="azureSubscriptions", type=List.class, parameters={ServiceEndpointKubernetesAzureSubscription.class})
+    @Export(name="azureSubscriptions", refs={List.class,ServiceEndpointKubernetesAzureSubscription.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ServiceEndpointKubernetesAzureSubscription>> azureSubscriptions;
 
     /**
@@ -86,7 +86,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
     public Output<Optional<List<ServiceEndpointKubernetesAzureSubscription>>> azureSubscriptions() {
         return Codegen.optional(this.azureSubscriptions);
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -96,7 +96,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * A `kubeconfig` block defined blow.
      * 
      */
-    @Export(name="kubeconfig", type=ServiceEndpointKubernetesKubeconfig.class, parameters={})
+    @Export(name="kubeconfig", refs={ServiceEndpointKubernetesKubeconfig.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointKubernetesKubeconfig> kubeconfig;
 
     /**
@@ -110,7 +110,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -124,7 +124,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * A `service_account` block defined blow.
      * 
      */
-    @Export(name="serviceAccount", type=ServiceEndpointKubernetesServiceAccount.class, parameters={})
+    @Export(name="serviceAccount", refs={ServiceEndpointKubernetesServiceAccount.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointKubernetesServiceAccount> serviceAccount;
 
     /**
@@ -138,7 +138,7 @@ public class ServiceEndpointKubernetes extends com.pulumi.resources.CustomResour
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**

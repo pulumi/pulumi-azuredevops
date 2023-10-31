@@ -116,13 +116,13 @@ public final class GetPoolsAgentPool {
             return this;
         }
         public GetPoolsAgentPool build() {
-            final var o = new GetPoolsAgentPool();
-            o.autoProvision = autoProvision;
-            o.autoUpdate = autoUpdate;
-            o.id = id;
-            o.name = name;
-            o.poolType = poolType;
-            return o;
+            final var _resultValue = new GetPoolsAgentPool();
+            _resultValue.autoProvision = autoProvision;
+            _resultValue.autoUpdate = autoUpdate;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.poolType = poolType;
+            return _resultValue;
         }
     }
 }

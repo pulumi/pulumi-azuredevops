@@ -67,10 +67,10 @@ public final class ServiceEndpointAzureRMCredentials {
             return this;
         }
         public ServiceEndpointAzureRMCredentials build() {
-            final var o = new ServiceEndpointAzureRMCredentials();
-            o.serviceprincipalid = serviceprincipalid;
-            o.serviceprincipalkey = serviceprincipalkey;
-            return o;
+            final var _resultValue = new ServiceEndpointAzureRMCredentials();
+            _resultValue.serviceprincipalid = serviceprincipalid;
+            _resultValue.serviceprincipalkey = serviceprincipalkey;
+            return _resultValue;
         }
     }
 }

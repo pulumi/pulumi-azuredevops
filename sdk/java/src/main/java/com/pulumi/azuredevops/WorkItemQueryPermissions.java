@@ -227,7 +227,7 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
      * Path to a query or folder beneath `Shared Queries`
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
     /**
@@ -248,7 +248,7 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
      * | ManagePermissions        | Manage Permissions                 |
      * 
      */
-    @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
@@ -269,7 +269,7 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
      * The **group** principal to assign the permissions.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -283,7 +283,7 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
      * The ID of the project to assign the permissions.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -297,7 +297,7 @@ public class WorkItemQueryPermissions extends com.pulumi.resources.CustomResourc
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
      */
-    @Export(name="replace", type=Boolean.class, parameters={})
+    @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**

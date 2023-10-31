@@ -84,7 +84,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * The descriptor of the group being managed.
      * 
      */
-    @Export(name="group", type=String.class, parameters={})
+    @Export(name="group", refs={String.class}, tree="[0]")
     private Output<String> group;
 
     /**
@@ -99,7 +99,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * &gt; NOTE: It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
      * 
      */
-    @Export(name="members", type=List.class, parameters={String.class})
+    @Export(name="members", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> members;
 
     /**
@@ -117,7 +117,7 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
      * &gt; NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**

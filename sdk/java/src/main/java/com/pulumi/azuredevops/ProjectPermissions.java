@@ -120,7 +120,7 @@ public class ProjectPermissions extends com.pulumi.resources.CustomResource {
      * | AGILETOOLS_PLANS             | Agile plans.                                 |
      * 
      */
-    @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
@@ -162,7 +162,7 @@ public class ProjectPermissions extends com.pulumi.resources.CustomResource {
      * The **group** principal to assign the permissions.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -176,7 +176,7 @@ public class ProjectPermissions extends com.pulumi.resources.CustomResource {
      * The ID of the project to assign the permissions.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -190,7 +190,7 @@ public class ProjectPermissions extends com.pulumi.resources.CustomResource {
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`
      * 
      */
-    @Export(name="replace", type=Boolean.class, parameters={})
+    @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**

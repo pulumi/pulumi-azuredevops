@@ -180,7 +180,7 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      * Boolean that indicate if this variable group is shared by all pipelines of this project.
      * 
      */
-    @Export(name="allowAccess", type=Boolean.class, parameters={})
+    @Export(name="allowAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> allowAccess;
 
     /**
@@ -194,7 +194,7 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      * The description of the Variable Group.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -208,7 +208,7 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      * A list of `key_vault` blocks as documented below.
      * 
      */
-    @Export(name="keyVault", type=VariableGroupKeyVault.class, parameters={})
+    @Export(name="keyVault", refs={VariableGroupKeyVault.class}, tree="[0]")
     private Output</* @Nullable */ VariableGroupKeyVault> keyVault;
 
     /**
@@ -222,7 +222,7 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      * The name of the Variable Group.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -236,7 +236,7 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -250,7 +250,7 @@ public class VariableGroup extends com.pulumi.resources.CustomResource {
      * One or more `variable` blocks as documented below.
      * 
      */
-    @Export(name="variables", type=List.class, parameters={VariableGroupVariable.class})
+    @Export(name="variables", refs={List.class,VariableGroupVariable.class}, tree="[0,1]")
     private Output<List<VariableGroupVariable>> variables;
 
     /**

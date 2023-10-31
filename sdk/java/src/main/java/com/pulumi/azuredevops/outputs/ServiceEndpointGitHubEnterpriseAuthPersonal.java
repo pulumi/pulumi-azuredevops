@@ -46,9 +46,9 @@ public final class ServiceEndpointGitHubEnterpriseAuthPersonal {
             return this;
         }
         public ServiceEndpointGitHubEnterpriseAuthPersonal build() {
-            final var o = new ServiceEndpointGitHubEnterpriseAuthPersonal();
-            o.personalAccessToken = personalAccessToken;
-            return o;
+            final var _resultValue = new ServiceEndpointGitHubEnterpriseAuthPersonal();
+            _resultValue.personalAccessToken = personalAccessToken;
+            return _resultValue;
         }
     }
 }

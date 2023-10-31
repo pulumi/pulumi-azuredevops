@@ -211,18 +211,18 @@ public final class GetGitRepositoryResult {
             return this;
         }
         public GetGitRepositoryResult build() {
-            final var o = new GetGitRepositoryResult();
-            o.defaultBranch = defaultBranch;
-            o.id = id;
-            o.isFork = isFork;
-            o.name = name;
-            o.projectId = projectId;
-            o.remoteUrl = remoteUrl;
-            o.size = size;
-            o.sshUrl = sshUrl;
-            o.url = url;
-            o.webUrl = webUrl;
-            return o;
+            final var _resultValue = new GetGitRepositoryResult();
+            _resultValue.defaultBranch = defaultBranch;
+            _resultValue.id = id;
+            _resultValue.isFork = isFork;
+            _resultValue.name = name;
+            _resultValue.projectId = projectId;
+            _resultValue.remoteUrl = remoteUrl;
+            _resultValue.size = size;
+            _resultValue.sshUrl = sshUrl;
+            _resultValue.url = url;
+            _resultValue.webUrl = webUrl;
+            return _resultValue;
         }
     }
 }

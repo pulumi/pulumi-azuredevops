@@ -213,6 +213,21 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
     }
 
     /**
+     * The Application(Client) ID of the Service Principal.
+     * 
+     */
+    @Import(name="servicePrincipalId")
+    private @Nullable Output<String> servicePrincipalId;
+
+    /**
+     * @return The Application(Client) ID of the Service Principal.
+     * 
+     */
+    public Optional<Output<String>> servicePrincipalId() {
+        return Optional.ofNullable(this.servicePrincipalId);
+    }
+
+    /**
      * The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      * 
      */
@@ -258,6 +273,7 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
         this.resourceGroup = $.resourceGroup;
         this.serviceEndpointAuthenticationScheme = $.serviceEndpointAuthenticationScheme;
         this.serviceEndpointName = $.serviceEndpointName;
+        this.servicePrincipalId = $.servicePrincipalId;
         this.workloadIdentityFederationIssuer = $.workloadIdentityFederationIssuer;
         this.workloadIdentityFederationSubject = $.workloadIdentityFederationSubject;
     }
@@ -547,6 +563,27 @@ public final class ServiceEndpointAzureRMState extends com.pulumi.resources.Reso
          */
         public Builder serviceEndpointName(String serviceEndpointName) {
             return serviceEndpointName(Output.of(serviceEndpointName));
+        }
+
+        /**
+         * @param servicePrincipalId The Application(Client) ID of the Service Principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePrincipalId(@Nullable Output<String> servicePrincipalId) {
+            $.servicePrincipalId = servicePrincipalId;
+            return this;
+        }
+
+        /**
+         * @param servicePrincipalId The Application(Client) ID of the Service Principal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder servicePrincipalId(String servicePrincipalId) {
+            return servicePrincipalId(Output.of(servicePrincipalId));
         }
 
         /**

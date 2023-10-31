@@ -93,11 +93,11 @@ public final class GetBuildDefinitionPullRequestTriggerOverride {
             return pathFilters(List.of(pathFilters));
         }
         public GetBuildDefinitionPullRequestTriggerOverride build() {
-            final var o = new GetBuildDefinitionPullRequestTriggerOverride();
-            o.autoCancel = autoCancel;
-            o.branchFilters = branchFilters;
-            o.pathFilters = pathFilters;
-            return o;
+            final var _resultValue = new GetBuildDefinitionPullRequestTriggerOverride();
+            _resultValue.autoCancel = autoCancel;
+            _resultValue.branchFilters = branchFilters;
+            _resultValue.pathFilters = pathFilters;
+            return _resultValue;
         }
     }
 }

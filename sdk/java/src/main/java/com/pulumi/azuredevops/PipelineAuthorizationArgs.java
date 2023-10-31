@@ -62,14 +62,14 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+     * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+     * @return The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      * 
      */
     public Output<String> type() {
@@ -167,7 +167,7 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+         * @param type The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param type The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+         * @param type The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
          * 
          * @return builder
          * 

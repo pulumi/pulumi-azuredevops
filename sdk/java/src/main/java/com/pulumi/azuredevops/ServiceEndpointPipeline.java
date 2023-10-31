@@ -83,7 +83,7 @@ public class ServiceEndpointPipeline extends com.pulumi.resources.CustomResource
      * An `auth_personal` block as documented below. Allows connecting using a personal access token.
      * 
      */
-    @Export(name="authPersonal", type=ServiceEndpointPipelineAuthPersonal.class, parameters={})
+    @Export(name="authPersonal", refs={ServiceEndpointPipelineAuthPersonal.class}, tree="[0]")
     private Output<ServiceEndpointPipelineAuthPersonal> authPersonal;
 
     /**
@@ -93,13 +93,13 @@ public class ServiceEndpointPipeline extends com.pulumi.resources.CustomResource
     public Output<ServiceEndpointPipelineAuthPersonal> authPersonal() {
         return this.authPersonal;
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -109,7 +109,7 @@ public class ServiceEndpointPipeline extends com.pulumi.resources.CustomResource
      * The organization name used for `Organization Url` and `Release API Url` fields.
      * 
      */
-    @Export(name="organizationName", type=String.class, parameters={})
+    @Export(name="organizationName", refs={String.class}, tree="[0]")
     private Output<String> organizationName;
 
     /**
@@ -123,7 +123,7 @@ public class ServiceEndpointPipeline extends com.pulumi.resources.CustomResource
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -137,7 +137,7 @@ public class ServiceEndpointPipeline extends com.pulumi.resources.CustomResource
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**

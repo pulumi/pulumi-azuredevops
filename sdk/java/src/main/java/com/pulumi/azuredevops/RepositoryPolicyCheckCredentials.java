@@ -132,7 +132,7 @@ public class RepositoryPolicyCheckCredentials extends com.pulumi.resources.Custo
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      * 
      */
-    @Export(name="blocking", type=Boolean.class, parameters={})
+    @Export(name="blocking", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blocking;
 
     /**
@@ -146,7 +146,7 @@ public class RepositoryPolicyCheckCredentials extends com.pulumi.resources.Custo
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -160,7 +160,7 @@ public class RepositoryPolicyCheckCredentials extends com.pulumi.resources.Custo
      * The ID of the project in which the policy will be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -174,7 +174,7 @@ public class RepositoryPolicyCheckCredentials extends com.pulumi.resources.Custo
      * Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
      * 
      */
-    @Export(name="repositoryIds", type=List.class, parameters={String.class})
+    @Export(name="repositoryIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> repositoryIds;
 
     /**

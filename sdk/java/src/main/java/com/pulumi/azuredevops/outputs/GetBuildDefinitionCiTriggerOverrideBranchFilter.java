@@ -72,10 +72,10 @@ public final class GetBuildDefinitionCiTriggerOverrideBranchFilter {
             return includes(List.of(includes));
         }
         public GetBuildDefinitionCiTriggerOverrideBranchFilter build() {
-            final var o = new GetBuildDefinitionCiTriggerOverrideBranchFilter();
-            o.excludes = excludes;
-            o.includes = includes;
-            return o;
+            final var _resultValue = new GetBuildDefinitionCiTriggerOverrideBranchFilter();
+            _resultValue.excludes = excludes;
+            _resultValue.includes = includes;
+            return _resultValue;
         }
     }
 }

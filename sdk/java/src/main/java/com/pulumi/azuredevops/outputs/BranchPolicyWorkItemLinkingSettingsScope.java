@@ -86,11 +86,11 @@ public final class BranchPolicyWorkItemLinkingSettingsScope {
             return this;
         }
         public BranchPolicyWorkItemLinkingSettingsScope build() {
-            final var o = new BranchPolicyWorkItemLinkingSettingsScope();
-            o.matchType = matchType;
-            o.repositoryId = repositoryId;
-            o.repositoryRef = repositoryRef;
-            return o;
+            final var _resultValue = new BranchPolicyWorkItemLinkingSettingsScope();
+            _resultValue.matchType = matchType;
+            _resultValue.repositoryId = repositoryId;
+            _resultValue.repositoryRef = repositoryRef;
+            return _resultValue;
         }
     }
 }

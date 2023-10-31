@@ -18,6 +18,7 @@ import (
 // > **Note** Permissions can be assigned to group principals and not to single user principals.
 //
 // ## Example Usage
+// ### Set specific folder permissions
 //
 // ```go
 // package main
@@ -73,6 +74,50 @@ import (
 //					"EditBuildDefinition":        pulumi.String("Deny"),
 //					"DeleteBuildDefinition":      pulumi.String("Deny"),
 //					"AdministerBuildPermissions": pulumi.String("NotSet"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### Set root folder permissions
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleProject, err := azuredevops.NewProject(ctx, "exampleProject", &azuredevops.ProjectArgs{
+//				WorkItemTemplate: pulumi.String("Agile"),
+//				VersionControl:   pulumi.String("Git"),
+//				Visibility:       pulumi.String("private"),
+//				Description:      pulumi.String("Managed by Terraform"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example_readers := azuredevops.LookupGroupOutput(ctx, azuredevops.GetGroupOutputArgs{
+//				ProjectId: exampleProject.ID(),
+//				Name:      pulumi.String("Readers"),
+//			}, nil)
+//			_, err = azuredevops.NewBuildFolderPermissions(ctx, "exampleBuildFolderPermissions", &azuredevops.BuildFolderPermissionsArgs{
+//				ProjectId: exampleProject.ID(),
+//				Path:      pulumi.String("\\"),
+//				Principal: example_readers.ApplyT(func(example_readers azuredevops.GetGroupResult) (*string, error) {
+//					return &example_readers.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Permissions: pulumi.StringMap{
+//					"RetainIndefinitely": pulumi.String("Allow"),
 //				},
 //			})
 //			if err != nil {

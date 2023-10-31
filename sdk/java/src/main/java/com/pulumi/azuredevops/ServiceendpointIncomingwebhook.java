@@ -74,13 +74,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceendpointIncomingwebhook:ServiceendpointIncomingwebhook")
 public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -90,7 +90,7 @@ public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomR
      * Http header name on which checksum will be sent.
      * 
      */
-    @Export(name="httpHeader", type=String.class, parameters={})
+    @Export(name="httpHeader", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> httpHeader;
 
     /**
@@ -104,7 +104,7 @@ public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomR
      * The ID of the project. Changing this forces a new Service Connection Incoming WebHook to be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -118,7 +118,7 @@ public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomR
      * Secret for the WebHook. WebHook service will use this secret to calculate the payload checksum.
      * 
      */
-    @Export(name="secret", type=String.class, parameters={})
+    @Export(name="secret", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> secret;
 
     /**
@@ -132,7 +132,7 @@ public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomR
      * The name of the service endpoint. Changing this forces a new Service Connection Incoming WebHook to be created.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -146,7 +146,7 @@ public class ServiceendpointIncomingwebhook extends com.pulumi.resources.CustomR
      * The name of the WebHook.
      * 
      */
-    @Export(name="webhookName", type=String.class, parameters={})
+    @Export(name="webhookName", refs={String.class}, tree="[0]")
     private Output<String> webhookName;
 
     /**

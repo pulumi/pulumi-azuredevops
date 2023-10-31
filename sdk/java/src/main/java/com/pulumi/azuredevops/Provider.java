@@ -27,7 +27,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The url of the Azure DevOps instance which should be used.
      * 
      */
-    @Export(name="orgServiceUrl", type=String.class, parameters={})
+    @Export(name="orgServiceUrl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> orgServiceUrl;
 
     /**
@@ -41,7 +41,7 @@ public class Provider extends com.pulumi.resources.ProviderResource {
      * The personal access token which should be used.
      * 
      */
-    @Export(name="personalAccessToken", type=String.class, parameters={})
+    @Export(name="personalAccessToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> personalAccessToken;
 
     /**

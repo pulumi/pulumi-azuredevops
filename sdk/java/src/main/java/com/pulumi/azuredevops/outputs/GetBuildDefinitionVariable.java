@@ -123,13 +123,13 @@ public final class GetBuildDefinitionVariable {
             return this;
         }
         public GetBuildDefinitionVariable build() {
-            final var o = new GetBuildDefinitionVariable();
-            o.allowOverride = allowOverride;
-            o.isSecret = isSecret;
-            o.name = name;
-            o.secretValue = secretValue;
-            o.value = value;
-            return o;
+            final var _resultValue = new GetBuildDefinitionVariable();
+            _resultValue.allowOverride = allowOverride;
+            _resultValue.isSecret = isSecret;
+            _resultValue.name = name;
+            _resultValue.secretValue = secretValue;
+            _resultValue.value = value;
+            return _resultValue;
         }
     }
 }

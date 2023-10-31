@@ -123,13 +123,13 @@ public final class GetIterationChildren {
             return this;
         }
         public GetIterationChildren build() {
-            final var o = new GetIterationChildren();
-            o.hasChildren = hasChildren;
-            o.id = id;
-            o.name = name;
-            o.path = path;
-            o.projectId = projectId;
-            return o;
+            final var _resultValue = new GetIterationChildren();
+            _resultValue.hasChildren = hasChildren;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.projectId = projectId;
+            return _resultValue;
         }
     }
 }

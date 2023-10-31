@@ -177,19 +177,19 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointServiceFabric:ServiceEndpointServiceFabric")
 public class ServiceEndpointServiceFabric extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="azureActiveDirectory", type=ServiceEndpointServiceFabricAzureActiveDirectory.class, parameters={})
+    @Export(name="azureActiveDirectory", refs={ServiceEndpointServiceFabricAzureActiveDirectory.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointServiceFabricAzureActiveDirectory> azureActiveDirectory;
 
     public Output<Optional<ServiceEndpointServiceFabricAzureActiveDirectory>> azureActiveDirectory() {
         return Codegen.optional(this.azureActiveDirectory);
     }
-    @Export(name="certificate", type=ServiceEndpointServiceFabricCertificate.class, parameters={})
+    @Export(name="certificate", refs={ServiceEndpointServiceFabricCertificate.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointServiceFabricCertificate> certificate;
 
     public Output<Optional<ServiceEndpointServiceFabricCertificate>> certificate() {
@@ -199,7 +199,7 @@ public class ServiceEndpointServiceFabric extends com.pulumi.resources.CustomRes
      * Client connection endpoint for the cluster. Prefix the value with &#39;tcp://&#39;;. This value overrides the publish profile.
      * 
      */
-    @Export(name="clusterEndpoint", type=String.class, parameters={})
+    @Export(name="clusterEndpoint", refs={String.class}, tree="[0]")
     private Output<String> clusterEndpoint;
 
     /**
@@ -209,13 +209,13 @@ public class ServiceEndpointServiceFabric extends com.pulumi.resources.CustomRes
     public Output<String> clusterEndpoint() {
         return this.clusterEndpoint;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
-    @Export(name="none", type=ServiceEndpointServiceFabricNone.class, parameters={})
+    @Export(name="none", refs={ServiceEndpointServiceFabricNone.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointServiceFabricNone> none;
 
     public Output<Optional<ServiceEndpointServiceFabricNone>> none() {
@@ -225,7 +225,7 @@ public class ServiceEndpointServiceFabric extends com.pulumi.resources.CustomRes
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -239,7 +239,7 @@ public class ServiceEndpointServiceFabric extends com.pulumi.resources.CustomRes
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**

@@ -84,7 +84,7 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
      * An `auth_personal` block as documented below. Allows connecting using a personal access token.
      * 
      */
-    @Export(name="authPersonal", type=ServiceendpointExternaltfsAuthPersonal.class, parameters={})
+    @Export(name="authPersonal", refs={ServiceendpointExternaltfsAuthPersonal.class}, tree="[0]")
     private Output<ServiceendpointExternaltfsAuthPersonal> authPersonal;
 
     /**
@@ -94,7 +94,7 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
     public Output<ServiceendpointExternaltfsAuthPersonal> authPersonal() {
         return this.authPersonal;
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -104,7 +104,7 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
      * URL of the Azure DevOps organization or the TFS Project Collection to connect to.
      * 
      */
-    @Export(name="connectionUrl", type=String.class, parameters={})
+    @Export(name="connectionUrl", refs={String.class}, tree="[0]")
     private Output<String> connectionUrl;
 
     /**
@@ -114,7 +114,7 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
     public Output<String> connectionUrl() {
         return this.connectionUrl;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -124,7 +124,7 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -138,7 +138,7 @@ public class ServiceendpointExternaltfs extends com.pulumi.resources.CustomResou
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**

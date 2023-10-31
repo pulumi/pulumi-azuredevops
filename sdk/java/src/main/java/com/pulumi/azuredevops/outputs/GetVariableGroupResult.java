@@ -162,15 +162,15 @@ public final class GetVariableGroupResult {
             return variables(List.of(variables));
         }
         public GetVariableGroupResult build() {
-            final var o = new GetVariableGroupResult();
-            o.allowAccess = allowAccess;
-            o.description = description;
-            o.id = id;
-            o.keyVaults = keyVaults;
-            o.name = name;
-            o.projectId = projectId;
-            o.variables = variables;
-            return o;
+            final var _resultValue = new GetVariableGroupResult();
+            _resultValue.allowAccess = allowAccess;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.keyVaults = keyVaults;
+            _resultValue.name = name;
+            _resultValue.projectId = projectId;
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

@@ -120,7 +120,7 @@ public class CheckExclusiveLock extends com.pulumi.resources.CustomResource {
      * The project ID. Changing this forces a new Exclusive Lock Check to be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -134,7 +134,7 @@ public class CheckExclusiveLock extends com.pulumi.resources.CustomResource {
      * The ID of the resource being protected by the check. Changing this forces a new Exclusive Lock to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
@@ -148,7 +148,7 @@ public class CheckExclusiveLock extends com.pulumi.resources.CustomResource {
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Exclusive Lock to be created.
      * 
      */
-    @Export(name="targetResourceType", type=String.class, parameters={})
+    @Export(name="targetResourceType", refs={String.class}, tree="[0]")
     private Output<String> targetResourceType;
 
     /**
@@ -162,7 +162,7 @@ public class CheckExclusiveLock extends com.pulumi.resources.CustomResource {
      * The timeout in minutes for the exclusive lock. Defaults to `43200`.
      * 
      */
-    @Export(name="timeout", type=Integer.class, parameters={})
+    @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
     /**

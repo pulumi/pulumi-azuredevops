@@ -86,11 +86,11 @@ public final class BranchPolicyCommentResolutionSettingsScope {
             return this;
         }
         public BranchPolicyCommentResolutionSettingsScope build() {
-            final var o = new BranchPolicyCommentResolutionSettingsScope();
-            o.matchType = matchType;
-            o.repositoryId = repositoryId;
-            o.repositoryRef = repositoryRef;
-            return o;
+            final var _resultValue = new BranchPolicyCommentResolutionSettingsScope();
+            _resultValue.matchType = matchType;
+            _resultValue.repositoryId = repositoryId;
+            _resultValue.repositoryRef = repositoryRef;
+            return _resultValue;
         }
     }
 }

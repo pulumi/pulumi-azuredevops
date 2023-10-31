@@ -15,6 +15,7 @@ namespace Pulumi.AzureDevOps
     /// &gt; **Note** Permissions can be assigned to group principals and not to single user principals.
     /// 
     /// ## Example Usage
+    /// ### Set specific folder permissions
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -66,6 +67,42 @@ namespace Pulumi.AzureDevOps
     ///             { "EditBuildDefinition", "Deny" },
     ///             { "DeleteBuildDefinition", "Deny" },
     ///             { "AdministerBuildPermissions", "NotSet" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Set root folder permissions
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using AzureDevOps = Pulumi.AzureDevOps;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleProject = new AzureDevOps.Project("exampleProject", new()
+    ///     {
+    ///         WorkItemTemplate = "Agile",
+    ///         VersionControl = "Git",
+    ///         Visibility = "private",
+    ///         Description = "Managed by Terraform",
+    ///     });
+    /// 
+    ///     var example_readers = AzureDevOps.GetGroup.Invoke(new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Name = "Readers",
+    ///     });
+    /// 
+    ///     var exampleBuildFolderPermissions = new AzureDevOps.BuildFolderPermissions("exampleBuildFolderPermissions", new()
+    ///     {
+    ///         ProjectId = exampleProject.Id,
+    ///         Path = "\\",
+    ///         Principal = example_readers.Apply(example_readers =&gt; example_readers.Apply(getGroupResult =&gt; getGroupResult.Id)),
+    ///         Permissions = 
+    ///         {
+    ///             { "RetainIndefinitely", "Allow" },
     ///         },
     ///     });
     /// 

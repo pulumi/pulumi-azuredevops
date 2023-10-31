@@ -127,19 +127,19 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointArtifactory:ServiceEndpointArtifactory")
 public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResource {
-    @Export(name="authenticationBasic", type=ServiceEndpointArtifactoryAuthenticationBasic.class, parameters={})
+    @Export(name="authenticationBasic", refs={ServiceEndpointArtifactoryAuthenticationBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointArtifactoryAuthenticationBasic> authenticationBasic;
 
     public Output<Optional<ServiceEndpointArtifactoryAuthenticationBasic>> authenticationBasic() {
         return Codegen.optional(this.authenticationBasic);
     }
-    @Export(name="authenticationToken", type=ServiceEndpointArtifactoryAuthenticationToken.class, parameters={})
+    @Export(name="authenticationToken", refs={ServiceEndpointArtifactoryAuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointArtifactoryAuthenticationToken> authenticationToken;
 
     public Output<Optional<ServiceEndpointArtifactoryAuthenticationToken>> authenticationToken() {
         return Codegen.optional(this.authenticationToken);
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -149,7 +149,7 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      * The Service Endpoint description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -163,7 +163,7 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -177,7 +177,7 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -194,7 +194,7 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      * * either `authentication_token` or `authentication_basic` (one is required)
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

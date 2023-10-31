@@ -92,7 +92,7 @@ public class ProjectFeatures extends com.pulumi.resources.CustomResource {
      * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
      * 
      */
-    @Export(name="features", type=Map.class, parameters={String.class, String.class})
+    @Export(name="features", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> features;
 
     /**
@@ -108,7 +108,7 @@ public class ProjectFeatures extends com.pulumi.resources.CustomResource {
     public Output<Map<String,String>> features() {
         return this.features;
     }
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     public Output<String> projectId() {

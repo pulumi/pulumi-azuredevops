@@ -67,10 +67,10 @@ public final class AzureRMCredentials {
             return this;
         }
         public AzureRMCredentials build() {
-            final var o = new AzureRMCredentials();
-            o.serviceprincipalid = serviceprincipalid;
-            o.serviceprincipalkey = serviceprincipalkey;
-            return o;
+            final var _resultValue = new AzureRMCredentials();
+            _resultValue.serviceprincipalid = serviceprincipalid;
+            _resultValue.serviceprincipalkey = serviceprincipalkey;
+            return _resultValue;
         }
     }
 }

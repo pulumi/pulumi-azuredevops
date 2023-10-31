@@ -88,13 +88,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointDockerRegistry:ServiceEndpointDockerRegistry")
 public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -104,7 +104,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * The email for Docker account user.
      * 
      */
-    @Export(name="dockerEmail", type=String.class, parameters={})
+    @Export(name="dockerEmail", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dockerEmail;
 
     /**
@@ -118,7 +118,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * The password for the account user identified above.
      * 
      */
-    @Export(name="dockerPassword", type=String.class, parameters={})
+    @Export(name="dockerPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dockerPassword;
 
     /**
@@ -132,7 +132,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * The URL of the Docker registry. (Default: &#34;https://index.docker.io/v1/&#34;)
      * 
      */
-    @Export(name="dockerRegistry", type=String.class, parameters={})
+    @Export(name="dockerRegistry", refs={String.class}, tree="[0]")
     private Output<String> dockerRegistry;
 
     /**
@@ -146,7 +146,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * The identifier of the Docker account user.
      * 
      */
-    @Export(name="dockerUsername", type=String.class, parameters={})
+    @Export(name="dockerUsername", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> dockerUsername;
 
     /**
@@ -160,7 +160,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -174,7 +174,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * Can be &#34;DockerHub&#34; or &#34;Others&#34; (Default &#34;DockerHub&#34;)
      * 
      */
-    @Export(name="registryType", type=String.class, parameters={})
+    @Export(name="registryType", refs={String.class}, tree="[0]")
     private Output<String> registryType;
 
     /**
@@ -188,7 +188,7 @@ public class ServiceEndpointDockerRegistry extends com.pulumi.resources.CustomRe
      * The name you will use to refer to this service connection in task inputs.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**

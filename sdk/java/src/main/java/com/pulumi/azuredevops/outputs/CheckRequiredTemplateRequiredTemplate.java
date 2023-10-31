@@ -105,12 +105,12 @@ public final class CheckRequiredTemplateRequiredTemplate {
             return this;
         }
         public CheckRequiredTemplateRequiredTemplate build() {
-            final var o = new CheckRequiredTemplateRequiredTemplate();
-            o.repositoryName = repositoryName;
-            o.repositoryRef = repositoryRef;
-            o.repositoryType = repositoryType;
-            o.templatePath = templatePath;
-            return o;
+            final var _resultValue = new CheckRequiredTemplateRequiredTemplate();
+            _resultValue.repositoryName = repositoryName;
+            _resultValue.repositoryRef = repositoryRef;
+            _resultValue.repositoryType = repositoryType;
+            _resultValue.templatePath = templatePath;
+            return _resultValue;
         }
     }
 }

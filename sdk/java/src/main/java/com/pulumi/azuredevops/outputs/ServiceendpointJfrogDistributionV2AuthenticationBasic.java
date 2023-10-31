@@ -65,10 +65,10 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationBasic {
             return this;
         }
         public ServiceendpointJfrogDistributionV2AuthenticationBasic build() {
-            final var o = new ServiceendpointJfrogDistributionV2AuthenticationBasic();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new ServiceendpointJfrogDistributionV2AuthenticationBasic();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

@@ -96,7 +96,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      * both methods to manage team members, since there&#39;ll be conflicts.
      * 
      */
-    @Export(name="members", type=List.class, parameters={String.class})
+    @Export(name="members", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> members;
 
     /**
@@ -117,7 +117,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * 
      */
-    @Export(name="mode", type=String.class, parameters={})
+    @Export(name="mode", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> mode;
 
     /**
@@ -133,7 +133,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      * The Project ID.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -147,7 +147,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
      * The ID of the Team.
      * 
      */
-    @Export(name="teamId", type=String.class, parameters={})
+    @Export(name="teamId", refs={String.class}, tree="[0]")
     private Output<String> teamId;
 
     /**

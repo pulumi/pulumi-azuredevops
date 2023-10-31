@@ -172,15 +172,15 @@ public final class BranchPolicyBuildValidationSettings {
             return this;
         }
         public BranchPolicyBuildValidationSettings build() {
-            final var o = new BranchPolicyBuildValidationSettings();
-            o.buildDefinitionId = buildDefinitionId;
-            o.displayName = displayName;
-            o.filenamePatterns = filenamePatterns;
-            o.manualQueueOnly = manualQueueOnly;
-            o.queueOnSourceUpdateOnly = queueOnSourceUpdateOnly;
-            o.scopes = scopes;
-            o.validDuration = validDuration;
-            return o;
+            final var _resultValue = new BranchPolicyBuildValidationSettings();
+            _resultValue.buildDefinitionId = buildDefinitionId;
+            _resultValue.displayName = displayName;
+            _resultValue.filenamePatterns = filenamePatterns;
+            _resultValue.manualQueueOnly = manualQueueOnly;
+            _resultValue.queueOnSourceUpdateOnly = queueOnSourceUpdateOnly;
+            _resultValue.scopes = scopes;
+            _resultValue.validDuration = validDuration;
+            return _resultValue;
         }
     }
 }

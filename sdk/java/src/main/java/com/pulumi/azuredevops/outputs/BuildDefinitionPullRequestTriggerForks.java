@@ -65,10 +65,10 @@ public final class BuildDefinitionPullRequestTriggerForks {
             return this;
         }
         public BuildDefinitionPullRequestTriggerForks build() {
-            final var o = new BuildDefinitionPullRequestTriggerForks();
-            o.enabled = enabled;
-            o.shareSecrets = shareSecrets;
-            return o;
+            final var _resultValue = new BuildDefinitionPullRequestTriggerForks();
+            _resultValue.enabled = enabled;
+            _resultValue.shareSecrets = shareSecrets;
+            return _resultValue;
         }
     }
 }

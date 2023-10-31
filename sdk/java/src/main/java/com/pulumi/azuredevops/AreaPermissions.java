@@ -98,7 +98,7 @@ public class AreaPermissions extends com.pulumi.resources.CustomResource {
      * The name of the branch to assign the permissions.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
     /**
@@ -112,7 +112,7 @@ public class AreaPermissions extends com.pulumi.resources.CustomResource {
      * the permissions to assign. The following permissions are available.
      * 
      */
-    @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
@@ -126,7 +126,7 @@ public class AreaPermissions extends com.pulumi.resources.CustomResource {
      * The **group** principal to assign the permissions.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -140,7 +140,7 @@ public class AreaPermissions extends com.pulumi.resources.CustomResource {
      * The ID of the project to assign the permissions.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -153,34 +153,36 @@ public class AreaPermissions extends com.pulumi.resources.CustomResource {
     /**
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      * 
-     * | Permission         | Description                    |
-     * |--------------------|--------------------------------|
-     * | GENERIC_READ       | View permissions for this node |
-     * | GENERIC_WRITE      | Edit this node                 |
-     * | CREATE_CHILDREN    | Create child nodes             |
-     * | DELETE             | Delete this node               |
-     * | WORK_ITEM_READ     | View work items in this node   |
-     * | WORK_ITEM_WRITE    | Edit work items in this node   |
-     * | MANAGE_TEST_PLANS  | Manage test plans              |
-     * | MANAGE_TEST_SUITES | Manage test suites             |
+     * | Permission             | Description                          |
+     * |------------------------|--------------------------------------|
+     * | GENERIC_READ           | View permissions for this node       |
+     * | GENERIC_WRITE          | Edit this node                       |
+     * | CREATE_CHILDREN        | Create child nodes                   |
+     * | DELETE                 | Delete this node                     |
+     * | WORK_ITEM_READ         | View work items in this node         |
+     * | WORK_ITEM_WRITE        | Edit work items in this node         |
+     * | MANAGE_TEST_PLANS      | Manage test plans                    |
+     * | MANAGE_TEST_SUITES     | Manage test suites                   |
+     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
      * 
      */
-    @Export(name="replace", type=Boolean.class, parameters={})
+    @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**
      * @return Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      * 
-     * | Permission         | Description                    |
-     * |--------------------|--------------------------------|
-     * | GENERIC_READ       | View permissions for this node |
-     * | GENERIC_WRITE      | Edit this node                 |
-     * | CREATE_CHILDREN    | Create child nodes             |
-     * | DELETE             | Delete this node               |
-     * | WORK_ITEM_READ     | View work items in this node   |
-     * | WORK_ITEM_WRITE    | Edit work items in this node   |
-     * | MANAGE_TEST_PLANS  | Manage test plans              |
-     * | MANAGE_TEST_SUITES | Manage test suites             |
+     * | Permission             | Description                          |
+     * |------------------------|--------------------------------------|
+     * | GENERIC_READ           | View permissions for this node       |
+     * | GENERIC_WRITE          | Edit this node                       |
+     * | CREATE_CHILDREN        | Create child nodes                   |
+     * | DELETE                 | Delete this node                     |
+     * | WORK_ITEM_READ         | View work items in this node         |
+     * | WORK_ITEM_WRITE        | Edit work items in this node         |
+     * | MANAGE_TEST_PLANS      | Manage test plans                    |
+     * | MANAGE_TEST_SUITES     | Manage test suites                   |
+     * | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
      * 
      */
     public Output<Optional<Boolean>> replace() {

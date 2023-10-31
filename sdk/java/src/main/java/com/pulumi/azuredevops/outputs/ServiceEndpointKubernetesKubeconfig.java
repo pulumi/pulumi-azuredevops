@@ -87,11 +87,11 @@ public final class ServiceEndpointKubernetesKubeconfig {
             return this;
         }
         public ServiceEndpointKubernetesKubeconfig build() {
-            final var o = new ServiceEndpointKubernetesKubeconfig();
-            o.acceptUntrustedCerts = acceptUntrustedCerts;
-            o.clusterContext = clusterContext;
-            o.kubeConfig = kubeConfig;
-            return o;
+            final var _resultValue = new ServiceEndpointKubernetesKubeconfig();
+            _resultValue.acceptUntrustedCerts = acceptUntrustedCerts;
+            _resultValue.clusterContext = clusterContext;
+            _resultValue.kubeConfig = kubeConfig;
+            return _resultValue;
         }
     }
 }

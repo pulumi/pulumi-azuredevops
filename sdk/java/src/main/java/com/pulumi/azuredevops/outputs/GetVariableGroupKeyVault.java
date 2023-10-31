@@ -65,10 +65,10 @@ public final class GetVariableGroupKeyVault {
             return this;
         }
         public GetVariableGroupKeyVault build() {
-            final var o = new GetVariableGroupKeyVault();
-            o.name = name;
-            o.serviceEndpointId = serviceEndpointId;
-            return o;
+            final var _resultValue = new GetVariableGroupKeyVault();
+            _resultValue.name = name;
+            _resultValue.serviceEndpointId = serviceEndpointId;
+            return _resultValue;
         }
     }
 }

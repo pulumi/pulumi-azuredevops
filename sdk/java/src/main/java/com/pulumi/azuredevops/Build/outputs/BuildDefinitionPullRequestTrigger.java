@@ -111,13 +111,13 @@ public final class BuildDefinitionPullRequestTrigger {
             return this;
         }
         public BuildDefinitionPullRequestTrigger build() {
-            final var o = new BuildDefinitionPullRequestTrigger();
-            o.commentRequired = commentRequired;
-            o.forks = forks;
-            o.initialBranch = initialBranch;
-            o.override = override;
-            o.useYaml = useYaml;
-            return o;
+            final var _resultValue = new BuildDefinitionPullRequestTrigger();
+            _resultValue.commentRequired = commentRequired;
+            _resultValue.forks = forks;
+            _resultValue.initialBranch = initialBranch;
+            _resultValue.override = override;
+            _resultValue.useYaml = useYaml;
+            return _resultValue;
         }
     }
 }

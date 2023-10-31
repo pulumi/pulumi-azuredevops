@@ -65,10 +65,10 @@ public final class ServiceendpointArgocdAuthenticationBasic {
             return this;
         }
         public ServiceendpointArgocdAuthenticationBasic build() {
-            final var o = new ServiceendpointArgocdAuthenticationBasic();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new ServiceendpointArgocdAuthenticationBasic();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

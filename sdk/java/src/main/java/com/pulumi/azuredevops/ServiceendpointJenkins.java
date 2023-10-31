@@ -80,7 +80,7 @@ public class ServiceendpointJenkins extends com.pulumi.resources.CustomResource 
      * Allows the Jenkins clients to accept self-signed SSL server certificates. Defaults to `false.`
      * 
      */
-    @Export(name="acceptUntrustedCerts", type=Boolean.class, parameters={})
+    @Export(name="acceptUntrustedCerts", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> acceptUntrustedCerts;
 
     /**
@@ -90,13 +90,13 @@ public class ServiceendpointJenkins extends com.pulumi.resources.CustomResource 
     public Output<Optional<Boolean>> acceptUntrustedCerts() {
         return Codegen.optional(this.acceptUntrustedCerts);
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -106,7 +106,7 @@ public class ServiceendpointJenkins extends com.pulumi.resources.CustomResource 
      * The Service Endpoint password to authenticate at the Jenkins Instance.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -120,7 +120,7 @@ public class ServiceendpointJenkins extends com.pulumi.resources.CustomResource 
      * The ID of the project. Changing this forces a new Service Connection Jenkins to be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -134,7 +134,7 @@ public class ServiceendpointJenkins extends com.pulumi.resources.CustomResource 
      * The name of the service endpoint. Changing this forces a new Service Connection Jenkins to be created.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -148,7 +148,7 @@ public class ServiceendpointJenkins extends com.pulumi.resources.CustomResource 
      * The Service Endpoint url.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
@@ -162,7 +162,7 @@ public class ServiceendpointJenkins extends com.pulumi.resources.CustomResource 
      * The Service Endpoint username to authenticate at the Jenkins Instance.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

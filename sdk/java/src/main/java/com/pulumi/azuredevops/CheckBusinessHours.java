@@ -440,7 +440,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * The name of the business hours check displayed in the web UI.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -454,7 +454,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * The end of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
      * 
      */
-    @Export(name="endTime", type=String.class, parameters={})
+    @Export(name="endTime", refs={String.class}, tree="[0]")
     private Output<String> endTime;
 
     /**
@@ -468,7 +468,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * This check will pass on Fridays. Defaults to `false`.
      * 
      */
-    @Export(name="friday", type=Boolean.class, parameters={})
+    @Export(name="friday", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> friday;
 
     /**
@@ -482,7 +482,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * This check will pass on Mondays. Defaults to `false`.
      * 
      */
-    @Export(name="monday", type=Boolean.class, parameters={})
+    @Export(name="monday", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> monday;
 
     /**
@@ -496,7 +496,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * The project ID.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -510,7 +510,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * This check will pass on Saturdays. Defaults to `false`.
      * 
      */
-    @Export(name="saturday", type=Boolean.class, parameters={})
+    @Export(name="saturday", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> saturday;
 
     /**
@@ -524,7 +524,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * The beginning of the time period that this check will be allowed to pass, specified as 24-hour time with leading zeros.
      * 
      */
-    @Export(name="startTime", type=String.class, parameters={})
+    @Export(name="startTime", refs={String.class}, tree="[0]")
     private Output<String> startTime;
 
     /**
@@ -538,7 +538,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * This check will pass on Sundays. Defaults to `false`.
      * 
      */
-    @Export(name="sunday", type=Boolean.class, parameters={})
+    @Export(name="sunday", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> sunday;
 
     /**
@@ -552,7 +552,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * The ID of the resource being protected by the check.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
@@ -566,7 +566,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      * 
      */
-    @Export(name="targetResourceType", type=String.class, parameters={})
+    @Export(name="targetResourceType", refs={String.class}, tree="[0]")
     private Output<String> targetResourceType;
 
     /**
@@ -580,7 +580,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * This check will pass on Thursdays. Defaults to `false`.
      * 
      */
-    @Export(name="thursday", type=Boolean.class, parameters={})
+    @Export(name="thursday", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> thursday;
 
     /**
@@ -594,7 +594,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * The time zone this check will be evaluated in. See below for supported values.
      * 
      */
-    @Export(name="timeZone", type=String.class, parameters={})
+    @Export(name="timeZone", refs={String.class}, tree="[0]")
     private Output<String> timeZone;
 
     /**
@@ -608,7 +608,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * The timeout in minutes for the business hours check. Defaults to `1440`.
      * 
      */
-    @Export(name="timeout", type=Integer.class, parameters={})
+    @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
     /**
@@ -622,7 +622,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * This check will pass on Tuesday. Defaults to `false`.
      * 
      */
-    @Export(name="tuesday", type=Boolean.class, parameters={})
+    @Export(name="tuesday", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> tuesday;
 
     /**
@@ -636,7 +636,7 @@ public class CheckBusinessHours extends com.pulumi.resources.CustomResource {
      * This check will pass on Wednesdays. Defaults to `false`.
      * 
      */
-    @Export(name="wednesday", type=Boolean.class, parameters={})
+    @Export(name="wednesday", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> wednesday;
 
     /**

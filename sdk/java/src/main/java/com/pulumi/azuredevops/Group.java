@@ -91,7 +91,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The Description of the Project.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The identity (subject) descriptor of the Group.
      * 
      */
-    @Export(name="descriptor", type=String.class, parameters={})
+    @Export(name="descriptor", refs={String.class}, tree="[0]")
     private Output<String> descriptor;
 
     /**
@@ -119,7 +119,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The name of a new Azure DevOps group that is not backed by an external provider. The `origin_id` and `mail` arguments cannot be used simultaneously with `display_name`.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -133,7 +133,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * This represents the name of the container of origin for a graph member.
      * 
      */
-    @Export(name="domain", type=String.class, parameters={})
+    @Export(name="domain", refs={String.class}, tree="[0]")
     private Output<String> domain;
 
     /**
@@ -147,7 +147,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The mail address as a reference to an existing group from an external AD or AAD backed provider. The `scope`, `origin_id` and `display_name` arguments cannot be used simultaneously with `mail`.
      * 
      */
-    @Export(name="mail", type=String.class, parameters={})
+    @Export(name="mail", refs={String.class}, tree="[0]")
     private Output<String> mail;
 
     /**
@@ -161,7 +161,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * &gt; NOTE: It&#39;s possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
      * 
      */
-    @Export(name="members", type=List.class, parameters={String.class})
+    @Export(name="members", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> members;
 
     /**
@@ -175,7 +175,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The type of source provider for the origin identifier (ex:AD, AAD, MSA)
      * 
      */
-    @Export(name="origin", type=String.class, parameters={})
+    @Export(name="origin", refs={String.class}, tree="[0]")
     private Output<String> origin;
 
     /**
@@ -189,7 +189,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The OriginID as a reference to a group from an external AD or AAD backed provider. The `scope`, `mail` and `display_name` arguments cannot be used simultaneously with `origin_id`.
      * 
      */
-    @Export(name="originId", type=String.class, parameters={})
+    @Export(name="originId", refs={String.class}, tree="[0]")
     private Output<String> originId;
 
     /**
@@ -203,7 +203,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * This is the PrincipalName of this graph member from the source provider.
      * 
      */
-    @Export(name="principalName", type=String.class, parameters={})
+    @Export(name="principalName", refs={String.class}, tree="[0]")
     private Output<String> principalName;
 
     /**
@@ -217,7 +217,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * The scope of the group. A descriptor referencing the scope (collection, project) in which the group should be created. If omitted, will be created in the scope of the enclosing account or organization.x
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scope;
 
     /**
@@ -231,7 +231,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * This field identifies the type of the graph subject (ex: Group, Scope, User).
      * 
      */
-    @Export(name="subjectKind", type=String.class, parameters={})
+    @Export(name="subjectKind", refs={String.class}, tree="[0]")
     private Output<String> subjectKind;
 
     /**
@@ -245,7 +245,7 @@ public class Group extends com.pulumi.resources.CustomResource {
      * This url is the full route to the source resource of this graph subject.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

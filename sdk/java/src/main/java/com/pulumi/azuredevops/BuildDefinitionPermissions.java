@@ -121,7 +121,7 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
      * The id of the build definition to assign the permissions.
      * 
      */
-    @Export(name="buildDefinitionId", type=String.class, parameters={})
+    @Export(name="buildDefinitionId", refs={String.class}, tree="[0]")
     private Output<String> buildDefinitionId;
 
     /**
@@ -153,7 +153,7 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
      * | AdministerBuildPermissions     | Administer build permissions          |
      * 
      */
-    @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
@@ -185,7 +185,7 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
      * The **group** principal to assign the permissions.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -199,7 +199,7 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
      * The ID of the project to assign the permissions.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -213,7 +213,7 @@ public class BuildDefinitionPermissions extends com.pulumi.resources.CustomResou
      * Replace (`true`) or merge (`false`) the permissions. Default: `true`.
      * 
      */
-    @Export(name="replace", type=Boolean.class, parameters={})
+    @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**

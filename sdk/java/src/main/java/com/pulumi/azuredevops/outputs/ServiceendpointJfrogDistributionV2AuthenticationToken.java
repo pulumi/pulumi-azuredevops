@@ -46,9 +46,9 @@ public final class ServiceendpointJfrogDistributionV2AuthenticationToken {
             return this;
         }
         public ServiceendpointJfrogDistributionV2AuthenticationToken build() {
-            final var o = new ServiceendpointJfrogDistributionV2AuthenticationToken();
-            o.token = token;
-            return o;
+            final var _resultValue = new ServiceendpointJfrogDistributionV2AuthenticationToken();
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

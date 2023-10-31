@@ -246,6 +246,7 @@ class _AzureRMState:
                  resource_group: Optional[pulumi.Input[str]] = None,
                  service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
                  service_endpoint_name: Optional[pulumi.Input[str]] = None,
+                 service_principal_id: Optional[pulumi.Input[str]] = None,
                  workload_identity_federation_issuer: Optional[pulumi.Input[str]] = None,
                  workload_identity_federation_subject: Optional[pulumi.Input[str]] = None):
         """
@@ -266,6 +267,7 @@ class _AzureRMState:
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
+        :param pulumi.Input[str] service_principal_id: The Application(Client) ID of the Service Principal.
         :param pulumi.Input[str] workload_identity_federation_issuer: The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         :param pulumi.Input[str] workload_identity_federation_subject: The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
         """
@@ -295,6 +297,8 @@ class _AzureRMState:
             pulumi.set(__self__, "service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
         if service_endpoint_name is not None:
             pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        if service_principal_id is not None:
+            pulumi.set(__self__, "service_principal_id", service_principal_id)
         if workload_identity_federation_issuer is not None:
             pulumi.set(__self__, "workload_identity_federation_issuer", workload_identity_federation_issuer)
         if workload_identity_federation_subject is not None:
@@ -456,6 +460,18 @@ class _AzureRMState:
     @service_endpoint_name.setter
     def service_endpoint_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "service_endpoint_name", value)
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Application(Client) ID of the Service Principal.
+        """
+        return pulumi.get(self, "service_principal_id")
+
+    @service_principal_id.setter
+    def service_principal_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "service_principal_id", value)
 
     @property
     @pulumi.getter(name="workloadIdentityFederationIssuer")
@@ -914,6 +930,7 @@ class AzureRM(pulumi.CustomResource):
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")
             __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+            __props__.__dict__["service_principal_id"] = None
             __props__.__dict__["workload_identity_federation_issuer"] = None
             __props__.__dict__["workload_identity_federation_subject"] = None
         super(AzureRM, __self__).__init__(
@@ -939,6 +956,7 @@ class AzureRM(pulumi.CustomResource):
             resource_group: Optional[pulumi.Input[str]] = None,
             service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+            service_principal_id: Optional[pulumi.Input[str]] = None,
             workload_identity_federation_issuer: Optional[pulumi.Input[str]] = None,
             workload_identity_federation_subject: Optional[pulumi.Input[str]] = None) -> 'AzureRM':
         """
@@ -964,6 +982,7 @@ class AzureRM(pulumi.CustomResource):
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint Name.
+        :param pulumi.Input[str] service_principal_id: The Application(Client) ID of the Service Principal.
         :param pulumi.Input[str] workload_identity_federation_issuer: The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         :param pulumi.Input[str] workload_identity_federation_subject: The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
         """
@@ -984,6 +1003,7 @@ class AzureRM(pulumi.CustomResource):
         __props__.__dict__["resource_group"] = resource_group
         __props__.__dict__["service_endpoint_authentication_scheme"] = service_endpoint_authentication_scheme
         __props__.__dict__["service_endpoint_name"] = service_endpoint_name
+        __props__.__dict__["service_principal_id"] = service_principal_id
         __props__.__dict__["workload_identity_federation_issuer"] = workload_identity_federation_issuer
         __props__.__dict__["workload_identity_federation_subject"] = workload_identity_federation_subject
         return AzureRM(resource_name, opts=opts, __props__=__props__)
@@ -1092,6 +1112,14 @@ class AzureRM(pulumi.CustomResource):
         The Service Endpoint Name.
         """
         return pulumi.get(self, "service_endpoint_name")
+
+    @property
+    @pulumi.getter(name="servicePrincipalId")
+    def service_principal_id(self) -> pulumi.Output[str]:
+        """
+        The Application(Client) ID of the Service Principal.
+        """
+        return pulumi.get(self, "service_principal_id")
 
     @property
     @pulumi.getter(name="workloadIdentityFederationIssuer")

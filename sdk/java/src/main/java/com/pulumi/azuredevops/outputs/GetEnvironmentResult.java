@@ -107,13 +107,13 @@ public final class GetEnvironmentResult {
             return this;
         }
         public GetEnvironmentResult build() {
-            final var o = new GetEnvironmentResult();
-            o.description = description;
-            o.environmentId = environmentId;
-            o.id = id;
-            o.name = name;
-            o.projectId = projectId;
-            return o;
+            final var _resultValue = new GetEnvironmentResult();
+            _resultValue.description = description;
+            _resultValue.environmentId = environmentId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.projectId = projectId;
+            return _resultValue;
         }
     }
 }

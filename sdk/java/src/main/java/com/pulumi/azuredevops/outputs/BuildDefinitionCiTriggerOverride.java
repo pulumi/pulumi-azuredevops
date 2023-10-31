@@ -154,14 +154,14 @@ public final class BuildDefinitionCiTriggerOverride {
             return this;
         }
         public BuildDefinitionCiTriggerOverride build() {
-            final var o = new BuildDefinitionCiTriggerOverride();
-            o.batch = batch;
-            o.branchFilters = branchFilters;
-            o.maxConcurrentBuildsPerBranch = maxConcurrentBuildsPerBranch;
-            o.pathFilters = pathFilters;
-            o.pollingInterval = pollingInterval;
-            o.pollingJobId = pollingJobId;
-            return o;
+            final var _resultValue = new BuildDefinitionCiTriggerOverride();
+            _resultValue.batch = batch;
+            _resultValue.branchFilters = branchFilters;
+            _resultValue.maxConcurrentBuildsPerBranch = maxConcurrentBuildsPerBranch;
+            _resultValue.pathFilters = pathFilters;
+            _resultValue.pollingInterval = pollingInterval;
+            _resultValue.pollingJobId = pollingJobId;
+            return _resultValue;
         }
     }
 }

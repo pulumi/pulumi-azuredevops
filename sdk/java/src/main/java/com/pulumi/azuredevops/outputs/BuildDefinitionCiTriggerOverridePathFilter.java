@@ -73,10 +73,10 @@ public final class BuildDefinitionCiTriggerOverridePathFilter {
             return includes(List.of(includes));
         }
         public BuildDefinitionCiTriggerOverridePathFilter build() {
-            final var o = new BuildDefinitionCiTriggerOverridePathFilter();
-            o.excludes = excludes;
-            o.includes = includes;
-            return o;
+            final var _resultValue = new BuildDefinitionCiTriggerOverridePathFilter();
+            _resultValue.excludes = excludes;
+            _resultValue.includes = includes;
+            return _resultValue;
         }
     }
 }

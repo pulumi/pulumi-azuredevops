@@ -266,20 +266,20 @@ public final class GetBuildDefinitionResult {
             return variables(List.of(variables));
         }
         public GetBuildDefinitionResult build() {
-            final var o = new GetBuildDefinitionResult();
-            o.agentPoolName = agentPoolName;
-            o.ciTriggers = ciTriggers;
-            o.id = id;
-            o.name = name;
-            o.path = path;
-            o.projectId = projectId;
-            o.pullRequestTriggers = pullRequestTriggers;
-            o.repositories = repositories;
-            o.revision = revision;
-            o.schedules = schedules;
-            o.variableGroups = variableGroups;
-            o.variables = variables;
-            return o;
+            final var _resultValue = new GetBuildDefinitionResult();
+            _resultValue.agentPoolName = agentPoolName;
+            _resultValue.ciTriggers = ciTriggers;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.projectId = projectId;
+            _resultValue.pullRequestTriggers = pullRequestTriggers;
+            _resultValue.repositories = repositories;
+            _resultValue.revision = revision;
+            _resultValue.schedules = schedules;
+            _resultValue.variableGroups = variableGroups;
+            _resultValue.variables = variables;
+            return _resultValue;
         }
     }
 }

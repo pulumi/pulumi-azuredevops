@@ -276,7 +276,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * The branches allowed to use the resource. Specify a comma separated list of allowed branches in `refs/heads/branch_name` format. To allow deployments from all branches, specify `*` . `refs/heads/features/* , refs/heads/releases/*` restricts deployments to all branches under features/ or releases/ . Defaults to `*`.
      * 
      */
-    @Export(name="allowedBranches", type=String.class, parameters={})
+    @Export(name="allowedBranches", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> allowedBranches;
 
     /**
@@ -290,7 +290,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * The name of the branch control check displayed in the web UI.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> displayName;
 
     /**
@@ -304,7 +304,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * Allow deployment from branches for which protection status could not be obtained. Only relevant when verify_branch_protection is `true`. Defaults to `false`.
      * 
      */
-    @Export(name="ignoreUnknownProtectionStatus", type=Boolean.class, parameters={})
+    @Export(name="ignoreUnknownProtectionStatus", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> ignoreUnknownProtectionStatus;
 
     /**
@@ -318,7 +318,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * The project ID.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -332,7 +332,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * The ID of the resource being protected by the check.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
@@ -346,7 +346,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`.
      * 
      */
-    @Export(name="targetResourceType", type=String.class, parameters={})
+    @Export(name="targetResourceType", refs={String.class}, tree="[0]")
     private Output<String> targetResourceType;
 
     /**
@@ -360,7 +360,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * The timeout in minutes for the branch control check. Defaults to `1440`.
      * 
      */
-    @Export(name="timeout", type=Integer.class, parameters={})
+    @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
     /**
@@ -374,7 +374,7 @@ public class CheckBranchControl extends com.pulumi.resources.CustomResource {
      * Validate the branches being deployed are protected. Defaults to `false`.
      * 
      */
-    @Export(name="verifyBranchProtection", type=Boolean.class, parameters={})
+    @Export(name="verifyBranchProtection", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> verifyBranchProtection;
 
     /**

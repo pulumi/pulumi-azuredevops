@@ -170,15 +170,15 @@ public final class GetBuildDefinitionSchedule {
             return this;
         }
         public GetBuildDefinitionSchedule build() {
-            final var o = new GetBuildDefinitionSchedule();
-            o.branchFilters = branchFilters;
-            o.daysToBuilds = daysToBuilds;
-            o.scheduleJobId = scheduleJobId;
-            o.scheduleOnlyWithChanges = scheduleOnlyWithChanges;
-            o.startHours = startHours;
-            o.startMinutes = startMinutes;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new GetBuildDefinitionSchedule();
+            _resultValue.branchFilters = branchFilters;
+            _resultValue.daysToBuilds = daysToBuilds;
+            _resultValue.scheduleJobId = scheduleJobId;
+            _resultValue.scheduleOnlyWithChanges = scheduleOnlyWithChanges;
+            _resultValue.startHours = startHours;
+            _resultValue.startMinutes = startMinutes;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

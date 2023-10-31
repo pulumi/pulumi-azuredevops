@@ -343,7 +343,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointAzureRM:ServiceEndpointAzureRM")
 public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -353,7 +353,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * The Management group ID of the Azure targets.
      * 
      */
-    @Export(name="azurermManagementGroupId", type=String.class, parameters={})
+    @Export(name="azurermManagementGroupId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azurermManagementGroupId;
 
     /**
@@ -367,7 +367,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * The Management group Name of the targets.
      * 
      */
-    @Export(name="azurermManagementGroupName", type=String.class, parameters={})
+    @Export(name="azurermManagementGroupName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azurermManagementGroupName;
 
     /**
@@ -381,7 +381,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * The Tenant ID if the service principal.
      * 
      */
-    @Export(name="azurermSpnTenantid", type=String.class, parameters={})
+    @Export(name="azurermSpnTenantid", refs={String.class}, tree="[0]")
     private Output<String> azurermSpnTenantid;
 
     /**
@@ -395,7 +395,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * The Subscription ID of the Azure targets.
      * 
      */
-    @Export(name="azurermSubscriptionId", type=String.class, parameters={})
+    @Export(name="azurermSubscriptionId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azurermSubscriptionId;
 
     /**
@@ -409,7 +409,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * The Subscription Name of the targets.
      * 
      */
-    @Export(name="azurermSubscriptionName", type=String.class, parameters={})
+    @Export(name="azurermSubscriptionName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> azurermSubscriptionName;
 
     /**
@@ -423,7 +423,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * A `credentials` block.
      * 
      */
-    @Export(name="credentials", type=ServiceEndpointAzureRMCredentials.class, parameters={})
+    @Export(name="credentials", refs={ServiceEndpointAzureRMCredentials.class}, tree="[0]")
     private Output</* @Nullable */ ServiceEndpointAzureRMCredentials> credentials;
 
     /**
@@ -437,7 +437,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * Service connection description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -453,7 +453,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * &gt; **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.
      * 
      */
-    @Export(name="environment", type=String.class, parameters={})
+    @Export(name="environment", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> environment;
 
     /**
@@ -469,7 +469,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -483,7 +483,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * The resource group used for scope of automatic service endpoint.
      * 
      */
-    @Export(name="resourceGroup", type=String.class, parameters={})
+    @Export(name="resourceGroup", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> resourceGroup;
 
     /**
@@ -499,7 +499,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * &gt; **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
      * 
      */
-    @Export(name="serviceEndpointAuthenticationScheme", type=String.class, parameters={})
+    @Export(name="serviceEndpointAuthenticationScheme", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceEndpointAuthenticationScheme;
 
     /**
@@ -515,7 +515,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * The Service Endpoint Name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -526,10 +526,24 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return this.serviceEndpointName;
     }
     /**
+     * The Application(Client) ID of the Service Principal.
+     * 
+     */
+    @Export(name="servicePrincipalId", refs={String.class}, tree="[0]")
+    private Output<String> servicePrincipalId;
+
+    /**
+     * @return The Application(Client) ID of the Service Principal.
+     * 
+     */
+    public Output<String> servicePrincipalId() {
+        return this.servicePrincipalId;
+    }
+    /**
      * The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      * 
      */
-    @Export(name="workloadIdentityFederationIssuer", type=String.class, parameters={})
+    @Export(name="workloadIdentityFederationIssuer", refs={String.class}, tree="[0]")
     private Output<String> workloadIdentityFederationIssuer;
 
     /**
@@ -543,7 +557,7 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
      * The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://&lt;organisation&gt;/&lt;project&gt;/&lt;service-connection-name&gt;`.
      * 
      */
-    @Export(name="workloadIdentityFederationSubject", type=String.class, parameters={})
+    @Export(name="workloadIdentityFederationSubject", refs={String.class}, tree="[0]")
     private Output<String> workloadIdentityFederationSubject;
 
     /**

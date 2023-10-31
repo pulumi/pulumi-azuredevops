@@ -163,7 +163,7 @@ import javax.annotation.Nullable;
 @Deprecated /* azuredevops.serviceendpoint.GitHub has been deprecated in favor of azuredevops.ServiceEndpointGitHub */
 @ResourceType(type="azuredevops:ServiceEndpoint/gitHub:GitHub")
 public class GitHub extends com.pulumi.resources.CustomResource {
-    @Export(name="authOauth", type=GitHubAuthOauth.class, parameters={})
+    @Export(name="authOauth", refs={GitHubAuthOauth.class}, tree="[0]")
     private Output</* @Nullable */ GitHubAuthOauth> authOauth;
 
     public Output<Optional<GitHubAuthOauth>> authOauth() {
@@ -173,7 +173,7 @@ public class GitHub extends com.pulumi.resources.CustomResource {
      * An `auth_personal` block as documented below. Allows connecting using a personal access token.
      * 
      */
-    @Export(name="authPersonal", type=GitHubAuthPersonal.class, parameters={})
+    @Export(name="authPersonal", refs={GitHubAuthPersonal.class}, tree="[0]")
     private Output</* @Nullable */ GitHubAuthPersonal> authPersonal;
 
     /**
@@ -183,13 +183,13 @@ public class GitHub extends com.pulumi.resources.CustomResource {
     public Output<Optional<GitHubAuthPersonal>> authPersonal() {
         return Codegen.optional(this.authPersonal);
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -199,7 +199,7 @@ public class GitHub extends com.pulumi.resources.CustomResource {
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -213,7 +213,7 @@ public class GitHub extends com.pulumi.resources.CustomResource {
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**

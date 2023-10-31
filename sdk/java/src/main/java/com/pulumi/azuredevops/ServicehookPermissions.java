@@ -95,7 +95,7 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
      * the permissions to assign. The following permissions are available.
      * 
      */
-    @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
@@ -109,7 +109,7 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
      * The **group** principal to assign the permissions.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -123,7 +123,7 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> projectId;
 
     /**
@@ -144,7 +144,7 @@ public class ServicehookPermissions extends com.pulumi.resources.CustomResource 
      * | PublishEvents      | Publish Events           |
      * 
      */
-    @Export(name="replace", type=Boolean.class, parameters={})
+    @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**

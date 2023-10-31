@@ -122,7 +122,7 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
      * the permissions to assign. The following permissions are available.
      * 
      */
-    @Export(name="permissions", type=Map.class, parameters={String.class, String.class})
+    @Export(name="permissions", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> permissions;
 
     /**
@@ -136,7 +136,7 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
      * The **group** principal to assign the permissions.
      * 
      */
-    @Export(name="principal", type=String.class, parameters={})
+    @Export(name="principal", refs={String.class}, tree="[0]")
     private Output<String> principal;
 
     /**
@@ -150,7 +150,7 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -172,7 +172,7 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
      * | ViewEndpoint      | View service endpoint properties    |
      * 
      */
-    @Export(name="replace", type=Boolean.class, parameters={})
+    @Export(name="replace", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> replace;
 
     /**
@@ -194,7 +194,7 @@ public class ServiceendpointPermissions extends com.pulumi.resources.CustomResou
      * The id of the service endpoint to assign the permissions.
      * 
      */
-    @Export(name="serviceendpointId", type=String.class, parameters={})
+    @Export(name="serviceendpointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> serviceendpointId;
 
     /**

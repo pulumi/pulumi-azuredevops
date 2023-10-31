@@ -127,14 +127,14 @@ public final class GetGroupResult {
             return this;
         }
         public GetGroupResult build() {
-            final var o = new GetGroupResult();
-            o.descriptor = descriptor;
-            o.id = id;
-            o.name = name;
-            o.origin = origin;
-            o.originId = originId;
-            o.projectId = projectId;
-            return o;
+            final var _resultValue = new GetGroupResult();
+            _resultValue.descriptor = descriptor;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.origin = origin;
+            _resultValue.originId = originId;
+            _resultValue.projectId = projectId;
+            return _resultValue;
         }
     }
 }

@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  * > **Note** Permissions can be assigned to group principals and not to single user principals.
  *
  * ## Example Usage
+ * ### Set specific folder permissions
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -49,6 +50,30 @@ import * as utilities from "./utilities";
  *         EditBuildDefinition: "Deny",
  *         DeleteBuildDefinition: "Deny",
  *         AdministerBuildPermissions: "NotSet",
+ *     },
+ * });
+ * ```
+ * ### Set root folder permissions
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azuredevops from "@pulumi/azuredevops";
+ *
+ * const exampleProject = new azuredevops.Project("exampleProject", {
+ *     workItemTemplate: "Agile",
+ *     versionControl: "Git",
+ *     visibility: "private",
+ *     description: "Managed by Terraform",
+ * });
+ * const example-readers = azuredevops.getGroupOutput({
+ *     projectId: exampleProject.id,
+ *     name: "Readers",
+ * });
+ * const exampleBuildFolderPermissions = new azuredevops.BuildFolderPermissions("exampleBuildFolderPermissions", {
+ *     projectId: exampleProject.id,
+ *     path: "\\",
+ *     principal: example_readers.apply(example_readers => example_readers.id),
+ *     permissions: {
+ *         RetainIndefinitely: "Allow",
  *     },
  * });
  * ```

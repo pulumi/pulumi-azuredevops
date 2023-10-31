@@ -140,14 +140,14 @@ public final class GetTeamsTeam {
             return this;
         }
         public GetTeamsTeam build() {
-            final var o = new GetTeamsTeam();
-            o.administrators = administrators;
-            o.description = description;
-            o.id = id;
-            o.members = members;
-            o.name = name;
-            o.projectId = projectId;
-            return o;
+            final var _resultValue = new GetTeamsTeam();
+            _resultValue.administrators = administrators;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.members = members;
+            _resultValue.name = name;
+            _resultValue.projectId = projectId;
+            return _resultValue;
         }
     }
 }

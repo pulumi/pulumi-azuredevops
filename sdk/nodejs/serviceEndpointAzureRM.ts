@@ -266,6 +266,10 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
      */
     public readonly serviceEndpointName!: pulumi.Output<string>;
     /**
+     * The Application(Client) ID of the Service Principal.
+     */
+    public /*out*/ readonly servicePrincipalId!: pulumi.Output<string>;
+    /**
      * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      */
     public /*out*/ readonly workloadIdentityFederationIssuer!: pulumi.Output<string>;
@@ -300,6 +304,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["resourceGroup"] = state ? state.resourceGroup : undefined;
             resourceInputs["serviceEndpointAuthenticationScheme"] = state ? state.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = state ? state.serviceEndpointName : undefined;
+            resourceInputs["servicePrincipalId"] = state ? state.servicePrincipalId : undefined;
             resourceInputs["workloadIdentityFederationIssuer"] = state ? state.workloadIdentityFederationIssuer : undefined;
             resourceInputs["workloadIdentityFederationSubject"] = state ? state.workloadIdentityFederationSubject : undefined;
         } else {
@@ -326,6 +331,7 @@ export class ServiceEndpointAzureRM extends pulumi.CustomResource {
             resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
             resourceInputs["serviceEndpointAuthenticationScheme"] = args ? args.serviceEndpointAuthenticationScheme : undefined;
             resourceInputs["serviceEndpointName"] = args ? args.serviceEndpointName : undefined;
+            resourceInputs["servicePrincipalId"] = undefined /*out*/;
             resourceInputs["workloadIdentityFederationIssuer"] = undefined /*out*/;
             resourceInputs["workloadIdentityFederationSubject"] = undefined /*out*/;
         }
@@ -393,6 +399,10 @@ export interface ServiceEndpointAzureRMState {
      * The Service Endpoint Name.
      */
     serviceEndpointName?: pulumi.Input<string>;
+    /**
+     * The Application(Client) ID of the Service Principal.
+     */
+    servicePrincipalId?: pulumi.Input<string>;
     /**
      * The issuer if `serviceEndpointAuthenticationScheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      */

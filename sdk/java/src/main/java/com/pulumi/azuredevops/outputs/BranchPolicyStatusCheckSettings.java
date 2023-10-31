@@ -196,16 +196,16 @@ public final class BranchPolicyStatusCheckSettings {
             return scopes(List.of(scopes));
         }
         public BranchPolicyStatusCheckSettings build() {
-            final var o = new BranchPolicyStatusCheckSettings();
-            o.applicability = applicability;
-            o.authorId = authorId;
-            o.displayName = displayName;
-            o.filenamePatterns = filenamePatterns;
-            o.genre = genre;
-            o.invalidateOnUpdate = invalidateOnUpdate;
-            o.name = name;
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new BranchPolicyStatusCheckSettings();
+            _resultValue.applicability = applicability;
+            _resultValue.authorId = authorId;
+            _resultValue.displayName = displayName;
+            _resultValue.filenamePatterns = filenamePatterns;
+            _resultValue.genre = genre;
+            _resultValue.invalidateOnUpdate = invalidateOnUpdate;
+            _resultValue.name = name;
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }
