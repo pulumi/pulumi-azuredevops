@@ -107,12 +107,12 @@ public final class GetProjectsProject {
             return this;
         }
         public GetProjectsProject build() {
-            final var o = new GetProjectsProject();
-            o.name = name;
-            o.projectId = projectId;
-            o.projectUrl = projectUrl;
-            o.state = state;
-            return o;
+            final var _resultValue = new GetProjectsProject();
+            _resultValue.name = name;
+            _resultValue.projectId = projectId;
+            _resultValue.projectUrl = projectUrl;
+            _resultValue.state = state;
+            return _resultValue;
         }
     }
 }

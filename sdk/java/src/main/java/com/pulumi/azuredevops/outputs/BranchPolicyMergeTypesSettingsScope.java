@@ -86,11 +86,11 @@ public final class BranchPolicyMergeTypesSettingsScope {
             return this;
         }
         public BranchPolicyMergeTypesSettingsScope build() {
-            final var o = new BranchPolicyMergeTypesSettingsScope();
-            o.matchType = matchType;
-            o.repositoryId = repositoryId;
-            o.repositoryRef = repositoryRef;
-            return o;
+            final var _resultValue = new BranchPolicyMergeTypesSettingsScope();
+            _resultValue.matchType = matchType;
+            _resultValue.repositoryId = repositoryId;
+            _resultValue.repositoryRef = repositoryRef;
+            return _resultValue;
         }
     }
 }

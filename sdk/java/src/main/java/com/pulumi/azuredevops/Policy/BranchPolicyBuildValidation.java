@@ -122,7 +122,7 @@ public class BranchPolicyBuildValidation extends com.pulumi.resources.CustomReso
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      * 
      */
-    @Export(name="blocking", type=Boolean.class, parameters={})
+    @Export(name="blocking", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blocking;
 
     /**
@@ -136,7 +136,7 @@ public class BranchPolicyBuildValidation extends com.pulumi.resources.CustomReso
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -150,7 +150,7 @@ public class BranchPolicyBuildValidation extends com.pulumi.resources.CustomReso
      * The ID of the project in which the policy will be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -164,7 +164,7 @@ public class BranchPolicyBuildValidation extends com.pulumi.resources.CustomReso
      * Configuration for the policy. This block must be defined exactly once.
      * 
      */
-    @Export(name="settings", type=BranchPolicyBuildValidationSettings.class, parameters={})
+    @Export(name="settings", refs={BranchPolicyBuildValidationSettings.class}, tree="[0]")
     private Output<BranchPolicyBuildValidationSettings> settings;
 
     /**

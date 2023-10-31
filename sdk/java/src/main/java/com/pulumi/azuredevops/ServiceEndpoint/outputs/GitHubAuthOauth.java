@@ -38,9 +38,9 @@ public final class GitHubAuthOauth {
             return this;
         }
         public GitHubAuthOauth build() {
-            final var o = new GitHubAuthOauth();
-            o.oauthConfigurationId = oauthConfigurationId;
-            return o;
+            final var _resultValue = new GitHubAuthOauth();
+            _resultValue.oauthConfigurationId = oauthConfigurationId;
+            return _resultValue;
         }
     }
 }

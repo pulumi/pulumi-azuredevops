@@ -91,13 +91,13 @@ public final class GetPoolResult {
             return this;
         }
         public GetPoolResult build() {
-            final var o = new GetPoolResult();
-            o.autoProvision = autoProvision;
-            o.autoUpdate = autoUpdate;
-            o.id = id;
-            o.name = name;
-            o.poolType = poolType;
-            return o;
+            final var _resultValue = new GetPoolResult();
+            _resultValue.autoProvision = autoProvision;
+            _resultValue.autoUpdate = autoUpdate;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.poolType = poolType;
+            return _resultValue;
         }
     }
 }

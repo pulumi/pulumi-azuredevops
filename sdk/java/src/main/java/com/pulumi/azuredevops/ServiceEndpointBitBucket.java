@@ -77,13 +77,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointBitBucket:ServiceEndpointBitBucket")
 public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -93,7 +93,7 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
      * Bitbucket account password.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output<String> password;
 
     /**
@@ -107,7 +107,7 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -121,7 +121,7 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -135,7 +135,7 @@ public class ServiceEndpointBitBucket extends com.pulumi.resources.CustomResourc
      * Bitbucket account username.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

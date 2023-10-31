@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointSonarCloud:ServiceEndpointSonarCloud")
 public class ServiceEndpointSonarCloud extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -87,7 +87,7 @@ public class ServiceEndpointSonarCloud extends com.pulumi.resources.CustomResour
      * The Service Endpoint description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -101,7 +101,7 @@ public class ServiceEndpointSonarCloud extends com.pulumi.resources.CustomResour
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -115,7 +115,7 @@ public class ServiceEndpointSonarCloud extends com.pulumi.resources.CustomResour
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -129,7 +129,7 @@ public class ServiceEndpointSonarCloud extends com.pulumi.resources.CustomResour
      * Authentication Token generated through SonarCloud (go to `My Account &gt; Security &gt; Generate Tokens`).
      * 
      */
-    @Export(name="token", type=String.class, parameters={})
+    @Export(name="token", refs={String.class}, tree="[0]")
     private Output<String> token;
 
     /**

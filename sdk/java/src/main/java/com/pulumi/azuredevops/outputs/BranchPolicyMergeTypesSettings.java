@@ -129,13 +129,13 @@ public final class BranchPolicyMergeTypesSettings {
             return scopes(List.of(scopes));
         }
         public BranchPolicyMergeTypesSettings build() {
-            final var o = new BranchPolicyMergeTypesSettings();
-            o.allowBasicNoFastForward = allowBasicNoFastForward;
-            o.allowRebaseAndFastForward = allowRebaseAndFastForward;
-            o.allowRebaseWithMerge = allowRebaseWithMerge;
-            o.allowSquash = allowSquash;
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new BranchPolicyMergeTypesSettings();
+            _resultValue.allowBasicNoFastForward = allowBasicNoFastForward;
+            _resultValue.allowRebaseAndFastForward = allowRebaseAndFastForward;
+            _resultValue.allowRebaseWithMerge = allowRebaseWithMerge;
+            _resultValue.allowSquash = allowSquash;
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }

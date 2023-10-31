@@ -83,11 +83,11 @@ public final class GetGroupsResult {
             return this;
         }
         public GetGroupsResult build() {
-            final var o = new GetGroupsResult();
-            o.groups = groups;
-            o.id = id;
-            o.projectId = projectId;
-            return o;
+            final var _resultValue = new GetGroupsResult();
+            _resultValue.groups = groups;
+            _resultValue.id = id;
+            _resultValue.projectId = projectId;
+            return _resultValue;
         }
     }
 }

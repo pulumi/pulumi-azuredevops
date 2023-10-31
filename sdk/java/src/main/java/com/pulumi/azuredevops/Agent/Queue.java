@@ -92,7 +92,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The ID of the organization agent pool.
      * 
      */
-    @Export(name="agentPoolId", type=Integer.class, parameters={})
+    @Export(name="agentPoolId", refs={Integer.class}, tree="[0]")
     private Output<Integer> agentPoolId;
 
     /**
@@ -106,7 +106,7 @@ public class Queue extends com.pulumi.resources.CustomResource {
      * The ID of the project in which to create the resource.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**

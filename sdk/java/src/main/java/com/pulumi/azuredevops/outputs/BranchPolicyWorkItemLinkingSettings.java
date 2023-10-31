@@ -50,9 +50,9 @@ public final class BranchPolicyWorkItemLinkingSettings {
             return scopes(List.of(scopes));
         }
         public BranchPolicyWorkItemLinkingSettings build() {
-            final var o = new BranchPolicyWorkItemLinkingSettings();
-            o.scopes = scopes;
-            return o;
+            final var _resultValue = new BranchPolicyWorkItemLinkingSettings();
+            _resultValue.scopes = scopes;
+            return _resultValue;
         }
     }
 }

@@ -46,9 +46,9 @@ public final class GitHubAuthPersonal {
             return this;
         }
         public GitHubAuthPersonal build() {
-            final var o = new GitHubAuthPersonal();
-            o.personalAccessToken = personalAccessToken;
-            return o;
+            final var _resultValue = new GitHubAuthPersonal();
+            _resultValue.personalAccessToken = personalAccessToken;
+            return _resultValue;
         }
     }
 }

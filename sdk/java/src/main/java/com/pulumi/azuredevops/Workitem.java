@@ -117,7 +117,7 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      * Specifies the area where the Work Item is used.
      * 
      */
-    @Export(name="areaPath", type=String.class, parameters={})
+    @Export(name="areaPath", refs={String.class}, tree="[0]")
     private Output<String> areaPath;
 
     /**
@@ -131,7 +131,7 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      * Specifies a list with Custom Fields for the Work Item.
      * 
      */
-    @Export(name="customFields", type=Map.class, parameters={String.class, String.class})
+    @Export(name="customFields", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> customFields;
 
     /**
@@ -145,7 +145,7 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      * Specifies the iteration in which the Work Item is used.
      * 
      */
-    @Export(name="iterationPath", type=String.class, parameters={})
+    @Export(name="iterationPath", refs={String.class}, tree="[0]")
     private Output<String> iterationPath;
 
     /**
@@ -159,7 +159,7 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      * The ID of the Project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -173,7 +173,7 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      * The state of the Work Item. The four main states that are defined for the User Story (`Agile`) are `New`, `Active`, `Resolved`, and `Closed`. See [Workflow states](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/workflow-and-state-categories?view=azure-devops&amp;tabs=agile-process#workflow-states) for more details.
      * 
      */
-    @Export(name="state", type=String.class, parameters={})
+    @Export(name="state", refs={String.class}, tree="[0]")
     private Output<String> state;
 
     /**
@@ -187,7 +187,7 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      * Specifies a list of Tags.
      * 
      */
-    @Export(name="tags", type=List.class, parameters={String.class})
+    @Export(name="tags", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> tags;
 
     /**
@@ -201,7 +201,7 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      * The Title of the Work Item.
      * 
      */
-    @Export(name="title", type=String.class, parameters={})
+    @Export(name="title", refs={String.class}, tree="[0]")
     private Output<String> title;
 
     /**
@@ -215,7 +215,7 @@ public class Workitem extends com.pulumi.resources.CustomResource {
      * The Type of the Work Item. The work item type varies depending on the process used when creating the project(`Agile`, `Basic`, `Scrum`, `Scrum`). See [Work Item Types](https://learn.microsoft.com/en-us/azure/devops/boards/work-items/about-work-items?view=azure-devops) for more details.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

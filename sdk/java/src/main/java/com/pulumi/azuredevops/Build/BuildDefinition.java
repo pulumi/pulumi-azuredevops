@@ -246,7 +246,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * The agent pool that should execute the build. Defaults to `Azure Pipelines`.
      * 
      */
-    @Export(name="agentPoolName", type=String.class, parameters={})
+    @Export(name="agentPoolName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> agentPoolName;
 
     /**
@@ -260,7 +260,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * Continuous Integration trigger.
      * 
      */
-    @Export(name="ciTrigger", type=BuildDefinitionCiTrigger.class, parameters={})
+    @Export(name="ciTrigger", refs={BuildDefinitionCiTrigger.class}, tree="[0]")
     private Output</* @Nullable */ BuildDefinitionCiTrigger> ciTrigger;
 
     /**
@@ -274,7 +274,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * A `features` blocks as documented below.
      * 
      */
-    @Export(name="features", type=List.class, parameters={BuildDefinitionFeature.class})
+    @Export(name="features", refs={List.class,BuildDefinitionFeature.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BuildDefinitionFeature>> features;
 
     /**
@@ -288,7 +288,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * The name of the build definition.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -302,7 +302,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * The folder path of the build definition.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> path;
 
     /**
@@ -316,7 +316,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * The project ID or project name.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -330,7 +330,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * Pull Request Integration trigger.
      * 
      */
-    @Export(name="pullRequestTrigger", type=BuildDefinitionPullRequestTrigger.class, parameters={})
+    @Export(name="pullRequestTrigger", refs={BuildDefinitionPullRequestTrigger.class}, tree="[0]")
     private Output</* @Nullable */ BuildDefinitionPullRequestTrigger> pullRequestTrigger;
 
     /**
@@ -344,7 +344,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * A `repository` block as documented below.
      * 
      */
-    @Export(name="repository", type=BuildDefinitionRepository.class, parameters={})
+    @Export(name="repository", refs={BuildDefinitionRepository.class}, tree="[0]")
     private Output<BuildDefinitionRepository> repository;
 
     /**
@@ -358,7 +358,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * The revision of the build definition
      * 
      */
-    @Export(name="revision", type=Integer.class, parameters={})
+    @Export(name="revision", refs={Integer.class}, tree="[0]")
     private Output<Integer> revision;
 
     /**
@@ -368,7 +368,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
     public Output<Integer> revision() {
         return this.revision;
     }
-    @Export(name="schedules", type=List.class, parameters={BuildDefinitionSchedule.class})
+    @Export(name="schedules", refs={List.class,BuildDefinitionSchedule.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BuildDefinitionSchedule>> schedules;
 
     public Output<Optional<List<BuildDefinitionSchedule>>> schedules() {
@@ -378,7 +378,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * A list of variable group IDs (integers) to link to the build definition.
      * 
      */
-    @Export(name="variableGroups", type=List.class, parameters={Integer.class})
+    @Export(name="variableGroups", refs={List.class,Integer.class}, tree="[0,1]")
     private Output</* @Nullable */ List<Integer>> variableGroups;
 
     /**
@@ -392,7 +392,7 @@ public class BuildDefinition extends com.pulumi.resources.CustomResource {
      * A list of `variable` blocks, as documented below.
      * 
      */
-    @Export(name="variables", type=List.class, parameters={BuildDefinitionVariable.class})
+    @Export(name="variables", refs={List.class,BuildDefinitionVariable.class}, tree="[0,1]")
     private Output</* @Nullable */ List<BuildDefinitionVariable>> variables;
 
     /**

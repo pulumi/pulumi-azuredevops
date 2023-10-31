@@ -160,14 +160,14 @@ public final class BranchPolicyAutoReviewersSettings {
             return this;
         }
         public BranchPolicyAutoReviewersSettings build() {
-            final var o = new BranchPolicyAutoReviewersSettings();
-            o.autoReviewerIds = autoReviewerIds;
-            o.message = message;
-            o.minimumNumberOfReviewers = minimumNumberOfReviewers;
-            o.pathFilters = pathFilters;
-            o.scopes = scopes;
-            o.submitterCanVote = submitterCanVote;
-            return o;
+            final var _resultValue = new BranchPolicyAutoReviewersSettings();
+            _resultValue.autoReviewerIds = autoReviewerIds;
+            _resultValue.message = message;
+            _resultValue.minimumNumberOfReviewers = minimumNumberOfReviewers;
+            _resultValue.pathFilters = pathFilters;
+            _resultValue.scopes = scopes;
+            _resultValue.submitterCanVote = submitterCanVote;
+            return _resultValue;
         }
     }
 }

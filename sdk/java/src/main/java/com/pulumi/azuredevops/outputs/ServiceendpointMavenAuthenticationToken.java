@@ -46,9 +46,9 @@ public final class ServiceendpointMavenAuthenticationToken {
             return this;
         }
         public ServiceendpointMavenAuthenticationToken build() {
-            final var o = new ServiceendpointMavenAuthenticationToken();
-            o.token = token;
-            return o;
+            final var _resultValue = new ServiceendpointMavenAuthenticationToken();
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

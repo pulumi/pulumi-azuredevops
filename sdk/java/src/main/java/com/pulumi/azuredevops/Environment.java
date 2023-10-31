@@ -74,7 +74,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * A description for the Environment.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -88,7 +88,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The name which should be used for this Environment.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -102,7 +102,7 @@ public class Environment extends com.pulumi.resources.CustomResource {
      * The ID of the project. Changing this forces a new Environment to be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**

@@ -52,9 +52,9 @@ public final class BuildDefinitionFeature {
             return this;
         }
         public BuildDefinitionFeature build() {
-            final var o = new BuildDefinitionFeature();
-            o.skipFirstRun = skipFirstRun;
-            return o;
+            final var _resultValue = new BuildDefinitionFeature();
+            _resultValue.skipFirstRun = skipFirstRun;
+            return _resultValue;
         }
     }
 }

@@ -105,12 +105,12 @@ public final class GitInitialization {
             return this;
         }
         public GitInitialization build() {
-            final var o = new GitInitialization();
-            o.initType = initType;
-            o.serviceConnectionId = serviceConnectionId;
-            o.sourceType = sourceType;
-            o.sourceUrl = sourceUrl;
-            return o;
+            final var _resultValue = new GitInitialization();
+            _resultValue.initType = initType;
+            _resultValue.serviceConnectionId = serviceConnectionId;
+            _resultValue.sourceType = sourceType;
+            _resultValue.sourceUrl = sourceUrl;
+            return _resultValue;
         }
     }
 }

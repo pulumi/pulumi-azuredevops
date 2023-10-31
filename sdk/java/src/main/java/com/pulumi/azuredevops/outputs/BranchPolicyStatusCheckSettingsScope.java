@@ -86,11 +86,11 @@ public final class BranchPolicyStatusCheckSettingsScope {
             return this;
         }
         public BranchPolicyStatusCheckSettingsScope build() {
-            final var o = new BranchPolicyStatusCheckSettingsScope();
-            o.matchType = matchType;
-            o.repositoryId = repositoryId;
-            o.repositoryRef = repositoryRef;
-            return o;
+            final var _resultValue = new BranchPolicyStatusCheckSettingsScope();
+            _resultValue.matchType = matchType;
+            _resultValue.repositoryId = repositoryId;
+            _resultValue.repositoryRef = repositoryRef;
+            return _resultValue;
         }
     }
 }

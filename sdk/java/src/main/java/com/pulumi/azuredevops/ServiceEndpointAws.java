@@ -81,7 +81,7 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * The AWS access key ID for signing programmatic requests.
      * 
      */
-    @Export(name="accessKeyId", type=String.class, parameters={})
+    @Export(name="accessKeyId", refs={String.class}, tree="[0]")
     private Output<String> accessKeyId;
 
     /**
@@ -91,13 +91,13 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
     public Output<String> accessKeyId() {
         return this.accessKeyId;
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -107,7 +107,7 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * A unique identifier that is used by third parties when assuming roles in their customers&#39; accounts, aka cross-account role access.
      * 
      */
-    @Export(name="externalId", type=String.class, parameters={})
+    @Export(name="externalId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> externalId;
 
     /**
@@ -121,7 +121,7 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -135,7 +135,7 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * Optional identifier for the assumed role session.
      * 
      */
-    @Export(name="roleSessionName", type=String.class, parameters={})
+    @Export(name="roleSessionName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleSessionName;
 
     /**
@@ -149,7 +149,7 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * The Amazon Resource Name (ARN) of the role to assume.
      * 
      */
-    @Export(name="roleToAssume", type=String.class, parameters={})
+    @Export(name="roleToAssume", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> roleToAssume;
 
     /**
@@ -163,7 +163,7 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * The AWS secret access key for signing programmatic requests.
      * 
      */
-    @Export(name="secretAccessKey", type=String.class, parameters={})
+    @Export(name="secretAccessKey", refs={String.class}, tree="[0]")
     private Output<String> secretAccessKey;
 
     /**
@@ -177,7 +177,7 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -191,7 +191,7 @@ public class ServiceEndpointAws extends com.pulumi.resources.CustomResource {
      * The AWS session token for signing programmatic requests.
      * 
      */
-    @Export(name="sessionToken", type=String.class, parameters={})
+    @Export(name="sessionToken", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sessionToken;
 
     /**

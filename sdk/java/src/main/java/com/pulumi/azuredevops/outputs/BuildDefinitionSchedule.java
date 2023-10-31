@@ -454,15 +454,15 @@ public final class BuildDefinitionSchedule {
             return this;
         }
         public BuildDefinitionSchedule build() {
-            final var o = new BuildDefinitionSchedule();
-            o.branchFilters = branchFilters;
-            o.daysToBuilds = daysToBuilds;
-            o.scheduleJobId = scheduleJobId;
-            o.scheduleOnlyWithChanges = scheduleOnlyWithChanges;
-            o.startHours = startHours;
-            o.startMinutes = startMinutes;
-            o.timeZone = timeZone;
-            return o;
+            final var _resultValue = new BuildDefinitionSchedule();
+            _resultValue.branchFilters = branchFilters;
+            _resultValue.daysToBuilds = daysToBuilds;
+            _resultValue.scheduleJobId = scheduleJobId;
+            _resultValue.scheduleOnlyWithChanges = scheduleOnlyWithChanges;
+            _resultValue.startHours = startHours;
+            _resultValue.startMinutes = startMinutes;
+            _resultValue.timeZone = timeZone;
+            return _resultValue;
         }
     }
 }

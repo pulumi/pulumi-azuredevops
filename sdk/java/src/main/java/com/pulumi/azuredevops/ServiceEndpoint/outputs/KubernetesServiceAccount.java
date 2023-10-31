@@ -65,10 +65,10 @@ public final class KubernetesServiceAccount {
             return this;
         }
         public KubernetesServiceAccount build() {
-            final var o = new KubernetesServiceAccount();
-            o.caCert = caCert;
-            o.token = token;
-            return o;
+            final var _resultValue = new KubernetesServiceAccount();
+            _resultValue.caCert = caCert;
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

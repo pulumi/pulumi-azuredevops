@@ -79,13 +79,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointGenericGit:ServiceEndpointGenericGit")
 public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -95,7 +95,7 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      * A value indicating whether or not to attempt accessing this git server from Azure Pipelines.
      * 
      */
-    @Export(name="enablePipelinesAccess", type=Boolean.class, parameters={})
+    @Export(name="enablePipelinesAccess", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enablePipelinesAccess;
 
     /**
@@ -111,7 +111,7 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      * &gt; **Note** For AzureDevOps Git, PAT should be used as the password.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -127,7 +127,7 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -141,7 +141,7 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      * The URL of the repository associated with the service endpoint.
      * 
      */
-    @Export(name="repositoryUrl", type=String.class, parameters={})
+    @Export(name="repositoryUrl", refs={String.class}, tree="[0]")
     private Output<String> repositoryUrl;
 
     /**
@@ -155,7 +155,7 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      * The name of the service endpoint.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -169,7 +169,7 @@ public class ServiceEndpointGenericGit extends com.pulumi.resources.CustomResour
      * The username used to authenticate to the git repository.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> username;
 
     /**

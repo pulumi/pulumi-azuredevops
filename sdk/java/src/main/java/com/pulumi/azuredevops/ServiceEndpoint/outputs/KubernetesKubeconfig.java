@@ -87,11 +87,11 @@ public final class KubernetesKubeconfig {
             return this;
         }
         public KubernetesKubeconfig build() {
-            final var o = new KubernetesKubeconfig();
-            o.acceptUntrustedCerts = acceptUntrustedCerts;
-            o.clusterContext = clusterContext;
-            o.kubeConfig = kubeConfig;
-            return o;
+            final var _resultValue = new KubernetesKubeconfig();
+            _resultValue.acceptUntrustedCerts = acceptUntrustedCerts;
+            _resultValue.clusterContext = clusterContext;
+            _resultValue.kubeConfig = kubeConfig;
+            return _resultValue;
         }
     }
 }

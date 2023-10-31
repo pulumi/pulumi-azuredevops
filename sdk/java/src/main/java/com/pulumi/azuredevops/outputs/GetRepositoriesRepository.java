@@ -199,17 +199,17 @@ public final class GetRepositoriesRepository {
             return this;
         }
         public GetRepositoriesRepository build() {
-            final var o = new GetRepositoriesRepository();
-            o.defaultBranch = defaultBranch;
-            o.id = id;
-            o.name = name;
-            o.projectId = projectId;
-            o.remoteUrl = remoteUrl;
-            o.size = size;
-            o.sshUrl = sshUrl;
-            o.url = url;
-            o.webUrl = webUrl;
-            return o;
+            final var _resultValue = new GetRepositoriesRepository();
+            _resultValue.defaultBranch = defaultBranch;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.projectId = projectId;
+            _resultValue.remoteUrl = remoteUrl;
+            _resultValue.size = size;
+            _resultValue.sshUrl = sshUrl;
+            _resultValue.url = url;
+            _resultValue.webUrl = webUrl;
+            return _resultValue;
         }
     }
 }

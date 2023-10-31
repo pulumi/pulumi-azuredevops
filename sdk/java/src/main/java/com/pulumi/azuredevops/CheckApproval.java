@@ -81,7 +81,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * Specifies a list of approver IDs.
      * 
      */
-    @Export(name="approvers", type=List.class, parameters={String.class})
+    @Export(name="approvers", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> approvers;
 
     /**
@@ -95,7 +95,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * The instructions for the approvers.
      * 
      */
-    @Export(name="instructions", type=String.class, parameters={})
+    @Export(name="instructions", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instructions;
 
     /**
@@ -109,7 +109,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * The minimum number of approvers. This property is applicable when there is more than 1 approver.
      * 
      */
-    @Export(name="minimumRequiredApprovers", type=Integer.class, parameters={})
+    @Export(name="minimumRequiredApprovers", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> minimumRequiredApprovers;
 
     /**
@@ -123,7 +123,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * The project ID. Changing this forces a new Approval Check to be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -137,7 +137,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * Can the requestor approve? Defaults to `false`.
      * 
      */
-    @Export(name="requesterCanApprove", type=Boolean.class, parameters={})
+    @Export(name="requesterCanApprove", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> requesterCanApprove;
 
     /**
@@ -151,7 +151,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * The ID of the resource being protected by the check. Changing this forces a new Approval Check to be created.
      * 
      */
-    @Export(name="targetResourceId", type=String.class, parameters={})
+    @Export(name="targetResourceId", refs={String.class}, tree="[0]")
     private Output<String> targetResourceId;
 
     /**
@@ -165,7 +165,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * The type of resource being protected by the check. Valid values: `endpoint`, `environment`, `queue`, `repository`, `securefile`, `variablegroup`. Changing this forces a new Approval Check to be created.
      * 
      */
-    @Export(name="targetResourceType", type=String.class, parameters={})
+    @Export(name="targetResourceType", refs={String.class}, tree="[0]")
     private Output<String> targetResourceType;
 
     /**
@@ -179,7 +179,7 @@ public class CheckApproval extends com.pulumi.resources.CustomResource {
      * The timeout in minutes for the approval.  Defaults to `43200`.
      * 
      */
-    @Export(name="timeout", type=Integer.class, parameters={})
+    @Export(name="timeout", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> timeout;
 
     /**

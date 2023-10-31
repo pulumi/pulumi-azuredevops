@@ -65,10 +65,10 @@ public final class ServiceendpointMavenAuthenticationBasic {
             return this;
         }
         public ServiceendpointMavenAuthenticationBasic build() {
-            final var o = new ServiceendpointMavenAuthenticationBasic();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new ServiceendpointMavenAuthenticationBasic();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

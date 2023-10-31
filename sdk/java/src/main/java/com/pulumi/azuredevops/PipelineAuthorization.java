@@ -162,7 +162,7 @@ public class PipelineAuthorization extends com.pulumi.resources.CustomResource {
      * The ID of the pipeline. If not configured, all pipelines will be authorized. Changing this forces a new resource to be created.
      * 
      */
-    @Export(name="pipelineId", type=Integer.class, parameters={})
+    @Export(name="pipelineId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> pipelineId;
 
     /**
@@ -176,7 +176,7 @@ public class PipelineAuthorization extends com.pulumi.resources.CustomResource {
      * The  ID of the project. Changing this forces a new resource to be created
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -190,7 +190,7 @@ public class PipelineAuthorization extends com.pulumi.resources.CustomResource {
      * The ID of the resource to authorize. Changing this forces a new resource to be created
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -204,7 +204,7 @@ public class PipelineAuthorization extends com.pulumi.resources.CustomResource {
      * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**

@@ -138,17 +138,17 @@ public final class GetProjectResult {
             return this;
         }
         public GetProjectResult build() {
-            final var o = new GetProjectResult();
-            o.description = description;
-            o.features = features;
-            o.id = id;
-            o.name = name;
-            o.processTemplateId = processTemplateId;
-            o.projectId = projectId;
-            o.versionControl = versionControl;
-            o.visibility = visibility;
-            o.workItemTemplate = workItemTemplate;
-            return o;
+            final var _resultValue = new GetProjectResult();
+            _resultValue.description = description;
+            _resultValue.features = features;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.processTemplateId = processTemplateId;
+            _resultValue.projectId = projectId;
+            _resultValue.versionControl = versionControl;
+            _resultValue.visibility = visibility;
+            _resultValue.workItemTemplate = workItemTemplate;
+            return _resultValue;
         }
     }
 }

@@ -79,19 +79,19 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointGitHubEnterprise:ServiceEndpointGitHubEnterprise")
 public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.CustomResource {
-    @Export(name="authPersonal", type=ServiceEndpointGitHubEnterpriseAuthPersonal.class, parameters={})
+    @Export(name="authPersonal", refs={ServiceEndpointGitHubEnterpriseAuthPersonal.class}, tree="[0]")
     private Output<ServiceEndpointGitHubEnterpriseAuthPersonal> authPersonal;
 
     public Output<ServiceEndpointGitHubEnterpriseAuthPersonal> authPersonal() {
         return this.authPersonal;
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -101,7 +101,7 @@ public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.Custom
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -115,7 +115,7 @@ public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.Custom
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -129,7 +129,7 @@ public class ServiceEndpointGitHubEnterprise extends com.pulumi.resources.Custom
      * GitHub Enterprise Server Url.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

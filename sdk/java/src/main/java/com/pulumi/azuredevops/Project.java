@@ -85,7 +85,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The Description of the Project.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -105,7 +105,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * However it&#39;s not possible to use both methods to manage features, since there&#39;ll be conflicts.
      * 
      */
-    @Export(name="features", type=Map.class, parameters={String.class, String.class})
+    @Export(name="features", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> features;
 
     /**
@@ -125,7 +125,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The Project Name.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -139,7 +139,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * The Process Template ID used by the Project.
      * 
      */
-    @Export(name="processTemplateId", type=String.class, parameters={})
+    @Export(name="processTemplateId", refs={String.class}, tree="[0]")
     private Output<String> processTemplateId;
 
     /**
@@ -153,7 +153,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Specifies the version control system. Valid values: `Git` or `Tfvc`. Defaults to `Git`.
      * 
      */
-    @Export(name="versionControl", type=String.class, parameters={})
+    @Export(name="versionControl", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> versionControl;
 
     /**
@@ -167,7 +167,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
      * 
      */
-    @Export(name="visibility", type=String.class, parameters={})
+    @Export(name="visibility", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> visibility;
 
     /**
@@ -181,7 +181,7 @@ public class Project extends com.pulumi.resources.CustomResource {
      * Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
      * 
      */
-    @Export(name="workItemTemplate", type=String.class, parameters={})
+    @Export(name="workItemTemplate", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> workItemTemplate;
 
     /**

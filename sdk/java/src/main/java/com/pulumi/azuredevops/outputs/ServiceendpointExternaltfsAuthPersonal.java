@@ -46,9 +46,9 @@ public final class ServiceendpointExternaltfsAuthPersonal {
             return this;
         }
         public ServiceendpointExternaltfsAuthPersonal build() {
-            final var o = new ServiceendpointExternaltfsAuthPersonal();
-            o.personalAccessToken = personalAccessToken;
-            return o;
+            final var _resultValue = new ServiceendpointExternaltfsAuthPersonal();
+            _resultValue.personalAccessToken = personalAccessToken;
+            return _resultValue;
         }
     }
 }

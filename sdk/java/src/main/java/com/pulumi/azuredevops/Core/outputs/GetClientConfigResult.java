@@ -57,10 +57,10 @@ public final class GetClientConfigResult {
             return this;
         }
         public GetClientConfigResult build() {
-            final var o = new GetClientConfigResult();
-            o.id = id;
-            o.organizationUrl = organizationUrl;
-            return o;
+            final var _resultValue = new GetClientConfigResult();
+            _resultValue.id = id;
+            _resultValue.organizationUrl = organizationUrl;
+            return _resultValue;
         }
     }
 }

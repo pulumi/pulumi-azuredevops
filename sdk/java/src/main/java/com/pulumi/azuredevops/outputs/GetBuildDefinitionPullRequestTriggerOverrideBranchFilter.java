@@ -72,10 +72,10 @@ public final class GetBuildDefinitionPullRequestTriggerOverrideBranchFilter {
             return includes(List.of(includes));
         }
         public GetBuildDefinitionPullRequestTriggerOverrideBranchFilter build() {
-            final var o = new GetBuildDefinitionPullRequestTriggerOverrideBranchFilter();
-            o.excludes = excludes;
-            o.includes = includes;
-            return o;
+            final var _resultValue = new GetBuildDefinitionPullRequestTriggerOverrideBranchFilter();
+            _resultValue.excludes = excludes;
+            _resultValue.includes = includes;
+            return _resultValue;
         }
     }
 }

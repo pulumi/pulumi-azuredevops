@@ -182,16 +182,16 @@ public final class ServiceEndpointKubernetesAzureSubscription {
             return this;
         }
         public ServiceEndpointKubernetesAzureSubscription build() {
-            final var o = new ServiceEndpointKubernetesAzureSubscription();
-            o.azureEnvironment = azureEnvironment;
-            o.clusterAdmin = clusterAdmin;
-            o.clusterName = clusterName;
-            o.namespace = namespace;
-            o.resourcegroupId = resourcegroupId;
-            o.subscriptionId = subscriptionId;
-            o.subscriptionName = subscriptionName;
-            o.tenantId = tenantId;
-            return o;
+            final var _resultValue = new ServiceEndpointKubernetesAzureSubscription();
+            _resultValue.azureEnvironment = azureEnvironment;
+            _resultValue.clusterAdmin = clusterAdmin;
+            _resultValue.clusterName = clusterName;
+            _resultValue.namespace = namespace;
+            _resultValue.resourcegroupId = resourcegroupId;
+            _resultValue.subscriptionId = subscriptionId;
+            _resultValue.subscriptionName = subscriptionName;
+            _resultValue.tenantId = tenantId;
+            return _resultValue;
         }
     }
 }

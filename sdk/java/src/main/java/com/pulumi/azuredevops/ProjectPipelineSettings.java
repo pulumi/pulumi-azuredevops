@@ -83,7 +83,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * Limit job authorization scope to current project for non-release pipelines.
      * 
      */
-    @Export(name="enforceJobScope", type=Boolean.class, parameters={})
+    @Export(name="enforceJobScope", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enforceJobScope;
 
     /**
@@ -102,7 +102,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
      * 
      */
-    @Export(name="enforceJobScopeForRelease", type=Boolean.class, parameters={})
+    @Export(name="enforceJobScopeForRelease", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enforceJobScopeForRelease;
 
     /**
@@ -121,7 +121,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * Protect access to repositories in YAML pipelines.
      * 
      */
-    @Export(name="enforceReferencedRepoScopedToken", type=Boolean.class, parameters={})
+    @Export(name="enforceReferencedRepoScopedToken", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enforceReferencedRepoScopedToken;
 
     /**
@@ -135,7 +135,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * Limit variables that can be set at queue time.
      * 
      */
-    @Export(name="enforceSettableVar", type=Boolean.class, parameters={})
+    @Export(name="enforceSettableVar", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enforceSettableVar;
 
     /**
@@ -149,7 +149,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * The `id` of the project for which the project pipeline settings will be managed.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -163,7 +163,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * Publish metadata from pipelines.
      * 
      */
-    @Export(name="publishPipelineMetadata", type=Boolean.class, parameters={})
+    @Export(name="publishPipelineMetadata", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publishPipelineMetadata;
 
     /**
@@ -177,7 +177,7 @@ public class ProjectPipelineSettings extends com.pulumi.resources.CustomResource
      * Disable anonymous access to badges.
      * 
      */
-    @Export(name="statusBadgesArePrivate", type=Boolean.class, parameters={})
+    @Export(name="statusBadgesArePrivate", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> statusBadgesArePrivate;
 
     /**

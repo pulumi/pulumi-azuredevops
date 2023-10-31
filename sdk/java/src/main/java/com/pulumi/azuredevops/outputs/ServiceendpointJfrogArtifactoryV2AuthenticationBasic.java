@@ -65,10 +65,10 @@ public final class ServiceendpointJfrogArtifactoryV2AuthenticationBasic {
             return this;
         }
         public ServiceendpointJfrogArtifactoryV2AuthenticationBasic build() {
-            final var o = new ServiceendpointJfrogArtifactoryV2AuthenticationBasic();
-            o.password = password;
-            o.username = username;
-            return o;
+            final var _resultValue = new ServiceendpointJfrogArtifactoryV2AuthenticationBasic();
+            _resultValue.password = password;
+            _resultValue.username = username;
+            return _resultValue;
         }
     }
 }

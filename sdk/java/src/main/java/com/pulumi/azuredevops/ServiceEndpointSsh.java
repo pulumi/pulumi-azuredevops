@@ -77,13 +77,13 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointSsh:ServiceEndpointSsh")
 public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -93,7 +93,7 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
      * The Host name or IP address of the remote machine.
      * 
      */
-    @Export(name="host", type=String.class, parameters={})
+    @Export(name="host", refs={String.class}, tree="[0]")
     private Output<String> host;
 
     /**
@@ -107,7 +107,7 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
      * Password for connecting to the endpoint.
      * 
      */
-    @Export(name="password", type=String.class, parameters={})
+    @Export(name="password", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> password;
 
     /**
@@ -121,7 +121,7 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
      * Port number on the remote machine to use for connecting. Defaults to `22`.
      * 
      */
-    @Export(name="port", type=Integer.class, parameters={})
+    @Export(name="port", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> port;
 
     /**
@@ -135,7 +135,7 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
      * Private Key for connecting to the endpoint.
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> privateKey;
 
     /**
@@ -149,7 +149,7 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -163,7 +163,7 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -177,7 +177,7 @@ public class ServiceEndpointSsh extends com.pulumi.resources.CustomResource {
      * Username for connecting to the endpoint.
      * 
      */
-    @Export(name="username", type=String.class, parameters={})
+    @Export(name="username", refs={String.class}, tree="[0]")
     private Output<String> username;
 
     /**

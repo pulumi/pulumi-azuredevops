@@ -165,16 +165,16 @@ public final class GetTeamResult {
             return this;
         }
         public GetTeamResult build() {
-            final var o = new GetTeamResult();
-            o.administrators = administrators;
-            o.description = description;
-            o.descriptor = descriptor;
-            o.id = id;
-            o.members = members;
-            o.name = name;
-            o.projectId = projectId;
-            o.top = top;
-            return o;
+            final var _resultValue = new GetTeamResult();
+            _resultValue.administrators = administrators;
+            _resultValue.description = description;
+            _resultValue.descriptor = descriptor;
+            _resultValue.id = id;
+            _resultValue.members = members;
+            _resultValue.name = name;
+            _resultValue.projectId = projectId;
+            _resultValue.top = top;
+            return _resultValue;
         }
     }
 }

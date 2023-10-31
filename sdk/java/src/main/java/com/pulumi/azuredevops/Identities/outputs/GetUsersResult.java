@@ -143,14 +143,14 @@ public final class GetUsersResult {
             return users(List.of(users));
         }
         public GetUsersResult build() {
-            final var o = new GetUsersResult();
-            o.id = id;
-            o.origin = origin;
-            o.originId = originId;
-            o.principalName = principalName;
-            o.subjectTypes = subjectTypes;
-            o.users = users;
-            return o;
+            final var _resultValue = new GetUsersResult();
+            _resultValue.id = id;
+            _resultValue.origin = origin;
+            _resultValue.originId = originId;
+            _resultValue.principalName = principalName;
+            _resultValue.subjectTypes = subjectTypes;
+            _resultValue.users = users;
+            return _resultValue;
         }
     }
 }

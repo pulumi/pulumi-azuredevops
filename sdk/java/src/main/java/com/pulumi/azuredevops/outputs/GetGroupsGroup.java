@@ -200,17 +200,17 @@ public final class GetGroupsGroup {
             return this;
         }
         public GetGroupsGroup build() {
-            final var o = new GetGroupsGroup();
-            o.description = description;
-            o.descriptor = descriptor;
-            o.displayName = displayName;
-            o.domain = domain;
-            o.mailAddress = mailAddress;
-            o.origin = origin;
-            o.originId = originId;
-            o.principalName = principalName;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetGroupsGroup();
+            _resultValue.description = description;
+            _resultValue.descriptor = descriptor;
+            _resultValue.displayName = displayName;
+            _resultValue.domain = domain;
+            _resultValue.mailAddress = mailAddress;
+            _resultValue.origin = origin;
+            _resultValue.originId = originId;
+            _resultValue.principalName = principalName;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

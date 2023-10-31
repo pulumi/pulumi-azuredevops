@@ -82,7 +82,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
      * The access token for npm registry.
      * 
      */
-    @Export(name="accessToken", type=String.class, parameters={})
+    @Export(name="accessToken", refs={String.class}, tree="[0]")
     private Output<String> accessToken;
 
     /**
@@ -92,7 +92,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
     public Output<String> accessToken() {
         return this.accessToken;
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -102,7 +102,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
      * The Service Endpoint description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -116,7 +116,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -130,7 +130,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -144,7 +144,7 @@ public class ServiceEndpointNpm extends com.pulumi.resources.CustomResource {
      * URL of the npm registry to connect with.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

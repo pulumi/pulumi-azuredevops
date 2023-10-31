@@ -133,7 +133,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      * A `authentication_basic` block as documented below.
      * 
      */
-    @Export(name="authenticationBasic", type=ServiceendpointJfrogXrayV2AuthenticationBasic.class, parameters={})
+    @Export(name="authenticationBasic", refs={ServiceendpointJfrogXrayV2AuthenticationBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointJfrogXrayV2AuthenticationBasic> authenticationBasic;
 
     /**
@@ -147,7 +147,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      * A `authentication_token` block as documented below.
      * 
      */
-    @Export(name="authenticationToken", type=ServiceendpointJfrogXrayV2AuthenticationToken.class, parameters={})
+    @Export(name="authenticationToken", refs={ServiceendpointJfrogXrayV2AuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointJfrogXrayV2AuthenticationToken> authenticationToken;
 
     /**
@@ -157,7 +157,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
     public Output<Optional<ServiceendpointJfrogXrayV2AuthenticationToken>> authenticationToken() {
         return Codegen.optional(this.authenticationToken);
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -167,7 +167,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      * The Service Endpoint description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -181,7 +181,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -195,7 +195,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -211,7 +211,7 @@ public class ServiceendpointJfrogXrayV2 extends com.pulumi.resources.CustomResou
      * &gt; **NOTE:** URL should not end in a slash character.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

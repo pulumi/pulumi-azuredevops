@@ -38,9 +38,9 @@ public final class ServiceEndpointGitHubAuthOauth {
             return this;
         }
         public ServiceEndpointGitHubAuthOauth build() {
-            final var o = new ServiceEndpointGitHubAuthOauth();
-            o.oauthConfigurationId = oauthConfigurationId;
-            return o;
+            final var _resultValue = new ServiceEndpointGitHubAuthOauth();
+            _resultValue.oauthConfigurationId = oauthConfigurationId;
+            return _resultValue;
         }
     }
 }

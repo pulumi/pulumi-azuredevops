@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceendpointGcpTerraform:ServiceendpointGcpTerraform")
 public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomResource {
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -86,7 +86,7 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
      * The client email field in the JSON key file for creating the JSON Web Token.
      * 
      */
-    @Export(name="clientEmail", type=String.class, parameters={})
+    @Export(name="clientEmail", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> clientEmail;
 
     /**
@@ -96,7 +96,7 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
     public Output<Optional<String>> clientEmail() {
         return Codegen.optional(this.clientEmail);
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -106,7 +106,7 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
      * GCP project associated with the Service Connection.
      * 
      */
-    @Export(name="gcpProjectId", type=String.class, parameters={})
+    @Export(name="gcpProjectId", refs={String.class}, tree="[0]")
     private Output<String> gcpProjectId;
 
     /**
@@ -120,7 +120,7 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
      * The client email field in the JSON key file for creating the JSON Web Token.
      * 
      */
-    @Export(name="privateKey", type=String.class, parameters={})
+    @Export(name="privateKey", refs={String.class}, tree="[0]")
     private Output<String> privateKey;
 
     /**
@@ -134,7 +134,7 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -148,7 +148,7 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
      * Scope to be provided.
      * 
      */
-    @Export(name="scope", type=String.class, parameters={})
+    @Export(name="scope", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> scope;
 
     /**
@@ -162,7 +162,7 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -176,7 +176,7 @@ public class ServiceendpointGcpTerraform extends com.pulumi.resources.CustomReso
      * The token uri field in the JSON key file for creating the JSON Web Token.
      * 
      */
-    @Export(name="tokenUri", type=String.class, parameters={})
+    @Export(name="tokenUri", refs={String.class}, tree="[0]")
     private Output<String> tokenUri;
 
     /**

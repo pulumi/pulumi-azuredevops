@@ -78,7 +78,7 @@ public class BuildFolder extends com.pulumi.resources.CustomResource {
      * Folder Description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -92,7 +92,7 @@ public class BuildFolder extends com.pulumi.resources.CustomResource {
      * The folder path.
      * 
      */
-    @Export(name="path", type=String.class, parameters={})
+    @Export(name="path", refs={String.class}, tree="[0]")
     private Output<String> path;
 
     /**
@@ -106,7 +106,7 @@ public class BuildFolder extends com.pulumi.resources.CustomResource {
      * The ID of the project in which the folder will be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**

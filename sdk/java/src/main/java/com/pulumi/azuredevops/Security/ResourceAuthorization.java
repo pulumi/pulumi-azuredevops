@@ -86,7 +86,7 @@ public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
      * Set to true to allow public access in the project. Type: boolean.
      * 
      */
-    @Export(name="authorized", type=Boolean.class, parameters={})
+    @Export(name="authorized", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> authorized;
 
     /**
@@ -100,7 +100,7 @@ public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
      * The ID of the build definition to authorize. Type: string.
      * 
      */
-    @Export(name="definitionId", type=Integer.class, parameters={})
+    @Export(name="definitionId", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> definitionId;
 
     /**
@@ -114,7 +114,7 @@ public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
      * The project ID or project name. Type: string.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -128,7 +128,7 @@ public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
      * The ID of the resource to authorize. Type: string.
      * 
      */
-    @Export(name="resourceId", type=String.class, parameters={})
+    @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
@@ -142,7 +142,7 @@ public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
      * The type of the resource to authorize. Type: string. Valid values: `endpoint`, `queue`, `variablegroup`. Default value: `endpoint`.
      * 
      */
-    @Export(name="type", type=String.class, parameters={})
+    @Export(name="type", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> type;
 
     /**

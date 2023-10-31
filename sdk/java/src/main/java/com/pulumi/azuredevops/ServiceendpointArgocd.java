@@ -133,7 +133,7 @@ public class ServiceendpointArgocd extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** `authentication_basic` and `authentication_token` conflict with each other, only one is required.
      * 
      */
-    @Export(name="authenticationBasic", type=ServiceendpointArgocdAuthenticationBasic.class, parameters={})
+    @Export(name="authenticationBasic", refs={ServiceendpointArgocdAuthenticationBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointArgocdAuthenticationBasic> authenticationBasic;
 
     /**
@@ -149,7 +149,7 @@ public class ServiceendpointArgocd extends com.pulumi.resources.CustomResource {
      * An `authentication_token` block for the ArgoCD as documented below.
      * 
      */
-    @Export(name="authenticationToken", type=ServiceendpointArgocdAuthenticationToken.class, parameters={})
+    @Export(name="authenticationToken", refs={ServiceendpointArgocdAuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointArgocdAuthenticationToken> authenticationToken;
 
     /**
@@ -159,7 +159,7 @@ public class ServiceendpointArgocd extends com.pulumi.resources.CustomResource {
     public Output<Optional<ServiceendpointArgocdAuthenticationToken>> authenticationToken() {
         return Codegen.optional(this.authenticationToken);
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
@@ -169,7 +169,7 @@ public class ServiceendpointArgocd extends com.pulumi.resources.CustomResource {
      * The Service Endpoint description.
      * 
      */
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
@@ -183,7 +183,7 @@ public class ServiceendpointArgocd extends com.pulumi.resources.CustomResource {
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -197,7 +197,7 @@ public class ServiceendpointArgocd extends com.pulumi.resources.CustomResource {
      * The Service Endpoint name.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -211,7 +211,7 @@ public class ServiceendpointArgocd extends com.pulumi.resources.CustomResource {
      * URL of the ArgoCD server to connect with.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

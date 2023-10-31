@@ -46,9 +46,9 @@ public final class ServiceendpointJfrogXrayV2AuthenticationToken {
             return this;
         }
         public ServiceendpointJfrogXrayV2AuthenticationToken build() {
-            final var o = new ServiceendpointJfrogXrayV2AuthenticationToken();
-            o.token = token;
-            return o;
+            final var _resultValue = new ServiceendpointJfrogXrayV2AuthenticationToken();
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

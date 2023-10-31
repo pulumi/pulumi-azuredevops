@@ -70,10 +70,10 @@ public final class GetBuildDefinitionCiTrigger {
             return this;
         }
         public GetBuildDefinitionCiTrigger build() {
-            final var o = new GetBuildDefinitionCiTrigger();
-            o.overrides = overrides;
-            o.useYaml = useYaml;
-            return o;
+            final var _resultValue = new GetBuildDefinitionCiTrigger();
+            _resultValue.overrides = overrides;
+            _resultValue.useYaml = useYaml;
+            return _resultValue;
         }
     }
 }

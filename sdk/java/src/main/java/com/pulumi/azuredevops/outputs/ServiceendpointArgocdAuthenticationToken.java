@@ -46,9 +46,9 @@ public final class ServiceendpointArgocdAuthenticationToken {
             return this;
         }
         public ServiceendpointArgocdAuthenticationToken build() {
-            final var o = new ServiceendpointArgocdAuthenticationToken();
-            o.token = token;
-            return o;
+            final var _resultValue = new ServiceendpointArgocdAuthenticationToken();
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

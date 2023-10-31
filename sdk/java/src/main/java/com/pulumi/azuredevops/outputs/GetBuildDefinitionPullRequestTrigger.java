@@ -132,13 +132,13 @@ public final class GetBuildDefinitionPullRequestTrigger {
             return this;
         }
         public GetBuildDefinitionPullRequestTrigger build() {
-            final var o = new GetBuildDefinitionPullRequestTrigger();
-            o.commentRequired = commentRequired;
-            o.forks = forks;
-            o.initialBranch = initialBranch;
-            o.overrides = overrides;
-            o.useYaml = useYaml;
-            return o;
+            final var _resultValue = new GetBuildDefinitionPullRequestTrigger();
+            _resultValue.commentRequired = commentRequired;
+            _resultValue.forks = forks;
+            _resultValue.initialBranch = initialBranch;
+            _resultValue.overrides = overrides;
+            _resultValue.useYaml = useYaml;
+            return _resultValue;
         }
     }
 }

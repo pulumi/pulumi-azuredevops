@@ -78,25 +78,25 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azuredevops:index/serviceEndpointAzureEcr:ServiceEndpointAzureEcr")
 public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource {
-    @Export(name="appObjectId", type=String.class, parameters={})
+    @Export(name="appObjectId", refs={String.class}, tree="[0]")
     private Output<String> appObjectId;
 
     public Output<String> appObjectId() {
         return this.appObjectId;
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="azSpnRoleAssignmentId", type=String.class, parameters={})
+    @Export(name="azSpnRoleAssignmentId", refs={String.class}, tree="[0]")
     private Output<String> azSpnRoleAssignmentId;
 
     public Output<String> azSpnRoleAssignmentId() {
         return this.azSpnRoleAssignmentId;
     }
-    @Export(name="azSpnRolePermissions", type=String.class, parameters={})
+    @Export(name="azSpnRolePermissions", refs={String.class}, tree="[0]")
     private Output<String> azSpnRolePermissions;
 
     public Output<String> azSpnRolePermissions() {
@@ -106,7 +106,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * The Azure container registry name.
      * 
      */
-    @Export(name="azurecrName", type=String.class, parameters={})
+    @Export(name="azurecrName", refs={String.class}, tree="[0]")
     private Output<String> azurecrName;
 
     /**
@@ -120,7 +120,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * The tenant id of the service principal.
      * 
      */
-    @Export(name="azurecrSpnTenantid", type=String.class, parameters={})
+    @Export(name="azurecrSpnTenantid", refs={String.class}, tree="[0]")
     private Output<String> azurecrSpnTenantid;
 
     /**
@@ -134,7 +134,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * The subscription id of the Azure targets.
      * 
      */
-    @Export(name="azurecrSubscriptionId", type=String.class, parameters={})
+    @Export(name="azurecrSubscriptionId", refs={String.class}, tree="[0]")
     private Output<String> azurecrSubscriptionId;
 
     /**
@@ -148,7 +148,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * The subscription name of the Azure targets.
      * 
      */
-    @Export(name="azurecrSubscriptionName", type=String.class, parameters={})
+    @Export(name="azurecrSubscriptionName", refs={String.class}, tree="[0]")
     private Output<String> azurecrSubscriptionName;
 
     /**
@@ -158,7 +158,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
     public Output<String> azurecrSubscriptionName() {
         return this.azurecrSubscriptionName;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -168,7 +168,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * The ID of the project.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -182,7 +182,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * The resource group to which the container registry belongs.
      * 
      */
-    @Export(name="resourceGroup", type=String.class, parameters={})
+    @Export(name="resourceGroup", refs={String.class}, tree="[0]")
     private Output<String> resourceGroup;
 
     /**
@@ -196,7 +196,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * The name you will use to refer to this service connection in task inputs.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -210,7 +210,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
      * The service principal ID.
      * 
      */
-    @Export(name="servicePrincipalId", type=String.class, parameters={})
+    @Export(name="servicePrincipalId", refs={String.class}, tree="[0]")
     private Output<String> servicePrincipalId;
 
     /**
@@ -220,7 +220,7 @@ public class ServiceEndpointAzureEcr extends com.pulumi.resources.CustomResource
     public Output<String> servicePrincipalId() {
         return this.servicePrincipalId;
     }
-    @Export(name="spnObjectId", type=String.class, parameters={})
+    @Export(name="spnObjectId", refs={String.class}, tree="[0]")
     private Output<String> spnObjectId;
 
     public Output<String> spnObjectId() {

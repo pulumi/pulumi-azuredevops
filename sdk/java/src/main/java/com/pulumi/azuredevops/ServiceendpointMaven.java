@@ -130,7 +130,7 @@ public class ServiceendpointMaven extends com.pulumi.resources.CustomResource {
      * A `authentication_basic` block as documented below.
      * 
      */
-    @Export(name="authenticationBasic", type=ServiceendpointMavenAuthenticationBasic.class, parameters={})
+    @Export(name="authenticationBasic", refs={ServiceendpointMavenAuthenticationBasic.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointMavenAuthenticationBasic> authenticationBasic;
 
     /**
@@ -144,7 +144,7 @@ public class ServiceendpointMaven extends com.pulumi.resources.CustomResource {
      * A `authentication_token` block as documented below.
      * 
      */
-    @Export(name="authenticationToken", type=ServiceendpointMavenAuthenticationToken.class, parameters={})
+    @Export(name="authenticationToken", refs={ServiceendpointMavenAuthenticationToken.class}, tree="[0]")
     private Output</* @Nullable */ ServiceendpointMavenAuthenticationToken> authenticationToken;
 
     /**
@@ -154,13 +154,13 @@ public class ServiceendpointMaven extends com.pulumi.resources.CustomResource {
     public Output<Optional<ServiceendpointMavenAuthenticationToken>> authenticationToken() {
         return Codegen.optional(this.authenticationToken);
     }
-    @Export(name="authorization", type=Map.class, parameters={String.class, String.class})
+    @Export(name="authorization", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> authorization;
 
     public Output<Map<String,String>> authorization() {
         return this.authorization;
     }
-    @Export(name="description", type=String.class, parameters={})
+    @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     public Output<Optional<String>> description() {
@@ -170,7 +170,7 @@ public class ServiceendpointMaven extends com.pulumi.resources.CustomResource {
      * The ID of the project. Changing this forces a new Service Connection Maven to be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -184,7 +184,7 @@ public class ServiceendpointMaven extends com.pulumi.resources.CustomResource {
      * The ID of the server that matches the id element of the `repository/mirror` that Maven tries to connect to.
      * 
      */
-    @Export(name="repositoryId", type=String.class, parameters={})
+    @Export(name="repositoryId", refs={String.class}, tree="[0]")
     private Output<String> repositoryId;
 
     /**
@@ -198,7 +198,7 @@ public class ServiceendpointMaven extends com.pulumi.resources.CustomResource {
      * The name of the service endpoint. Changing this forces a new Service Connection Maven to be created.
      * 
      */
-    @Export(name="serviceEndpointName", type=String.class, parameters={})
+    @Export(name="serviceEndpointName", refs={String.class}, tree="[0]")
     private Output<String> serviceEndpointName;
 
     /**
@@ -212,7 +212,7 @@ public class ServiceendpointMaven extends com.pulumi.resources.CustomResource {
      * The URL of the Maven Repository.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**

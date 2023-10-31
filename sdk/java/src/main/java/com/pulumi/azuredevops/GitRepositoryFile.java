@@ -96,7 +96,7 @@ public class GitRepositoryFile extends com.pulumi.resources.CustomResource {
      * does not already exist.
      * 
      */
-    @Export(name="branch", type=String.class, parameters={})
+    @Export(name="branch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> branch;
 
     /**
@@ -111,7 +111,7 @@ public class GitRepositoryFile extends com.pulumi.resources.CustomResource {
      * Commit message when adding or updating the managed file.
      * 
      */
-    @Export(name="commitMessage", type=String.class, parameters={})
+    @Export(name="commitMessage", refs={String.class}, tree="[0]")
     private Output<String> commitMessage;
 
     /**
@@ -125,7 +125,7 @@ public class GitRepositoryFile extends com.pulumi.resources.CustomResource {
      * The file content.
      * 
      */
-    @Export(name="content", type=String.class, parameters={})
+    @Export(name="content", refs={String.class}, tree="[0]")
     private Output<String> content;
 
     /**
@@ -139,7 +139,7 @@ public class GitRepositoryFile extends com.pulumi.resources.CustomResource {
      * The path of the file to manage.
      * 
      */
-    @Export(name="file", type=String.class, parameters={})
+    @Export(name="file", refs={String.class}, tree="[0]")
     private Output<String> file;
 
     /**
@@ -153,7 +153,7 @@ public class GitRepositoryFile extends com.pulumi.resources.CustomResource {
      * Enable overwriting existing files (defaults to `false`).
      * 
      */
-    @Export(name="overwriteOnCreate", type=Boolean.class, parameters={})
+    @Export(name="overwriteOnCreate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> overwriteOnCreate;
 
     /**
@@ -167,7 +167,7 @@ public class GitRepositoryFile extends com.pulumi.resources.CustomResource {
      * The ID of the Git repository.
      * 
      */
-    @Export(name="repositoryId", type=String.class, parameters={})
+    @Export(name="repositoryId", refs={String.class}, tree="[0]")
     private Output<String> repositoryId;
 
     /**

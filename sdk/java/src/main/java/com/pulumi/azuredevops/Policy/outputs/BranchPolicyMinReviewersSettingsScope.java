@@ -86,11 +86,11 @@ public final class BranchPolicyMinReviewersSettingsScope {
             return this;
         }
         public BranchPolicyMinReviewersSettingsScope build() {
-            final var o = new BranchPolicyMinReviewersSettingsScope();
-            o.matchType = matchType;
-            o.repositoryId = repositoryId;
-            o.repositoryRef = repositoryRef;
-            return o;
+            final var _resultValue = new BranchPolicyMinReviewersSettingsScope();
+            _resultValue.matchType = matchType;
+            _resultValue.repositoryId = repositoryId;
+            _resultValue.repositoryRef = repositoryRef;
+            return _resultValue;
         }
     }
 }

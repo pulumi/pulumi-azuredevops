@@ -89,7 +89,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * The ref of the default branch. Will be used as the branch name for initialized repositories.
      * 
      */
-    @Export(name="defaultBranch", type=String.class, parameters={})
+    @Export(name="defaultBranch", refs={String.class}, tree="[0]")
     private Output<String> defaultBranch;
 
     /**
@@ -103,7 +103,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * An `initialization` block as documented below.
      * 
      */
-    @Export(name="initialization", type=GitInitialization.class, parameters={})
+    @Export(name="initialization", refs={GitInitialization.class}, tree="[0]")
     private Output<GitInitialization> initialization;
 
     /**
@@ -117,7 +117,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * True if the repository was created as a fork.
      * 
      */
-    @Export(name="isFork", type=Boolean.class, parameters={})
+    @Export(name="isFork", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> isFork;
 
     /**
@@ -131,7 +131,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * The name of the git repository.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -145,7 +145,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * The ID of a Git project from which a fork is to be created.
      * 
      */
-    @Export(name="parentRepositoryId", type=String.class, parameters={})
+    @Export(name="parentRepositoryId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentRepositoryId;
 
     /**
@@ -159,7 +159,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * The project ID or project name.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -173,7 +173,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * Git HTTPS URL of the repository
      * 
      */
-    @Export(name="remoteUrl", type=String.class, parameters={})
+    @Export(name="remoteUrl", refs={String.class}, tree="[0]")
     private Output<String> remoteUrl;
 
     /**
@@ -187,7 +187,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * Size in bytes.
      * 
      */
-    @Export(name="size", type=Integer.class, parameters={})
+    @Export(name="size", refs={Integer.class}, tree="[0]")
     private Output<Integer> size;
 
     /**
@@ -201,7 +201,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * Git SSH URL of the repository.
      * 
      */
-    @Export(name="sshUrl", type=String.class, parameters={})
+    @Export(name="sshUrl", refs={String.class}, tree="[0]")
     private Output<String> sshUrl;
 
     /**
@@ -215,7 +215,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * REST API URL of the repository.
      * 
      */
-    @Export(name="url", type=String.class, parameters={})
+    @Export(name="url", refs={String.class}, tree="[0]")
     private Output<String> url;
 
     /**
@@ -229,7 +229,7 @@ public class Git extends com.pulumi.resources.CustomResource {
      * Web link to the repository.
      * 
      */
-    @Export(name="webUrl", type=String.class, parameters={})
+    @Export(name="webUrl", refs={String.class}, tree="[0]")
     private Output<String> webUrl;
 
     /**

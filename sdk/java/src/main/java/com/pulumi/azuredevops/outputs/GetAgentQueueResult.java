@@ -104,12 +104,12 @@ public final class GetAgentQueueResult {
             return this;
         }
         public GetAgentQueueResult build() {
-            final var o = new GetAgentQueueResult();
-            o.agentPoolId = agentPoolId;
-            o.id = id;
-            o.name = name;
-            o.projectId = projectId;
-            return o;
+            final var _resultValue = new GetAgentQueueResult();
+            _resultValue.agentPoolId = agentPoolId;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.projectId = projectId;
+            return _resultValue;
         }
     }
 }

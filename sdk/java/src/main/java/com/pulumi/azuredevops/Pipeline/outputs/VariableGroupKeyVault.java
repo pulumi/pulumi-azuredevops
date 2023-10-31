@@ -87,11 +87,11 @@ public final class VariableGroupKeyVault {
             return this;
         }
         public VariableGroupKeyVault build() {
-            final var o = new VariableGroupKeyVault();
-            o.name = name;
-            o.searchDepth = searchDepth;
-            o.serviceEndpointId = serviceEndpointId;
-            return o;
+            final var _resultValue = new VariableGroupKeyVault();
+            _resultValue.name = name;
+            _resultValue.searchDepth = searchDepth;
+            _resultValue.serviceEndpointId = serviceEndpointId;
+            return _resultValue;
         }
     }
 }

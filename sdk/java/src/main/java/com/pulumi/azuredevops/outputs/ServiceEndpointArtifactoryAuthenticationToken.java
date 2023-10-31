@@ -46,9 +46,9 @@ public final class ServiceEndpointArtifactoryAuthenticationToken {
             return this;
         }
         public ServiceEndpointArtifactoryAuthenticationToken build() {
-            final var o = new ServiceEndpointArtifactoryAuthenticationToken();
-            o.token = token;
-            return o;
+            final var _resultValue = new ServiceEndpointArtifactoryAuthenticationToken();
+            _resultValue.token = token;
+            return _resultValue;
         }
     }
 }

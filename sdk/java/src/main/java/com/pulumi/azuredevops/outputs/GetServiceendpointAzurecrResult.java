@@ -308,24 +308,24 @@ public final class GetServiceendpointAzurecrResult {
             return this;
         }
         public GetServiceendpointAzurecrResult build() {
-            final var o = new GetServiceendpointAzurecrResult();
-            o.appObjectId = appObjectId;
-            o.authorization = authorization;
-            o.azSpnRoleAssignmentId = azSpnRoleAssignmentId;
-            o.azSpnRolePermissions = azSpnRolePermissions;
-            o.azurecrName = azurecrName;
-            o.azurecrSpnTenantid = azurecrSpnTenantid;
-            o.azurecrSubscriptionId = azurecrSubscriptionId;
-            o.azurecrSubscriptionName = azurecrSubscriptionName;
-            o.description = description;
-            o.id = id;
-            o.projectId = projectId;
-            o.resourceGroup = resourceGroup;
-            o.serviceEndpointId = serviceEndpointId;
-            o.serviceEndpointName = serviceEndpointName;
-            o.servicePrincipalId = servicePrincipalId;
-            o.spnObjectId = spnObjectId;
-            return o;
+            final var _resultValue = new GetServiceendpointAzurecrResult();
+            _resultValue.appObjectId = appObjectId;
+            _resultValue.authorization = authorization;
+            _resultValue.azSpnRoleAssignmentId = azSpnRoleAssignmentId;
+            _resultValue.azSpnRolePermissions = azSpnRolePermissions;
+            _resultValue.azurecrName = azurecrName;
+            _resultValue.azurecrSpnTenantid = azurecrSpnTenantid;
+            _resultValue.azurecrSubscriptionId = azurecrSubscriptionId;
+            _resultValue.azurecrSubscriptionName = azurecrSubscriptionName;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.projectId = projectId;
+            _resultValue.resourceGroup = resourceGroup;
+            _resultValue.serviceEndpointId = serviceEndpointId;
+            _resultValue.serviceEndpointName = serviceEndpointName;
+            _resultValue.servicePrincipalId = servicePrincipalId;
+            _resultValue.spnObjectId = spnObjectId;
+            return _resultValue;
         }
     }
 }

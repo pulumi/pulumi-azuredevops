@@ -116,7 +116,7 @@ public class BranchPolicyStatusCheck extends com.pulumi.resources.CustomResource
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      * 
      */
-    @Export(name="blocking", type=Boolean.class, parameters={})
+    @Export(name="blocking", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blocking;
 
     /**
@@ -130,7 +130,7 @@ public class BranchPolicyStatusCheck extends com.pulumi.resources.CustomResource
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -144,7 +144,7 @@ public class BranchPolicyStatusCheck extends com.pulumi.resources.CustomResource
      * The ID of the project in which the policy will be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -158,7 +158,7 @@ public class BranchPolicyStatusCheck extends com.pulumi.resources.CustomResource
      * Configuration for the policy. This block must be defined exactly once.
      * 
      */
-    @Export(name="settings", type=BranchPolicyStatusCheckSettings.class, parameters={})
+    @Export(name="settings", refs={BranchPolicyStatusCheckSettings.class}, tree="[0]")
     private Output<BranchPolicyStatusCheckSettings> settings;
 
     /**

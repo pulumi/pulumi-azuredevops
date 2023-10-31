@@ -160,15 +160,15 @@ public final class GetAreaResult {
             return this;
         }
         public GetAreaResult build() {
-            final var o = new GetAreaResult();
-            o.childrens = childrens;
-            o.fetchChildren = fetchChildren;
-            o.hasChildren = hasChildren;
-            o.id = id;
-            o.name = name;
-            o.path = path;
-            o.projectId = projectId;
-            return o;
+            final var _resultValue = new GetAreaResult();
+            _resultValue.childrens = childrens;
+            _resultValue.fetchChildren = fetchChildren;
+            _resultValue.hasChildren = hasChildren;
+            _resultValue.id = id;
+            _resultValue.name = name;
+            _resultValue.path = path;
+            _resultValue.projectId = projectId;
+            return _resultValue;
         }
     }
 }

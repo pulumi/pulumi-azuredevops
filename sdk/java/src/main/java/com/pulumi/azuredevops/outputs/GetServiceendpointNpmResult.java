@@ -137,15 +137,15 @@ public final class GetServiceendpointNpmResult {
             return this;
         }
         public GetServiceendpointNpmResult build() {
-            final var o = new GetServiceendpointNpmResult();
-            o.authorization = authorization;
-            o.description = description;
-            o.id = id;
-            o.projectId = projectId;
-            o.serviceEndpointId = serviceEndpointId;
-            o.serviceEndpointName = serviceEndpointName;
-            o.url = url;
-            return o;
+            final var _resultValue = new GetServiceendpointNpmResult();
+            _resultValue.authorization = authorization;
+            _resultValue.description = description;
+            _resultValue.id = id;
+            _resultValue.projectId = projectId;
+            _resultValue.serviceEndpointId = serviceEndpointId;
+            _resultValue.serviceEndpointName = serviceEndpointName;
+            _resultValue.url = url;
+            return _resultValue;
         }
     }
 }

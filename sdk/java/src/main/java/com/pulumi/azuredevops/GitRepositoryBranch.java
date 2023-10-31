@@ -78,7 +78,7 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      * The commit object ID of last commit on the branch.
      * 
      */
-    @Export(name="lastCommitId", type=String.class, parameters={})
+    @Export(name="lastCommitId", refs={String.class}, tree="[0]")
     private Output<String> lastCommitId;
 
     /**
@@ -92,7 +92,7 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      * The name of the branch in short format not prefixed with `refs/heads/`.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -106,7 +106,7 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      * The reference to the source branch to create the branch from, in `&lt;name&gt;` or `refs/heads/&lt;name&gt;` format. Conflict with `ref_tag`, `ref_commit_id`.
      * 
      */
-    @Export(name="refBranch", type=String.class, parameters={})
+    @Export(name="refBranch", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refBranch;
 
     /**
@@ -120,7 +120,7 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      * The commit object ID to create the branch from. Conflict with `ref_branch`, `ref_tag`.
      * 
      */
-    @Export(name="refCommitId", type=String.class, parameters={})
+    @Export(name="refCommitId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refCommitId;
 
     /**
@@ -134,7 +134,7 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      * The reference to the tag to create the branch from, in `&lt;name&gt;` or `refs/tags/&lt;name&gt;` format. Conflict with `ref_branch`, `ref_commit_id`.
      * 
      */
-    @Export(name="refTag", type=String.class, parameters={})
+    @Export(name="refTag", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> refTag;
 
     /**
@@ -148,7 +148,7 @@ public class GitRepositoryBranch extends com.pulumi.resources.CustomResource {
      * The ID of the repository the branch is created against.
      * 
      */
-    @Export(name="repositoryId", type=String.class, parameters={})
+    @Export(name="repositoryId", refs={String.class}, tree="[0]")
     private Output<String> repositoryId;
 
     /**

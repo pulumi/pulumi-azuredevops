@@ -101,7 +101,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
      * Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
      * 
      */
-    @Export(name="accountLicenseType", type=String.class, parameters={})
+    @Export(name="accountLicenseType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> accountLicenseType;
 
     /**
@@ -115,7 +115,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
      * The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the group graph subject.
      * 
      */
-    @Export(name="descriptor", type=String.class, parameters={})
+    @Export(name="descriptor", refs={String.class}, tree="[0]")
     private Output<String> descriptor;
 
     /**
@@ -129,7 +129,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
      * The display name is the name used in Azure DevOps UI. Cannot be set together with `origin_id` and `origin`.
      * 
      */
-    @Export(name="displayName", type=String.class, parameters={})
+    @Export(name="displayName", refs={String.class}, tree="[0]")
     private Output<String> displayName;
 
     /**
@@ -145,7 +145,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
      * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
      * 
      */
-    @Export(name="licensingSource", type=String.class, parameters={})
+    @Export(name="licensingSource", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licensingSource;
 
     /**
@@ -161,7 +161,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
      * The type of source provider for the origin identifier.
      * 
      */
-    @Export(name="origin", type=String.class, parameters={})
+    @Export(name="origin", refs={String.class}, tree="[0]")
     private Output<String> origin;
 
     /**
@@ -175,7 +175,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
      * The unique identifier from the system of origin. Typically, a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
      * 
      */
-    @Export(name="originId", type=String.class, parameters={})
+    @Export(name="originId", refs={String.class}, tree="[0]")
     private Output<String> originId;
 
     /**
@@ -189,7 +189,7 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
      * The principal name of a graph member on Azure DevOps
      * 
      */
-    @Export(name="principalName", type=String.class, parameters={})
+    @Export(name="principalName", refs={String.class}, tree="[0]")
     private Output<String> principalName;
 
     /**

@@ -99,7 +99,7 @@ public class BranchPolicyCommentResolution extends com.pulumi.resources.CustomRe
      * A flag indicating if the policy should be blocking. Defaults to `true`.
      * 
      */
-    @Export(name="blocking", type=Boolean.class, parameters={})
+    @Export(name="blocking", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> blocking;
 
     /**
@@ -113,7 +113,7 @@ public class BranchPolicyCommentResolution extends com.pulumi.resources.CustomRe
      * A flag indicating if the policy should be enabled. Defaults to `true`.
      * 
      */
-    @Export(name="enabled", type=Boolean.class, parameters={})
+    @Export(name="enabled", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enabled;
 
     /**
@@ -127,7 +127,7 @@ public class BranchPolicyCommentResolution extends com.pulumi.resources.CustomRe
      * The ID of the project in which the policy will be created.
      * 
      */
-    @Export(name="projectId", type=String.class, parameters={})
+    @Export(name="projectId", refs={String.class}, tree="[0]")
     private Output<String> projectId;
 
     /**
@@ -141,7 +141,7 @@ public class BranchPolicyCommentResolution extends com.pulumi.resources.CustomRe
      * Configuration for the policy. This block must be defined exactly once.
      * 
      */
-    @Export(name="settings", type=BranchPolicyCommentResolutionSettings.class, parameters={})
+    @Export(name="settings", refs={BranchPolicyCommentResolutionSettings.class}, tree="[0]")
     private Output<BranchPolicyCommentResolutionSettings> settings;
 
     /**

@@ -122,13 +122,13 @@ public final class GetRepositoriesResult {
             return repositories(List.of(repositories));
         }
         public GetRepositoriesResult build() {
-            final var o = new GetRepositoriesResult();
-            o.id = id;
-            o.includeHidden = includeHidden;
-            o.name = name;
-            o.projectId = projectId;
-            o.repositories = repositories;
-            return o;
+            final var _resultValue = new GetRepositoriesResult();
+            _resultValue.id = id;
+            _resultValue.includeHidden = includeHidden;
+            _resultValue.name = name;
+            _resultValue.projectId = projectId;
+            _resultValue.repositories = repositories;
+            return _resultValue;
         }
     }
 }

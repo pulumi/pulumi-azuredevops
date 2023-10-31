@@ -46,9 +46,9 @@ public final class ServiceEndpointPipelineAuthPersonal {
             return this;
         }
         public ServiceEndpointPipelineAuthPersonal build() {
-            final var o = new ServiceEndpointPipelineAuthPersonal();
-            o.personalAccessToken = personalAccessToken;
-            return o;
+            final var _resultValue = new ServiceEndpointPipelineAuthPersonal();
+            _resultValue.personalAccessToken = personalAccessToken;
+            return _resultValue;
         }
     }
 }

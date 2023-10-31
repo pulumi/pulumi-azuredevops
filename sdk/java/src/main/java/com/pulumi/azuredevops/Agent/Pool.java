@@ -71,7 +71,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies whether a queue should be automatically provisioned for each project collection. Defaults to `false`.
      * 
      */
-    @Export(name="autoProvision", type=Boolean.class, parameters={})
+    @Export(name="autoProvision", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoProvision;
 
     /**
@@ -85,7 +85,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies whether or not agents within the pool should be automatically updated. Defaults to `true`.
      * 
      */
-    @Export(name="autoUpdate", type=Boolean.class, parameters={})
+    @Export(name="autoUpdate", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoUpdate;
 
     /**
@@ -99,7 +99,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * The name of the agent pool.
      * 
      */
-    @Export(name="name", type=String.class, parameters={})
+    @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
@@ -113,7 +113,7 @@ public class Pool extends com.pulumi.resources.CustomResource {
      * Specifies whether the agent pool type is Automation or Deployment. Defaults to `automation`.
      * 
      */
-    @Export(name="poolType", type=String.class, parameters={})
+    @Export(name="poolType", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> poolType;
 
     /**
