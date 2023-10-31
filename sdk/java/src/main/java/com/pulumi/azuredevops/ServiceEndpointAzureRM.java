@@ -526,6 +526,20 @@ public class ServiceEndpointAzureRM extends com.pulumi.resources.CustomResource 
         return this.serviceEndpointName;
     }
     /**
+     * The Application(Client) ID of the Service Principal.
+     * 
+     */
+    @Export(name="servicePrincipalId", type=String.class, parameters={})
+    private Output<String> servicePrincipalId;
+
+    /**
+     * @return The Application(Client) ID of the Service Principal.
+     * 
+     */
+    public Output<String> servicePrincipalId() {
+        return this.servicePrincipalId;
+    }
+    /**
      * The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
      * 
      */

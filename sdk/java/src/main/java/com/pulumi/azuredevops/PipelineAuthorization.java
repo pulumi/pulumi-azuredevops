@@ -201,14 +201,14 @@ public class PipelineAuthorization extends com.pulumi.resources.CustomResource {
         return this.resourceId;
     }
     /**
-     * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+     * The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      * 
      */
     @Export(name="type", type=String.class, parameters={})
     private Output<String> type;
 
     /**
-     * @return The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+     * @return The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
      * 
      */
     public Output<String> type() {

@@ -337,6 +337,12 @@ namespace Pulumi.AzureDevOps
         public Output<string> ServiceEndpointName { get; private set; } = null!;
 
         /// <summary>
+        /// The Application(Client) ID of the Service Principal.
+        /// </summary>
+        [Output("servicePrincipalId")]
+        public Output<string> ServicePrincipalId { get; private set; } = null!;
+
+        /// <summary>
         /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         /// </summary>
         [Output("workloadIdentityFederationIssuer")]
@@ -573,6 +579,12 @@ namespace Pulumi.AzureDevOps
         /// </summary>
         [Input("serviceEndpointName")]
         public Input<string>? ServiceEndpointName { get; set; }
+
+        /// <summary>
+        /// The Application(Client) ID of the Service Principal.
+        /// </summary>
+        [Input("servicePrincipalId")]
+        public Input<string>? ServicePrincipalId { get; set; }
 
         /// <summary>
         /// The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.

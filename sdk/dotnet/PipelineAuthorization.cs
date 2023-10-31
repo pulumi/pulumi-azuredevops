@@ -139,7 +139,7 @@ namespace Pulumi.AzureDevOps
         public Output<string> ResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+        /// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -209,7 +209,7 @@ namespace Pulumi.AzureDevOps
         public Input<string> ResourceId { get; set; } = null!;
 
         /// <summary>
-        /// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+        /// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.AzureDevOps
         public Input<string>? ResourceId { get; set; }
 
         /// <summary>
-        /// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+        /// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

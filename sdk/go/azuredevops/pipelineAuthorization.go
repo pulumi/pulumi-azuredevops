@@ -150,7 +150,7 @@ type PipelineAuthorization struct {
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId pulumi.StringOutput `pulumi:"resourceId"`
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	Type pulumi.StringOutput `pulumi:"type"`
 }
 
@@ -199,7 +199,7 @@ type pipelineAuthorizationState struct {
 	ProjectId *string `pulumi:"projectId"`
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId *string `pulumi:"resourceId"`
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	Type *string `pulumi:"type"`
 }
 
@@ -210,7 +210,7 @@ type PipelineAuthorizationState struct {
 	ProjectId pulumi.StringPtrInput
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId pulumi.StringPtrInput
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	Type pulumi.StringPtrInput
 }
 
@@ -225,7 +225,7 @@ type pipelineAuthorizationArgs struct {
 	ProjectId string `pulumi:"projectId"`
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId string `pulumi:"resourceId"`
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	Type string `pulumi:"type"`
 }
 
@@ -237,7 +237,7 @@ type PipelineAuthorizationArgs struct {
 	ProjectId pulumi.StringInput
 	// The ID of the resource to authorize. Changing this forces a new resource to be created
 	ResourceId pulumi.StringInput
-	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+	// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 	Type pulumi.StringInput
 }
 
@@ -367,7 +367,7 @@ func (o PipelineAuthorizationOutput) ResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v *PipelineAuthorization) pulumi.StringOutput { return v.ResourceId }).(pulumi.StringOutput)
 }
 
-// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`. Changing this forces a new resource to be created
+// The type of the resource to authorize. Valid values: `endpoint`, `queue`, `variablegroup`, `environment`, `repository`. Changing this forces a new resource to be created
 func (o PipelineAuthorizationOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *PipelineAuthorization) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

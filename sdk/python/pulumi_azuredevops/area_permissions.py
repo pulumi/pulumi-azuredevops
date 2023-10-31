@@ -27,16 +27,17 @@ class AreaPermissionsArgs:
         :param pulumi.Input[str] path: The name of the branch to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
                
-               | Permission         | Description                    |
-               |--------------------|--------------------------------|
-               | GENERIC_READ       | View permissions for this node |
-               | GENERIC_WRITE      | Edit this node                 |
-               | CREATE_CHILDREN    | Create child nodes             |
-               | DELETE             | Delete this node               |
-               | WORK_ITEM_READ     | View work items in this node   |
-               | WORK_ITEM_WRITE    | Edit work items in this node   |
-               | MANAGE_TEST_PLANS  | Manage test plans              |
-               | MANAGE_TEST_SUITES | Manage test suites             |
+               | Permission             | Description                          |
+               |------------------------|--------------------------------------|
+               | GENERIC_READ           | View permissions for this node       |
+               | GENERIC_WRITE          | Edit this node                       |
+               | CREATE_CHILDREN        | Create child nodes                   |
+               | DELETE                 | Delete this node                     |
+               | WORK_ITEM_READ         | View work items in this node         |
+               | WORK_ITEM_WRITE        | Edit work items in this node         |
+               | MANAGE_TEST_PLANS      | Manage test plans                    |
+               | MANAGE_TEST_SUITES     | Manage test suites                   |
+               | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         """
         pulumi.set(__self__, "permissions", permissions)
         pulumi.set(__self__, "principal", principal)
@@ -100,16 +101,17 @@ class AreaPermissionsArgs:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 
-        | Permission         | Description                    |
-        |--------------------|--------------------------------|
-        | GENERIC_READ       | View permissions for this node |
-        | GENERIC_WRITE      | Edit this node                 |
-        | CREATE_CHILDREN    | Create child nodes             |
-        | DELETE             | Delete this node               |
-        | WORK_ITEM_READ     | View work items in this node   |
-        | WORK_ITEM_WRITE    | Edit work items in this node   |
-        | MANAGE_TEST_PLANS  | Manage test plans              |
-        | MANAGE_TEST_SUITES | Manage test suites             |
+        | Permission             | Description                          |
+        |------------------------|--------------------------------------|
+        | GENERIC_READ           | View permissions for this node       |
+        | GENERIC_WRITE          | Edit this node                       |
+        | CREATE_CHILDREN        | Create child nodes                   |
+        | DELETE                 | Delete this node                     |
+        | WORK_ITEM_READ         | View work items in this node         |
+        | WORK_ITEM_WRITE        | Edit work items in this node         |
+        | MANAGE_TEST_PLANS      | Manage test plans                    |
+        | MANAGE_TEST_SUITES     | Manage test suites                   |
+        | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         """
         return pulumi.get(self, "replace")
 
@@ -134,16 +136,17 @@ class _AreaPermissionsState:
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
                
-               | Permission         | Description                    |
-               |--------------------|--------------------------------|
-               | GENERIC_READ       | View permissions for this node |
-               | GENERIC_WRITE      | Edit this node                 |
-               | CREATE_CHILDREN    | Create child nodes             |
-               | DELETE             | Delete this node               |
-               | WORK_ITEM_READ     | View work items in this node   |
-               | WORK_ITEM_WRITE    | Edit work items in this node   |
-               | MANAGE_TEST_PLANS  | Manage test plans              |
-               | MANAGE_TEST_SUITES | Manage test suites             |
+               | Permission             | Description                          |
+               |------------------------|--------------------------------------|
+               | GENERIC_READ           | View permissions for this node       |
+               | GENERIC_WRITE          | Edit this node                       |
+               | CREATE_CHILDREN        | Create child nodes                   |
+               | DELETE                 | Delete this node                     |
+               | WORK_ITEM_READ         | View work items in this node         |
+               | WORK_ITEM_WRITE        | Edit work items in this node         |
+               | MANAGE_TEST_PLANS      | Manage test plans                    |
+               | MANAGE_TEST_SUITES     | Manage test suites                   |
+               | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         """
         if path is not None:
             pulumi.set(__self__, "path", path)
@@ -210,16 +213,17 @@ class _AreaPermissionsState:
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 
-        | Permission         | Description                    |
-        |--------------------|--------------------------------|
-        | GENERIC_READ       | View permissions for this node |
-        | GENERIC_WRITE      | Edit this node                 |
-        | CREATE_CHILDREN    | Create child nodes             |
-        | DELETE             | Delete this node               |
-        | WORK_ITEM_READ     | View work items in this node   |
-        | WORK_ITEM_WRITE    | Edit work items in this node   |
-        | MANAGE_TEST_PLANS  | Manage test plans              |
-        | MANAGE_TEST_SUITES | Manage test suites             |
+        | Permission             | Description                          |
+        |------------------------|--------------------------------------|
+        | GENERIC_READ           | View permissions for this node       |
+        | GENERIC_WRITE          | Edit this node                       |
+        | CREATE_CHILDREN        | Create child nodes                   |
+        | DELETE                 | Delete this node                     |
+        | WORK_ITEM_READ         | View work items in this node         |
+        | WORK_ITEM_WRITE        | Edit work items in this node         |
+        | MANAGE_TEST_PLANS      | Manage test plans                    |
+        | MANAGE_TEST_SUITES     | Manage test suites                   |
+        | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         """
         return pulumi.get(self, "replace")
 
@@ -293,16 +297,17 @@ class AreaPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
                
-               | Permission         | Description                    |
-               |--------------------|--------------------------------|
-               | GENERIC_READ       | View permissions for this node |
-               | GENERIC_WRITE      | Edit this node                 |
-               | CREATE_CHILDREN    | Create child nodes             |
-               | DELETE             | Delete this node               |
-               | WORK_ITEM_READ     | View work items in this node   |
-               | WORK_ITEM_WRITE    | Edit work items in this node   |
-               | MANAGE_TEST_PLANS  | Manage test plans              |
-               | MANAGE_TEST_SUITES | Manage test suites             |
+               | Permission             | Description                          |
+               |------------------------|--------------------------------------|
+               | GENERIC_READ           | View permissions for this node       |
+               | GENERIC_WRITE          | Edit this node                       |
+               | CREATE_CHILDREN        | Create child nodes                   |
+               | DELETE                 | Delete this node                     |
+               | WORK_ITEM_READ         | View work items in this node         |
+               | WORK_ITEM_WRITE        | Edit work items in this node         |
+               | MANAGE_TEST_PLANS      | Manage test plans                    |
+               | MANAGE_TEST_SUITES     | Manage test suites                   |
+               | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         """
         ...
     @overload
@@ -424,16 +429,17 @@ class AreaPermissions(pulumi.CustomResource):
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`.
                
-               | Permission         | Description                    |
-               |--------------------|--------------------------------|
-               | GENERIC_READ       | View permissions for this node |
-               | GENERIC_WRITE      | Edit this node                 |
-               | CREATE_CHILDREN    | Create child nodes             |
-               | DELETE             | Delete this node               |
-               | WORK_ITEM_READ     | View work items in this node   |
-               | WORK_ITEM_WRITE    | Edit work items in this node   |
-               | MANAGE_TEST_PLANS  | Manage test plans              |
-               | MANAGE_TEST_SUITES | Manage test suites             |
+               | Permission             | Description                          |
+               |------------------------|--------------------------------------|
+               | GENERIC_READ           | View permissions for this node       |
+               | GENERIC_WRITE          | Edit this node                       |
+               | CREATE_CHILDREN        | Create child nodes                   |
+               | DELETE                 | Delete this node                     |
+               | WORK_ITEM_READ         | View work items in this node         |
+               | WORK_ITEM_WRITE        | Edit work items in this node         |
+               | MANAGE_TEST_PLANS      | Manage test plans                    |
+               | MANAGE_TEST_SUITES     | Manage test suites                   |
+               | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -484,16 +490,17 @@ class AreaPermissions(pulumi.CustomResource):
         """
         Replace (`true`) or merge (`false`) the permissions. Default: `true`.
 
-        | Permission         | Description                    |
-        |--------------------|--------------------------------|
-        | GENERIC_READ       | View permissions for this node |
-        | GENERIC_WRITE      | Edit this node                 |
-        | CREATE_CHILDREN    | Create child nodes             |
-        | DELETE             | Delete this node               |
-        | WORK_ITEM_READ     | View work items in this node   |
-        | WORK_ITEM_WRITE    | Edit work items in this node   |
-        | MANAGE_TEST_PLANS  | Manage test plans              |
-        | MANAGE_TEST_SUITES | Manage test suites             |
+        | Permission             | Description                          |
+        |------------------------|--------------------------------------|
+        | GENERIC_READ           | View permissions for this node       |
+        | GENERIC_WRITE          | Edit this node                       |
+        | CREATE_CHILDREN        | Create child nodes                   |
+        | DELETE                 | Delete this node                     |
+        | WORK_ITEM_READ         | View work items in this node         |
+        | WORK_ITEM_WRITE        | Edit work items in this node         |
+        | MANAGE_TEST_PLANS      | Manage test plans                    |
+        | MANAGE_TEST_SUITES     | Manage test suites                   |
+        | WORK_ITEM_SAVE_COMMENT | Edit work item comments in this node |
         """
         return pulumi.get(self, "replace")
 
