@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a generic service endpoint within Azure DevOps, which can be used to authenticate to any external server using
@@ -218,12 +217,6 @@ func (i *ServiceEndpointGeneric) ToServiceEndpointGenericOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGenericOutput)
 }
 
-func (i *ServiceEndpointGeneric) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointGeneric] {
-	return pulumix.Output[*ServiceEndpointGeneric]{
-		OutputState: i.ToServiceEndpointGenericOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceEndpointGenericArrayInput is an input type that accepts ServiceEndpointGenericArray and ServiceEndpointGenericArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointGenericArrayInput` via:
 //
@@ -247,12 +240,6 @@ func (i ServiceEndpointGenericArray) ToServiceEndpointGenericArrayOutput() Servi
 
 func (i ServiceEndpointGenericArray) ToServiceEndpointGenericArrayOutputWithContext(ctx context.Context) ServiceEndpointGenericArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGenericArrayOutput)
-}
-
-func (i ServiceEndpointGenericArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointGeneric] {
-	return pulumix.Output[[]*ServiceEndpointGeneric]{
-		OutputState: i.ToServiceEndpointGenericArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceEndpointGenericMapInput is an input type that accepts ServiceEndpointGenericMap and ServiceEndpointGenericMapOutput values.
@@ -280,12 +267,6 @@ func (i ServiceEndpointGenericMap) ToServiceEndpointGenericMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointGenericMapOutput)
 }
 
-func (i ServiceEndpointGenericMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointGeneric] {
-	return pulumix.Output[map[string]*ServiceEndpointGeneric]{
-		OutputState: i.ToServiceEndpointGenericMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceEndpointGenericOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointGenericOutput) ElementType() reflect.Type {
@@ -298,12 +279,6 @@ func (o ServiceEndpointGenericOutput) ToServiceEndpointGenericOutput() ServiceEn
 
 func (o ServiceEndpointGenericOutput) ToServiceEndpointGenericOutputWithContext(ctx context.Context) ServiceEndpointGenericOutput {
 	return o
-}
-
-func (o ServiceEndpointGenericOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointGeneric] {
-	return pulumix.Output[*ServiceEndpointGeneric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointGenericOutput) Authorization() pulumi.StringMapOutput {
@@ -353,12 +328,6 @@ func (o ServiceEndpointGenericArrayOutput) ToServiceEndpointGenericArrayOutputWi
 	return o
 }
 
-func (o ServiceEndpointGenericArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointGeneric] {
-	return pulumix.Output[[]*ServiceEndpointGeneric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEndpointGenericArrayOutput) Index(i pulumi.IntInput) ServiceEndpointGenericOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointGeneric {
 		return vs[0].([]*ServiceEndpointGeneric)[vs[1].(int)]
@@ -377,12 +346,6 @@ func (o ServiceEndpointGenericMapOutput) ToServiceEndpointGenericMapOutput() Ser
 
 func (o ServiceEndpointGenericMapOutput) ToServiceEndpointGenericMapOutputWithContext(ctx context.Context) ServiceEndpointGenericMapOutput {
 	return o
-}
-
-func (o ServiceEndpointGenericMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointGeneric] {
-	return pulumix.Output[map[string]*ServiceEndpointGeneric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointGenericMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointGenericOutput {

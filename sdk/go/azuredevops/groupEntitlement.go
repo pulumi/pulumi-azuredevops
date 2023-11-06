@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a group entitlement within Azure DevOps.
@@ -228,12 +227,6 @@ func (i *GroupEntitlement) ToGroupEntitlementOutputWithContext(ctx context.Conte
 	return pulumi.ToOutputWithContext(ctx, i).(GroupEntitlementOutput)
 }
 
-func (i *GroupEntitlement) ToOutput(ctx context.Context) pulumix.Output[*GroupEntitlement] {
-	return pulumix.Output[*GroupEntitlement]{
-		OutputState: i.ToGroupEntitlementOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GroupEntitlementArrayInput is an input type that accepts GroupEntitlementArray and GroupEntitlementArrayOutput values.
 // You can construct a concrete instance of `GroupEntitlementArrayInput` via:
 //
@@ -257,12 +250,6 @@ func (i GroupEntitlementArray) ToGroupEntitlementArrayOutput() GroupEntitlementA
 
 func (i GroupEntitlementArray) ToGroupEntitlementArrayOutputWithContext(ctx context.Context) GroupEntitlementArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GroupEntitlementArrayOutput)
-}
-
-func (i GroupEntitlementArray) ToOutput(ctx context.Context) pulumix.Output[[]*GroupEntitlement] {
-	return pulumix.Output[[]*GroupEntitlement]{
-		OutputState: i.ToGroupEntitlementArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GroupEntitlementMapInput is an input type that accepts GroupEntitlementMap and GroupEntitlementMapOutput values.
@@ -290,12 +277,6 @@ func (i GroupEntitlementMap) ToGroupEntitlementMapOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(GroupEntitlementMapOutput)
 }
 
-func (i GroupEntitlementMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupEntitlement] {
-	return pulumix.Output[map[string]*GroupEntitlement]{
-		OutputState: i.ToGroupEntitlementMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GroupEntitlementOutput struct{ *pulumi.OutputState }
 
 func (GroupEntitlementOutput) ElementType() reflect.Type {
@@ -308,12 +289,6 @@ func (o GroupEntitlementOutput) ToGroupEntitlementOutput() GroupEntitlementOutpu
 
 func (o GroupEntitlementOutput) ToGroupEntitlementOutputWithContext(ctx context.Context) GroupEntitlementOutput {
 	return o
-}
-
-func (o GroupEntitlementOutput) ToOutput(ctx context.Context) pulumix.Output[*GroupEntitlement] {
-	return pulumix.Output[*GroupEntitlement]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition, the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
@@ -367,12 +342,6 @@ func (o GroupEntitlementArrayOutput) ToGroupEntitlementArrayOutputWithContext(ct
 	return o
 }
 
-func (o GroupEntitlementArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GroupEntitlement] {
-	return pulumix.Output[[]*GroupEntitlement]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GroupEntitlementArrayOutput) Index(i pulumi.IntInput) GroupEntitlementOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GroupEntitlement {
 		return vs[0].([]*GroupEntitlement)[vs[1].(int)]
@@ -391,12 +360,6 @@ func (o GroupEntitlementMapOutput) ToGroupEntitlementMapOutput() GroupEntitlemen
 
 func (o GroupEntitlementMapOutput) ToGroupEntitlementMapOutputWithContext(ctx context.Context) GroupEntitlementMapOutput {
 	return o
-}
-
-func (o GroupEntitlementMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GroupEntitlement] {
-	return pulumix.Output[map[string]*GroupEntitlement]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GroupEntitlementMapOutput) MapIndex(k pulumi.StringInput) GroupEntitlementOutput {

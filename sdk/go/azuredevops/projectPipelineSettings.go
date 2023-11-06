@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Pipeline Settings for Azure DevOps projects
@@ -243,12 +242,6 @@ func (i *ProjectPipelineSettings) ToProjectPipelineSettingsOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPipelineSettingsOutput)
 }
 
-func (i *ProjectPipelineSettings) ToOutput(ctx context.Context) pulumix.Output[*ProjectPipelineSettings] {
-	return pulumix.Output[*ProjectPipelineSettings]{
-		OutputState: i.ToProjectPipelineSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ProjectPipelineSettingsArrayInput is an input type that accepts ProjectPipelineSettingsArray and ProjectPipelineSettingsArrayOutput values.
 // You can construct a concrete instance of `ProjectPipelineSettingsArrayInput` via:
 //
@@ -272,12 +265,6 @@ func (i ProjectPipelineSettingsArray) ToProjectPipelineSettingsArrayOutput() Pro
 
 func (i ProjectPipelineSettingsArray) ToProjectPipelineSettingsArrayOutputWithContext(ctx context.Context) ProjectPipelineSettingsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPipelineSettingsArrayOutput)
-}
-
-func (i ProjectPipelineSettingsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ProjectPipelineSettings] {
-	return pulumix.Output[[]*ProjectPipelineSettings]{
-		OutputState: i.ToProjectPipelineSettingsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ProjectPipelineSettingsMapInput is an input type that accepts ProjectPipelineSettingsMap and ProjectPipelineSettingsMapOutput values.
@@ -305,12 +292,6 @@ func (i ProjectPipelineSettingsMap) ToProjectPipelineSettingsMapOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(ProjectPipelineSettingsMapOutput)
 }
 
-func (i ProjectPipelineSettingsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProjectPipelineSettings] {
-	return pulumix.Output[map[string]*ProjectPipelineSettings]{
-		OutputState: i.ToProjectPipelineSettingsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ProjectPipelineSettingsOutput struct{ *pulumi.OutputState }
 
 func (ProjectPipelineSettingsOutput) ElementType() reflect.Type {
@@ -323,12 +304,6 @@ func (o ProjectPipelineSettingsOutput) ToProjectPipelineSettingsOutput() Project
 
 func (o ProjectPipelineSettingsOutput) ToProjectPipelineSettingsOutputWithContext(ctx context.Context) ProjectPipelineSettingsOutput {
 	return o
-}
-
-func (o ProjectPipelineSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[*ProjectPipelineSettings] {
-	return pulumix.Output[*ProjectPipelineSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Limit job authorization scope to current project for non-release pipelines.
@@ -385,12 +360,6 @@ func (o ProjectPipelineSettingsArrayOutput) ToProjectPipelineSettingsArrayOutput
 	return o
 }
 
-func (o ProjectPipelineSettingsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ProjectPipelineSettings] {
-	return pulumix.Output[[]*ProjectPipelineSettings]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ProjectPipelineSettingsArrayOutput) Index(i pulumi.IntInput) ProjectPipelineSettingsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ProjectPipelineSettings {
 		return vs[0].([]*ProjectPipelineSettings)[vs[1].(int)]
@@ -409,12 +378,6 @@ func (o ProjectPipelineSettingsMapOutput) ToProjectPipelineSettingsMapOutput() P
 
 func (o ProjectPipelineSettingsMapOutput) ToProjectPipelineSettingsMapOutputWithContext(ctx context.Context) ProjectPipelineSettingsMapOutput {
 	return o
-}
-
-func (o ProjectPipelineSettingsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ProjectPipelineSettings] {
-	return pulumix.Output[map[string]*ProjectPipelineSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ProjectPipelineSettingsMapOutput) MapIndex(k pulumi.StringInput) ProjectPipelineSettingsOutput {

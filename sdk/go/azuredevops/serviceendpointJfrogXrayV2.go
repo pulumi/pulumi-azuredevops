@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an JFrog XRay V2 server endpoint within an Azure DevOps organization.
@@ -270,12 +269,6 @@ func (i *ServiceendpointJfrogXrayV2) ToServiceendpointJfrogXrayV2OutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogXrayV2Output)
 }
 
-func (i *ServiceendpointJfrogXrayV2) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointJfrogXrayV2] {
-	return pulumix.Output[*ServiceendpointJfrogXrayV2]{
-		OutputState: i.ToServiceendpointJfrogXrayV2OutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceendpointJfrogXrayV2ArrayInput is an input type that accepts ServiceendpointJfrogXrayV2Array and ServiceendpointJfrogXrayV2ArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointJfrogXrayV2ArrayInput` via:
 //
@@ -299,12 +292,6 @@ func (i ServiceendpointJfrogXrayV2Array) ToServiceendpointJfrogXrayV2ArrayOutput
 
 func (i ServiceendpointJfrogXrayV2Array) ToServiceendpointJfrogXrayV2ArrayOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogXrayV2ArrayOutput)
-}
-
-func (i ServiceendpointJfrogXrayV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointJfrogXrayV2] {
-	return pulumix.Output[[]*ServiceendpointJfrogXrayV2]{
-		OutputState: i.ToServiceendpointJfrogXrayV2ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceendpointJfrogXrayV2MapInput is an input type that accepts ServiceendpointJfrogXrayV2Map and ServiceendpointJfrogXrayV2MapOutput values.
@@ -332,12 +319,6 @@ func (i ServiceendpointJfrogXrayV2Map) ToServiceendpointJfrogXrayV2MapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogXrayV2MapOutput)
 }
 
-func (i ServiceendpointJfrogXrayV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointJfrogXrayV2] {
-	return pulumix.Output[map[string]*ServiceendpointJfrogXrayV2]{
-		OutputState: i.ToServiceendpointJfrogXrayV2MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceendpointJfrogXrayV2Output struct{ *pulumi.OutputState }
 
 func (ServiceendpointJfrogXrayV2Output) ElementType() reflect.Type {
@@ -350,12 +331,6 @@ func (o ServiceendpointJfrogXrayV2Output) ToServiceendpointJfrogXrayV2Output() S
 
 func (o ServiceendpointJfrogXrayV2Output) ToServiceendpointJfrogXrayV2OutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2Output {
 	return o
-}
-
-func (o ServiceendpointJfrogXrayV2Output) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointJfrogXrayV2] {
-	return pulumix.Output[*ServiceendpointJfrogXrayV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `authenticationBasic` block as documented below.
@@ -412,12 +387,6 @@ func (o ServiceendpointJfrogXrayV2ArrayOutput) ToServiceendpointJfrogXrayV2Array
 	return o
 }
 
-func (o ServiceendpointJfrogXrayV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointJfrogXrayV2] {
-	return pulumix.Output[[]*ServiceendpointJfrogXrayV2]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceendpointJfrogXrayV2ArrayOutput) Index(i pulumi.IntInput) ServiceendpointJfrogXrayV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceendpointJfrogXrayV2 {
 		return vs[0].([]*ServiceendpointJfrogXrayV2)[vs[1].(int)]
@@ -436,12 +405,6 @@ func (o ServiceendpointJfrogXrayV2MapOutput) ToServiceendpointJfrogXrayV2MapOutp
 
 func (o ServiceendpointJfrogXrayV2MapOutput) ToServiceendpointJfrogXrayV2MapOutputWithContext(ctx context.Context) ServiceendpointJfrogXrayV2MapOutput {
 	return o
-}
-
-func (o ServiceendpointJfrogXrayV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointJfrogXrayV2] {
-	return pulumix.Output[map[string]*ServiceendpointJfrogXrayV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceendpointJfrogXrayV2MapOutput) MapIndex(k pulumi.StringInput) ServiceendpointJfrogXrayV2Output {

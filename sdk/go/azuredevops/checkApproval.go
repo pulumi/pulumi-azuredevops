@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Approval Check.
@@ -233,12 +232,6 @@ func (i *CheckApproval) ToCheckApprovalOutputWithContext(ctx context.Context) Ch
 	return pulumi.ToOutputWithContext(ctx, i).(CheckApprovalOutput)
 }
 
-func (i *CheckApproval) ToOutput(ctx context.Context) pulumix.Output[*CheckApproval] {
-	return pulumix.Output[*CheckApproval]{
-		OutputState: i.ToCheckApprovalOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CheckApprovalArrayInput is an input type that accepts CheckApprovalArray and CheckApprovalArrayOutput values.
 // You can construct a concrete instance of `CheckApprovalArrayInput` via:
 //
@@ -262,12 +255,6 @@ func (i CheckApprovalArray) ToCheckApprovalArrayOutput() CheckApprovalArrayOutpu
 
 func (i CheckApprovalArray) ToCheckApprovalArrayOutputWithContext(ctx context.Context) CheckApprovalArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CheckApprovalArrayOutput)
-}
-
-func (i CheckApprovalArray) ToOutput(ctx context.Context) pulumix.Output[[]*CheckApproval] {
-	return pulumix.Output[[]*CheckApproval]{
-		OutputState: i.ToCheckApprovalArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CheckApprovalMapInput is an input type that accepts CheckApprovalMap and CheckApprovalMapOutput values.
@@ -295,12 +282,6 @@ func (i CheckApprovalMap) ToCheckApprovalMapOutputWithContext(ctx context.Contex
 	return pulumi.ToOutputWithContext(ctx, i).(CheckApprovalMapOutput)
 }
 
-func (i CheckApprovalMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckApproval] {
-	return pulumix.Output[map[string]*CheckApproval]{
-		OutputState: i.ToCheckApprovalMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CheckApprovalOutput struct{ *pulumi.OutputState }
 
 func (CheckApprovalOutput) ElementType() reflect.Type {
@@ -313,12 +294,6 @@ func (o CheckApprovalOutput) ToCheckApprovalOutput() CheckApprovalOutput {
 
 func (o CheckApprovalOutput) ToCheckApprovalOutputWithContext(ctx context.Context) CheckApprovalOutput {
 	return o
-}
-
-func (o CheckApprovalOutput) ToOutput(ctx context.Context) pulumix.Output[*CheckApproval] {
-	return pulumix.Output[*CheckApproval]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies a list of approver IDs.
@@ -375,12 +350,6 @@ func (o CheckApprovalArrayOutput) ToCheckApprovalArrayOutputWithContext(ctx cont
 	return o
 }
 
-func (o CheckApprovalArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CheckApproval] {
-	return pulumix.Output[[]*CheckApproval]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CheckApprovalArrayOutput) Index(i pulumi.IntInput) CheckApprovalOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CheckApproval {
 		return vs[0].([]*CheckApproval)[vs[1].(int)]
@@ -399,12 +368,6 @@ func (o CheckApprovalMapOutput) ToCheckApprovalMapOutput() CheckApprovalMapOutpu
 
 func (o CheckApprovalMapOutput) ToCheckApprovalMapOutputWithContext(ctx context.Context) CheckApprovalMapOutput {
 	return o
-}
-
-func (o CheckApprovalMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckApproval] {
-	return pulumix.Output[map[string]*CheckApproval]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CheckApprovalMapOutput) MapIndex(k pulumi.StringInput) CheckApprovalOutput {

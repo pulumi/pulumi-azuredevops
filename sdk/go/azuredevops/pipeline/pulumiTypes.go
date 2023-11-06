@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -55,12 +54,6 @@ func (i VariableGroupKeyVaultArgs) ToVariableGroupKeyVaultOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupKeyVaultOutput)
 }
 
-func (i VariableGroupKeyVaultArgs) ToOutput(ctx context.Context) pulumix.Output[VariableGroupKeyVault] {
-	return pulumix.Output[VariableGroupKeyVault]{
-		OutputState: i.ToVariableGroupKeyVaultOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i VariableGroupKeyVaultArgs) ToVariableGroupKeyVaultPtrOutput() VariableGroupKeyVaultPtrOutput {
 	return i.ToVariableGroupKeyVaultPtrOutputWithContext(context.Background())
 }
@@ -102,12 +95,6 @@ func (i *variableGroupKeyVaultPtrType) ToVariableGroupKeyVaultPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupKeyVaultPtrOutput)
 }
 
-func (i *variableGroupKeyVaultPtrType) ToOutput(ctx context.Context) pulumix.Output[*VariableGroupKeyVault] {
-	return pulumix.Output[*VariableGroupKeyVault]{
-		OutputState: i.ToVariableGroupKeyVaultPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VariableGroupKeyVaultOutput struct{ *pulumi.OutputState }
 
 func (VariableGroupKeyVaultOutput) ElementType() reflect.Type {
@@ -130,12 +117,6 @@ func (o VariableGroupKeyVaultOutput) ToVariableGroupKeyVaultPtrOutputWithContext
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v VariableGroupKeyVault) *VariableGroupKeyVault {
 		return &v
 	}).(VariableGroupKeyVaultPtrOutput)
-}
-
-func (o VariableGroupKeyVaultOutput) ToOutput(ctx context.Context) pulumix.Output[VariableGroupKeyVault] {
-	return pulumix.Output[VariableGroupKeyVault]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the Azure key vault to link secrets from as variables.
@@ -165,12 +146,6 @@ func (o VariableGroupKeyVaultPtrOutput) ToVariableGroupKeyVaultPtrOutput() Varia
 
 func (o VariableGroupKeyVaultPtrOutput) ToVariableGroupKeyVaultPtrOutputWithContext(ctx context.Context) VariableGroupKeyVaultPtrOutput {
 	return o
-}
-
-func (o VariableGroupKeyVaultPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*VariableGroupKeyVault] {
-	return pulumix.Output[*VariableGroupKeyVault]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VariableGroupKeyVaultPtrOutput) Elem() VariableGroupKeyVaultOutput {
@@ -264,12 +239,6 @@ func (i VariableGroupVariableArgs) ToVariableGroupVariableOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupVariableOutput)
 }
 
-func (i VariableGroupVariableArgs) ToOutput(ctx context.Context) pulumix.Output[VariableGroupVariable] {
-	return pulumix.Output[VariableGroupVariable]{
-		OutputState: i.ToVariableGroupVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // VariableGroupVariableArrayInput is an input type that accepts VariableGroupVariableArray and VariableGroupVariableArrayOutput values.
 // You can construct a concrete instance of `VariableGroupVariableArrayInput` via:
 //
@@ -295,12 +264,6 @@ func (i VariableGroupVariableArray) ToVariableGroupVariableArrayOutputWithContex
 	return pulumi.ToOutputWithContext(ctx, i).(VariableGroupVariableArrayOutput)
 }
 
-func (i VariableGroupVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]VariableGroupVariable] {
-	return pulumix.Output[[]VariableGroupVariable]{
-		OutputState: i.ToVariableGroupVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type VariableGroupVariableOutput struct{ *pulumi.OutputState }
 
 func (VariableGroupVariableOutput) ElementType() reflect.Type {
@@ -313,12 +276,6 @@ func (o VariableGroupVariableOutput) ToVariableGroupVariableOutput() VariableGro
 
 func (o VariableGroupVariableOutput) ToVariableGroupVariableOutputWithContext(ctx context.Context) VariableGroupVariableOutput {
 	return o
-}
-
-func (o VariableGroupVariableOutput) ToOutput(ctx context.Context) pulumix.Output[VariableGroupVariable] {
-	return pulumix.Output[VariableGroupVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VariableGroupVariableOutput) ContentType() pulumi.StringPtrOutput {
@@ -365,12 +322,6 @@ func (o VariableGroupVariableArrayOutput) ToVariableGroupVariableArrayOutput() V
 
 func (o VariableGroupVariableArrayOutput) ToVariableGroupVariableArrayOutputWithContext(ctx context.Context) VariableGroupVariableArrayOutput {
 	return o
-}
-
-func (o VariableGroupVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]VariableGroupVariable] {
-	return pulumix.Output[[]VariableGroupVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o VariableGroupVariableArrayOutput) Index(i pulumi.IntInput) VariableGroupVariableOutput {

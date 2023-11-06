@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Required Template Check.
@@ -245,12 +244,6 @@ func (i *CheckRequiredTemplate) ToCheckRequiredTemplateOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(CheckRequiredTemplateOutput)
 }
 
-func (i *CheckRequiredTemplate) ToOutput(ctx context.Context) pulumix.Output[*CheckRequiredTemplate] {
-	return pulumix.Output[*CheckRequiredTemplate]{
-		OutputState: i.ToCheckRequiredTemplateOutputWithContext(ctx).OutputState,
-	}
-}
-
 // CheckRequiredTemplateArrayInput is an input type that accepts CheckRequiredTemplateArray and CheckRequiredTemplateArrayOutput values.
 // You can construct a concrete instance of `CheckRequiredTemplateArrayInput` via:
 //
@@ -274,12 +267,6 @@ func (i CheckRequiredTemplateArray) ToCheckRequiredTemplateArrayOutput() CheckRe
 
 func (i CheckRequiredTemplateArray) ToCheckRequiredTemplateArrayOutputWithContext(ctx context.Context) CheckRequiredTemplateArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(CheckRequiredTemplateArrayOutput)
-}
-
-func (i CheckRequiredTemplateArray) ToOutput(ctx context.Context) pulumix.Output[[]*CheckRequiredTemplate] {
-	return pulumix.Output[[]*CheckRequiredTemplate]{
-		OutputState: i.ToCheckRequiredTemplateArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // CheckRequiredTemplateMapInput is an input type that accepts CheckRequiredTemplateMap and CheckRequiredTemplateMapOutput values.
@@ -307,12 +294,6 @@ func (i CheckRequiredTemplateMap) ToCheckRequiredTemplateMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(CheckRequiredTemplateMapOutput)
 }
 
-func (i CheckRequiredTemplateMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckRequiredTemplate] {
-	return pulumix.Output[map[string]*CheckRequiredTemplate]{
-		OutputState: i.ToCheckRequiredTemplateMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type CheckRequiredTemplateOutput struct{ *pulumi.OutputState }
 
 func (CheckRequiredTemplateOutput) ElementType() reflect.Type {
@@ -325,12 +306,6 @@ func (o CheckRequiredTemplateOutput) ToCheckRequiredTemplateOutput() CheckRequir
 
 func (o CheckRequiredTemplateOutput) ToCheckRequiredTemplateOutputWithContext(ctx context.Context) CheckRequiredTemplateOutput {
 	return o
-}
-
-func (o CheckRequiredTemplateOutput) ToOutput(ctx context.Context) pulumix.Output[*CheckRequiredTemplate] {
-	return pulumix.Output[*CheckRequiredTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The project ID. Changing this forces a new Required Template Check to be created.
@@ -369,12 +344,6 @@ func (o CheckRequiredTemplateArrayOutput) ToCheckRequiredTemplateArrayOutputWith
 	return o
 }
 
-func (o CheckRequiredTemplateArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*CheckRequiredTemplate] {
-	return pulumix.Output[[]*CheckRequiredTemplate]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o CheckRequiredTemplateArrayOutput) Index(i pulumi.IntInput) CheckRequiredTemplateOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *CheckRequiredTemplate {
 		return vs[0].([]*CheckRequiredTemplate)[vs[1].(int)]
@@ -393,12 +362,6 @@ func (o CheckRequiredTemplateMapOutput) ToCheckRequiredTemplateMapOutput() Check
 
 func (o CheckRequiredTemplateMapOutput) ToCheckRequiredTemplateMapOutputWithContext(ctx context.Context) CheckRequiredTemplateMapOutput {
 	return o
-}
-
-func (o CheckRequiredTemplateMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*CheckRequiredTemplate] {
-	return pulumix.Output[map[string]*CheckRequiredTemplate]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o CheckRequiredTemplateMapOutput) MapIndex(k pulumi.StringInput) CheckRequiredTemplateOutput {
