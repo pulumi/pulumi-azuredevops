@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['IterativePermissionsArgs', 'IterativePermissions']
@@ -34,13 +34,40 @@ class IterativePermissionsArgs:
                | CREATE_CHILDREN | Create child nodes             |
                | DELETE          | Delete this node               |
         """
-        pulumi.set(__self__, "permissions", permissions)
-        pulumi.set(__self__, "principal", principal)
-        pulumi.set(__self__, "project_id", project_id)
+        IterativePermissionsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            path=path,
+            replace=replace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if permissions is None:
+            raise TypeError("Missing 'permissions' argument")
+        if principal is None:
+            raise TypeError("Missing 'principal' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("permissions", permissions)
+        _setter("principal", principal)
+        _setter("project_id", project_id)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
 
     @property
     @pulumi.getter
@@ -133,16 +160,37 @@ class _IterativePermissionsState:
                | CREATE_CHILDREN | Create child nodes             |
                | DELETE          | Delete this node               |
         """
+        _IterativePermissionsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            permissions=permissions,
+            principal=principal,
+            project_id=project_id,
+            replace=replace,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[pulumi.Input[str]] = None,
+             permissions: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             principal: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             replace: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if permissions is not None:
-            pulumi.set(__self__, "permissions", permissions)
+            _setter("permissions", permissions)
         if principal is not None:
-            pulumi.set(__self__, "principal", principal)
+            _setter("principal", principal)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if replace is not None:
-            pulumi.set(__self__, "replace", replace)
+            _setter("replace", replace)
 
     @property
     @pulumi.getter
@@ -360,6 +408,10 @@ class IterativePermissions(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            IterativePermissionsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

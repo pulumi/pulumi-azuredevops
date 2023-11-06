@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProjectPipelineSettingsArgs', 'ProjectPipelineSettings']
@@ -36,19 +36,58 @@ class ProjectPipelineSettingsArgs:
         :param pulumi.Input[bool] publish_pipeline_metadata: Publish metadata from pipelines.
         :param pulumi.Input[bool] status_badges_are_private: Disable anonymous access to badges.
         """
-        pulumi.set(__self__, "project_id", project_id)
+        ProjectPipelineSettingsArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            enforce_job_scope=enforce_job_scope,
+            enforce_job_scope_for_release=enforce_job_scope_for_release,
+            enforce_referenced_repo_scoped_token=enforce_referenced_repo_scoped_token,
+            enforce_settable_var=enforce_settable_var,
+            publish_pipeline_metadata=publish_pipeline_metadata,
+            status_badges_are_private=status_badges_are_private,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             enforce_job_scope: Optional[pulumi.Input[bool]] = None,
+             enforce_job_scope_for_release: Optional[pulumi.Input[bool]] = None,
+             enforce_referenced_repo_scoped_token: Optional[pulumi.Input[bool]] = None,
+             enforce_settable_var: Optional[pulumi.Input[bool]] = None,
+             publish_pipeline_metadata: Optional[pulumi.Input[bool]] = None,
+             status_badges_are_private: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if enforce_job_scope is None and 'enforceJobScope' in kwargs:
+            enforce_job_scope = kwargs['enforceJobScope']
+        if enforce_job_scope_for_release is None and 'enforceJobScopeForRelease' in kwargs:
+            enforce_job_scope_for_release = kwargs['enforceJobScopeForRelease']
+        if enforce_referenced_repo_scoped_token is None and 'enforceReferencedRepoScopedToken' in kwargs:
+            enforce_referenced_repo_scoped_token = kwargs['enforceReferencedRepoScopedToken']
+        if enforce_settable_var is None and 'enforceSettableVar' in kwargs:
+            enforce_settable_var = kwargs['enforceSettableVar']
+        if publish_pipeline_metadata is None and 'publishPipelineMetadata' in kwargs:
+            publish_pipeline_metadata = kwargs['publishPipelineMetadata']
+        if status_badges_are_private is None and 'statusBadgesArePrivate' in kwargs:
+            status_badges_are_private = kwargs['statusBadgesArePrivate']
+
+        _setter("project_id", project_id)
         if enforce_job_scope is not None:
-            pulumi.set(__self__, "enforce_job_scope", enforce_job_scope)
+            _setter("enforce_job_scope", enforce_job_scope)
         if enforce_job_scope_for_release is not None:
-            pulumi.set(__self__, "enforce_job_scope_for_release", enforce_job_scope_for_release)
+            _setter("enforce_job_scope_for_release", enforce_job_scope_for_release)
         if enforce_referenced_repo_scoped_token is not None:
-            pulumi.set(__self__, "enforce_referenced_repo_scoped_token", enforce_referenced_repo_scoped_token)
+            _setter("enforce_referenced_repo_scoped_token", enforce_referenced_repo_scoped_token)
         if enforce_settable_var is not None:
-            pulumi.set(__self__, "enforce_settable_var", enforce_settable_var)
+            _setter("enforce_settable_var", enforce_settable_var)
         if publish_pipeline_metadata is not None:
-            pulumi.set(__self__, "publish_pipeline_metadata", publish_pipeline_metadata)
+            _setter("publish_pipeline_metadata", publish_pipeline_metadata)
         if status_badges_are_private is not None:
-            pulumi.set(__self__, "status_badges_are_private", status_badges_are_private)
+            _setter("status_badges_are_private", status_badges_are_private)
 
     @property
     @pulumi.getter(name="projectId")
@@ -165,20 +204,57 @@ class _ProjectPipelineSettingsState:
         :param pulumi.Input[bool] publish_pipeline_metadata: Publish metadata from pipelines.
         :param pulumi.Input[bool] status_badges_are_private: Disable anonymous access to badges.
         """
+        _ProjectPipelineSettingsState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            enforce_job_scope=enforce_job_scope,
+            enforce_job_scope_for_release=enforce_job_scope_for_release,
+            enforce_referenced_repo_scoped_token=enforce_referenced_repo_scoped_token,
+            enforce_settable_var=enforce_settable_var,
+            project_id=project_id,
+            publish_pipeline_metadata=publish_pipeline_metadata,
+            status_badges_are_private=status_badges_are_private,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             enforce_job_scope: Optional[pulumi.Input[bool]] = None,
+             enforce_job_scope_for_release: Optional[pulumi.Input[bool]] = None,
+             enforce_referenced_repo_scoped_token: Optional[pulumi.Input[bool]] = None,
+             enforce_settable_var: Optional[pulumi.Input[bool]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             publish_pipeline_metadata: Optional[pulumi.Input[bool]] = None,
+             status_badges_are_private: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enforce_job_scope is None and 'enforceJobScope' in kwargs:
+            enforce_job_scope = kwargs['enforceJobScope']
+        if enforce_job_scope_for_release is None and 'enforceJobScopeForRelease' in kwargs:
+            enforce_job_scope_for_release = kwargs['enforceJobScopeForRelease']
+        if enforce_referenced_repo_scoped_token is None and 'enforceReferencedRepoScopedToken' in kwargs:
+            enforce_referenced_repo_scoped_token = kwargs['enforceReferencedRepoScopedToken']
+        if enforce_settable_var is None and 'enforceSettableVar' in kwargs:
+            enforce_settable_var = kwargs['enforceSettableVar']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if publish_pipeline_metadata is None and 'publishPipelineMetadata' in kwargs:
+            publish_pipeline_metadata = kwargs['publishPipelineMetadata']
+        if status_badges_are_private is None and 'statusBadgesArePrivate' in kwargs:
+            status_badges_are_private = kwargs['statusBadgesArePrivate']
+
         if enforce_job_scope is not None:
-            pulumi.set(__self__, "enforce_job_scope", enforce_job_scope)
+            _setter("enforce_job_scope", enforce_job_scope)
         if enforce_job_scope_for_release is not None:
-            pulumi.set(__self__, "enforce_job_scope_for_release", enforce_job_scope_for_release)
+            _setter("enforce_job_scope_for_release", enforce_job_scope_for_release)
         if enforce_referenced_repo_scoped_token is not None:
-            pulumi.set(__self__, "enforce_referenced_repo_scoped_token", enforce_referenced_repo_scoped_token)
+            _setter("enforce_referenced_repo_scoped_token", enforce_referenced_repo_scoped_token)
         if enforce_settable_var is not None:
-            pulumi.set(__self__, "enforce_settable_var", enforce_settable_var)
+            _setter("enforce_settable_var", enforce_settable_var)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if publish_pipeline_metadata is not None:
-            pulumi.set(__self__, "publish_pipeline_metadata", publish_pipeline_metadata)
+            _setter("publish_pipeline_metadata", publish_pipeline_metadata)
         if status_badges_are_private is not None:
-            pulumi.set(__self__, "status_badges_are_private", status_badges_are_private)
+            _setter("status_badges_are_private", status_badges_are_private)
 
     @property
     @pulumi.getter(name="enforceJobScope")
@@ -390,6 +466,10 @@ class ProjectPipelineSettings(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectPipelineSettingsArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

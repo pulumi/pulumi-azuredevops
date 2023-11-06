@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ElasticPoolArgs', 'ElasticPool']
@@ -39,23 +39,84 @@ class ElasticPoolArgs:
         :param pulumi.Input[bool] recycle_after_each_use: Tear down virtual machines after every use. Defaults to `false`.
         :param pulumi.Input[int] time_to_live_minutes: Delay in minutes before deleting excess idle agents. Defaults to `30`.
         """
-        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
-        pulumi.set(__self__, "desired_idle", desired_idle)
-        pulumi.set(__self__, "max_capacity", max_capacity)
-        pulumi.set(__self__, "service_endpoint_id", service_endpoint_id)
-        pulumi.set(__self__, "service_endpoint_scope", service_endpoint_scope)
+        ElasticPoolArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azure_resource_id=azure_resource_id,
+            desired_idle=desired_idle,
+            max_capacity=max_capacity,
+            service_endpoint_id=service_endpoint_id,
+            service_endpoint_scope=service_endpoint_scope,
+            agent_interactive_ui=agent_interactive_ui,
+            auto_provision=auto_provision,
+            auto_update=auto_update,
+            name=name,
+            recycle_after_each_use=recycle_after_each_use,
+            time_to_live_minutes=time_to_live_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azure_resource_id: Optional[pulumi.Input[str]] = None,
+             desired_idle: Optional[pulumi.Input[int]] = None,
+             max_capacity: Optional[pulumi.Input[int]] = None,
+             service_endpoint_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_scope: Optional[pulumi.Input[str]] = None,
+             agent_interactive_ui: Optional[pulumi.Input[bool]] = None,
+             auto_provision: Optional[pulumi.Input[bool]] = None,
+             auto_update: Optional[pulumi.Input[bool]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recycle_after_each_use: Optional[pulumi.Input[bool]] = None,
+             time_to_live_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azure_resource_id is None and 'azureResourceId' in kwargs:
+            azure_resource_id = kwargs['azureResourceId']
+        if azure_resource_id is None:
+            raise TypeError("Missing 'azure_resource_id' argument")
+        if desired_idle is None and 'desiredIdle' in kwargs:
+            desired_idle = kwargs['desiredIdle']
+        if desired_idle is None:
+            raise TypeError("Missing 'desired_idle' argument")
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if max_capacity is None:
+            raise TypeError("Missing 'max_capacity' argument")
+        if service_endpoint_id is None and 'serviceEndpointId' in kwargs:
+            service_endpoint_id = kwargs['serviceEndpointId']
+        if service_endpoint_id is None:
+            raise TypeError("Missing 'service_endpoint_id' argument")
+        if service_endpoint_scope is None and 'serviceEndpointScope' in kwargs:
+            service_endpoint_scope = kwargs['serviceEndpointScope']
+        if service_endpoint_scope is None:
+            raise TypeError("Missing 'service_endpoint_scope' argument")
+        if agent_interactive_ui is None and 'agentInteractiveUi' in kwargs:
+            agent_interactive_ui = kwargs['agentInteractiveUi']
+        if auto_provision is None and 'autoProvision' in kwargs:
+            auto_provision = kwargs['autoProvision']
+        if auto_update is None and 'autoUpdate' in kwargs:
+            auto_update = kwargs['autoUpdate']
+        if recycle_after_each_use is None and 'recycleAfterEachUse' in kwargs:
+            recycle_after_each_use = kwargs['recycleAfterEachUse']
+        if time_to_live_minutes is None and 'timeToLiveMinutes' in kwargs:
+            time_to_live_minutes = kwargs['timeToLiveMinutes']
+
+        _setter("azure_resource_id", azure_resource_id)
+        _setter("desired_idle", desired_idle)
+        _setter("max_capacity", max_capacity)
+        _setter("service_endpoint_id", service_endpoint_id)
+        _setter("service_endpoint_scope", service_endpoint_scope)
         if agent_interactive_ui is not None:
-            pulumi.set(__self__, "agent_interactive_ui", agent_interactive_ui)
+            _setter("agent_interactive_ui", agent_interactive_ui)
         if auto_provision is not None:
-            pulumi.set(__self__, "auto_provision", auto_provision)
+            _setter("auto_provision", auto_provision)
         if auto_update is not None:
-            pulumi.set(__self__, "auto_update", auto_update)
+            _setter("auto_update", auto_update)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recycle_after_each_use is not None:
-            pulumi.set(__self__, "recycle_after_each_use", recycle_after_each_use)
+            _setter("recycle_after_each_use", recycle_after_each_use)
         if time_to_live_minutes is not None:
-            pulumi.set(__self__, "time_to_live_minutes", time_to_live_minutes)
+            _setter("time_to_live_minutes", time_to_live_minutes)
 
     @property
     @pulumi.getter(name="azureResourceId")
@@ -218,28 +279,79 @@ class _ElasticPoolState:
         :param pulumi.Input[str] service_endpoint_scope: The Project ID of Service Endpoint belongs to.
         :param pulumi.Input[int] time_to_live_minutes: Delay in minutes before deleting excess idle agents. Defaults to `30`.
         """
+        _ElasticPoolState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_interactive_ui=agent_interactive_ui,
+            auto_provision=auto_provision,
+            auto_update=auto_update,
+            azure_resource_id=azure_resource_id,
+            desired_idle=desired_idle,
+            max_capacity=max_capacity,
+            name=name,
+            recycle_after_each_use=recycle_after_each_use,
+            service_endpoint_id=service_endpoint_id,
+            service_endpoint_scope=service_endpoint_scope,
+            time_to_live_minutes=time_to_live_minutes,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_interactive_ui: Optional[pulumi.Input[bool]] = None,
+             auto_provision: Optional[pulumi.Input[bool]] = None,
+             auto_update: Optional[pulumi.Input[bool]] = None,
+             azure_resource_id: Optional[pulumi.Input[str]] = None,
+             desired_idle: Optional[pulumi.Input[int]] = None,
+             max_capacity: Optional[pulumi.Input[int]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             recycle_after_each_use: Optional[pulumi.Input[bool]] = None,
+             service_endpoint_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_scope: Optional[pulumi.Input[str]] = None,
+             time_to_live_minutes: Optional[pulumi.Input[int]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if agent_interactive_ui is None and 'agentInteractiveUi' in kwargs:
+            agent_interactive_ui = kwargs['agentInteractiveUi']
+        if auto_provision is None and 'autoProvision' in kwargs:
+            auto_provision = kwargs['autoProvision']
+        if auto_update is None and 'autoUpdate' in kwargs:
+            auto_update = kwargs['autoUpdate']
+        if azure_resource_id is None and 'azureResourceId' in kwargs:
+            azure_resource_id = kwargs['azureResourceId']
+        if desired_idle is None and 'desiredIdle' in kwargs:
+            desired_idle = kwargs['desiredIdle']
+        if max_capacity is None and 'maxCapacity' in kwargs:
+            max_capacity = kwargs['maxCapacity']
+        if recycle_after_each_use is None and 'recycleAfterEachUse' in kwargs:
+            recycle_after_each_use = kwargs['recycleAfterEachUse']
+        if service_endpoint_id is None and 'serviceEndpointId' in kwargs:
+            service_endpoint_id = kwargs['serviceEndpointId']
+        if service_endpoint_scope is None and 'serviceEndpointScope' in kwargs:
+            service_endpoint_scope = kwargs['serviceEndpointScope']
+        if time_to_live_minutes is None and 'timeToLiveMinutes' in kwargs:
+            time_to_live_minutes = kwargs['timeToLiveMinutes']
+
         if agent_interactive_ui is not None:
-            pulumi.set(__self__, "agent_interactive_ui", agent_interactive_ui)
+            _setter("agent_interactive_ui", agent_interactive_ui)
         if auto_provision is not None:
-            pulumi.set(__self__, "auto_provision", auto_provision)
+            _setter("auto_provision", auto_provision)
         if auto_update is not None:
-            pulumi.set(__self__, "auto_update", auto_update)
+            _setter("auto_update", auto_update)
         if azure_resource_id is not None:
-            pulumi.set(__self__, "azure_resource_id", azure_resource_id)
+            _setter("azure_resource_id", azure_resource_id)
         if desired_idle is not None:
-            pulumi.set(__self__, "desired_idle", desired_idle)
+            _setter("desired_idle", desired_idle)
         if max_capacity is not None:
-            pulumi.set(__self__, "max_capacity", max_capacity)
+            _setter("max_capacity", max_capacity)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if recycle_after_each_use is not None:
-            pulumi.set(__self__, "recycle_after_each_use", recycle_after_each_use)
+            _setter("recycle_after_each_use", recycle_after_each_use)
         if service_endpoint_id is not None:
-            pulumi.set(__self__, "service_endpoint_id", service_endpoint_id)
+            _setter("service_endpoint_id", service_endpoint_id)
         if service_endpoint_scope is not None:
-            pulumi.set(__self__, "service_endpoint_scope", service_endpoint_scope)
+            _setter("service_endpoint_scope", service_endpoint_scope)
         if time_to_live_minutes is not None:
-            pulumi.set(__self__, "time_to_live_minutes", time_to_live_minutes)
+            _setter("time_to_live_minutes", time_to_live_minutes)
 
     @property
     @pulumi.getter(name="agentInteractiveUi")
@@ -511,6 +623,10 @@ class ElasticPool(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ElasticPoolArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

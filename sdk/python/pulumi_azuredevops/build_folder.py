@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['BuildFolderArgs', 'BuildFolder']
@@ -23,10 +23,31 @@ class BuildFolderArgs:
         :param pulumi.Input[str] project_id: The ID of the project in which the folder will be created.
         :param pulumi.Input[str] description: Folder Description.
         """
-        pulumi.set(__self__, "path", path)
-        pulumi.set(__self__, "project_id", project_id)
+        BuildFolderArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            path=path,
+            project_id=project_id,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             path: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if path is None:
+            raise TypeError("Missing 'path' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("path", path)
+        _setter("project_id", project_id)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -77,12 +98,29 @@ class _BuildFolderState:
         :param pulumi.Input[str] path: The folder path.
         :param pulumi.Input[str] project_id: The ID of the project in which the folder will be created.
         """
+        _BuildFolderState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            path=path,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
 
     @property
     @pulumi.getter
@@ -218,6 +256,10 @@ class BuildFolder(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BuildFolderArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -30,19 +30,58 @@ class ServiceEndpointServiceFabricArgs:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
-        pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        ServiceEndpointServiceFabricArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            cluster_endpoint=cluster_endpoint,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            authorization=authorization,
+            azure_active_directory=azure_active_directory,
+            certificate=certificate,
+            description=description,
+            none=none,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             cluster_endpoint: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             azure_active_directory: Optional[pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs']] = None,
+             certificate: Optional[pulumi.Input['ServiceEndpointServiceFabricCertificateArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             none: Optional[pulumi.Input['ServiceEndpointServiceFabricNoneArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if cluster_endpoint is None and 'clusterEndpoint' in kwargs:
+            cluster_endpoint = kwargs['clusterEndpoint']
+        if cluster_endpoint is None:
+            raise TypeError("Missing 'cluster_endpoint' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if azure_active_directory is None and 'azureActiveDirectory' in kwargs:
+            azure_active_directory = kwargs['azureActiveDirectory']
+
+        _setter("cluster_endpoint", cluster_endpoint)
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if azure_active_directory is not None:
-            pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+            _setter("azure_active_directory", azure_active_directory)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if none is not None:
-            pulumi.set(__self__, "none", none)
+            _setter("none", none)
 
     @property
     @pulumi.getter(name="clusterEndpoint")
@@ -143,22 +182,55 @@ class _ServiceEndpointServiceFabricState:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
+        _ServiceEndpointServiceFabricState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            azure_active_directory=azure_active_directory,
+            certificate=certificate,
+            cluster_endpoint=cluster_endpoint,
+            description=description,
+            none=none,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             azure_active_directory: Optional[pulumi.Input['ServiceEndpointServiceFabricAzureActiveDirectoryArgs']] = None,
+             certificate: Optional[pulumi.Input['ServiceEndpointServiceFabricCertificateArgs']] = None,
+             cluster_endpoint: Optional[pulumi.Input[str]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             none: Optional[pulumi.Input['ServiceEndpointServiceFabricNoneArgs']] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azure_active_directory is None and 'azureActiveDirectory' in kwargs:
+            azure_active_directory = kwargs['azureActiveDirectory']
+        if cluster_endpoint is None and 'clusterEndpoint' in kwargs:
+            cluster_endpoint = kwargs['clusterEndpoint']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if azure_active_directory is not None:
-            pulumi.set(__self__, "azure_active_directory", azure_active_directory)
+            _setter("azure_active_directory", azure_active_directory)
         if certificate is not None:
-            pulumi.set(__self__, "certificate", certificate)
+            _setter("certificate", certificate)
         if cluster_endpoint is not None:
-            pulumi.set(__self__, "cluster_endpoint", cluster_endpoint)
+            _setter("cluster_endpoint", cluster_endpoint)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if none is not None:
-            pulumi.set(__self__, "none", none)
+            _setter("none", none)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
 
     @property
     @pulumi.getter
@@ -442,6 +514,10 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEndpointServiceFabricArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -465,12 +541,27 @@ class ServiceEndpointServiceFabric(pulumi.CustomResource):
             __props__ = ServiceEndpointServiceFabricArgs.__new__(ServiceEndpointServiceFabricArgs)
 
             __props__.__dict__["authorization"] = authorization
+            if azure_active_directory is not None and not isinstance(azure_active_directory, ServiceEndpointServiceFabricAzureActiveDirectoryArgs):
+                azure_active_directory = azure_active_directory or {}
+                def _setter(key, value):
+                    azure_active_directory[key] = value
+                ServiceEndpointServiceFabricAzureActiveDirectoryArgs._configure(_setter, **azure_active_directory)
             __props__.__dict__["azure_active_directory"] = azure_active_directory
+            if certificate is not None and not isinstance(certificate, ServiceEndpointServiceFabricCertificateArgs):
+                certificate = certificate or {}
+                def _setter(key, value):
+                    certificate[key] = value
+                ServiceEndpointServiceFabricCertificateArgs._configure(_setter, **certificate)
             __props__.__dict__["certificate"] = certificate
             if cluster_endpoint is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_endpoint'")
             __props__.__dict__["cluster_endpoint"] = cluster_endpoint
             __props__.__dict__["description"] = description
+            if none is not None and not isinstance(none, ServiceEndpointServiceFabricNoneArgs):
+                none = none or {}
+                def _setter(key, value):
+                    none[key] = value
+                ServiceEndpointServiceFabricNoneArgs._configure(_setter, **none)
             __props__.__dict__["none"] = none
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")

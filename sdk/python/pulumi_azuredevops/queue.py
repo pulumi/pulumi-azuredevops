@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['QueueArgs', 'Queue']
@@ -21,8 +21,29 @@ class QueueArgs:
         :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
-        pulumi.set(__self__, "agent_pool_id", agent_pool_id)
-        pulumi.set(__self__, "project_id", project_id)
+        QueueArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_pool_id=agent_pool_id,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_pool_id: Optional[pulumi.Input[int]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if agent_pool_id is None and 'agentPoolId' in kwargs:
+            agent_pool_id = kwargs['agentPoolId']
+        if agent_pool_id is None:
+            raise TypeError("Missing 'agent_pool_id' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("agent_pool_id", agent_pool_id)
+        _setter("project_id", project_id)
 
     @property
     @pulumi.getter(name="agentPoolId")
@@ -59,10 +80,27 @@ class _QueueState:
         :param pulumi.Input[int] agent_pool_id: The ID of the organization agent pool.
         :param pulumi.Input[str] project_id: The ID of the project in which to create the resource.
         """
+        _QueueState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_pool_id=agent_pool_id,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_pool_id: Optional[pulumi.Input[int]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if agent_pool_id is None and 'agentPoolId' in kwargs:
+            agent_pool_id = kwargs['agentPoolId']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if agent_pool_id is not None:
-            pulumi.set(__self__, "agent_pool_id", agent_pool_id)
+            _setter("agent_pool_id", agent_pool_id)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
 
     @property
     @pulumi.getter(name="agentPoolId")
@@ -192,6 +230,10 @@ class Queue(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            QueueArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

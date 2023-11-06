@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 
@@ -63,17 +63,58 @@ class BranchPolicyBuildValidationSettings(dict):
         :param bool queue_on_source_update_only: True if the build should queue on source updates only. Defaults to `true`.
         :param int valid_duration: The number of minutes for which the build is valid. If `0`, the build will not expire. Defaults to `720` (12 hours).
         """
-        pulumi.set(__self__, "build_definition_id", build_definition_id)
-        pulumi.set(__self__, "display_name", display_name)
-        pulumi.set(__self__, "scopes", scopes)
+        BranchPolicyBuildValidationSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            build_definition_id=build_definition_id,
+            display_name=display_name,
+            scopes=scopes,
+            filename_patterns=filename_patterns,
+            manual_queue_only=manual_queue_only,
+            queue_on_source_update_only=queue_on_source_update_only,
+            valid_duration=valid_duration,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             build_definition_id: Optional[int] = None,
+             display_name: Optional[str] = None,
+             scopes: Optional[Sequence['outputs.BranchPolicyBuildValidationSettingsScope']] = None,
+             filename_patterns: Optional[Sequence[str]] = None,
+             manual_queue_only: Optional[bool] = None,
+             queue_on_source_update_only: Optional[bool] = None,
+             valid_duration: Optional[int] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if build_definition_id is None and 'buildDefinitionId' in kwargs:
+            build_definition_id = kwargs['buildDefinitionId']
+        if build_definition_id is None:
+            raise TypeError("Missing 'build_definition_id' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if display_name is None:
+            raise TypeError("Missing 'display_name' argument")
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if filename_patterns is None and 'filenamePatterns' in kwargs:
+            filename_patterns = kwargs['filenamePatterns']
+        if manual_queue_only is None and 'manualQueueOnly' in kwargs:
+            manual_queue_only = kwargs['manualQueueOnly']
+        if queue_on_source_update_only is None and 'queueOnSourceUpdateOnly' in kwargs:
+            queue_on_source_update_only = kwargs['queueOnSourceUpdateOnly']
+        if valid_duration is None and 'validDuration' in kwargs:
+            valid_duration = kwargs['validDuration']
+
+        _setter("build_definition_id", build_definition_id)
+        _setter("display_name", display_name)
+        _setter("scopes", scopes)
         if filename_patterns is not None:
-            pulumi.set(__self__, "filename_patterns", filename_patterns)
+            _setter("filename_patterns", filename_patterns)
         if manual_queue_only is not None:
-            pulumi.set(__self__, "manual_queue_only", manual_queue_only)
+            _setter("manual_queue_only", manual_queue_only)
         if queue_on_source_update_only is not None:
-            pulumi.set(__self__, "queue_on_source_update_only", queue_on_source_update_only)
+            _setter("queue_on_source_update_only", queue_on_source_update_only)
         if valid_duration is not None:
-            pulumi.set(__self__, "valid_duration", valid_duration)
+            _setter("valid_duration", valid_duration)
 
     @property
     @pulumi.getter(name="buildDefinitionId")
@@ -164,12 +205,33 @@ class BranchPolicyBuildValidationSettingsScope(dict):
         :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
+        BranchPolicyBuildValidationSettingsScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            repository_id=repository_id,
+            repository_ref=repository_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             repository_id: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
 
     @property
     @pulumi.getter(name="matchType")
@@ -248,21 +310,62 @@ class BranchPolicyMinReviewersSettings(dict):
         :param int reviewer_count: The number of reviewers needed to approve.
         :param bool submitter_can_vote: Allow requesters to approve their own changes. Defaults to `false`.
         """
-        pulumi.set(__self__, "scopes", scopes)
+        BranchPolicyMinReviewersSettings._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            scopes=scopes,
+            allow_completion_with_rejects_or_waits=allow_completion_with_rejects_or_waits,
+            last_pusher_cannot_approve=last_pusher_cannot_approve,
+            on_last_iteration_require_vote=on_last_iteration_require_vote,
+            on_push_reset_all_votes=on_push_reset_all_votes,
+            on_push_reset_approved_votes=on_push_reset_approved_votes,
+            reviewer_count=reviewer_count,
+            submitter_can_vote=submitter_can_vote,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             scopes: Optional[Sequence['outputs.BranchPolicyMinReviewersSettingsScope']] = None,
+             allow_completion_with_rejects_or_waits: Optional[bool] = None,
+             last_pusher_cannot_approve: Optional[bool] = None,
+             on_last_iteration_require_vote: Optional[bool] = None,
+             on_push_reset_all_votes: Optional[bool] = None,
+             on_push_reset_approved_votes: Optional[bool] = None,
+             reviewer_count: Optional[int] = None,
+             submitter_can_vote: Optional[bool] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if scopes is None:
+            raise TypeError("Missing 'scopes' argument")
+        if allow_completion_with_rejects_or_waits is None and 'allowCompletionWithRejectsOrWaits' in kwargs:
+            allow_completion_with_rejects_or_waits = kwargs['allowCompletionWithRejectsOrWaits']
+        if last_pusher_cannot_approve is None and 'lastPusherCannotApprove' in kwargs:
+            last_pusher_cannot_approve = kwargs['lastPusherCannotApprove']
+        if on_last_iteration_require_vote is None and 'onLastIterationRequireVote' in kwargs:
+            on_last_iteration_require_vote = kwargs['onLastIterationRequireVote']
+        if on_push_reset_all_votes is None and 'onPushResetAllVotes' in kwargs:
+            on_push_reset_all_votes = kwargs['onPushResetAllVotes']
+        if on_push_reset_approved_votes is None and 'onPushResetApprovedVotes' in kwargs:
+            on_push_reset_approved_votes = kwargs['onPushResetApprovedVotes']
+        if reviewer_count is None and 'reviewerCount' in kwargs:
+            reviewer_count = kwargs['reviewerCount']
+        if submitter_can_vote is None and 'submitterCanVote' in kwargs:
+            submitter_can_vote = kwargs['submitterCanVote']
+
+        _setter("scopes", scopes)
         if allow_completion_with_rejects_or_waits is not None:
-            pulumi.set(__self__, "allow_completion_with_rejects_or_waits", allow_completion_with_rejects_or_waits)
+            _setter("allow_completion_with_rejects_or_waits", allow_completion_with_rejects_or_waits)
         if last_pusher_cannot_approve is not None:
-            pulumi.set(__self__, "last_pusher_cannot_approve", last_pusher_cannot_approve)
+            _setter("last_pusher_cannot_approve", last_pusher_cannot_approve)
         if on_last_iteration_require_vote is not None:
-            pulumi.set(__self__, "on_last_iteration_require_vote", on_last_iteration_require_vote)
+            _setter("on_last_iteration_require_vote", on_last_iteration_require_vote)
         if on_push_reset_all_votes is not None:
-            pulumi.set(__self__, "on_push_reset_all_votes", on_push_reset_all_votes)
+            _setter("on_push_reset_all_votes", on_push_reset_all_votes)
         if on_push_reset_approved_votes is not None:
-            pulumi.set(__self__, "on_push_reset_approved_votes", on_push_reset_approved_votes)
+            _setter("on_push_reset_approved_votes", on_push_reset_approved_votes)
         if reviewer_count is not None:
-            pulumi.set(__self__, "reviewer_count", reviewer_count)
+            _setter("reviewer_count", reviewer_count)
         if submitter_can_vote is not None:
-            pulumi.set(__self__, "submitter_can_vote", submitter_can_vote)
+            _setter("submitter_can_vote", submitter_can_vote)
 
     @property
     @pulumi.getter
@@ -363,12 +466,33 @@ class BranchPolicyMinReviewersSettingsScope(dict):
         :param str repository_id: The repository ID. Needed only if the scope of the policy will be limited to a single repository. If `match_type` is `DefaultBranch`, this should not be defined.
         :param str repository_ref: The ref pattern to use for the match when `match_type` other than `DefaultBranch`. If `match_type` is `Exact`, this should be a qualified ref such as `refs/heads/master`. If `match_type` is `Prefix`, this should be a ref path such as `refs/heads/releases`.
         """
+        BranchPolicyMinReviewersSettingsScope._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            match_type=match_type,
+            repository_id=repository_id,
+            repository_ref=repository_ref,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             match_type: Optional[str] = None,
+             repository_id: Optional[str] = None,
+             repository_ref: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if match_type is None and 'matchType' in kwargs:
+            match_type = kwargs['matchType']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_ref is None and 'repositoryRef' in kwargs:
+            repository_ref = kwargs['repositoryRef']
+
         if match_type is not None:
-            pulumi.set(__self__, "match_type", match_type)
+            _setter("match_type", match_type)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
         if repository_ref is not None:
-            pulumi.set(__self__, "repository_ref", repository_ref)
+            _setter("repository_ref", repository_ref)
 
     @property
     @pulumi.getter(name="matchType")

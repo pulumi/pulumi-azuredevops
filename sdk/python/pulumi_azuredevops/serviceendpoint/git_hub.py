@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -28,16 +28,49 @@ class GitHubArgs:
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         :param pulumi.Input['GitHubAuthPersonalArgs'] auth_personal: An `auth_personal` block as documented below. Allows connecting using a personal access token.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        GitHubArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            auth_oauth=auth_oauth,
+            auth_personal=auth_personal,
+            authorization=authorization,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             auth_oauth: Optional[pulumi.Input['GitHubAuthOauthArgs']] = None,
+             auth_personal: Optional[pulumi.Input['GitHubAuthPersonalArgs']] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if auth_oauth is None and 'authOauth' in kwargs:
+            auth_oauth = kwargs['authOauth']
+        if auth_personal is None and 'authPersonal' in kwargs:
+            auth_personal = kwargs['authPersonal']
+
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
         if auth_oauth is not None:
-            pulumi.set(__self__, "auth_oauth", auth_oauth)
+            _setter("auth_oauth", auth_oauth)
         if auth_personal is not None:
-            pulumi.set(__self__, "auth_personal", auth_personal)
+            _setter("auth_personal", auth_personal)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="projectId")
@@ -118,18 +151,47 @@ class _GitHubState:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
+        _GitHubState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auth_oauth=auth_oauth,
+            auth_personal=auth_personal,
+            authorization=authorization,
+            description=description,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auth_oauth: Optional[pulumi.Input['GitHubAuthOauthArgs']] = None,
+             auth_personal: Optional[pulumi.Input['GitHubAuthPersonalArgs']] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auth_oauth is None and 'authOauth' in kwargs:
+            auth_oauth = kwargs['authOauth']
+        if auth_personal is None and 'authPersonal' in kwargs:
+            auth_personal = kwargs['authPersonal']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+
         if auth_oauth is not None:
-            pulumi.set(__self__, "auth_oauth", auth_oauth)
+            _setter("auth_oauth", auth_oauth)
         if auth_personal is not None:
-            pulumi.set(__self__, "auth_personal", auth_personal)
+            _setter("auth_personal", auth_personal)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
 
     @property
     @pulumi.getter(name="authOauth")
@@ -364,6 +426,10 @@ class GitHub(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GitHubArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -385,7 +451,17 @@ class GitHub(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = GitHubArgs.__new__(GitHubArgs)
 
+            if auth_oauth is not None and not isinstance(auth_oauth, GitHubAuthOauthArgs):
+                auth_oauth = auth_oauth or {}
+                def _setter(key, value):
+                    auth_oauth[key] = value
+                GitHubAuthOauthArgs._configure(_setter, **auth_oauth)
             __props__.__dict__["auth_oauth"] = auth_oauth
+            if auth_personal is not None and not isinstance(auth_personal, GitHubAuthPersonalArgs):
+                auth_personal = auth_personal or {}
+                def _setter(key, value):
+                    auth_personal[key] = value
+                GitHubAuthPersonalArgs._configure(_setter, **auth_personal)
             __props__.__dict__["auth_personal"] = auth_personal
             __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description

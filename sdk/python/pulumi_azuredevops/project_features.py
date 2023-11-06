@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProjectFeaturesArgs', 'ProjectFeatures']
@@ -26,8 +26,27 @@ class ProjectFeaturesArgs:
                > via the `features` block by using the `Project` resource.
                > However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
-        pulumi.set(__self__, "features", features)
-        pulumi.set(__self__, "project_id", project_id)
+        ProjectFeaturesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            features=features,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if features is None:
+            raise TypeError("Missing 'features' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+
+        _setter("features", features)
+        _setter("project_id", project_id)
 
     @property
     @pulumi.getter
@@ -72,10 +91,25 @@ class _ProjectFeaturesState:
                > via the `features` block by using the `Project` resource.
                > However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
+        _ProjectFeaturesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            features=features,
+            project_id=project_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
 
     @property
     @pulumi.getter
@@ -213,6 +247,10 @@ class ProjectFeatures(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectFeaturesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

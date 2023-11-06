@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['CheckBusinessHoursArgs', 'CheckBusinessHours']
@@ -47,30 +47,95 @@ class CheckBusinessHoursArgs:
         :param pulumi.Input[bool] tuesday: This check will pass on Tuesday. Defaults to `false`.
         :param pulumi.Input[bool] wednesday: This check will pass on Wednesdays. Defaults to `false`.
         """
-        pulumi.set(__self__, "end_time", end_time)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "start_time", start_time)
-        pulumi.set(__self__, "target_resource_id", target_resource_id)
-        pulumi.set(__self__, "target_resource_type", target_resource_type)
-        pulumi.set(__self__, "time_zone", time_zone)
+        CheckBusinessHoursArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            end_time=end_time,
+            project_id=project_id,
+            start_time=start_time,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            time_zone=time_zone,
+            display_name=display_name,
+            friday=friday,
+            monday=monday,
+            saturday=saturday,
+            sunday=sunday,
+            thursday=thursday,
+            timeout=timeout,
+            tuesday=tuesday,
+            wednesday=wednesday,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             end_time: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             display_name: Optional[pulumi.Input[str]] = None,
+             friday: Optional[pulumi.Input[bool]] = None,
+             monday: Optional[pulumi.Input[bool]] = None,
+             saturday: Optional[pulumi.Input[bool]] = None,
+             sunday: Optional[pulumi.Input[bool]] = None,
+             thursday: Optional[pulumi.Input[bool]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             tuesday: Optional[pulumi.Input[bool]] = None,
+             wednesday: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if end_time is None:
+            raise TypeError("Missing 'end_time' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if start_time is None:
+            raise TypeError("Missing 'start_time' argument")
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_id is None:
+            raise TypeError("Missing 'target_resource_id' argument")
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if target_resource_type is None:
+            raise TypeError("Missing 'target_resource_type' argument")
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+        if time_zone is None:
+            raise TypeError("Missing 'time_zone' argument")
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+
+        _setter("end_time", end_time)
+        _setter("project_id", project_id)
+        _setter("start_time", start_time)
+        _setter("target_resource_id", target_resource_id)
+        _setter("target_resource_type", target_resource_type)
+        _setter("time_zone", time_zone)
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if friday is not None:
-            pulumi.set(__self__, "friday", friday)
+            _setter("friday", friday)
         if monday is not None:
-            pulumi.set(__self__, "monday", monday)
+            _setter("monday", monday)
         if saturday is not None:
-            pulumi.set(__self__, "saturday", saturday)
+            _setter("saturday", saturday)
         if sunday is not None:
-            pulumi.set(__self__, "sunday", sunday)
+            _setter("sunday", sunday)
         if thursday is not None:
-            pulumi.set(__self__, "thursday", thursday)
+            _setter("thursday", thursday)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if tuesday is not None:
-            pulumi.set(__self__, "tuesday", tuesday)
+            _setter("tuesday", tuesday)
         if wednesday is not None:
-            pulumi.set(__self__, "wednesday", wednesday)
+            _setter("wednesday", wednesday)
 
     @property
     @pulumi.getter(name="endTime")
@@ -289,36 +354,89 @@ class _CheckBusinessHoursState:
         :param pulumi.Input[bool] tuesday: This check will pass on Tuesday. Defaults to `false`.
         :param pulumi.Input[bool] wednesday: This check will pass on Wednesdays. Defaults to `false`.
         """
+        _CheckBusinessHoursState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            display_name=display_name,
+            end_time=end_time,
+            friday=friday,
+            monday=monday,
+            project_id=project_id,
+            saturday=saturday,
+            start_time=start_time,
+            sunday=sunday,
+            target_resource_id=target_resource_id,
+            target_resource_type=target_resource_type,
+            thursday=thursday,
+            time_zone=time_zone,
+            timeout=timeout,
+            tuesday=tuesday,
+            wednesday=wednesday,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             display_name: Optional[pulumi.Input[str]] = None,
+             end_time: Optional[pulumi.Input[str]] = None,
+             friday: Optional[pulumi.Input[bool]] = None,
+             monday: Optional[pulumi.Input[bool]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             saturday: Optional[pulumi.Input[bool]] = None,
+             start_time: Optional[pulumi.Input[str]] = None,
+             sunday: Optional[pulumi.Input[bool]] = None,
+             target_resource_id: Optional[pulumi.Input[str]] = None,
+             target_resource_type: Optional[pulumi.Input[str]] = None,
+             thursday: Optional[pulumi.Input[bool]] = None,
+             time_zone: Optional[pulumi.Input[str]] = None,
+             timeout: Optional[pulumi.Input[int]] = None,
+             tuesday: Optional[pulumi.Input[bool]] = None,
+             wednesday: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if display_name is None and 'displayName' in kwargs:
+            display_name = kwargs['displayName']
+        if end_time is None and 'endTime' in kwargs:
+            end_time = kwargs['endTime']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if start_time is None and 'startTime' in kwargs:
+            start_time = kwargs['startTime']
+        if target_resource_id is None and 'targetResourceId' in kwargs:
+            target_resource_id = kwargs['targetResourceId']
+        if target_resource_type is None and 'targetResourceType' in kwargs:
+            target_resource_type = kwargs['targetResourceType']
+        if time_zone is None and 'timeZone' in kwargs:
+            time_zone = kwargs['timeZone']
+
         if display_name is not None:
-            pulumi.set(__self__, "display_name", display_name)
+            _setter("display_name", display_name)
         if end_time is not None:
-            pulumi.set(__self__, "end_time", end_time)
+            _setter("end_time", end_time)
         if friday is not None:
-            pulumi.set(__self__, "friday", friday)
+            _setter("friday", friday)
         if monday is not None:
-            pulumi.set(__self__, "monday", monday)
+            _setter("monday", monday)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if saturday is not None:
-            pulumi.set(__self__, "saturday", saturday)
+            _setter("saturday", saturday)
         if start_time is not None:
-            pulumi.set(__self__, "start_time", start_time)
+            _setter("start_time", start_time)
         if sunday is not None:
-            pulumi.set(__self__, "sunday", sunday)
+            _setter("sunday", sunday)
         if target_resource_id is not None:
-            pulumi.set(__self__, "target_resource_id", target_resource_id)
+            _setter("target_resource_id", target_resource_id)
         if target_resource_type is not None:
-            pulumi.set(__self__, "target_resource_type", target_resource_type)
+            _setter("target_resource_type", target_resource_type)
         if thursday is not None:
-            pulumi.set(__self__, "thursday", thursday)
+            _setter("thursday", thursday)
         if time_zone is not None:
-            pulumi.set(__self__, "time_zone", time_zone)
+            _setter("time_zone", time_zone)
         if timeout is not None:
-            pulumi.set(__self__, "timeout", timeout)
+            _setter("timeout", timeout)
         if tuesday is not None:
-            pulumi.set(__self__, "tuesday", tuesday)
+            _setter("tuesday", tuesday)
         if wednesday is not None:
-            pulumi.set(__self__, "wednesday", wednesday)
+            _setter("wednesday", wednesday)
 
     @property
     @pulumi.getter(name="displayName")
@@ -1114,6 +1232,10 @@ class CheckBusinessHours(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            CheckBusinessHoursArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

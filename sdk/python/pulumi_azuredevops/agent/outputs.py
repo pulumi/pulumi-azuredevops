@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -27,11 +27,46 @@ class GetPoolsAgentPoolResult(dict):
         :param str name: The name of the agent pool
         :param str pool_type: Specifies whether the agent pool type is Automation or Deployment.
         """
-        pulumi.set(__self__, "auto_provision", auto_provision)
-        pulumi.set(__self__, "auto_update", auto_update)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "pool_type", pool_type)
+        GetPoolsAgentPoolResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            auto_provision=auto_provision,
+            auto_update=auto_update,
+            id=id,
+            name=name,
+            pool_type=pool_type,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             auto_provision: Optional[bool] = None,
+             auto_update: Optional[bool] = None,
+             id: Optional[int] = None,
+             name: Optional[str] = None,
+             pool_type: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if auto_provision is None and 'autoProvision' in kwargs:
+            auto_provision = kwargs['autoProvision']
+        if auto_provision is None:
+            raise TypeError("Missing 'auto_provision' argument")
+        if auto_update is None and 'autoUpdate' in kwargs:
+            auto_update = kwargs['autoUpdate']
+        if auto_update is None:
+            raise TypeError("Missing 'auto_update' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if pool_type is None and 'poolType' in kwargs:
+            pool_type = kwargs['poolType']
+        if pool_type is None:
+            raise TypeError("Missing 'pool_type' argument")
+
+        _setter("auto_provision", auto_provision)
+        _setter("auto_update", auto_update)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("pool_type", pool_type)
 
     @property
     @pulumi.getter(name="autoProvision")

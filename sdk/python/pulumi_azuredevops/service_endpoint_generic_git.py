@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceEndpointGenericGitArgs', 'ServiceEndpointGenericGit']
@@ -33,19 +33,58 @@ class ServiceEndpointGenericGitArgs:
                > **Note** For AzureDevOps Git, PAT should be used as the password.
         :param pulumi.Input[str] username: The username used to authenticate to the git repository.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "repository_url", repository_url)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        ServiceEndpointGenericGitArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            repository_url=repository_url,
+            service_endpoint_name=service_endpoint_name,
+            authorization=authorization,
+            description=description,
+            enable_pipelines_access=enable_pipelines_access,
+            password=password,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             repository_url: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enable_pipelines_access: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if repository_url is None and 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if repository_url is None:
+            raise TypeError("Missing 'repository_url' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if enable_pipelines_access is None and 'enablePipelinesAccess' in kwargs:
+            enable_pipelines_access = kwargs['enablePipelinesAccess']
+
+        _setter("project_id", project_id)
+        _setter("repository_url", repository_url)
+        _setter("service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_pipelines_access is not None:
-            pulumi.set(__self__, "enable_pipelines_access", enable_pipelines_access)
+            _setter("enable_pipelines_access", enable_pipelines_access)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter(name="projectId")
@@ -162,22 +201,55 @@ class _ServiceEndpointGenericGitState:
         :param pulumi.Input[str] service_endpoint_name: The name of the service endpoint.
         :param pulumi.Input[str] username: The username used to authenticate to the git repository.
         """
+        _ServiceEndpointGenericGitState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            description=description,
+            enable_pipelines_access=enable_pipelines_access,
+            password=password,
+            project_id=project_id,
+            repository_url=repository_url,
+            service_endpoint_name=service_endpoint_name,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             enable_pipelines_access: Optional[pulumi.Input[bool]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             repository_url: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if enable_pipelines_access is None and 'enablePipelinesAccess' in kwargs:
+            enable_pipelines_access = kwargs['enablePipelinesAccess']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if repository_url is None and 'repositoryUrl' in kwargs:
+            repository_url = kwargs['repositoryUrl']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if enable_pipelines_access is not None:
-            pulumi.set(__self__, "enable_pipelines_access", enable_pipelines_access)
+            _setter("enable_pipelines_access", enable_pipelines_access)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if repository_url is not None:
-            pulumi.set(__self__, "repository_url", repository_url)
+            _setter("repository_url", repository_url)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -383,6 +455,10 @@ class ServiceEndpointGenericGit(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEndpointGenericGitArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -33,17 +33,54 @@ class ServiceEndpointArtifactoryArgs:
                * either `authentication_token` or `authentication_basic` (one is required)
         :param pulumi.Input[str] description: The Service Endpoint description.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        pulumi.set(__self__, "url", url)
+        ServiceEndpointArtifactoryArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            url=url,
+            authentication_basic=authentication_basic,
+            authentication_token=authentication_token,
+            authorization=authorization,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             authentication_basic: Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationBasicArgs']] = None,
+             authentication_token: Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs']] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if authentication_basic is None and 'authenticationBasic' in kwargs:
+            authentication_basic = kwargs['authenticationBasic']
+        if authentication_token is None and 'authenticationToken' in kwargs:
+            authentication_token = kwargs['authenticationToken']
+
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
+        _setter("url", url)
         if authentication_basic is not None:
-            pulumi.set(__self__, "authentication_basic", authentication_basic)
+            _setter("authentication_basic", authentication_basic)
         if authentication_token is not None:
-            pulumi.set(__self__, "authentication_token", authentication_token)
+            _setter("authentication_token", authentication_token)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="projectId")
@@ -144,20 +181,51 @@ class _ServiceEndpointArtifactoryState:
                _Note: URL should not end in a slash character._
                * either `authentication_token` or `authentication_basic` (one is required)
         """
+        _ServiceEndpointArtifactoryState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authentication_basic=authentication_basic,
+            authentication_token=authentication_token,
+            authorization=authorization,
+            description=description,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authentication_basic: Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationBasicArgs']] = None,
+             authentication_token: Optional[pulumi.Input['ServiceEndpointArtifactoryAuthenticationTokenArgs']] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if authentication_basic is None and 'authenticationBasic' in kwargs:
+            authentication_basic = kwargs['authenticationBasic']
+        if authentication_token is None and 'authenticationToken' in kwargs:
+            authentication_token = kwargs['authenticationToken']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+
         if authentication_basic is not None:
-            pulumi.set(__self__, "authentication_basic", authentication_basic)
+            _setter("authentication_basic", authentication_basic)
         if authentication_token is not None:
-            pulumi.set(__self__, "authentication_token", authentication_token)
+            _setter("authentication_token", authentication_token)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter(name="authenticationBasic")
@@ -391,6 +459,10 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEndpointArtifactoryArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -412,7 +484,17 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ServiceEndpointArtifactoryArgs.__new__(ServiceEndpointArtifactoryArgs)
 
+            if authentication_basic is not None and not isinstance(authentication_basic, ServiceEndpointArtifactoryAuthenticationBasicArgs):
+                authentication_basic = authentication_basic or {}
+                def _setter(key, value):
+                    authentication_basic[key] = value
+                ServiceEndpointArtifactoryAuthenticationBasicArgs._configure(_setter, **authentication_basic)
             __props__.__dict__["authentication_basic"] = authentication_basic
+            if authentication_token is not None and not isinstance(authentication_token, ServiceEndpointArtifactoryAuthenticationTokenArgs):
+                authentication_token = authentication_token or {}
+                def _setter(key, value):
+                    authentication_token[key] = value
+                ServiceEndpointArtifactoryAuthenticationTokenArgs._configure(_setter, **authentication_token)
             __props__.__dict__["authentication_token"] = authentication_token
             __props__.__dict__["authorization"] = authorization
             __props__.__dict__["description"] = description

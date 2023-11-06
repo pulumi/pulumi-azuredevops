@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['RepositoryPolicyAuthorEmailPatternArgs', 'RepositoryPolicyAuthorEmailPattern']
@@ -28,14 +28,43 @@ class RepositoryPolicyAuthorEmailPatternArgs:
         :param pulumi.Input[bool] enabled: A flag indicating if the policy should be enabled. Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
-        pulumi.set(__self__, "author_email_patterns", author_email_patterns)
-        pulumi.set(__self__, "project_id", project_id)
+        RepositoryPolicyAuthorEmailPatternArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            author_email_patterns=author_email_patterns,
+            project_id=project_id,
+            blocking=blocking,
+            enabled=enabled,
+            repository_ids=repository_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             blocking: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if author_email_patterns is None and 'authorEmailPatterns' in kwargs:
+            author_email_patterns = kwargs['authorEmailPatterns']
+        if author_email_patterns is None:
+            raise TypeError("Missing 'author_email_patterns' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if repository_ids is None and 'repositoryIds' in kwargs:
+            repository_ids = kwargs['repositoryIds']
+
+        _setter("author_email_patterns", author_email_patterns)
+        _setter("project_id", project_id)
         if blocking is not None:
-            pulumi.set(__self__, "blocking", blocking)
+            _setter("blocking", blocking)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if repository_ids is not None:
-            pulumi.set(__self__, "repository_ids", repository_ids)
+            _setter("repository_ids", repository_ids)
 
     @property
     @pulumi.getter(name="authorEmailPatterns")
@@ -116,16 +145,41 @@ class _RepositoryPolicyAuthorEmailPatternState:
         :param pulumi.Input[str] project_id: The ID of the project in which the policy will be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] repository_ids: Control whether the policy is enabled for the repository or the project. If `repository_ids` not configured, the policy will be set to the project.
         """
+        _RepositoryPolicyAuthorEmailPatternState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            author_email_patterns=author_email_patterns,
+            blocking=blocking,
+            enabled=enabled,
+            project_id=project_id,
+            repository_ids=repository_ids,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             author_email_patterns: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             blocking: Optional[pulumi.Input[bool]] = None,
+             enabled: Optional[pulumi.Input[bool]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             repository_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if author_email_patterns is None and 'authorEmailPatterns' in kwargs:
+            author_email_patterns = kwargs['authorEmailPatterns']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if repository_ids is None and 'repositoryIds' in kwargs:
+            repository_ids = kwargs['repositoryIds']
+
         if author_email_patterns is not None:
-            pulumi.set(__self__, "author_email_patterns", author_email_patterns)
+            _setter("author_email_patterns", author_email_patterns)
         if blocking is not None:
-            pulumi.set(__self__, "blocking", blocking)
+            _setter("blocking", blocking)
         if enabled is not None:
-            pulumi.set(__self__, "enabled", enabled)
+            _setter("enabled", enabled)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if repository_ids is not None:
-            pulumi.set(__self__, "repository_ids", repository_ids)
+            _setter("repository_ids", repository_ids)
 
     @property
     @pulumi.getter(name="authorEmailPatterns")
@@ -349,6 +403,10 @@ class RepositoryPolicyAuthorEmailPattern(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            RepositoryPolicyAuthorEmailPatternArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

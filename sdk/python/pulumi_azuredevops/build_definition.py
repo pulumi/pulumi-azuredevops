@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -40,26 +40,71 @@ class BuildDefinitionArgs:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]] variables: A list of `variable` blocks, as documented below.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "repository", repository)
+        BuildDefinitionArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            repository=repository,
+            agent_pool_name=agent_pool_name,
+            ci_trigger=ci_trigger,
+            features=features,
+            name=name,
+            path=path,
+            pull_request_trigger=pull_request_trigger,
+            schedules=schedules,
+            variable_groups=variable_groups,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             repository: Optional[pulumi.Input['BuildDefinitionRepositoryArgs']] = None,
+             agent_pool_name: Optional[pulumi.Input[str]] = None,
+             ci_trigger: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']] = None,
+             features: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
+             variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if repository is None:
+            raise TypeError("Missing 'repository' argument")
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if ci_trigger is None and 'ciTrigger' in kwargs:
+            ci_trigger = kwargs['ciTrigger']
+        if pull_request_trigger is None and 'pullRequestTrigger' in kwargs:
+            pull_request_trigger = kwargs['pullRequestTrigger']
+        if variable_groups is None and 'variableGroups' in kwargs:
+            variable_groups = kwargs['variableGroups']
+
+        _setter("project_id", project_id)
+        _setter("repository", repository)
         if agent_pool_name is not None:
-            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+            _setter("agent_pool_name", agent_pool_name)
         if ci_trigger is not None:
-            pulumi.set(__self__, "ci_trigger", ci_trigger)
+            _setter("ci_trigger", ci_trigger)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if pull_request_trigger is not None:
-            pulumi.set(__self__, "pull_request_trigger", pull_request_trigger)
+            _setter("pull_request_trigger", pull_request_trigger)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
         if variable_groups is not None:
-            pulumi.set(__self__, "variable_groups", variable_groups)
+            _setter("variable_groups", variable_groups)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="projectId")
@@ -220,30 +265,73 @@ class _BuildDefinitionState:
         :param pulumi.Input[Sequence[pulumi.Input[int]]] variable_groups: A list of variable group IDs (integers) to link to the build definition.
         :param pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]] variables: A list of `variable` blocks, as documented below.
         """
+        _BuildDefinitionState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            agent_pool_name=agent_pool_name,
+            ci_trigger=ci_trigger,
+            features=features,
+            name=name,
+            path=path,
+            project_id=project_id,
+            pull_request_trigger=pull_request_trigger,
+            repository=repository,
+            revision=revision,
+            schedules=schedules,
+            variable_groups=variable_groups,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             agent_pool_name: Optional[pulumi.Input[str]] = None,
+             ci_trigger: Optional[pulumi.Input['BuildDefinitionCiTriggerArgs']] = None,
+             features: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionFeatureArgs']]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             path: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             pull_request_trigger: Optional[pulumi.Input['BuildDefinitionPullRequestTriggerArgs']] = None,
+             repository: Optional[pulumi.Input['BuildDefinitionRepositoryArgs']] = None,
+             revision: Optional[pulumi.Input[int]] = None,
+             schedules: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionScheduleArgs']]]] = None,
+             variable_groups: Optional[pulumi.Input[Sequence[pulumi.Input[int]]]] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['BuildDefinitionVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if agent_pool_name is None and 'agentPoolName' in kwargs:
+            agent_pool_name = kwargs['agentPoolName']
+        if ci_trigger is None and 'ciTrigger' in kwargs:
+            ci_trigger = kwargs['ciTrigger']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if pull_request_trigger is None and 'pullRequestTrigger' in kwargs:
+            pull_request_trigger = kwargs['pullRequestTrigger']
+        if variable_groups is None and 'variableGroups' in kwargs:
+            variable_groups = kwargs['variableGroups']
+
         if agent_pool_name is not None:
-            pulumi.set(__self__, "agent_pool_name", agent_pool_name)
+            _setter("agent_pool_name", agent_pool_name)
         if ci_trigger is not None:
-            pulumi.set(__self__, "ci_trigger", ci_trigger)
+            _setter("ci_trigger", ci_trigger)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if path is not None:
-            pulumi.set(__self__, "path", path)
+            _setter("path", path)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if pull_request_trigger is not None:
-            pulumi.set(__self__, "pull_request_trigger", pull_request_trigger)
+            _setter("pull_request_trigger", pull_request_trigger)
         if repository is not None:
-            pulumi.set(__self__, "repository", repository)
+            _setter("repository", repository)
         if revision is not None:
-            pulumi.set(__self__, "revision", revision)
+            _setter("revision", revision)
         if schedules is not None:
-            pulumi.set(__self__, "schedules", schedules)
+            _setter("schedules", schedules)
         if variable_groups is not None:
-            pulumi.set(__self__, "variable_groups", variable_groups)
+            _setter("variable_groups", variable_groups)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="agentPoolName")
@@ -725,6 +813,10 @@ class BuildDefinition(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            BuildDefinitionArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -751,6 +843,11 @@ class BuildDefinition(pulumi.CustomResource):
             __props__ = BuildDefinitionArgs.__new__(BuildDefinitionArgs)
 
             __props__.__dict__["agent_pool_name"] = agent_pool_name
+            if ci_trigger is not None and not isinstance(ci_trigger, BuildDefinitionCiTriggerArgs):
+                ci_trigger = ci_trigger or {}
+                def _setter(key, value):
+                    ci_trigger[key] = value
+                BuildDefinitionCiTriggerArgs._configure(_setter, **ci_trigger)
             __props__.__dict__["ci_trigger"] = ci_trigger
             __props__.__dict__["features"] = features
             __props__.__dict__["name"] = name
@@ -758,7 +855,17 @@ class BuildDefinition(pulumi.CustomResource):
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
+            if pull_request_trigger is not None and not isinstance(pull_request_trigger, BuildDefinitionPullRequestTriggerArgs):
+                pull_request_trigger = pull_request_trigger or {}
+                def _setter(key, value):
+                    pull_request_trigger[key] = value
+                BuildDefinitionPullRequestTriggerArgs._configure(_setter, **pull_request_trigger)
             __props__.__dict__["pull_request_trigger"] = pull_request_trigger
+            if repository is not None and not isinstance(repository, BuildDefinitionRepositoryArgs):
+                repository = repository or {}
+                def _setter(key, value):
+                    repository[key] = value
+                BuildDefinitionRepositoryArgs._configure(_setter, **repository)
             if repository is None and not opts.urn:
                 raise TypeError("Missing required property 'repository'")
             __props__.__dict__["repository"] = repository

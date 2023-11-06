@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -50,13 +50,40 @@ class GitInitialization(dict):
         :param str source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param str source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         """
-        pulumi.set(__self__, "init_type", init_type)
+        GitInitialization._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            init_type=init_type,
+            service_connection_id=service_connection_id,
+            source_type=source_type,
+            source_url=source_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             init_type: Optional[str] = None,
+             service_connection_id: Optional[str] = None,
+             source_type: Optional[str] = None,
+             source_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if init_type is None and 'initType' in kwargs:
+            init_type = kwargs['initType']
+        if init_type is None:
+            raise TypeError("Missing 'init_type' argument")
+        if service_connection_id is None and 'serviceConnectionId' in kwargs:
+            service_connection_id = kwargs['serviceConnectionId']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if source_url is None and 'sourceUrl' in kwargs:
+            source_url = kwargs['sourceUrl']
+
+        _setter("init_type", init_type)
         if service_connection_id is not None:
-            pulumi.set(__self__, "service_connection_id", service_connection_id)
+            _setter("service_connection_id", service_connection_id)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if source_url is not None:
-            pulumi.set(__self__, "source_url", source_url)
+            _setter("source_url", source_url)
 
     @property
     @pulumi.getter(name="initType")
@@ -114,15 +141,70 @@ class GetRepositoriesRepositoryResult(dict):
         :param str url: Details REST API endpoint for the Git Repository.
         :param str web_url: Url of the Git repository web view
         """
-        pulumi.set(__self__, "default_branch", default_branch)
-        pulumi.set(__self__, "id", id)
-        pulumi.set(__self__, "name", name)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "remote_url", remote_url)
-        pulumi.set(__self__, "size", size)
-        pulumi.set(__self__, "ssh_url", ssh_url)
-        pulumi.set(__self__, "url", url)
-        pulumi.set(__self__, "web_url", web_url)
+        GetRepositoriesRepositoryResult._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            default_branch=default_branch,
+            id=id,
+            name=name,
+            project_id=project_id,
+            remote_url=remote_url,
+            size=size,
+            ssh_url=ssh_url,
+            url=url,
+            web_url=web_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             default_branch: Optional[str] = None,
+             id: Optional[str] = None,
+             name: Optional[str] = None,
+             project_id: Optional[str] = None,
+             remote_url: Optional[str] = None,
+             size: Optional[int] = None,
+             ssh_url: Optional[str] = None,
+             url: Optional[str] = None,
+             web_url: Optional[str] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if default_branch is None and 'defaultBranch' in kwargs:
+            default_branch = kwargs['defaultBranch']
+        if default_branch is None:
+            raise TypeError("Missing 'default_branch' argument")
+        if id is None:
+            raise TypeError("Missing 'id' argument")
+        if name is None:
+            raise TypeError("Missing 'name' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if remote_url is None and 'remoteUrl' in kwargs:
+            remote_url = kwargs['remoteUrl']
+        if remote_url is None:
+            raise TypeError("Missing 'remote_url' argument")
+        if size is None:
+            raise TypeError("Missing 'size' argument")
+        if ssh_url is None and 'sshUrl' in kwargs:
+            ssh_url = kwargs['sshUrl']
+        if ssh_url is None:
+            raise TypeError("Missing 'ssh_url' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if web_url is None and 'webUrl' in kwargs:
+            web_url = kwargs['webUrl']
+        if web_url is None:
+            raise TypeError("Missing 'web_url' argument")
+
+        _setter("default_branch", default_branch)
+        _setter("id", id)
+        _setter("name", name)
+        _setter("project_id", project_id)
+        _setter("remote_url", remote_url)
+        _setter("size", size)
+        _setter("ssh_url", ssh_url)
+        _setter("url", url)
+        _setter("web_url", web_url)
 
     @property
     @pulumi.getter(name="defaultBranch")

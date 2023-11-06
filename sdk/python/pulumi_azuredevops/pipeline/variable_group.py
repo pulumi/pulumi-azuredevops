@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -31,16 +31,47 @@ class VariableGroupArgs:
         :param pulumi.Input['VariableGroupKeyVaultArgs'] key_vault: A list of `key_vault` blocks as documented below.
         :param pulumi.Input[str] name: The name of the Variable Group.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "variables", variables)
+        VariableGroupArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            variables=variables,
+            allow_access=allow_access,
+            description=description,
+            key_vault=key_vault,
+            name=name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]]] = None,
+             allow_access: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             key_vault: Optional[pulumi.Input['VariableGroupKeyVaultArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if variables is None:
+            raise TypeError("Missing 'variables' argument")
+        if allow_access is None and 'allowAccess' in kwargs:
+            allow_access = kwargs['allowAccess']
+        if key_vault is None and 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+
+        _setter("project_id", project_id)
+        _setter("variables", variables)
         if allow_access is not None:
-            pulumi.set(__self__, "allow_access", allow_access)
+            _setter("allow_access", allow_access)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
 
     @property
     @pulumi.getter(name="projectId")
@@ -133,18 +164,45 @@ class _VariableGroupState:
         :param pulumi.Input[str] project_id: The ID of the project.
         :param pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]] variables: One or more `variable` blocks as documented below.
         """
+        _VariableGroupState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            allow_access=allow_access,
+            description=description,
+            key_vault=key_vault,
+            name=name,
+            project_id=project_id,
+            variables=variables,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             allow_access: Optional[pulumi.Input[bool]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             key_vault: Optional[pulumi.Input['VariableGroupKeyVaultArgs']] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             variables: Optional[pulumi.Input[Sequence[pulumi.Input['VariableGroupVariableArgs']]]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if allow_access is None and 'allowAccess' in kwargs:
+            allow_access = kwargs['allowAccess']
+        if key_vault is None and 'keyVault' in kwargs:
+            key_vault = kwargs['keyVault']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+
         if allow_access is not None:
-            pulumi.set(__self__, "allow_access", allow_access)
+            _setter("allow_access", allow_access)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if key_vault is not None:
-            pulumi.set(__self__, "key_vault", key_vault)
+            _setter("key_vault", key_vault)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if variables is not None:
-            pulumi.set(__self__, "variables", variables)
+            _setter("variables", variables)
 
     @property
     @pulumi.getter(name="allowAccess")
@@ -455,6 +513,10 @@ class VariableGroup(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            VariableGroupArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -478,6 +540,11 @@ class VariableGroup(pulumi.CustomResource):
 
             __props__.__dict__["allow_access"] = allow_access
             __props__.__dict__["description"] = description
+            if key_vault is not None and not isinstance(key_vault, VariableGroupKeyVaultArgs):
+                key_vault = key_vault or {}
+                def _setter(key, value):
+                    key_vault[key] = value
+                VariableGroupKeyVaultArgs._configure(_setter, **key_vault)
             __props__.__dict__["key_vault"] = key_vault
             __props__.__dict__["name"] = name
             if project_id is None and not opts.urn:

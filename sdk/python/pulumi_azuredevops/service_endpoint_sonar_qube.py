@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceEndpointSonarQubeArgs', 'ServiceEndpointSonarQube']
@@ -28,14 +28,47 @@ class ServiceEndpointSonarQubeArgs:
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
         :param pulumi.Input[str] description: The Service Endpoint description.
         """
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        pulumi.set(__self__, "token", token)
-        pulumi.set(__self__, "url", url)
+        ServiceEndpointSonarQubeArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            token=token,
+            url=url,
+            authorization=authorization,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if token is None:
+            raise TypeError("Missing 'token' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
+        _setter("token", token)
+        _setter("url", url)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter(name="projectId")
@@ -124,18 +157,43 @@ class _ServiceEndpointSonarQubeState:
         :param pulumi.Input[str] token: Authentication Token generated through SonarQube (go to My Account > Security > Generate Tokens).
         :param pulumi.Input[str] url: URL of the SonarQube server to connect with.
         """
+        _ServiceEndpointSonarQubeState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            description=description,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            token=token,
+            url=url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             token: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
         if token is not None:
-            pulumi.set(__self__, "token", token)
+            _setter("token", token)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
 
     @property
     @pulumi.getter
@@ -313,6 +371,10 @@ class ServiceEndpointSonarQube(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEndpointSonarQubeArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

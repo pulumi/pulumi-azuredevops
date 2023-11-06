@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
 from ._inputs import *
@@ -48,29 +48,88 @@ class AzureRMArgs:
                
                > **NOTE:** The `WorkloadIdentityFederation` authentication scheme is currently in private preview. Your organisation must be part of the preview and the feature toggle must be turned on to use it. More details can be found [here](https://aka.ms/azdo-rm-workload-identity).
         """
-        pulumi.set(__self__, "azurerm_spn_tenantid", azurerm_spn_tenantid)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        AzureRMArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            azurerm_spn_tenantid=azurerm_spn_tenantid,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            authorization=authorization,
+            azurerm_management_group_id=azurerm_management_group_id,
+            azurerm_management_group_name=azurerm_management_group_name,
+            azurerm_subscription_id=azurerm_subscription_id,
+            azurerm_subscription_name=azurerm_subscription_name,
+            credentials=credentials,
+            description=description,
+            environment=environment,
+            resource_group=resource_group,
+            service_endpoint_authentication_scheme=service_endpoint_authentication_scheme,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             azurerm_management_group_id: Optional[pulumi.Input[str]] = None,
+             azurerm_management_group_name: Optional[pulumi.Input[str]] = None,
+             azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
+             azurerm_subscription_name: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['AzureRMCredentialsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azurerm_spn_tenantid is None and 'azurermSpnTenantid' in kwargs:
+            azurerm_spn_tenantid = kwargs['azurermSpnTenantid']
+        if azurerm_spn_tenantid is None:
+            raise TypeError("Missing 'azurerm_spn_tenantid' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if azurerm_management_group_id is None and 'azurermManagementGroupId' in kwargs:
+            azurerm_management_group_id = kwargs['azurermManagementGroupId']
+        if azurerm_management_group_name is None and 'azurermManagementGroupName' in kwargs:
+            azurerm_management_group_name = kwargs['azurermManagementGroupName']
+        if azurerm_subscription_id is None and 'azurermSubscriptionId' in kwargs:
+            azurerm_subscription_id = kwargs['azurermSubscriptionId']
+        if azurerm_subscription_name is None and 'azurermSubscriptionName' in kwargs:
+            azurerm_subscription_name = kwargs['azurermSubscriptionName']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if service_endpoint_authentication_scheme is None and 'serviceEndpointAuthenticationScheme' in kwargs:
+            service_endpoint_authentication_scheme = kwargs['serviceEndpointAuthenticationScheme']
+
+        _setter("azurerm_spn_tenantid", azurerm_spn_tenantid)
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if azurerm_management_group_id is not None:
-            pulumi.set(__self__, "azurerm_management_group_id", azurerm_management_group_id)
+            _setter("azurerm_management_group_id", azurerm_management_group_id)
         if azurerm_management_group_name is not None:
-            pulumi.set(__self__, "azurerm_management_group_name", azurerm_management_group_name)
+            _setter("azurerm_management_group_name", azurerm_management_group_name)
         if azurerm_subscription_id is not None:
-            pulumi.set(__self__, "azurerm_subscription_id", azurerm_subscription_id)
+            _setter("azurerm_subscription_id", azurerm_subscription_id)
         if azurerm_subscription_name is not None:
-            pulumi.set(__self__, "azurerm_subscription_name", azurerm_subscription_name)
+            _setter("azurerm_subscription_name", azurerm_subscription_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if service_endpoint_authentication_scheme is not None:
-            pulumi.set(__self__, "service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
+            _setter("service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
 
     @property
     @pulumi.getter(name="azurermSpnTenantid")
@@ -271,38 +330,103 @@ class _AzureRMState:
         :param pulumi.Input[str] workload_identity_federation_issuer: The issuer if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `https://vstoken.dev.azure.com/00000000-0000-0000-0000-000000000000`, where the GUID is the Organization ID of your Azure DevOps Organisation.
         :param pulumi.Input[str] workload_identity_federation_subject: The subject if `service_endpoint_authentication_scheme` is set to `WorkloadIdentityFederation`. This looks like `sc://<organisation>/<project>/<service-connection-name>`.
         """
+        _AzureRMState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            azurerm_management_group_id=azurerm_management_group_id,
+            azurerm_management_group_name=azurerm_management_group_name,
+            azurerm_spn_tenantid=azurerm_spn_tenantid,
+            azurerm_subscription_id=azurerm_subscription_id,
+            azurerm_subscription_name=azurerm_subscription_name,
+            credentials=credentials,
+            description=description,
+            environment=environment,
+            project_id=project_id,
+            resource_group=resource_group,
+            service_endpoint_authentication_scheme=service_endpoint_authentication_scheme,
+            service_endpoint_name=service_endpoint_name,
+            service_principal_id=service_principal_id,
+            workload_identity_federation_issuer=workload_identity_federation_issuer,
+            workload_identity_federation_subject=workload_identity_federation_subject,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             azurerm_management_group_id: Optional[pulumi.Input[str]] = None,
+             azurerm_management_group_name: Optional[pulumi.Input[str]] = None,
+             azurerm_spn_tenantid: Optional[pulumi.Input[str]] = None,
+             azurerm_subscription_id: Optional[pulumi.Input[str]] = None,
+             azurerm_subscription_name: Optional[pulumi.Input[str]] = None,
+             credentials: Optional[pulumi.Input['AzureRMCredentialsArgs']] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             environment: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             resource_group: Optional[pulumi.Input[str]] = None,
+             service_endpoint_authentication_scheme: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             service_principal_id: Optional[pulumi.Input[str]] = None,
+             workload_identity_federation_issuer: Optional[pulumi.Input[str]] = None,
+             workload_identity_federation_subject: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if azurerm_management_group_id is None and 'azurermManagementGroupId' in kwargs:
+            azurerm_management_group_id = kwargs['azurermManagementGroupId']
+        if azurerm_management_group_name is None and 'azurermManagementGroupName' in kwargs:
+            azurerm_management_group_name = kwargs['azurermManagementGroupName']
+        if azurerm_spn_tenantid is None and 'azurermSpnTenantid' in kwargs:
+            azurerm_spn_tenantid = kwargs['azurermSpnTenantid']
+        if azurerm_subscription_id is None and 'azurermSubscriptionId' in kwargs:
+            azurerm_subscription_id = kwargs['azurermSubscriptionId']
+        if azurerm_subscription_name is None and 'azurermSubscriptionName' in kwargs:
+            azurerm_subscription_name = kwargs['azurermSubscriptionName']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if resource_group is None and 'resourceGroup' in kwargs:
+            resource_group = kwargs['resourceGroup']
+        if service_endpoint_authentication_scheme is None and 'serviceEndpointAuthenticationScheme' in kwargs:
+            service_endpoint_authentication_scheme = kwargs['serviceEndpointAuthenticationScheme']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_principal_id is None and 'servicePrincipalId' in kwargs:
+            service_principal_id = kwargs['servicePrincipalId']
+        if workload_identity_federation_issuer is None and 'workloadIdentityFederationIssuer' in kwargs:
+            workload_identity_federation_issuer = kwargs['workloadIdentityFederationIssuer']
+        if workload_identity_federation_subject is None and 'workloadIdentityFederationSubject' in kwargs:
+            workload_identity_federation_subject = kwargs['workloadIdentityFederationSubject']
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if azurerm_management_group_id is not None:
-            pulumi.set(__self__, "azurerm_management_group_id", azurerm_management_group_id)
+            _setter("azurerm_management_group_id", azurerm_management_group_id)
         if azurerm_management_group_name is not None:
-            pulumi.set(__self__, "azurerm_management_group_name", azurerm_management_group_name)
+            _setter("azurerm_management_group_name", azurerm_management_group_name)
         if azurerm_spn_tenantid is not None:
-            pulumi.set(__self__, "azurerm_spn_tenantid", azurerm_spn_tenantid)
+            _setter("azurerm_spn_tenantid", azurerm_spn_tenantid)
         if azurerm_subscription_id is not None:
-            pulumi.set(__self__, "azurerm_subscription_id", azurerm_subscription_id)
+            _setter("azurerm_subscription_id", azurerm_subscription_id)
         if azurerm_subscription_name is not None:
-            pulumi.set(__self__, "azurerm_subscription_name", azurerm_subscription_name)
+            _setter("azurerm_subscription_name", azurerm_subscription_name)
         if credentials is not None:
-            pulumi.set(__self__, "credentials", credentials)
+            _setter("credentials", credentials)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if environment is not None:
-            pulumi.set(__self__, "environment", environment)
+            _setter("environment", environment)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if resource_group is not None:
-            pulumi.set(__self__, "resource_group", resource_group)
+            _setter("resource_group", resource_group)
         if service_endpoint_authentication_scheme is not None:
-            pulumi.set(__self__, "service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
+            _setter("service_endpoint_authentication_scheme", service_endpoint_authentication_scheme)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
         if service_principal_id is not None:
-            pulumi.set(__self__, "service_principal_id", service_principal_id)
+            _setter("service_principal_id", service_principal_id)
         if workload_identity_federation_issuer is not None:
-            pulumi.set(__self__, "workload_identity_federation_issuer", workload_identity_federation_issuer)
+            _setter("workload_identity_federation_issuer", workload_identity_federation_issuer)
         if workload_identity_federation_subject is not None:
-            pulumi.set(__self__, "workload_identity_federation_subject", workload_identity_federation_subject)
+            _setter("workload_identity_federation_subject", workload_identity_federation_subject)
 
     @property
     @pulumi.getter
@@ -883,6 +1007,10 @@ class AzureRM(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            AzureRMArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -919,6 +1047,11 @@ class AzureRM(pulumi.CustomResource):
             __props__.__dict__["azurerm_spn_tenantid"] = azurerm_spn_tenantid
             __props__.__dict__["azurerm_subscription_id"] = azurerm_subscription_id
             __props__.__dict__["azurerm_subscription_name"] = azurerm_subscription_name
+            if credentials is not None and not isinstance(credentials, AzureRMCredentialsArgs):
+                credentials = credentials or {}
+                def _setter(key, value):
+                    credentials[key] = value
+                AzureRMCredentialsArgs._configure(_setter, **credentials)
             __props__.__dict__["credentials"] = credentials
             __props__.__dict__["description"] = description
             __props__.__dict__["environment"] = environment

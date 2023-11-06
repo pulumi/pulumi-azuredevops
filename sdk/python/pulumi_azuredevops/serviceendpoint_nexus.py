@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ServiceendpointNexusArgs', 'ServiceendpointNexus']
@@ -29,15 +29,52 @@ class ServiceendpointNexusArgs:
         :param pulumi.Input[str] url: The Service Endpoint url.
         :param pulumi.Input[str] username: The Service Endpoint username to authenticate at the Nexus IQ Instance.
         """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
-        pulumi.set(__self__, "url", url)
-        pulumi.set(__self__, "username", username)
+        ServiceendpointNexusArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            password=password,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            url=url,
+            username=username,
+            authorization=authorization,
+            description=description,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             password: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if password is None:
+            raise TypeError("Missing 'password' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if url is None:
+            raise TypeError("Missing 'url' argument")
+        if username is None:
+            raise TypeError("Missing 'username' argument")
+
+        _setter("password", password)
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
+        _setter("url", url)
+        _setter("username", username)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
 
     @property
     @pulumi.getter
@@ -136,20 +173,47 @@ class _ServiceendpointNexusState:
         :param pulumi.Input[str] url: The Service Endpoint url.
         :param pulumi.Input[str] username: The Service Endpoint username to authenticate at the Nexus IQ Instance.
         """
+        _ServiceendpointNexusState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            authorization=authorization,
+            description=description,
+            password=password,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            url=url,
+            username=username,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             password: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             url: Optional[pulumi.Input[str]] = None,
+             username: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if password is not None:
-            pulumi.set(__self__, "password", password)
+            _setter("password", password)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
         if url is not None:
-            pulumi.set(__self__, "url", url)
+            _setter("url", url)
         if username is not None:
-            pulumi.set(__self__, "username", username)
+            _setter("username", username)
 
     @property
     @pulumi.getter
@@ -331,6 +395,10 @@ class ServiceendpointNexus(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceendpointNexusArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

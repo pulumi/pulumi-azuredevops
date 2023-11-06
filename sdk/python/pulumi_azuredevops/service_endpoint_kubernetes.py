@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 from . import outputs
 from ._inputs import *
@@ -35,20 +35,67 @@ class ServiceEndpointKubernetesArgs:
         :param pulumi.Input['ServiceEndpointKubernetesKubeconfigArgs'] kubeconfig: A `kubeconfig` block defined blow.
         :param pulumi.Input['ServiceEndpointKubernetesServiceAccountArgs'] service_account: A `service_account` block defined blow.
         """
-        pulumi.set(__self__, "apiserver_url", apiserver_url)
-        pulumi.set(__self__, "authorization_type", authorization_type)
-        pulumi.set(__self__, "project_id", project_id)
-        pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+        ServiceEndpointKubernetesArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apiserver_url=apiserver_url,
+            authorization_type=authorization_type,
+            project_id=project_id,
+            service_endpoint_name=service_endpoint_name,
+            authorization=authorization,
+            azure_subscriptions=azure_subscriptions,
+            description=description,
+            kubeconfig=kubeconfig,
+            service_account=service_account,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apiserver_url: Optional[pulumi.Input[str]] = None,
+             authorization_type: Optional[pulumi.Input[str]] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             azure_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointKubernetesAzureSubscriptionArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             kubeconfig: Optional[pulumi.Input['ServiceEndpointKubernetesKubeconfigArgs']] = None,
+             service_account: Optional[pulumi.Input['ServiceEndpointKubernetesServiceAccountArgs']] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if apiserver_url is None and 'apiserverUrl' in kwargs:
+            apiserver_url = kwargs['apiserverUrl']
+        if apiserver_url is None:
+            raise TypeError("Missing 'apiserver_url' argument")
+        if authorization_type is None and 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if authorization_type is None:
+            raise TypeError("Missing 'authorization_type' argument")
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if project_id is None:
+            raise TypeError("Missing 'project_id' argument")
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+        if service_endpoint_name is None:
+            raise TypeError("Missing 'service_endpoint_name' argument")
+        if azure_subscriptions is None and 'azureSubscriptions' in kwargs:
+            azure_subscriptions = kwargs['azureSubscriptions']
+        if service_account is None and 'serviceAccount' in kwargs:
+            service_account = kwargs['serviceAccount']
+
+        _setter("apiserver_url", apiserver_url)
+        _setter("authorization_type", authorization_type)
+        _setter("project_id", project_id)
+        _setter("service_endpoint_name", service_endpoint_name)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if azure_subscriptions is not None:
-            pulumi.set(__self__, "azure_subscriptions", azure_subscriptions)
+            _setter("azure_subscriptions", azure_subscriptions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kubeconfig is not None:
-            pulumi.set(__self__, "kubeconfig", kubeconfig)
+            _setter("kubeconfig", kubeconfig)
         if service_account is not None:
-            pulumi.set(__self__, "service_account", service_account)
+            _setter("service_account", service_account)
 
     @property
     @pulumi.getter(name="apiserverUrl")
@@ -175,24 +222,63 @@ class _ServiceEndpointKubernetesState:
         :param pulumi.Input['ServiceEndpointKubernetesServiceAccountArgs'] service_account: A `service_account` block defined blow.
         :param pulumi.Input[str] service_endpoint_name: The Service Endpoint name.
         """
+        _ServiceEndpointKubernetesState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            apiserver_url=apiserver_url,
+            authorization=authorization,
+            authorization_type=authorization_type,
+            azure_subscriptions=azure_subscriptions,
+            description=description,
+            kubeconfig=kubeconfig,
+            project_id=project_id,
+            service_account=service_account,
+            service_endpoint_name=service_endpoint_name,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             apiserver_url: Optional[pulumi.Input[str]] = None,
+             authorization: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             authorization_type: Optional[pulumi.Input[str]] = None,
+             azure_subscriptions: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceEndpointKubernetesAzureSubscriptionArgs']]]] = None,
+             description: Optional[pulumi.Input[str]] = None,
+             kubeconfig: Optional[pulumi.Input['ServiceEndpointKubernetesKubeconfigArgs']] = None,
+             project_id: Optional[pulumi.Input[str]] = None,
+             service_account: Optional[pulumi.Input['ServiceEndpointKubernetesServiceAccountArgs']] = None,
+             service_endpoint_name: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if apiserver_url is None and 'apiserverUrl' in kwargs:
+            apiserver_url = kwargs['apiserverUrl']
+        if authorization_type is None and 'authorizationType' in kwargs:
+            authorization_type = kwargs['authorizationType']
+        if azure_subscriptions is None and 'azureSubscriptions' in kwargs:
+            azure_subscriptions = kwargs['azureSubscriptions']
+        if project_id is None and 'projectId' in kwargs:
+            project_id = kwargs['projectId']
+        if service_account is None and 'serviceAccount' in kwargs:
+            service_account = kwargs['serviceAccount']
+        if service_endpoint_name is None and 'serviceEndpointName' in kwargs:
+            service_endpoint_name = kwargs['serviceEndpointName']
+
         if apiserver_url is not None:
-            pulumi.set(__self__, "apiserver_url", apiserver_url)
+            _setter("apiserver_url", apiserver_url)
         if authorization is not None:
-            pulumi.set(__self__, "authorization", authorization)
+            _setter("authorization", authorization)
         if authorization_type is not None:
-            pulumi.set(__self__, "authorization_type", authorization_type)
+            _setter("authorization_type", authorization_type)
         if azure_subscriptions is not None:
-            pulumi.set(__self__, "azure_subscriptions", azure_subscriptions)
+            _setter("azure_subscriptions", azure_subscriptions)
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if kubeconfig is not None:
-            pulumi.set(__self__, "kubeconfig", kubeconfig)
+            _setter("kubeconfig", kubeconfig)
         if project_id is not None:
-            pulumi.set(__self__, "project_id", project_id)
+            _setter("project_id", project_id)
         if service_account is not None:
-            pulumi.set(__self__, "service_account", service_account)
+            _setter("service_account", service_account)
         if service_endpoint_name is not None:
-            pulumi.set(__self__, "service_endpoint_name", service_endpoint_name)
+            _setter("service_endpoint_name", service_endpoint_name)
 
     @property
     @pulumi.getter(name="apiserverUrl")
@@ -368,6 +454,10 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ServiceEndpointKubernetesArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
@@ -400,10 +490,20 @@ class ServiceEndpointKubernetes(pulumi.CustomResource):
             __props__.__dict__["authorization_type"] = authorization_type
             __props__.__dict__["azure_subscriptions"] = azure_subscriptions
             __props__.__dict__["description"] = description
+            if kubeconfig is not None and not isinstance(kubeconfig, ServiceEndpointKubernetesKubeconfigArgs):
+                kubeconfig = kubeconfig or {}
+                def _setter(key, value):
+                    kubeconfig[key] = value
+                ServiceEndpointKubernetesKubeconfigArgs._configure(_setter, **kubeconfig)
             __props__.__dict__["kubeconfig"] = kubeconfig
             if project_id is None and not opts.urn:
                 raise TypeError("Missing required property 'project_id'")
             __props__.__dict__["project_id"] = project_id
+            if service_account is not None and not isinstance(service_account, ServiceEndpointKubernetesServiceAccountArgs):
+                service_account = service_account or {}
+                def _setter(key, value):
+                    service_account[key] = value
+                ServiceEndpointKubernetesServiceAccountArgs._configure(_setter, **service_account)
             __props__.__dict__["service_account"] = service_account
             if service_endpoint_name is None and not opts.urn:
                 raise TypeError("Missing required property 'service_endpoint_name'")

@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['ProjectArgs', 'Project']
@@ -35,18 +35,43 @@ class ProjectArgs:
         :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
         :param pulumi.Input[str] work_item_template: Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
+        ProjectArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            features=features,
+            name=name,
+            version_control=version_control,
+            visibility=visibility,
+            work_item_template=work_item_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             version_control: Optional[pulumi.Input[str]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             work_item_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if version_control is None and 'versionControl' in kwargs:
+            version_control = kwargs['versionControl']
+        if work_item_template is None and 'workItemTemplate' in kwargs:
+            work_item_template = kwargs['workItemTemplate']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if version_control is not None:
-            pulumi.set(__self__, "version_control", version_control)
+            _setter("version_control", version_control)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
         if work_item_template is not None:
-            pulumi.set(__self__, "work_item_template", work_item_template)
+            _setter("work_item_template", work_item_template)
 
     @property
     @pulumi.getter
@@ -153,20 +178,49 @@ class _ProjectState:
         :param pulumi.Input[str] visibility: Specifies the visibility of the Project. Valid values: `private` or `public`. Defaults to `private`.
         :param pulumi.Input[str] work_item_template: Specifies the work item template. Valid values: `Agile`, `Basic`, `CMMI`, `Scrum` or a custom, pre-existing one. Defaults to `Agile`. An empty string will use the parent organization default.
         """
+        _ProjectState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            description=description,
+            features=features,
+            name=name,
+            process_template_id=process_template_id,
+            version_control=version_control,
+            visibility=visibility,
+            work_item_template=work_item_template,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             description: Optional[pulumi.Input[str]] = None,
+             features: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+             name: Optional[pulumi.Input[str]] = None,
+             process_template_id: Optional[pulumi.Input[str]] = None,
+             version_control: Optional[pulumi.Input[str]] = None,
+             visibility: Optional[pulumi.Input[str]] = None,
+             work_item_template: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if process_template_id is None and 'processTemplateId' in kwargs:
+            process_template_id = kwargs['processTemplateId']
+        if version_control is None and 'versionControl' in kwargs:
+            version_control = kwargs['versionControl']
+        if work_item_template is None and 'workItemTemplate' in kwargs:
+            work_item_template = kwargs['workItemTemplate']
+
         if description is not None:
-            pulumi.set(__self__, "description", description)
+            _setter("description", description)
         if features is not None:
-            pulumi.set(__self__, "features", features)
+            _setter("features", features)
         if name is not None:
-            pulumi.set(__self__, "name", name)
+            _setter("name", name)
         if process_template_id is not None:
-            pulumi.set(__self__, "process_template_id", process_template_id)
+            _setter("process_template_id", process_template_id)
         if version_control is not None:
-            pulumi.set(__self__, "version_control", version_control)
+            _setter("version_control", version_control)
         if visibility is not None:
-            pulumi.set(__self__, "visibility", visibility)
+            _setter("visibility", visibility)
         if work_item_template is not None:
-            pulumi.set(__self__, "work_item_template", work_item_template)
+            _setter("work_item_template", work_item_template)
 
     @property
     @pulumi.getter
@@ -384,6 +438,10 @@ class Project(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            ProjectArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,

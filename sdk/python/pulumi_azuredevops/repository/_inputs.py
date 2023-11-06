@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
@@ -26,13 +26,40 @@ class GitInitializationArgs:
         :param pulumi.Input[str] source_type: Type of the source repository. Used if the `init_type` is `Import`. Valid values: `Git`.
         :param pulumi.Input[str] source_url: The URL of the source repository. Used if the `init_type` is `Import`.
         """
-        pulumi.set(__self__, "init_type", init_type)
+        GitInitializationArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            init_type=init_type,
+            service_connection_id=service_connection_id,
+            source_type=source_type,
+            source_url=source_url,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             init_type: Optional[pulumi.Input[str]] = None,
+             service_connection_id: Optional[pulumi.Input[str]] = None,
+             source_type: Optional[pulumi.Input[str]] = None,
+             source_url: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if init_type is None and 'initType' in kwargs:
+            init_type = kwargs['initType']
+        if init_type is None:
+            raise TypeError("Missing 'init_type' argument")
+        if service_connection_id is None and 'serviceConnectionId' in kwargs:
+            service_connection_id = kwargs['serviceConnectionId']
+        if source_type is None and 'sourceType' in kwargs:
+            source_type = kwargs['sourceType']
+        if source_url is None and 'sourceUrl' in kwargs:
+            source_url = kwargs['sourceUrl']
+
+        _setter("init_type", init_type)
         if service_connection_id is not None:
-            pulumi.set(__self__, "service_connection_id", service_connection_id)
+            _setter("service_connection_id", service_connection_id)
         if source_type is not None:
-            pulumi.set(__self__, "source_type", source_type)
+            _setter("source_type", source_type)
         if source_url is not None:
-            pulumi.set(__self__, "source_url", source_url)
+            _setter("source_url", source_url)
 
     @property
     @pulumi.getter(name="initType")

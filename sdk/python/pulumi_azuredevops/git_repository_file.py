@@ -6,7 +6,7 @@ import copy
 import warnings
 import pulumi
 import pulumi.runtime
-from typing import Any, Mapping, Optional, Sequence, Union, overload
+from typing import Any, Callable, Mapping, Optional, Sequence, Union, overload
 from . import _utilities
 
 __all__ = ['GitRepositoryFileArgs', 'GitRepositoryFile']
@@ -30,15 +30,48 @@ class GitRepositoryFileArgs:
         :param pulumi.Input[str] commit_message: Commit message when adding or updating the managed file.
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files (defaults to `false`).
         """
-        pulumi.set(__self__, "content", content)
-        pulumi.set(__self__, "file", file)
-        pulumi.set(__self__, "repository_id", repository_id)
+        GitRepositoryFileArgs._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            content=content,
+            file=file,
+            repository_id=repository_id,
+            branch=branch,
+            commit_message=commit_message,
+            overwrite_on_create=overwrite_on_create,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             content: Optional[pulumi.Input[str]] = None,
+             file: Optional[pulumi.Input[str]] = None,
+             repository_id: Optional[pulumi.Input[str]] = None,
+             branch: Optional[pulumi.Input[str]] = None,
+             commit_message: Optional[pulumi.Input[str]] = None,
+             overwrite_on_create: Optional[pulumi.Input[bool]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if content is None:
+            raise TypeError("Missing 'content' argument")
+        if file is None:
+            raise TypeError("Missing 'file' argument")
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+        if repository_id is None:
+            raise TypeError("Missing 'repository_id' argument")
+        if commit_message is None and 'commitMessage' in kwargs:
+            commit_message = kwargs['commitMessage']
+        if overwrite_on_create is None and 'overwriteOnCreate' in kwargs:
+            overwrite_on_create = kwargs['overwriteOnCreate']
+
+        _setter("content", content)
+        _setter("file", file)
+        _setter("repository_id", repository_id)
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if commit_message is not None:
-            pulumi.set(__self__, "commit_message", commit_message)
+            _setter("commit_message", commit_message)
         if overwrite_on_create is not None:
-            pulumi.set(__self__, "overwrite_on_create", overwrite_on_create)
+            _setter("overwrite_on_create", overwrite_on_create)
 
     @property
     @pulumi.getter
@@ -133,18 +166,45 @@ class _GitRepositoryFileState:
         :param pulumi.Input[bool] overwrite_on_create: Enable overwriting existing files (defaults to `false`).
         :param pulumi.Input[str] repository_id: The ID of the Git repository.
         """
+        _GitRepositoryFileState._configure(
+            lambda key, value: pulumi.set(__self__, key, value),
+            branch=branch,
+            commit_message=commit_message,
+            content=content,
+            file=file,
+            overwrite_on_create=overwrite_on_create,
+            repository_id=repository_id,
+        )
+    @staticmethod
+    def _configure(
+             _setter: Callable[[Any, Any], None],
+             branch: Optional[pulumi.Input[str]] = None,
+             commit_message: Optional[pulumi.Input[str]] = None,
+             content: Optional[pulumi.Input[str]] = None,
+             file: Optional[pulumi.Input[str]] = None,
+             overwrite_on_create: Optional[pulumi.Input[bool]] = None,
+             repository_id: Optional[pulumi.Input[str]] = None,
+             opts: Optional[pulumi.ResourceOptions]=None,
+             **kwargs):
+        if commit_message is None and 'commitMessage' in kwargs:
+            commit_message = kwargs['commitMessage']
+        if overwrite_on_create is None and 'overwriteOnCreate' in kwargs:
+            overwrite_on_create = kwargs['overwriteOnCreate']
+        if repository_id is None and 'repositoryId' in kwargs:
+            repository_id = kwargs['repositoryId']
+
         if branch is not None:
-            pulumi.set(__self__, "branch", branch)
+            _setter("branch", branch)
         if commit_message is not None:
-            pulumi.set(__self__, "commit_message", commit_message)
+            _setter("commit_message", commit_message)
         if content is not None:
-            pulumi.set(__self__, "content", content)
+            _setter("content", content)
         if file is not None:
-            pulumi.set(__self__, "file", file)
+            _setter("file", file)
         if overwrite_on_create is not None:
-            pulumi.set(__self__, "overwrite_on_create", overwrite_on_create)
+            _setter("overwrite_on_create", overwrite_on_create)
         if repository_id is not None:
-            pulumi.set(__self__, "repository_id", repository_id)
+            _setter("repository_id", repository_id)
 
     @property
     @pulumi.getter
@@ -346,6 +406,10 @@ class GitRepositoryFile(pulumi.CustomResource):
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
+            kwargs = kwargs or {}
+            def _setter(key, value):
+                kwargs[key] = value
+            GitRepositoryFileArgs._configure(_setter, **kwargs)
             __self__._internal_init(resource_name, *args, **kwargs)
 
     def _internal_init(__self__,
