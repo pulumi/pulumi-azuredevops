@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage files within an Azure DevOps Git repository.
@@ -231,12 +230,6 @@ func (i *GitRepositoryFile) ToGitRepositoryFileOutputWithContext(ctx context.Con
 	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryFileOutput)
 }
 
-func (i *GitRepositoryFile) ToOutput(ctx context.Context) pulumix.Output[*GitRepositoryFile] {
-	return pulumix.Output[*GitRepositoryFile]{
-		OutputState: i.ToGitRepositoryFileOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GitRepositoryFileArrayInput is an input type that accepts GitRepositoryFileArray and GitRepositoryFileArrayOutput values.
 // You can construct a concrete instance of `GitRepositoryFileArrayInput` via:
 //
@@ -260,12 +253,6 @@ func (i GitRepositoryFileArray) ToGitRepositoryFileArrayOutput() GitRepositoryFi
 
 func (i GitRepositoryFileArray) ToGitRepositoryFileArrayOutputWithContext(ctx context.Context) GitRepositoryFileArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryFileArrayOutput)
-}
-
-func (i GitRepositoryFileArray) ToOutput(ctx context.Context) pulumix.Output[[]*GitRepositoryFile] {
-	return pulumix.Output[[]*GitRepositoryFile]{
-		OutputState: i.ToGitRepositoryFileArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GitRepositoryFileMapInput is an input type that accepts GitRepositoryFileMap and GitRepositoryFileMapOutput values.
@@ -293,12 +280,6 @@ func (i GitRepositoryFileMap) ToGitRepositoryFileMapOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryFileMapOutput)
 }
 
-func (i GitRepositoryFileMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GitRepositoryFile] {
-	return pulumix.Output[map[string]*GitRepositoryFile]{
-		OutputState: i.ToGitRepositoryFileMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GitRepositoryFileOutput struct{ *pulumi.OutputState }
 
 func (GitRepositoryFileOutput) ElementType() reflect.Type {
@@ -311,12 +292,6 @@ func (o GitRepositoryFileOutput) ToGitRepositoryFileOutput() GitRepositoryFileOu
 
 func (o GitRepositoryFileOutput) ToGitRepositoryFileOutputWithContext(ctx context.Context) GitRepositoryFileOutput {
 	return o
-}
-
-func (o GitRepositoryFileOutput) ToOutput(ctx context.Context) pulumix.Output[*GitRepositoryFile] {
-	return pulumix.Output[*GitRepositoryFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Git branch (defaults to `refs/heads/master`). The branch must already exist, it will not be created if it
@@ -364,12 +339,6 @@ func (o GitRepositoryFileArrayOutput) ToGitRepositoryFileArrayOutputWithContext(
 	return o
 }
 
-func (o GitRepositoryFileArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GitRepositoryFile] {
-	return pulumix.Output[[]*GitRepositoryFile]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GitRepositoryFileArrayOutput) Index(i pulumi.IntInput) GitRepositoryFileOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GitRepositoryFile {
 		return vs[0].([]*GitRepositoryFile)[vs[1].(int)]
@@ -388,12 +357,6 @@ func (o GitRepositoryFileMapOutput) ToGitRepositoryFileMapOutput() GitRepository
 
 func (o GitRepositoryFileMapOutput) ToGitRepositoryFileMapOutputWithContext(ctx context.Context) GitRepositoryFileMapOutput {
 	return o
-}
-
-func (o GitRepositoryFileMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GitRepositoryFile] {
-	return pulumix.Output[map[string]*GitRepositoryFile]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitRepositoryFileMapOutput) MapIndex(k pulumi.StringInput) GitRepositoryFileOutput {

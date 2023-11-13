@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about the Azure DevOps organization configured for the provider.
@@ -79,12 +78,6 @@ func (o GetClientConfigResultOutput) ToGetClientConfigResultOutput() GetClientCo
 
 func (o GetClientConfigResultOutput) ToGetClientConfigResultOutputWithContext(ctx context.Context) GetClientConfigResultOutput {
 	return o
-}
-
-func (o GetClientConfigResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetClientConfigResult] {
-	return pulumix.Output[GetClientConfigResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

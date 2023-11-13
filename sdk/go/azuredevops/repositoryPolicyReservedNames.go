@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage a reserved names repository policy within Azure DevOps project. Block pushes that introduce files, folders, or branch names that include platform reserved names or incompatible characters.
@@ -231,12 +230,6 @@ func (i *RepositoryPolicyReservedNames) ToRepositoryPolicyReservedNamesOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyReservedNamesOutput)
 }
 
-func (i *RepositoryPolicyReservedNames) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyReservedNames] {
-	return pulumix.Output[*RepositoryPolicyReservedNames]{
-		OutputState: i.ToRepositoryPolicyReservedNamesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryPolicyReservedNamesArrayInput is an input type that accepts RepositoryPolicyReservedNamesArray and RepositoryPolicyReservedNamesArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyReservedNamesArrayInput` via:
 //
@@ -260,12 +253,6 @@ func (i RepositoryPolicyReservedNamesArray) ToRepositoryPolicyReservedNamesArray
 
 func (i RepositoryPolicyReservedNamesArray) ToRepositoryPolicyReservedNamesArrayOutputWithContext(ctx context.Context) RepositoryPolicyReservedNamesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyReservedNamesArrayOutput)
-}
-
-func (i RepositoryPolicyReservedNamesArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyReservedNames] {
-	return pulumix.Output[[]*RepositoryPolicyReservedNames]{
-		OutputState: i.ToRepositoryPolicyReservedNamesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryPolicyReservedNamesMapInput is an input type that accepts RepositoryPolicyReservedNamesMap and RepositoryPolicyReservedNamesMapOutput values.
@@ -293,12 +280,6 @@ func (i RepositoryPolicyReservedNamesMap) ToRepositoryPolicyReservedNamesMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyReservedNamesMapOutput)
 }
 
-func (i RepositoryPolicyReservedNamesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyReservedNames] {
-	return pulumix.Output[map[string]*RepositoryPolicyReservedNames]{
-		OutputState: i.ToRepositoryPolicyReservedNamesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryPolicyReservedNamesOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyReservedNamesOutput) ElementType() reflect.Type {
@@ -311,12 +292,6 @@ func (o RepositoryPolicyReservedNamesOutput) ToRepositoryPolicyReservedNamesOutp
 
 func (o RepositoryPolicyReservedNamesOutput) ToRepositoryPolicyReservedNamesOutputWithContext(ctx context.Context) RepositoryPolicyReservedNamesOutput {
 	return o
-}
-
-func (o RepositoryPolicyReservedNamesOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyReservedNames] {
-	return pulumix.Output[*RepositoryPolicyReservedNames]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -353,12 +328,6 @@ func (o RepositoryPolicyReservedNamesArrayOutput) ToRepositoryPolicyReservedName
 	return o
 }
 
-func (o RepositoryPolicyReservedNamesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyReservedNames] {
-	return pulumix.Output[[]*RepositoryPolicyReservedNames]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryPolicyReservedNamesArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyReservedNamesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicyReservedNames {
 		return vs[0].([]*RepositoryPolicyReservedNames)[vs[1].(int)]
@@ -377,12 +346,6 @@ func (o RepositoryPolicyReservedNamesMapOutput) ToRepositoryPolicyReservedNamesM
 
 func (o RepositoryPolicyReservedNamesMapOutput) ToRepositoryPolicyReservedNamesMapOutputWithContext(ctx context.Context) RepositoryPolicyReservedNamesMapOutput {
 	return o
-}
-
-func (o RepositoryPolicyReservedNamesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyReservedNames] {
-	return pulumix.Output[map[string]*RepositoryPolicyReservedNames]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryPolicyReservedNamesMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyReservedNamesOutput {

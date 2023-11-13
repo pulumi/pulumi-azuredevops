@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a GitHub service endpoint within Azure DevOps.
@@ -265,12 +264,6 @@ func (i *GitHub) ToGitHubOutputWithContext(ctx context.Context) GitHubOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubOutput)
 }
 
-func (i *GitHub) ToOutput(ctx context.Context) pulumix.Output[*GitHub] {
-	return pulumix.Output[*GitHub]{
-		OutputState: i.ToGitHubOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GitHubArrayInput is an input type that accepts GitHubArray and GitHubArrayOutput values.
 // You can construct a concrete instance of `GitHubArrayInput` via:
 //
@@ -294,12 +287,6 @@ func (i GitHubArray) ToGitHubArrayOutput() GitHubArrayOutput {
 
 func (i GitHubArray) ToGitHubArrayOutputWithContext(ctx context.Context) GitHubArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubArrayOutput)
-}
-
-func (i GitHubArray) ToOutput(ctx context.Context) pulumix.Output[[]*GitHub] {
-	return pulumix.Output[[]*GitHub]{
-		OutputState: i.ToGitHubArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GitHubMapInput is an input type that accepts GitHubMap and GitHubMapOutput values.
@@ -327,12 +314,6 @@ func (i GitHubMap) ToGitHubMapOutputWithContext(ctx context.Context) GitHubMapOu
 	return pulumi.ToOutputWithContext(ctx, i).(GitHubMapOutput)
 }
 
-func (i GitHubMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GitHub] {
-	return pulumix.Output[map[string]*GitHub]{
-		OutputState: i.ToGitHubMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GitHubOutput struct{ *pulumi.OutputState }
 
 func (GitHubOutput) ElementType() reflect.Type {
@@ -345,12 +326,6 @@ func (o GitHubOutput) ToGitHubOutput() GitHubOutput {
 
 func (o GitHubOutput) ToGitHubOutputWithContext(ctx context.Context) GitHubOutput {
 	return o
-}
-
-func (o GitHubOutput) ToOutput(ctx context.Context) pulumix.Output[*GitHub] {
-	return pulumix.Output[*GitHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitHubOutput) AuthOauth() GitHubAuthOauthPtrOutput {
@@ -394,12 +369,6 @@ func (o GitHubArrayOutput) ToGitHubArrayOutputWithContext(ctx context.Context) G
 	return o
 }
 
-func (o GitHubArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GitHub] {
-	return pulumix.Output[[]*GitHub]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GitHubArrayOutput) Index(i pulumi.IntInput) GitHubOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GitHub {
 		return vs[0].([]*GitHub)[vs[1].(int)]
@@ -418,12 +387,6 @@ func (o GitHubMapOutput) ToGitHubMapOutput() GitHubMapOutput {
 
 func (o GitHubMapOutput) ToGitHubMapOutputWithContext(ctx context.Context) GitHubMapOutput {
 	return o
-}
-
-func (o GitHubMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GitHub] {
-	return pulumix.Output[map[string]*GitHub]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitHubMapOutput) MapIndex(k pulumi.StringInput) GitHubOutput {

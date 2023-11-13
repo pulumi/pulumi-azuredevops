@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Agent Pool within Azure DevOps.
@@ -110,12 +109,6 @@ func (o LookupPoolResultOutput) ToLookupPoolResultOutput() LookupPoolResultOutpu
 
 func (o LookupPoolResultOutput) ToLookupPoolResultOutputWithContext(ctx context.Context) LookupPoolResultOutput {
 	return o
-}
-
-func (o LookupPoolResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupPoolResult] {
-	return pulumix.Output[LookupPoolResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o LookupPoolResultOutput) AutoProvision() pulumi.BoolOutput {

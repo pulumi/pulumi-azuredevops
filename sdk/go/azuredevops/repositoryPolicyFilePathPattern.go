@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage a file path pattern repository policy within Azure DevOps project.
@@ -250,12 +249,6 @@ func (i *RepositoryPolicyFilePathPattern) ToRepositoryPolicyFilePathPatternOutpu
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternOutput)
 }
 
-func (i *RepositoryPolicyFilePathPattern) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyFilePathPattern] {
-	return pulumix.Output[*RepositoryPolicyFilePathPattern]{
-		OutputState: i.ToRepositoryPolicyFilePathPatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryPolicyFilePathPatternArrayInput is an input type that accepts RepositoryPolicyFilePathPatternArray and RepositoryPolicyFilePathPatternArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyFilePathPatternArrayInput` via:
 //
@@ -279,12 +272,6 @@ func (i RepositoryPolicyFilePathPatternArray) ToRepositoryPolicyFilePathPatternA
 
 func (i RepositoryPolicyFilePathPatternArray) ToRepositoryPolicyFilePathPatternArrayOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternArrayOutput)
-}
-
-func (i RepositoryPolicyFilePathPatternArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyFilePathPattern] {
-	return pulumix.Output[[]*RepositoryPolicyFilePathPattern]{
-		OutputState: i.ToRepositoryPolicyFilePathPatternArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryPolicyFilePathPatternMapInput is an input type that accepts RepositoryPolicyFilePathPatternMap and RepositoryPolicyFilePathPatternMapOutput values.
@@ -312,12 +299,6 @@ func (i RepositoryPolicyFilePathPatternMap) ToRepositoryPolicyFilePathPatternMap
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyFilePathPatternMapOutput)
 }
 
-func (i RepositoryPolicyFilePathPatternMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyFilePathPattern] {
-	return pulumix.Output[map[string]*RepositoryPolicyFilePathPattern]{
-		OutputState: i.ToRepositoryPolicyFilePathPatternMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryPolicyFilePathPatternOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyFilePathPatternOutput) ElementType() reflect.Type {
@@ -330,12 +311,6 @@ func (o RepositoryPolicyFilePathPatternOutput) ToRepositoryPolicyFilePathPattern
 
 func (o RepositoryPolicyFilePathPatternOutput) ToRepositoryPolicyFilePathPatternOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternOutput {
 	return o
-}
-
-func (o RepositoryPolicyFilePathPatternOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyFilePathPattern] {
-	return pulumix.Output[*RepositoryPolicyFilePathPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -377,12 +352,6 @@ func (o RepositoryPolicyFilePathPatternArrayOutput) ToRepositoryPolicyFilePathPa
 	return o
 }
 
-func (o RepositoryPolicyFilePathPatternArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyFilePathPattern] {
-	return pulumix.Output[[]*RepositoryPolicyFilePathPattern]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryPolicyFilePathPatternArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyFilePathPatternOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicyFilePathPattern {
 		return vs[0].([]*RepositoryPolicyFilePathPattern)[vs[1].(int)]
@@ -401,12 +370,6 @@ func (o RepositoryPolicyFilePathPatternMapOutput) ToRepositoryPolicyFilePathPatt
 
 func (o RepositoryPolicyFilePathPatternMapOutput) ToRepositoryPolicyFilePathPatternMapOutputWithContext(ctx context.Context) RepositoryPolicyFilePathPatternMapOutput {
 	return o
-}
-
-func (o RepositoryPolicyFilePathPatternMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyFilePathPattern] {
-	return pulumix.Output[map[string]*RepositoryPolicyFilePathPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryPolicyFilePathPatternMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyFilePathPatternOutput {

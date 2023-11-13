@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing GitHub service Endpoint.
@@ -160,12 +159,6 @@ func (o GetServiceEndpointGithubResultOutput) ToGetServiceEndpointGithubResultOu
 
 func (o GetServiceEndpointGithubResultOutput) ToGetServiceEndpointGithubResultOutputWithContext(ctx context.Context) GetServiceEndpointGithubResultOutput {
 	return o
-}
-
-func (o GetServiceEndpointGithubResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceEndpointGithubResult] {
-	return pulumix.Output[GetServiceEndpointGithubResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Specifies the Authorization Scheme Map.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about existing Agent Pools within Azure DevOps.
@@ -104,12 +103,6 @@ func (o GetPoolsResultOutput) ToGetPoolsResultOutput() GetPoolsResultOutput {
 
 func (o GetPoolsResultOutput) ToGetPoolsResultOutputWithContext(ctx context.Context) GetPoolsResultOutput {
 	return o
-}
-
-func (o GetPoolsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetPoolsResult] {
-	return pulumix.Output[GetPoolsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of existing agent pools in your Azure DevOps Organization with the following details about every agent pool:

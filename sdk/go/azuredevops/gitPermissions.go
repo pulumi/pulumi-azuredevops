@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages permissions for Git repositories.
@@ -550,12 +549,6 @@ func (i *GitPermissions) ToGitPermissionsOutputWithContext(ctx context.Context) 
 	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsOutput)
 }
 
-func (i *GitPermissions) ToOutput(ctx context.Context) pulumix.Output[*GitPermissions] {
-	return pulumix.Output[*GitPermissions]{
-		OutputState: i.ToGitPermissionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GitPermissionsArrayInput is an input type that accepts GitPermissionsArray and GitPermissionsArrayOutput values.
 // You can construct a concrete instance of `GitPermissionsArrayInput` via:
 //
@@ -579,12 +572,6 @@ func (i GitPermissionsArray) ToGitPermissionsArrayOutput() GitPermissionsArrayOu
 
 func (i GitPermissionsArray) ToGitPermissionsArrayOutputWithContext(ctx context.Context) GitPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsArrayOutput)
-}
-
-func (i GitPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*GitPermissions] {
-	return pulumix.Output[[]*GitPermissions]{
-		OutputState: i.ToGitPermissionsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GitPermissionsMapInput is an input type that accepts GitPermissionsMap and GitPermissionsMapOutput values.
@@ -612,12 +599,6 @@ func (i GitPermissionsMap) ToGitPermissionsMapOutputWithContext(ctx context.Cont
 	return pulumi.ToOutputWithContext(ctx, i).(GitPermissionsMapOutput)
 }
 
-func (i GitPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GitPermissions] {
-	return pulumix.Output[map[string]*GitPermissions]{
-		OutputState: i.ToGitPermissionsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GitPermissionsOutput struct{ *pulumi.OutputState }
 
 func (GitPermissionsOutput) ElementType() reflect.Type {
@@ -630,12 +611,6 @@ func (o GitPermissionsOutput) ToGitPermissionsOutput() GitPermissionsOutput {
 
 func (o GitPermissionsOutput) ToGitPermissionsOutputWithContext(ctx context.Context) GitPermissionsOutput {
 	return o
-}
-
-func (o GitPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*GitPermissions] {
-	return pulumix.Output[*GitPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The name of the branch to assign the permissions.
@@ -703,12 +678,6 @@ func (o GitPermissionsArrayOutput) ToGitPermissionsArrayOutputWithContext(ctx co
 	return o
 }
 
-func (o GitPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GitPermissions] {
-	return pulumix.Output[[]*GitPermissions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GitPermissionsArrayOutput) Index(i pulumi.IntInput) GitPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GitPermissions {
 		return vs[0].([]*GitPermissions)[vs[1].(int)]
@@ -727,12 +696,6 @@ func (o GitPermissionsMapOutput) ToGitPermissionsMapOutput() GitPermissionsMapOu
 
 func (o GitPermissionsMapOutput) ToGitPermissionsMapOutputWithContext(ctx context.Context) GitPermissionsMapOutput {
 	return o
-}
-
-func (o GitPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GitPermissions] {
-	return pulumix.Output[map[string]*GitPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitPermissionsMapOutput) MapIndex(k pulumi.StringInput) GitPermissionsOutput {

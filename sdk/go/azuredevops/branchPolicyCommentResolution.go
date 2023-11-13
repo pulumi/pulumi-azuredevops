@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Configure a comment resolution policy for your branch within Azure DevOps project.
@@ -205,12 +204,6 @@ func (i *BranchPolicyCommentResolution) ToBranchPolicyCommentResolutionOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionOutput)
 }
 
-func (i *BranchPolicyCommentResolution) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyCommentResolution] {
-	return pulumix.Output[*BranchPolicyCommentResolution]{
-		OutputState: i.ToBranchPolicyCommentResolutionOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BranchPolicyCommentResolutionArrayInput is an input type that accepts BranchPolicyCommentResolutionArray and BranchPolicyCommentResolutionArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyCommentResolutionArrayInput` via:
 //
@@ -234,12 +227,6 @@ func (i BranchPolicyCommentResolutionArray) ToBranchPolicyCommentResolutionArray
 
 func (i BranchPolicyCommentResolutionArray) ToBranchPolicyCommentResolutionArrayOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionArrayOutput)
-}
-
-func (i BranchPolicyCommentResolutionArray) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyCommentResolution] {
-	return pulumix.Output[[]*BranchPolicyCommentResolution]{
-		OutputState: i.ToBranchPolicyCommentResolutionArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BranchPolicyCommentResolutionMapInput is an input type that accepts BranchPolicyCommentResolutionMap and BranchPolicyCommentResolutionMapOutput values.
@@ -267,12 +254,6 @@ func (i BranchPolicyCommentResolutionMap) ToBranchPolicyCommentResolutionMapOutp
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyCommentResolutionMapOutput)
 }
 
-func (i BranchPolicyCommentResolutionMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyCommentResolution] {
-	return pulumix.Output[map[string]*BranchPolicyCommentResolution]{
-		OutputState: i.ToBranchPolicyCommentResolutionMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchPolicyCommentResolutionOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyCommentResolutionOutput) ElementType() reflect.Type {
@@ -285,12 +266,6 @@ func (o BranchPolicyCommentResolutionOutput) ToBranchPolicyCommentResolutionOutp
 
 func (o BranchPolicyCommentResolutionOutput) ToBranchPolicyCommentResolutionOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionOutput {
 	return o
-}
-
-func (o BranchPolicyCommentResolutionOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyCommentResolution] {
-	return pulumix.Output[*BranchPolicyCommentResolution]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -327,12 +302,6 @@ func (o BranchPolicyCommentResolutionArrayOutput) ToBranchPolicyCommentResolutio
 	return o
 }
 
-func (o BranchPolicyCommentResolutionArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyCommentResolution] {
-	return pulumix.Output[[]*BranchPolicyCommentResolution]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BranchPolicyCommentResolutionArrayOutput) Index(i pulumi.IntInput) BranchPolicyCommentResolutionOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyCommentResolution {
 		return vs[0].([]*BranchPolicyCommentResolution)[vs[1].(int)]
@@ -351,12 +320,6 @@ func (o BranchPolicyCommentResolutionMapOutput) ToBranchPolicyCommentResolutionM
 
 func (o BranchPolicyCommentResolutionMapOutput) ToBranchPolicyCommentResolutionMapOutputWithContext(ctx context.Context) BranchPolicyCommentResolutionMapOutput {
 	return o
-}
-
-func (o BranchPolicyCommentResolutionMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyCommentResolution] {
-	return pulumix.Output[map[string]*BranchPolicyCommentResolution]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchPolicyCommentResolutionMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyCommentResolutionOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Azure Container Registry Service Endpoint.
@@ -138,12 +137,6 @@ func (o GetServiceendpointAzurecrResultOutput) ToGetServiceendpointAzurecrResult
 
 func (o GetServiceendpointAzurecrResultOutput) ToGetServiceendpointAzurecrResultOutputWithContext(ctx context.Context) GetServiceendpointAzurecrResultOutput {
 	return o
-}
-
-func (o GetServiceendpointAzurecrResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetServiceendpointAzurecrResult] {
-	return pulumix.Output[GetServiceendpointAzurecrResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The Object ID of the Service Principal.

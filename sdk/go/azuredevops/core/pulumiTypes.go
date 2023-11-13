@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -63,12 +62,6 @@ func (i GetProjectsProjectArgs) ToGetProjectsProjectOutputWithContext(ctx contex
 	return pulumi.ToOutputWithContext(ctx, i).(GetProjectsProjectOutput)
 }
 
-func (i GetProjectsProjectArgs) ToOutput(ctx context.Context) pulumix.Output[GetProjectsProject] {
-	return pulumix.Output[GetProjectsProject]{
-		OutputState: i.ToGetProjectsProjectOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GetProjectsProjectArrayInput is an input type that accepts GetProjectsProjectArray and GetProjectsProjectArrayOutput values.
 // You can construct a concrete instance of `GetProjectsProjectArrayInput` via:
 //
@@ -94,12 +87,6 @@ func (i GetProjectsProjectArray) ToGetProjectsProjectArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(GetProjectsProjectArrayOutput)
 }
 
-func (i GetProjectsProjectArray) ToOutput(ctx context.Context) pulumix.Output[[]GetProjectsProject] {
-	return pulumix.Output[[]GetProjectsProject]{
-		OutputState: i.ToGetProjectsProjectArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GetProjectsProjectOutput struct{ *pulumi.OutputState }
 
 func (GetProjectsProjectOutput) ElementType() reflect.Type {
@@ -112,12 +99,6 @@ func (o GetProjectsProjectOutput) ToGetProjectsProjectOutput() GetProjectsProjec
 
 func (o GetProjectsProjectOutput) ToGetProjectsProjectOutputWithContext(ctx context.Context) GetProjectsProjectOutput {
 	return o
-}
-
-func (o GetProjectsProjectOutput) ToOutput(ctx context.Context) pulumix.Output[GetProjectsProject] {
-	return pulumix.Output[GetProjectsProject]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Name of the Project, if not specified all projects will be returned.
@@ -154,12 +135,6 @@ func (o GetProjectsProjectArrayOutput) ToGetProjectsProjectArrayOutput() GetProj
 
 func (o GetProjectsProjectArrayOutput) ToGetProjectsProjectArrayOutputWithContext(ctx context.Context) GetProjectsProjectArrayOutput {
 	return o
-}
-
-func (o GetProjectsProjectArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]GetProjectsProject] {
-	return pulumix.Output[[]GetProjectsProject]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GetProjectsProjectArrayOutput) Index(i pulumi.IntInput) GetProjectsProjectOutput {

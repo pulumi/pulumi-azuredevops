@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages Manual or Automatic AzureRM service endpoint within Azure DevOps.
@@ -562,12 +561,6 @@ func (i *ServiceEndpointAzureRM) ToServiceEndpointAzureRMOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMOutput)
 }
 
-func (i *ServiceEndpointAzureRM) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointAzureRM] {
-	return pulumix.Output[*ServiceEndpointAzureRM]{
-		OutputState: i.ToServiceEndpointAzureRMOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceEndpointAzureRMArrayInput is an input type that accepts ServiceEndpointAzureRMArray and ServiceEndpointAzureRMArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointAzureRMArrayInput` via:
 //
@@ -591,12 +584,6 @@ func (i ServiceEndpointAzureRMArray) ToServiceEndpointAzureRMArrayOutput() Servi
 
 func (i ServiceEndpointAzureRMArray) ToServiceEndpointAzureRMArrayOutputWithContext(ctx context.Context) ServiceEndpointAzureRMArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMArrayOutput)
-}
-
-func (i ServiceEndpointAzureRMArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointAzureRM] {
-	return pulumix.Output[[]*ServiceEndpointAzureRM]{
-		OutputState: i.ToServiceEndpointAzureRMArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceEndpointAzureRMMapInput is an input type that accepts ServiceEndpointAzureRMMap and ServiceEndpointAzureRMMapOutput values.
@@ -624,12 +611,6 @@ func (i ServiceEndpointAzureRMMap) ToServiceEndpointAzureRMMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAzureRMMapOutput)
 }
 
-func (i ServiceEndpointAzureRMMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointAzureRM] {
-	return pulumix.Output[map[string]*ServiceEndpointAzureRM]{
-		OutputState: i.ToServiceEndpointAzureRMMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceEndpointAzureRMOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAzureRMOutput) ElementType() reflect.Type {
@@ -642,12 +623,6 @@ func (o ServiceEndpointAzureRMOutput) ToServiceEndpointAzureRMOutput() ServiceEn
 
 func (o ServiceEndpointAzureRMOutput) ToServiceEndpointAzureRMOutputWithContext(ctx context.Context) ServiceEndpointAzureRMOutput {
 	return o
-}
-
-func (o ServiceEndpointAzureRMOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointAzureRM] {
-	return pulumix.Output[*ServiceEndpointAzureRM]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointAzureRMOutput) Authorization() pulumi.StringMapOutput {
@@ -747,12 +722,6 @@ func (o ServiceEndpointAzureRMArrayOutput) ToServiceEndpointAzureRMArrayOutputWi
 	return o
 }
 
-func (o ServiceEndpointAzureRMArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointAzureRM] {
-	return pulumix.Output[[]*ServiceEndpointAzureRM]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEndpointAzureRMArrayOutput) Index(i pulumi.IntInput) ServiceEndpointAzureRMOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointAzureRM {
 		return vs[0].([]*ServiceEndpointAzureRM)[vs[1].(int)]
@@ -771,12 +740,6 @@ func (o ServiceEndpointAzureRMMapOutput) ToServiceEndpointAzureRMMapOutput() Ser
 
 func (o ServiceEndpointAzureRMMapOutput) ToServiceEndpointAzureRMMapOutputWithContext(ctx context.Context) ServiceEndpointAzureRMMapOutput {
 	return o
-}
-
-func (o ServiceEndpointAzureRMMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointAzureRM] {
-	return pulumix.Output[map[string]*ServiceEndpointAzureRM]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointAzureRMMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointAzureRMOutput {
