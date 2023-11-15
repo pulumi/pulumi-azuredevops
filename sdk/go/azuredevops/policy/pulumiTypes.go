@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -71,12 +70,6 @@ func (i BranchPolicyBuildValidationSettingsArgs) ToBranchPolicyBuildValidationSe
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationSettingsOutput)
 }
 
-func (i BranchPolicyBuildValidationSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[BranchPolicyBuildValidationSettings] {
-	return pulumix.Output[BranchPolicyBuildValidationSettings]{
-		OutputState: i.ToBranchPolicyBuildValidationSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BranchPolicyBuildValidationSettingsArgs) ToBranchPolicyBuildValidationSettingsPtrOutput() BranchPolicyBuildValidationSettingsPtrOutput {
 	return i.ToBranchPolicyBuildValidationSettingsPtrOutputWithContext(context.Background())
 }
@@ -118,12 +111,6 @@ func (i *branchPolicyBuildValidationSettingsPtrType) ToBranchPolicyBuildValidati
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationSettingsPtrOutput)
 }
 
-func (i *branchPolicyBuildValidationSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyBuildValidationSettings] {
-	return pulumix.Output[*BranchPolicyBuildValidationSettings]{
-		OutputState: i.ToBranchPolicyBuildValidationSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchPolicyBuildValidationSettingsOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyBuildValidationSettingsOutput) ElementType() reflect.Type {
@@ -146,12 +133,6 @@ func (o BranchPolicyBuildValidationSettingsOutput) ToBranchPolicyBuildValidation
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyBuildValidationSettings) *BranchPolicyBuildValidationSettings {
 		return &v
 	}).(BranchPolicyBuildValidationSettingsPtrOutput)
-}
-
-func (o BranchPolicyBuildValidationSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[BranchPolicyBuildValidationSettings] {
-	return pulumix.Output[BranchPolicyBuildValidationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ID of the build to monitor for the policy.
@@ -203,12 +184,6 @@ func (o BranchPolicyBuildValidationSettingsPtrOutput) ToBranchPolicyBuildValidat
 
 func (o BranchPolicyBuildValidationSettingsPtrOutput) ToBranchPolicyBuildValidationSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyBuildValidationSettingsPtrOutput {
 	return o
-}
-
-func (o BranchPolicyBuildValidationSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyBuildValidationSettings] {
-	return pulumix.Output[*BranchPolicyBuildValidationSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchPolicyBuildValidationSettingsPtrOutput) Elem() BranchPolicyBuildValidationSettingsOutput {
@@ -332,12 +307,6 @@ func (i BranchPolicyBuildValidationSettingsScopeArgs) ToBranchPolicyBuildValidat
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationSettingsScopeOutput)
 }
 
-func (i BranchPolicyBuildValidationSettingsScopeArgs) ToOutput(ctx context.Context) pulumix.Output[BranchPolicyBuildValidationSettingsScope] {
-	return pulumix.Output[BranchPolicyBuildValidationSettingsScope]{
-		OutputState: i.ToBranchPolicyBuildValidationSettingsScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BranchPolicyBuildValidationSettingsScopeArrayInput is an input type that accepts BranchPolicyBuildValidationSettingsScopeArray and BranchPolicyBuildValidationSettingsScopeArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyBuildValidationSettingsScopeArrayInput` via:
 //
@@ -363,12 +332,6 @@ func (i BranchPolicyBuildValidationSettingsScopeArray) ToBranchPolicyBuildValida
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyBuildValidationSettingsScopeArrayOutput)
 }
 
-func (i BranchPolicyBuildValidationSettingsScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]BranchPolicyBuildValidationSettingsScope] {
-	return pulumix.Output[[]BranchPolicyBuildValidationSettingsScope]{
-		OutputState: i.ToBranchPolicyBuildValidationSettingsScopeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchPolicyBuildValidationSettingsScopeOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyBuildValidationSettingsScopeOutput) ElementType() reflect.Type {
@@ -381,12 +344,6 @@ func (o BranchPolicyBuildValidationSettingsScopeOutput) ToBranchPolicyBuildValid
 
 func (o BranchPolicyBuildValidationSettingsScopeOutput) ToBranchPolicyBuildValidationSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyBuildValidationSettingsScopeOutput {
 	return o
-}
-
-func (o BranchPolicyBuildValidationSettingsScopeOutput) ToOutput(ctx context.Context) pulumix.Output[BranchPolicyBuildValidationSettingsScope] {
-	return pulumix.Output[BranchPolicyBuildValidationSettingsScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
@@ -416,12 +373,6 @@ func (o BranchPolicyBuildValidationSettingsScopeArrayOutput) ToBranchPolicyBuild
 
 func (o BranchPolicyBuildValidationSettingsScopeArrayOutput) ToBranchPolicyBuildValidationSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyBuildValidationSettingsScopeArrayOutput {
 	return o
-}
-
-func (o BranchPolicyBuildValidationSettingsScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BranchPolicyBuildValidationSettingsScope] {
-	return pulumix.Output[[]BranchPolicyBuildValidationSettingsScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchPolicyBuildValidationSettingsScopeArrayOutput) Index(i pulumi.IntInput) BranchPolicyBuildValidationSettingsScopeOutput {
@@ -495,12 +446,6 @@ func (i BranchPolicyMinReviewersSettingsArgs) ToBranchPolicyMinReviewersSettings
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersSettingsOutput)
 }
 
-func (i BranchPolicyMinReviewersSettingsArgs) ToOutput(ctx context.Context) pulumix.Output[BranchPolicyMinReviewersSettings] {
-	return pulumix.Output[BranchPolicyMinReviewersSettings]{
-		OutputState: i.ToBranchPolicyMinReviewersSettingsOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BranchPolicyMinReviewersSettingsArgs) ToBranchPolicyMinReviewersSettingsPtrOutput() BranchPolicyMinReviewersSettingsPtrOutput {
 	return i.ToBranchPolicyMinReviewersSettingsPtrOutputWithContext(context.Background())
 }
@@ -542,12 +487,6 @@ func (i *branchPolicyMinReviewersSettingsPtrType) ToBranchPolicyMinReviewersSett
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersSettingsPtrOutput)
 }
 
-func (i *branchPolicyMinReviewersSettingsPtrType) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyMinReviewersSettings] {
-	return pulumix.Output[*BranchPolicyMinReviewersSettings]{
-		OutputState: i.ToBranchPolicyMinReviewersSettingsPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchPolicyMinReviewersSettingsOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyMinReviewersSettingsOutput) ElementType() reflect.Type {
@@ -570,12 +509,6 @@ func (o BranchPolicyMinReviewersSettingsOutput) ToBranchPolicyMinReviewersSettin
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BranchPolicyMinReviewersSettings) *BranchPolicyMinReviewersSettings {
 		return &v
 	}).(BranchPolicyMinReviewersSettingsPtrOutput)
-}
-
-func (o BranchPolicyMinReviewersSettingsOutput) ToOutput(ctx context.Context) pulumix.Output[BranchPolicyMinReviewersSettings] {
-	return pulumix.Output[BranchPolicyMinReviewersSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Allow completion even if some reviewers vote to wait or reject. Defaults to `false`.
@@ -632,12 +565,6 @@ func (o BranchPolicyMinReviewersSettingsPtrOutput) ToBranchPolicyMinReviewersSet
 
 func (o BranchPolicyMinReviewersSettingsPtrOutput) ToBranchPolicyMinReviewersSettingsPtrOutputWithContext(ctx context.Context) BranchPolicyMinReviewersSettingsPtrOutput {
 	return o
-}
-
-func (o BranchPolicyMinReviewersSettingsPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyMinReviewersSettings] {
-	return pulumix.Output[*BranchPolicyMinReviewersSettings]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchPolicyMinReviewersSettingsPtrOutput) Elem() BranchPolicyMinReviewersSettingsOutput {
@@ -773,12 +700,6 @@ func (i BranchPolicyMinReviewersSettingsScopeArgs) ToBranchPolicyMinReviewersSet
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersSettingsScopeOutput)
 }
 
-func (i BranchPolicyMinReviewersSettingsScopeArgs) ToOutput(ctx context.Context) pulumix.Output[BranchPolicyMinReviewersSettingsScope] {
-	return pulumix.Output[BranchPolicyMinReviewersSettingsScope]{
-		OutputState: i.ToBranchPolicyMinReviewersSettingsScopeOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BranchPolicyMinReviewersSettingsScopeArrayInput is an input type that accepts BranchPolicyMinReviewersSettingsScopeArray and BranchPolicyMinReviewersSettingsScopeArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyMinReviewersSettingsScopeArrayInput` via:
 //
@@ -804,12 +725,6 @@ func (i BranchPolicyMinReviewersSettingsScopeArray) ToBranchPolicyMinReviewersSe
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersSettingsScopeArrayOutput)
 }
 
-func (i BranchPolicyMinReviewersSettingsScopeArray) ToOutput(ctx context.Context) pulumix.Output[[]BranchPolicyMinReviewersSettingsScope] {
-	return pulumix.Output[[]BranchPolicyMinReviewersSettingsScope]{
-		OutputState: i.ToBranchPolicyMinReviewersSettingsScopeArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchPolicyMinReviewersSettingsScopeOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyMinReviewersSettingsScopeOutput) ElementType() reflect.Type {
@@ -822,12 +737,6 @@ func (o BranchPolicyMinReviewersSettingsScopeOutput) ToBranchPolicyMinReviewersS
 
 func (o BranchPolicyMinReviewersSettingsScopeOutput) ToBranchPolicyMinReviewersSettingsScopeOutputWithContext(ctx context.Context) BranchPolicyMinReviewersSettingsScopeOutput {
 	return o
-}
-
-func (o BranchPolicyMinReviewersSettingsScopeOutput) ToOutput(ctx context.Context) pulumix.Output[BranchPolicyMinReviewersSettingsScope] {
-	return pulumix.Output[BranchPolicyMinReviewersSettingsScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The match type to use when applying the policy. Supported values are `Exact` (default), `Prefix` or `DefaultBranch`.
@@ -857,12 +766,6 @@ func (o BranchPolicyMinReviewersSettingsScopeArrayOutput) ToBranchPolicyMinRevie
 
 func (o BranchPolicyMinReviewersSettingsScopeArrayOutput) ToBranchPolicyMinReviewersSettingsScopeArrayOutputWithContext(ctx context.Context) BranchPolicyMinReviewersSettingsScopeArrayOutput {
 	return o
-}
-
-func (o BranchPolicyMinReviewersSettingsScopeArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BranchPolicyMinReviewersSettingsScope] {
-	return pulumix.Output[[]BranchPolicyMinReviewersSettingsScope]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchPolicyMinReviewersSettingsScopeArrayOutput) Index(i pulumi.IntInput) BranchPolicyMinReviewersSettingsScopeOutput {

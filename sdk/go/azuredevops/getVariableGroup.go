@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about existing Variable Groups within Azure DevOps.
@@ -125,12 +124,6 @@ func (o LookupVariableGroupResultOutput) ToLookupVariableGroupResultOutput() Loo
 
 func (o LookupVariableGroupResultOutput) ToLookupVariableGroupResultOutputWithContext(ctx context.Context) LookupVariableGroupResultOutput {
 	return o
-}
-
-func (o LookupVariableGroupResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupVariableGroupResult] {
-	return pulumix.Output[LookupVariableGroupResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Boolean that indicate if this Variable Group is shared by all pipelines of this project.

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about a **single** (existing) Git Repository within Azure DevOps.
@@ -129,12 +128,6 @@ func (o GetGitRepositoryResultOutput) ToGetGitRepositoryResultOutput() GetGitRep
 
 func (o GetGitRepositoryResultOutput) ToGetGitRepositoryResultOutputWithContext(ctx context.Context) GetGitRepositoryResultOutput {
 	return o
-}
-
-func (o GetGitRepositoryResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetGitRepositoryResult] {
-	return pulumix.Output[GetGitRepositoryResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ref of the default branch.

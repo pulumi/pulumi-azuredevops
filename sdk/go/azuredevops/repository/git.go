@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // ## Import
@@ -246,12 +245,6 @@ func (i *Git) ToGitOutputWithContext(ctx context.Context) GitOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitOutput)
 }
 
-func (i *Git) ToOutput(ctx context.Context) pulumix.Output[*Git] {
-	return pulumix.Output[*Git]{
-		OutputState: i.ToGitOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GitArrayInput is an input type that accepts GitArray and GitArrayOutput values.
 // You can construct a concrete instance of `GitArrayInput` via:
 //
@@ -275,12 +268,6 @@ func (i GitArray) ToGitArrayOutput() GitArrayOutput {
 
 func (i GitArray) ToGitArrayOutputWithContext(ctx context.Context) GitArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitArrayOutput)
-}
-
-func (i GitArray) ToOutput(ctx context.Context) pulumix.Output[[]*Git] {
-	return pulumix.Output[[]*Git]{
-		OutputState: i.ToGitArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GitMapInput is an input type that accepts GitMap and GitMapOutput values.
@@ -308,12 +295,6 @@ func (i GitMap) ToGitMapOutputWithContext(ctx context.Context) GitMapOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitMapOutput)
 }
 
-func (i GitMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*Git] {
-	return pulumix.Output[map[string]*Git]{
-		OutputState: i.ToGitMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GitOutput struct{ *pulumi.OutputState }
 
 func (GitOutput) ElementType() reflect.Type {
@@ -326,12 +307,6 @@ func (o GitOutput) ToGitOutput() GitOutput {
 
 func (o GitOutput) ToGitOutputWithContext(ctx context.Context) GitOutput {
 	return o
-}
-
-func (o GitOutput) ToOutput(ctx context.Context) pulumix.Output[*Git] {
-	return pulumix.Output[*Git]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The ref of the default branch. Will be used as the branch name for initialized repositories.
@@ -403,12 +378,6 @@ func (o GitArrayOutput) ToGitArrayOutputWithContext(ctx context.Context) GitArra
 	return o
 }
 
-func (o GitArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*Git] {
-	return pulumix.Output[[]*Git]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GitArrayOutput) Index(i pulumi.IntInput) GitOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *Git {
 		return vs[0].([]*Git)[vs[1].(int)]
@@ -427,12 +396,6 @@ func (o GitMapOutput) ToGitMapOutput() GitMapOutput {
 
 func (o GitMapOutput) ToGitMapOutputWithContext(ctx context.Context) GitMapOutput {
 	return o
-}
-
-func (o GitMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*Git] {
-	return pulumix.Output[map[string]*Git]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitMapOutput) MapIndex(k pulumi.StringInput) GitOutput {

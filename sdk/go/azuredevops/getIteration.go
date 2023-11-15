@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Iteration (Sprint) within Azure DevOps.
@@ -136,12 +135,6 @@ func (o GetIterationResultOutput) ToGetIterationResultOutput() GetIterationResul
 
 func (o GetIterationResultOutput) ToGetIterationResultOutputWithContext(ctx context.Context) GetIterationResultOutput {
 	return o
-}
-
-func (o GetIterationResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetIterationResult] {
-	return pulumix.Output[GetIterationResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of `children` blocks as defined below, empty if `hasChildren == false`

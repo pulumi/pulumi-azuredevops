@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Git Repository Branch.
@@ -198,12 +197,6 @@ func (i *GitRepositoryBranch) ToGitRepositoryBranchOutputWithContext(ctx context
 	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryBranchOutput)
 }
 
-func (i *GitRepositoryBranch) ToOutput(ctx context.Context) pulumix.Output[*GitRepositoryBranch] {
-	return pulumix.Output[*GitRepositoryBranch]{
-		OutputState: i.ToGitRepositoryBranchOutputWithContext(ctx).OutputState,
-	}
-}
-
 // GitRepositoryBranchArrayInput is an input type that accepts GitRepositoryBranchArray and GitRepositoryBranchArrayOutput values.
 // You can construct a concrete instance of `GitRepositoryBranchArrayInput` via:
 //
@@ -227,12 +220,6 @@ func (i GitRepositoryBranchArray) ToGitRepositoryBranchArrayOutput() GitReposito
 
 func (i GitRepositoryBranchArray) ToGitRepositoryBranchArrayOutputWithContext(ctx context.Context) GitRepositoryBranchArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryBranchArrayOutput)
-}
-
-func (i GitRepositoryBranchArray) ToOutput(ctx context.Context) pulumix.Output[[]*GitRepositoryBranch] {
-	return pulumix.Output[[]*GitRepositoryBranch]{
-		OutputState: i.ToGitRepositoryBranchArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // GitRepositoryBranchMapInput is an input type that accepts GitRepositoryBranchMap and GitRepositoryBranchMapOutput values.
@@ -260,12 +247,6 @@ func (i GitRepositoryBranchMap) ToGitRepositoryBranchMapOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(GitRepositoryBranchMapOutput)
 }
 
-func (i GitRepositoryBranchMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*GitRepositoryBranch] {
-	return pulumix.Output[map[string]*GitRepositoryBranch]{
-		OutputState: i.ToGitRepositoryBranchMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type GitRepositoryBranchOutput struct{ *pulumi.OutputState }
 
 func (GitRepositoryBranchOutput) ElementType() reflect.Type {
@@ -278,12 +259,6 @@ func (o GitRepositoryBranchOutput) ToGitRepositoryBranchOutput() GitRepositoryBr
 
 func (o GitRepositoryBranchOutput) ToGitRepositoryBranchOutputWithContext(ctx context.Context) GitRepositoryBranchOutput {
 	return o
-}
-
-func (o GitRepositoryBranchOutput) ToOutput(ctx context.Context) pulumix.Output[*GitRepositoryBranch] {
-	return pulumix.Output[*GitRepositoryBranch]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The commit object ID of last commit on the branch.
@@ -330,12 +305,6 @@ func (o GitRepositoryBranchArrayOutput) ToGitRepositoryBranchArrayOutputWithCont
 	return o
 }
 
-func (o GitRepositoryBranchArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*GitRepositoryBranch] {
-	return pulumix.Output[[]*GitRepositoryBranch]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o GitRepositoryBranchArrayOutput) Index(i pulumi.IntInput) GitRepositoryBranchOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *GitRepositoryBranch {
 		return vs[0].([]*GitRepositoryBranch)[vs[1].(int)]
@@ -354,12 +323,6 @@ func (o GitRepositoryBranchMapOutput) ToGitRepositoryBranchMapOutput() GitReposi
 
 func (o GitRepositoryBranchMapOutput) ToGitRepositoryBranchMapOutputWithContext(ctx context.Context) GitRepositoryBranchMapOutput {
 	return o
-}
-
-func (o GitRepositoryBranchMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*GitRepositoryBranch] {
-	return pulumix.Output[map[string]*GitRepositoryBranch]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o GitRepositoryBranchMapOutput) MapIndex(k pulumi.StringInput) GitRepositoryBranchOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a JFrog Artifactory V2 server endpoint within an Azure DevOps organization.
@@ -270,12 +269,6 @@ func (i *ServiceendpointJfrogArtifactoryV2) ToServiceendpointJfrogArtifactoryV2O
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogArtifactoryV2Output)
 }
 
-func (i *ServiceendpointJfrogArtifactoryV2) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointJfrogArtifactoryV2] {
-	return pulumix.Output[*ServiceendpointJfrogArtifactoryV2]{
-		OutputState: i.ToServiceendpointJfrogArtifactoryV2OutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceendpointJfrogArtifactoryV2ArrayInput is an input type that accepts ServiceendpointJfrogArtifactoryV2Array and ServiceendpointJfrogArtifactoryV2ArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointJfrogArtifactoryV2ArrayInput` via:
 //
@@ -299,12 +292,6 @@ func (i ServiceendpointJfrogArtifactoryV2Array) ToServiceendpointJfrogArtifactor
 
 func (i ServiceendpointJfrogArtifactoryV2Array) ToServiceendpointJfrogArtifactoryV2ArrayOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2ArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogArtifactoryV2ArrayOutput)
-}
-
-func (i ServiceendpointJfrogArtifactoryV2Array) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointJfrogArtifactoryV2] {
-	return pulumix.Output[[]*ServiceendpointJfrogArtifactoryV2]{
-		OutputState: i.ToServiceendpointJfrogArtifactoryV2ArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceendpointJfrogArtifactoryV2MapInput is an input type that accepts ServiceendpointJfrogArtifactoryV2Map and ServiceendpointJfrogArtifactoryV2MapOutput values.
@@ -332,12 +319,6 @@ func (i ServiceendpointJfrogArtifactoryV2Map) ToServiceendpointJfrogArtifactoryV
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointJfrogArtifactoryV2MapOutput)
 }
 
-func (i ServiceendpointJfrogArtifactoryV2Map) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointJfrogArtifactoryV2] {
-	return pulumix.Output[map[string]*ServiceendpointJfrogArtifactoryV2]{
-		OutputState: i.ToServiceendpointJfrogArtifactoryV2MapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceendpointJfrogArtifactoryV2Output struct{ *pulumi.OutputState }
 
 func (ServiceendpointJfrogArtifactoryV2Output) ElementType() reflect.Type {
@@ -350,12 +331,6 @@ func (o ServiceendpointJfrogArtifactoryV2Output) ToServiceendpointJfrogArtifacto
 
 func (o ServiceendpointJfrogArtifactoryV2Output) ToServiceendpointJfrogArtifactoryV2OutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2Output {
 	return o
-}
-
-func (o ServiceendpointJfrogArtifactoryV2Output) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointJfrogArtifactoryV2] {
-	return pulumix.Output[*ServiceendpointJfrogArtifactoryV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A `authenticationBasic` block as documented below.
@@ -412,12 +387,6 @@ func (o ServiceendpointJfrogArtifactoryV2ArrayOutput) ToServiceendpointJfrogArti
 	return o
 }
 
-func (o ServiceendpointJfrogArtifactoryV2ArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointJfrogArtifactoryV2] {
-	return pulumix.Output[[]*ServiceendpointJfrogArtifactoryV2]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceendpointJfrogArtifactoryV2ArrayOutput) Index(i pulumi.IntInput) ServiceendpointJfrogArtifactoryV2Output {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceendpointJfrogArtifactoryV2 {
 		return vs[0].([]*ServiceendpointJfrogArtifactoryV2)[vs[1].(int)]
@@ -436,12 +405,6 @@ func (o ServiceendpointJfrogArtifactoryV2MapOutput) ToServiceendpointJfrogArtifa
 
 func (o ServiceendpointJfrogArtifactoryV2MapOutput) ToServiceendpointJfrogArtifactoryV2MapOutputWithContext(ctx context.Context) ServiceendpointJfrogArtifactoryV2MapOutput {
 	return o
-}
-
-func (o ServiceendpointJfrogArtifactoryV2MapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointJfrogArtifactoryV2] {
-	return pulumix.Output[map[string]*ServiceendpointJfrogArtifactoryV2]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceendpointJfrogArtifactoryV2MapOutput) MapIndex(k pulumi.StringInput) ServiceendpointJfrogArtifactoryV2Output {

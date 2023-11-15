@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a ArgoCD service endpoint within Azure DevOps. Using this service endpoint requires you to first install [Argo CD Extension](https://marketplace.visualstudio.com/items?itemName=scb-tomasmortensen.vsix-argocd).
@@ -268,12 +267,6 @@ func (i *ServiceendpointArgocd) ToServiceendpointArgocdOutputWithContext(ctx con
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointArgocdOutput)
 }
 
-func (i *ServiceendpointArgocd) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointArgocd] {
-	return pulumix.Output[*ServiceendpointArgocd]{
-		OutputState: i.ToServiceendpointArgocdOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceendpointArgocdArrayInput is an input type that accepts ServiceendpointArgocdArray and ServiceendpointArgocdArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointArgocdArrayInput` via:
 //
@@ -297,12 +290,6 @@ func (i ServiceendpointArgocdArray) ToServiceendpointArgocdArrayOutput() Service
 
 func (i ServiceendpointArgocdArray) ToServiceendpointArgocdArrayOutputWithContext(ctx context.Context) ServiceendpointArgocdArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointArgocdArrayOutput)
-}
-
-func (i ServiceendpointArgocdArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointArgocd] {
-	return pulumix.Output[[]*ServiceendpointArgocd]{
-		OutputState: i.ToServiceendpointArgocdArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceendpointArgocdMapInput is an input type that accepts ServiceendpointArgocdMap and ServiceendpointArgocdMapOutput values.
@@ -330,12 +317,6 @@ func (i ServiceendpointArgocdMap) ToServiceendpointArgocdMapOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointArgocdMapOutput)
 }
 
-func (i ServiceendpointArgocdMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointArgocd] {
-	return pulumix.Output[map[string]*ServiceendpointArgocd]{
-		OutputState: i.ToServiceendpointArgocdMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceendpointArgocdOutput struct{ *pulumi.OutputState }
 
 func (ServiceendpointArgocdOutput) ElementType() reflect.Type {
@@ -348,12 +329,6 @@ func (o ServiceendpointArgocdOutput) ToServiceendpointArgocdOutput() Serviceendp
 
 func (o ServiceendpointArgocdOutput) ToServiceendpointArgocdOutputWithContext(ctx context.Context) ServiceendpointArgocdOutput {
 	return o
-}
-
-func (o ServiceendpointArgocdOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointArgocd] {
-	return pulumix.Output[*ServiceendpointArgocd]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `authenticationBasic` block for the ArgoCD as documented below.
@@ -410,12 +385,6 @@ func (o ServiceendpointArgocdArrayOutput) ToServiceendpointArgocdArrayOutputWith
 	return o
 }
 
-func (o ServiceendpointArgocdArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointArgocd] {
-	return pulumix.Output[[]*ServiceendpointArgocd]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceendpointArgocdArrayOutput) Index(i pulumi.IntInput) ServiceendpointArgocdOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceendpointArgocd {
 		return vs[0].([]*ServiceendpointArgocd)[vs[1].(int)]
@@ -434,12 +403,6 @@ func (o ServiceendpointArgocdMapOutput) ToServiceendpointArgocdMapOutput() Servi
 
 func (o ServiceendpointArgocdMapOutput) ToServiceendpointArgocdMapOutputWithContext(ctx context.Context) ServiceendpointArgocdMapOutput {
 	return o
-}
-
-func (o ServiceendpointArgocdMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointArgocd] {
-	return pulumix.Output[map[string]*ServiceendpointArgocd]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceendpointArgocdMapOutput) MapIndex(k pulumi.StringInput) ServiceendpointArgocdOutput {

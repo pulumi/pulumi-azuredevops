@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 var _ = internal.GetEnvOrDefault
@@ -49,12 +48,6 @@ func (i BuildDefinitionCiTriggerArgs) ToBuildDefinitionCiTriggerOutput() BuildDe
 
 func (i BuildDefinitionCiTriggerArgs) ToBuildDefinitionCiTriggerOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionCiTriggerOutput)
-}
-
-func (i BuildDefinitionCiTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionCiTrigger] {
-	return pulumix.Output[BuildDefinitionCiTrigger]{
-		OutputState: i.ToBuildDefinitionCiTriggerOutputWithContext(ctx).OutputState,
-	}
 }
 
 func (i BuildDefinitionCiTriggerArgs) ToBuildDefinitionCiTriggerPtrOutput() BuildDefinitionCiTriggerPtrOutput {
@@ -98,12 +91,6 @@ func (i *buildDefinitionCiTriggerPtrType) ToBuildDefinitionCiTriggerPtrOutputWit
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionCiTriggerPtrOutput)
 }
 
-func (i *buildDefinitionCiTriggerPtrType) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionCiTrigger] {
-	return pulumix.Output[*BuildDefinitionCiTrigger]{
-		OutputState: i.ToBuildDefinitionCiTriggerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionCiTriggerOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionCiTriggerOutput) ElementType() reflect.Type {
@@ -128,12 +115,6 @@ func (o BuildDefinitionCiTriggerOutput) ToBuildDefinitionCiTriggerPtrOutputWithC
 	}).(BuildDefinitionCiTriggerPtrOutput)
 }
 
-func (o BuildDefinitionCiTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionCiTrigger] {
-	return pulumix.Output[BuildDefinitionCiTrigger]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Override the azure-pipeline file and use a this configuration for all builds.
 func (o BuildDefinitionCiTriggerOutput) Override() BuildDefinitionCiTriggerOverridePtrOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTrigger) *BuildDefinitionCiTriggerOverride { return v.Override }).(BuildDefinitionCiTriggerOverridePtrOutput)
@@ -156,12 +137,6 @@ func (o BuildDefinitionCiTriggerPtrOutput) ToBuildDefinitionCiTriggerPtrOutput()
 
 func (o BuildDefinitionCiTriggerPtrOutput) ToBuildDefinitionCiTriggerPtrOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerPtrOutput {
 	return o
-}
-
-func (o BuildDefinitionCiTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionCiTrigger] {
-	return pulumix.Output[*BuildDefinitionCiTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionCiTriggerPtrOutput) Elem() BuildDefinitionCiTriggerOutput {
@@ -247,12 +222,6 @@ func (i BuildDefinitionCiTriggerOverrideArgs) ToBuildDefinitionCiTriggerOverride
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionCiTriggerOverrideOutput)
 }
 
-func (i BuildDefinitionCiTriggerOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionCiTriggerOverride] {
-	return pulumix.Output[BuildDefinitionCiTriggerOverride]{
-		OutputState: i.ToBuildDefinitionCiTriggerOverrideOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BuildDefinitionCiTriggerOverrideArgs) ToBuildDefinitionCiTriggerOverridePtrOutput() BuildDefinitionCiTriggerOverridePtrOutput {
 	return i.ToBuildDefinitionCiTriggerOverridePtrOutputWithContext(context.Background())
 }
@@ -294,12 +263,6 @@ func (i *buildDefinitionCiTriggerOverridePtrType) ToBuildDefinitionCiTriggerOver
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionCiTriggerOverridePtrOutput)
 }
 
-func (i *buildDefinitionCiTriggerOverridePtrType) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionCiTriggerOverride] {
-	return pulumix.Output[*BuildDefinitionCiTriggerOverride]{
-		OutputState: i.ToBuildDefinitionCiTriggerOverridePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionCiTriggerOverrideOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionCiTriggerOverrideOutput) ElementType() reflect.Type {
@@ -322,12 +285,6 @@ func (o BuildDefinitionCiTriggerOverrideOutput) ToBuildDefinitionCiTriggerOverri
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionCiTriggerOverride) *BuildDefinitionCiTriggerOverride {
 		return &v
 	}).(BuildDefinitionCiTriggerOverridePtrOutput)
-}
-
-func (o BuildDefinitionCiTriggerOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionCiTriggerOverride] {
-	return pulumix.Output[BuildDefinitionCiTriggerOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 // If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
@@ -376,12 +333,6 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) ToBuildDefinitionCiTriggerOve
 
 func (o BuildDefinitionCiTriggerOverridePtrOutput) ToBuildDefinitionCiTriggerOverridePtrOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerOverridePtrOutput {
 	return o
-}
-
-func (o BuildDefinitionCiTriggerOverridePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionCiTriggerOverride] {
-	return pulumix.Output[*BuildDefinitionCiTriggerOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionCiTriggerOverridePtrOutput) Elem() BuildDefinitionCiTriggerOverrideOutput {
@@ -491,12 +442,6 @@ func (i BuildDefinitionCiTriggerOverrideBranchFilterArgs) ToBuildDefinitionCiTri
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionCiTriggerOverrideBranchFilterOutput)
 }
 
-func (i BuildDefinitionCiTriggerOverrideBranchFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionCiTriggerOverrideBranchFilter] {
-	return pulumix.Output[BuildDefinitionCiTriggerOverrideBranchFilter]{
-		OutputState: i.ToBuildDefinitionCiTriggerOverrideBranchFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BuildDefinitionCiTriggerOverrideBranchFilterArrayInput is an input type that accepts BuildDefinitionCiTriggerOverrideBranchFilterArray and BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerOverrideBranchFilterArrayInput` via:
 //
@@ -522,12 +467,6 @@ func (i BuildDefinitionCiTriggerOverrideBranchFilterArray) ToBuildDefinitionCiTr
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput)
 }
 
-func (i BuildDefinitionCiTriggerOverrideBranchFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionCiTriggerOverrideBranchFilter] {
-	return pulumix.Output[[]BuildDefinitionCiTriggerOverrideBranchFilter]{
-		OutputState: i.ToBuildDefinitionCiTriggerOverrideBranchFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionCiTriggerOverrideBranchFilterOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionCiTriggerOverrideBranchFilterOutput) ElementType() reflect.Type {
@@ -540,12 +479,6 @@ func (o BuildDefinitionCiTriggerOverrideBranchFilterOutput) ToBuildDefinitionCiT
 
 func (o BuildDefinitionCiTriggerOverrideBranchFilterOutput) ToBuildDefinitionCiTriggerOverrideBranchFilterOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerOverrideBranchFilterOutput {
 	return o
-}
-
-func (o BuildDefinitionCiTriggerOverrideBranchFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionCiTriggerOverrideBranchFilter] {
-	return pulumix.Output[BuildDefinitionCiTriggerOverrideBranchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of branch patterns to exclude.
@@ -570,12 +503,6 @@ func (o BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput) ToBuildDefiniti
 
 func (o BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput) ToBuildDefinitionCiTriggerOverrideBranchFilterArrayOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput {
 	return o
-}
-
-func (o BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionCiTriggerOverrideBranchFilter] {
-	return pulumix.Output[[]BuildDefinitionCiTriggerOverrideBranchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput) Index(i pulumi.IntInput) BuildDefinitionCiTriggerOverrideBranchFilterOutput {
@@ -621,12 +548,6 @@ func (i BuildDefinitionCiTriggerOverridePathFilterArgs) ToBuildDefinitionCiTrigg
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionCiTriggerOverridePathFilterOutput)
 }
 
-func (i BuildDefinitionCiTriggerOverridePathFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionCiTriggerOverridePathFilter] {
-	return pulumix.Output[BuildDefinitionCiTriggerOverridePathFilter]{
-		OutputState: i.ToBuildDefinitionCiTriggerOverridePathFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BuildDefinitionCiTriggerOverridePathFilterArrayInput is an input type that accepts BuildDefinitionCiTriggerOverridePathFilterArray and BuildDefinitionCiTriggerOverridePathFilterArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionCiTriggerOverridePathFilterArrayInput` via:
 //
@@ -652,12 +573,6 @@ func (i BuildDefinitionCiTriggerOverridePathFilterArray) ToBuildDefinitionCiTrig
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionCiTriggerOverridePathFilterArrayOutput)
 }
 
-func (i BuildDefinitionCiTriggerOverridePathFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionCiTriggerOverridePathFilter] {
-	return pulumix.Output[[]BuildDefinitionCiTriggerOverridePathFilter]{
-		OutputState: i.ToBuildDefinitionCiTriggerOverridePathFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionCiTriggerOverridePathFilterOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionCiTriggerOverridePathFilterOutput) ElementType() reflect.Type {
@@ -670,12 +585,6 @@ func (o BuildDefinitionCiTriggerOverridePathFilterOutput) ToBuildDefinitionCiTri
 
 func (o BuildDefinitionCiTriggerOverridePathFilterOutput) ToBuildDefinitionCiTriggerOverridePathFilterOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerOverridePathFilterOutput {
 	return o
-}
-
-func (o BuildDefinitionCiTriggerOverridePathFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionCiTriggerOverridePathFilter] {
-	return pulumix.Output[BuildDefinitionCiTriggerOverridePathFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of path patterns to exclude.
@@ -700,12 +609,6 @@ func (o BuildDefinitionCiTriggerOverridePathFilterArrayOutput) ToBuildDefinition
 
 func (o BuildDefinitionCiTriggerOverridePathFilterArrayOutput) ToBuildDefinitionCiTriggerOverridePathFilterArrayOutputWithContext(ctx context.Context) BuildDefinitionCiTriggerOverridePathFilterArrayOutput {
 	return o
-}
-
-func (o BuildDefinitionCiTriggerOverridePathFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionCiTriggerOverridePathFilter] {
-	return pulumix.Output[[]BuildDefinitionCiTriggerOverridePathFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionCiTriggerOverridePathFilterArrayOutput) Index(i pulumi.IntInput) BuildDefinitionCiTriggerOverridePathFilterOutput {
@@ -751,12 +654,6 @@ func (i BuildDefinitionFeatureArgs) ToBuildDefinitionFeatureOutputWithContext(ct
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionFeatureOutput)
 }
 
-func (i BuildDefinitionFeatureArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionFeature] {
-	return pulumix.Output[BuildDefinitionFeature]{
-		OutputState: i.ToBuildDefinitionFeatureOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BuildDefinitionFeatureArrayInput is an input type that accepts BuildDefinitionFeatureArray and BuildDefinitionFeatureArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionFeatureArrayInput` via:
 //
@@ -782,12 +679,6 @@ func (i BuildDefinitionFeatureArray) ToBuildDefinitionFeatureArrayOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionFeatureArrayOutput)
 }
 
-func (i BuildDefinitionFeatureArray) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionFeature] {
-	return pulumix.Output[[]BuildDefinitionFeature]{
-		OutputState: i.ToBuildDefinitionFeatureArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionFeatureOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionFeatureOutput) ElementType() reflect.Type {
@@ -800,12 +691,6 @@ func (o BuildDefinitionFeatureOutput) ToBuildDefinitionFeatureOutput() BuildDefi
 
 func (o BuildDefinitionFeatureOutput) ToBuildDefinitionFeatureOutputWithContext(ctx context.Context) BuildDefinitionFeatureOutput {
 	return o
-}
-
-func (o BuildDefinitionFeatureOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionFeature] {
-	return pulumix.Output[BuildDefinitionFeature]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Trigger the pipeline to run after the creation. Defaults to `true`.
@@ -827,12 +712,6 @@ func (o BuildDefinitionFeatureArrayOutput) ToBuildDefinitionFeatureArrayOutput()
 
 func (o BuildDefinitionFeatureArrayOutput) ToBuildDefinitionFeatureArrayOutputWithContext(ctx context.Context) BuildDefinitionFeatureArrayOutput {
 	return o
-}
-
-func (o BuildDefinitionFeatureArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionFeature] {
-	return pulumix.Output[[]BuildDefinitionFeature]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionFeatureArrayOutput) Index(i pulumi.IntInput) BuildDefinitionFeatureOutput {
@@ -886,12 +765,6 @@ func (i BuildDefinitionPullRequestTriggerArgs) ToBuildDefinitionPullRequestTrigg
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerOutput)
 }
 
-func (i BuildDefinitionPullRequestTriggerArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTrigger] {
-	return pulumix.Output[BuildDefinitionPullRequestTrigger]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BuildDefinitionPullRequestTriggerArgs) ToBuildDefinitionPullRequestTriggerPtrOutput() BuildDefinitionPullRequestTriggerPtrOutput {
 	return i.ToBuildDefinitionPullRequestTriggerPtrOutputWithContext(context.Background())
 }
@@ -933,12 +806,6 @@ func (i *buildDefinitionPullRequestTriggerPtrType) ToBuildDefinitionPullRequestT
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerPtrOutput)
 }
 
-func (i *buildDefinitionPullRequestTriggerPtrType) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionPullRequestTrigger] {
-	return pulumix.Output[*BuildDefinitionPullRequestTrigger]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionPullRequestTriggerOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionPullRequestTriggerOutput) ElementType() reflect.Type {
@@ -961,12 +828,6 @@ func (o BuildDefinitionPullRequestTriggerOutput) ToBuildDefinitionPullRequestTri
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionPullRequestTrigger) *BuildDefinitionPullRequestTrigger {
 		return &v
 	}).(BuildDefinitionPullRequestTriggerPtrOutput)
-}
-
-func (o BuildDefinitionPullRequestTriggerOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTrigger] {
-	return pulumix.Output[BuildDefinitionPullRequestTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionPullRequestTriggerOutput) CommentRequired() pulumi.StringPtrOutput {
@@ -1006,12 +867,6 @@ func (o BuildDefinitionPullRequestTriggerPtrOutput) ToBuildDefinitionPullRequest
 
 func (o BuildDefinitionPullRequestTriggerPtrOutput) ToBuildDefinitionPullRequestTriggerPtrOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerPtrOutput {
 	return o
-}
-
-func (o BuildDefinitionPullRequestTriggerPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionPullRequestTrigger] {
-	return pulumix.Output[*BuildDefinitionPullRequestTrigger]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionPullRequestTriggerPtrOutput) Elem() BuildDefinitionPullRequestTriggerOutput {
@@ -1109,12 +964,6 @@ func (i BuildDefinitionPullRequestTriggerForksArgs) ToBuildDefinitionPullRequest
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerForksOutput)
 }
 
-func (i BuildDefinitionPullRequestTriggerForksArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTriggerForks] {
-	return pulumix.Output[BuildDefinitionPullRequestTriggerForks]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerForksOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BuildDefinitionPullRequestTriggerForksArgs) ToBuildDefinitionPullRequestTriggerForksPtrOutput() BuildDefinitionPullRequestTriggerForksPtrOutput {
 	return i.ToBuildDefinitionPullRequestTriggerForksPtrOutputWithContext(context.Background())
 }
@@ -1156,12 +1005,6 @@ func (i *buildDefinitionPullRequestTriggerForksPtrType) ToBuildDefinitionPullReq
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerForksPtrOutput)
 }
 
-func (i *buildDefinitionPullRequestTriggerForksPtrType) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionPullRequestTriggerForks] {
-	return pulumix.Output[*BuildDefinitionPullRequestTriggerForks]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerForksPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionPullRequestTriggerForksOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionPullRequestTriggerForksOutput) ElementType() reflect.Type {
@@ -1186,12 +1029,6 @@ func (o BuildDefinitionPullRequestTriggerForksOutput) ToBuildDefinitionPullReque
 	}).(BuildDefinitionPullRequestTriggerForksPtrOutput)
 }
 
-func (o BuildDefinitionPullRequestTriggerForksOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTriggerForks] {
-	return pulumix.Output[BuildDefinitionPullRequestTriggerForks]{
-		OutputState: o.OutputState,
-	}
-}
-
 // Build pull requests from forks of this repository.
 func (o BuildDefinitionPullRequestTriggerForksOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerForks) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -1214,12 +1051,6 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) ToBuildDefinitionPullRe
 
 func (o BuildDefinitionPullRequestTriggerForksPtrOutput) ToBuildDefinitionPullRequestTriggerForksPtrOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerForksPtrOutput {
 	return o
-}
-
-func (o BuildDefinitionPullRequestTriggerForksPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionPullRequestTriggerForks] {
-	return pulumix.Output[*BuildDefinitionPullRequestTriggerForks]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionPullRequestTriggerForksPtrOutput) Elem() BuildDefinitionPullRequestTriggerForksOutput {
@@ -1293,12 +1124,6 @@ func (i BuildDefinitionPullRequestTriggerOverrideArgs) ToBuildDefinitionPullRequ
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerOverrideOutput)
 }
 
-func (i BuildDefinitionPullRequestTriggerOverrideArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTriggerOverride] {
-	return pulumix.Output[BuildDefinitionPullRequestTriggerOverride]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerOverrideOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BuildDefinitionPullRequestTriggerOverrideArgs) ToBuildDefinitionPullRequestTriggerOverridePtrOutput() BuildDefinitionPullRequestTriggerOverridePtrOutput {
 	return i.ToBuildDefinitionPullRequestTriggerOverridePtrOutputWithContext(context.Background())
 }
@@ -1340,12 +1165,6 @@ func (i *buildDefinitionPullRequestTriggerOverridePtrType) ToBuildDefinitionPull
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerOverridePtrOutput)
 }
 
-func (i *buildDefinitionPullRequestTriggerOverridePtrType) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionPullRequestTriggerOverride] {
-	return pulumix.Output[*BuildDefinitionPullRequestTriggerOverride]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerOverridePtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionPullRequestTriggerOverrideOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionPullRequestTriggerOverrideOutput) ElementType() reflect.Type {
@@ -1368,12 +1187,6 @@ func (o BuildDefinitionPullRequestTriggerOverrideOutput) ToBuildDefinitionPullRe
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionPullRequestTriggerOverride) *BuildDefinitionPullRequestTriggerOverride {
 		return &v
 	}).(BuildDefinitionPullRequestTriggerOverridePtrOutput)
-}
-
-func (o BuildDefinitionPullRequestTriggerOverrideOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTriggerOverride] {
-	return pulumix.Output[BuildDefinitionPullRequestTriggerOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 // . Defaults to `true`.
@@ -1407,12 +1220,6 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) ToBuildDefinitionPul
 
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) ToBuildDefinitionPullRequestTriggerOverridePtrOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerOverridePtrOutput {
 	return o
-}
-
-func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionPullRequestTriggerOverride] {
-	return pulumix.Output[*BuildDefinitionPullRequestTriggerOverride]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) Elem() BuildDefinitionPullRequestTriggerOverrideOutput {
@@ -1492,12 +1299,6 @@ func (i BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs) ToBuildDefini
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput)
 }
 
-func (i BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTriggerOverrideBranchFilter] {
-	return pulumix.Output[BuildDefinitionPullRequestTriggerOverrideBranchFilter]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerOverrideBranchFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput is an input type that accepts BuildDefinitionPullRequestTriggerOverrideBranchFilterArray and BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput` via:
 //
@@ -1523,12 +1324,6 @@ func (i BuildDefinitionPullRequestTriggerOverrideBranchFilterArray) ToBuildDefin
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput)
 }
 
-func (i BuildDefinitionPullRequestTriggerOverrideBranchFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionPullRequestTriggerOverrideBranchFilter] {
-	return pulumix.Output[[]BuildDefinitionPullRequestTriggerOverrideBranchFilter]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) ElementType() reflect.Type {
@@ -1541,12 +1336,6 @@ func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) ToBuildDefi
 
 func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) ToBuildDefinitionPullRequestTriggerOverrideBranchFilterOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput {
 	return o
-}
-
-func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTriggerOverrideBranchFilter] {
-	return pulumix.Output[BuildDefinitionPullRequestTriggerOverrideBranchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of branch patterns to exclude.
@@ -1571,12 +1360,6 @@ func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput) ToBuil
 
 func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput) ToBuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput {
 	return o
-}
-
-func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionPullRequestTriggerOverrideBranchFilter] {
-	return pulumix.Output[[]BuildDefinitionPullRequestTriggerOverrideBranchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput) Index(i pulumi.IntInput) BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput {
@@ -1622,12 +1405,6 @@ func (i BuildDefinitionPullRequestTriggerOverridePathFilterArgs) ToBuildDefiniti
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerOverridePathFilterOutput)
 }
 
-func (i BuildDefinitionPullRequestTriggerOverridePathFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTriggerOverridePathFilter] {
-	return pulumix.Output[BuildDefinitionPullRequestTriggerOverridePathFilter]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerOverridePathFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput is an input type that accepts BuildDefinitionPullRequestTriggerOverridePathFilterArray and BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput` via:
 //
@@ -1653,12 +1430,6 @@ func (i BuildDefinitionPullRequestTriggerOverridePathFilterArray) ToBuildDefinit
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput)
 }
 
-func (i BuildDefinitionPullRequestTriggerOverridePathFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionPullRequestTriggerOverridePathFilter] {
-	return pulumix.Output[[]BuildDefinitionPullRequestTriggerOverridePathFilter]{
-		OutputState: i.ToBuildDefinitionPullRequestTriggerOverridePathFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionPullRequestTriggerOverridePathFilterOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionPullRequestTriggerOverridePathFilterOutput) ElementType() reflect.Type {
@@ -1671,12 +1442,6 @@ func (o BuildDefinitionPullRequestTriggerOverridePathFilterOutput) ToBuildDefini
 
 func (o BuildDefinitionPullRequestTriggerOverridePathFilterOutput) ToBuildDefinitionPullRequestTriggerOverridePathFilterOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerOverridePathFilterOutput {
 	return o
-}
-
-func (o BuildDefinitionPullRequestTriggerOverridePathFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionPullRequestTriggerOverridePathFilter] {
-	return pulumix.Output[BuildDefinitionPullRequestTriggerOverridePathFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of path patterns to exclude.
@@ -1701,12 +1466,6 @@ func (o BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput) ToBuildD
 
 func (o BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput) ToBuildDefinitionPullRequestTriggerOverridePathFilterArrayOutputWithContext(ctx context.Context) BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput {
 	return o
-}
-
-func (o BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionPullRequestTriggerOverridePathFilter] {
-	return pulumix.Output[[]BuildDefinitionPullRequestTriggerOverridePathFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput) Index(i pulumi.IntInput) BuildDefinitionPullRequestTriggerOverridePathFilterOutput {
@@ -1772,12 +1531,6 @@ func (i BuildDefinitionRepositoryArgs) ToBuildDefinitionRepositoryOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionRepositoryOutput)
 }
 
-func (i BuildDefinitionRepositoryArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionRepository] {
-	return pulumix.Output[BuildDefinitionRepository]{
-		OutputState: i.ToBuildDefinitionRepositoryOutputWithContext(ctx).OutputState,
-	}
-}
-
 func (i BuildDefinitionRepositoryArgs) ToBuildDefinitionRepositoryPtrOutput() BuildDefinitionRepositoryPtrOutput {
 	return i.ToBuildDefinitionRepositoryPtrOutputWithContext(context.Background())
 }
@@ -1819,12 +1572,6 @@ func (i *buildDefinitionRepositoryPtrType) ToBuildDefinitionRepositoryPtrOutputW
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionRepositoryPtrOutput)
 }
 
-func (i *buildDefinitionRepositoryPtrType) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionRepository] {
-	return pulumix.Output[*BuildDefinitionRepository]{
-		OutputState: i.ToBuildDefinitionRepositoryPtrOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionRepositoryOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionRepositoryOutput) ElementType() reflect.Type {
@@ -1847,12 +1594,6 @@ func (o BuildDefinitionRepositoryOutput) ToBuildDefinitionRepositoryPtrOutputWit
 	return o.ApplyTWithContext(ctx, func(_ context.Context, v BuildDefinitionRepository) *BuildDefinitionRepository {
 		return &v
 	}).(BuildDefinitionRepositoryPtrOutput)
-}
-
-func (o BuildDefinitionRepositoryOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionRepository] {
-	return pulumix.Output[BuildDefinitionRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The branch name for which builds are triggered. Defaults to `master`.
@@ -1902,12 +1643,6 @@ func (o BuildDefinitionRepositoryPtrOutput) ToBuildDefinitionRepositoryPtrOutput
 
 func (o BuildDefinitionRepositoryPtrOutput) ToBuildDefinitionRepositoryPtrOutputWithContext(ctx context.Context) BuildDefinitionRepositoryPtrOutput {
 	return o
-}
-
-func (o BuildDefinitionRepositoryPtrOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionRepository] {
-	return pulumix.Output[*BuildDefinitionRepository]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionRepositoryPtrOutput) Elem() BuildDefinitionRepositoryOutput {
@@ -2329,12 +2064,6 @@ func (i BuildDefinitionScheduleArgs) ToBuildDefinitionScheduleOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionScheduleOutput)
 }
 
-func (i BuildDefinitionScheduleArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionSchedule] {
-	return pulumix.Output[BuildDefinitionSchedule]{
-		OutputState: i.ToBuildDefinitionScheduleOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BuildDefinitionScheduleArrayInput is an input type that accepts BuildDefinitionScheduleArray and BuildDefinitionScheduleArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionScheduleArrayInput` via:
 //
@@ -2360,12 +2089,6 @@ func (i BuildDefinitionScheduleArray) ToBuildDefinitionScheduleArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionScheduleArrayOutput)
 }
 
-func (i BuildDefinitionScheduleArray) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionSchedule] {
-	return pulumix.Output[[]BuildDefinitionSchedule]{
-		OutputState: i.ToBuildDefinitionScheduleArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionScheduleOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionScheduleOutput) ElementType() reflect.Type {
@@ -2378,12 +2101,6 @@ func (o BuildDefinitionScheduleOutput) ToBuildDefinitionScheduleOutput() BuildDe
 
 func (o BuildDefinitionScheduleOutput) ToBuildDefinitionScheduleOutputWithContext(ctx context.Context) BuildDefinitionScheduleOutput {
 	return o
-}
-
-func (o BuildDefinitionScheduleOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionSchedule] {
-	return pulumix.Output[BuildDefinitionSchedule]{
-		OutputState: o.OutputState,
-	}
 }
 
 // block supports the following:
@@ -2576,12 +2293,6 @@ func (o BuildDefinitionScheduleArrayOutput) ToBuildDefinitionScheduleArrayOutput
 	return o
 }
 
-func (o BuildDefinitionScheduleArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionSchedule] {
-	return pulumix.Output[[]BuildDefinitionSchedule]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BuildDefinitionScheduleArrayOutput) Index(i pulumi.IntInput) BuildDefinitionScheduleOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BuildDefinitionSchedule {
 		return vs[0].([]BuildDefinitionSchedule)[vs[1].(int)]
@@ -2625,12 +2336,6 @@ func (i BuildDefinitionScheduleBranchFilterArgs) ToBuildDefinitionScheduleBranch
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionScheduleBranchFilterOutput)
 }
 
-func (i BuildDefinitionScheduleBranchFilterArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionScheduleBranchFilter] {
-	return pulumix.Output[BuildDefinitionScheduleBranchFilter]{
-		OutputState: i.ToBuildDefinitionScheduleBranchFilterOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BuildDefinitionScheduleBranchFilterArrayInput is an input type that accepts BuildDefinitionScheduleBranchFilterArray and BuildDefinitionScheduleBranchFilterArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionScheduleBranchFilterArrayInput` via:
 //
@@ -2656,12 +2361,6 @@ func (i BuildDefinitionScheduleBranchFilterArray) ToBuildDefinitionScheduleBranc
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionScheduleBranchFilterArrayOutput)
 }
 
-func (i BuildDefinitionScheduleBranchFilterArray) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionScheduleBranchFilter] {
-	return pulumix.Output[[]BuildDefinitionScheduleBranchFilter]{
-		OutputState: i.ToBuildDefinitionScheduleBranchFilterArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionScheduleBranchFilterOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionScheduleBranchFilterOutput) ElementType() reflect.Type {
@@ -2674,12 +2373,6 @@ func (o BuildDefinitionScheduleBranchFilterOutput) ToBuildDefinitionScheduleBran
 
 func (o BuildDefinitionScheduleBranchFilterOutput) ToBuildDefinitionScheduleBranchFilterOutputWithContext(ctx context.Context) BuildDefinitionScheduleBranchFilterOutput {
 	return o
-}
-
-func (o BuildDefinitionScheduleBranchFilterOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionScheduleBranchFilter] {
-	return pulumix.Output[BuildDefinitionScheduleBranchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 // List of branch patterns to exclude.
@@ -2704,12 +2397,6 @@ func (o BuildDefinitionScheduleBranchFilterArrayOutput) ToBuildDefinitionSchedul
 
 func (o BuildDefinitionScheduleBranchFilterArrayOutput) ToBuildDefinitionScheduleBranchFilterArrayOutputWithContext(ctx context.Context) BuildDefinitionScheduleBranchFilterArrayOutput {
 	return o
-}
-
-func (o BuildDefinitionScheduleBranchFilterArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionScheduleBranchFilter] {
-	return pulumix.Output[[]BuildDefinitionScheduleBranchFilter]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionScheduleBranchFilterArrayOutput) Index(i pulumi.IntInput) BuildDefinitionScheduleBranchFilterOutput {
@@ -2767,12 +2454,6 @@ func (i BuildDefinitionVariableArgs) ToBuildDefinitionVariableOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionVariableOutput)
 }
 
-func (i BuildDefinitionVariableArgs) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionVariable] {
-	return pulumix.Output[BuildDefinitionVariable]{
-		OutputState: i.ToBuildDefinitionVariableOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BuildDefinitionVariableArrayInput is an input type that accepts BuildDefinitionVariableArray and BuildDefinitionVariableArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionVariableArrayInput` via:
 //
@@ -2798,12 +2479,6 @@ func (i BuildDefinitionVariableArray) ToBuildDefinitionVariableArrayOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionVariableArrayOutput)
 }
 
-func (i BuildDefinitionVariableArray) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionVariable] {
-	return pulumix.Output[[]BuildDefinitionVariable]{
-		OutputState: i.ToBuildDefinitionVariableArrayOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionVariableOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionVariableOutput) ElementType() reflect.Type {
@@ -2816,12 +2491,6 @@ func (o BuildDefinitionVariableOutput) ToBuildDefinitionVariableOutput() BuildDe
 
 func (o BuildDefinitionVariableOutput) ToBuildDefinitionVariableOutputWithContext(ctx context.Context) BuildDefinitionVariableOutput {
 	return o
-}
-
-func (o BuildDefinitionVariableOutput) ToOutput(ctx context.Context) pulumix.Output[BuildDefinitionVariable] {
-	return pulumix.Output[BuildDefinitionVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 // True if the variable can be overridden. Defaults to `true`.
@@ -2861,12 +2530,6 @@ func (o BuildDefinitionVariableArrayOutput) ToBuildDefinitionVariableArrayOutput
 
 func (o BuildDefinitionVariableArrayOutput) ToBuildDefinitionVariableArrayOutputWithContext(ctx context.Context) BuildDefinitionVariableArrayOutput {
 	return o
-}
-
-func (o BuildDefinitionVariableArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]BuildDefinitionVariable] {
-	return pulumix.Output[[]BuildDefinitionVariable]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionVariableArrayOutput) Index(i pulumi.IntInput) BuildDefinitionVariableOutput {

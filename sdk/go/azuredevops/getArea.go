@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Area (Component) within Azure DevOps.
@@ -133,12 +132,6 @@ func (o GetAreaResultOutput) ToGetAreaResultOutput() GetAreaResultOutput {
 
 func (o GetAreaResultOutput) ToGetAreaResultOutputWithContext(ctx context.Context) GetAreaResultOutput {
 	return o
-}
-
-func (o GetAreaResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAreaResult] {
-	return pulumix.Output[GetAreaResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A list of `children` blocks as defined below, empty if `hasChildren == false`

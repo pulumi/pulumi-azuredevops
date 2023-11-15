@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Agent Queue within Azure DevOps.
@@ -123,12 +122,6 @@ func (o GetAgentQueueResultOutput) ToGetAgentQueueResultOutput() GetAgentQueueRe
 
 func (o GetAgentQueueResultOutput) ToGetAgentQueueResultOutputWithContext(ctx context.Context) GetAgentQueueResultOutput {
 	return o
-}
-
-func (o GetAgentQueueResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetAgentQueueResult] {
-	return pulumix.Output[GetAgentQueueResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Agent pool identifier to which the agent queue belongs.

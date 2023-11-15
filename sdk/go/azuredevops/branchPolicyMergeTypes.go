@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Branch policy for merge types allowed on a specified branch.
@@ -209,12 +208,6 @@ func (i *BranchPolicyMergeTypes) ToBranchPolicyMergeTypesOutputWithContext(ctx c
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMergeTypesOutput)
 }
 
-func (i *BranchPolicyMergeTypes) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyMergeTypes] {
-	return pulumix.Output[*BranchPolicyMergeTypes]{
-		OutputState: i.ToBranchPolicyMergeTypesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BranchPolicyMergeTypesArrayInput is an input type that accepts BranchPolicyMergeTypesArray and BranchPolicyMergeTypesArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyMergeTypesArrayInput` via:
 //
@@ -238,12 +231,6 @@ func (i BranchPolicyMergeTypesArray) ToBranchPolicyMergeTypesArrayOutput() Branc
 
 func (i BranchPolicyMergeTypesArray) ToBranchPolicyMergeTypesArrayOutputWithContext(ctx context.Context) BranchPolicyMergeTypesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMergeTypesArrayOutput)
-}
-
-func (i BranchPolicyMergeTypesArray) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyMergeTypes] {
-	return pulumix.Output[[]*BranchPolicyMergeTypes]{
-		OutputState: i.ToBranchPolicyMergeTypesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BranchPolicyMergeTypesMapInput is an input type that accepts BranchPolicyMergeTypesMap and BranchPolicyMergeTypesMapOutput values.
@@ -271,12 +258,6 @@ func (i BranchPolicyMergeTypesMap) ToBranchPolicyMergeTypesMapOutputWithContext(
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMergeTypesMapOutput)
 }
 
-func (i BranchPolicyMergeTypesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyMergeTypes] {
-	return pulumix.Output[map[string]*BranchPolicyMergeTypes]{
-		OutputState: i.ToBranchPolicyMergeTypesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchPolicyMergeTypesOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyMergeTypesOutput) ElementType() reflect.Type {
@@ -289,12 +270,6 @@ func (o BranchPolicyMergeTypesOutput) ToBranchPolicyMergeTypesOutput() BranchPol
 
 func (o BranchPolicyMergeTypesOutput) ToBranchPolicyMergeTypesOutputWithContext(ctx context.Context) BranchPolicyMergeTypesOutput {
 	return o
-}
-
-func (o BranchPolicyMergeTypesOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyMergeTypes] {
-	return pulumix.Output[*BranchPolicyMergeTypes]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -331,12 +306,6 @@ func (o BranchPolicyMergeTypesArrayOutput) ToBranchPolicyMergeTypesArrayOutputWi
 	return o
 }
 
-func (o BranchPolicyMergeTypesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyMergeTypes] {
-	return pulumix.Output[[]*BranchPolicyMergeTypes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BranchPolicyMergeTypesArrayOutput) Index(i pulumi.IntInput) BranchPolicyMergeTypesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyMergeTypes {
 		return vs[0].([]*BranchPolicyMergeTypes)[vs[1].(int)]
@@ -355,12 +324,6 @@ func (o BranchPolicyMergeTypesMapOutput) ToBranchPolicyMergeTypesMapOutput() Bra
 
 func (o BranchPolicyMergeTypesMapOutput) ToBranchPolicyMergeTypesMapOutputWithContext(ctx context.Context) BranchPolicyMergeTypesMapOutput {
 	return o
-}
-
-func (o BranchPolicyMergeTypesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyMergeTypes] {
-	return pulumix.Output[map[string]*BranchPolicyMergeTypes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchPolicyMergeTypesMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyMergeTypesOutput {

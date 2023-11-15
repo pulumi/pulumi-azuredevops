@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a AWS service endpoint within Azure DevOps. Using this service endpoint requires you to first install [AWS Toolkit for Azure DevOps](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-vsts-tools).
@@ -254,12 +253,6 @@ func (i *ServiceEndpointAws) ToServiceEndpointAwsOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsOutput)
 }
 
-func (i *ServiceEndpointAws) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointAws] {
-	return pulumix.Output[*ServiceEndpointAws]{
-		OutputState: i.ToServiceEndpointAwsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceEndpointAwsArrayInput is an input type that accepts ServiceEndpointAwsArray and ServiceEndpointAwsArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointAwsArrayInput` via:
 //
@@ -283,12 +276,6 @@ func (i ServiceEndpointAwsArray) ToServiceEndpointAwsArrayOutput() ServiceEndpoi
 
 func (i ServiceEndpointAwsArray) ToServiceEndpointAwsArrayOutputWithContext(ctx context.Context) ServiceEndpointAwsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsArrayOutput)
-}
-
-func (i ServiceEndpointAwsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointAws] {
-	return pulumix.Output[[]*ServiceEndpointAws]{
-		OutputState: i.ToServiceEndpointAwsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceEndpointAwsMapInput is an input type that accepts ServiceEndpointAwsMap and ServiceEndpointAwsMapOutput values.
@@ -316,12 +303,6 @@ func (i ServiceEndpointAwsMap) ToServiceEndpointAwsMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointAwsMapOutput)
 }
 
-func (i ServiceEndpointAwsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointAws] {
-	return pulumix.Output[map[string]*ServiceEndpointAws]{
-		OutputState: i.ToServiceEndpointAwsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceEndpointAwsOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointAwsOutput) ElementType() reflect.Type {
@@ -334,12 +315,6 @@ func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsOutput() ServiceEndpointAw
 
 func (o ServiceEndpointAwsOutput) ToServiceEndpointAwsOutputWithContext(ctx context.Context) ServiceEndpointAwsOutput {
 	return o
-}
-
-func (o ServiceEndpointAwsOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointAws] {
-	return pulumix.Output[*ServiceEndpointAws]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The AWS access key ID for signing programmatic requests.
@@ -404,12 +379,6 @@ func (o ServiceEndpointAwsArrayOutput) ToServiceEndpointAwsArrayOutputWithContex
 	return o
 }
 
-func (o ServiceEndpointAwsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointAws] {
-	return pulumix.Output[[]*ServiceEndpointAws]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEndpointAwsArrayOutput) Index(i pulumi.IntInput) ServiceEndpointAwsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointAws {
 		return vs[0].([]*ServiceEndpointAws)[vs[1].(int)]
@@ -428,12 +397,6 @@ func (o ServiceEndpointAwsMapOutput) ToServiceEndpointAwsMapOutput() ServiceEndp
 
 func (o ServiceEndpointAwsMapOutput) ToServiceEndpointAwsMapOutputWithContext(ctx context.Context) ServiceEndpointAwsMapOutput {
 	return o
-}
-
-func (o ServiceEndpointAwsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointAws] {
-	return pulumix.Output[map[string]*ServiceEndpointAws]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointAwsMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointAwsOutput {
