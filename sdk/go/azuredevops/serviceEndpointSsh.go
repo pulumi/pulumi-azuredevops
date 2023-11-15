@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a SSH service endpoint within Azure DevOps.
@@ -243,12 +242,6 @@ func (i *ServiceEndpointSsh) ToServiceEndpointSshOutputWithContext(ctx context.C
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSshOutput)
 }
 
-func (i *ServiceEndpointSsh) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointSsh] {
-	return pulumix.Output[*ServiceEndpointSsh]{
-		OutputState: i.ToServiceEndpointSshOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceEndpointSshArrayInput is an input type that accepts ServiceEndpointSshArray and ServiceEndpointSshArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointSshArrayInput` via:
 //
@@ -272,12 +265,6 @@ func (i ServiceEndpointSshArray) ToServiceEndpointSshArrayOutput() ServiceEndpoi
 
 func (i ServiceEndpointSshArray) ToServiceEndpointSshArrayOutputWithContext(ctx context.Context) ServiceEndpointSshArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSshArrayOutput)
-}
-
-func (i ServiceEndpointSshArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointSsh] {
-	return pulumix.Output[[]*ServiceEndpointSsh]{
-		OutputState: i.ToServiceEndpointSshArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceEndpointSshMapInput is an input type that accepts ServiceEndpointSshMap and ServiceEndpointSshMapOutput values.
@@ -305,12 +292,6 @@ func (i ServiceEndpointSshMap) ToServiceEndpointSshMapOutputWithContext(ctx cont
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointSshMapOutput)
 }
 
-func (i ServiceEndpointSshMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointSsh] {
-	return pulumix.Output[map[string]*ServiceEndpointSsh]{
-		OutputState: i.ToServiceEndpointSshMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceEndpointSshOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointSshOutput) ElementType() reflect.Type {
@@ -323,12 +304,6 @@ func (o ServiceEndpointSshOutput) ToServiceEndpointSshOutput() ServiceEndpointSs
 
 func (o ServiceEndpointSshOutput) ToServiceEndpointSshOutputWithContext(ctx context.Context) ServiceEndpointSshOutput {
 	return o
-}
-
-func (o ServiceEndpointSshOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointSsh] {
-	return pulumix.Output[*ServiceEndpointSsh]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointSshOutput) Authorization() pulumi.StringMapOutput {
@@ -388,12 +363,6 @@ func (o ServiceEndpointSshArrayOutput) ToServiceEndpointSshArrayOutputWithContex
 	return o
 }
 
-func (o ServiceEndpointSshArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointSsh] {
-	return pulumix.Output[[]*ServiceEndpointSsh]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEndpointSshArrayOutput) Index(i pulumi.IntInput) ServiceEndpointSshOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointSsh {
 		return vs[0].([]*ServiceEndpointSsh)[vs[1].(int)]
@@ -412,12 +381,6 @@ func (o ServiceEndpointSshMapOutput) ToServiceEndpointSshMapOutput() ServiceEndp
 
 func (o ServiceEndpointSshMapOutput) ToServiceEndpointSshMapOutputWithContext(ctx context.Context) ServiceEndpointSshMapOutput {
 	return o
-}
-
-func (o ServiceEndpointSshMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointSsh] {
-	return pulumix.Output[map[string]*ServiceEndpointSsh]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointSshMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointSshOutput {

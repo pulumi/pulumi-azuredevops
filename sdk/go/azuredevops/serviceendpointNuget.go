@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a NuGet service endpoint within Azure DevOps.
@@ -253,12 +252,6 @@ func (i *ServiceendpointNuget) ToServiceendpointNugetOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointNugetOutput)
 }
 
-func (i *ServiceendpointNuget) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointNuget] {
-	return pulumix.Output[*ServiceendpointNuget]{
-		OutputState: i.ToServiceendpointNugetOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceendpointNugetArrayInput is an input type that accepts ServiceendpointNugetArray and ServiceendpointNugetArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointNugetArrayInput` via:
 //
@@ -282,12 +275,6 @@ func (i ServiceendpointNugetArray) ToServiceendpointNugetArrayOutput() Serviceen
 
 func (i ServiceendpointNugetArray) ToServiceendpointNugetArrayOutputWithContext(ctx context.Context) ServiceendpointNugetArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointNugetArrayOutput)
-}
-
-func (i ServiceendpointNugetArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointNuget] {
-	return pulumix.Output[[]*ServiceendpointNuget]{
-		OutputState: i.ToServiceendpointNugetArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceendpointNugetMapInput is an input type that accepts ServiceendpointNugetMap and ServiceendpointNugetMapOutput values.
@@ -315,12 +302,6 @@ func (i ServiceendpointNugetMap) ToServiceendpointNugetMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointNugetMapOutput)
 }
 
-func (i ServiceendpointNugetMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointNuget] {
-	return pulumix.Output[map[string]*ServiceendpointNuget]{
-		OutputState: i.ToServiceendpointNugetMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceendpointNugetOutput struct{ *pulumi.OutputState }
 
 func (ServiceendpointNugetOutput) ElementType() reflect.Type {
@@ -333,12 +314,6 @@ func (o ServiceendpointNugetOutput) ToServiceendpointNugetOutput() Serviceendpoi
 
 func (o ServiceendpointNugetOutput) ToServiceendpointNugetOutputWithContext(ctx context.Context) ServiceendpointNugetOutput {
 	return o
-}
-
-func (o ServiceendpointNugetOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointNuget] {
-	return pulumix.Output[*ServiceendpointNuget]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The API Key used to connect to the endpoint.
@@ -400,12 +375,6 @@ func (o ServiceendpointNugetArrayOutput) ToServiceendpointNugetArrayOutputWithCo
 	return o
 }
 
-func (o ServiceendpointNugetArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointNuget] {
-	return pulumix.Output[[]*ServiceendpointNuget]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceendpointNugetArrayOutput) Index(i pulumi.IntInput) ServiceendpointNugetOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceendpointNuget {
 		return vs[0].([]*ServiceendpointNuget)[vs[1].(int)]
@@ -424,12 +393,6 @@ func (o ServiceendpointNugetMapOutput) ToServiceendpointNugetMapOutput() Service
 
 func (o ServiceendpointNugetMapOutput) ToServiceendpointNugetMapOutputWithContext(ctx context.Context) ServiceendpointNugetMapOutput {
 	return o
-}
-
-func (o ServiceendpointNugetMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointNuget] {
-	return pulumix.Output[map[string]*ServiceendpointNuget]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceendpointNugetMapOutput) MapIndex(k pulumi.StringInput) ServiceendpointNugetOutput {

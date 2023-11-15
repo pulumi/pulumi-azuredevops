@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages an Azure Repos/Team Foundation Server service endpoint within Azure DevOps.
@@ -164,12 +163,6 @@ func (i *ServiceendpointExternaltfs) ToServiceendpointExternaltfsOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointExternaltfsOutput)
 }
 
-func (i *ServiceendpointExternaltfs) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointExternaltfs] {
-	return pulumix.Output[*ServiceendpointExternaltfs]{
-		OutputState: i.ToServiceendpointExternaltfsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceendpointExternaltfsArrayInput is an input type that accepts ServiceendpointExternaltfsArray and ServiceendpointExternaltfsArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointExternaltfsArrayInput` via:
 //
@@ -193,12 +186,6 @@ func (i ServiceendpointExternaltfsArray) ToServiceendpointExternaltfsArrayOutput
 
 func (i ServiceendpointExternaltfsArray) ToServiceendpointExternaltfsArrayOutputWithContext(ctx context.Context) ServiceendpointExternaltfsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointExternaltfsArrayOutput)
-}
-
-func (i ServiceendpointExternaltfsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointExternaltfs] {
-	return pulumix.Output[[]*ServiceendpointExternaltfs]{
-		OutputState: i.ToServiceendpointExternaltfsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceendpointExternaltfsMapInput is an input type that accepts ServiceendpointExternaltfsMap and ServiceendpointExternaltfsMapOutput values.
@@ -226,12 +213,6 @@ func (i ServiceendpointExternaltfsMap) ToServiceendpointExternaltfsMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointExternaltfsMapOutput)
 }
 
-func (i ServiceendpointExternaltfsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointExternaltfs] {
-	return pulumix.Output[map[string]*ServiceendpointExternaltfs]{
-		OutputState: i.ToServiceendpointExternaltfsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceendpointExternaltfsOutput struct{ *pulumi.OutputState }
 
 func (ServiceendpointExternaltfsOutput) ElementType() reflect.Type {
@@ -244,12 +225,6 @@ func (o ServiceendpointExternaltfsOutput) ToServiceendpointExternaltfsOutput() S
 
 func (o ServiceendpointExternaltfsOutput) ToServiceendpointExternaltfsOutputWithContext(ctx context.Context) ServiceendpointExternaltfsOutput {
 	return o
-}
-
-func (o ServiceendpointExternaltfsOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointExternaltfs] {
-	return pulumix.Output[*ServiceendpointExternaltfs]{
-		OutputState: o.OutputState,
-	}
 }
 
 // An `authPersonal` block as documented below. Allows connecting using a personal access token.
@@ -296,12 +271,6 @@ func (o ServiceendpointExternaltfsArrayOutput) ToServiceendpointExternaltfsArray
 	return o
 }
 
-func (o ServiceendpointExternaltfsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointExternaltfs] {
-	return pulumix.Output[[]*ServiceendpointExternaltfs]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceendpointExternaltfsArrayOutput) Index(i pulumi.IntInput) ServiceendpointExternaltfsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceendpointExternaltfs {
 		return vs[0].([]*ServiceendpointExternaltfs)[vs[1].(int)]
@@ -320,12 +289,6 @@ func (o ServiceendpointExternaltfsMapOutput) ToServiceendpointExternaltfsMapOutp
 
 func (o ServiceendpointExternaltfsMapOutput) ToServiceendpointExternaltfsMapOutputWithContext(ctx context.Context) ServiceendpointExternaltfsMapOutput {
 	return o
-}
-
-func (o ServiceendpointExternaltfsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointExternaltfs] {
-	return pulumix.Output[map[string]*ServiceendpointExternaltfs]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceendpointExternaltfsMapOutput) MapIndex(k pulumi.StringInput) ServiceendpointExternaltfsOutput {

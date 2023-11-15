@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Branch policy for reviewers on pull requests. Includes the minimum number of reviewers and other conditions.
@@ -213,12 +212,6 @@ func (i *BranchPolicyMinReviewers) ToBranchPolicyMinReviewersOutputWithContext(c
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersOutput)
 }
 
-func (i *BranchPolicyMinReviewers) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyMinReviewers] {
-	return pulumix.Output[*BranchPolicyMinReviewers]{
-		OutputState: i.ToBranchPolicyMinReviewersOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BranchPolicyMinReviewersArrayInput is an input type that accepts BranchPolicyMinReviewersArray and BranchPolicyMinReviewersArrayOutput values.
 // You can construct a concrete instance of `BranchPolicyMinReviewersArrayInput` via:
 //
@@ -242,12 +235,6 @@ func (i BranchPolicyMinReviewersArray) ToBranchPolicyMinReviewersArrayOutput() B
 
 func (i BranchPolicyMinReviewersArray) ToBranchPolicyMinReviewersArrayOutputWithContext(ctx context.Context) BranchPolicyMinReviewersArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersArrayOutput)
-}
-
-func (i BranchPolicyMinReviewersArray) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyMinReviewers] {
-	return pulumix.Output[[]*BranchPolicyMinReviewers]{
-		OutputState: i.ToBranchPolicyMinReviewersArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BranchPolicyMinReviewersMapInput is an input type that accepts BranchPolicyMinReviewersMap and BranchPolicyMinReviewersMapOutput values.
@@ -275,12 +262,6 @@ func (i BranchPolicyMinReviewersMap) ToBranchPolicyMinReviewersMapOutputWithCont
 	return pulumi.ToOutputWithContext(ctx, i).(BranchPolicyMinReviewersMapOutput)
 }
 
-func (i BranchPolicyMinReviewersMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyMinReviewers] {
-	return pulumix.Output[map[string]*BranchPolicyMinReviewers]{
-		OutputState: i.ToBranchPolicyMinReviewersMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BranchPolicyMinReviewersOutput struct{ *pulumi.OutputState }
 
 func (BranchPolicyMinReviewersOutput) ElementType() reflect.Type {
@@ -293,12 +274,6 @@ func (o BranchPolicyMinReviewersOutput) ToBranchPolicyMinReviewersOutput() Branc
 
 func (o BranchPolicyMinReviewersOutput) ToBranchPolicyMinReviewersOutputWithContext(ctx context.Context) BranchPolicyMinReviewersOutput {
 	return o
-}
-
-func (o BranchPolicyMinReviewersOutput) ToOutput(ctx context.Context) pulumix.Output[*BranchPolicyMinReviewers] {
-	return pulumix.Output[*BranchPolicyMinReviewers]{
-		OutputState: o.OutputState,
-	}
 }
 
 // A flag indicating if the policy should be blocking. Defaults to `true`.
@@ -335,12 +310,6 @@ func (o BranchPolicyMinReviewersArrayOutput) ToBranchPolicyMinReviewersArrayOutp
 	return o
 }
 
-func (o BranchPolicyMinReviewersArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BranchPolicyMinReviewers] {
-	return pulumix.Output[[]*BranchPolicyMinReviewers]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BranchPolicyMinReviewersArrayOutput) Index(i pulumi.IntInput) BranchPolicyMinReviewersOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BranchPolicyMinReviewers {
 		return vs[0].([]*BranchPolicyMinReviewers)[vs[1].(int)]
@@ -359,12 +328,6 @@ func (o BranchPolicyMinReviewersMapOutput) ToBranchPolicyMinReviewersMapOutput()
 
 func (o BranchPolicyMinReviewersMapOutput) ToBranchPolicyMinReviewersMapOutputWithContext(ctx context.Context) BranchPolicyMinReviewersMapOutput {
 	return o
-}
-
-func (o BranchPolicyMinReviewersMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BranchPolicyMinReviewers] {
-	return pulumix.Output[map[string]*BranchPolicyMinReviewers]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BranchPolicyMinReviewersMapOutput) MapIndex(k pulumi.StringInput) BranchPolicyMinReviewersOutput {

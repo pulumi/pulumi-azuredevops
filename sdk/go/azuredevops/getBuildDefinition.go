@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about an existing Build Definition.
@@ -133,12 +132,6 @@ func (o LookupBuildDefinitionResultOutput) ToLookupBuildDefinitionResultOutput()
 
 func (o LookupBuildDefinitionResultOutput) ToLookupBuildDefinitionResultOutputWithContext(ctx context.Context) LookupBuildDefinitionResultOutput {
 	return o
-}
-
-func (o LookupBuildDefinitionResultOutput) ToOutput(ctx context.Context) pulumix.Output[LookupBuildDefinitionResult] {
-	return pulumix.Output[LookupBuildDefinitionResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The agent pool that should execute the build.

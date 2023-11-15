@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manage author email pattern repository policy within Azure DevOps project.
@@ -256,12 +255,6 @@ func (i *RepositoryPolicyAuthorEmailPattern) ToRepositoryPolicyAuthorEmailPatter
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternOutput)
 }
 
-func (i *RepositoryPolicyAuthorEmailPattern) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyAuthorEmailPattern] {
-	return pulumix.Output[*RepositoryPolicyAuthorEmailPattern]{
-		OutputState: i.ToRepositoryPolicyAuthorEmailPatternOutputWithContext(ctx).OutputState,
-	}
-}
-
 // RepositoryPolicyAuthorEmailPatternArrayInput is an input type that accepts RepositoryPolicyAuthorEmailPatternArray and RepositoryPolicyAuthorEmailPatternArrayOutput values.
 // You can construct a concrete instance of `RepositoryPolicyAuthorEmailPatternArrayInput` via:
 //
@@ -285,12 +278,6 @@ func (i RepositoryPolicyAuthorEmailPatternArray) ToRepositoryPolicyAuthorEmailPa
 
 func (i RepositoryPolicyAuthorEmailPatternArray) ToRepositoryPolicyAuthorEmailPatternArrayOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternArrayOutput)
-}
-
-func (i RepositoryPolicyAuthorEmailPatternArray) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyAuthorEmailPattern] {
-	return pulumix.Output[[]*RepositoryPolicyAuthorEmailPattern]{
-		OutputState: i.ToRepositoryPolicyAuthorEmailPatternArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // RepositoryPolicyAuthorEmailPatternMapInput is an input type that accepts RepositoryPolicyAuthorEmailPatternMap and RepositoryPolicyAuthorEmailPatternMapOutput values.
@@ -318,12 +305,6 @@ func (i RepositoryPolicyAuthorEmailPatternMap) ToRepositoryPolicyAuthorEmailPatt
 	return pulumi.ToOutputWithContext(ctx, i).(RepositoryPolicyAuthorEmailPatternMapOutput)
 }
 
-func (i RepositoryPolicyAuthorEmailPatternMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyAuthorEmailPattern] {
-	return pulumix.Output[map[string]*RepositoryPolicyAuthorEmailPattern]{
-		OutputState: i.ToRepositoryPolicyAuthorEmailPatternMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type RepositoryPolicyAuthorEmailPatternOutput struct{ *pulumi.OutputState }
 
 func (RepositoryPolicyAuthorEmailPatternOutput) ElementType() reflect.Type {
@@ -336,12 +317,6 @@ func (o RepositoryPolicyAuthorEmailPatternOutput) ToRepositoryPolicyAuthorEmailP
 
 func (o RepositoryPolicyAuthorEmailPatternOutput) ToRepositoryPolicyAuthorEmailPatternOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternOutput {
 	return o
-}
-
-func (o RepositoryPolicyAuthorEmailPatternOutput) ToOutput(ctx context.Context) pulumix.Output[*RepositoryPolicyAuthorEmailPattern] {
-	return pulumix.Output[*RepositoryPolicyAuthorEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 // Block pushes with a commit author email that does not match the patterns. You can specify exact emails or use wildcards.
@@ -384,12 +359,6 @@ func (o RepositoryPolicyAuthorEmailPatternArrayOutput) ToRepositoryPolicyAuthorE
 	return o
 }
 
-func (o RepositoryPolicyAuthorEmailPatternArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*RepositoryPolicyAuthorEmailPattern] {
-	return pulumix.Output[[]*RepositoryPolicyAuthorEmailPattern]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o RepositoryPolicyAuthorEmailPatternArrayOutput) Index(i pulumi.IntInput) RepositoryPolicyAuthorEmailPatternOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *RepositoryPolicyAuthorEmailPattern {
 		return vs[0].([]*RepositoryPolicyAuthorEmailPattern)[vs[1].(int)]
@@ -408,12 +377,6 @@ func (o RepositoryPolicyAuthorEmailPatternMapOutput) ToRepositoryPolicyAuthorEma
 
 func (o RepositoryPolicyAuthorEmailPatternMapOutput) ToRepositoryPolicyAuthorEmailPatternMapOutputWithContext(ctx context.Context) RepositoryPolicyAuthorEmailPatternMapOutput {
 	return o
-}
-
-func (o RepositoryPolicyAuthorEmailPatternMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*RepositoryPolicyAuthorEmailPattern] {
-	return pulumix.Output[map[string]*RepositoryPolicyAuthorEmailPattern]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o RepositoryPolicyAuthorEmailPatternMapOutput) MapIndex(k pulumi.StringInput) RepositoryPolicyAuthorEmailPatternOutput {

@@ -9,7 +9,6 @@ import (
 
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Use this data source to access information about existing Teams in a Project or globally within an Azure DevOps organization
@@ -132,12 +131,6 @@ func (o GetTeamsResultOutput) ToGetTeamsResultOutput() GetTeamsResultOutput {
 
 func (o GetTeamsResultOutput) ToGetTeamsResultOutputWithContext(ctx context.Context) GetTeamsResultOutput {
 	return o
-}
-
-func (o GetTeamsResultOutput) ToOutput(ctx context.Context) pulumix.Output[GetTeamsResult] {
-	return pulumix.Output[GetTeamsResult]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The provider-assigned unique ID for this managed resource.

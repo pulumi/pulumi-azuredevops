@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages permissions for a Build Definition
@@ -327,12 +326,6 @@ func (i *BuildDefinitionPermissions) ToBuildDefinitionPermissionsOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsOutput)
 }
 
-func (i *BuildDefinitionPermissions) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionPermissions] {
-	return pulumix.Output[*BuildDefinitionPermissions]{
-		OutputState: i.ToBuildDefinitionPermissionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // BuildDefinitionPermissionsArrayInput is an input type that accepts BuildDefinitionPermissionsArray and BuildDefinitionPermissionsArrayOutput values.
 // You can construct a concrete instance of `BuildDefinitionPermissionsArrayInput` via:
 //
@@ -356,12 +349,6 @@ func (i BuildDefinitionPermissionsArray) ToBuildDefinitionPermissionsArrayOutput
 
 func (i BuildDefinitionPermissionsArray) ToBuildDefinitionPermissionsArrayOutputWithContext(ctx context.Context) BuildDefinitionPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsArrayOutput)
-}
-
-func (i BuildDefinitionPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*BuildDefinitionPermissions] {
-	return pulumix.Output[[]*BuildDefinitionPermissions]{
-		OutputState: i.ToBuildDefinitionPermissionsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // BuildDefinitionPermissionsMapInput is an input type that accepts BuildDefinitionPermissionsMap and BuildDefinitionPermissionsMapOutput values.
@@ -389,12 +376,6 @@ func (i BuildDefinitionPermissionsMap) ToBuildDefinitionPermissionsMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(BuildDefinitionPermissionsMapOutput)
 }
 
-func (i BuildDefinitionPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildDefinitionPermissions] {
-	return pulumix.Output[map[string]*BuildDefinitionPermissions]{
-		OutputState: i.ToBuildDefinitionPermissionsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type BuildDefinitionPermissionsOutput struct{ *pulumi.OutputState }
 
 func (BuildDefinitionPermissionsOutput) ElementType() reflect.Type {
@@ -407,12 +388,6 @@ func (o BuildDefinitionPermissionsOutput) ToBuildDefinitionPermissionsOutput() B
 
 func (o BuildDefinitionPermissionsOutput) ToBuildDefinitionPermissionsOutputWithContext(ctx context.Context) BuildDefinitionPermissionsOutput {
 	return o
-}
-
-func (o BuildDefinitionPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*BuildDefinitionPermissions] {
-	return pulumix.Output[*BuildDefinitionPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The id of the build definition to assign the permissions.
@@ -472,12 +447,6 @@ func (o BuildDefinitionPermissionsArrayOutput) ToBuildDefinitionPermissionsArray
 	return o
 }
 
-func (o BuildDefinitionPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*BuildDefinitionPermissions] {
-	return pulumix.Output[[]*BuildDefinitionPermissions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o BuildDefinitionPermissionsArrayOutput) Index(i pulumi.IntInput) BuildDefinitionPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *BuildDefinitionPermissions {
 		return vs[0].([]*BuildDefinitionPermissions)[vs[1].(int)]
@@ -496,12 +465,6 @@ func (o BuildDefinitionPermissionsMapOutput) ToBuildDefinitionPermissionsMapOutp
 
 func (o BuildDefinitionPermissionsMapOutput) ToBuildDefinitionPermissionsMapOutputWithContext(ctx context.Context) BuildDefinitionPermissionsMapOutput {
 	return o
-}
-
-func (o BuildDefinitionPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*BuildDefinitionPermissions] {
-	return pulumix.Output[map[string]*BuildDefinitionPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o BuildDefinitionPermissionsMapOutput) MapIndex(k pulumi.StringInput) BuildDefinitionPermissionsOutput {

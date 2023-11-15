@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Kubernetes service endpoint within Azure DevOps.
@@ -200,12 +199,6 @@ func (i *ServiceEndpointKubernetes) ToServiceEndpointKubernetesOutputWithContext
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesOutput)
 }
 
-func (i *ServiceEndpointKubernetes) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointKubernetes] {
-	return pulumix.Output[*ServiceEndpointKubernetes]{
-		OutputState: i.ToServiceEndpointKubernetesOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceEndpointKubernetesArrayInput is an input type that accepts ServiceEndpointKubernetesArray and ServiceEndpointKubernetesArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointKubernetesArrayInput` via:
 //
@@ -229,12 +222,6 @@ func (i ServiceEndpointKubernetesArray) ToServiceEndpointKubernetesArrayOutput()
 
 func (i ServiceEndpointKubernetesArray) ToServiceEndpointKubernetesArrayOutputWithContext(ctx context.Context) ServiceEndpointKubernetesArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesArrayOutput)
-}
-
-func (i ServiceEndpointKubernetesArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointKubernetes] {
-	return pulumix.Output[[]*ServiceEndpointKubernetes]{
-		OutputState: i.ToServiceEndpointKubernetesArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceEndpointKubernetesMapInput is an input type that accepts ServiceEndpointKubernetesMap and ServiceEndpointKubernetesMapOutput values.
@@ -262,12 +249,6 @@ func (i ServiceEndpointKubernetesMap) ToServiceEndpointKubernetesMapOutputWithCo
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointKubernetesMapOutput)
 }
 
-func (i ServiceEndpointKubernetesMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointKubernetes] {
-	return pulumix.Output[map[string]*ServiceEndpointKubernetes]{
-		OutputState: i.ToServiceEndpointKubernetesMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceEndpointKubernetesOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointKubernetesOutput) ElementType() reflect.Type {
@@ -280,12 +261,6 @@ func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesOutput() Ser
 
 func (o ServiceEndpointKubernetesOutput) ToServiceEndpointKubernetesOutputWithContext(ctx context.Context) ServiceEndpointKubernetesOutput {
 	return o
-}
-
-func (o ServiceEndpointKubernetesOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointKubernetes] {
-	return pulumix.Output[*ServiceEndpointKubernetes]{
-		OutputState: o.OutputState,
-	}
 }
 
 // The hostname (in form of URI) of the Kubernetes API.
@@ -349,12 +324,6 @@ func (o ServiceEndpointKubernetesArrayOutput) ToServiceEndpointKubernetesArrayOu
 	return o
 }
 
-func (o ServiceEndpointKubernetesArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointKubernetes] {
-	return pulumix.Output[[]*ServiceEndpointKubernetes]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEndpointKubernetesArrayOutput) Index(i pulumi.IntInput) ServiceEndpointKubernetesOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointKubernetes {
 		return vs[0].([]*ServiceEndpointKubernetes)[vs[1].(int)]
@@ -373,12 +342,6 @@ func (o ServiceEndpointKubernetesMapOutput) ToServiceEndpointKubernetesMapOutput
 
 func (o ServiceEndpointKubernetesMapOutput) ToServiceEndpointKubernetesMapOutputWithContext(ctx context.Context) ServiceEndpointKubernetesMapOutput {
 	return o
-}
-
-func (o ServiceEndpointKubernetesMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointKubernetes] {
-	return pulumix.Output[map[string]*ServiceEndpointKubernetes]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointKubernetesMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointKubernetesOutput {

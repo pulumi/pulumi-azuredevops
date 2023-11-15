@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Service Fabric service endpoint within Azure DevOps.
@@ -303,12 +302,6 @@ func (i *ServiceEndpointServiceFabric) ToServiceEndpointServiceFabricOutputWithC
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricOutput)
 }
 
-func (i *ServiceEndpointServiceFabric) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointServiceFabric] {
-	return pulumix.Output[*ServiceEndpointServiceFabric]{
-		OutputState: i.ToServiceEndpointServiceFabricOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceEndpointServiceFabricArrayInput is an input type that accepts ServiceEndpointServiceFabricArray and ServiceEndpointServiceFabricArrayOutput values.
 // You can construct a concrete instance of `ServiceEndpointServiceFabricArrayInput` via:
 //
@@ -332,12 +325,6 @@ func (i ServiceEndpointServiceFabricArray) ToServiceEndpointServiceFabricArrayOu
 
 func (i ServiceEndpointServiceFabricArray) ToServiceEndpointServiceFabricArrayOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricArrayOutput)
-}
-
-func (i ServiceEndpointServiceFabricArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointServiceFabric] {
-	return pulumix.Output[[]*ServiceEndpointServiceFabric]{
-		OutputState: i.ToServiceEndpointServiceFabricArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceEndpointServiceFabricMapInput is an input type that accepts ServiceEndpointServiceFabricMap and ServiceEndpointServiceFabricMapOutput values.
@@ -365,12 +352,6 @@ func (i ServiceEndpointServiceFabricMap) ToServiceEndpointServiceFabricMapOutput
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceEndpointServiceFabricMapOutput)
 }
 
-func (i ServiceEndpointServiceFabricMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointServiceFabric] {
-	return pulumix.Output[map[string]*ServiceEndpointServiceFabric]{
-		OutputState: i.ToServiceEndpointServiceFabricMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceEndpointServiceFabricOutput struct{ *pulumi.OutputState }
 
 func (ServiceEndpointServiceFabricOutput) ElementType() reflect.Type {
@@ -383,12 +364,6 @@ func (o ServiceEndpointServiceFabricOutput) ToServiceEndpointServiceFabricOutput
 
 func (o ServiceEndpointServiceFabricOutput) ToServiceEndpointServiceFabricOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricOutput {
 	return o
-}
-
-func (o ServiceEndpointServiceFabricOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceEndpointServiceFabric] {
-	return pulumix.Output[*ServiceEndpointServiceFabric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointServiceFabricOutput) Authorization() pulumi.StringMapOutput {
@@ -444,12 +419,6 @@ func (o ServiceEndpointServiceFabricArrayOutput) ToServiceEndpointServiceFabricA
 	return o
 }
 
-func (o ServiceEndpointServiceFabricArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceEndpointServiceFabric] {
-	return pulumix.Output[[]*ServiceEndpointServiceFabric]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceEndpointServiceFabricArrayOutput) Index(i pulumi.IntInput) ServiceEndpointServiceFabricOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceEndpointServiceFabric {
 		return vs[0].([]*ServiceEndpointServiceFabric)[vs[1].(int)]
@@ -468,12 +437,6 @@ func (o ServiceEndpointServiceFabricMapOutput) ToServiceEndpointServiceFabricMap
 
 func (o ServiceEndpointServiceFabricMapOutput) ToServiceEndpointServiceFabricMapOutputWithContext(ctx context.Context) ServiceEndpointServiceFabricMapOutput {
 	return o
-}
-
-func (o ServiceEndpointServiceFabricMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceEndpointServiceFabric] {
-	return pulumix.Output[map[string]*ServiceEndpointServiceFabric]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceEndpointServiceFabricMapOutput) MapIndex(k pulumi.StringInput) ServiceEndpointServiceFabricOutput {

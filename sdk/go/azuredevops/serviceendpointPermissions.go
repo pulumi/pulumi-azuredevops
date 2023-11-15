@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages permissions for a Service Endpoint
@@ -282,12 +281,6 @@ func (i *ServiceendpointPermissions) ToServiceendpointPermissionsOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointPermissionsOutput)
 }
 
-func (i *ServiceendpointPermissions) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointPermissions] {
-	return pulumix.Output[*ServiceendpointPermissions]{
-		OutputState: i.ToServiceendpointPermissionsOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceendpointPermissionsArrayInput is an input type that accepts ServiceendpointPermissionsArray and ServiceendpointPermissionsArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointPermissionsArrayInput` via:
 //
@@ -311,12 +304,6 @@ func (i ServiceendpointPermissionsArray) ToServiceendpointPermissionsArrayOutput
 
 func (i ServiceendpointPermissionsArray) ToServiceendpointPermissionsArrayOutputWithContext(ctx context.Context) ServiceendpointPermissionsArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointPermissionsArrayOutput)
-}
-
-func (i ServiceendpointPermissionsArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointPermissions] {
-	return pulumix.Output[[]*ServiceendpointPermissions]{
-		OutputState: i.ToServiceendpointPermissionsArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceendpointPermissionsMapInput is an input type that accepts ServiceendpointPermissionsMap and ServiceendpointPermissionsMapOutput values.
@@ -344,12 +331,6 @@ func (i ServiceendpointPermissionsMap) ToServiceendpointPermissionsMapOutputWith
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointPermissionsMapOutput)
 }
 
-func (i ServiceendpointPermissionsMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointPermissions] {
-	return pulumix.Output[map[string]*ServiceendpointPermissions]{
-		OutputState: i.ToServiceendpointPermissionsMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceendpointPermissionsOutput struct{ *pulumi.OutputState }
 
 func (ServiceendpointPermissionsOutput) ElementType() reflect.Type {
@@ -362,12 +343,6 @@ func (o ServiceendpointPermissionsOutput) ToServiceendpointPermissionsOutput() S
 
 func (o ServiceendpointPermissionsOutput) ToServiceendpointPermissionsOutputWithContext(ctx context.Context) ServiceendpointPermissionsOutput {
 	return o
-}
-
-func (o ServiceendpointPermissionsOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointPermissions] {
-	return pulumix.Output[*ServiceendpointPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 // the permissions to assign. The following permissions are available.
@@ -417,12 +392,6 @@ func (o ServiceendpointPermissionsArrayOutput) ToServiceendpointPermissionsArray
 	return o
 }
 
-func (o ServiceendpointPermissionsArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointPermissions] {
-	return pulumix.Output[[]*ServiceendpointPermissions]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceendpointPermissionsArrayOutput) Index(i pulumi.IntInput) ServiceendpointPermissionsOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceendpointPermissions {
 		return vs[0].([]*ServiceendpointPermissions)[vs[1].(int)]
@@ -441,12 +410,6 @@ func (o ServiceendpointPermissionsMapOutput) ToServiceendpointPermissionsMapOutp
 
 func (o ServiceendpointPermissionsMapOutput) ToServiceendpointPermissionsMapOutputWithContext(ctx context.Context) ServiceendpointPermissionsMapOutput {
 	return o
-}
-
-func (o ServiceendpointPermissionsMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointPermissions] {
-	return pulumix.Output[map[string]*ServiceendpointPermissions]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceendpointPermissionsMapOutput) MapIndex(k pulumi.StringInput) ServiceendpointPermissionsOutput {

@@ -10,7 +10,6 @@ import (
 	"errors"
 	"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops/internal"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	"github.com/pulumi/pulumi/sdk/v3/go/pulumix"
 )
 
 // Manages a Nexus IQ service endpoint within Azure DevOps, which can be used as a resource in YAML pipelines to connect to a Nexus IQ instance.
@@ -221,12 +220,6 @@ func (i *ServiceendpointNexus) ToServiceendpointNexusOutputWithContext(ctx conte
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointNexusOutput)
 }
 
-func (i *ServiceendpointNexus) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointNexus] {
-	return pulumix.Output[*ServiceendpointNexus]{
-		OutputState: i.ToServiceendpointNexusOutputWithContext(ctx).OutputState,
-	}
-}
-
 // ServiceendpointNexusArrayInput is an input type that accepts ServiceendpointNexusArray and ServiceendpointNexusArrayOutput values.
 // You can construct a concrete instance of `ServiceendpointNexusArrayInput` via:
 //
@@ -250,12 +243,6 @@ func (i ServiceendpointNexusArray) ToServiceendpointNexusArrayOutput() Serviceen
 
 func (i ServiceendpointNexusArray) ToServiceendpointNexusArrayOutputWithContext(ctx context.Context) ServiceendpointNexusArrayOutput {
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointNexusArrayOutput)
-}
-
-func (i ServiceendpointNexusArray) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointNexus] {
-	return pulumix.Output[[]*ServiceendpointNexus]{
-		OutputState: i.ToServiceendpointNexusArrayOutputWithContext(ctx).OutputState,
-	}
 }
 
 // ServiceendpointNexusMapInput is an input type that accepts ServiceendpointNexusMap and ServiceendpointNexusMapOutput values.
@@ -283,12 +270,6 @@ func (i ServiceendpointNexusMap) ToServiceendpointNexusMapOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ServiceendpointNexusMapOutput)
 }
 
-func (i ServiceendpointNexusMap) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointNexus] {
-	return pulumix.Output[map[string]*ServiceendpointNexus]{
-		OutputState: i.ToServiceendpointNexusMapOutputWithContext(ctx).OutputState,
-	}
-}
-
 type ServiceendpointNexusOutput struct{ *pulumi.OutputState }
 
 func (ServiceendpointNexusOutput) ElementType() reflect.Type {
@@ -301,12 +282,6 @@ func (o ServiceendpointNexusOutput) ToServiceendpointNexusOutput() Serviceendpoi
 
 func (o ServiceendpointNexusOutput) ToServiceendpointNexusOutputWithContext(ctx context.Context) ServiceendpointNexusOutput {
 	return o
-}
-
-func (o ServiceendpointNexusOutput) ToOutput(ctx context.Context) pulumix.Output[*ServiceendpointNexus] {
-	return pulumix.Output[*ServiceendpointNexus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceendpointNexusOutput) Authorization() pulumi.StringMapOutput {
@@ -356,12 +331,6 @@ func (o ServiceendpointNexusArrayOutput) ToServiceendpointNexusArrayOutputWithCo
 	return o
 }
 
-func (o ServiceendpointNexusArrayOutput) ToOutput(ctx context.Context) pulumix.Output[[]*ServiceendpointNexus] {
-	return pulumix.Output[[]*ServiceendpointNexus]{
-		OutputState: o.OutputState,
-	}
-}
-
 func (o ServiceendpointNexusArrayOutput) Index(i pulumi.IntInput) ServiceendpointNexusOutput {
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) *ServiceendpointNexus {
 		return vs[0].([]*ServiceendpointNexus)[vs[1].(int)]
@@ -380,12 +349,6 @@ func (o ServiceendpointNexusMapOutput) ToServiceendpointNexusMapOutput() Service
 
 func (o ServiceendpointNexusMapOutput) ToServiceendpointNexusMapOutputWithContext(ctx context.Context) ServiceendpointNexusMapOutput {
 	return o
-}
-
-func (o ServiceendpointNexusMapOutput) ToOutput(ctx context.Context) pulumix.Output[map[string]*ServiceendpointNexus] {
-	return pulumix.Output[map[string]*ServiceendpointNexus]{
-		OutputState: o.OutputState,
-	}
 }
 
 func (o ServiceendpointNexusMapOutput) MapIndex(k pulumi.StringInput) ServiceendpointNexusOutput {
