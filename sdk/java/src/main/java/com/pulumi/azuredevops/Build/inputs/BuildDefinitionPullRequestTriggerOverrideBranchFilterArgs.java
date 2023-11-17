@@ -19,6 +19,8 @@ public final class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs ext
     /**
      * List of branch patterns to exclude.
      * 
+     * `exclude` - (Optional) List of branch patterns to exclude.
+     * 
      */
     @Import(name="excludes")
     private @Nullable Output<List<String>> excludes;
@@ -26,20 +28,22 @@ public final class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs ext
     /**
      * @return List of branch patterns to exclude.
      * 
+     * `exclude` - (Optional) List of branch patterns to exclude.
+     * 
      */
     public Optional<Output<List<String>>> excludes() {
         return Optional.ofNullable(this.excludes);
     }
 
     /**
-     * List of branch patterns to include.
+     * List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
      * 
      */
     @Import(name="includes")
     private @Nullable Output<List<String>> includes;
 
     /**
-     * @return List of branch patterns to include.
+     * @return List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
      * 
      */
     public Optional<Output<List<String>>> includes() {
@@ -74,6 +78,8 @@ public final class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs ext
         /**
          * @param excludes List of branch patterns to exclude.
          * 
+         * `exclude` - (Optional) List of branch patterns to exclude.
+         * 
          * @return builder
          * 
          */
@@ -85,6 +91,8 @@ public final class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs ext
         /**
          * @param excludes List of branch patterns to exclude.
          * 
+         * `exclude` - (Optional) List of branch patterns to exclude.
+         * 
          * @return builder
          * 
          */
@@ -95,6 +103,8 @@ public final class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs ext
         /**
          * @param excludes List of branch patterns to exclude.
          * 
+         * `exclude` - (Optional) List of branch patterns to exclude.
+         * 
          * @return builder
          * 
          */
@@ -103,7 +113,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs ext
         }
 
         /**
-         * @param includes List of branch patterns to include.
+         * @param includes List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
          * 
          * @return builder
          * 
@@ -114,7 +124,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs ext
         }
 
         /**
-         * @param includes List of branch patterns to include.
+         * @param includes List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
          * 
          * @return builder
          * 
@@ -124,7 +134,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs ext
         }
 
         /**
-         * @param includes List of branch patterns to include.
+         * @param includes List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
          * 
          * @return builder
          * 

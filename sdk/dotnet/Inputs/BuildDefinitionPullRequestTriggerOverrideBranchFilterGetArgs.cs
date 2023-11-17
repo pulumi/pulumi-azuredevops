@@ -17,6 +17,9 @@ namespace Pulumi.AzureDevOps.Inputs
 
         /// <summary>
         /// List of branch patterns to exclude.
+        /// 
+        /// 
+        /// `exclude` - (Optional) List of branch patterns to exclude.
         /// </summary>
         public InputList<string> Excludes
         {
@@ -28,7 +31,7 @@ namespace Pulumi.AzureDevOps.Inputs
         private InputList<string>? _includes;
 
         /// <summary>
-        /// List of branch patterns to include.
+        /// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
         /// </summary>
         public InputList<string> Includes
         {

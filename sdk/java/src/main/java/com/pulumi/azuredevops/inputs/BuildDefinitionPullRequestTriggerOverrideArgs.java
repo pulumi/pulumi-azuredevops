@@ -34,14 +34,14 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
     }
 
     /**
-     * The branches to include and exclude from the trigger.
+     * The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
      * 
      */
     @Import(name="branchFilters")
     private @Nullable Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>> branchFilters;
 
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
      * 
      */
     public Optional<Output<List<BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs>>> branchFilters() {
@@ -49,14 +49,14 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
     }
 
     /**
-     * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      * 
      */
     @Import(name="pathFilters")
     private @Nullable Output<List<BuildDefinitionPullRequestTriggerOverridePathFilterArgs>> pathFilters;
 
     /**
-     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      * 
      */
     public Optional<Output<List<BuildDefinitionPullRequestTriggerOverridePathFilterArgs>>> pathFilters() {
@@ -111,7 +111,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger.
+         * @param branchFilters The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger.
+         * @param branchFilters The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger.
+         * @param branchFilters The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class BuildDefinitionPullRequestTriggerOverrideArgs extends com.pul
         }
 
         /**
-         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
          * 
          * @return builder
          * 

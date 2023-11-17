@@ -97,8 +97,8 @@ export class TaggingPermissions extends pulumi.CustomResource {
      * | Name               | Permission Description     |
      * | ------------------ | -------------------------- |
      * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
+     * | Create             | Create tag definition      | 
+     * | Update             | Update tag definition      | 
      * | Delete             | Delete tag definition      |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
@@ -160,8 +160,8 @@ export interface TaggingPermissionsState {
      * | Name               | Permission Description     |
      * | ------------------ | -------------------------- |
      * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
+     * | Create             | Create tag definition      | 
+     * | Update             | Update tag definition      | 
      * | Delete             | Delete tag definition      |
      */
     replace?: pulumi.Input<boolean>;
@@ -189,8 +189,8 @@ export interface TaggingPermissionsArgs {
      * | Name               | Permission Description     |
      * | ------------------ | -------------------------- |
      * | Enumerate          | Enumerate tag definitions  |
-     * | Create             | Create tag definition      |
-     * | Update             | Update tag definition      |
+     * | Create             | Create tag definition      | 
+     * | Update             | Update tag definition      | 
      * | Delete             | Delete tag definition      |
      */
     replace?: pulumi.Input<boolean>;

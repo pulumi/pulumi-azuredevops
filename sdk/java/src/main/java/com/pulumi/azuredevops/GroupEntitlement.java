@@ -140,18 +140,14 @@ public class GroupEntitlement extends com.pulumi.resources.CustomResource {
         return this.displayName;
     }
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-     * 
-     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
+     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
      * 
      */
     @Export(name="licensingSource", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> licensingSource;
 
     /**
-     * @return The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-     * 
-     * &gt; **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
+     * @return The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.
      * 
      */
     public Output<Optional<String>> licensingSource() {

@@ -192,6 +192,11 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      * 
      * _Note: URL should not end in a slash character._
      * * either `authentication_token` or `authentication_basic` (one is required)
+     *   * `authentication_token`
+     *     * `token` - Authentication Token generated through Artifactory.
+     *   * `authentication_basic`
+     *     * `username` - Artifactory Username.
+     *     * `password` - Artifactory Password.
      * 
      */
     @Export(name="url", refs={String.class}, tree="[0]")
@@ -202,6 +207,11 @@ public class ServiceEndpointArtifactory extends com.pulumi.resources.CustomResou
      * 
      * _Note: URL should not end in a slash character._
      * * either `authentication_token` or `authentication_basic` (one is required)
+     *   * `authentication_token`
+     *     * `token` - Authentication Token generated through Artifactory.
+     *   * `authentication_basic`
+     *     * `username` - Artifactory Username.
+     *     * `password` - Artifactory Password.
      * 
      */
     public Output<String> url() {

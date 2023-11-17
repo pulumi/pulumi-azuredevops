@@ -90,9 +90,7 @@ type GroupEntitlement struct {
 	Descriptor pulumi.StringOutput `pulumi:"descriptor"`
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-	//
-	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
+	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource pulumi.StringPtrOutput `pulumi:"licensingSource"`
 	// The type of source provider for the origin identifier.
 	Origin pulumi.StringOutput `pulumi:"origin"`
@@ -138,9 +136,7 @@ type groupEntitlementState struct {
 	Descriptor *string `pulumi:"descriptor"`
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName *string `pulumi:"displayName"`
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-	//
-	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
+	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource *string `pulumi:"licensingSource"`
 	// The type of source provider for the origin identifier.
 	Origin *string `pulumi:"origin"`
@@ -157,9 +153,7 @@ type GroupEntitlementState struct {
 	Descriptor pulumi.StringPtrInput
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName pulumi.StringPtrInput
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-	//
-	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
+	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource pulumi.StringPtrInput
 	// The type of source provider for the origin identifier.
 	Origin pulumi.StringPtrInput
@@ -178,9 +172,7 @@ type groupEntitlementArgs struct {
 	AccountLicenseType *string `pulumi:"accountLicenseType"`
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName *string `pulumi:"displayName"`
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-	//
-	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
+	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource *string `pulumi:"licensingSource"`
 	// The type of source provider for the origin identifier.
 	Origin *string `pulumi:"origin"`
@@ -194,9 +186,7 @@ type GroupEntitlementArgs struct {
 	AccountLicenseType pulumi.StringPtrInput
 	// The display name is the name used in Azure DevOps UI. Cannot be set together with `originId` and `origin`.
 	DisplayName pulumi.StringPtrInput
-	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-	//
-	// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
+	// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 	LicensingSource pulumi.StringPtrInput
 	// The type of source provider for the origin identifier.
 	Origin pulumi.StringPtrInput
@@ -306,9 +296,7 @@ func (o GroupEntitlementOutput) DisplayName() pulumi.StringOutput {
 	return o.ApplyT(func(v *GroupEntitlement) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
 }
 
-// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-//
-// > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
+// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
 func (o GroupEntitlementOutput) LicensingSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *GroupEntitlement) pulumi.StringPtrOutput { return v.LicensingSource }).(pulumi.StringPtrOutput)
 }

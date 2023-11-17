@@ -69,15 +69,11 @@ export class GroupMembership extends pulumi.CustomResource {
      */
     public readonly group!: pulumi.Output<string>;
     /**
-     * A list of user or group descriptors that will become members of the group.
-     * > NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+     * A list of user or group descriptors that will become members of the group.NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
     public readonly members!: pulumi.Output<string[]>;
     /**
      * The mode how the resource manages group members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
-     * > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      */
     public readonly mode!: pulumi.Output<string | undefined>;
 
@@ -125,15 +121,11 @@ export interface GroupMembershipState {
      */
     group?: pulumi.Input<string>;
     /**
-     * A list of user or group descriptors that will become members of the group.
-     * > NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+     * A list of user or group descriptors that will become members of the group.NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
     members?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The mode how the resource manages group members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
-     * > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      */
     mode?: pulumi.Input<string>;
 }
@@ -147,15 +139,11 @@ export interface GroupMembershipArgs {
      */
     group: pulumi.Input<string>;
     /**
-     * A list of user or group descriptors that will become members of the group.
-     * > NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
+     * A list of user or group descriptors that will become members of the group.NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.
      */
     members: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The mode how the resource manages group members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
-     * > NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      */
     mode?: pulumi.Input<string>;
 }

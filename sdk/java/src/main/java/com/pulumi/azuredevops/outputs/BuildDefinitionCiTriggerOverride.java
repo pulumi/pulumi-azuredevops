@@ -22,7 +22,7 @@ public final class BuildDefinitionCiTriggerOverride {
      */
     private @Nullable Boolean batch;
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
      * 
      */
     private @Nullable List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters;
@@ -32,7 +32,7 @@ public final class BuildDefinitionCiTriggerOverride {
      */
     private @Nullable Integer maxConcurrentBuildsPerBranch;
     /**
-     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      * 
      */
     private @Nullable List<BuildDefinitionCiTriggerOverridePathFilter> pathFilters;
@@ -56,7 +56,7 @@ public final class BuildDefinitionCiTriggerOverride {
         return Optional.ofNullable(this.batch);
     }
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
      * 
      */
     public List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters() {
@@ -70,7 +70,7 @@ public final class BuildDefinitionCiTriggerOverride {
         return Optional.ofNullable(this.maxConcurrentBuildsPerBranch);
     }
     /**
-     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      * 
      */
     public List<BuildDefinitionCiTriggerOverridePathFilter> pathFilters() {

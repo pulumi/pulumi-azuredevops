@@ -31,6 +31,11 @@ class ServiceEndpointArtifactoryArgs:
                
                _Note: URL should not end in a slash character._
                * either `authentication_token` or `authentication_basic` (one is required)
+                 * `authentication_token`
+                   * `token` - Authentication Token generated through Artifactory.
+                 * `authentication_basic`
+                   * `username` - Artifactory Username.
+                   * `password` - Artifactory Password.
         :param pulumi.Input[str] description: The Service Endpoint description.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -77,6 +82,11 @@ class ServiceEndpointArtifactoryArgs:
 
         _Note: URL should not end in a slash character._
         * either `authentication_token` or `authentication_basic` (one is required)
+          * `authentication_token`
+            * `token` - Authentication Token generated through Artifactory.
+          * `authentication_basic`
+            * `username` - Artifactory Username.
+            * `password` - Artifactory Password.
         """
         return pulumi.get(self, "url")
 
@@ -143,6 +153,11 @@ class _ServiceEndpointArtifactoryState:
                
                _Note: URL should not end in a slash character._
                * either `authentication_token` or `authentication_basic` (one is required)
+                 * `authentication_token`
+                   * `token` - Authentication Token generated through Artifactory.
+                 * `authentication_basic`
+                   * `username` - Artifactory Username.
+                   * `password` - Artifactory Password.
         """
         if authentication_basic is not None:
             pulumi.set(__self__, "authentication_basic", authentication_basic)
@@ -230,6 +245,11 @@ class _ServiceEndpointArtifactoryState:
 
         _Note: URL should not end in a slash character._
         * either `authentication_token` or `authentication_basic` (one is required)
+          * `authentication_token`
+            * `token` - Authentication Token generated through Artifactory.
+          * `authentication_basic`
+            * `username` - Artifactory Username.
+            * `password` - Artifactory Password.
         """
         return pulumi.get(self, "url")
 
@@ -317,6 +337,11 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
                
                _Note: URL should not end in a slash character._
                * either `authentication_token` or `authentication_basic` (one is required)
+                 * `authentication_token`
+                   * `token` - Authentication Token generated through Artifactory.
+                 * `authentication_basic`
+                   * `username` - Artifactory Username.
+                   * `password` - Artifactory Password.
         """
         ...
     @overload
@@ -456,6 +481,11 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
                
                _Note: URL should not end in a slash character._
                * either `authentication_token` or `authentication_basic` (one is required)
+                 * `authentication_token`
+                   * `token` - Authentication Token generated through Artifactory.
+                 * `authentication_basic`
+                   * `username` - Artifactory Username.
+                   * `password` - Artifactory Password.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -517,6 +547,11 @@ class ServiceEndpointArtifactory(pulumi.CustomResource):
 
         _Note: URL should not end in a slash character._
         * either `authentication_token` or `authentication_basic` (one is required)
+          * `authentication_token`
+            * `token` - Authentication Token generated through Artifactory.
+          * `authentication_basic`
+            * `username` - Artifactory Username.
+            * `password` - Artifactory Password.
         """
         return pulumi.get(self, "url")
 

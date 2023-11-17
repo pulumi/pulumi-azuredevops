@@ -9,17 +9,9 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceEndpointArtifactoryAuthenticationToken {
-    /**
-     * @return Authentication Token generated through Artifactory.
-     * 
-     */
     private String token;
 
     private ServiceEndpointArtifactoryAuthenticationToken() {}
-    /**
-     * @return Authentication Token generated through Artifactory.
-     * 
-     */
     public String token() {
         return this.token;
     }

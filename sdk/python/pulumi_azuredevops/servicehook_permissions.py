@@ -28,8 +28,8 @@ class ServicehookPermissionsArgs:
                | Name               | Permission Description   |
                | ------------------ | ------------------------ |
                | ViewSubscriptions  | View Subscriptions       |
-               | EditSubscriptions  | Edit Subscription        |
-               | DeleteSubscriptions| Delete Subscriptions     |
+               | EditSubscriptions  | Edit Subscription        | 
+               | DeleteSubscriptions| Delete Subscriptions     | 
                | PublishEvents      | Publish Events           |
         """
         pulumi.set(__self__, "permissions", permissions)
@@ -84,8 +84,8 @@ class ServicehookPermissionsArgs:
         | Name               | Permission Description   |
         | ------------------ | ------------------------ |
         | ViewSubscriptions  | View Subscriptions       |
-        | EditSubscriptions  | Edit Subscription        |
-        | DeleteSubscriptions| Delete Subscriptions     |
+        | EditSubscriptions  | Edit Subscription        | 
+        | DeleteSubscriptions| Delete Subscriptions     | 
         | PublishEvents      | Publish Events           |
         """
         return pulumi.get(self, "replace")
@@ -112,8 +112,8 @@ class _ServicehookPermissionsState:
                | Name               | Permission Description   |
                | ------------------ | ------------------------ |
                | ViewSubscriptions  | View Subscriptions       |
-               | EditSubscriptions  | Edit Subscription        |
-               | DeleteSubscriptions| Delete Subscriptions     |
+               | EditSubscriptions  | Edit Subscription        | 
+               | DeleteSubscriptions| Delete Subscriptions     | 
                | PublishEvents      | Publish Events           |
         """
         if permissions is not None:
@@ -170,8 +170,8 @@ class _ServicehookPermissionsState:
         | Name               | Permission Description   |
         | ------------------ | ------------------------ |
         | ViewSubscriptions  | View Subscriptions       |
-        | EditSubscriptions  | Edit Subscription        |
-        | DeleteSubscriptions| Delete Subscriptions     |
+        | EditSubscriptions  | Edit Subscription        | 
+        | DeleteSubscriptions| Delete Subscriptions     | 
         | PublishEvents      | Publish Events           |
         """
         return pulumi.get(self, "replace")
@@ -244,8 +244,8 @@ class ServicehookPermissions(pulumi.CustomResource):
                | Name               | Permission Description   |
                | ------------------ | ------------------------ |
                | ViewSubscriptions  | View Subscriptions       |
-               | EditSubscriptions  | Edit Subscription        |
-               | DeleteSubscriptions| Delete Subscriptions     |
+               | EditSubscriptions  | Edit Subscription        | 
+               | DeleteSubscriptions| Delete Subscriptions     | 
                | PublishEvents      | Publish Events           |
         """
         ...
@@ -362,8 +362,8 @@ class ServicehookPermissions(pulumi.CustomResource):
                | Name               | Permission Description   |
                | ------------------ | ------------------------ |
                | ViewSubscriptions  | View Subscriptions       |
-               | EditSubscriptions  | Edit Subscription        |
-               | DeleteSubscriptions| Delete Subscriptions     |
+               | EditSubscriptions  | Edit Subscription        | 
+               | DeleteSubscriptions| Delete Subscriptions     | 
                | PublishEvents      | Publish Events           |
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -409,8 +409,8 @@ class ServicehookPermissions(pulumi.CustomResource):
         | Name               | Permission Description   |
         | ------------------ | ------------------------ |
         | ViewSubscriptions  | View Subscriptions       |
-        | EditSubscriptions  | Edit Subscription        |
-        | DeleteSubscriptions| Delete Subscriptions     |
+        | EditSubscriptions  | Edit Subscription        | 
+        | DeleteSubscriptions| Delete Subscriptions     | 
         | PublishEvents      | Publish Events           |
         """
         return pulumi.get(self, "replace")

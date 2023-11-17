@@ -28,8 +28,8 @@ class TaggingPermissionsArgs:
                | Name               | Permission Description     |
                | ------------------ | -------------------------- |
                | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
+               | Create             | Create tag definition      | 
+               | Update             | Update tag definition      | 
                | Delete             | Delete tag definition      |
         """
         pulumi.set(__self__, "permissions", permissions)
@@ -84,8 +84,8 @@ class TaggingPermissionsArgs:
         | Name               | Permission Description     |
         | ------------------ | -------------------------- |
         | Enumerate          | Enumerate tag definitions  |
-        | Create             | Create tag definition      |
-        | Update             | Update tag definition      |
+        | Create             | Create tag definition      | 
+        | Update             | Update tag definition      | 
         | Delete             | Delete tag definition      |
         """
         return pulumi.get(self, "replace")
@@ -112,8 +112,8 @@ class _TaggingPermissionsState:
                | Name               | Permission Description     |
                | ------------------ | -------------------------- |
                | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
+               | Create             | Create tag definition      | 
+               | Update             | Update tag definition      | 
                | Delete             | Delete tag definition      |
         """
         if permissions is not None:
@@ -170,8 +170,8 @@ class _TaggingPermissionsState:
         | Name               | Permission Description     |
         | ------------------ | -------------------------- |
         | Enumerate          | Enumerate tag definitions  |
-        | Create             | Create tag definition      |
-        | Update             | Update tag definition      |
+        | Create             | Create tag definition      | 
+        | Update             | Update tag definition      | 
         | Delete             | Delete tag definition      |
         """
         return pulumi.get(self, "replace")
@@ -244,8 +244,8 @@ class TaggingPermissions(pulumi.CustomResource):
                | Name               | Permission Description     |
                | ------------------ | -------------------------- |
                | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
+               | Create             | Create tag definition      | 
+               | Update             | Update tag definition      | 
                | Delete             | Delete tag definition      |
         """
         ...
@@ -362,8 +362,8 @@ class TaggingPermissions(pulumi.CustomResource):
                | Name               | Permission Description     |
                | ------------------ | -------------------------- |
                | Enumerate          | Enumerate tag definitions  |
-               | Create             | Create tag definition      |
-               | Update             | Update tag definition      |
+               | Create             | Create tag definition      | 
+               | Update             | Update tag definition      | 
                | Delete             | Delete tag definition      |
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -409,8 +409,8 @@ class TaggingPermissions(pulumi.CustomResource):
         | Name               | Permission Description     |
         | ------------------ | -------------------------- |
         | Enumerate          | Enumerate tag definitions  |
-        | Create             | Create tag definition      |
-        | Update             | Update tag definition      |
+        | Create             | Create tag definition      | 
+        | Update             | Update tag definition      | 
         | Delete             | Delete tag definition      |
         """
         return pulumi.get(self, "replace")

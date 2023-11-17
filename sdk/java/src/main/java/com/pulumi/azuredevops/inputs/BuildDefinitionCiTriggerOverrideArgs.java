@@ -36,14 +36,14 @@ public final class BuildDefinitionCiTriggerOverrideArgs extends com.pulumi.resou
     }
 
     /**
-     * The branches to include and exclude from the trigger.
+     * The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
      * 
      */
     @Import(name="branchFilters")
     private @Nullable Output<List<BuildDefinitionCiTriggerOverrideBranchFilterArgs>> branchFilters;
 
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
      * 
      */
     public Optional<Output<List<BuildDefinitionCiTriggerOverrideBranchFilterArgs>>> branchFilters() {
@@ -66,14 +66,14 @@ public final class BuildDefinitionCiTriggerOverrideArgs extends com.pulumi.resou
     }
 
     /**
-     * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     * Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      * 
      */
     @Import(name="pathFilters")
     private @Nullable Output<List<BuildDefinitionCiTriggerOverridePathFilterArgs>> pathFilters;
 
     /**
-     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      * 
      */
     public Optional<Output<List<BuildDefinitionCiTriggerOverridePathFilterArgs>>> pathFilters() {
@@ -161,7 +161,7 @@ public final class BuildDefinitionCiTriggerOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger.
+         * @param branchFilters The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class BuildDefinitionCiTriggerOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger.
+         * @param branchFilters The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class BuildDefinitionCiTriggerOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param branchFilters The branches to include and exclude from the trigger.
+         * @param branchFilters The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class BuildDefinitionCiTriggerOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
          * 
          * @return builder
          * 
@@ -224,7 +224,7 @@ public final class BuildDefinitionCiTriggerOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class BuildDefinitionCiTriggerOverrideArgs extends com.pulumi.resou
         }
 
         /**
-         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+         * @param pathFilters Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
          * 
          * @return builder
          * 

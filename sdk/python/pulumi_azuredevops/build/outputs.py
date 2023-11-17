@@ -111,9 +111,9 @@ class BuildDefinitionCiTriggerOverride(dict):
                  polling_job_id: Optional[str] = None):
         """
         :param bool batch: If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
-        :param Sequence['BuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
+        :param Sequence['BuildDefinitionCiTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
         :param int max_concurrent_builds_per_branch: The number of max builds per branch. Defaults to `1`.
-        :param Sequence['BuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        :param Sequence['BuildDefinitionCiTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         :param int polling_interval: How often the external repository is polled. Defaults to `0`.
         :param str polling_job_id: This is the ID of the polling job that polls the external repository. Once the build definition is saved/updated, this value is set.
         """
@@ -142,7 +142,7 @@ class BuildDefinitionCiTriggerOverride(dict):
     @pulumi.getter(name="branchFilters")
     def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionCiTriggerOverrideBranchFilter']]:
         """
-        The branches to include and exclude from the trigger.
+        The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
         """
         return pulumi.get(self, "branch_filters")
 
@@ -158,7 +158,7 @@ class BuildDefinitionCiTriggerOverride(dict):
     @pulumi.getter(name="pathFilters")
     def path_filters(self) -> Optional[Sequence['outputs.BuildDefinitionCiTriggerOverridePathFilter']]:
         """
-        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         return pulumi.get(self, "path_filters")
 
@@ -186,7 +186,10 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
                  includes: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] excludes: List of branch patterns to exclude.
-        :param Sequence[str] includes: List of branch patterns to include.
+               
+               
+               `exclude` - (Optional) List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -198,6 +201,9 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
     def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
+
+
+        `exclude` - (Optional) List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
@@ -205,7 +211,7 @@ class BuildDefinitionCiTriggerOverrideBranchFilter(dict):
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
         """
-        List of branch patterns to include.
+        List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
@@ -435,8 +441,8 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
                  path_filters: Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']] = None):
         """
         :param bool auto_cancel: . Defaults to `true`.
-        :param Sequence['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.
-        :param Sequence['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        :param Sequence['BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
+        :param Sequence['BuildDefinitionPullRequestTriggerOverridePathFilterArgs'] path_filters: Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         if auto_cancel is not None:
             pulumi.set(__self__, "auto_cancel", auto_cancel)
@@ -457,7 +463,7 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
     @pulumi.getter(name="branchFilters")
     def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverrideBranchFilter']]:
         """
-        The branches to include and exclude from the trigger.
+        The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
         """
         return pulumi.get(self, "branch_filters")
 
@@ -465,7 +471,7 @@ class BuildDefinitionPullRequestTriggerOverride(dict):
     @pulumi.getter(name="pathFilters")
     def path_filters(self) -> Optional[Sequence['outputs.BuildDefinitionPullRequestTriggerOverridePathFilter']]:
         """
-        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+        Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
         """
         return pulumi.get(self, "path_filters")
 
@@ -477,7 +483,10 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
                  includes: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] excludes: List of branch patterns to exclude.
-        :param Sequence[str] includes: List of branch patterns to include.
+               
+               
+               `exclude` - (Optional) List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -489,6 +498,9 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
     def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
+
+
+        `exclude` - (Optional) List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
@@ -496,7 +508,7 @@ class BuildDefinitionPullRequestTriggerOverrideBranchFilter(dict):
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
         """
-        List of branch patterns to include.
+        List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 
@@ -690,152 +702,152 @@ class BuildDefinitionSchedule(dict):
                  time_zone: Optional[str] = None):
         """
         :param Sequence[str] days_to_builds: When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
-        :param Sequence['BuildDefinitionScheduleBranchFilterArgs'] branch_filters: block supports the following:
+        :param Sequence['BuildDefinitionScheduleBranchFilterArgs'] branch_filters: The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
         :param str schedule_job_id: The ID of the schedule job
         :param bool schedule_only_with_changes: Schedule builds if the source or pipeline has changed. Defaults to `true`.
         :param int start_hours: Build start hour. Defaults to `0`. Valid values: `0 ~ 23`.
         :param int start_minutes: Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
         :param str time_zone: Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
-               `(UTC-12:00) International Date Line West`,
-               `(UTC-11:00) Coordinated Universal Time-11`,
-               `(UTC-10:00) Aleutian Islands`,
-               `(UTC-10:00) Hawaii`,
-               `(UTC-09:30) Marquesas Islands`,
-               `(UTC-09:00) Alaska`,
-               `(UTC-09:00) Coordinated Universal Time-09`,
-               `(UTC-08:00) Baja California`,
-               `(UTC-08:00) Coordinated Universal Time-08`,
-               `(UTC-08:00) Pacific Time (US &Canada)`,
-               `(UTC-07:00) Arizona`,
-               `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
-               `(UTC-07:00) Mountain Time (US &Canada)`,
-               `(UTC-07:00) Yukon`,
-               `(UTC-06:00) Central America`,
-               `(UTC-06:00) Central Time (US &Canada)`,
-               `(UTC-06:00) Easter Island`,
-               `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
-               `(UTC-06:00) Saskatchewan`,
-               `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
-               `(UTC-05:00) Chetumal`,
-               `(UTC-05:00) Eastern Time (US &Canada)`,
-               `(UTC-05:00) Haiti`,
-               `(UTC-05:00) Havana`,
-               `(UTC-05:00) Indiana (East)`,
-               `(UTC-05:00) Turks and Caicos`,
-               `(UTC-04:00) Asuncion`,
-               `(UTC-04:00) Atlantic Time (Canada)`,
-               `(UTC-04:00) Caracas`,
-               `(UTC-04:00) Cuiaba`,
-               `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
-               `(UTC-04:00) Santiago`,
-               `(UTC-03:30) Newfoundland`,
-               `(UTC-03:00) Araguaina`,
-               `(UTC-03:00) Brasilia`,
-               `(UTC-03:00) Cayenne, Fortaleza`,
-               `(UTC-03:00) City of Buenos Aires`,
-               `(UTC-03:00) Greenland`,
-               `(UTC-03:00) Montevideo`,
-               `(UTC-03:00) Punta Arenas`,
-               `(UTC-03:00) Saint Pierre and Miquelon`,
-               `(UTC-03:00) Salvador`,
-               `(UTC-02:00) Coordinated Universal Time-02`,
-               `(UTC-02:00) Mid-Atlantic - Old`,
-               `(UTC-01:00) Azores`,
-               `(UTC-01:00) Cabo Verde Is.`,
-               `(UTC) Coordinated Universal Time`,
-               `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
-               `(UTC+00:00) Monrovia, Reykjavik`,
-               `(UTC+00:00) Sao Tome`,
-               `(UTC+01:00) Casablanca`,
-               `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
-               `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
-               `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
-               `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
-               `(UTC+01:00) West Central Africa`,
-               `(UTC+02:00) Amman`,
-               `(UTC+02:00) Athens, Bucharest`,
-               `(UTC+02:00) Beirut`,
-               `(UTC+02:00) Cairo`,
-               `(UTC+02:00) Chisinau`,
-               `(UTC+02:00) Damascus`,
-               `(UTC+02:00) Gaza, Hebron`,
-               `(UTC+02:00) Harare, Pretoria`,
-               `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
-               `(UTC+02:00) Jerusalem`,
-               `(UTC+02:00) Juba`,
-               `(UTC+02:00) Kaliningrad`,
-               `(UTC+02:00) Khartoum`,
-               `(UTC+02:00) Tripoli`,
-               `(UTC+02:00) Windhoek`,
-               `(UTC+03:00) Baghdad`,
-               `(UTC+03:00) Istanbul`,
-               `(UTC+03:00) Kuwait, Riyadh`,
-               `(UTC+03:00) Minsk`,
-               `(UTC+03:00) Moscow, St. Petersburg`,
-               `(UTC+03:00) Nairobi`,
-               `(UTC+03:00) Volgograd`,
-               `(UTC+03:30) Tehran`,
-               `(UTC+04:00) Abu Dhabi, Muscat`,
-               `(UTC+04:00) Astrakhan, Ulyanovsk`,
-               `(UTC+04:00) Baku`,
-               `(UTC+04:00) Izhevsk, Samara`,
-               `(UTC+04:00) Port Louis`,
-               `(UTC+04:00) Saratov`,
-               `(UTC+04:00) Tbilisi`,
-               `(UTC+04:00) Yerevan`,
-               `(UTC+04:30) Kabul`,
-               `(UTC+05:00) Ashgabat, Tashkent`,
-               `(UTC+05:00) Ekaterinburg`,
-               `(UTC+05:00) Islamabad, Karachi`,
-               `(UTC+05:00) Qyzylorda`,
-               `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
-               `(UTC+05:30) Sri Jayawardenepura`,
-               `(UTC+05:45) Kathmandu`,
-               `(UTC+06:00) Astana`,
-               `(UTC+06:00) Dhaka`,
-               `(UTC+06:00) Omsk`,
-               `(UTC+06:30) Yangon (Rangoon)`,
-               `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
-               `(UTC+07:00) Barnaul, Gorno-Altaysk`,
-               `(UTC+07:00) Hovd`,
-               `(UTC+07:00) Krasnoyarsk`,
-               `(UTC+07:00) Novosibirsk`,
-               `(UTC+07:00) Tomsk`,
-               `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
-               `(UTC+08:00) Irkutsk`,
-               `(UTC+08:00) Kuala Lumpur, Singapore`,
-               `(UTC+08:00) Perth`,
-               `(UTC+08:00) Taipei`,
-               `(UTC+08:00) Ulaanbaatar`,
-               `(UTC+08:45) Eucla`,
-               `(UTC+09:00) Chita`,
-               `(UTC+09:00) Osaka, Sapporo, Tokyo`,
-               `(UTC+09:00) Pyongyang`,
-               `(UTC+09:00) Seoul`,
-               `(UTC+09:00) Yakutsk`,
-               `(UTC+09:30) Adelaide`,
-               `(UTC+09:30) Darwin`,
-               `(UTC+10:00) Brisbane`,
-               `(UTC+10:00) Canberra, Melbourne, Sydney`,
-               `(UTC+10:00) Guam, Port Moresby`,
-               `(UTC+10:00) Hobart`,
-               `(UTC+10:00) Vladivostok`,
-               `(UTC+10:30) Lord Howe Island`,
-               `(UTC+11:00) Bougainville Island`,
-               `(UTC+11:00) Chokurdakh`,
-               `(UTC+11:00) Magadan`,
-               `(UTC+11:00) Norfolk Island`,
-               `(UTC+11:00) Sakhalin`,
-               `(UTC+11:00) Solomon Is., New Caledonia`,
-               `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
-               `(UTC+12:00) Auckland, Wellington`,
-               `(UTC+12:00) Coordinated Universal Time+12`,
-               `(UTC+12:00) Fiji`,
-               `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
-               `(UTC+12:45) Chatham Islands`,
-               `(UTC+13:00) Coordinated Universal Time+13`,
-               `(UTC+13:00) Nuku'alofa`,
-               `(UTC+13:00) Samoa`,
+               `(UTC-12:00) International Date Line West`,   
+               `(UTC-11:00) Coordinated Universal Time-11`,   
+               `(UTC-10:00) Aleutian Islands`,   
+               `(UTC-10:00) Hawaii`,   
+               `(UTC-09:30) Marquesas Islands`,   
+               `(UTC-09:00) Alaska`,   
+               `(UTC-09:00) Coordinated Universal Time-09`,   
+               `(UTC-08:00) Baja California`,   
+               `(UTC-08:00) Coordinated Universal Time-08`,   
+               `(UTC-08:00) Pacific Time (US &Canada)`,   
+               `(UTC-07:00) Arizona`,   
+               `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,   
+               `(UTC-07:00) Mountain Time (US &Canada)`,   
+               `(UTC-07:00) Yukon`,   
+               `(UTC-06:00) Central America`,   
+               `(UTC-06:00) Central Time (US &Canada)`,   
+               `(UTC-06:00) Easter Island`,   
+               `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,   
+               `(UTC-06:00) Saskatchewan`,   
+               `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,   
+               `(UTC-05:00) Chetumal`,   
+               `(UTC-05:00) Eastern Time (US &Canada)`,   
+               `(UTC-05:00) Haiti`,   
+               `(UTC-05:00) Havana`,   
+               `(UTC-05:00) Indiana (East)`,   
+               `(UTC-05:00) Turks and Caicos`,   
+               `(UTC-04:00) Asuncion`,   
+               `(UTC-04:00) Atlantic Time (Canada)`,   
+               `(UTC-04:00) Caracas`,   
+               `(UTC-04:00) Cuiaba`,   
+               `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,   
+               `(UTC-04:00) Santiago`,   
+               `(UTC-03:30) Newfoundland`,   
+               `(UTC-03:00) Araguaina`,   
+               `(UTC-03:00) Brasilia`,   
+               `(UTC-03:00) Cayenne, Fortaleza`,   
+               `(UTC-03:00) City of Buenos Aires`,   
+               `(UTC-03:00) Greenland`,   
+               `(UTC-03:00) Montevideo`,   
+               `(UTC-03:00) Punta Arenas`,   
+               `(UTC-03:00) Saint Pierre and Miquelon`,   
+               `(UTC-03:00) Salvador`,   
+               `(UTC-02:00) Coordinated Universal Time-02`,   
+               `(UTC-02:00) Mid-Atlantic - Old`,   
+               `(UTC-01:00) Azores`,   
+               `(UTC-01:00) Cabo Verde Is.`,   
+               `(UTC) Coordinated Universal Time`,   
+               `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,   
+               `(UTC+00:00) Monrovia, Reykjavik`,   
+               `(UTC+00:00) Sao Tome`,   
+               `(UTC+01:00) Casablanca`,   
+               `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,   
+               `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,   
+               `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,   
+               `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,   
+               `(UTC+01:00) West Central Africa`,   
+               `(UTC+02:00) Amman`,   
+               `(UTC+02:00) Athens, Bucharest`,   
+               `(UTC+02:00) Beirut`,   
+               `(UTC+02:00) Cairo`,   
+               `(UTC+02:00) Chisinau`,   
+               `(UTC+02:00) Damascus`,   
+               `(UTC+02:00) Gaza, Hebron`,   
+               `(UTC+02:00) Harare, Pretoria`,   
+               `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,   
+               `(UTC+02:00) Jerusalem`,   
+               `(UTC+02:00) Juba`,   
+               `(UTC+02:00) Kaliningrad`,   
+               `(UTC+02:00) Khartoum`,   
+               `(UTC+02:00) Tripoli`,   
+               `(UTC+02:00) Windhoek`,   
+               `(UTC+03:00) Baghdad`,   
+               `(UTC+03:00) Istanbul`,   
+               `(UTC+03:00) Kuwait, Riyadh`,   
+               `(UTC+03:00) Minsk`,   
+               `(UTC+03:00) Moscow, St. Petersburg`,   
+               `(UTC+03:00) Nairobi`,   
+               `(UTC+03:00) Volgograd`,   
+               `(UTC+03:30) Tehran`,   
+               `(UTC+04:00) Abu Dhabi, Muscat`,   
+               `(UTC+04:00) Astrakhan, Ulyanovsk`,   
+               `(UTC+04:00) Baku`,   
+               `(UTC+04:00) Izhevsk, Samara`,   
+               `(UTC+04:00) Port Louis`,   
+               `(UTC+04:00) Saratov`,   
+               `(UTC+04:00) Tbilisi`,   
+               `(UTC+04:00) Yerevan`,   
+               `(UTC+04:30) Kabul`,   
+               `(UTC+05:00) Ashgabat, Tashkent`,   
+               `(UTC+05:00) Ekaterinburg`,   
+               `(UTC+05:00) Islamabad, Karachi`,   
+               `(UTC+05:00) Qyzylorda`,   
+               `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,   
+               `(UTC+05:30) Sri Jayawardenepura`,   
+               `(UTC+05:45) Kathmandu`,   
+               `(UTC+06:00) Astana`,   
+               `(UTC+06:00) Dhaka`,   
+               `(UTC+06:00) Omsk`,   
+               `(UTC+06:30) Yangon (Rangoon)`,   
+               `(UTC+07:00) Bangkok, Hanoi, Jakarta`,   
+               `(UTC+07:00) Barnaul, Gorno-Altaysk`,   
+               `(UTC+07:00) Hovd`,   
+               `(UTC+07:00) Krasnoyarsk`,   
+               `(UTC+07:00) Novosibirsk`,   
+               `(UTC+07:00) Tomsk`,   
+               `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,   
+               `(UTC+08:00) Irkutsk`,   
+               `(UTC+08:00) Kuala Lumpur, Singapore`,   
+               `(UTC+08:00) Perth`,   
+               `(UTC+08:00) Taipei`,   
+               `(UTC+08:00) Ulaanbaatar`,   
+               `(UTC+08:45) Eucla`,   
+               `(UTC+09:00) Chita`,   
+               `(UTC+09:00) Osaka, Sapporo, Tokyo`,   
+               `(UTC+09:00) Pyongyang`,   
+               `(UTC+09:00) Seoul`,   
+               `(UTC+09:00) Yakutsk`,   
+               `(UTC+09:30) Adelaide`,   
+               `(UTC+09:30) Darwin`,   
+               `(UTC+10:00) Brisbane`,   
+               `(UTC+10:00) Canberra, Melbourne, Sydney`,   
+               `(UTC+10:00) Guam, Port Moresby`,   
+               `(UTC+10:00) Hobart`,   
+               `(UTC+10:00) Vladivostok`,   
+               `(UTC+10:30) Lord Howe Island`,   
+               `(UTC+11:00) Bougainville Island`,   
+               `(UTC+11:00) Chokurdakh`,   
+               `(UTC+11:00) Magadan`,   
+               `(UTC+11:00) Norfolk Island`,   
+               `(UTC+11:00) Sakhalin`,   
+               `(UTC+11:00) Solomon Is., New Caledonia`,   
+               `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,   
+               `(UTC+12:00) Auckland, Wellington`,   
+               `(UTC+12:00) Coordinated Universal Time+12`,   
+               `(UTC+12:00) Fiji`,   
+               `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,   
+               `(UTC+12:45) Chatham Islands`,   
+               `(UTC+13:00) Coordinated Universal Time+13`,   
+               `(UTC+13:00) Nuku'alofa`,   
+               `(UTC+13:00) Samoa`,   
                `(UTC+14:00) Kiritimati Island`.
         """
         pulumi.set(__self__, "days_to_builds", days_to_builds)
@@ -864,7 +876,7 @@ class BuildDefinitionSchedule(dict):
     @pulumi.getter(name="branchFilters")
     def branch_filters(self) -> Optional[Sequence['outputs.BuildDefinitionScheduleBranchFilter']]:
         """
-        block supports the following:
+        The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
         """
         return pulumi.get(self, "branch_filters")
 
@@ -905,146 +917,146 @@ class BuildDefinitionSchedule(dict):
     def time_zone(self) -> Optional[str]:
         """
         Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: 
-        `(UTC-12:00) International Date Line West`,
-        `(UTC-11:00) Coordinated Universal Time-11`,
-        `(UTC-10:00) Aleutian Islands`,
-        `(UTC-10:00) Hawaii`,
-        `(UTC-09:30) Marquesas Islands`,
-        `(UTC-09:00) Alaska`,
-        `(UTC-09:00) Coordinated Universal Time-09`,
-        `(UTC-08:00) Baja California`,
-        `(UTC-08:00) Coordinated Universal Time-08`,
-        `(UTC-08:00) Pacific Time (US &Canada)`,
-        `(UTC-07:00) Arizona`,
-        `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
-        `(UTC-07:00) Mountain Time (US &Canada)`,
-        `(UTC-07:00) Yukon`,
-        `(UTC-06:00) Central America`,
-        `(UTC-06:00) Central Time (US &Canada)`,
-        `(UTC-06:00) Easter Island`,
-        `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
-        `(UTC-06:00) Saskatchewan`,
-        `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
-        `(UTC-05:00) Chetumal`,
-        `(UTC-05:00) Eastern Time (US &Canada)`,
-        `(UTC-05:00) Haiti`,
-        `(UTC-05:00) Havana`,
-        `(UTC-05:00) Indiana (East)`,
-        `(UTC-05:00) Turks and Caicos`,
-        `(UTC-04:00) Asuncion`,
-        `(UTC-04:00) Atlantic Time (Canada)`,
-        `(UTC-04:00) Caracas`,
-        `(UTC-04:00) Cuiaba`,
-        `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
-        `(UTC-04:00) Santiago`,
-        `(UTC-03:30) Newfoundland`,
-        `(UTC-03:00) Araguaina`,
-        `(UTC-03:00) Brasilia`,
-        `(UTC-03:00) Cayenne, Fortaleza`,
-        `(UTC-03:00) City of Buenos Aires`,
-        `(UTC-03:00) Greenland`,
-        `(UTC-03:00) Montevideo`,
-        `(UTC-03:00) Punta Arenas`,
-        `(UTC-03:00) Saint Pierre and Miquelon`,
-        `(UTC-03:00) Salvador`,
-        `(UTC-02:00) Coordinated Universal Time-02`,
-        `(UTC-02:00) Mid-Atlantic - Old`,
-        `(UTC-01:00) Azores`,
-        `(UTC-01:00) Cabo Verde Is.`,
-        `(UTC) Coordinated Universal Time`,
-        `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
-        `(UTC+00:00) Monrovia, Reykjavik`,
-        `(UTC+00:00) Sao Tome`,
-        `(UTC+01:00) Casablanca`,
-        `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
-        `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
-        `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
-        `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
-        `(UTC+01:00) West Central Africa`,
-        `(UTC+02:00) Amman`,
-        `(UTC+02:00) Athens, Bucharest`,
-        `(UTC+02:00) Beirut`,
-        `(UTC+02:00) Cairo`,
-        `(UTC+02:00) Chisinau`,
-        `(UTC+02:00) Damascus`,
-        `(UTC+02:00) Gaza, Hebron`,
-        `(UTC+02:00) Harare, Pretoria`,
-        `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
-        `(UTC+02:00) Jerusalem`,
-        `(UTC+02:00) Juba`,
-        `(UTC+02:00) Kaliningrad`,
-        `(UTC+02:00) Khartoum`,
-        `(UTC+02:00) Tripoli`,
-        `(UTC+02:00) Windhoek`,
-        `(UTC+03:00) Baghdad`,
-        `(UTC+03:00) Istanbul`,
-        `(UTC+03:00) Kuwait, Riyadh`,
-        `(UTC+03:00) Minsk`,
-        `(UTC+03:00) Moscow, St. Petersburg`,
-        `(UTC+03:00) Nairobi`,
-        `(UTC+03:00) Volgograd`,
-        `(UTC+03:30) Tehran`,
-        `(UTC+04:00) Abu Dhabi, Muscat`,
-        `(UTC+04:00) Astrakhan, Ulyanovsk`,
-        `(UTC+04:00) Baku`,
-        `(UTC+04:00) Izhevsk, Samara`,
-        `(UTC+04:00) Port Louis`,
-        `(UTC+04:00) Saratov`,
-        `(UTC+04:00) Tbilisi`,
-        `(UTC+04:00) Yerevan`,
-        `(UTC+04:30) Kabul`,
-        `(UTC+05:00) Ashgabat, Tashkent`,
-        `(UTC+05:00) Ekaterinburg`,
-        `(UTC+05:00) Islamabad, Karachi`,
-        `(UTC+05:00) Qyzylorda`,
-        `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
-        `(UTC+05:30) Sri Jayawardenepura`,
-        `(UTC+05:45) Kathmandu`,
-        `(UTC+06:00) Astana`,
-        `(UTC+06:00) Dhaka`,
-        `(UTC+06:00) Omsk`,
-        `(UTC+06:30) Yangon (Rangoon)`,
-        `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
-        `(UTC+07:00) Barnaul, Gorno-Altaysk`,
-        `(UTC+07:00) Hovd`,
-        `(UTC+07:00) Krasnoyarsk`,
-        `(UTC+07:00) Novosibirsk`,
-        `(UTC+07:00) Tomsk`,
-        `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
-        `(UTC+08:00) Irkutsk`,
-        `(UTC+08:00) Kuala Lumpur, Singapore`,
-        `(UTC+08:00) Perth`,
-        `(UTC+08:00) Taipei`,
-        `(UTC+08:00) Ulaanbaatar`,
-        `(UTC+08:45) Eucla`,
-        `(UTC+09:00) Chita`,
-        `(UTC+09:00) Osaka, Sapporo, Tokyo`,
-        `(UTC+09:00) Pyongyang`,
-        `(UTC+09:00) Seoul`,
-        `(UTC+09:00) Yakutsk`,
-        `(UTC+09:30) Adelaide`,
-        `(UTC+09:30) Darwin`,
-        `(UTC+10:00) Brisbane`,
-        `(UTC+10:00) Canberra, Melbourne, Sydney`,
-        `(UTC+10:00) Guam, Port Moresby`,
-        `(UTC+10:00) Hobart`,
-        `(UTC+10:00) Vladivostok`,
-        `(UTC+10:30) Lord Howe Island`,
-        `(UTC+11:00) Bougainville Island`,
-        `(UTC+11:00) Chokurdakh`,
-        `(UTC+11:00) Magadan`,
-        `(UTC+11:00) Norfolk Island`,
-        `(UTC+11:00) Sakhalin`,
-        `(UTC+11:00) Solomon Is., New Caledonia`,
-        `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
-        `(UTC+12:00) Auckland, Wellington`,
-        `(UTC+12:00) Coordinated Universal Time+12`,
-        `(UTC+12:00) Fiji`,
-        `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
-        `(UTC+12:45) Chatham Islands`,
-        `(UTC+13:00) Coordinated Universal Time+13`,
-        `(UTC+13:00) Nuku'alofa`,
-        `(UTC+13:00) Samoa`,
+        `(UTC-12:00) International Date Line West`,   
+        `(UTC-11:00) Coordinated Universal Time-11`,   
+        `(UTC-10:00) Aleutian Islands`,   
+        `(UTC-10:00) Hawaii`,   
+        `(UTC-09:30) Marquesas Islands`,   
+        `(UTC-09:00) Alaska`,   
+        `(UTC-09:00) Coordinated Universal Time-09`,   
+        `(UTC-08:00) Baja California`,   
+        `(UTC-08:00) Coordinated Universal Time-08`,   
+        `(UTC-08:00) Pacific Time (US &Canada)`,   
+        `(UTC-07:00) Arizona`,   
+        `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,   
+        `(UTC-07:00) Mountain Time (US &Canada)`,   
+        `(UTC-07:00) Yukon`,   
+        `(UTC-06:00) Central America`,   
+        `(UTC-06:00) Central Time (US &Canada)`,   
+        `(UTC-06:00) Easter Island`,   
+        `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,   
+        `(UTC-06:00) Saskatchewan`,   
+        `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,   
+        `(UTC-05:00) Chetumal`,   
+        `(UTC-05:00) Eastern Time (US &Canada)`,   
+        `(UTC-05:00) Haiti`,   
+        `(UTC-05:00) Havana`,   
+        `(UTC-05:00) Indiana (East)`,   
+        `(UTC-05:00) Turks and Caicos`,   
+        `(UTC-04:00) Asuncion`,   
+        `(UTC-04:00) Atlantic Time (Canada)`,   
+        `(UTC-04:00) Caracas`,   
+        `(UTC-04:00) Cuiaba`,   
+        `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,   
+        `(UTC-04:00) Santiago`,   
+        `(UTC-03:30) Newfoundland`,   
+        `(UTC-03:00) Araguaina`,   
+        `(UTC-03:00) Brasilia`,   
+        `(UTC-03:00) Cayenne, Fortaleza`,   
+        `(UTC-03:00) City of Buenos Aires`,   
+        `(UTC-03:00) Greenland`,   
+        `(UTC-03:00) Montevideo`,   
+        `(UTC-03:00) Punta Arenas`,   
+        `(UTC-03:00) Saint Pierre and Miquelon`,   
+        `(UTC-03:00) Salvador`,   
+        `(UTC-02:00) Coordinated Universal Time-02`,   
+        `(UTC-02:00) Mid-Atlantic - Old`,   
+        `(UTC-01:00) Azores`,   
+        `(UTC-01:00) Cabo Verde Is.`,   
+        `(UTC) Coordinated Universal Time`,   
+        `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,   
+        `(UTC+00:00) Monrovia, Reykjavik`,   
+        `(UTC+00:00) Sao Tome`,   
+        `(UTC+01:00) Casablanca`,   
+        `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,   
+        `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,   
+        `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,   
+        `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,   
+        `(UTC+01:00) West Central Africa`,   
+        `(UTC+02:00) Amman`,   
+        `(UTC+02:00) Athens, Bucharest`,   
+        `(UTC+02:00) Beirut`,   
+        `(UTC+02:00) Cairo`,   
+        `(UTC+02:00) Chisinau`,   
+        `(UTC+02:00) Damascus`,   
+        `(UTC+02:00) Gaza, Hebron`,   
+        `(UTC+02:00) Harare, Pretoria`,   
+        `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,   
+        `(UTC+02:00) Jerusalem`,   
+        `(UTC+02:00) Juba`,   
+        `(UTC+02:00) Kaliningrad`,   
+        `(UTC+02:00) Khartoum`,   
+        `(UTC+02:00) Tripoli`,   
+        `(UTC+02:00) Windhoek`,   
+        `(UTC+03:00) Baghdad`,   
+        `(UTC+03:00) Istanbul`,   
+        `(UTC+03:00) Kuwait, Riyadh`,   
+        `(UTC+03:00) Minsk`,   
+        `(UTC+03:00) Moscow, St. Petersburg`,   
+        `(UTC+03:00) Nairobi`,   
+        `(UTC+03:00) Volgograd`,   
+        `(UTC+03:30) Tehran`,   
+        `(UTC+04:00) Abu Dhabi, Muscat`,   
+        `(UTC+04:00) Astrakhan, Ulyanovsk`,   
+        `(UTC+04:00) Baku`,   
+        `(UTC+04:00) Izhevsk, Samara`,   
+        `(UTC+04:00) Port Louis`,   
+        `(UTC+04:00) Saratov`,   
+        `(UTC+04:00) Tbilisi`,   
+        `(UTC+04:00) Yerevan`,   
+        `(UTC+04:30) Kabul`,   
+        `(UTC+05:00) Ashgabat, Tashkent`,   
+        `(UTC+05:00) Ekaterinburg`,   
+        `(UTC+05:00) Islamabad, Karachi`,   
+        `(UTC+05:00) Qyzylorda`,   
+        `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,   
+        `(UTC+05:30) Sri Jayawardenepura`,   
+        `(UTC+05:45) Kathmandu`,   
+        `(UTC+06:00) Astana`,   
+        `(UTC+06:00) Dhaka`,   
+        `(UTC+06:00) Omsk`,   
+        `(UTC+06:30) Yangon (Rangoon)`,   
+        `(UTC+07:00) Bangkok, Hanoi, Jakarta`,   
+        `(UTC+07:00) Barnaul, Gorno-Altaysk`,   
+        `(UTC+07:00) Hovd`,   
+        `(UTC+07:00) Krasnoyarsk`,   
+        `(UTC+07:00) Novosibirsk`,   
+        `(UTC+07:00) Tomsk`,   
+        `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,   
+        `(UTC+08:00) Irkutsk`,   
+        `(UTC+08:00) Kuala Lumpur, Singapore`,   
+        `(UTC+08:00) Perth`,   
+        `(UTC+08:00) Taipei`,   
+        `(UTC+08:00) Ulaanbaatar`,   
+        `(UTC+08:45) Eucla`,   
+        `(UTC+09:00) Chita`,   
+        `(UTC+09:00) Osaka, Sapporo, Tokyo`,   
+        `(UTC+09:00) Pyongyang`,   
+        `(UTC+09:00) Seoul`,   
+        `(UTC+09:00) Yakutsk`,   
+        `(UTC+09:30) Adelaide`,   
+        `(UTC+09:30) Darwin`,   
+        `(UTC+10:00) Brisbane`,   
+        `(UTC+10:00) Canberra, Melbourne, Sydney`,   
+        `(UTC+10:00) Guam, Port Moresby`,   
+        `(UTC+10:00) Hobart`,   
+        `(UTC+10:00) Vladivostok`,   
+        `(UTC+10:30) Lord Howe Island`,   
+        `(UTC+11:00) Bougainville Island`,   
+        `(UTC+11:00) Chokurdakh`,   
+        `(UTC+11:00) Magadan`,   
+        `(UTC+11:00) Norfolk Island`,   
+        `(UTC+11:00) Sakhalin`,   
+        `(UTC+11:00) Solomon Is., New Caledonia`,   
+        `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,   
+        `(UTC+12:00) Auckland, Wellington`,   
+        `(UTC+12:00) Coordinated Universal Time+12`,   
+        `(UTC+12:00) Fiji`,   
+        `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,   
+        `(UTC+12:45) Chatham Islands`,   
+        `(UTC+13:00) Coordinated Universal Time+13`,   
+        `(UTC+13:00) Nuku'alofa`,   
+        `(UTC+13:00) Samoa`,   
         `(UTC+14:00) Kiritimati Island`.
         """
         return pulumi.get(self, "time_zone")
@@ -1057,7 +1069,10 @@ class BuildDefinitionScheduleBranchFilter(dict):
                  includes: Optional[Sequence[str]] = None):
         """
         :param Sequence[str] excludes: List of branch patterns to exclude.
-        :param Sequence[str] includes: List of branch patterns to include.
+               
+               
+               `exclude` - (Optional) List of branch patterns to exclude.
+        :param Sequence[str] includes: List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
         """
         if excludes is not None:
             pulumi.set(__self__, "excludes", excludes)
@@ -1069,6 +1084,9 @@ class BuildDefinitionScheduleBranchFilter(dict):
     def excludes(self) -> Optional[Sequence[str]]:
         """
         List of branch patterns to exclude.
+
+
+        `exclude` - (Optional) List of branch patterns to exclude.
         """
         return pulumi.get(self, "excludes")
 
@@ -1076,7 +1094,7 @@ class BuildDefinitionScheduleBranchFilter(dict):
     @pulumi.getter
     def includes(self) -> Optional[Sequence[str]]:
         """
-        List of branch patterns to include.
+        List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
         """
         return pulumi.get(self, "includes")
 

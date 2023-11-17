@@ -83,9 +83,7 @@ export class GroupEntitlement extends pulumi.CustomResource {
      */
     public readonly displayName!: pulumi.Output<string>;
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-     *
-     * > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
+     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      */
     public readonly licensingSource!: pulumi.Output<string | undefined>;
     /**
@@ -153,9 +151,7 @@ export interface GroupEntitlementState {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-     *
-     * > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
+     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      */
     licensingSource?: pulumi.Input<string>;
     /**
@@ -185,9 +181,7 @@ export interface GroupEntitlementArgs {
      */
     displayName?: pulumi.Input<string>;
     /**
-     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-     *
-     * > **NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
+     * The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `originId` and `origin`.
      */
     licensingSource?: pulumi.Input<string>;
     /**

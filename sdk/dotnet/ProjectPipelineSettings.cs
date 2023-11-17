@@ -68,12 +68,10 @@ namespace Pulumi.AzureDevOps
         public Output<bool> EnforceJobScope { get; private set; } = null!;
 
         /// <summary>
-        /// Limit job authorization scope to current project for release pipelines.
-        /// 
-        /// &gt; **NOTE:**
-        /// &gt; The settings at the organization will override settings specified on the project.
-        /// &gt; For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
-        /// &gt; In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+        /// Limit job authorization scope to current project for release pipelines.**NOTE:**  
+        /// The settings at the organization will override settings specified on the project.
+        /// For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
+        /// In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         /// </summary>
         [Output("enforceJobScopeForRelease")]
         public Output<bool> EnforceJobScopeForRelease { get; private set; } = null!;
@@ -161,12 +159,10 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? EnforceJobScope { get; set; }
 
         /// <summary>
-        /// Limit job authorization scope to current project for release pipelines.
-        /// 
-        /// &gt; **NOTE:**
-        /// &gt; The settings at the organization will override settings specified on the project.
-        /// &gt; For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
-        /// &gt; In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+        /// Limit job authorization scope to current project for release pipelines.**NOTE:**  
+        /// The settings at the organization will override settings specified on the project.
+        /// For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
+        /// In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         /// </summary>
         [Input("enforceJobScopeForRelease")]
         public Input<bool>? EnforceJobScopeForRelease { get; set; }
@@ -216,12 +212,10 @@ namespace Pulumi.AzureDevOps
         public Input<bool>? EnforceJobScope { get; set; }
 
         /// <summary>
-        /// Limit job authorization scope to current project for release pipelines.
-        /// 
-        /// &gt; **NOTE:**
-        /// &gt; The settings at the organization will override settings specified on the project.
-        /// &gt; For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
-        /// &gt; In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
+        /// Limit job authorization scope to current project for release pipelines.**NOTE:**  
+        /// The settings at the organization will override settings specified on the project.
+        /// For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
+        /// In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
         /// </summary>
         [Input("enforceJobScopeForRelease")]
         public Input<bool>? EnforceJobScopeForRelease { get; set; }

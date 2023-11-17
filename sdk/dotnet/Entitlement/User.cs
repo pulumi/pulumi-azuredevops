@@ -59,9 +59,7 @@ namespace Pulumi.AzureDevOps.Entitlement
         public Output<string> Descriptor { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-        /// 
-        /// &gt; **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         /// </summary>
         [Output("licensingSource")]
         public Output<string?> LicensingSource { get; private set; } = null!;
@@ -137,9 +135,7 @@ namespace Pulumi.AzureDevOps.Entitlement
         public Input<string>? AccountLicenseType { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-        /// 
-        /// &gt; **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         /// </summary>
         [Input("licensingSource")]
         public Input<string>? LicensingSource { get; set; }
@@ -183,9 +179,7 @@ namespace Pulumi.AzureDevOps.Entitlement
         public Input<string>? Descriptor { get; set; }
 
         /// <summary>
-        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-        /// 
-        /// &gt; **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        /// The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         /// </summary>
         [Input("licensingSource")]
         public Input<string>? LicensingSource { get; set; }

@@ -14,10 +14,12 @@ public final class BuildDefinitionCiTriggerOverrideBranchFilter {
     /**
      * @return List of branch patterns to exclude.
      * 
+     * `exclude` - (Optional) List of branch patterns to exclude.
+     * 
      */
     private @Nullable List<String> excludes;
     /**
-     * @return List of branch patterns to include.
+     * @return List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
      * 
      */
     private @Nullable List<String> includes;
@@ -26,12 +28,14 @@ public final class BuildDefinitionCiTriggerOverrideBranchFilter {
     /**
      * @return List of branch patterns to exclude.
      * 
+     * `exclude` - (Optional) List of branch patterns to exclude.
+     * 
      */
     public List<String> excludes() {
         return this.excludes == null ? List.of() : this.excludes;
     }
     /**
-     * @return List of branch patterns to include.
+     * @return List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
      * 
      */
     public List<String> includes() {

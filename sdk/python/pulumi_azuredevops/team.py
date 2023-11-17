@@ -22,19 +22,15 @@ class TeamArgs:
         """
         The set of arguments for constructing a Team resource.
         :param pulumi.Input[str] project_id: The Project ID.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
-               
-               > NOTE: It's possible to define team administrators both within the
-               > `Team` resource via the `administrators` block and by using the
-               > `TeamAdministrators` resource. However it's not possible to use
-               > both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the
+               `Team` resource via the `administrators` block and by using the
+               `TeamAdministrators` resource. However it's not possible to use
+               both methods to manage team administrators, since there'll be conflicts.
         :param pulumi.Input[str] description: The description of the Team.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
-               
-               > NOTE: It's possible to define team members both within the
-               > `Team` resource via the `members` block and by using the
-               > `TeamMembers` resource. However it's not possible to use
-               > both methods to manage team members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+               `Team` resource via the `members` block and by using the
+               `TeamMembers` resource. However it's not possible to use
+               both methods to manage team members, since there'll be conflicts.
         :param pulumi.Input[str] name: The name of the Team.
         """
         pulumi.set(__self__, "project_id", project_id)
@@ -63,12 +59,10 @@ class TeamArgs:
     @pulumi.getter
     def administrators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of subject descriptors to define administrators of the team.
-
-        > NOTE: It's possible to define team administrators both within the
-        > `Team` resource via the `administrators` block and by using the
-        > `TeamAdministrators` resource. However it's not possible to use
-        > both methods to manage team administrators, since there'll be conflicts.
+        List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the
+        `Team` resource via the `administrators` block and by using the
+        `TeamAdministrators` resource. However it's not possible to use
+        both methods to manage team administrators, since there'll be conflicts.
         """
         return pulumi.get(self, "administrators")
 
@@ -92,12 +86,10 @@ class TeamArgs:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of subject descriptors to define members of the team.
-
-        > NOTE: It's possible to define team members both within the
-        > `Team` resource via the `members` block and by using the
-        > `TeamMembers` resource. However it's not possible to use
-        > both methods to manage team members, since there'll be conflicts.
+        List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+        `Team` resource via the `members` block and by using the
+        `TeamMembers` resource. However it's not possible to use
+        both methods to manage team members, since there'll be conflicts.
         """
         return pulumi.get(self, "members")
 
@@ -129,20 +121,16 @@ class _TeamState:
                  project_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Team resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
-               
-               > NOTE: It's possible to define team administrators both within the
-               > `Team` resource via the `administrators` block and by using the
-               > `TeamAdministrators` resource. However it's not possible to use
-               > both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the
+               `Team` resource via the `administrators` block and by using the
+               `TeamAdministrators` resource. However it's not possible to use
+               both methods to manage team administrators, since there'll be conflicts.
         :param pulumi.Input[str] description: The description of the Team.
         :param pulumi.Input[str] descriptor: The descriptor of the Team.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
-               
-               > NOTE: It's possible to define team members both within the
-               > `Team` resource via the `members` block and by using the
-               > `TeamMembers` resource. However it's not possible to use
-               > both methods to manage team members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+               `Team` resource via the `members` block and by using the
+               `TeamMembers` resource. However it's not possible to use
+               both methods to manage team members, since there'll be conflicts.
         :param pulumi.Input[str] name: The name of the Team.
         :param pulumi.Input[str] project_id: The Project ID.
         """
@@ -163,12 +151,10 @@ class _TeamState:
     @pulumi.getter
     def administrators(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of subject descriptors to define administrators of the team.
-
-        > NOTE: It's possible to define team administrators both within the
-        > `Team` resource via the `administrators` block and by using the
-        > `TeamAdministrators` resource. However it's not possible to use
-        > both methods to manage team administrators, since there'll be conflicts.
+        List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the
+        `Team` resource via the `administrators` block and by using the
+        `TeamAdministrators` resource. However it's not possible to use
+        both methods to manage team administrators, since there'll be conflicts.
         """
         return pulumi.get(self, "administrators")
 
@@ -204,12 +190,10 @@ class _TeamState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of subject descriptors to define members of the team.
-
-        > NOTE: It's possible to define team members both within the
-        > `Team` resource via the `members` block and by using the
-        > `TeamMembers` resource. However it's not possible to use
-        > both methods to manage team members, since there'll be conflicts.
+        List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+        `Team` resource via the `members` block and by using the
+        `TeamMembers` resource. However it's not possible to use
+        both methods to manage team members, since there'll be conflicts.
         """
         return pulumi.get(self, "members")
 
@@ -294,19 +278,15 @@ class Team(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
-               
-               > NOTE: It's possible to define team administrators both within the
-               > `Team` resource via the `administrators` block and by using the
-               > `TeamAdministrators` resource. However it's not possible to use
-               > both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the
+               `Team` resource via the `administrators` block and by using the
+               `TeamAdministrators` resource. However it's not possible to use
+               both methods to manage team administrators, since there'll be conflicts.
         :param pulumi.Input[str] description: The description of the Team.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
-               
-               > NOTE: It's possible to define team members both within the
-               > `Team` resource via the `members` block and by using the
-               > `TeamMembers` resource. However it's not possible to use
-               > both methods to manage team members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+               `Team` resource via the `members` block and by using the
+               `TeamMembers` resource. However it's not possible to use
+               both methods to manage team members, since there'll be conflicts.
         :param pulumi.Input[str] name: The name of the Team.
         :param pulumi.Input[str] project_id: The Project ID.
         """
@@ -415,20 +395,16 @@ class Team(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.
-               
-               > NOTE: It's possible to define team administrators both within the
-               > `Team` resource via the `administrators` block and by using the
-               > `TeamAdministrators` resource. However it's not possible to use
-               > both methods to manage team administrators, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] administrators: List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the
+               `Team` resource via the `administrators` block and by using the
+               `TeamAdministrators` resource. However it's not possible to use
+               both methods to manage team administrators, since there'll be conflicts.
         :param pulumi.Input[str] description: The description of the Team.
         :param pulumi.Input[str] descriptor: The descriptor of the Team.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
-               
-               > NOTE: It's possible to define team members both within the
-               > `Team` resource via the `members` block and by using the
-               > `TeamMembers` resource. However it's not possible to use
-               > both methods to manage team members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+               `Team` resource via the `members` block and by using the
+               `TeamMembers` resource. However it's not possible to use
+               both methods to manage team members, since there'll be conflicts.
         :param pulumi.Input[str] name: The name of the Team.
         :param pulumi.Input[str] project_id: The Project ID.
         """
@@ -448,12 +424,10 @@ class Team(pulumi.CustomResource):
     @pulumi.getter
     def administrators(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of subject descriptors to define administrators of the team.
-
-        > NOTE: It's possible to define team administrators both within the
-        > `Team` resource via the `administrators` block and by using the
-        > `TeamAdministrators` resource. However it's not possible to use
-        > both methods to manage team administrators, since there'll be conflicts.
+        List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the
+        `Team` resource via the `administrators` block and by using the
+        `TeamAdministrators` resource. However it's not possible to use
+        both methods to manage team administrators, since there'll be conflicts.
         """
         return pulumi.get(self, "administrators")
 
@@ -477,12 +451,10 @@ class Team(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of subject descriptors to define members of the team.
-
-        > NOTE: It's possible to define team members both within the
-        > `Team` resource via the `members` block and by using the
-        > `TeamMembers` resource. However it's not possible to use
-        > both methods to manage team members, since there'll be conflicts.
+        List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+        `Team` resource via the `members` block and by using the
+        `TeamMembers` resource. However it's not possible to use
+        both methods to manage team members, since there'll be conflicts.
         """
         return pulumi.get(self, "members")
 

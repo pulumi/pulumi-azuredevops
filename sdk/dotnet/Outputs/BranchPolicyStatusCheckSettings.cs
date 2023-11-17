@@ -15,7 +15,7 @@ namespace Pulumi.AzureDevOps.Outputs
     {
         /// <summary>
         /// Policy applicability. If policy `applicability` is `default`, apply unless "Not Applicable" 
-        /// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status
+        /// status is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status 
         /// is posted to the pull request.
         /// </summary>
         public readonly string? Applicability;

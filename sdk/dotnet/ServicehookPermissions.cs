@@ -95,8 +95,8 @@ namespace Pulumi.AzureDevOps
         /// | Name               | Permission Description   |
         /// | ------------------ | ------------------------ |
         /// | ViewSubscriptions  | View Subscriptions       |
-        /// | EditSubscriptions  | Edit Subscription        |
-        /// | DeleteSubscriptions| Delete Subscriptions     |
+        /// | EditSubscriptions  | Edit Subscription        | 
+        /// | DeleteSubscriptions| Delete Subscriptions     | 
         /// | PublishEvents      | Publish Events           |
         /// </summary>
         [Output("replace")]
@@ -178,8 +178,8 @@ namespace Pulumi.AzureDevOps
         /// | Name               | Permission Description   |
         /// | ------------------ | ------------------------ |
         /// | ViewSubscriptions  | View Subscriptions       |
-        /// | EditSubscriptions  | Edit Subscription        |
-        /// | DeleteSubscriptions| Delete Subscriptions     |
+        /// | EditSubscriptions  | Edit Subscription        | 
+        /// | DeleteSubscriptions| Delete Subscriptions     | 
         /// | PublishEvents      | Publish Events           |
         /// </summary>
         [Input("replace")]
@@ -223,8 +223,8 @@ namespace Pulumi.AzureDevOps
         /// | Name               | Permission Description   |
         /// | ------------------ | ------------------------ |
         /// | ViewSubscriptions  | View Subscriptions       |
-        /// | EditSubscriptions  | Edit Subscription        |
-        /// | DeleteSubscriptions| Delete Subscriptions     |
+        /// | EditSubscriptions  | Edit Subscription        | 
+        /// | DeleteSubscriptions| Delete Subscriptions     | 
         /// | PublishEvents      | Publish Events           |
         /// </summary>
         [Input("replace")]

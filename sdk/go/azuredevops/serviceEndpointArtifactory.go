@@ -125,6 +125,11 @@ type ServiceEndpointArtifactory struct {
 	//
 	// _Note: URL should not end in a slash character._
 	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	//   * `authenticationToken`
+	//     * `token` - Authentication Token generated through Artifactory.
+	//   * `authenticationBasic`
+	//     * `username` - Artifactory Username.
+	//     * `password` - Artifactory Password.
 	Url pulumi.StringOutput `pulumi:"url"`
 }
 
@@ -180,6 +185,11 @@ type serviceEndpointArtifactoryState struct {
 	//
 	// _Note: URL should not end in a slash character._
 	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	//   * `authenticationToken`
+	//     * `token` - Authentication Token generated through Artifactory.
+	//   * `authenticationBasic`
+	//     * `username` - Artifactory Username.
+	//     * `password` - Artifactory Password.
 	Url *string `pulumi:"url"`
 }
 
@@ -197,6 +207,11 @@ type ServiceEndpointArtifactoryState struct {
 	//
 	// _Note: URL should not end in a slash character._
 	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	//   * `authenticationToken`
+	//     * `token` - Authentication Token generated through Artifactory.
+	//   * `authenticationBasic`
+	//     * `username` - Artifactory Username.
+	//     * `password` - Artifactory Password.
 	Url pulumi.StringPtrInput
 }
 
@@ -218,6 +233,11 @@ type serviceEndpointArtifactoryArgs struct {
 	//
 	// _Note: URL should not end in a slash character._
 	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	//   * `authenticationToken`
+	//     * `token` - Authentication Token generated through Artifactory.
+	//   * `authenticationBasic`
+	//     * `username` - Artifactory Username.
+	//     * `password` - Artifactory Password.
 	Url string `pulumi:"url"`
 }
 
@@ -236,6 +256,11 @@ type ServiceEndpointArtifactoryArgs struct {
 	//
 	// _Note: URL should not end in a slash character._
 	// * either `authenticationToken` or `authenticationBasic` (one is required)
+	//   * `authenticationToken`
+	//     * `token` - Authentication Token generated through Artifactory.
+	//   * `authenticationBasic`
+	//     * `username` - Artifactory Username.
+	//     * `password` - Artifactory Password.
 	Url pulumi.StringInput
 }
 
@@ -361,6 +386,11 @@ func (o ServiceEndpointArtifactoryOutput) ServiceEndpointName() pulumi.StringOut
 //
 // _Note: URL should not end in a slash character._
 // * either `authenticationToken` or `authenticationBasic` (one is required)
+//   - `authenticationToken`
+//   - `token` - Authentication Token generated through Artifactory.
+//   - `authenticationBasic`
+//   - `username` - Artifactory Username.
+//   - `password` - Artifactory Password.
 func (o ServiceEndpointArtifactoryOutput) Url() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactory) pulumi.StringOutput { return v.Url }).(pulumi.StringOutput)
 }

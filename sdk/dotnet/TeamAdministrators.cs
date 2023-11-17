@@ -70,20 +70,16 @@ namespace Pulumi.AzureDevOps
     public partial class TeamAdministrators : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of subject descriptors to define adminitrators of the team.
-        /// 
-        /// &gt; NOTE: It's possible to define team administrators both within the
-        /// &gt; `azuredevops.Team` resource via the `administrators` block and by using the
-        /// &gt; `azuredevops.TeamAdministrators` resource. However it's not possible to use
-        /// &gt; both methods to manage team administrators, since there'll be conflicts.
+        /// List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
+        /// `azuredevops.Team` resource via the `administrators` block and by using the
+        /// `azuredevops.TeamAdministrators` resource. However it's not possible to use
+        /// both methods to manage team administrators, since there'll be conflicts.
         /// </summary>
         [Output("administrators")]
         public Output<ImmutableArray<string>> Administrators { get; private set; } = null!;
 
         /// <summary>
         /// The mode how the resource manages team administrators.
-        /// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-        /// - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         /// </summary>
         [Output("mode")]
         public Output<string?> Mode { get; private set; } = null!;
@@ -150,12 +146,10 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _administrators;
 
         /// <summary>
-        /// List of subject descriptors to define adminitrators of the team.
-        /// 
-        /// &gt; NOTE: It's possible to define team administrators both within the
-        /// &gt; `azuredevops.Team` resource via the `administrators` block and by using the
-        /// &gt; `azuredevops.TeamAdministrators` resource. However it's not possible to use
-        /// &gt; both methods to manage team administrators, since there'll be conflicts.
+        /// List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
+        /// `azuredevops.Team` resource via the `administrators` block and by using the
+        /// `azuredevops.TeamAdministrators` resource. However it's not possible to use
+        /// both methods to manage team administrators, since there'll be conflicts.
         /// </summary>
         public InputList<string> Administrators
         {
@@ -165,8 +159,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The mode how the resource manages team administrators.
-        /// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-        /// - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -195,12 +187,10 @@ namespace Pulumi.AzureDevOps
         private InputList<string>? _administrators;
 
         /// <summary>
-        /// List of subject descriptors to define adminitrators of the team.
-        /// 
-        /// &gt; NOTE: It's possible to define team administrators both within the
-        /// &gt; `azuredevops.Team` resource via the `administrators` block and by using the
-        /// &gt; `azuredevops.TeamAdministrators` resource. However it's not possible to use
-        /// &gt; both methods to manage team administrators, since there'll be conflicts.
+        /// List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
+        /// `azuredevops.Team` resource via the `administrators` block and by using the
+        /// `azuredevops.TeamAdministrators` resource. However it's not possible to use
+        /// both methods to manage team administrators, since there'll be conflicts.
         /// </summary>
         public InputList<string> Administrators
         {
@@ -210,8 +200,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// The mode how the resource manages team administrators.
-        /// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-        /// - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
         /// </summary>
         [Input("mode")]
         public Input<string>? Mode { get; set; }

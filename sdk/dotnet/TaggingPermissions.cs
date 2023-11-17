@@ -95,8 +95,8 @@ namespace Pulumi.AzureDevOps
         /// | Name               | Permission Description     |
         /// | ------------------ | -------------------------- |
         /// | Enumerate          | Enumerate tag definitions  |
-        /// | Create             | Create tag definition      |
-        /// | Update             | Update tag definition      |
+        /// | Create             | Create tag definition      | 
+        /// | Update             | Update tag definition      | 
         /// | Delete             | Delete tag definition      |
         /// </summary>
         [Output("replace")]
@@ -178,8 +178,8 @@ namespace Pulumi.AzureDevOps
         /// | Name               | Permission Description     |
         /// | ------------------ | -------------------------- |
         /// | Enumerate          | Enumerate tag definitions  |
-        /// | Create             | Create tag definition      |
-        /// | Update             | Update tag definition      |
+        /// | Create             | Create tag definition      | 
+        /// | Update             | Update tag definition      | 
         /// | Delete             | Delete tag definition      |
         /// </summary>
         [Input("replace")]
@@ -223,8 +223,8 @@ namespace Pulumi.AzureDevOps
         /// | Name               | Permission Description     |
         /// | ------------------ | -------------------------- |
         /// | Enumerate          | Enumerate tag definitions  |
-        /// | Create             | Create tag definition      |
-        /// | Update             | Update tag definition      |
+        /// | Create             | Create tag definition      | 
+        /// | Update             | Update tag definition      | 
         /// | Delete             | Delete tag definition      |
         /// </summary>
         [Input("replace")]

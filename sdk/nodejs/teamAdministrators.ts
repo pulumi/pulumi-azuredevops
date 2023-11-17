@@ -72,18 +72,14 @@ export class TeamAdministrators extends pulumi.CustomResource {
     }
 
     /**
-     * List of subject descriptors to define adminitrators of the team.
-     *
-     * > NOTE: It's possible to define team administrators both within the
-     * > `azuredevops.Team` resource via the `administrators` block and by using the
-     * > `azuredevops.TeamAdministrators` resource. However it's not possible to use
-     * > both methods to manage team administrators, since there'll be conflicts.
+     * List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
+     * `azuredevops.Team` resource via the `administrators` block and by using the
+     * `azuredevops.TeamAdministrators` resource. However it's not possible to use
+     * both methods to manage team administrators, since there'll be conflicts.
      */
     public readonly administrators!: pulumi.Output<string[]>;
     /**
      * The mode how the resource manages team administrators.
-     * - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
      */
     public readonly mode!: pulumi.Output<string | undefined>;
     /**
@@ -138,18 +134,14 @@ export class TeamAdministrators extends pulumi.CustomResource {
  */
 export interface TeamAdministratorsState {
     /**
-     * List of subject descriptors to define adminitrators of the team.
-     *
-     * > NOTE: It's possible to define team administrators both within the
-     * > `azuredevops.Team` resource via the `administrators` block and by using the
-     * > `azuredevops.TeamAdministrators` resource. However it's not possible to use
-     * > both methods to manage team administrators, since there'll be conflicts.
+     * List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
+     * `azuredevops.Team` resource via the `administrators` block and by using the
+     * `azuredevops.TeamAdministrators` resource. However it's not possible to use
+     * both methods to manage team administrators, since there'll be conflicts.
      */
     administrators?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The mode how the resource manages team administrators.
-     * - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
      */
     mode?: pulumi.Input<string>;
     /**
@@ -167,18 +159,14 @@ export interface TeamAdministratorsState {
  */
 export interface TeamAdministratorsArgs {
     /**
-     * List of subject descriptors to define adminitrators of the team.
-     *
-     * > NOTE: It's possible to define team administrators both within the
-     * > `azuredevops.Team` resource via the `administrators` block and by using the
-     * > `azuredevops.TeamAdministrators` resource. However it's not possible to use
-     * > both methods to manage team administrators, since there'll be conflicts.
+     * List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
+     * `azuredevops.Team` resource via the `administrators` block and by using the
+     * `azuredevops.TeamAdministrators` resource. However it's not possible to use
+     * both methods to manage team administrators, since there'll be conflicts.
      */
     administrators: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * The mode how the resource manages team administrators.
-     * - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
      */
     mode?: pulumi.Input<string>;
     /**

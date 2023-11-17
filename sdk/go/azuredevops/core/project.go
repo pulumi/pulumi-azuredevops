@@ -78,9 +78,7 @@ type Project struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -130,9 +128,7 @@ type projectState struct {
 	// The Description of the Project.
 	Description *string `pulumi:"description"`
 	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -153,9 +149,7 @@ type ProjectState struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrInput
 	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -180,9 +174,7 @@ type projectArgs struct {
 	// The Description of the Project.
 	Description *string `pulumi:"description"`
 	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -202,9 +194,7 @@ type ProjectArgs struct {
 	// The Description of the Project.
 	Description pulumi.StringPtrInput
 	// Defines the status (`enabled`, `disabled`) of the project features.
-	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -312,9 +302,7 @@ func (o ProjectOutput) Description() pulumi.StringPtrOutput {
 }
 
 // Defines the status (`enabled`, `disabled`) of the project features.
-// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-//
-// > **NOTE:**
+// Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**
 // It's possible to define project features both within the `ProjectFeatures` resource and
 // via the `features` block by using the `Project` resource.
 // However it's not possible to use both methods to manage features, since there'll be conflicts.

@@ -75,9 +75,7 @@ type ProjectFeatures struct {
 	pulumi.CustomResourceState
 
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -122,9 +120,7 @@ func GetProjectFeatures(ctx *pulumi.Context,
 // Input properties used for looking up and filtering ProjectFeatures resources.
 type projectFeaturesState struct {
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -134,9 +130,7 @@ type projectFeaturesState struct {
 
 type ProjectFeaturesState struct {
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -150,9 +144,7 @@ func (ProjectFeaturesState) ElementType() reflect.Type {
 
 type projectFeaturesArgs struct {
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -163,9 +155,7 @@ type projectFeaturesArgs struct {
 // The set of arguments for constructing a ProjectFeatures resource.
 type ProjectFeaturesArgs struct {
 	// Defines the status (`enabled`, `disabled`) of the project features.\
-	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-	//
-	// > **NOTE:**
+	// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\
 	// It's possible to define project features both within the `ProjectFeatures` resource and
 	// via the `features` block by using the `Project` resource.
 	// However it's not possible to use both methods to manage features, since there'll be conflicts.
@@ -261,9 +251,7 @@ func (o ProjectFeaturesOutput) ToProjectFeaturesOutputWithContext(ctx context.Co
 }
 
 // Defines the status (`enabled`, `disabled`) of the project features.\
-// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-//
-// > **NOTE:**
+// Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\
 // It's possible to define project features both within the `ProjectFeatures` resource and
 // via the `features` block by using the `Project` resource.
 // However it's not possible to use both methods to manage features, since there'll be conflicts.

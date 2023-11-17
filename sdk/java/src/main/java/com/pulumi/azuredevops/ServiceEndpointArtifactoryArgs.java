@@ -89,6 +89,11 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
      * 
      * _Note: URL should not end in a slash character._
      * * either `authentication_token` or `authentication_basic` (one is required)
+     *   * `authentication_token`
+     *     * `token` - Authentication Token generated through Artifactory.
+     *   * `authentication_basic`
+     *     * `username` - Artifactory Username.
+     *     * `password` - Artifactory Password.
      * 
      */
     @Import(name="url", required=true)
@@ -99,6 +104,11 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
      * 
      * _Note: URL should not end in a slash character._
      * * either `authentication_token` or `authentication_basic` (one is required)
+     *   * `authentication_token`
+     *     * `token` - Authentication Token generated through Artifactory.
+     *   * `authentication_basic`
+     *     * `username` - Artifactory Username.
+     *     * `password` - Artifactory Password.
      * 
      */
     public Output<String> url() {
@@ -230,6 +240,11 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
          * 
          * _Note: URL should not end in a slash character._
          * * either `authentication_token` or `authentication_basic` (one is required)
+         *   * `authentication_token`
+         *     * `token` - Authentication Token generated through Artifactory.
+         *   * `authentication_basic`
+         *     * `username` - Artifactory Username.
+         *     * `password` - Artifactory Password.
          * 
          * @return builder
          * 
@@ -244,6 +259,11 @@ public final class ServiceEndpointArtifactoryArgs extends com.pulumi.resources.R
          * 
          * _Note: URL should not end in a slash character._
          * * either `authentication_token` or `authentication_basic` (one is required)
+         *   * `authentication_token`
+         *     * `token` - Authentication Token generated through Artifactory.
+         *   * `authentication_basic`
+         *     * `username` - Artifactory Username.
+         *     * `password` - Artifactory Password.
          * 
          * @return builder
          * 

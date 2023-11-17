@@ -80,12 +80,10 @@ export class Project extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string | undefined>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-     *
-     * > **NOTE:**
-     * > It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
-     * > via the `features` block by using the `azuredevops.Project` resource.
-     * > However it's not possible to use both methods to manage features, since there'll be conflicts.
+     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**
+     * It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * via the `features` block by using the `azuredevops.Project` resource.
+     * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
     public readonly features!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -156,12 +154,10 @@ export interface ProjectState {
     description?: pulumi.Input<string>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-     *
-     * > **NOTE:**
-     * > It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
-     * > via the `features` block by using the `azuredevops.Project` resource.
-     * > However it's not possible to use both methods to manage features, since there'll be conflicts.
+     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**
+     * It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * via the `features` block by using the `azuredevops.Project` resource.
+     * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
     features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -196,12 +192,10 @@ export interface ProjectArgs {
     description?: pulumi.Input<string>;
     /**
      * Defines the status (`enabled`, `disabled`) of the project features.
-     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-     *
-     * > **NOTE:**
-     * > It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
-     * > via the `features` block by using the `azuredevops.Project` resource.
-     * > However it's not possible to use both methods to manage features, since there'll be conflicts.
+     * Valid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**
+     * It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and
+     * via the `features` block by using the `azuredevops.Project` resource.
+     * However it's not possible to use both methods to manage features, since there'll be conflicts.
      */
     features?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

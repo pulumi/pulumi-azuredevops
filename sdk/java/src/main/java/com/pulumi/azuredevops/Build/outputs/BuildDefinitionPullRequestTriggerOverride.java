@@ -20,12 +20,12 @@ public final class BuildDefinitionPullRequestTriggerOverride {
      */
     private @Nullable Boolean autoCancel;
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
      * 
      */
     private @Nullable List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters;
     /**
-     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      * 
      */
     private @Nullable List<BuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters;
@@ -39,14 +39,14 @@ public final class BuildDefinitionPullRequestTriggerOverride {
         return Optional.ofNullable(this.autoCancel);
     }
     /**
-     * @return The branches to include and exclude from the trigger.
+     * @return The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.
      * 
      */
     public List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters() {
         return this.branchFilters == null ? List.of() : this.branchFilters;
     }
     /**
-     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+     * @return Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
      * 
      */
     public List<BuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters() {

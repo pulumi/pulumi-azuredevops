@@ -97,8 +97,8 @@ export class ServicehookPermissions extends pulumi.CustomResource {
      * | Name               | Permission Description   |
      * | ------------------ | ------------------------ |
      * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | EditSubscriptions  | Edit Subscription        | 
+     * | DeleteSubscriptions| Delete Subscriptions     | 
      * | PublishEvents      | Publish Events           |
      */
     public readonly replace!: pulumi.Output<boolean | undefined>;
@@ -160,8 +160,8 @@ export interface ServicehookPermissionsState {
      * | Name               | Permission Description   |
      * | ------------------ | ------------------------ |
      * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | EditSubscriptions  | Edit Subscription        | 
+     * | DeleteSubscriptions| Delete Subscriptions     | 
      * | PublishEvents      | Publish Events           |
      */
     replace?: pulumi.Input<boolean>;
@@ -189,8 +189,8 @@ export interface ServicehookPermissionsArgs {
      * | Name               | Permission Description   |
      * | ------------------ | ------------------------ |
      * | ViewSubscriptions  | View Subscriptions       |
-     * | EditSubscriptions  | Edit Subscription        |
-     * | DeleteSubscriptions| Delete Subscriptions     |
+     * | EditSubscriptions  | Edit Subscription        | 
+     * | DeleteSubscriptions| Delete Subscriptions     | 
      * | PublishEvents      | Publish Events           |
      */
     replace?: pulumi.Input<boolean>;

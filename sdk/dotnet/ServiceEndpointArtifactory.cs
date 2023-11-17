@@ -125,6 +125,11 @@ namespace Pulumi.AzureDevOps
         /// 
         /// _Note: URL should not end in a slash character._
         /// * either `authentication_token` or `authentication_basic` (one is required)
+        ///   * `authentication_token`
+        ///     * `token` - Authentication Token generated through Artifactory.
+        ///   * `authentication_basic`
+        ///     * `username` - Artifactory Username.
+        ///     * `password` - Artifactory Password.
         /// </summary>
         [Output("url")]
         public Output<string> Url { get; private set; } = null!;
@@ -212,6 +217,11 @@ namespace Pulumi.AzureDevOps
         /// 
         /// _Note: URL should not end in a slash character._
         /// * either `authentication_token` or `authentication_basic` (one is required)
+        ///   * `authentication_token`
+        ///     * `token` - Authentication Token generated through Artifactory.
+        ///   * `authentication_basic`
+        ///     * `username` - Artifactory Username.
+        ///     * `password` - Artifactory Password.
         /// </summary>
         [Input("url", required: true)]
         public Input<string> Url { get; set; } = null!;
@@ -261,6 +271,11 @@ namespace Pulumi.AzureDevOps
         /// 
         /// _Note: URL should not end in a slash character._
         /// * either `authentication_token` or `authentication_basic` (one is required)
+        ///   * `authentication_token`
+        ///     * `token` - Authentication Token generated through Artifactory.
+        ///   * `authentication_basic`
+        ///     * `username` - Artifactory Username.
+        ///     * `password` - Artifactory Password.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

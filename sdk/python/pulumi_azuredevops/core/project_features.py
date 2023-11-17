@@ -19,12 +19,10 @@ class ProjectFeaturesArgs:
         """
         The set of arguments for constructing a ProjectFeatures resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
-               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-               
-               > **NOTE:**
-               > It's possible to define project features both within the `ProjectFeatures` resource and
-               > via the `features` block by using the `Project` resource.
-               > However it's not possible to use both methods to manage features, since there'll be conflicts.
+               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  
+               It's possible to define project features both within the `ProjectFeatures` resource and
+               via the `features` block by using the `Project` resource.
+               However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         pulumi.set(__self__, "features", features)
         pulumi.set(__self__, "project_id", project_id)
@@ -34,12 +32,10 @@ class ProjectFeaturesArgs:
     def features(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         Defines the status (`enabled`, `disabled`) of the project features.  
-        Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-
-        > **NOTE:**
-        > It's possible to define project features both within the `ProjectFeatures` resource and
-        > via the `features` block by using the `Project` resource.
-        > However it's not possible to use both methods to manage features, since there'll be conflicts.
+        Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  
+        It's possible to define project features both within the `ProjectFeatures` resource and
+        via the `features` block by using the `Project` resource.
+        However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         return pulumi.get(self, "features")
 
@@ -65,12 +61,10 @@ class _ProjectFeaturesState:
         """
         Input properties used for looking up and filtering ProjectFeatures resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
-               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-               
-               > **NOTE:**
-               > It's possible to define project features both within the `ProjectFeatures` resource and
-               > via the `features` block by using the `Project` resource.
-               > However it's not possible to use both methods to manage features, since there'll be conflicts.
+               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  
+               It's possible to define project features both within the `ProjectFeatures` resource and
+               via the `features` block by using the `Project` resource.
+               However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         if features is not None:
             pulumi.set(__self__, "features", features)
@@ -82,12 +76,10 @@ class _ProjectFeaturesState:
     def features(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Defines the status (`enabled`, `disabled`) of the project features.  
-        Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-
-        > **NOTE:**
-        > It's possible to define project features both within the `ProjectFeatures` resource and
-        > via the `features` block by using the `Project` resource.
-        > However it's not possible to use both methods to manage features, since there'll be conflicts.
+        Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  
+        It's possible to define project features both within the `ProjectFeatures` resource and
+        via the `features` block by using the `Project` resource.
+        However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         return pulumi.get(self, "features")
 
@@ -158,12 +150,10 @@ class ProjectFeatures(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
-               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-               
-               > **NOTE:**
-               > It's possible to define project features both within the `ProjectFeatures` resource and
-               > via the `features` block by using the `Project` resource.
-               > However it's not possible to use both methods to manage features, since there'll be conflicts.
+               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  
+               It's possible to define project features both within the `ProjectFeatures` resource and
+               via the `features` block by using the `Project` resource.
+               However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         ...
     @overload
@@ -261,12 +251,10 @@ class ProjectFeatures(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] features: Defines the status (`enabled`, `disabled`) of the project features.  
-               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-               
-               > **NOTE:**
-               > It's possible to define project features both within the `ProjectFeatures` resource and
-               > via the `features` block by using the `Project` resource.
-               > However it's not possible to use both methods to manage features, since there'll be conflicts.
+               Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  
+               It's possible to define project features both within the `ProjectFeatures` resource and
+               via the `features` block by using the `Project` resource.
+               However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -281,12 +269,10 @@ class ProjectFeatures(pulumi.CustomResource):
     def features(self) -> pulumi.Output[Mapping[str, str]]:
         """
         Defines the status (`enabled`, `disabled`) of the project features.  
-        Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`
-
-        > **NOTE:**
-        > It's possible to define project features both within the `ProjectFeatures` resource and
-        > via the `features` block by using the `Project` resource.
-        > However it's not possible to use both methods to manage features, since there'll be conflicts.
+        Valid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  
+        It's possible to define project features both within the `ProjectFeatures` resource and
+        via the `features` block by using the `Project` resource.
+        However it's not possible to use both methods to manage features, since there'll be conflicts.
         """
         return pulumi.get(self, "features")
 

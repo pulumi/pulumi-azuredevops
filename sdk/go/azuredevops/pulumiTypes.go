@@ -2521,11 +2521,11 @@ func (o BuildDefinitionCiTriggerPtrOutput) UseYaml() pulumi.BoolPtrOutput {
 type BuildDefinitionCiTriggerOverride struct {
 	// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
 	Batch *bool `pulumi:"batch"`
-	// The branches to include and exclude from the trigger.
+	// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 	BranchFilters []BuildDefinitionCiTriggerOverrideBranchFilter `pulumi:"branchFilters"`
 	// The number of max builds per branch. Defaults to `1`.
 	MaxConcurrentBuildsPerBranch *int `pulumi:"maxConcurrentBuildsPerBranch"`
-	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`pathFilter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 	PathFilters []BuildDefinitionCiTriggerOverridePathFilter `pulumi:"pathFilters"`
 	// How often the external repository is polled. Defaults to `0`.
 	PollingInterval *int `pulumi:"pollingInterval"`
@@ -2547,11 +2547,11 @@ type BuildDefinitionCiTriggerOverrideInput interface {
 type BuildDefinitionCiTriggerOverrideArgs struct {
 	// If you set batch to true, when a pipeline is running, the system waits until the run is completed, then starts another run with all changes that have not yet been built. Defaults to `true`.
 	Batch pulumi.BoolPtrInput `pulumi:"batch"`
-	// The branches to include and exclude from the trigger.
+	// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 	BranchFilters BuildDefinitionCiTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
 	// The number of max builds per branch. Defaults to `1`.
 	MaxConcurrentBuildsPerBranch pulumi.IntPtrInput `pulumi:"maxConcurrentBuildsPerBranch"`
-	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`pathFilter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 	PathFilters BuildDefinitionCiTriggerOverridePathFilterArrayInput `pulumi:"pathFilters"`
 	// How often the external repository is polled. Defaults to `0`.
 	PollingInterval pulumi.IntPtrInput `pulumi:"pollingInterval"`
@@ -2641,7 +2641,7 @@ func (o BuildDefinitionCiTriggerOverrideOutput) Batch() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) *bool { return v.Batch }).(pulumi.BoolPtrOutput)
 }
 
-// The branches to include and exclude from the trigger.
+// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 func (o BuildDefinitionCiTriggerOverrideOutput) BranchFilters() BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverrideBranchFilter {
 		return v.BranchFilters
@@ -2653,7 +2653,7 @@ func (o BuildDefinitionCiTriggerOverrideOutput) MaxConcurrentBuildsPerBranch() p
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) *int { return v.MaxConcurrentBuildsPerBranch }).(pulumi.IntPtrOutput)
 }
 
-// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`pathFilter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 func (o BuildDefinitionCiTriggerOverrideOutput) PathFilters() BuildDefinitionCiTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverridePathFilter {
 		return v.PathFilters
@@ -2704,7 +2704,7 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) Batch() pulumi.BoolPtrOutput 
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The branches to include and exclude from the trigger.
+// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 func (o BuildDefinitionCiTriggerOverridePtrOutput) BranchFilters() BuildDefinitionCiTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverrideBranchFilter {
 		if v == nil {
@@ -2724,7 +2724,7 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) MaxConcurrentBuildsPerBranch(
 	}).(pulumi.IntPtrOutput)
 }
 
-// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`pathFilter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 func (o BuildDefinitionCiTriggerOverridePtrOutput) PathFilters() BuildDefinitionCiTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionCiTriggerOverride) []BuildDefinitionCiTriggerOverridePathFilter {
 		if v == nil {
@@ -2756,8 +2756,10 @@ func (o BuildDefinitionCiTriggerOverridePtrOutput) PollingJobId() pulumi.StringP
 
 type BuildDefinitionCiTriggerOverrideBranchFilter struct {
 	// List of branch patterns to exclude.
+	//
+	// `exclude` - (Optional) List of branch patterns to exclude.
 	Excludes []string `pulumi:"excludes"`
-	// List of branch patterns to include.
+	// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -2774,8 +2776,10 @@ type BuildDefinitionCiTriggerOverrideBranchFilterInput interface {
 
 type BuildDefinitionCiTriggerOverrideBranchFilterArgs struct {
 	// List of branch patterns to exclude.
+	//
+	// `exclude` - (Optional) List of branch patterns to exclude.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// List of branch patterns to include.
+	// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -2831,11 +2835,13 @@ func (o BuildDefinitionCiTriggerOverrideBranchFilterOutput) ToBuildDefinitionCiT
 }
 
 // List of branch patterns to exclude.
+//
+// `exclude` - (Optional) List of branch patterns to exclude.
 func (o BuildDefinitionCiTriggerOverrideBranchFilterOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverrideBranchFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// List of branch patterns to include.
+// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
 func (o BuildDefinitionCiTriggerOverrideBranchFilterOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionCiTriggerOverrideBranchFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -3435,9 +3441,9 @@ func (o BuildDefinitionPullRequestTriggerForksPtrOutput) ShareSecrets() pulumi.B
 type BuildDefinitionPullRequestTriggerOverride struct {
 	// . Defaults to `true`.
 	AutoCancel *bool `pulumi:"autoCancel"`
-	// The branches to include and exclude from the trigger.
+	// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 	BranchFilters []BuildDefinitionPullRequestTriggerOverrideBranchFilter `pulumi:"branchFilters"`
-	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`pathFilter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 	PathFilters []BuildDefinitionPullRequestTriggerOverridePathFilter `pulumi:"pathFilters"`
 }
 
@@ -3455,9 +3461,9 @@ type BuildDefinitionPullRequestTriggerOverrideInput interface {
 type BuildDefinitionPullRequestTriggerOverrideArgs struct {
 	// . Defaults to `true`.
 	AutoCancel pulumi.BoolPtrInput `pulumi:"autoCancel"`
-	// The branches to include and exclude from the trigger.
+	// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 	BranchFilters BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayInput `pulumi:"branchFilters"`
-	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+	// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`pathFilter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 	PathFilters BuildDefinitionPullRequestTriggerOverridePathFilterArrayInput `pulumi:"pathFilters"`
 }
 
@@ -3543,14 +3549,14 @@ func (o BuildDefinitionPullRequestTriggerOverrideOutput) AutoCancel() pulumi.Boo
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) *bool { return v.AutoCancel }).(pulumi.BoolPtrOutput)
 }
 
-// The branches to include and exclude from the trigger.
+// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 func (o BuildDefinitionPullRequestTriggerOverrideOutput) BranchFilters() BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverrideBranchFilter {
 		return v.BranchFilters
 	}).(BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput)
 }
 
-// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`pathFilter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 func (o BuildDefinitionPullRequestTriggerOverrideOutput) PathFilters() BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverridePathFilter {
 		return v.PathFilters
@@ -3591,7 +3597,7 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) AutoCancel() pulumi.
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The branches to include and exclude from the trigger.
+// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) BranchFilters() BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverrideBranchFilter {
 		if v == nil {
@@ -3601,7 +3607,7 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) BranchFilters() Buil
 	}).(BuildDefinitionPullRequestTriggerOverrideBranchFilterArrayOutput)
 }
 
-// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
+// Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`pathFilter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.
 func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) PathFilters() BuildDefinitionPullRequestTriggerOverridePathFilterArrayOutput {
 	return o.ApplyT(func(v *BuildDefinitionPullRequestTriggerOverride) []BuildDefinitionPullRequestTriggerOverridePathFilter {
 		if v == nil {
@@ -3613,8 +3619,10 @@ func (o BuildDefinitionPullRequestTriggerOverridePtrOutput) PathFilters() BuildD
 
 type BuildDefinitionPullRequestTriggerOverrideBranchFilter struct {
 	// List of branch patterns to exclude.
+	//
+	// `exclude` - (Optional) List of branch patterns to exclude.
 	Excludes []string `pulumi:"excludes"`
-	// List of branch patterns to include.
+	// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -3631,8 +3639,10 @@ type BuildDefinitionPullRequestTriggerOverrideBranchFilterInput interface {
 
 type BuildDefinitionPullRequestTriggerOverrideBranchFilterArgs struct {
 	// List of branch patterns to exclude.
+	//
+	// `exclude` - (Optional) List of branch patterns to exclude.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// List of branch patterns to include.
+	// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -3688,11 +3698,13 @@ func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) ToBuildDefi
 }
 
 // List of branch patterns to exclude.
+//
+// `exclude` - (Optional) List of branch patterns to exclude.
 func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverrideBranchFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// List of branch patterns to include.
+// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
 func (o BuildDefinitionPullRequestTriggerOverrideBranchFilterOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionPullRequestTriggerOverrideBranchFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -4075,7 +4087,7 @@ func (o BuildDefinitionRepositoryPtrOutput) YmlPath() pulumi.StringPtrOutput {
 }
 
 type BuildDefinitionSchedule struct {
-	// block supports the following:
+	// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 	BranchFilters []BuildDefinitionScheduleBranchFilter `pulumi:"branchFilters"`
 	// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
 	DaysToBuilds []string `pulumi:"daysToBuilds"`
@@ -4088,146 +4100,146 @@ type BuildDefinitionSchedule struct {
 	// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
 	StartMinutes *int `pulumi:"startMinutes"`
 	// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
-	// `(UTC-12:00) International Date Line West`,
-	// `(UTC-11:00) Coordinated Universal Time-11`,
-	// `(UTC-10:00) Aleutian Islands`,
-	// `(UTC-10:00) Hawaii`,
-	// `(UTC-09:30) Marquesas Islands`,
-	// `(UTC-09:00) Alaska`,
-	// `(UTC-09:00) Coordinated Universal Time-09`,
-	// `(UTC-08:00) Baja California`,
-	// `(UTC-08:00) Coordinated Universal Time-08`,
-	// `(UTC-08:00) Pacific Time (US &Canada)`,
-	// `(UTC-07:00) Arizona`,
-	// `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
-	// `(UTC-07:00) Mountain Time (US &Canada)`,
-	// `(UTC-07:00) Yukon`,
-	// `(UTC-06:00) Central America`,
-	// `(UTC-06:00) Central Time (US &Canada)`,
-	// `(UTC-06:00) Easter Island`,
-	// `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
-	// `(UTC-06:00) Saskatchewan`,
-	// `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
-	// `(UTC-05:00) Chetumal`,
-	// `(UTC-05:00) Eastern Time (US &Canada)`,
-	// `(UTC-05:00) Haiti`,
-	// `(UTC-05:00) Havana`,
-	// `(UTC-05:00) Indiana (East)`,
-	// `(UTC-05:00) Turks and Caicos`,
-	// `(UTC-04:00) Asuncion`,
-	// `(UTC-04:00) Atlantic Time (Canada)`,
-	// `(UTC-04:00) Caracas`,
-	// `(UTC-04:00) Cuiaba`,
-	// `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
-	// `(UTC-04:00) Santiago`,
-	// `(UTC-03:30) Newfoundland`,
-	// `(UTC-03:00) Araguaina`,
-	// `(UTC-03:00) Brasilia`,
-	// `(UTC-03:00) Cayenne, Fortaleza`,
-	// `(UTC-03:00) City of Buenos Aires`,
-	// `(UTC-03:00) Greenland`,
-	// `(UTC-03:00) Montevideo`,
-	// `(UTC-03:00) Punta Arenas`,
-	// `(UTC-03:00) Saint Pierre and Miquelon`,
-	// `(UTC-03:00) Salvador`,
-	// `(UTC-02:00) Coordinated Universal Time-02`,
-	// `(UTC-02:00) Mid-Atlantic - Old`,
-	// `(UTC-01:00) Azores`,
-	// `(UTC-01:00) Cabo Verde Is.`,
-	// `(UTC) Coordinated Universal Time`,
-	// `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
-	// `(UTC+00:00) Monrovia, Reykjavik`,
-	// `(UTC+00:00) Sao Tome`,
-	// `(UTC+01:00) Casablanca`,
-	// `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
-	// `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
-	// `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
-	// `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
-	// `(UTC+01:00) West Central Africa`,
-	// `(UTC+02:00) Amman`,
-	// `(UTC+02:00) Athens, Bucharest`,
-	// `(UTC+02:00) Beirut`,
-	// `(UTC+02:00) Cairo`,
-	// `(UTC+02:00) Chisinau`,
-	// `(UTC+02:00) Damascus`,
-	// `(UTC+02:00) Gaza, Hebron`,
-	// `(UTC+02:00) Harare, Pretoria`,
-	// `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
-	// `(UTC+02:00) Jerusalem`,
-	// `(UTC+02:00) Juba`,
-	// `(UTC+02:00) Kaliningrad`,
-	// `(UTC+02:00) Khartoum`,
-	// `(UTC+02:00) Tripoli`,
-	// `(UTC+02:00) Windhoek`,
-	// `(UTC+03:00) Baghdad`,
-	// `(UTC+03:00) Istanbul`,
-	// `(UTC+03:00) Kuwait, Riyadh`,
-	// `(UTC+03:00) Minsk`,
-	// `(UTC+03:00) Moscow, St. Petersburg`,
-	// `(UTC+03:00) Nairobi`,
-	// `(UTC+03:00) Volgograd`,
-	// `(UTC+03:30) Tehran`,
-	// `(UTC+04:00) Abu Dhabi, Muscat`,
-	// `(UTC+04:00) Astrakhan, Ulyanovsk`,
-	// `(UTC+04:00) Baku`,
-	// `(UTC+04:00) Izhevsk, Samara`,
-	// `(UTC+04:00) Port Louis`,
-	// `(UTC+04:00) Saratov`,
-	// `(UTC+04:00) Tbilisi`,
-	// `(UTC+04:00) Yerevan`,
-	// `(UTC+04:30) Kabul`,
-	// `(UTC+05:00) Ashgabat, Tashkent`,
-	// `(UTC+05:00) Ekaterinburg`,
-	// `(UTC+05:00) Islamabad, Karachi`,
-	// `(UTC+05:00) Qyzylorda`,
-	// `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
-	// `(UTC+05:30) Sri Jayawardenepura`,
-	// `(UTC+05:45) Kathmandu`,
-	// `(UTC+06:00) Astana`,
-	// `(UTC+06:00) Dhaka`,
-	// `(UTC+06:00) Omsk`,
-	// `(UTC+06:30) Yangon (Rangoon)`,
-	// `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
-	// `(UTC+07:00) Barnaul, Gorno-Altaysk`,
-	// `(UTC+07:00) Hovd`,
-	// `(UTC+07:00) Krasnoyarsk`,
-	// `(UTC+07:00) Novosibirsk`,
-	// `(UTC+07:00) Tomsk`,
-	// `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
-	// `(UTC+08:00) Irkutsk`,
-	// `(UTC+08:00) Kuala Lumpur, Singapore`,
-	// `(UTC+08:00) Perth`,
-	// `(UTC+08:00) Taipei`,
-	// `(UTC+08:00) Ulaanbaatar`,
-	// `(UTC+08:45) Eucla`,
-	// `(UTC+09:00) Chita`,
-	// `(UTC+09:00) Osaka, Sapporo, Tokyo`,
-	// `(UTC+09:00) Pyongyang`,
-	// `(UTC+09:00) Seoul`,
-	// `(UTC+09:00) Yakutsk`,
-	// `(UTC+09:30) Adelaide`,
-	// `(UTC+09:30) Darwin`,
-	// `(UTC+10:00) Brisbane`,
-	// `(UTC+10:00) Canberra, Melbourne, Sydney`,
-	// `(UTC+10:00) Guam, Port Moresby`,
-	// `(UTC+10:00) Hobart`,
-	// `(UTC+10:00) Vladivostok`,
-	// `(UTC+10:30) Lord Howe Island`,
-	// `(UTC+11:00) Bougainville Island`,
-	// `(UTC+11:00) Chokurdakh`,
-	// `(UTC+11:00) Magadan`,
-	// `(UTC+11:00) Norfolk Island`,
-	// `(UTC+11:00) Sakhalin`,
-	// `(UTC+11:00) Solomon Is., New Caledonia`,
-	// `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
-	// `(UTC+12:00) Auckland, Wellington`,
-	// `(UTC+12:00) Coordinated Universal Time+12`,
-	// `(UTC+12:00) Fiji`,
-	// `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
-	// `(UTC+12:45) Chatham Islands`,
-	// `(UTC+13:00) Coordinated Universal Time+13`,
-	// `(UTC+13:00) Nuku'alofa`,
-	// `(UTC+13:00) Samoa`,
+	// `(UTC-12:00) International Date Line West`,\
+	// `(UTC-11:00) Coordinated Universal Time-11`,\
+	// `(UTC-10:00) Aleutian Islands`,\
+	// `(UTC-10:00) Hawaii`,\
+	// `(UTC-09:30) Marquesas Islands`,\
+	// `(UTC-09:00) Alaska`,\
+	// `(UTC-09:00) Coordinated Universal Time-09`,\
+	// `(UTC-08:00) Baja California`,\
+	// `(UTC-08:00) Coordinated Universal Time-08`,\
+	// `(UTC-08:00) Pacific Time (US &Canada)`,\
+	// `(UTC-07:00) Arizona`,\
+	// `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,\
+	// `(UTC-07:00) Mountain Time (US &Canada)`,\
+	// `(UTC-07:00) Yukon`,\
+	// `(UTC-06:00) Central America`,\
+	// `(UTC-06:00) Central Time (US &Canada)`,\
+	// `(UTC-06:00) Easter Island`,\
+	// `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,\
+	// `(UTC-06:00) Saskatchewan`,\
+	// `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,\
+	// `(UTC-05:00) Chetumal`,\
+	// `(UTC-05:00) Eastern Time (US &Canada)`,\
+	// `(UTC-05:00) Haiti`,\
+	// `(UTC-05:00) Havana`,\
+	// `(UTC-05:00) Indiana (East)`,\
+	// `(UTC-05:00) Turks and Caicos`,\
+	// `(UTC-04:00) Asuncion`,\
+	// `(UTC-04:00) Atlantic Time (Canada)`,\
+	// `(UTC-04:00) Caracas`,\
+	// `(UTC-04:00) Cuiaba`,\
+	// `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,\
+	// `(UTC-04:00) Santiago`,\
+	// `(UTC-03:30) Newfoundland`,\
+	// `(UTC-03:00) Araguaina`,\
+	// `(UTC-03:00) Brasilia`,\
+	// `(UTC-03:00) Cayenne, Fortaleza`,\
+	// `(UTC-03:00) City of Buenos Aires`,\
+	// `(UTC-03:00) Greenland`,\
+	// `(UTC-03:00) Montevideo`,\
+	// `(UTC-03:00) Punta Arenas`,\
+	// `(UTC-03:00) Saint Pierre and Miquelon`,\
+	// `(UTC-03:00) Salvador`,\
+	// `(UTC-02:00) Coordinated Universal Time-02`,\
+	// `(UTC-02:00) Mid-Atlantic - Old`,\
+	// `(UTC-01:00) Azores`,\
+	// `(UTC-01:00) Cabo Verde Is.`,\
+	// `(UTC) Coordinated Universal Time`,\
+	// `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,\
+	// `(UTC+00:00) Monrovia, Reykjavik`,\
+	// `(UTC+00:00) Sao Tome`,\
+	// `(UTC+01:00) Casablanca`,\
+	// `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,\
+	// `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,\
+	// `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,\
+	// `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,\
+	// `(UTC+01:00) West Central Africa`,\
+	// `(UTC+02:00) Amman`,\
+	// `(UTC+02:00) Athens, Bucharest`,\
+	// `(UTC+02:00) Beirut`,\
+	// `(UTC+02:00) Cairo`,\
+	// `(UTC+02:00) Chisinau`,\
+	// `(UTC+02:00) Damascus`,\
+	// `(UTC+02:00) Gaza, Hebron`,\
+	// `(UTC+02:00) Harare, Pretoria`,\
+	// `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,\
+	// `(UTC+02:00) Jerusalem`,\
+	// `(UTC+02:00) Juba`,\
+	// `(UTC+02:00) Kaliningrad`,\
+	// `(UTC+02:00) Khartoum`,\
+	// `(UTC+02:00) Tripoli`,\
+	// `(UTC+02:00) Windhoek`,\
+	// `(UTC+03:00) Baghdad`,\
+	// `(UTC+03:00) Istanbul`,\
+	// `(UTC+03:00) Kuwait, Riyadh`,\
+	// `(UTC+03:00) Minsk`,\
+	// `(UTC+03:00) Moscow, St. Petersburg`,\
+	// `(UTC+03:00) Nairobi`,\
+	// `(UTC+03:00) Volgograd`,\
+	// `(UTC+03:30) Tehran`,\
+	// `(UTC+04:00) Abu Dhabi, Muscat`,\
+	// `(UTC+04:00) Astrakhan, Ulyanovsk`,\
+	// `(UTC+04:00) Baku`,\
+	// `(UTC+04:00) Izhevsk, Samara`,\
+	// `(UTC+04:00) Port Louis`,\
+	// `(UTC+04:00) Saratov`,\
+	// `(UTC+04:00) Tbilisi`,\
+	// `(UTC+04:00) Yerevan`,\
+	// `(UTC+04:30) Kabul`,\
+	// `(UTC+05:00) Ashgabat, Tashkent`,\
+	// `(UTC+05:00) Ekaterinburg`,\
+	// `(UTC+05:00) Islamabad, Karachi`,\
+	// `(UTC+05:00) Qyzylorda`,\
+	// `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,\
+	// `(UTC+05:30) Sri Jayawardenepura`,\
+	// `(UTC+05:45) Kathmandu`,\
+	// `(UTC+06:00) Astana`,\
+	// `(UTC+06:00) Dhaka`,\
+	// `(UTC+06:00) Omsk`,\
+	// `(UTC+06:30) Yangon (Rangoon)`,\
+	// `(UTC+07:00) Bangkok, Hanoi, Jakarta`,\
+	// `(UTC+07:00) Barnaul, Gorno-Altaysk`,\
+	// `(UTC+07:00) Hovd`,\
+	// `(UTC+07:00) Krasnoyarsk`,\
+	// `(UTC+07:00) Novosibirsk`,\
+	// `(UTC+07:00) Tomsk`,\
+	// `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,\
+	// `(UTC+08:00) Irkutsk`,\
+	// `(UTC+08:00) Kuala Lumpur, Singapore`,\
+	// `(UTC+08:00) Perth`,\
+	// `(UTC+08:00) Taipei`,\
+	// `(UTC+08:00) Ulaanbaatar`,\
+	// `(UTC+08:45) Eucla`,\
+	// `(UTC+09:00) Chita`,\
+	// `(UTC+09:00) Osaka, Sapporo, Tokyo`,\
+	// `(UTC+09:00) Pyongyang`,\
+	// `(UTC+09:00) Seoul`,\
+	// `(UTC+09:00) Yakutsk`,\
+	// `(UTC+09:30) Adelaide`,\
+	// `(UTC+09:30) Darwin`,\
+	// `(UTC+10:00) Brisbane`,\
+	// `(UTC+10:00) Canberra, Melbourne, Sydney`,\
+	// `(UTC+10:00) Guam, Port Moresby`,\
+	// `(UTC+10:00) Hobart`,\
+	// `(UTC+10:00) Vladivostok`,\
+	// `(UTC+10:30) Lord Howe Island`,\
+	// `(UTC+11:00) Bougainville Island`,\
+	// `(UTC+11:00) Chokurdakh`,\
+	// `(UTC+11:00) Magadan`,\
+	// `(UTC+11:00) Norfolk Island`,\
+	// `(UTC+11:00) Sakhalin`,\
+	// `(UTC+11:00) Solomon Is., New Caledonia`,\
+	// `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,\
+	// `(UTC+12:00) Auckland, Wellington`,\
+	// `(UTC+12:00) Coordinated Universal Time+12`,\
+	// `(UTC+12:00) Fiji`,\
+	// `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,\
+	// `(UTC+12:45) Chatham Islands`,\
+	// `(UTC+13:00) Coordinated Universal Time+13`,\
+	// `(UTC+13:00) Nuku'alofa`,\
+	// `(UTC+13:00) Samoa`,\
 	// `(UTC+14:00) Kiritimati Island`.
 	TimeZone *string `pulumi:"timeZone"`
 }
@@ -4244,7 +4256,7 @@ type BuildDefinitionScheduleInput interface {
 }
 
 type BuildDefinitionScheduleArgs struct {
-	// block supports the following:
+	// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 	BranchFilters BuildDefinitionScheduleBranchFilterArrayInput `pulumi:"branchFilters"`
 	// When to build. Valid values: `Mon`, `Tue`, `Wed`, `Thu`, `Fri`, `Sat`, `Sun`.
 	DaysToBuilds pulumi.StringArrayInput `pulumi:"daysToBuilds"`
@@ -4257,146 +4269,146 @@ type BuildDefinitionScheduleArgs struct {
 	// Build start minute. Defaults to `0`. Valid values: `0 ~ 59`.
 	StartMinutes pulumi.IntPtrInput `pulumi:"startMinutes"`
 	// Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
-	// `(UTC-12:00) International Date Line West`,
-	// `(UTC-11:00) Coordinated Universal Time-11`,
-	// `(UTC-10:00) Aleutian Islands`,
-	// `(UTC-10:00) Hawaii`,
-	// `(UTC-09:30) Marquesas Islands`,
-	// `(UTC-09:00) Alaska`,
-	// `(UTC-09:00) Coordinated Universal Time-09`,
-	// `(UTC-08:00) Baja California`,
-	// `(UTC-08:00) Coordinated Universal Time-08`,
-	// `(UTC-08:00) Pacific Time (US &Canada)`,
-	// `(UTC-07:00) Arizona`,
-	// `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
-	// `(UTC-07:00) Mountain Time (US &Canada)`,
-	// `(UTC-07:00) Yukon`,
-	// `(UTC-06:00) Central America`,
-	// `(UTC-06:00) Central Time (US &Canada)`,
-	// `(UTC-06:00) Easter Island`,
-	// `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
-	// `(UTC-06:00) Saskatchewan`,
-	// `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
-	// `(UTC-05:00) Chetumal`,
-	// `(UTC-05:00) Eastern Time (US &Canada)`,
-	// `(UTC-05:00) Haiti`,
-	// `(UTC-05:00) Havana`,
-	// `(UTC-05:00) Indiana (East)`,
-	// `(UTC-05:00) Turks and Caicos`,
-	// `(UTC-04:00) Asuncion`,
-	// `(UTC-04:00) Atlantic Time (Canada)`,
-	// `(UTC-04:00) Caracas`,
-	// `(UTC-04:00) Cuiaba`,
-	// `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
-	// `(UTC-04:00) Santiago`,
-	// `(UTC-03:30) Newfoundland`,
-	// `(UTC-03:00) Araguaina`,
-	// `(UTC-03:00) Brasilia`,
-	// `(UTC-03:00) Cayenne, Fortaleza`,
-	// `(UTC-03:00) City of Buenos Aires`,
-	// `(UTC-03:00) Greenland`,
-	// `(UTC-03:00) Montevideo`,
-	// `(UTC-03:00) Punta Arenas`,
-	// `(UTC-03:00) Saint Pierre and Miquelon`,
-	// `(UTC-03:00) Salvador`,
-	// `(UTC-02:00) Coordinated Universal Time-02`,
-	// `(UTC-02:00) Mid-Atlantic - Old`,
-	// `(UTC-01:00) Azores`,
-	// `(UTC-01:00) Cabo Verde Is.`,
-	// `(UTC) Coordinated Universal Time`,
-	// `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
-	// `(UTC+00:00) Monrovia, Reykjavik`,
-	// `(UTC+00:00) Sao Tome`,
-	// `(UTC+01:00) Casablanca`,
-	// `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
-	// `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
-	// `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
-	// `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
-	// `(UTC+01:00) West Central Africa`,
-	// `(UTC+02:00) Amman`,
-	// `(UTC+02:00) Athens, Bucharest`,
-	// `(UTC+02:00) Beirut`,
-	// `(UTC+02:00) Cairo`,
-	// `(UTC+02:00) Chisinau`,
-	// `(UTC+02:00) Damascus`,
-	// `(UTC+02:00) Gaza, Hebron`,
-	// `(UTC+02:00) Harare, Pretoria`,
-	// `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
-	// `(UTC+02:00) Jerusalem`,
-	// `(UTC+02:00) Juba`,
-	// `(UTC+02:00) Kaliningrad`,
-	// `(UTC+02:00) Khartoum`,
-	// `(UTC+02:00) Tripoli`,
-	// `(UTC+02:00) Windhoek`,
-	// `(UTC+03:00) Baghdad`,
-	// `(UTC+03:00) Istanbul`,
-	// `(UTC+03:00) Kuwait, Riyadh`,
-	// `(UTC+03:00) Minsk`,
-	// `(UTC+03:00) Moscow, St. Petersburg`,
-	// `(UTC+03:00) Nairobi`,
-	// `(UTC+03:00) Volgograd`,
-	// `(UTC+03:30) Tehran`,
-	// `(UTC+04:00) Abu Dhabi, Muscat`,
-	// `(UTC+04:00) Astrakhan, Ulyanovsk`,
-	// `(UTC+04:00) Baku`,
-	// `(UTC+04:00) Izhevsk, Samara`,
-	// `(UTC+04:00) Port Louis`,
-	// `(UTC+04:00) Saratov`,
-	// `(UTC+04:00) Tbilisi`,
-	// `(UTC+04:00) Yerevan`,
-	// `(UTC+04:30) Kabul`,
-	// `(UTC+05:00) Ashgabat, Tashkent`,
-	// `(UTC+05:00) Ekaterinburg`,
-	// `(UTC+05:00) Islamabad, Karachi`,
-	// `(UTC+05:00) Qyzylorda`,
-	// `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
-	// `(UTC+05:30) Sri Jayawardenepura`,
-	// `(UTC+05:45) Kathmandu`,
-	// `(UTC+06:00) Astana`,
-	// `(UTC+06:00) Dhaka`,
-	// `(UTC+06:00) Omsk`,
-	// `(UTC+06:30) Yangon (Rangoon)`,
-	// `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
-	// `(UTC+07:00) Barnaul, Gorno-Altaysk`,
-	// `(UTC+07:00) Hovd`,
-	// `(UTC+07:00) Krasnoyarsk`,
-	// `(UTC+07:00) Novosibirsk`,
-	// `(UTC+07:00) Tomsk`,
-	// `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
-	// `(UTC+08:00) Irkutsk`,
-	// `(UTC+08:00) Kuala Lumpur, Singapore`,
-	// `(UTC+08:00) Perth`,
-	// `(UTC+08:00) Taipei`,
-	// `(UTC+08:00) Ulaanbaatar`,
-	// `(UTC+08:45) Eucla`,
-	// `(UTC+09:00) Chita`,
-	// `(UTC+09:00) Osaka, Sapporo, Tokyo`,
-	// `(UTC+09:00) Pyongyang`,
-	// `(UTC+09:00) Seoul`,
-	// `(UTC+09:00) Yakutsk`,
-	// `(UTC+09:30) Adelaide`,
-	// `(UTC+09:30) Darwin`,
-	// `(UTC+10:00) Brisbane`,
-	// `(UTC+10:00) Canberra, Melbourne, Sydney`,
-	// `(UTC+10:00) Guam, Port Moresby`,
-	// `(UTC+10:00) Hobart`,
-	// `(UTC+10:00) Vladivostok`,
-	// `(UTC+10:30) Lord Howe Island`,
-	// `(UTC+11:00) Bougainville Island`,
-	// `(UTC+11:00) Chokurdakh`,
-	// `(UTC+11:00) Magadan`,
-	// `(UTC+11:00) Norfolk Island`,
-	// `(UTC+11:00) Sakhalin`,
-	// `(UTC+11:00) Solomon Is., New Caledonia`,
-	// `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
-	// `(UTC+12:00) Auckland, Wellington`,
-	// `(UTC+12:00) Coordinated Universal Time+12`,
-	// `(UTC+12:00) Fiji`,
-	// `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
-	// `(UTC+12:45) Chatham Islands`,
-	// `(UTC+13:00) Coordinated Universal Time+13`,
-	// `(UTC+13:00) Nuku'alofa`,
-	// `(UTC+13:00) Samoa`,
+	// `(UTC-12:00) International Date Line West`,\
+	// `(UTC-11:00) Coordinated Universal Time-11`,\
+	// `(UTC-10:00) Aleutian Islands`,\
+	// `(UTC-10:00) Hawaii`,\
+	// `(UTC-09:30) Marquesas Islands`,\
+	// `(UTC-09:00) Alaska`,\
+	// `(UTC-09:00) Coordinated Universal Time-09`,\
+	// `(UTC-08:00) Baja California`,\
+	// `(UTC-08:00) Coordinated Universal Time-08`,\
+	// `(UTC-08:00) Pacific Time (US &Canada)`,\
+	// `(UTC-07:00) Arizona`,\
+	// `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,\
+	// `(UTC-07:00) Mountain Time (US &Canada)`,\
+	// `(UTC-07:00) Yukon`,\
+	// `(UTC-06:00) Central America`,\
+	// `(UTC-06:00) Central Time (US &Canada)`,\
+	// `(UTC-06:00) Easter Island`,\
+	// `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,\
+	// `(UTC-06:00) Saskatchewan`,\
+	// `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,\
+	// `(UTC-05:00) Chetumal`,\
+	// `(UTC-05:00) Eastern Time (US &Canada)`,\
+	// `(UTC-05:00) Haiti`,\
+	// `(UTC-05:00) Havana`,\
+	// `(UTC-05:00) Indiana (East)`,\
+	// `(UTC-05:00) Turks and Caicos`,\
+	// `(UTC-04:00) Asuncion`,\
+	// `(UTC-04:00) Atlantic Time (Canada)`,\
+	// `(UTC-04:00) Caracas`,\
+	// `(UTC-04:00) Cuiaba`,\
+	// `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,\
+	// `(UTC-04:00) Santiago`,\
+	// `(UTC-03:30) Newfoundland`,\
+	// `(UTC-03:00) Araguaina`,\
+	// `(UTC-03:00) Brasilia`,\
+	// `(UTC-03:00) Cayenne, Fortaleza`,\
+	// `(UTC-03:00) City of Buenos Aires`,\
+	// `(UTC-03:00) Greenland`,\
+	// `(UTC-03:00) Montevideo`,\
+	// `(UTC-03:00) Punta Arenas`,\
+	// `(UTC-03:00) Saint Pierre and Miquelon`,\
+	// `(UTC-03:00) Salvador`,\
+	// `(UTC-02:00) Coordinated Universal Time-02`,\
+	// `(UTC-02:00) Mid-Atlantic - Old`,\
+	// `(UTC-01:00) Azores`,\
+	// `(UTC-01:00) Cabo Verde Is.`,\
+	// `(UTC) Coordinated Universal Time`,\
+	// `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,\
+	// `(UTC+00:00) Monrovia, Reykjavik`,\
+	// `(UTC+00:00) Sao Tome`,\
+	// `(UTC+01:00) Casablanca`,\
+	// `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,\
+	// `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,\
+	// `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,\
+	// `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,\
+	// `(UTC+01:00) West Central Africa`,\
+	// `(UTC+02:00) Amman`,\
+	// `(UTC+02:00) Athens, Bucharest`,\
+	// `(UTC+02:00) Beirut`,\
+	// `(UTC+02:00) Cairo`,\
+	// `(UTC+02:00) Chisinau`,\
+	// `(UTC+02:00) Damascus`,\
+	// `(UTC+02:00) Gaza, Hebron`,\
+	// `(UTC+02:00) Harare, Pretoria`,\
+	// `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,\
+	// `(UTC+02:00) Jerusalem`,\
+	// `(UTC+02:00) Juba`,\
+	// `(UTC+02:00) Kaliningrad`,\
+	// `(UTC+02:00) Khartoum`,\
+	// `(UTC+02:00) Tripoli`,\
+	// `(UTC+02:00) Windhoek`,\
+	// `(UTC+03:00) Baghdad`,\
+	// `(UTC+03:00) Istanbul`,\
+	// `(UTC+03:00) Kuwait, Riyadh`,\
+	// `(UTC+03:00) Minsk`,\
+	// `(UTC+03:00) Moscow, St. Petersburg`,\
+	// `(UTC+03:00) Nairobi`,\
+	// `(UTC+03:00) Volgograd`,\
+	// `(UTC+03:30) Tehran`,\
+	// `(UTC+04:00) Abu Dhabi, Muscat`,\
+	// `(UTC+04:00) Astrakhan, Ulyanovsk`,\
+	// `(UTC+04:00) Baku`,\
+	// `(UTC+04:00) Izhevsk, Samara`,\
+	// `(UTC+04:00) Port Louis`,\
+	// `(UTC+04:00) Saratov`,\
+	// `(UTC+04:00) Tbilisi`,\
+	// `(UTC+04:00) Yerevan`,\
+	// `(UTC+04:30) Kabul`,\
+	// `(UTC+05:00) Ashgabat, Tashkent`,\
+	// `(UTC+05:00) Ekaterinburg`,\
+	// `(UTC+05:00) Islamabad, Karachi`,\
+	// `(UTC+05:00) Qyzylorda`,\
+	// `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,\
+	// `(UTC+05:30) Sri Jayawardenepura`,\
+	// `(UTC+05:45) Kathmandu`,\
+	// `(UTC+06:00) Astana`,\
+	// `(UTC+06:00) Dhaka`,\
+	// `(UTC+06:00) Omsk`,\
+	// `(UTC+06:30) Yangon (Rangoon)`,\
+	// `(UTC+07:00) Bangkok, Hanoi, Jakarta`,\
+	// `(UTC+07:00) Barnaul, Gorno-Altaysk`,\
+	// `(UTC+07:00) Hovd`,\
+	// `(UTC+07:00) Krasnoyarsk`,\
+	// `(UTC+07:00) Novosibirsk`,\
+	// `(UTC+07:00) Tomsk`,\
+	// `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,\
+	// `(UTC+08:00) Irkutsk`,\
+	// `(UTC+08:00) Kuala Lumpur, Singapore`,\
+	// `(UTC+08:00) Perth`,\
+	// `(UTC+08:00) Taipei`,\
+	// `(UTC+08:00) Ulaanbaatar`,\
+	// `(UTC+08:45) Eucla`,\
+	// `(UTC+09:00) Chita`,\
+	// `(UTC+09:00) Osaka, Sapporo, Tokyo`,\
+	// `(UTC+09:00) Pyongyang`,\
+	// `(UTC+09:00) Seoul`,\
+	// `(UTC+09:00) Yakutsk`,\
+	// `(UTC+09:30) Adelaide`,\
+	// `(UTC+09:30) Darwin`,\
+	// `(UTC+10:00) Brisbane`,\
+	// `(UTC+10:00) Canberra, Melbourne, Sydney`,\
+	// `(UTC+10:00) Guam, Port Moresby`,\
+	// `(UTC+10:00) Hobart`,\
+	// `(UTC+10:00) Vladivostok`,\
+	// `(UTC+10:30) Lord Howe Island`,\
+	// `(UTC+11:00) Bougainville Island`,\
+	// `(UTC+11:00) Chokurdakh`,\
+	// `(UTC+11:00) Magadan`,\
+	// `(UTC+11:00) Norfolk Island`,\
+	// `(UTC+11:00) Sakhalin`,\
+	// `(UTC+11:00) Solomon Is., New Caledonia`,\
+	// `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,\
+	// `(UTC+12:00) Auckland, Wellington`,\
+	// `(UTC+12:00) Coordinated Universal Time+12`,\
+	// `(UTC+12:00) Fiji`,\
+	// `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,\
+	// `(UTC+12:45) Chatham Islands`,\
+	// `(UTC+13:00) Coordinated Universal Time+13`,\
+	// `(UTC+13:00) Nuku'alofa`,\
+	// `(UTC+13:00) Samoa`,\
 	// `(UTC+14:00) Kiritimati Island`.
 	TimeZone pulumi.StringPtrInput `pulumi:"timeZone"`
 }
@@ -4452,7 +4464,7 @@ func (o BuildDefinitionScheduleOutput) ToBuildDefinitionScheduleOutputWithContex
 	return o
 }
 
-// block supports the following:
+// The branches to include and exclude from the trigger.`branchFilter` - (Optional) The branches to include and exclude from the trigger.
 func (o BuildDefinitionScheduleOutput) BranchFilters() BuildDefinitionScheduleBranchFilterArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) []BuildDefinitionScheduleBranchFilter { return v.BranchFilters }).(BuildDefinitionScheduleBranchFilterArrayOutput)
 }
@@ -4483,146 +4495,146 @@ func (o BuildDefinitionScheduleOutput) StartMinutes() pulumi.IntPtrOutput {
 }
 
 // Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values:
-// `(UTC-12:00) International Date Line West`,
-// `(UTC-11:00) Coordinated Universal Time-11`,
-// `(UTC-10:00) Aleutian Islands`,
-// `(UTC-10:00) Hawaii`,
-// `(UTC-09:30) Marquesas Islands`,
-// `(UTC-09:00) Alaska`,
-// `(UTC-09:00) Coordinated Universal Time-09`,
-// `(UTC-08:00) Baja California`,
-// `(UTC-08:00) Coordinated Universal Time-08`,
-// `(UTC-08:00) Pacific Time (US &Canada)`,
-// `(UTC-07:00) Arizona`,
-// `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,
-// `(UTC-07:00) Mountain Time (US &Canada)`,
-// `(UTC-07:00) Yukon`,
-// `(UTC-06:00) Central America`,
-// `(UTC-06:00) Central Time (US &Canada)`,
-// `(UTC-06:00) Easter Island`,
-// `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,
-// `(UTC-06:00) Saskatchewan`,
-// `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,
-// `(UTC-05:00) Chetumal`,
-// `(UTC-05:00) Eastern Time (US &Canada)`,
-// `(UTC-05:00) Haiti`,
-// `(UTC-05:00) Havana`,
-// `(UTC-05:00) Indiana (East)`,
-// `(UTC-05:00) Turks and Caicos`,
-// `(UTC-04:00) Asuncion`,
-// `(UTC-04:00) Atlantic Time (Canada)`,
-// `(UTC-04:00) Caracas`,
-// `(UTC-04:00) Cuiaba`,
-// `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,
-// `(UTC-04:00) Santiago`,
-// `(UTC-03:30) Newfoundland`,
-// `(UTC-03:00) Araguaina`,
-// `(UTC-03:00) Brasilia`,
-// `(UTC-03:00) Cayenne, Fortaleza`,
-// `(UTC-03:00) City of Buenos Aires`,
-// `(UTC-03:00) Greenland`,
-// `(UTC-03:00) Montevideo`,
-// `(UTC-03:00) Punta Arenas`,
-// `(UTC-03:00) Saint Pierre and Miquelon`,
-// `(UTC-03:00) Salvador`,
-// `(UTC-02:00) Coordinated Universal Time-02`,
-// `(UTC-02:00) Mid-Atlantic - Old`,
-// `(UTC-01:00) Azores`,
-// `(UTC-01:00) Cabo Verde Is.`,
-// `(UTC) Coordinated Universal Time`,
-// `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,
-// `(UTC+00:00) Monrovia, Reykjavik`,
-// `(UTC+00:00) Sao Tome`,
-// `(UTC+01:00) Casablanca`,
-// `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,
-// `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,
-// `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,
-// `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,
-// `(UTC+01:00) West Central Africa`,
-// `(UTC+02:00) Amman`,
-// `(UTC+02:00) Athens, Bucharest`,
-// `(UTC+02:00) Beirut`,
-// `(UTC+02:00) Cairo`,
-// `(UTC+02:00) Chisinau`,
-// `(UTC+02:00) Damascus`,
-// `(UTC+02:00) Gaza, Hebron`,
-// `(UTC+02:00) Harare, Pretoria`,
-// `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,
-// `(UTC+02:00) Jerusalem`,
-// `(UTC+02:00) Juba`,
-// `(UTC+02:00) Kaliningrad`,
-// `(UTC+02:00) Khartoum`,
-// `(UTC+02:00) Tripoli`,
-// `(UTC+02:00) Windhoek`,
-// `(UTC+03:00) Baghdad`,
-// `(UTC+03:00) Istanbul`,
-// `(UTC+03:00) Kuwait, Riyadh`,
-// `(UTC+03:00) Minsk`,
-// `(UTC+03:00) Moscow, St. Petersburg`,
-// `(UTC+03:00) Nairobi`,
-// `(UTC+03:00) Volgograd`,
-// `(UTC+03:30) Tehran`,
-// `(UTC+04:00) Abu Dhabi, Muscat`,
-// `(UTC+04:00) Astrakhan, Ulyanovsk`,
-// `(UTC+04:00) Baku`,
-// `(UTC+04:00) Izhevsk, Samara`,
-// `(UTC+04:00) Port Louis`,
-// `(UTC+04:00) Saratov`,
-// `(UTC+04:00) Tbilisi`,
-// `(UTC+04:00) Yerevan`,
-// `(UTC+04:30) Kabul`,
-// `(UTC+05:00) Ashgabat, Tashkent`,
-// `(UTC+05:00) Ekaterinburg`,
-// `(UTC+05:00) Islamabad, Karachi`,
-// `(UTC+05:00) Qyzylorda`,
-// `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,
-// `(UTC+05:30) Sri Jayawardenepura`,
-// `(UTC+05:45) Kathmandu`,
-// `(UTC+06:00) Astana`,
-// `(UTC+06:00) Dhaka`,
-// `(UTC+06:00) Omsk`,
-// `(UTC+06:30) Yangon (Rangoon)`,
-// `(UTC+07:00) Bangkok, Hanoi, Jakarta`,
-// `(UTC+07:00) Barnaul, Gorno-Altaysk`,
-// `(UTC+07:00) Hovd`,
-// `(UTC+07:00) Krasnoyarsk`,
-// `(UTC+07:00) Novosibirsk`,
-// `(UTC+07:00) Tomsk`,
-// `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,
-// `(UTC+08:00) Irkutsk`,
-// `(UTC+08:00) Kuala Lumpur, Singapore`,
-// `(UTC+08:00) Perth`,
-// `(UTC+08:00) Taipei`,
-// `(UTC+08:00) Ulaanbaatar`,
-// `(UTC+08:45) Eucla`,
-// `(UTC+09:00) Chita`,
-// `(UTC+09:00) Osaka, Sapporo, Tokyo`,
-// `(UTC+09:00) Pyongyang`,
-// `(UTC+09:00) Seoul`,
-// `(UTC+09:00) Yakutsk`,
-// `(UTC+09:30) Adelaide`,
-// `(UTC+09:30) Darwin`,
-// `(UTC+10:00) Brisbane`,
-// `(UTC+10:00) Canberra, Melbourne, Sydney`,
-// `(UTC+10:00) Guam, Port Moresby`,
-// `(UTC+10:00) Hobart`,
-// `(UTC+10:00) Vladivostok`,
-// `(UTC+10:30) Lord Howe Island`,
-// `(UTC+11:00) Bougainville Island`,
-// `(UTC+11:00) Chokurdakh`,
-// `(UTC+11:00) Magadan`,
-// `(UTC+11:00) Norfolk Island`,
-// `(UTC+11:00) Sakhalin`,
-// `(UTC+11:00) Solomon Is., New Caledonia`,
-// `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,
-// `(UTC+12:00) Auckland, Wellington`,
-// `(UTC+12:00) Coordinated Universal Time+12`,
-// `(UTC+12:00) Fiji`,
-// `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,
-// `(UTC+12:45) Chatham Islands`,
-// `(UTC+13:00) Coordinated Universal Time+13`,
-// `(UTC+13:00) Nuku'alofa`,
-// `(UTC+13:00) Samoa`,
+// `(UTC-12:00) International Date Line West`,\
+// `(UTC-11:00) Coordinated Universal Time-11`,\
+// `(UTC-10:00) Aleutian Islands`,\
+// `(UTC-10:00) Hawaii`,\
+// `(UTC-09:30) Marquesas Islands`,\
+// `(UTC-09:00) Alaska`,\
+// `(UTC-09:00) Coordinated Universal Time-09`,\
+// `(UTC-08:00) Baja California`,\
+// `(UTC-08:00) Coordinated Universal Time-08`,\
+// `(UTC-08:00) Pacific Time (US &Canada)`,\
+// `(UTC-07:00) Arizona`,\
+// `(UTC-07:00) Chihuahua, La Paz, Mazatlan`,\
+// `(UTC-07:00) Mountain Time (US &Canada)`,\
+// `(UTC-07:00) Yukon`,\
+// `(UTC-06:00) Central America`,\
+// `(UTC-06:00) Central Time (US &Canada)`,\
+// `(UTC-06:00) Easter Island`,\
+// `(UTC-06:00) Guadalajara, Mexico City, Monterrey`,\
+// `(UTC-06:00) Saskatchewan`,\
+// `(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,\
+// `(UTC-05:00) Chetumal`,\
+// `(UTC-05:00) Eastern Time (US &Canada)`,\
+// `(UTC-05:00) Haiti`,\
+// `(UTC-05:00) Havana`,\
+// `(UTC-05:00) Indiana (East)`,\
+// `(UTC-05:00) Turks and Caicos`,\
+// `(UTC-04:00) Asuncion`,\
+// `(UTC-04:00) Atlantic Time (Canada)`,\
+// `(UTC-04:00) Caracas`,\
+// `(UTC-04:00) Cuiaba`,\
+// `(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,\
+// `(UTC-04:00) Santiago`,\
+// `(UTC-03:30) Newfoundland`,\
+// `(UTC-03:00) Araguaina`,\
+// `(UTC-03:00) Brasilia`,\
+// `(UTC-03:00) Cayenne, Fortaleza`,\
+// `(UTC-03:00) City of Buenos Aires`,\
+// `(UTC-03:00) Greenland`,\
+// `(UTC-03:00) Montevideo`,\
+// `(UTC-03:00) Punta Arenas`,\
+// `(UTC-03:00) Saint Pierre and Miquelon`,\
+// `(UTC-03:00) Salvador`,\
+// `(UTC-02:00) Coordinated Universal Time-02`,\
+// `(UTC-02:00) Mid-Atlantic - Old`,\
+// `(UTC-01:00) Azores`,\
+// `(UTC-01:00) Cabo Verde Is.`,\
+// `(UTC) Coordinated Universal Time`,\
+// `(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,\
+// `(UTC+00:00) Monrovia, Reykjavik`,\
+// `(UTC+00:00) Sao Tome`,\
+// `(UTC+01:00) Casablanca`,\
+// `(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,\
+// `(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,\
+// `(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,\
+// `(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,\
+// `(UTC+01:00) West Central Africa`,\
+// `(UTC+02:00) Amman`,\
+// `(UTC+02:00) Athens, Bucharest`,\
+// `(UTC+02:00) Beirut`,\
+// `(UTC+02:00) Cairo`,\
+// `(UTC+02:00) Chisinau`,\
+// `(UTC+02:00) Damascus`,\
+// `(UTC+02:00) Gaza, Hebron`,\
+// `(UTC+02:00) Harare, Pretoria`,\
+// `(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,\
+// `(UTC+02:00) Jerusalem`,\
+// `(UTC+02:00) Juba`,\
+// `(UTC+02:00) Kaliningrad`,\
+// `(UTC+02:00) Khartoum`,\
+// `(UTC+02:00) Tripoli`,\
+// `(UTC+02:00) Windhoek`,\
+// `(UTC+03:00) Baghdad`,\
+// `(UTC+03:00) Istanbul`,\
+// `(UTC+03:00) Kuwait, Riyadh`,\
+// `(UTC+03:00) Minsk`,\
+// `(UTC+03:00) Moscow, St. Petersburg`,\
+// `(UTC+03:00) Nairobi`,\
+// `(UTC+03:00) Volgograd`,\
+// `(UTC+03:30) Tehran`,\
+// `(UTC+04:00) Abu Dhabi, Muscat`,\
+// `(UTC+04:00) Astrakhan, Ulyanovsk`,\
+// `(UTC+04:00) Baku`,\
+// `(UTC+04:00) Izhevsk, Samara`,\
+// `(UTC+04:00) Port Louis`,\
+// `(UTC+04:00) Saratov`,\
+// `(UTC+04:00) Tbilisi`,\
+// `(UTC+04:00) Yerevan`,\
+// `(UTC+04:30) Kabul`,\
+// `(UTC+05:00) Ashgabat, Tashkent`,\
+// `(UTC+05:00) Ekaterinburg`,\
+// `(UTC+05:00) Islamabad, Karachi`,\
+// `(UTC+05:00) Qyzylorda`,\
+// `(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,\
+// `(UTC+05:30) Sri Jayawardenepura`,\
+// `(UTC+05:45) Kathmandu`,\
+// `(UTC+06:00) Astana`,\
+// `(UTC+06:00) Dhaka`,\
+// `(UTC+06:00) Omsk`,\
+// `(UTC+06:30) Yangon (Rangoon)`,\
+// `(UTC+07:00) Bangkok, Hanoi, Jakarta`,\
+// `(UTC+07:00) Barnaul, Gorno-Altaysk`,\
+// `(UTC+07:00) Hovd`,\
+// `(UTC+07:00) Krasnoyarsk`,\
+// `(UTC+07:00) Novosibirsk`,\
+// `(UTC+07:00) Tomsk`,\
+// `(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,\
+// `(UTC+08:00) Irkutsk`,\
+// `(UTC+08:00) Kuala Lumpur, Singapore`,\
+// `(UTC+08:00) Perth`,\
+// `(UTC+08:00) Taipei`,\
+// `(UTC+08:00) Ulaanbaatar`,\
+// `(UTC+08:45) Eucla`,\
+// `(UTC+09:00) Chita`,\
+// `(UTC+09:00) Osaka, Sapporo, Tokyo`,\
+// `(UTC+09:00) Pyongyang`,\
+// `(UTC+09:00) Seoul`,\
+// `(UTC+09:00) Yakutsk`,\
+// `(UTC+09:30) Adelaide`,\
+// `(UTC+09:30) Darwin`,\
+// `(UTC+10:00) Brisbane`,\
+// `(UTC+10:00) Canberra, Melbourne, Sydney`,\
+// `(UTC+10:00) Guam, Port Moresby`,\
+// `(UTC+10:00) Hobart`,\
+// `(UTC+10:00) Vladivostok`,\
+// `(UTC+10:30) Lord Howe Island`,\
+// `(UTC+11:00) Bougainville Island`,\
+// `(UTC+11:00) Chokurdakh`,\
+// `(UTC+11:00) Magadan`,\
+// `(UTC+11:00) Norfolk Island`,\
+// `(UTC+11:00) Sakhalin`,\
+// `(UTC+11:00) Solomon Is., New Caledonia`,\
+// `(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,\
+// `(UTC+12:00) Auckland, Wellington`,\
+// `(UTC+12:00) Coordinated Universal Time+12`,\
+// `(UTC+12:00) Fiji`,\
+// `(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,\
+// `(UTC+12:45) Chatham Islands`,\
+// `(UTC+13:00) Coordinated Universal Time+13`,\
+// `(UTC+13:00) Nuku'alofa`,\
+// `(UTC+13:00) Samoa`,\
 // `(UTC+14:00) Kiritimati Island`.
 func (o BuildDefinitionScheduleOutput) TimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BuildDefinitionSchedule) *string { return v.TimeZone }).(pulumi.StringPtrOutput)
@@ -4650,8 +4662,10 @@ func (o BuildDefinitionScheduleArrayOutput) Index(i pulumi.IntInput) BuildDefini
 
 type BuildDefinitionScheduleBranchFilter struct {
 	// List of branch patterns to exclude.
+	//
+	// `exclude` - (Optional) List of branch patterns to exclude.
 	Excludes []string `pulumi:"excludes"`
-	// List of branch patterns to include.
+	// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
 	Includes []string `pulumi:"includes"`
 }
 
@@ -4668,8 +4682,10 @@ type BuildDefinitionScheduleBranchFilterInput interface {
 
 type BuildDefinitionScheduleBranchFilterArgs struct {
 	// List of branch patterns to exclude.
+	//
+	// `exclude` - (Optional) List of branch patterns to exclude.
 	Excludes pulumi.StringArrayInput `pulumi:"excludes"`
-	// List of branch patterns to include.
+	// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
 	Includes pulumi.StringArrayInput `pulumi:"includes"`
 }
 
@@ -4725,11 +4741,13 @@ func (o BuildDefinitionScheduleBranchFilterOutput) ToBuildDefinitionScheduleBran
 }
 
 // List of branch patterns to exclude.
+//
+// `exclude` - (Optional) List of branch patterns to exclude.
 func (o BuildDefinitionScheduleBranchFilterOutput) Excludes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionScheduleBranchFilter) []string { return v.Excludes }).(pulumi.StringArrayOutput)
 }
 
-// List of branch patterns to include.
+// List of branch patterns to include.`include` - (Optional) List of branch patterns to include.
 func (o BuildDefinitionScheduleBranchFilterOutput) Includes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v BuildDefinitionScheduleBranchFilter) []string { return v.Includes }).(pulumi.StringArrayOutput)
 }
@@ -5206,9 +5224,7 @@ func (o GitInitializationPtrOutput) SourceUrl() pulumi.StringPtrOutput {
 }
 
 type ServiceEndpointArtifactoryAuthenticationBasic struct {
-	// Artifactory Password.
 	Password string `pulumi:"password"`
-	// Artifactory Username.
 	Username string `pulumi:"username"`
 }
 
@@ -5224,9 +5240,7 @@ type ServiceEndpointArtifactoryAuthenticationBasicInput interface {
 }
 
 type ServiceEndpointArtifactoryAuthenticationBasicArgs struct {
-	// Artifactory Password.
 	Password pulumi.StringInput `pulumi:"password"`
-	// Artifactory Username.
 	Username pulumi.StringInput `pulumi:"username"`
 }
 
@@ -5307,12 +5321,10 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) ToServiceEndpointAr
 	}).(ServiceEndpointArtifactoryAuthenticationBasicPtrOutput)
 }
 
-// Artifactory Password.
 func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Password() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Password }).(pulumi.StringOutput)
 }
 
-// Artifactory Username.
 func (o ServiceEndpointArtifactoryAuthenticationBasicOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationBasic) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -5341,7 +5353,6 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Elem() ServiceEn
 	}).(ServiceEndpointArtifactoryAuthenticationBasicOutput)
 }
 
-// Artifactory Password.
 func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
 		if v == nil {
@@ -5351,7 +5362,6 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Password() pulum
 	}).(pulumi.StringPtrOutput)
 }
 
-// Artifactory Username.
 func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Username() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationBasic) *string {
 		if v == nil {
@@ -5362,7 +5372,6 @@ func (o ServiceEndpointArtifactoryAuthenticationBasicPtrOutput) Username() pulum
 }
 
 type ServiceEndpointArtifactoryAuthenticationToken struct {
-	// Authentication Token generated through Artifactory.
 	Token string `pulumi:"token"`
 }
 
@@ -5378,7 +5387,6 @@ type ServiceEndpointArtifactoryAuthenticationTokenInput interface {
 }
 
 type ServiceEndpointArtifactoryAuthenticationTokenArgs struct {
-	// Authentication Token generated through Artifactory.
 	Token pulumi.StringInput `pulumi:"token"`
 }
 
@@ -5459,7 +5467,6 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) ToServiceEndpointAr
 	}).(ServiceEndpointArtifactoryAuthenticationTokenPtrOutput)
 }
 
-// Authentication Token generated through Artifactory.
 func (o ServiceEndpointArtifactoryAuthenticationTokenOutput) Token() pulumi.StringOutput {
 	return o.ApplyT(func(v ServiceEndpointArtifactoryAuthenticationToken) string { return v.Token }).(pulumi.StringOutput)
 }
@@ -5488,7 +5495,6 @@ func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Elem() ServiceEn
 	}).(ServiceEndpointArtifactoryAuthenticationTokenOutput)
 }
 
-// Authentication Token generated through Artifactory.
 func (o ServiceEndpointArtifactoryAuthenticationTokenPtrOutput) Token() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServiceEndpointArtifactoryAuthenticationToken) *string {
 		if v == nil {

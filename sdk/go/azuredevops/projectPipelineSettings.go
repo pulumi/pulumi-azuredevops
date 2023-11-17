@@ -75,9 +75,7 @@ type ProjectPipelineSettings struct {
 
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope pulumi.BoolOutput `pulumi:"enforceJobScope"`
-	// Limit job authorization scope to current project for release pipelines.
-	//
-	// > **NOTE:**
+	// Limit job authorization scope to current project for release pipelines.**NOTE:**\
 	// The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
@@ -129,9 +127,7 @@ func GetProjectPipelineSettings(ctx *pulumi.Context,
 type projectPipelineSettingsState struct {
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope *bool `pulumi:"enforceJobScope"`
-	// Limit job authorization scope to current project for release pipelines.
-	//
-	// > **NOTE:**
+	// Limit job authorization scope to current project for release pipelines.**NOTE:**\
 	// The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
@@ -151,9 +147,7 @@ type projectPipelineSettingsState struct {
 type ProjectPipelineSettingsState struct {
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope pulumi.BoolPtrInput
-	// Limit job authorization scope to current project for release pipelines.
-	//
-	// > **NOTE:**
+	// Limit job authorization scope to current project for release pipelines.**NOTE:**\
 	// The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
@@ -177,9 +171,7 @@ func (ProjectPipelineSettingsState) ElementType() reflect.Type {
 type projectPipelineSettingsArgs struct {
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope *bool `pulumi:"enforceJobScope"`
-	// Limit job authorization scope to current project for release pipelines.
-	//
-	// > **NOTE:**
+	// Limit job authorization scope to current project for release pipelines.**NOTE:**\
 	// The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
@@ -200,9 +192,7 @@ type projectPipelineSettingsArgs struct {
 type ProjectPipelineSettingsArgs struct {
 	// Limit job authorization scope to current project for non-release pipelines.
 	EnforceJobScope pulumi.BoolPtrInput
-	// Limit job authorization scope to current project for release pipelines.
-	//
-	// > **NOTE:**
+	// Limit job authorization scope to current project for release pipelines.**NOTE:**\
 	// The settings at the organization will override settings specified on the project.
 	// For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 	// In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.
@@ -311,9 +301,7 @@ func (o ProjectPipelineSettingsOutput) EnforceJobScope() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ProjectPipelineSettings) pulumi.BoolOutput { return v.EnforceJobScope }).(pulumi.BoolOutput)
 }
 
-// Limit job authorization scope to current project for release pipelines.
-//
-// > **NOTE:**
+// Limit job authorization scope to current project for release pipelines.**NOTE:**\
 // The settings at the organization will override settings specified on the project.
 // For example, if `enforceJobScope` is true at the organization, the `ProjectPipelineSettings` resource cannot set it to false.
 // In this scenario, the plan will always show that the resource is trying to change `enforceJobScope` from `true` to `false`.

@@ -24,7 +24,6 @@ class GitPermissionsArgs:
         The set of arguments for constructing a GitPermissions resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The follwing permissions are available
                
-               
                | Permissions             | Description                                            |
                |-------------------------|--------------------------------------------------------|
                | Administer              | Administer                                             |
@@ -45,7 +44,7 @@ class GitPermissionsArgs:
                | PullRequestBypassPolicy | Bypass policies when completing pull requests          |
         :param pulumi.Input[str] principal: The **group** principal to assign the permissions.
         :param pulumi.Input[str] project_id: The ID of the project to assign the permissions.
-        :param pulumi.Input[str] branch_name: The name of the branch to assign the permissions. 
+        :param pulumi.Input[str] branch_name: The name of the branch to assign the permissions.
                
                > **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         :param pulumi.Input[bool] replace: Replace (`true`) or merge (`false`) the permissions. Default: `true`
@@ -66,7 +65,6 @@ class GitPermissionsArgs:
     def permissions(self) -> pulumi.Input[Mapping[str, pulumi.Input[str]]]:
         """
         the permissions to assign. The follwing permissions are available
-
 
         | Permissions             | Description                                            |
         |-------------------------|--------------------------------------------------------|
@@ -121,7 +119,7 @@ class GitPermissionsArgs:
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the branch to assign the permissions. 
+        The name of the branch to assign the permissions.
 
         > **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         """
@@ -167,11 +165,10 @@ class _GitPermissionsState:
                  repository_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering GitPermissions resources.
-        :param pulumi.Input[str] branch_name: The name of the branch to assign the permissions. 
+        :param pulumi.Input[str] branch_name: The name of the branch to assign the permissions.
                
                > **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The follwing permissions are available
-               
                
                | Permissions             | Description                                            |
                |-------------------------|--------------------------------------------------------|
@@ -213,7 +210,7 @@ class _GitPermissionsState:
     @pulumi.getter(name="branchName")
     def branch_name(self) -> Optional[pulumi.Input[str]]:
         """
-        The name of the branch to assign the permissions. 
+        The name of the branch to assign the permissions.
 
         > **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         """
@@ -228,7 +225,6 @@ class _GitPermissionsState:
     def permissions(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         the permissions to assign. The follwing permissions are available
-
 
         | Permissions             | Description                                            |
         |-------------------------|--------------------------------------------------------|
@@ -483,11 +479,10 @@ class GitPermissions(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch_name: The name of the branch to assign the permissions. 
+        :param pulumi.Input[str] branch_name: The name of the branch to assign the permissions.
                
                > **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The follwing permissions are available
-               
                
                | Permissions             | Description                                            |
                |-------------------------|--------------------------------------------------------|
@@ -748,11 +743,10 @@ class GitPermissions(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] branch_name: The name of the branch to assign the permissions. 
+        :param pulumi.Input[str] branch_name: The name of the branch to assign the permissions.
                
                > **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] permissions: the permissions to assign. The follwing permissions are available
-               
                
                | Permissions             | Description                                            |
                |-------------------------|--------------------------------------------------------|
@@ -793,7 +787,7 @@ class GitPermissions(pulumi.CustomResource):
     @pulumi.getter(name="branchName")
     def branch_name(self) -> pulumi.Output[Optional[str]]:
         """
-        The name of the branch to assign the permissions. 
+        The name of the branch to assign the permissions.
 
         > **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         """
@@ -804,7 +798,6 @@ class GitPermissions(pulumi.CustomResource):
     def permissions(self) -> pulumi.Output[Mapping[str, str]]:
         """
         the permissions to assign. The follwing permissions are available
-
 
         | Permissions             | Description                                            |
         |-------------------------|--------------------------------------------------------|

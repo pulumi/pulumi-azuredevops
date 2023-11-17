@@ -22,9 +22,7 @@ class UserArgs:
         """
         The set of arguments for constructing a User resource.
         :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
-        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-               
-               > **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
         :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
@@ -56,9 +54,7 @@ class UserArgs:
     @pulumi.getter(name="licensingSource")
     def licensing_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-
-        > **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         """
         return pulumi.get(self, "licensing_source")
 
@@ -116,9 +112,7 @@ class _UserState:
         Input properties used for looking up and filtering User resources.
         :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[str] descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
-        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-               
-               > **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
         :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
@@ -164,9 +158,7 @@ class _UserState:
     @pulumi.getter(name="licensingSource")
     def licensing_source(self) -> Optional[pulumi.Input[str]]:
         """
-        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-
-        > **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         """
         return pulumi.get(self, "licensing_source")
 
@@ -254,9 +246,7 @@ class User(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
-        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-               
-               > **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
         :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
@@ -352,9 +342,7 @@ class User(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] account_license_type: Type of Account License. Valid values: `advanced`, `earlyAdopter`, `express`, `none`, `professional`, or `stakeholder`. Defaults to `express`. In addition the value `basic` is allowed which is an alias for `express` and reflects the name of the `express` license used in the Azure DevOps web interface.
         :param pulumi.Input[str] descriptor: The descriptor is the primary way to reference the graph subject while the system is running. This field will uniquely identify the user graph subject.
-        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-               
-               > **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        :param pulumi.Input[str] licensing_source: The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         :param pulumi.Input[str] origin: The type of source provider for the origin identifier.
         :param pulumi.Input[str] origin_id: The unique identifier from the system of origin. Typically a sid, object id or Guid. e.g. Used for member of other tenant on Azure Active Directory.
         :param pulumi.Input[str] principal_name: The principal name is the PrincipalName of a graph member from the source provider. Usually, e-mail address.
@@ -391,9 +379,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="licensingSource")
     def licensing_source(self) -> pulumi.Output[Optional[str]]:
         """
-        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`
-
-        > **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
+        The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.
         """
         return pulumi.get(self, "licensing_source")
 

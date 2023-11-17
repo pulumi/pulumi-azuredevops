@@ -98,16 +98,14 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
         return this.group;
     }
     /**
-     * A list of user or group descriptors that will become members of the group.
-     * &gt; NOTE: It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+     * A list of user or group descriptors that will become members of the group.NOTE: It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
      * 
      */
     @Export(name="members", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> members;
 
     /**
-     * @return A list of user or group descriptors that will become members of the group.
-     * &gt; NOTE: It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
+     * @return A list of user or group descriptors that will become members of the group.NOTE: It&#39;s possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it&#39;s not possible to use both methods to manage group members, since there&#39;ll be conflicts.
      * 
      */
     public Output<List<String>> members() {
@@ -115,9 +113,6 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
     }
     /**
      * The mode how the resource manages group members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
-     * &gt; NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
@@ -125,9 +120,6 @@ public class GroupMembership extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The mode how the resource manages group members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced group
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
-     * &gt; NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.
      * 
      */
     public Output<Optional<String>> mode() {

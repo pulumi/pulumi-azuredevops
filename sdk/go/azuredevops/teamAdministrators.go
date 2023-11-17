@@ -79,16 +79,12 @@ import (
 type TeamAdministrators struct {
 	pulumi.CustomResourceState
 
-	// List of subject descriptors to define adminitrators of the team.
-	//
-	// > NOTE: It's possible to define team administrators both within the
+	// List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators pulumi.StringArrayOutput `pulumi:"administrators"`
 	// The mode how the resource manages team administrators.
-	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-	// - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
 	Mode pulumi.StringPtrOutput `pulumi:"mode"`
 	// The Project ID.
 	ProjectId pulumi.StringOutput `pulumi:"projectId"`
@@ -135,16 +131,12 @@ func GetTeamAdministrators(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TeamAdministrators resources.
 type teamAdministratorsState struct {
-	// List of subject descriptors to define adminitrators of the team.
-	//
-	// > NOTE: It's possible to define team administrators both within the
+	// List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators []string `pulumi:"administrators"`
 	// The mode how the resource manages team administrators.
-	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-	// - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
 	Mode *string `pulumi:"mode"`
 	// The Project ID.
 	ProjectId *string `pulumi:"projectId"`
@@ -153,16 +145,12 @@ type teamAdministratorsState struct {
 }
 
 type TeamAdministratorsState struct {
-	// List of subject descriptors to define adminitrators of the team.
-	//
-	// > NOTE: It's possible to define team administrators both within the
+	// List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators pulumi.StringArrayInput
 	// The mode how the resource manages team administrators.
-	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-	// - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
 	Mode pulumi.StringPtrInput
 	// The Project ID.
 	ProjectId pulumi.StringPtrInput
@@ -175,16 +163,12 @@ func (TeamAdministratorsState) ElementType() reflect.Type {
 }
 
 type teamAdministratorsArgs struct {
-	// List of subject descriptors to define adminitrators of the team.
-	//
-	// > NOTE: It's possible to define team administrators both within the
+	// List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators []string `pulumi:"administrators"`
 	// The mode how the resource manages team administrators.
-	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-	// - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
 	Mode *string `pulumi:"mode"`
 	// The Project ID.
 	ProjectId string `pulumi:"projectId"`
@@ -194,16 +178,12 @@ type teamAdministratorsArgs struct {
 
 // The set of arguments for constructing a TeamAdministrators resource.
 type TeamAdministratorsArgs struct {
-	// List of subject descriptors to define adminitrators of the team.
-	//
-	// > NOTE: It's possible to define team administrators both within the
+	// List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
 	// `Team` resource via the `administrators` block and by using the
 	// `TeamAdministrators` resource. However it's not possible to use
 	// both methods to manage team administrators, since there'll be conflicts.
 	Administrators pulumi.StringArrayInput
 	// The mode how the resource manages team administrators.
-	// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-	// - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
 	Mode pulumi.StringPtrInput
 	// The Project ID.
 	ProjectId pulumi.StringInput
@@ -298,9 +278,7 @@ func (o TeamAdministratorsOutput) ToTeamAdministratorsOutputWithContext(ctx cont
 	return o
 }
 
-// List of subject descriptors to define adminitrators of the team.
-//
-// > NOTE: It's possible to define team administrators both within the
+// List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the
 // `Team` resource via the `administrators` block and by using the
 // `TeamAdministrators` resource. However it's not possible to use
 // both methods to manage team administrators, since there'll be conflicts.
@@ -309,8 +287,6 @@ func (o TeamAdministratorsOutput) Administrators() pulumi.StringArrayOutput {
 }
 
 // The mode how the resource manages team administrators.
-// - `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team
-// - `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block
 func (o TeamAdministratorsOutput) Mode() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TeamAdministrators) pulumi.StringPtrOutput { return v.Mode }).(pulumi.StringPtrOutput)
 }

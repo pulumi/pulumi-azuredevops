@@ -14,10 +14,6 @@ namespace Pulumi.AzureDevOps.Inputs
     {
         [Input("password", required: true)]
         private Input<string>? _password;
-
-        /// <summary>
-        /// Artifactory Password.
-        /// </summary>
         public Input<string>? Password
         {
             get => _password;
@@ -30,10 +26,6 @@ namespace Pulumi.AzureDevOps.Inputs
 
         [Input("username", required: true)]
         private Input<string>? _username;
-
-        /// <summary>
-        /// Artifactory Username.
-        /// </summary>
         public Input<string>? Username
         {
             get => _username;

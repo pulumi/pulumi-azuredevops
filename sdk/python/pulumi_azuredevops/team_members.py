@@ -20,17 +20,13 @@ class TeamMembersArgs:
                  mode: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a TeamMembers resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
-               
-               > NOTE: It's possible to define team members both within the
-               > `Team` resource via the `members` block and by using the
-               > `TeamMembers` resource. However it's not possible to use
-               > both methods to manage team members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+               `Team` resource via the `members` block and by using the
+               `TeamMembers` resource. However it's not possible to use
+               both methods to manage team members, since there'll be conflicts.
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
         :param pulumi.Input[str] mode: The mode how the resource manages team members.
-               - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         """
         pulumi.set(__self__, "members", members)
         pulumi.set(__self__, "project_id", project_id)
@@ -42,12 +38,10 @@ class TeamMembersArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
         """
-        List of subject descriptors to define members of the team.
-
-        > NOTE: It's possible to define team members both within the
-        > `Team` resource via the `members` block and by using the
-        > `TeamMembers` resource. However it's not possible to use
-        > both methods to manage team members, since there'll be conflicts.
+        List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+        `Team` resource via the `members` block and by using the
+        `TeamMembers` resource. However it's not possible to use
+        both methods to manage team members, since there'll be conflicts.
         """
         return pulumi.get(self, "members")
 
@@ -84,8 +78,6 @@ class TeamMembersArgs:
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
         The mode how the resource manages team members.
-        - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-        - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         """
         return pulumi.get(self, "mode")
 
@@ -103,15 +95,11 @@ class _TeamMembersState:
                  team_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering TeamMembers resources.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
-               
-               > NOTE: It's possible to define team members both within the
-               > `Team` resource via the `members` block and by using the
-               > `TeamMembers` resource. However it's not possible to use
-               > both methods to manage team members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+               `Team` resource via the `members` block and by using the
+               `TeamMembers` resource. However it's not possible to use
+               both methods to manage team members, since there'll be conflicts.
         :param pulumi.Input[str] mode: The mode how the resource manages team members.
-               - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
         """
@@ -128,12 +116,10 @@ class _TeamMembersState:
     @pulumi.getter
     def members(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        List of subject descriptors to define members of the team.
-
-        > NOTE: It's possible to define team members both within the
-        > `Team` resource via the `members` block and by using the
-        > `TeamMembers` resource. However it's not possible to use
-        > both methods to manage team members, since there'll be conflicts.
+        List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+        `Team` resource via the `members` block and by using the
+        `TeamMembers` resource. However it's not possible to use
+        both methods to manage team members, since there'll be conflicts.
         """
         return pulumi.get(self, "members")
 
@@ -146,8 +132,6 @@ class _TeamMembersState:
     def mode(self) -> Optional[pulumi.Input[str]]:
         """
         The mode how the resource manages team members.
-        - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-        - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         """
         return pulumi.get(self, "mode")
 
@@ -227,15 +211,11 @@ class TeamMembers(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
-               
-               > NOTE: It's possible to define team members both within the
-               > `Team` resource via the `members` block and by using the
-               > `TeamMembers` resource. However it's not possible to use
-               > both methods to manage team members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+               `Team` resource via the `members` block and by using the
+               `TeamMembers` resource. However it's not possible to use
+               both methods to manage team members, since there'll be conflicts.
         :param pulumi.Input[str] mode: The mode how the resource manages team members.
-               - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
         """
@@ -339,15 +319,11 @@ class TeamMembers(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.
-               
-               > NOTE: It's possible to define team members both within the
-               > `Team` resource via the `members` block and by using the
-               > `TeamMembers` resource. However it's not possible to use
-               > both methods to manage team members, since there'll be conflicts.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] members: List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+               `Team` resource via the `members` block and by using the
+               `TeamMembers` resource. However it's not possible to use
+               both methods to manage team members, since there'll be conflicts.
         :param pulumi.Input[str] mode: The mode how the resource manages team members.
-               - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-               - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         :param pulumi.Input[str] project_id: The Project ID.
         :param pulumi.Input[str] team_id: The ID of the Team.
         """
@@ -365,12 +341,10 @@ class TeamMembers(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Sequence[str]]:
         """
-        List of subject descriptors to define members of the team.
-
-        > NOTE: It's possible to define team members both within the
-        > `Team` resource via the `members` block and by using the
-        > `TeamMembers` resource. However it's not possible to use
-        > both methods to manage team members, since there'll be conflicts.
+        List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the
+        `Team` resource via the `members` block and by using the
+        `TeamMembers` resource. However it's not possible to use
+        both methods to manage team members, since there'll be conflicts.
         """
         return pulumi.get(self, "members")
 
@@ -379,8 +353,6 @@ class TeamMembers(pulumi.CustomResource):
     def mode(self) -> pulumi.Output[Optional[str]]:
         """
         The mode how the resource manages team members.
-        - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-        - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
         """
         return pulumi.get(self, "mode")
 

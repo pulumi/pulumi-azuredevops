@@ -9,29 +9,13 @@ import java.util.Objects;
 
 @CustomType
 public final class ServiceEndpointArtifactoryAuthenticationBasic {
-    /**
-     * @return Artifactory Password.
-     * 
-     */
     private String password;
-    /**
-     * @return Artifactory Username.
-     * 
-     */
     private String username;
 
     private ServiceEndpointArtifactoryAuthenticationBasic() {}
-    /**
-     * @return Artifactory Password.
-     * 
-     */
     public String password() {
         return this.password;
     }
-    /**
-     * @return Artifactory Username.
-     * 
-     */
     public String username() {
         return this.username;
     }

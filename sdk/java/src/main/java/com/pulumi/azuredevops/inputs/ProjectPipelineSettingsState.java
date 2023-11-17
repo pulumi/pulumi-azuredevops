@@ -32,9 +32,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
     }
 
     /**
-     * Limit job authorization scope to current project for release pipelines.
-     * 
-     * &gt; **NOTE:**
+     * Limit job authorization scope to current project for release pipelines.**NOTE:**\
      * The settings at the organization will override settings specified on the project.
      * For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
      * In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
@@ -44,9 +42,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
     private @Nullable Output<Boolean> enforceJobScopeForRelease;
 
     /**
-     * @return Limit job authorization scope to current project for release pipelines.
-     * 
-     * &gt; **NOTE:**
+     * @return Limit job authorization scope to current project for release pipelines.**NOTE:**\
      * The settings at the organization will override settings specified on the project.
      * For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
      * In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
@@ -183,9 +179,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enforceJobScopeForRelease Limit job authorization scope to current project for release pipelines.
-         * 
-         * &gt; **NOTE:**
+         * @param enforceJobScopeForRelease Limit job authorization scope to current project for release pipelines.**NOTE:**\
          * The settings at the organization will override settings specified on the project.
          * For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
          * In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.
@@ -199,9 +193,7 @@ public final class ProjectPipelineSettingsState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param enforceJobScopeForRelease Limit job authorization scope to current project for release pipelines.
-         * 
-         * &gt; **NOTE:**
+         * @param enforceJobScopeForRelease Limit job authorization scope to current project for release pipelines.**NOTE:**\
          * The settings at the organization will override settings specified on the project.
          * For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.
          * In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.

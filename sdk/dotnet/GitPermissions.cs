@@ -270,7 +270,7 @@ namespace Pulumi.AzureDevOps
     public partial class GitPermissions : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the branch to assign the permissions. 
+        /// The name of the branch to assign the permissions.
         /// 
         /// &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         /// </summary>
@@ -279,7 +279,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The follwing permissions are available
-        /// 
         /// 
         /// | Permissions             | Description                                            |
         /// |-------------------------|--------------------------------------------------------|
@@ -374,7 +373,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GitPermissionsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the branch to assign the permissions. 
+        /// The name of the branch to assign the permissions.
         /// 
         /// &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         /// </summary>
@@ -386,7 +385,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The follwing permissions are available
-        /// 
         /// 
         /// | Permissions             | Description                                            |
         /// |-------------------------|--------------------------------------------------------|
@@ -446,7 +444,7 @@ namespace Pulumi.AzureDevOps
     public sealed class GitPermissionsState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the branch to assign the permissions. 
+        /// The name of the branch to assign the permissions.
         /// 
         /// &gt; **Note** to assign permissions to a branch, the `repository_id` must be set as well.
         /// </summary>
@@ -458,7 +456,6 @@ namespace Pulumi.AzureDevOps
 
         /// <summary>
         /// the permissions to assign. The follwing permissions are available
-        /// 
         /// 
         /// | Permissions             | Description                                            |
         /// |-------------------------|--------------------------------------------------------|

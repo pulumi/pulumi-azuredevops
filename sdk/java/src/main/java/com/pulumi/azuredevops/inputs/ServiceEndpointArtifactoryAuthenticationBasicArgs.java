@@ -13,32 +13,16 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
 
     public static final ServiceEndpointArtifactoryAuthenticationBasicArgs Empty = new ServiceEndpointArtifactoryAuthenticationBasicArgs();
 
-    /**
-     * Artifactory Password.
-     * 
-     */
     @Import(name="password", required=true)
     private Output<String> password;
 
-    /**
-     * @return Artifactory Password.
-     * 
-     */
     public Output<String> password() {
         return this.password;
     }
 
-    /**
-     * Artifactory Username.
-     * 
-     */
     @Import(name="username", required=true)
     private Output<String> username;
 
-    /**
-     * @return Artifactory Username.
-     * 
-     */
     public Output<String> username() {
         return this.username;
     }
@@ -68,44 +52,20 @@ public final class ServiceEndpointArtifactoryAuthenticationBasicArgs extends com
             $ = new ServiceEndpointArtifactoryAuthenticationBasicArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param password Artifactory Password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(Output<String> password) {
             $.password = password;
             return this;
         }
 
-        /**
-         * @param password Artifactory Password.
-         * 
-         * @return builder
-         * 
-         */
         public Builder password(String password) {
             return password(Output.of(password));
         }
 
-        /**
-         * @param username Artifactory Username.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(Output<String> username) {
             $.username = username;
             return this;
         }
 
-        /**
-         * @param username Artifactory Username.
-         * 
-         * @return builder
-         * 
-         */
         public Builder username(String username) {
             return username(Output.of(username));
         }

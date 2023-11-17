@@ -88,9 +88,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="azuredevops:index/teamMembers:TeamMembers")
 public class TeamMembers extends com.pulumi.resources.CustomResource {
     /**
-     * List of subject descriptors to define members of the team.
-     * 
-     * &gt; NOTE: It&#39;s possible to define team members both within the
+     * List of subject descriptors to define members of the team.NOTE: It&#39;s possible to define team members both within the
      * `azuredevops.Team` resource via the `members` block and by using the
      * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
      * both methods to manage team members, since there&#39;ll be conflicts.
@@ -100,9 +98,7 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
     private Output<List<String>> members;
 
     /**
-     * @return List of subject descriptors to define members of the team.
-     * 
-     * &gt; NOTE: It&#39;s possible to define team members both within the
+     * @return List of subject descriptors to define members of the team.NOTE: It&#39;s possible to define team members both within the
      * `azuredevops.Team` resource via the `members` block and by using the
      * `azuredevops.TeamMembers` resource. However it&#39;s not possible to use
      * both methods to manage team members, since there&#39;ll be conflicts.
@@ -113,8 +109,6 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
     }
     /**
      * The mode how the resource manages team members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
@@ -122,8 +116,6 @@ public class TeamMembers extends com.pulumi.resources.CustomResource {
 
     /**
      * @return The mode how the resource manages team members.
-     * - `mode == add`: the resource will ensure that all specified members will be part of the referenced team
-     * - `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block
      * 
      */
     public Output<Optional<String>> mode() {
