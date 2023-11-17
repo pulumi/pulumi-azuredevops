@@ -130,7 +130,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTriggerOverrideBranchFilter:BuildDefinitionCiTriggerOverrideBranchFilter"
                     },
-                    "description": "The branches to include and exclude from the trigger.\n"
+                    "description": "The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.\n"
                 },
                 "maxConcurrentBuildsPerBranch": {
                     "type": "integer",
@@ -141,7 +141,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionCiTriggerOverridePathFilter:BuildDefinitionCiTriggerOverridePathFilter"
                     },
-                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n"
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n"
                 },
                 "pollingInterval": {
                     "type": "integer",
@@ -168,14 +168,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to exclude.\n"
+                    "description": "List of branch patterns to exclude.\n\n\n`exclude` - (Optional) List of branch patterns to exclude.\n"
                 },
                 "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to include.\n"
+                    "description": "List of branch patterns to include.`include` - (Optional) List of branch patterns to include.\n"
                 }
             },
             "type": "object"
@@ -262,14 +262,14 @@
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTriggerOverrideBranchFilter:BuildDefinitionPullRequestTriggerOverrideBranchFilter"
                     },
-                    "description": "The branches to include and exclude from the trigger.\n"
+                    "description": "The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.\n"
                 },
                 "pathFilters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTriggerOverridePathFilter:BuildDefinitionPullRequestTriggerOverridePathFilter"
                     },
-                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n"
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n"
                 }
             },
             "type": "object"
@@ -281,14 +281,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to exclude.\n"
+                    "description": "List of branch patterns to exclude.\n\n\n`exclude` - (Optional) List of branch patterns to exclude.\n"
                 },
                 "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to include.\n"
+                    "description": "List of branch patterns to include.`include` - (Optional) List of branch patterns to include.\n"
                 }
             },
             "type": "object"
@@ -357,7 +357,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionScheduleBranchFilter:BuildDefinitionScheduleBranchFilter"
                     },
-                    "description": "block supports the following:\n"
+                    "description": "The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.\n"
                 },
                 "daysToBuilds": {
                     "type": "array",
@@ -384,7 +384,7 @@
                 },
                 "timeZone": {
                     "type": "string",
-                    "description": "Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: \n`(UTC-12:00) International Date Line West`,\n`(UTC-11:00) Coordinated Universal Time-11`,\n`(UTC-10:00) Aleutian Islands`,\n`(UTC-10:00) Hawaii`,\n`(UTC-09:30) Marquesas Islands`,\n`(UTC-09:00) Alaska`,\n`(UTC-09:00) Coordinated Universal Time-09`,\n`(UTC-08:00) Baja California`,\n`(UTC-08:00) Coordinated Universal Time-08`,\n`(UTC-08:00) Pacific Time (US \u0026Canada)`,\n`(UTC-07:00) Arizona`,\n`(UTC-07:00) Chihuahua, La Paz, Mazatlan`,\n`(UTC-07:00) Mountain Time (US \u0026Canada)`,\n`(UTC-07:00) Yukon`,\n`(UTC-06:00) Central America`,\n`(UTC-06:00) Central Time (US \u0026Canada)`,\n`(UTC-06:00) Easter Island`,\n`(UTC-06:00) Guadalajara, Mexico City, Monterrey`,\n`(UTC-06:00) Saskatchewan`,\n`(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,\n`(UTC-05:00) Chetumal`,\n`(UTC-05:00) Eastern Time (US \u0026Canada)`,\n`(UTC-05:00) Haiti`,\n`(UTC-05:00) Havana`,\n`(UTC-05:00) Indiana (East)`,\n`(UTC-05:00) Turks and Caicos`,\n`(UTC-04:00) Asuncion`,\n`(UTC-04:00) Atlantic Time (Canada)`,\n`(UTC-04:00) Caracas`,\n`(UTC-04:00) Cuiaba`,\n`(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,\n`(UTC-04:00) Santiago`,\n`(UTC-03:30) Newfoundland`,\n`(UTC-03:00) Araguaina`,\n`(UTC-03:00) Brasilia`,\n`(UTC-03:00) Cayenne, Fortaleza`,\n`(UTC-03:00) City of Buenos Aires`,\n`(UTC-03:00) Greenland`,\n`(UTC-03:00) Montevideo`,\n`(UTC-03:00) Punta Arenas`,\n`(UTC-03:00) Saint Pierre and Miquelon`,\n`(UTC-03:00) Salvador`,\n`(UTC-02:00) Coordinated Universal Time-02`,\n`(UTC-02:00) Mid-Atlantic - Old`,\n`(UTC-01:00) Azores`,\n`(UTC-01:00) Cabo Verde Is.`,\n`(UTC) Coordinated Universal Time`,\n`(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,\n`(UTC+00:00) Monrovia, Reykjavik`,\n`(UTC+00:00) Sao Tome`,\n`(UTC+01:00) Casablanca`,\n`(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,\n`(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,\n`(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,\n`(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,\n`(UTC+01:00) West Central Africa`,\n`(UTC+02:00) Amman`,\n`(UTC+02:00) Athens, Bucharest`,\n`(UTC+02:00) Beirut`,\n`(UTC+02:00) Cairo`,\n`(UTC+02:00) Chisinau`,\n`(UTC+02:00) Damascus`,\n`(UTC+02:00) Gaza, Hebron`,\n`(UTC+02:00) Harare, Pretoria`,\n`(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,\n`(UTC+02:00) Jerusalem`,\n`(UTC+02:00) Juba`,\n`(UTC+02:00) Kaliningrad`,\n`(UTC+02:00) Khartoum`,\n`(UTC+02:00) Tripoli`,\n`(UTC+02:00) Windhoek`,\n`(UTC+03:00) Baghdad`,\n`(UTC+03:00) Istanbul`,\n`(UTC+03:00) Kuwait, Riyadh`,\n`(UTC+03:00) Minsk`,\n`(UTC+03:00) Moscow, St. Petersburg`,\n`(UTC+03:00) Nairobi`,\n`(UTC+03:00) Volgograd`,\n`(UTC+03:30) Tehran`,\n`(UTC+04:00) Abu Dhabi, Muscat`,\n`(UTC+04:00) Astrakhan, Ulyanovsk`,\n`(UTC+04:00) Baku`,\n`(UTC+04:00) Izhevsk, Samara`,\n`(UTC+04:00) Port Louis`,\n`(UTC+04:00) Saratov`,\n`(UTC+04:00) Tbilisi`,\n`(UTC+04:00) Yerevan`,\n`(UTC+04:30) Kabul`,\n`(UTC+05:00) Ashgabat, Tashkent`,\n`(UTC+05:00) Ekaterinburg`,\n`(UTC+05:00) Islamabad, Karachi`,\n`(UTC+05:00) Qyzylorda`,\n`(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,\n`(UTC+05:30) Sri Jayawardenepura`,\n`(UTC+05:45) Kathmandu`,\n`(UTC+06:00) Astana`,\n`(UTC+06:00) Dhaka`,\n`(UTC+06:00) Omsk`,\n`(UTC+06:30) Yangon (Rangoon)`,\n`(UTC+07:00) Bangkok, Hanoi, Jakarta`,\n`(UTC+07:00) Barnaul, Gorno-Altaysk`,\n`(UTC+07:00) Hovd`,\n`(UTC+07:00) Krasnoyarsk`,\n`(UTC+07:00) Novosibirsk`,\n`(UTC+07:00) Tomsk`,\n`(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,\n`(UTC+08:00) Irkutsk`,\n`(UTC+08:00) Kuala Lumpur, Singapore`,\n`(UTC+08:00) Perth`,\n`(UTC+08:00) Taipei`,\n`(UTC+08:00) Ulaanbaatar`,\n`(UTC+08:45) Eucla`,\n`(UTC+09:00) Chita`,\n`(UTC+09:00) Osaka, Sapporo, Tokyo`,\n`(UTC+09:00) Pyongyang`,\n`(UTC+09:00) Seoul`,\n`(UTC+09:00) Yakutsk`,\n`(UTC+09:30) Adelaide`,\n`(UTC+09:30) Darwin`,\n`(UTC+10:00) Brisbane`,\n`(UTC+10:00) Canberra, Melbourne, Sydney`,\n`(UTC+10:00) Guam, Port Moresby`,\n`(UTC+10:00) Hobart`,\n`(UTC+10:00) Vladivostok`,\n`(UTC+10:30) Lord Howe Island`,\n`(UTC+11:00) Bougainville Island`,\n`(UTC+11:00) Chokurdakh`,\n`(UTC+11:00) Magadan`,\n`(UTC+11:00) Norfolk Island`,\n`(UTC+11:00) Sakhalin`,\n`(UTC+11:00) Solomon Is., New Caledonia`,\n`(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,\n`(UTC+12:00) Auckland, Wellington`,\n`(UTC+12:00) Coordinated Universal Time+12`,\n`(UTC+12:00) Fiji`,\n`(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,\n`(UTC+12:45) Chatham Islands`,\n`(UTC+13:00) Coordinated Universal Time+13`,\n`(UTC+13:00) Nuku'alofa`,\n`(UTC+13:00) Samoa`,\n`(UTC+14:00) Kiritimati Island`.\n"
+                    "description": "Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: \n`(UTC-12:00) International Date Line West`,   \n`(UTC-11:00) Coordinated Universal Time-11`,   \n`(UTC-10:00) Aleutian Islands`,   \n`(UTC-10:00) Hawaii`,   \n`(UTC-09:30) Marquesas Islands`,   \n`(UTC-09:00) Alaska`,   \n`(UTC-09:00) Coordinated Universal Time-09`,   \n`(UTC-08:00) Baja California`,   \n`(UTC-08:00) Coordinated Universal Time-08`,   \n`(UTC-08:00) Pacific Time (US \u0026Canada)`,   \n`(UTC-07:00) Arizona`,   \n`(UTC-07:00) Chihuahua, La Paz, Mazatlan`,   \n`(UTC-07:00) Mountain Time (US \u0026Canada)`,   \n`(UTC-07:00) Yukon`,   \n`(UTC-06:00) Central America`,   \n`(UTC-06:00) Central Time (US \u0026Canada)`,   \n`(UTC-06:00) Easter Island`,   \n`(UTC-06:00) Guadalajara, Mexico City, Monterrey`,   \n`(UTC-06:00) Saskatchewan`,   \n`(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,   \n`(UTC-05:00) Chetumal`,   \n`(UTC-05:00) Eastern Time (US \u0026Canada)`,   \n`(UTC-05:00) Haiti`,   \n`(UTC-05:00) Havana`,   \n`(UTC-05:00) Indiana (East)`,   \n`(UTC-05:00) Turks and Caicos`,   \n`(UTC-04:00) Asuncion`,   \n`(UTC-04:00) Atlantic Time (Canada)`,   \n`(UTC-04:00) Caracas`,   \n`(UTC-04:00) Cuiaba`,   \n`(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,   \n`(UTC-04:00) Santiago`,   \n`(UTC-03:30) Newfoundland`,   \n`(UTC-03:00) Araguaina`,   \n`(UTC-03:00) Brasilia`,   \n`(UTC-03:00) Cayenne, Fortaleza`,   \n`(UTC-03:00) City of Buenos Aires`,   \n`(UTC-03:00) Greenland`,   \n`(UTC-03:00) Montevideo`,   \n`(UTC-03:00) Punta Arenas`,   \n`(UTC-03:00) Saint Pierre and Miquelon`,   \n`(UTC-03:00) Salvador`,   \n`(UTC-02:00) Coordinated Universal Time-02`,   \n`(UTC-02:00) Mid-Atlantic - Old`,   \n`(UTC-01:00) Azores`,   \n`(UTC-01:00) Cabo Verde Is.`,   \n`(UTC) Coordinated Universal Time`,   \n`(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,   \n`(UTC+00:00) Monrovia, Reykjavik`,   \n`(UTC+00:00) Sao Tome`,   \n`(UTC+01:00) Casablanca`,   \n`(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,   \n`(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,   \n`(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,   \n`(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,   \n`(UTC+01:00) West Central Africa`,   \n`(UTC+02:00) Amman`,   \n`(UTC+02:00) Athens, Bucharest`,   \n`(UTC+02:00) Beirut`,   \n`(UTC+02:00) Cairo`,   \n`(UTC+02:00) Chisinau`,   \n`(UTC+02:00) Damascus`,   \n`(UTC+02:00) Gaza, Hebron`,   \n`(UTC+02:00) Harare, Pretoria`,   \n`(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,   \n`(UTC+02:00) Jerusalem`,   \n`(UTC+02:00) Juba`,   \n`(UTC+02:00) Kaliningrad`,   \n`(UTC+02:00) Khartoum`,   \n`(UTC+02:00) Tripoli`,   \n`(UTC+02:00) Windhoek`,   \n`(UTC+03:00) Baghdad`,   \n`(UTC+03:00) Istanbul`,   \n`(UTC+03:00) Kuwait, Riyadh`,   \n`(UTC+03:00) Minsk`,   \n`(UTC+03:00) Moscow, St. Petersburg`,   \n`(UTC+03:00) Nairobi`,   \n`(UTC+03:00) Volgograd`,   \n`(UTC+03:30) Tehran`,   \n`(UTC+04:00) Abu Dhabi, Muscat`,   \n`(UTC+04:00) Astrakhan, Ulyanovsk`,   \n`(UTC+04:00) Baku`,   \n`(UTC+04:00) Izhevsk, Samara`,   \n`(UTC+04:00) Port Louis`,   \n`(UTC+04:00) Saratov`,   \n`(UTC+04:00) Tbilisi`,   \n`(UTC+04:00) Yerevan`,   \n`(UTC+04:30) Kabul`,   \n`(UTC+05:00) Ashgabat, Tashkent`,   \n`(UTC+05:00) Ekaterinburg`,   \n`(UTC+05:00) Islamabad, Karachi`,   \n`(UTC+05:00) Qyzylorda`,   \n`(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,   \n`(UTC+05:30) Sri Jayawardenepura`,   \n`(UTC+05:45) Kathmandu`,   \n`(UTC+06:00) Astana`,   \n`(UTC+06:00) Dhaka`,   \n`(UTC+06:00) Omsk`,   \n`(UTC+06:30) Yangon (Rangoon)`,   \n`(UTC+07:00) Bangkok, Hanoi, Jakarta`,   \n`(UTC+07:00) Barnaul, Gorno-Altaysk`,   \n`(UTC+07:00) Hovd`,   \n`(UTC+07:00) Krasnoyarsk`,   \n`(UTC+07:00) Novosibirsk`,   \n`(UTC+07:00) Tomsk`,   \n`(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,   \n`(UTC+08:00) Irkutsk`,   \n`(UTC+08:00) Kuala Lumpur, Singapore`,   \n`(UTC+08:00) Perth`,   \n`(UTC+08:00) Taipei`,   \n`(UTC+08:00) Ulaanbaatar`,   \n`(UTC+08:45) Eucla`,   \n`(UTC+09:00) Chita`,   \n`(UTC+09:00) Osaka, Sapporo, Tokyo`,   \n`(UTC+09:00) Pyongyang`,   \n`(UTC+09:00) Seoul`,   \n`(UTC+09:00) Yakutsk`,   \n`(UTC+09:30) Adelaide`,   \n`(UTC+09:30) Darwin`,   \n`(UTC+10:00) Brisbane`,   \n`(UTC+10:00) Canberra, Melbourne, Sydney`,   \n`(UTC+10:00) Guam, Port Moresby`,   \n`(UTC+10:00) Hobart`,   \n`(UTC+10:00) Vladivostok`,   \n`(UTC+10:30) Lord Howe Island`,   \n`(UTC+11:00) Bougainville Island`,   \n`(UTC+11:00) Chokurdakh`,   \n`(UTC+11:00) Magadan`,   \n`(UTC+11:00) Norfolk Island`,   \n`(UTC+11:00) Sakhalin`,   \n`(UTC+11:00) Solomon Is., New Caledonia`,   \n`(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,   \n`(UTC+12:00) Auckland, Wellington`,   \n`(UTC+12:00) Coordinated Universal Time+12`,   \n`(UTC+12:00) Fiji`,   \n`(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,   \n`(UTC+12:45) Chatham Islands`,   \n`(UTC+13:00) Coordinated Universal Time+13`,   \n`(UTC+13:00) Nuku'alofa`,   \n`(UTC+13:00) Samoa`,   \n`(UTC+14:00) Kiritimati Island`.\n"
                 }
             },
             "type": "object",
@@ -407,14 +407,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to exclude.\n"
+                    "description": "List of branch patterns to exclude.\n\n\n`exclude` - (Optional) List of branch patterns to exclude.\n"
                 },
                 "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to include.\n"
+                    "description": "List of branch patterns to include.`include` - (Optional) List of branch patterns to include.\n"
                 }
             },
             "type": "object"
@@ -1194,7 +1194,7 @@
             "properties": {
                 "applicability": {
                     "type": "string",
-                    "description": "Policy applicability. If policy `applicability` is `default`, apply unless \"Not Applicable\" \nstatus is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status\nis posted to the pull request.\n"
+                    "description": "Policy applicability. If policy `applicability` is `default`, apply unless \"Not Applicable\" \nstatus is posted to the pull request. If policy `applicability` is `conditional`, policy is applied only after a status \nis posted to the pull request.\n"
                 },
                 "authorId": {
                     "type": "string",
@@ -1310,7 +1310,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionCiTriggerOverrideBranchFilter:BuildDefinitionCiTriggerOverrideBranchFilter"
                     },
-                    "description": "The branches to include and exclude from the trigger.\n"
+                    "description": "The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.\n"
                 },
                 "maxConcurrentBuildsPerBranch": {
                     "type": "integer",
@@ -1321,7 +1321,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionCiTriggerOverridePathFilter:BuildDefinitionCiTriggerOverridePathFilter"
                     },
-                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n"
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n"
                 },
                 "pollingInterval": {
                     "type": "integer",
@@ -1348,14 +1348,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to exclude.\n"
+                    "description": "List of branch patterns to exclude.\n\n\n`exclude` - (Optional) List of branch patterns to exclude.\n"
                 },
                 "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to include.\n"
+                    "description": "List of branch patterns to include.`include` - (Optional) List of branch patterns to include.\n"
                 }
             },
             "type": "object"
@@ -1442,14 +1442,14 @@
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerOverrideBranchFilter:BuildDefinitionPullRequestTriggerOverrideBranchFilter"
                     },
-                    "description": "The branches to include and exclude from the trigger.\n"
+                    "description": "The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.\n"
                 },
                 "pathFilters": {
                     "type": "array",
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTriggerOverridePathFilter:BuildDefinitionPullRequestTriggerOverridePathFilter"
                     },
-                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n"
+                    "description": "Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.`path_filter` - (Optional) Specify file paths to include or exclude. Note that the wildcard syntax is different between branches/tags and file paths.\n"
                 }
             },
             "type": "object"
@@ -1461,14 +1461,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to exclude.\n"
+                    "description": "List of branch patterns to exclude.\n\n\n`exclude` - (Optional) List of branch patterns to exclude.\n"
                 },
                 "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to include.\n"
+                    "description": "List of branch patterns to include.`include` - (Optional) List of branch patterns to include.\n"
                 }
             },
             "type": "object"
@@ -1537,7 +1537,7 @@
                     "items": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionScheduleBranchFilter:BuildDefinitionScheduleBranchFilter"
                     },
-                    "description": "block supports the following:\n"
+                    "description": "The branches to include and exclude from the trigger.`branch_filter` - (Optional) The branches to include and exclude from the trigger.\n"
                 },
                 "daysToBuilds": {
                     "type": "array",
@@ -1564,7 +1564,7 @@
                 },
                 "timeZone": {
                     "type": "string",
-                    "description": "Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: \n`(UTC-12:00) International Date Line West`,\n`(UTC-11:00) Coordinated Universal Time-11`,\n`(UTC-10:00) Aleutian Islands`,\n`(UTC-10:00) Hawaii`,\n`(UTC-09:30) Marquesas Islands`,\n`(UTC-09:00) Alaska`,\n`(UTC-09:00) Coordinated Universal Time-09`,\n`(UTC-08:00) Baja California`,\n`(UTC-08:00) Coordinated Universal Time-08`,\n`(UTC-08:00) Pacific Time (US \u0026Canada)`,\n`(UTC-07:00) Arizona`,\n`(UTC-07:00) Chihuahua, La Paz, Mazatlan`,\n`(UTC-07:00) Mountain Time (US \u0026Canada)`,\n`(UTC-07:00) Yukon`,\n`(UTC-06:00) Central America`,\n`(UTC-06:00) Central Time (US \u0026Canada)`,\n`(UTC-06:00) Easter Island`,\n`(UTC-06:00) Guadalajara, Mexico City, Monterrey`,\n`(UTC-06:00) Saskatchewan`,\n`(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,\n`(UTC-05:00) Chetumal`,\n`(UTC-05:00) Eastern Time (US \u0026Canada)`,\n`(UTC-05:00) Haiti`,\n`(UTC-05:00) Havana`,\n`(UTC-05:00) Indiana (East)`,\n`(UTC-05:00) Turks and Caicos`,\n`(UTC-04:00) Asuncion`,\n`(UTC-04:00) Atlantic Time (Canada)`,\n`(UTC-04:00) Caracas`,\n`(UTC-04:00) Cuiaba`,\n`(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,\n`(UTC-04:00) Santiago`,\n`(UTC-03:30) Newfoundland`,\n`(UTC-03:00) Araguaina`,\n`(UTC-03:00) Brasilia`,\n`(UTC-03:00) Cayenne, Fortaleza`,\n`(UTC-03:00) City of Buenos Aires`,\n`(UTC-03:00) Greenland`,\n`(UTC-03:00) Montevideo`,\n`(UTC-03:00) Punta Arenas`,\n`(UTC-03:00) Saint Pierre and Miquelon`,\n`(UTC-03:00) Salvador`,\n`(UTC-02:00) Coordinated Universal Time-02`,\n`(UTC-02:00) Mid-Atlantic - Old`,\n`(UTC-01:00) Azores`,\n`(UTC-01:00) Cabo Verde Is.`,\n`(UTC) Coordinated Universal Time`,\n`(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,\n`(UTC+00:00) Monrovia, Reykjavik`,\n`(UTC+00:00) Sao Tome`,\n`(UTC+01:00) Casablanca`,\n`(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,\n`(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,\n`(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,\n`(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,\n`(UTC+01:00) West Central Africa`,\n`(UTC+02:00) Amman`,\n`(UTC+02:00) Athens, Bucharest`,\n`(UTC+02:00) Beirut`,\n`(UTC+02:00) Cairo`,\n`(UTC+02:00) Chisinau`,\n`(UTC+02:00) Damascus`,\n`(UTC+02:00) Gaza, Hebron`,\n`(UTC+02:00) Harare, Pretoria`,\n`(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,\n`(UTC+02:00) Jerusalem`,\n`(UTC+02:00) Juba`,\n`(UTC+02:00) Kaliningrad`,\n`(UTC+02:00) Khartoum`,\n`(UTC+02:00) Tripoli`,\n`(UTC+02:00) Windhoek`,\n`(UTC+03:00) Baghdad`,\n`(UTC+03:00) Istanbul`,\n`(UTC+03:00) Kuwait, Riyadh`,\n`(UTC+03:00) Minsk`,\n`(UTC+03:00) Moscow, St. Petersburg`,\n`(UTC+03:00) Nairobi`,\n`(UTC+03:00) Volgograd`,\n`(UTC+03:30) Tehran`,\n`(UTC+04:00) Abu Dhabi, Muscat`,\n`(UTC+04:00) Astrakhan, Ulyanovsk`,\n`(UTC+04:00) Baku`,\n`(UTC+04:00) Izhevsk, Samara`,\n`(UTC+04:00) Port Louis`,\n`(UTC+04:00) Saratov`,\n`(UTC+04:00) Tbilisi`,\n`(UTC+04:00) Yerevan`,\n`(UTC+04:30) Kabul`,\n`(UTC+05:00) Ashgabat, Tashkent`,\n`(UTC+05:00) Ekaterinburg`,\n`(UTC+05:00) Islamabad, Karachi`,\n`(UTC+05:00) Qyzylorda`,\n`(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,\n`(UTC+05:30) Sri Jayawardenepura`,\n`(UTC+05:45) Kathmandu`,\n`(UTC+06:00) Astana`,\n`(UTC+06:00) Dhaka`,\n`(UTC+06:00) Omsk`,\n`(UTC+06:30) Yangon (Rangoon)`,\n`(UTC+07:00) Bangkok, Hanoi, Jakarta`,\n`(UTC+07:00) Barnaul, Gorno-Altaysk`,\n`(UTC+07:00) Hovd`,\n`(UTC+07:00) Krasnoyarsk`,\n`(UTC+07:00) Novosibirsk`,\n`(UTC+07:00) Tomsk`,\n`(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,\n`(UTC+08:00) Irkutsk`,\n`(UTC+08:00) Kuala Lumpur, Singapore`,\n`(UTC+08:00) Perth`,\n`(UTC+08:00) Taipei`,\n`(UTC+08:00) Ulaanbaatar`,\n`(UTC+08:45) Eucla`,\n`(UTC+09:00) Chita`,\n`(UTC+09:00) Osaka, Sapporo, Tokyo`,\n`(UTC+09:00) Pyongyang`,\n`(UTC+09:00) Seoul`,\n`(UTC+09:00) Yakutsk`,\n`(UTC+09:30) Adelaide`,\n`(UTC+09:30) Darwin`,\n`(UTC+10:00) Brisbane`,\n`(UTC+10:00) Canberra, Melbourne, Sydney`,\n`(UTC+10:00) Guam, Port Moresby`,\n`(UTC+10:00) Hobart`,\n`(UTC+10:00) Vladivostok`,\n`(UTC+10:30) Lord Howe Island`,\n`(UTC+11:00) Bougainville Island`,\n`(UTC+11:00) Chokurdakh`,\n`(UTC+11:00) Magadan`,\n`(UTC+11:00) Norfolk Island`,\n`(UTC+11:00) Sakhalin`,\n`(UTC+11:00) Solomon Is., New Caledonia`,\n`(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,\n`(UTC+12:00) Auckland, Wellington`,\n`(UTC+12:00) Coordinated Universal Time+12`,\n`(UTC+12:00) Fiji`,\n`(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,\n`(UTC+12:45) Chatham Islands`,\n`(UTC+13:00) Coordinated Universal Time+13`,\n`(UTC+13:00) Nuku'alofa`,\n`(UTC+13:00) Samoa`,\n`(UTC+14:00) Kiritimati Island`.\n"
+                    "description": "Build time zone. Defaults to `(UTC) Coordinated Universal Time`. Valid values: \n`(UTC-12:00) International Date Line West`,   \n`(UTC-11:00) Coordinated Universal Time-11`,   \n`(UTC-10:00) Aleutian Islands`,   \n`(UTC-10:00) Hawaii`,   \n`(UTC-09:30) Marquesas Islands`,   \n`(UTC-09:00) Alaska`,   \n`(UTC-09:00) Coordinated Universal Time-09`,   \n`(UTC-08:00) Baja California`,   \n`(UTC-08:00) Coordinated Universal Time-08`,   \n`(UTC-08:00) Pacific Time (US \u0026Canada)`,   \n`(UTC-07:00) Arizona`,   \n`(UTC-07:00) Chihuahua, La Paz, Mazatlan`,   \n`(UTC-07:00) Mountain Time (US \u0026Canada)`,   \n`(UTC-07:00) Yukon`,   \n`(UTC-06:00) Central America`,   \n`(UTC-06:00) Central Time (US \u0026Canada)`,   \n`(UTC-06:00) Easter Island`,   \n`(UTC-06:00) Guadalajara, Mexico City, Monterrey`,   \n`(UTC-06:00) Saskatchewan`,   \n`(UTC-05:00) Bogota, Lima, Quito, Rio Branco`,   \n`(UTC-05:00) Chetumal`,   \n`(UTC-05:00) Eastern Time (US \u0026Canada)`,   \n`(UTC-05:00) Haiti`,   \n`(UTC-05:00) Havana`,   \n`(UTC-05:00) Indiana (East)`,   \n`(UTC-05:00) Turks and Caicos`,   \n`(UTC-04:00) Asuncion`,   \n`(UTC-04:00) Atlantic Time (Canada)`,   \n`(UTC-04:00) Caracas`,   \n`(UTC-04:00) Cuiaba`,   \n`(UTC-04:00) Georgetown, La Paz, Manaus, San Juan`,   \n`(UTC-04:00) Santiago`,   \n`(UTC-03:30) Newfoundland`,   \n`(UTC-03:00) Araguaina`,   \n`(UTC-03:00) Brasilia`,   \n`(UTC-03:00) Cayenne, Fortaleza`,   \n`(UTC-03:00) City of Buenos Aires`,   \n`(UTC-03:00) Greenland`,   \n`(UTC-03:00) Montevideo`,   \n`(UTC-03:00) Punta Arenas`,   \n`(UTC-03:00) Saint Pierre and Miquelon`,   \n`(UTC-03:00) Salvador`,   \n`(UTC-02:00) Coordinated Universal Time-02`,   \n`(UTC-02:00) Mid-Atlantic - Old`,   \n`(UTC-01:00) Azores`,   \n`(UTC-01:00) Cabo Verde Is.`,   \n`(UTC) Coordinated Universal Time`,   \n`(UTC+00:00) Dublin, Edinburgh, Lisbon, London`,   \n`(UTC+00:00) Monrovia, Reykjavik`,   \n`(UTC+00:00) Sao Tome`,   \n`(UTC+01:00) Casablanca`,   \n`(UTC+01:00) Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna`,   \n`(UTC+01:00) Belgrade, Bratislava, Budapest, Ljubljana, Prague`,   \n`(UTC+01:00) Brussels, Copenhagen, Madrid, Paris`,   \n`(UTC+01:00) Sarajevo, Skopje, Warsaw, Zagreb`,   \n`(UTC+01:00) West Central Africa`,   \n`(UTC+02:00) Amman`,   \n`(UTC+02:00) Athens, Bucharest`,   \n`(UTC+02:00) Beirut`,   \n`(UTC+02:00) Cairo`,   \n`(UTC+02:00) Chisinau`,   \n`(UTC+02:00) Damascus`,   \n`(UTC+02:00) Gaza, Hebron`,   \n`(UTC+02:00) Harare, Pretoria`,   \n`(UTC+02:00) Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius`,   \n`(UTC+02:00) Jerusalem`,   \n`(UTC+02:00) Juba`,   \n`(UTC+02:00) Kaliningrad`,   \n`(UTC+02:00) Khartoum`,   \n`(UTC+02:00) Tripoli`,   \n`(UTC+02:00) Windhoek`,   \n`(UTC+03:00) Baghdad`,   \n`(UTC+03:00) Istanbul`,   \n`(UTC+03:00) Kuwait, Riyadh`,   \n`(UTC+03:00) Minsk`,   \n`(UTC+03:00) Moscow, St. Petersburg`,   \n`(UTC+03:00) Nairobi`,   \n`(UTC+03:00) Volgograd`,   \n`(UTC+03:30) Tehran`,   \n`(UTC+04:00) Abu Dhabi, Muscat`,   \n`(UTC+04:00) Astrakhan, Ulyanovsk`,   \n`(UTC+04:00) Baku`,   \n`(UTC+04:00) Izhevsk, Samara`,   \n`(UTC+04:00) Port Louis`,   \n`(UTC+04:00) Saratov`,   \n`(UTC+04:00) Tbilisi`,   \n`(UTC+04:00) Yerevan`,   \n`(UTC+04:30) Kabul`,   \n`(UTC+05:00) Ashgabat, Tashkent`,   \n`(UTC+05:00) Ekaterinburg`,   \n`(UTC+05:00) Islamabad, Karachi`,   \n`(UTC+05:00) Qyzylorda`,   \n`(UTC+05:30) Chennai, Kolkata, Mumbai, New Delhi`,   \n`(UTC+05:30) Sri Jayawardenepura`,   \n`(UTC+05:45) Kathmandu`,   \n`(UTC+06:00) Astana`,   \n`(UTC+06:00) Dhaka`,   \n`(UTC+06:00) Omsk`,   \n`(UTC+06:30) Yangon (Rangoon)`,   \n`(UTC+07:00) Bangkok, Hanoi, Jakarta`,   \n`(UTC+07:00) Barnaul, Gorno-Altaysk`,   \n`(UTC+07:00) Hovd`,   \n`(UTC+07:00) Krasnoyarsk`,   \n`(UTC+07:00) Novosibirsk`,   \n`(UTC+07:00) Tomsk`,   \n`(UTC+08:00) Beijing, Chongqing, Hong Kong, Urumqi`,   \n`(UTC+08:00) Irkutsk`,   \n`(UTC+08:00) Kuala Lumpur, Singapore`,   \n`(UTC+08:00) Perth`,   \n`(UTC+08:00) Taipei`,   \n`(UTC+08:00) Ulaanbaatar`,   \n`(UTC+08:45) Eucla`,   \n`(UTC+09:00) Chita`,   \n`(UTC+09:00) Osaka, Sapporo, Tokyo`,   \n`(UTC+09:00) Pyongyang`,   \n`(UTC+09:00) Seoul`,   \n`(UTC+09:00) Yakutsk`,   \n`(UTC+09:30) Adelaide`,   \n`(UTC+09:30) Darwin`,   \n`(UTC+10:00) Brisbane`,   \n`(UTC+10:00) Canberra, Melbourne, Sydney`,   \n`(UTC+10:00) Guam, Port Moresby`,   \n`(UTC+10:00) Hobart`,   \n`(UTC+10:00) Vladivostok`,   \n`(UTC+10:30) Lord Howe Island`,   \n`(UTC+11:00) Bougainville Island`,   \n`(UTC+11:00) Chokurdakh`,   \n`(UTC+11:00) Magadan`,   \n`(UTC+11:00) Norfolk Island`,   \n`(UTC+11:00) Sakhalin`,   \n`(UTC+11:00) Solomon Is., New Caledonia`,   \n`(UTC+12:00) Anadyr, Petropavlovsk-Kamchatsky`,   \n`(UTC+12:00) Auckland, Wellington`,   \n`(UTC+12:00) Coordinated Universal Time+12`,   \n`(UTC+12:00) Fiji`,   \n`(UTC+12:00) Petropavlovsk-Kamchatsky - Old`,   \n`(UTC+12:45) Chatham Islands`,   \n`(UTC+13:00) Coordinated Universal Time+13`,   \n`(UTC+13:00) Nuku'alofa`,   \n`(UTC+13:00) Samoa`,   \n`(UTC+14:00) Kiritimati Island`.\n"
                 }
             },
             "type": "object",
@@ -1587,14 +1587,14 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to exclude.\n"
+                    "description": "List of branch patterns to exclude.\n\n\n`exclude` - (Optional) List of branch patterns to exclude.\n"
                 },
                 "includes": {
                     "type": "array",
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of branch patterns to include.\n"
+                    "description": "List of branch patterns to include.`include` - (Optional) List of branch patterns to include.\n"
                 }
             },
             "type": "object"
@@ -1685,12 +1685,10 @@
             "properties": {
                 "password": {
                     "type": "string",
-                    "description": "Artifactory Password.\n",
                     "secret": true
                 },
                 "username": {
                     "type": "string",
-                    "description": "Artifactory Username.\n",
                     "secret": true
                 }
             },
@@ -1704,7 +1702,6 @@
             "properties": {
                 "token": {
                     "type": "string",
-                    "description": "Authentication Token generated through Artifactory.\n",
                     "secret": true
                 }
             },
@@ -3438,7 +3435,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                 },
                 "name": {
                     "type": "string",
@@ -3475,7 +3472,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                 },
                 "name": {
                     "type": "string",
@@ -3508,7 +3505,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                        "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                     },
                     "name": {
                         "type": "string",
@@ -3545,7 +3542,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  \nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                 },
                 "projectId": {
                     "type": "string"
@@ -3561,7 +3558,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  \nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                 },
                 "projectId": {
                     "type": "string",
@@ -3580,7 +3577,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                        "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  \nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                     },
                     "projectId": {
                         "type": "string",
@@ -3604,7 +3601,7 @@
                 },
                 "licensingSource": {
                     "type": "string",
-                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`\n\n\u003e **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
+                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
                 },
                 "origin": {
                     "type": "string",
@@ -3632,7 +3629,7 @@
                 },
                 "licensingSource": {
                     "type": "string",
-                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`\n\n\u003e **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
+                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
                 },
                 "origin": {
                     "type": "string",
@@ -3663,7 +3660,7 @@
                     },
                     "licensingSource": {
                         "type": "string",
-                        "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`\n\n\u003e **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
+                        "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
                     },
                     "origin": {
                         "type": "string",
@@ -3713,7 +3710,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003e NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                    "description": "NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                 },
                 "origin": {
                     "type": "string",
@@ -3771,7 +3768,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003e NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                    "description": "NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                 },
                 "originId": {
                     "type": "string",
@@ -3813,7 +3810,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "\u003e NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                        "description": "NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                     },
                     "origin": {
                         "type": "string",
@@ -3858,11 +3855,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of user or group descriptors that will become members of the group.\n\u003e NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                    "description": "A list of user or group descriptors that will become members of the group.NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "The mode how the resource manages group members.\n- `mode == add`: the resource will ensure that all specified members will be part of the referenced group\n- `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block\n\u003e NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.\n"
+                    "description": "The mode how the resource manages group members.\n"
                 }
             },
             "required": [
@@ -3880,11 +3877,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of user or group descriptors that will become members of the group.\n\u003e NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                    "description": "A list of user or group descriptors that will become members of the group.NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "The mode how the resource manages group members.\n- `mode == add`: the resource will ensure that all specified members will be part of the referenced group\n- `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block\n\u003e NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.\n"
+                    "description": "The mode how the resource manages group members.\n"
                 }
             },
             "requiredInputs": [
@@ -3904,11 +3901,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of user or group descriptors that will become members of the group.\n\u003e NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                        "description": "A list of user or group descriptors that will become members of the group.NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                     },
                     "mode": {
                         "type": "string",
-                        "description": "The mode how the resource manages group members.\n- `mode == add`: the resource will ensure that all specified members will be part of the referenced group\n- `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block\n\u003e NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.\n"
+                        "description": "The mode how the resource manages group members.\n"
                     }
                 },
                 "type": "object"
@@ -7211,14 +7208,14 @@
             "properties": {
                 "branchName": {
                     "type": "string",
-                    "description": "The name of the branch to assign the permissions. \n\n\u003e **Note** to assign permissions to a branch, the `repository_id` must be set as well.\n"
+                    "description": "The name of the branch to assign the permissions.\n\n\u003e **Note** to assign permissions to a branch, the `repository_id` must be set as well.\n"
                 },
                 "permissions": {
                     "type": "object",
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "the permissions to assign. The follwing permissions are available\n\n\n| Permissions             | Description                                            |\n|-------------------------|--------------------------------------------------------|\n| Administer              | Administer                                             |\n| GenericRead             | Read                                                   |\n| GenericContribute       | Contribute                                             |\n| ForcePush               | Force push (rewrite history, delete branches and tags) |\n| CreateBranch            | Create branch                                          |\n| CreateTag               | Create tag                                             |\n| ManageNote              | Manage notes                                           |\n| PolicyExempt            | Bypass policies when pushing                           |\n| CreateRepository        | Create repository                                      |\n| DeleteRepository        | Delete repository                                      |\n| RenameRepository        | Rename repository                                      |\n| EditPolicies            | Edit policies                                          |\n| RemoveOthersLocks       | Remove others' locks                                   |\n| ManagePermissions       | Manage permissions                                     |\n| PullRequestContribute   | Contribute to pull requests                            |\n| PullRequestBypassPolicy | Bypass policies when completing pull requests          |\n"
+                    "description": "the permissions to assign. The follwing permissions are available\n\n| Permissions             | Description                                            |\n|-------------------------|--------------------------------------------------------|\n| Administer              | Administer                                             |\n| GenericRead             | Read                                                   |\n| GenericContribute       | Contribute                                             |\n| ForcePush               | Force push (rewrite history, delete branches and tags) |\n| CreateBranch            | Create branch                                          |\n| CreateTag               | Create tag                                             |\n| ManageNote              | Manage notes                                           |\n| PolicyExempt            | Bypass policies when pushing                           |\n| CreateRepository        | Create repository                                      |\n| DeleteRepository        | Delete repository                                      |\n| RenameRepository        | Rename repository                                      |\n| EditPolicies            | Edit policies                                          |\n| RemoveOthersLocks       | Remove others' locks                                   |\n| ManagePermissions       | Manage permissions                                     |\n| PullRequestContribute   | Contribute to pull requests                            |\n| PullRequestBypassPolicy | Bypass policies when completing pull requests          |\n"
                 },
                 "principal": {
                     "type": "string",
@@ -7245,7 +7242,7 @@
             "inputProperties": {
                 "branchName": {
                     "type": "string",
-                    "description": "The name of the branch to assign the permissions. \n\n\u003e **Note** to assign permissions to a branch, the `repository_id` must be set as well.\n",
+                    "description": "The name of the branch to assign the permissions.\n\n\u003e **Note** to assign permissions to a branch, the `repository_id` must be set as well.\n",
                     "willReplaceOnChanges": true
                 },
                 "permissions": {
@@ -7253,7 +7250,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "the permissions to assign. The follwing permissions are available\n\n\n| Permissions             | Description                                            |\n|-------------------------|--------------------------------------------------------|\n| Administer              | Administer                                             |\n| GenericRead             | Read                                                   |\n| GenericContribute       | Contribute                                             |\n| ForcePush               | Force push (rewrite history, delete branches and tags) |\n| CreateBranch            | Create branch                                          |\n| CreateTag               | Create tag                                             |\n| ManageNote              | Manage notes                                           |\n| PolicyExempt            | Bypass policies when pushing                           |\n| CreateRepository        | Create repository                                      |\n| DeleteRepository        | Delete repository                                      |\n| RenameRepository        | Rename repository                                      |\n| EditPolicies            | Edit policies                                          |\n| RemoveOthersLocks       | Remove others' locks                                   |\n| ManagePermissions       | Manage permissions                                     |\n| PullRequestContribute   | Contribute to pull requests                            |\n| PullRequestBypassPolicy | Bypass policies when completing pull requests          |\n"
+                    "description": "the permissions to assign. The follwing permissions are available\n\n| Permissions             | Description                                            |\n|-------------------------|--------------------------------------------------------|\n| Administer              | Administer                                             |\n| GenericRead             | Read                                                   |\n| GenericContribute       | Contribute                                             |\n| ForcePush               | Force push (rewrite history, delete branches and tags) |\n| CreateBranch            | Create branch                                          |\n| CreateTag               | Create tag                                             |\n| ManageNote              | Manage notes                                           |\n| PolicyExempt            | Bypass policies when pushing                           |\n| CreateRepository        | Create repository                                      |\n| DeleteRepository        | Delete repository                                      |\n| RenameRepository        | Rename repository                                      |\n| EditPolicies            | Edit policies                                          |\n| RemoveOthersLocks       | Remove others' locks                                   |\n| ManagePermissions       | Manage permissions                                     |\n| PullRequestContribute   | Contribute to pull requests                            |\n| PullRequestBypassPolicy | Bypass policies when completing pull requests          |\n"
                 },
                 "principal": {
                     "type": "string",
@@ -7285,7 +7282,7 @@
                 "properties": {
                     "branchName": {
                         "type": "string",
-                        "description": "The name of the branch to assign the permissions. \n\n\u003e **Note** to assign permissions to a branch, the `repository_id` must be set as well.\n",
+                        "description": "The name of the branch to assign the permissions.\n\n\u003e **Note** to assign permissions to a branch, the `repository_id` must be set as well.\n",
                         "willReplaceOnChanges": true
                     },
                     "permissions": {
@@ -7293,7 +7290,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "the permissions to assign. The follwing permissions are available\n\n\n| Permissions             | Description                                            |\n|-------------------------|--------------------------------------------------------|\n| Administer              | Administer                                             |\n| GenericRead             | Read                                                   |\n| GenericContribute       | Contribute                                             |\n| ForcePush               | Force push (rewrite history, delete branches and tags) |\n| CreateBranch            | Create branch                                          |\n| CreateTag               | Create tag                                             |\n| ManageNote              | Manage notes                                           |\n| PolicyExempt            | Bypass policies when pushing                           |\n| CreateRepository        | Create repository                                      |\n| DeleteRepository        | Delete repository                                      |\n| RenameRepository        | Rename repository                                      |\n| EditPolicies            | Edit policies                                          |\n| RemoveOthersLocks       | Remove others' locks                                   |\n| ManagePermissions       | Manage permissions                                     |\n| PullRequestContribute   | Contribute to pull requests                            |\n| PullRequestBypassPolicy | Bypass policies when completing pull requests          |\n"
+                        "description": "the permissions to assign. The follwing permissions are available\n\n| Permissions             | Description                                            |\n|-------------------------|--------------------------------------------------------|\n| Administer              | Administer                                             |\n| GenericRead             | Read                                                   |\n| GenericContribute       | Contribute                                             |\n| ForcePush               | Force push (rewrite history, delete branches and tags) |\n| CreateBranch            | Create branch                                          |\n| CreateTag               | Create tag                                             |\n| ManageNote              | Manage notes                                           |\n| PolicyExempt            | Bypass policies when pushing                           |\n| CreateRepository        | Create repository                                      |\n| DeleteRepository        | Delete repository                                      |\n| RenameRepository        | Rename repository                                      |\n| EditPolicies            | Edit policies                                          |\n| RemoveOthersLocks       | Remove others' locks                                   |\n| ManagePermissions       | Manage permissions                                     |\n| PullRequestContribute   | Contribute to pull requests                            |\n| PullRequestBypassPolicy | Bypass policies when completing pull requests          |\n"
                     },
                     "principal": {
                         "type": "string",
@@ -7547,7 +7544,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003e NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                    "description": "NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                 },
                 "origin": {
                     "type": "string",
@@ -7605,7 +7602,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "\u003e NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                    "description": "NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                 },
                 "originId": {
                     "type": "string",
@@ -7647,7 +7644,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "\u003e NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                        "description": "NOTE: It's possible to define group members both within the `azuredevops.Group` resource via the members block and by using the `azuredevops.GroupMembership` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                     },
                     "origin": {
                         "type": "string",
@@ -7701,7 +7698,7 @@
                 },
                 "licensingSource": {
                     "type": "string",
-                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`\n\n\u003e **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.\n"
+                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.\n"
                 },
                 "origin": {
                     "type": "string",
@@ -7735,7 +7732,7 @@
                 },
                 "licensingSource": {
                     "type": "string",
-                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`\n\n\u003e **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.\n"
+                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.\n"
                 },
                 "origin": {
                     "type": "string",
@@ -7766,7 +7763,7 @@
                     },
                     "licensingSource": {
                         "type": "string",
-                        "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`\n\n\u003e **NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.\n"
+                        "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A existing group in Azure AD can only be referenced by the combination of `origin_id` and `origin`.\n"
                     },
                     "origin": {
                         "type": "string",
@@ -7798,11 +7795,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of user or group descriptors that will become members of the group.\n\u003e NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                    "description": "A list of user or group descriptors that will become members of the group.NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "The mode how the resource manages group members.\n- `mode == add`: the resource will ensure that all specified members will be part of the referenced group\n- `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block\n\u003e NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.\n"
+                    "description": "The mode how the resource manages group members.\n"
                 }
             },
             "required": [
@@ -7820,11 +7817,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "A list of user or group descriptors that will become members of the group.\n\u003e NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                    "description": "A list of user or group descriptors that will become members of the group.NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "The mode how the resource manages group members.\n- `mode == add`: the resource will ensure that all specified members will be part of the referenced group\n- `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block\n\u003e NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.\n"
+                    "description": "The mode how the resource manages group members.\n"
                 }
             },
             "requiredInputs": [
@@ -7844,11 +7841,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "A list of user or group descriptors that will become members of the group.\n\u003e NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
+                        "description": "A list of user or group descriptors that will become members of the group.NOTE: It's possible to define group members both within the `azuredevops.GroupMembership resource` via the members block and by using the `azuredevops.Group` resource. However it's not possible to use both methods to manage group members, since there'll be conflicts.\n"
                     },
                     "mode": {
                         "type": "string",
-                        "description": "The mode how the resource manages group members.\n- `mode == add`: the resource will ensure that all specified members will be part of the referenced group\n- `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block\n\u003e NOTE: To clear all members from a group, specify an empty list of descriptors in the `members` attribute and set the `mode` member to `overwrite`.\n"
+                        "description": "The mode how the resource manages group members.\n"
                     }
                 },
                 "type": "object"
@@ -8119,7 +8116,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                 },
                 "name": {
                     "type": "string",
@@ -8156,7 +8153,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                 },
                 "name": {
                     "type": "string",
@@ -8189,7 +8186,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                        "description": "Defines the status (`enabled`, `disabled`) of the project features.\nValid features are `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**\nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                     },
                     "name": {
                         "type": "string",
@@ -8230,7 +8227,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  \nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                 },
                 "projectId": {
                     "type": "string"
@@ -8246,7 +8243,7 @@
                     "additionalProperties": {
                         "type": "string"
                     },
-                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                    "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  \nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                 },
                 "projectId": {
                     "type": "string",
@@ -8265,7 +8262,7 @@
                         "additionalProperties": {
                             "type": "string"
                         },
-                        "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`\n\n\u003e **NOTE:**\n\u003e It's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\n\u003e via the `features` block by using the `azuredevops.Project` resource.\n\u003e However it's not possible to use both methods to manage features, since there'll be conflicts.\n"
+                        "description": "Defines the status (`enabled`, `disabled`) of the project features.  \nValid features `boards`, `repositories`, `pipelines`, `testplans`, `artifacts`**NOTE:**  \nIt's possible to define project features both within the `azuredevops.ProjectFeatures` resource and\nvia the `features` block by using the `azuredevops.Project` resource.\nHowever it's not possible to use both methods to manage features, since there'll be conflicts.\n"
                     },
                     "projectId": {
                         "type": "string",
@@ -8373,7 +8370,7 @@
                 },
                 "enforceJobScopeForRelease": {
                     "type": "boolean",
-                    "description": "Limit job authorization scope to current project for release pipelines.\n\n\u003e **NOTE:**\n\u003e The settings at the organization will override settings specified on the project.\n\u003e For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.\n\u003e In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.\n"
+                    "description": "Limit job authorization scope to current project for release pipelines.**NOTE:**  \nThe settings at the organization will override settings specified on the project.\nFor example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.\nIn this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.\n"
                 },
                 "enforceReferencedRepoScopedToken": {
                     "type": "boolean",
@@ -8412,7 +8409,7 @@
                 },
                 "enforceJobScopeForRelease": {
                     "type": "boolean",
-                    "description": "Limit job authorization scope to current project for release pipelines.\n\n\u003e **NOTE:**\n\u003e The settings at the organization will override settings specified on the project.\n\u003e For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.\n\u003e In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.\n"
+                    "description": "Limit job authorization scope to current project for release pipelines.**NOTE:**  \nThe settings at the organization will override settings specified on the project.\nFor example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.\nIn this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.\n"
                 },
                 "enforceReferencedRepoScopedToken": {
                     "type": "boolean",
@@ -8448,7 +8445,7 @@
                     },
                     "enforceJobScopeForRelease": {
                         "type": "boolean",
-                        "description": "Limit job authorization scope to current project for release pipelines.\n\n\u003e **NOTE:**\n\u003e The settings at the organization will override settings specified on the project.\n\u003e For example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.\n\u003e In this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.\n"
+                        "description": "Limit job authorization scope to current project for release pipelines.**NOTE:**  \nThe settings at the organization will override settings specified on the project.\nFor example, if `enforce_job_scope` is true at the organization, the `azuredevops.ProjectPipelineSettings` resource cannot set it to false.\nIn this scenario, the plan will always show that the resource is trying to change `enforce_job_scope` from `true` to `false`.\n"
                     },
                     "enforceReferencedRepoScopedToken": {
                         "type": "boolean",
@@ -9282,7 +9279,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "URL of the Artifactory server to connect with.\n\n_Note: URL should not end in a slash character._\n* either `authentication_token` or `authentication_basic` (one is required)\n"
+                    "description": "URL of the Artifactory server to connect with.\n\n_Note: URL should not end in a slash character._\n* either `authentication_token` or `authentication_basic` (one is required)\n  * `authentication_token`\n    * `token` - Authentication Token generated through Artifactory.\n  * `authentication_basic`\n    * `username` - Artifactory Username.\n    * `password` - Artifactory Password.\n"
                 }
             },
             "required": [
@@ -9320,7 +9317,7 @@
                 },
                 "url": {
                     "type": "string",
-                    "description": "URL of the Artifactory server to connect with.\n\n_Note: URL should not end in a slash character._\n* either `authentication_token` or `authentication_basic` (one is required)\n"
+                    "description": "URL of the Artifactory server to connect with.\n\n_Note: URL should not end in a slash character._\n* either `authentication_token` or `authentication_basic` (one is required)\n  * `authentication_token`\n    * `token` - Authentication Token generated through Artifactory.\n  * `authentication_basic`\n    * `username` - Artifactory Username.\n    * `password` - Artifactory Password.\n"
                 }
             },
             "requiredInputs": [
@@ -9359,7 +9356,7 @@
                     },
                     "url": {
                         "type": "string",
-                        "description": "URL of the Artifactory server to connect with.\n\n_Note: URL should not end in a slash character._\n* either `authentication_token` or `authentication_basic` (one is required)\n"
+                        "description": "URL of the Artifactory server to connect with.\n\n_Note: URL should not end in a slash character._\n* either `authentication_token` or `authentication_basic` (one is required)\n  * `authentication_token`\n    * `token` - Authentication Token generated through Artifactory.\n  * `authentication_basic`\n    * `username` - Artifactory Username.\n    * `password` - Artifactory Password.\n"
                     }
                 },
                 "type": "object"
@@ -13365,7 +13362,7 @@
                 },
                 "replace": {
                     "type": "boolean",
-                    "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description   |\n| ------------------ | ------------------------ |\n| ViewSubscriptions  | View Subscriptions       |\n| EditSubscriptions  | Edit Subscription        |\n| DeleteSubscriptions| Delete Subscriptions     |\n| PublishEvents      | Publish Events           |\n"
+                    "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description   |\n| ------------------ | ------------------------ |\n| ViewSubscriptions  | View Subscriptions       |\n| EditSubscriptions  | Edit Subscription        | \n| DeleteSubscriptions| Delete Subscriptions     | \n| PublishEvents      | Publish Events           |\n"
                 }
             },
             "required": [
@@ -13392,7 +13389,7 @@
                 },
                 "replace": {
                     "type": "boolean",
-                    "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description   |\n| ------------------ | ------------------------ |\n| ViewSubscriptions  | View Subscriptions       |\n| EditSubscriptions  | Edit Subscription        |\n| DeleteSubscriptions| Delete Subscriptions     |\n| PublishEvents      | Publish Events           |\n"
+                    "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description   |\n| ------------------ | ------------------------ |\n| ViewSubscriptions  | View Subscriptions       |\n| EditSubscriptions  | Edit Subscription        | \n| DeleteSubscriptions| Delete Subscriptions     | \n| PublishEvents      | Publish Events           |\n"
                 }
             },
             "requiredInputs": [
@@ -13421,7 +13418,7 @@
                     },
                     "replace": {
                         "type": "boolean",
-                        "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description   |\n| ------------------ | ------------------------ |\n| ViewSubscriptions  | View Subscriptions       |\n| EditSubscriptions  | Edit Subscription        |\n| DeleteSubscriptions| Delete Subscriptions     |\n| PublishEvents      | Publish Events           |\n"
+                        "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description   |\n| ------------------ | ------------------------ |\n| ViewSubscriptions  | View Subscriptions       |\n| EditSubscriptions  | Edit Subscription        | \n| DeleteSubscriptions| Delete Subscriptions     | \n| PublishEvents      | Publish Events           |\n"
                     }
                 },
                 "type": "object"
@@ -13447,7 +13444,7 @@
                 },
                 "replace": {
                     "type": "boolean",
-                    "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description     |\n| ------------------ | -------------------------- |\n| Enumerate          | Enumerate tag definitions  |\n| Create             | Create tag definition      |\n| Update             | Update tag definition      |\n| Delete             | Delete tag definition      |\n"
+                    "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description     |\n| ------------------ | -------------------------- |\n| Enumerate          | Enumerate tag definitions  |\n| Create             | Create tag definition      | \n| Update             | Update tag definition      | \n| Delete             | Delete tag definition      |\n"
                 }
             },
             "required": [
@@ -13474,7 +13471,7 @@
                 },
                 "replace": {
                     "type": "boolean",
-                    "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description     |\n| ------------------ | -------------------------- |\n| Enumerate          | Enumerate tag definitions  |\n| Create             | Create tag definition      |\n| Update             | Update tag definition      |\n| Delete             | Delete tag definition      |\n"
+                    "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description     |\n| ------------------ | -------------------------- |\n| Enumerate          | Enumerate tag definitions  |\n| Create             | Create tag definition      | \n| Update             | Update tag definition      | \n| Delete             | Delete tag definition      |\n"
                 }
             },
             "requiredInputs": [
@@ -13503,7 +13500,7 @@
                     },
                     "replace": {
                         "type": "boolean",
-                        "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description     |\n| ------------------ | -------------------------- |\n| Enumerate          | Enumerate tag definitions  |\n| Create             | Create tag definition      |\n| Update             | Update tag definition      |\n| Delete             | Delete tag definition      |\n"
+                        "description": "Replace (`true`) or merge (`false`) the permissions. Default: `true`\n\n| Name               | Permission Description     |\n| ------------------ | -------------------------- |\n| Enumerate          | Enumerate tag definitions  |\n| Create             | Create tag definition      | \n| Update             | Update tag definition      | \n| Delete             | Delete tag definition      |\n"
                     }
                 },
                 "type": "object"
@@ -13517,7 +13514,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of subject descriptors to define administrators of the team.\n\n\u003e NOTE: It's possible to define team administrators both within the\n\u003e `azuredevops.Team` resource via the `administrators` block and by using the\n\u003e `azuredevops.TeamAdministrators` resource. However it's not possible to use\n\u003e both methods to manage team administrators, since there'll be conflicts.\n"
+                    "description": "List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the\n`azuredevops.Team` resource via the `administrators` block and by using the\n`azuredevops.TeamAdministrators` resource. However it's not possible to use\nboth methods to manage team administrators, since there'll be conflicts.\n"
                 },
                 "description": {
                     "type": "string",
@@ -13532,7 +13529,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of subject descriptors to define members of the team.\n\n\u003e NOTE: It's possible to define team members both within the\n\u003e `azuredevops.Team` resource via the `members` block and by using the\n\u003e `azuredevops.TeamMembers` resource. However it's not possible to use\n\u003e both methods to manage team members, since there'll be conflicts.\n"
+                    "description": "List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the\n`azuredevops.Team` resource via the `members` block and by using the\n`azuredevops.TeamMembers` resource. However it's not possible to use\nboth methods to manage team members, since there'll be conflicts.\n"
                 },
                 "name": {
                     "type": "string",
@@ -13556,7 +13553,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of subject descriptors to define administrators of the team.\n\n\u003e NOTE: It's possible to define team administrators both within the\n\u003e `azuredevops.Team` resource via the `administrators` block and by using the\n\u003e `azuredevops.TeamAdministrators` resource. However it's not possible to use\n\u003e both methods to manage team administrators, since there'll be conflicts.\n"
+                    "description": "List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the\n`azuredevops.Team` resource via the `administrators` block and by using the\n`azuredevops.TeamAdministrators` resource. However it's not possible to use\nboth methods to manage team administrators, since there'll be conflicts.\n"
                 },
                 "description": {
                     "type": "string",
@@ -13567,7 +13564,7 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of subject descriptors to define members of the team.\n\n\u003e NOTE: It's possible to define team members both within the\n\u003e `azuredevops.Team` resource via the `members` block and by using the\n\u003e `azuredevops.TeamMembers` resource. However it's not possible to use\n\u003e both methods to manage team members, since there'll be conflicts.\n"
+                    "description": "List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the\n`azuredevops.Team` resource via the `members` block and by using the\n`azuredevops.TeamMembers` resource. However it's not possible to use\nboth methods to manage team members, since there'll be conflicts.\n"
                 },
                 "name": {
                     "type": "string",
@@ -13590,7 +13587,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of subject descriptors to define administrators of the team.\n\n\u003e NOTE: It's possible to define team administrators both within the\n\u003e `azuredevops.Team` resource via the `administrators` block and by using the\n\u003e `azuredevops.TeamAdministrators` resource. However it's not possible to use\n\u003e both methods to manage team administrators, since there'll be conflicts.\n"
+                        "description": "List of subject descriptors to define administrators of the team.NOTE: It's possible to define team administrators both within the\n`azuredevops.Team` resource via the `administrators` block and by using the\n`azuredevops.TeamAdministrators` resource. However it's not possible to use\nboth methods to manage team administrators, since there'll be conflicts.\n"
                     },
                     "description": {
                         "type": "string",
@@ -13605,7 +13602,7 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of subject descriptors to define members of the team.\n\n\u003e NOTE: It's possible to define team members both within the\n\u003e `azuredevops.Team` resource via the `members` block and by using the\n\u003e `azuredevops.TeamMembers` resource. However it's not possible to use\n\u003e both methods to manage team members, since there'll be conflicts.\n"
+                        "description": "List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the\n`azuredevops.Team` resource via the `members` block and by using the\n`azuredevops.TeamMembers` resource. However it's not possible to use\nboth methods to manage team members, since there'll be conflicts.\n"
                     },
                     "name": {
                         "type": "string",
@@ -13628,11 +13625,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of subject descriptors to define adminitrators of the team.\n\n\u003e NOTE: It's possible to define team administrators both within the\n\u003e `azuredevops.Team` resource via the `administrators` block and by using the\n\u003e `azuredevops.TeamAdministrators` resource. However it's not possible to use\n\u003e both methods to manage team administrators, since there'll be conflicts.\n"
+                    "description": "List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the\n`azuredevops.Team` resource via the `administrators` block and by using the\n`azuredevops.TeamAdministrators` resource. However it's not possible to use\nboth methods to manage team administrators, since there'll be conflicts.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "The mode how the resource manages team administrators.\n- `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team\n- `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block\n"
+                    "description": "The mode how the resource manages team administrators.\n"
                 },
                 "projectId": {
                     "type": "string",
@@ -13654,11 +13651,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of subject descriptors to define adminitrators of the team.\n\n\u003e NOTE: It's possible to define team administrators both within the\n\u003e `azuredevops.Team` resource via the `administrators` block and by using the\n\u003e `azuredevops.TeamAdministrators` resource. However it's not possible to use\n\u003e both methods to manage team administrators, since there'll be conflicts.\n"
+                    "description": "List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the\n`azuredevops.Team` resource via the `administrators` block and by using the\n`azuredevops.TeamAdministrators` resource. However it's not possible to use\nboth methods to manage team administrators, since there'll be conflicts.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "The mode how the resource manages team administrators.\n- `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team\n- `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block\n"
+                    "description": "The mode how the resource manages team administrators.\n"
                 },
                 "projectId": {
                     "type": "string",
@@ -13684,11 +13681,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of subject descriptors to define adminitrators of the team.\n\n\u003e NOTE: It's possible to define team administrators both within the\n\u003e `azuredevops.Team` resource via the `administrators` block and by using the\n\u003e `azuredevops.TeamAdministrators` resource. However it's not possible to use\n\u003e both methods to manage team administrators, since there'll be conflicts.\n"
+                        "description": "List of subject descriptors to define adminitrators of the team.NOTE: It's possible to define team administrators both within the\n`azuredevops.Team` resource via the `administrators` block and by using the\n`azuredevops.TeamAdministrators` resource. However it's not possible to use\nboth methods to manage team administrators, since there'll be conflicts.\n"
                     },
                     "mode": {
                         "type": "string",
-                        "description": "The mode how the resource manages team administrators.\n- `mode == add`: the resource will ensure that all specified administrators will be part of the referenced team\n- `mode == overwrite`: the resource will replace all existing administrators with the administrators specified within the `administrators` block\n"
+                        "description": "The mode how the resource manages team administrators.\n"
                     },
                     "projectId": {
                         "type": "string",
@@ -13712,11 +13709,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of subject descriptors to define members of the team.\n\n\u003e NOTE: It's possible to define team members both within the\n\u003e `azuredevops.Team` resource via the `members` block and by using the\n\u003e `azuredevops.TeamMembers` resource. However it's not possible to use\n\u003e both methods to manage team members, since there'll be conflicts.\n"
+                    "description": "List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the\n`azuredevops.Team` resource via the `members` block and by using the\n`azuredevops.TeamMembers` resource. However it's not possible to use\nboth methods to manage team members, since there'll be conflicts.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "The mode how the resource manages team members.\n- `mode == add`: the resource will ensure that all specified members will be part of the referenced team\n- `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block\n"
+                    "description": "The mode how the resource manages team members.\n"
                 },
                 "projectId": {
                     "type": "string",
@@ -13738,11 +13735,11 @@
                     "items": {
                         "type": "string"
                     },
-                    "description": "List of subject descriptors to define members of the team.\n\n\u003e NOTE: It's possible to define team members both within the\n\u003e `azuredevops.Team` resource via the `members` block and by using the\n\u003e `azuredevops.TeamMembers` resource. However it's not possible to use\n\u003e both methods to manage team members, since there'll be conflicts.\n"
+                    "description": "List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the\n`azuredevops.Team` resource via the `members` block and by using the\n`azuredevops.TeamMembers` resource. However it's not possible to use\nboth methods to manage team members, since there'll be conflicts.\n"
                 },
                 "mode": {
                     "type": "string",
-                    "description": "The mode how the resource manages team members.\n- `mode == add`: the resource will ensure that all specified members will be part of the referenced team\n- `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block\n"
+                    "description": "The mode how the resource manages team members.\n"
                 },
                 "projectId": {
                     "type": "string",
@@ -13768,11 +13765,11 @@
                         "items": {
                             "type": "string"
                         },
-                        "description": "List of subject descriptors to define members of the team.\n\n\u003e NOTE: It's possible to define team members both within the\n\u003e `azuredevops.Team` resource via the `members` block and by using the\n\u003e `azuredevops.TeamMembers` resource. However it's not possible to use\n\u003e both methods to manage team members, since there'll be conflicts.\n"
+                        "description": "List of subject descriptors to define members of the team.NOTE: It's possible to define team members both within the\n`azuredevops.Team` resource via the `members` block and by using the\n`azuredevops.TeamMembers` resource. However it's not possible to use\nboth methods to manage team members, since there'll be conflicts.\n"
                     },
                     "mode": {
                         "type": "string",
-                        "description": "The mode how the resource manages team members.\n- `mode == add`: the resource will ensure that all specified members will be part of the referenced team\n- `mode == overwrite`: the resource will replace all existing members with the members specified within the `members` block\n"
+                        "description": "The mode how the resource manages team members.\n"
                     },
                     "projectId": {
                         "type": "string",
@@ -13801,7 +13798,7 @@
                 },
                 "licensingSource": {
                     "type": "string",
-                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`\n\n\u003e **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
+                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
                 },
                 "origin": {
                     "type": "string",
@@ -13829,7 +13826,7 @@
                 },
                 "licensingSource": {
                     "type": "string",
-                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`\n\n\u003e **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
+                    "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
                 },
                 "origin": {
                     "type": "string",
@@ -13860,7 +13857,7 @@
                     },
                     "licensingSource": {
                         "type": "string",
-                        "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`\n\n\u003e **NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
+                        "description": "The source of the licensing (e.g. Account. MSDN etc.) Valid values: `account` (Default), `auto`, `msdn`, `none`, `profile`, `trial`**NOTE:** A user can only be referenced by it's `principal_name` or by the combination of `origin_id` and `origin`.\n"
                     },
                     "origin": {
                         "type": "string",
