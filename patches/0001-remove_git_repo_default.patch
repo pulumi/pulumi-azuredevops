@@ -1,0 +1,12 @@
+diff --git a/azuredevops/internal/service/git/resource_git_repository.go b/azuredevops/internal/service/git/resource_git_repository.go
+index 8f1e831f..c1b78316 100644
+--- a/azuredevops/internal/service/git/resource_git_repository.go
++++ b/azuredevops/internal/service/git/resource_git_repository.go
+@@ -136,7 +136,6 @@ func ResourceGitRepository() *schema.Resource {
+ 								"initialization.0.source_url",
+ 								"initialization.0.source_type",
+ 							},
+-							Default: "",
+ 						},
+ 					},
+ 				},

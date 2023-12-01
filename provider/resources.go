@@ -68,14 +68,15 @@ func Provider() tfbridge.ProviderInfo {
 	p := shimv2.NewProvider(azuredevops.Provider())
 
 	prov := tfbridge.ProviderInfo{
-		P:           p,
-		Name:        "azuredevops",
-		Description: "A Pulumi package for creating and managing Azure DevOps.",
-		Keywords:    []string{"pulumi", "azuredevops"},
-		License:     "Apache-2.0",
-		Homepage:    "https://pulumi.io",
-		Repository:  "https://github.com/pulumi/pulumi-azuredevops",
-		GitHubOrg:   "microsoft",
+		P:                p,
+		Name:             "azuredevops",
+		Description:      "A Pulumi package for creating and managing Azure DevOps.",
+		Keywords:         []string{"pulumi", "azuredevops"},
+		License:          "Apache-2.0",
+		Homepage:         "https://pulumi.io",
+		Repository:       "https://github.com/pulumi/pulumi-azuredevops",
+		GitHubOrg:        "microsoft",
+		UpstreamRepoPath: "./upstream",
 		Config: map[string]*tfbridge.SchemaInfo{
 			"org_service_url": {
 				Default: &tfbridge.DefaultInfo{
@@ -210,7 +211,8 @@ func Provider() tfbridge.ProviderInfo {
 			i := &tfbridge.PythonInfo{
 				Requires: map[string]string{
 					"pulumi": ">=3.0.0,<4.0.0",
-				}}
+				},
+			}
 			i.PyProject.Enabled = true
 			return i
 		})(),

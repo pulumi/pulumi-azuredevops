@@ -813,6 +813,15 @@
                 "serviceprincipalid"
             ]
         },
+        "azuredevops:ServiceEndpoint/AzureRMFeatures:AzureRMFeatures": {
+            "properties": {
+                "validate": {
+                    "type": "boolean",
+                    "description": "Whether or not to validate connection with Azure after create or update operations. Defaults to `false`\n"
+                }
+            },
+            "type": "object"
+        },
         "azuredevops:ServiceEndpoint/GitHubAuthOauth:GitHubAuthOauth": {
             "properties": {
                 "oauthConfigurationId": {
@@ -1729,6 +1738,15 @@
             "required": [
                 "serviceprincipalid"
             ]
+        },
+        "azuredevops:index/ServiceEndpointAzureRMFeatures:ServiceEndpointAzureRMFeatures": {
+            "properties": {
+                "validate": {
+                    "type": "boolean",
+                    "description": "Whether or not to validate connection with Azure after create or update operations. Defaults to `false`\n"
+                }
+            },
+            "type": "object"
         },
         "azuredevops:index/ServiceEndpointGitHubAuthOauth:ServiceEndpointGitHubAuthOauth": {
             "properties": {
@@ -3178,11 +3196,15 @@
             "deprecationMessage": "azuredevops.agent.Pool has been deprecated in favor of azuredevops.Pool"
         },
         "azuredevops:Agent/queue:Queue": {
-            "description": "Manages an agent queue within Azure DevOps. In the UI, this is equivalent to adding an\nOrganization defined pool to a project.\n\nThe created queue is not authorized for use by all pipelines in the project. However,\nthe `azuredevops.ResourceAuthorization` resource can be used to grant authorization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"exampleProject\", {});\nconst examplePool = azuredevops.getPool({\n    name: \"example-pool\",\n});\nconst exampleQueue = new azuredevops.Queue(\"exampleQueue\", {\n    projectId: exampleProject.id,\n    agentPoolId: examplePool.then(examplePool =\u003e examplePool.id),\n});\n// Grant access to queue to all pipelines in the project\nconst exampleResourceAuthorization = new azuredevops.ResourceAuthorization(\"exampleResourceAuthorization\", {\n    projectId: exampleProject.id,\n    resourceId: exampleQueue.id,\n    type: \"queue\",\n    authorized: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"exampleProject\")\nexample_pool = azuredevops.get_pool(name=\"example-pool\")\nexample_queue = azuredevops.Queue(\"exampleQueue\",\n    project_id=example_project.id,\n    agent_pool_id=example_pool.id)\n# Grant access to queue to all pipelines in the project\nexample_resource_authorization = azuredevops.ResourceAuthorization(\"exampleResourceAuthorization\",\n    project_id=example_project.id,\n    resource_id=example_queue.id,\n    type=\"queue\",\n    authorized=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleProject = new AzureDevOps.Project(\"exampleProject\");\n\n    var examplePool = AzureDevOps.GetPool.Invoke(new()\n    {\n        Name = \"example-pool\",\n    });\n\n    var exampleQueue = new AzureDevOps.Queue(\"exampleQueue\", new()\n    {\n        ProjectId = exampleProject.Id,\n        AgentPoolId = examplePool.Apply(getPoolResult =\u003e getPoolResult.Id),\n    });\n\n    // Grant access to queue to all pipelines in the project\n    var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization(\"exampleResourceAuthorization\", new()\n    {\n        ProjectId = exampleProject.Id,\n        ResourceId = exampleQueue.Id,\n        Type = \"queue\",\n        Authorized = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"exampleProject\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texamplePool, err := azuredevops.LookupPool(ctx, \u0026azuredevops.LookupPoolArgs{\n\t\t\tName: \"example-pool\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleQueue, err := azuredevops.NewQueue(ctx, \"exampleQueue\", \u0026azuredevops.QueueArgs{\n\t\t\tProjectId:   exampleProject.ID(),\n\t\t\tAgentPoolId: *pulumi.String(examplePool.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewResourceAuthorization(ctx, \"exampleResourceAuthorization\", \u0026azuredevops.ResourceAuthorizationArgs{\n\t\t\tProjectId:  exampleProject.ID(),\n\t\t\tResourceId: exampleQueue.ID(),\n\t\t\tType:       pulumi.String(\"queue\"),\n\t\t\tAuthorized: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetPoolArgs;\nimport com.pulumi.azuredevops.Queue;\nimport com.pulumi.azuredevops.QueueArgs;\nimport com.pulumi.azuredevops.ResourceAuthorization;\nimport com.pulumi.azuredevops.ResourceAuthorizationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\");\n\n        final var examplePool = AzuredevopsFunctions.getPool(GetPoolArgs.builder()\n            .name(\"example-pool\")\n            .build());\n\n        var exampleQueue = new Queue(\"exampleQueue\", QueueArgs.builder()        \n            .projectId(exampleProject.id())\n            .agentPoolId(examplePool.applyValue(getPoolResult -\u003e getPoolResult.id()))\n            .build());\n\n        var exampleResourceAuthorization = new ResourceAuthorization(\"exampleResourceAuthorization\", ResourceAuthorizationArgs.builder()        \n            .projectId(exampleProject.id())\n            .resourceId(exampleQueue.id())\n            .type(\"queue\")\n            .authorized(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n  exampleQueue:\n    type: azuredevops:Queue\n    properties:\n      projectId: ${exampleProject.id}\n      agentPoolId: ${examplePool.id}\n  # Grant access to queue to all pipelines in the project\n  exampleResourceAuthorization:\n    type: azuredevops:ResourceAuthorization\n    properties:\n      projectId: ${exampleProject.id}\n      resourceId: ${exampleQueue.id}\n      type: queue\n      authorized: true\nvariables:\n  examplePool:\n    fn::invoke:\n      Function: azuredevops:getPool\n      Arguments:\n        name: example-pool\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)\n\n\n## Import\n\nAzure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.\n\n```sh\n $ pulumi import azuredevops:Agent/queue:Queue example 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
+            "description": "Manages an agent queue within Azure DevOps. In the UI, this is equivalent to adding an\nOrganization defined pool to a project.\n\nThe created queue is not authorized for use by all pipelines in the project. However,\nthe `azuredevops.ResourceAuthorization` resource can be used to grant authorization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Creating a Queue from an organization-level pool\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"exampleProject\", {});\nconst examplePool = azuredevops.getPool({\n    name: \"example-pool\",\n});\nconst exampleQueue = new azuredevops.Queue(\"exampleQueue\", {\n    projectId: exampleProject.id,\n    agentPoolId: examplePool.then(examplePool =\u003e examplePool.id),\n});\n// Grant access to queue to all pipelines in the project\nconst exampleResourceAuthorization = new azuredevops.ResourceAuthorization(\"exampleResourceAuthorization\", {\n    projectId: exampleProject.id,\n    resourceId: exampleQueue.id,\n    type: \"queue\",\n    authorized: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"exampleProject\")\nexample_pool = azuredevops.get_pool(name=\"example-pool\")\nexample_queue = azuredevops.Queue(\"exampleQueue\",\n    project_id=example_project.id,\n    agent_pool_id=example_pool.id)\n# Grant access to queue to all pipelines in the project\nexample_resource_authorization = azuredevops.ResourceAuthorization(\"exampleResourceAuthorization\",\n    project_id=example_project.id,\n    resource_id=example_queue.id,\n    type=\"queue\",\n    authorized=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleProject = new AzureDevOps.Project(\"exampleProject\");\n\n    var examplePool = AzureDevOps.GetPool.Invoke(new()\n    {\n        Name = \"example-pool\",\n    });\n\n    var exampleQueue = new AzureDevOps.Queue(\"exampleQueue\", new()\n    {\n        ProjectId = exampleProject.Id,\n        AgentPoolId = examplePool.Apply(getPoolResult =\u003e getPoolResult.Id),\n    });\n\n    // Grant access to queue to all pipelines in the project\n    var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization(\"exampleResourceAuthorization\", new()\n    {\n        ProjectId = exampleProject.Id,\n        ResourceId = exampleQueue.Id,\n        Type = \"queue\",\n        Authorized = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"exampleProject\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texamplePool, err := azuredevops.LookupPool(ctx, \u0026azuredevops.LookupPoolArgs{\n\t\t\tName: \"example-pool\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleQueue, err := azuredevops.NewQueue(ctx, \"exampleQueue\", \u0026azuredevops.QueueArgs{\n\t\t\tProjectId:   exampleProject.ID(),\n\t\t\tAgentPoolId: *pulumi.String(examplePool.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewResourceAuthorization(ctx, \"exampleResourceAuthorization\", \u0026azuredevops.ResourceAuthorizationArgs{\n\t\t\tProjectId:  exampleProject.ID(),\n\t\t\tResourceId: exampleQueue.ID(),\n\t\t\tType:       pulumi.String(\"queue\"),\n\t\t\tAuthorized: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetPoolArgs;\nimport com.pulumi.azuredevops.Queue;\nimport com.pulumi.azuredevops.QueueArgs;\nimport com.pulumi.azuredevops.ResourceAuthorization;\nimport com.pulumi.azuredevops.ResourceAuthorizationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\");\n\n        final var examplePool = AzuredevopsFunctions.getPool(GetPoolArgs.builder()\n            .name(\"example-pool\")\n            .build());\n\n        var exampleQueue = new Queue(\"exampleQueue\", QueueArgs.builder()        \n            .projectId(exampleProject.id())\n            .agentPoolId(examplePool.applyValue(getPoolResult -\u003e getPoolResult.id()))\n            .build());\n\n        var exampleResourceAuthorization = new ResourceAuthorization(\"exampleResourceAuthorization\", ResourceAuthorizationArgs.builder()        \n            .projectId(exampleProject.id())\n            .resourceId(exampleQueue.id())\n            .type(\"queue\")\n            .authorized(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n  exampleQueue:\n    type: azuredevops:Queue\n    properties:\n      projectId: ${exampleProject.id}\n      agentPoolId: ${examplePool.id}\n  # Grant access to queue to all pipelines in the project\n  exampleResourceAuthorization:\n    type: azuredevops:ResourceAuthorization\n    properties:\n      projectId: ${exampleProject.id}\n      resourceId: ${exampleQueue.id}\n      type: queue\n      authorized: true\nvariables:\n  examplePool:\n    fn::invoke:\n      Function: azuredevops:getPool\n      Arguments:\n        name: example-pool\n```\n{{% /example %}}\n{{% example %}}\n### Creating a Queue at the project level (Organization-level permissions not required)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = azuredevops.getProject({\n    name: \"Example Project\",\n});\nconst exampleQueue = new azuredevops.Queue(\"exampleQueue\", {projectId: exampleProject.then(exampleProject =\u003e exampleProject.id)});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.get_project(name=\"Example Project\")\nexample_queue = azuredevops.Queue(\"exampleQueue\", project_id=example_project.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleProject = AzureDevOps.GetProject.Invoke(new()\n    {\n        Name = \"Example Project\",\n    });\n\n    var exampleQueue = new AzureDevOps.Queue(\"exampleQueue\", new()\n    {\n        ProjectId = exampleProject.Apply(getProjectResult =\u003e getProjectResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.LookupProject(ctx, \u0026azuredevops.LookupProjectArgs{\n\t\t\tName: pulumi.StringRef(\"Example Project\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewQueue(ctx, \"exampleQueue\", \u0026azuredevops.QueueArgs{\n\t\t\tProjectId: *pulumi.String(exampleProject.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetProjectArgs;\nimport com.pulumi.azuredevops.Queue;\nimport com.pulumi.azuredevops.QueueArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()\n            .name(\"Example Project\")\n            .build());\n\n        var exampleQueue = new Queue(\"exampleQueue\", QueueArgs.builder()        \n            .projectId(exampleProject.applyValue(getProjectResult -\u003e getProjectResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleQueue:\n    type: azuredevops:Queue\n    properties:\n      projectId: ${exampleProject.id}\nvariables:\n  exampleProject:\n    fn::invoke:\n      Function: azuredevops:getProject\n      Arguments:\n        name: Example Project\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)\n\n\n## Import\n\nAzure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.\n\n```sh\n $ pulumi import azuredevops:Agent/queue:Queue example 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
             "properties": {
                 "agentPoolId": {
                     "type": "integer",
-                    "description": "The ID of the organization agent pool.\n"
+                    "description": "The ID of the organization agent pool. Conflicts with `name`.\n\n\u003e **NOTE:**\nOne of `name` or `agent_pool_id` must be specified, but not both.\nWhen `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.\n"
                 },
                 "projectId": {
                     "type": "string",
@@ -3191,12 +3213,18 @@
             },
             "required": [
                 "agentPoolId",
+                "name",
                 "projectId"
             ],
             "inputProperties": {
                 "agentPoolId": {
                     "type": "integer",
-                    "description": "The ID of the organization agent pool.\n",
+                    "description": "The ID of the organization agent pool. Conflicts with `name`.\n\n\u003e **NOTE:**\nOne of `name` or `agent_pool_id` must be specified, but not both.\nWhen `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.\n",
                     "willReplaceOnChanges": true
                 },
                 "projectId": {
@@ -3206,7 +3234,6 @@
                 }
             },
             "requiredInputs": [
-                "agentPoolId",
                 "projectId"
             ],
             "stateInputs": {
@@ -3214,7 +3241,12 @@
                 "properties": {
                     "agentPoolId": {
                         "type": "integer",
-                        "description": "The ID of the organization agent pool.\n",
+                        "description": "The ID of the organization agent pool. Conflicts with `name`.\n\n\u003e **NOTE:**\nOne of `name` or `agent_pool_id` must be specified, but not both.\nWhen `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.\n",
                         "willReplaceOnChanges": true
                     },
                     "projectId": {
@@ -3260,6 +3292,10 @@
                 "pullRequestTrigger": {
                     "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
                     "description": "Pull Request Integration trigger.\n"
+                },
+                "queueStatus": {
+                    "type": "string",
+                    "description": "The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.\n"
                 },
                 "repository": {
                     "$ref": "#/types/azuredevops:Build/BuildDefinitionRepository:BuildDefinitionRepository",
@@ -3329,6 +3365,10 @@
                     "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
                     "description": "Pull Request Integration trigger.\n"
                 },
+                "queueStatus": {
+                    "type": "string",
+                    "description": "The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.\n"
+                },
                 "repository": {
                     "$ref": "#/types/azuredevops:Build/BuildDefinitionRepository:BuildDefinitionRepository",
                     "description": "A `repository` block as documented below.\n"
@@ -3392,6 +3432,10 @@
                     "pullRequestTrigger": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
                         "description": "Pull Request Integration trigger.\n"
+                    },
+                    "queueStatus": {
+                        "type": "string",
+                        "description": "The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.\n"
                     },
                     "repository": {
                         "$ref": "#/types/azuredevops:Build/BuildDefinitionRepository:BuildDefinitionRepository",
@@ -4432,6 +4476,10 @@
                     "type": "string",
                     "description": "The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.\n\n\u003e **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.\n"
                 },
+                "features": {
+                    "$ref": "#/types/azuredevops:ServiceEndpoint/AzureRMFeatures:AzureRMFeatures",
+                    "description": "A `features` block.\n"
+                },
                 "projectId": {
                     "type": "string",
                     "description": "The ID of the project.\n"
@@ -4510,6 +4558,10 @@
                     "description": "The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.\n\n\u003e **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.\n",
                     "willReplaceOnChanges": true
                 },
+                "features": {
+                    "$ref": "#/types/azuredevops:ServiceEndpoint/AzureRMFeatures:AzureRMFeatures",
+                    "description": "A `features` block.\n"
+                },
                 "projectId": {
                     "type": "string",
                     "description": "The ID of the project.\n",
@@ -4577,6 +4629,10 @@
                         "type": "string",
                         "description": "The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.\n\n\u003e **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "features": {
+                        "$ref": "#/types/azuredevops:ServiceEndpoint/AzureRMFeatures:AzureRMFeatures",
+                        "description": "A `features` block.\n"
                     },
                     "projectId": {
                         "type": "string",
@@ -5775,6 +5831,10 @@
                     "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
                     "description": "Pull Request Integration trigger.\n"
                 },
+                "queueStatus": {
+                    "type": "string",
+                    "description": "The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.\n"
+                },
                 "repository": {
                     "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository",
                     "description": "A `repository` block as documented below.\n"
@@ -5843,6 +5903,10 @@
                     "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
                     "description": "Pull Request Integration trigger.\n"
                 },
+                "queueStatus": {
+                    "type": "string",
+                    "description": "The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.\n"
+                },
                 "repository": {
                     "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository",
                     "description": "A `repository` block as documented below.\n"
@@ -5906,6 +5970,10 @@
                     "pullRequestTrigger": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionPullRequestTrigger:BuildDefinitionPullRequestTrigger",
                         "description": "Pull Request Integration trigger.\n"
+                    },
+                    "queueStatus": {
+                        "type": "string",
+                        "description": "The queue status of the build definition. Valid values: `enabled` or `paused` or `disabled`. Defaults to `enabled`.\n"
                     },
                     "repository": {
                         "$ref": "#/types/azuredevops:index/BuildDefinitionRepository:BuildDefinitionRepository",
@@ -8476,11 +8544,15 @@
             }
         },
         "azuredevops:index/queue:Queue": {
-            "description": "Manages an agent queue within Azure DevOps. In the UI, this is equivalent to adding an\nOrganization defined pool to a project.\n\nThe created queue is not authorized for use by all pipelines in the project. However,\nthe `azuredevops.ResourceAuthorization` resource can be used to grant authorization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"exampleProject\", {});\nconst examplePool = azuredevops.getPool({\n    name: \"example-pool\",\n});\nconst exampleQueue = new azuredevops.Queue(\"exampleQueue\", {\n    projectId: exampleProject.id,\n    agentPoolId: examplePool.then(examplePool =\u003e examplePool.id),\n});\n// Grant access to queue to all pipelines in the project\nconst exampleResourceAuthorization = new azuredevops.ResourceAuthorization(\"exampleResourceAuthorization\", {\n    projectId: exampleProject.id,\n    resourceId: exampleQueue.id,\n    type: \"queue\",\n    authorized: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"exampleProject\")\nexample_pool = azuredevops.get_pool(name=\"example-pool\")\nexample_queue = azuredevops.Queue(\"exampleQueue\",\n    project_id=example_project.id,\n    agent_pool_id=example_pool.id)\n# Grant access to queue to all pipelines in the project\nexample_resource_authorization = azuredevops.ResourceAuthorization(\"exampleResourceAuthorization\",\n    project_id=example_project.id,\n    resource_id=example_queue.id,\n    type=\"queue\",\n    authorized=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleProject = new AzureDevOps.Project(\"exampleProject\");\n\n    var examplePool = AzureDevOps.GetPool.Invoke(new()\n    {\n        Name = \"example-pool\",\n    });\n\n    var exampleQueue = new AzureDevOps.Queue(\"exampleQueue\", new()\n    {\n        ProjectId = exampleProject.Id,\n        AgentPoolId = examplePool.Apply(getPoolResult =\u003e getPoolResult.Id),\n    });\n\n    // Grant access to queue to all pipelines in the project\n    var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization(\"exampleResourceAuthorization\", new()\n    {\n        ProjectId = exampleProject.Id,\n        ResourceId = exampleQueue.Id,\n        Type = \"queue\",\n        Authorized = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"exampleProject\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texamplePool, err := azuredevops.LookupPool(ctx, \u0026azuredevops.LookupPoolArgs{\n\t\t\tName: \"example-pool\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleQueue, err := azuredevops.NewQueue(ctx, \"exampleQueue\", \u0026azuredevops.QueueArgs{\n\t\t\tProjectId:   exampleProject.ID(),\n\t\t\tAgentPoolId: *pulumi.String(examplePool.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewResourceAuthorization(ctx, \"exampleResourceAuthorization\", \u0026azuredevops.ResourceAuthorizationArgs{\n\t\t\tProjectId:  exampleProject.ID(),\n\t\t\tResourceId: exampleQueue.ID(),\n\t\t\tType:       pulumi.String(\"queue\"),\n\t\t\tAuthorized: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetPoolArgs;\nimport com.pulumi.azuredevops.Queue;\nimport com.pulumi.azuredevops.QueueArgs;\nimport com.pulumi.azuredevops.ResourceAuthorization;\nimport com.pulumi.azuredevops.ResourceAuthorizationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\");\n\n        final var examplePool = AzuredevopsFunctions.getPool(GetPoolArgs.builder()\n            .name(\"example-pool\")\n            .build());\n\n        var exampleQueue = new Queue(\"exampleQueue\", QueueArgs.builder()        \n            .projectId(exampleProject.id())\n            .agentPoolId(examplePool.applyValue(getPoolResult -\u003e getPoolResult.id()))\n            .build());\n\n        var exampleResourceAuthorization = new ResourceAuthorization(\"exampleResourceAuthorization\", ResourceAuthorizationArgs.builder()        \n            .projectId(exampleProject.id())\n            .resourceId(exampleQueue.id())\n            .type(\"queue\")\n            .authorized(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n  exampleQueue:\n    type: azuredevops:Queue\n    properties:\n      projectId: ${exampleProject.id}\n      agentPoolId: ${examplePool.id}\n  # Grant access to queue to all pipelines in the project\n  exampleResourceAuthorization:\n    type: azuredevops:ResourceAuthorization\n    properties:\n      projectId: ${exampleProject.id}\n      resourceId: ${exampleQueue.id}\n      type: queue\n      authorized: true\nvariables:\n  examplePool:\n    fn::invoke:\n      Function: azuredevops:getPool\n      Arguments:\n        name: example-pool\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)\n\n\n## Import\n\nAzure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.\n\n```sh\n $ pulumi import azuredevops:index/queue:Queue example 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
+            "description": "Manages an agent queue within Azure DevOps. In the UI, this is equivalent to adding an\nOrganization defined pool to a project.\n\nThe created queue is not authorized for use by all pipelines in the project. However,\nthe `azuredevops.ResourceAuthorization` resource can be used to grant authorization.\n\n{{% examples %}}\n## Example Usage\n{{% example %}}\n### Creating a Queue from an organization-level pool\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = new azuredevops.Project(\"exampleProject\", {});\nconst examplePool = azuredevops.getPool({\n    name: \"example-pool\",\n});\nconst exampleQueue = new azuredevops.Queue(\"exampleQueue\", {\n    projectId: exampleProject.id,\n    agentPoolId: examplePool.then(examplePool =\u003e examplePool.id),\n});\n// Grant access to queue to all pipelines in the project\nconst exampleResourceAuthorization = new azuredevops.ResourceAuthorization(\"exampleResourceAuthorization\", {\n    projectId: exampleProject.id,\n    resourceId: exampleQueue.id,\n    type: \"queue\",\n    authorized: true,\n});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.Project(\"exampleProject\")\nexample_pool = azuredevops.get_pool(name=\"example-pool\")\nexample_queue = azuredevops.Queue(\"exampleQueue\",\n    project_id=example_project.id,\n    agent_pool_id=example_pool.id)\n# Grant access to queue to all pipelines in the project\nexample_resource_authorization = azuredevops.ResourceAuthorization(\"exampleResourceAuthorization\",\n    project_id=example_project.id,\n    resource_id=example_queue.id,\n    type=\"queue\",\n    authorized=True)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleProject = new AzureDevOps.Project(\"exampleProject\");\n\n    var examplePool = AzureDevOps.GetPool.Invoke(new()\n    {\n        Name = \"example-pool\",\n    });\n\n    var exampleQueue = new AzureDevOps.Queue(\"exampleQueue\", new()\n    {\n        ProjectId = exampleProject.Id,\n        AgentPoolId = examplePool.Apply(getPoolResult =\u003e getPoolResult.Id),\n    });\n\n    // Grant access to queue to all pipelines in the project\n    var exampleResourceAuthorization = new AzureDevOps.ResourceAuthorization(\"exampleResourceAuthorization\", new()\n    {\n        ProjectId = exampleProject.Id,\n        ResourceId = exampleQueue.Id,\n        Type = \"queue\",\n        Authorized = true,\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.NewProject(ctx, \"exampleProject\", nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texamplePool, err := azuredevops.LookupPool(ctx, \u0026azuredevops.LookupPoolArgs{\n\t\t\tName: \"example-pool\",\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\texampleQueue, err := azuredevops.NewQueue(ctx, \"exampleQueue\", \u0026azuredevops.QueueArgs{\n\t\t\tProjectId:   exampleProject.ID(),\n\t\t\tAgentPoolId: *pulumi.String(examplePool.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewResourceAuthorization(ctx, \"exampleResourceAuthorization\", \u0026azuredevops.ResourceAuthorizationArgs{\n\t\t\tProjectId:  exampleProject.ID(),\n\t\t\tResourceId: exampleQueue.ID(),\n\t\t\tType:       pulumi.String(\"queue\"),\n\t\t\tAuthorized: pulumi.Bool(true),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.Project;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetPoolArgs;\nimport com.pulumi.azuredevops.Queue;\nimport com.pulumi.azuredevops.QueueArgs;\nimport com.pulumi.azuredevops.ResourceAuthorization;\nimport com.pulumi.azuredevops.ResourceAuthorizationArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        var exampleProject = new Project(\"exampleProject\");\n\n        final var examplePool = AzuredevopsFunctions.getPool(GetPoolArgs.builder()\n            .name(\"example-pool\")\n            .build());\n\n        var exampleQueue = new Queue(\"exampleQueue\", QueueArgs.builder()        \n            .projectId(exampleProject.id())\n            .agentPoolId(examplePool.applyValue(getPoolResult -\u003e getPoolResult.id()))\n            .build());\n\n        var exampleResourceAuthorization = new ResourceAuthorization(\"exampleResourceAuthorization\", ResourceAuthorizationArgs.builder()        \n            .projectId(exampleProject.id())\n            .resourceId(exampleQueue.id())\n            .type(\"queue\")\n            .authorized(true)\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleProject:\n    type: azuredevops:Project\n  exampleQueue:\n    type: azuredevops:Queue\n    properties:\n      projectId: ${exampleProject.id}\n      agentPoolId: ${examplePool.id}\n  # Grant access to queue to all pipelines in the project\n  exampleResourceAuthorization:\n    type: azuredevops:ResourceAuthorization\n    properties:\n      projectId: ${exampleProject.id}\n      resourceId: ${exampleQueue.id}\n      type: queue\n      authorized: true\nvariables:\n  examplePool:\n    fn::invoke:\n      Function: azuredevops:getPool\n      Arguments:\n        name: example-pool\n```\n{{% /example %}}\n{{% example %}}\n### Creating a Queue at the project level (Organization-level permissions not required)\n\n```typescript\nimport * as pulumi from \"@pulumi/pulumi\";\nimport * as azuredevops from \"@pulumi/azuredevops\";\n\nconst exampleProject = azuredevops.getProject({\n    name: \"Example Project\",\n});\nconst exampleQueue = new azuredevops.Queue(\"exampleQueue\", {projectId: exampleProject.then(exampleProject =\u003e exampleProject.id)});\n```\n```python\nimport pulumi\nimport pulumi_azuredevops as azuredevops\n\nexample_project = azuredevops.get_project(name=\"Example Project\")\nexample_queue = azuredevops.Queue(\"exampleQueue\", project_id=example_project.id)\n```\n```csharp\nusing System.Collections.Generic;\nusing System.Linq;\nusing Pulumi;\nusing AzureDevOps = Pulumi.AzureDevOps;\n\nreturn await Deployment.RunAsync(() =\u003e \n{\n    var exampleProject = AzureDevOps.GetProject.Invoke(new()\n    {\n        Name = \"Example Project\",\n    });\n\n    var exampleQueue = new AzureDevOps.Queue(\"exampleQueue\", new()\n    {\n        ProjectId = exampleProject.Apply(getProjectResult =\u003e getProjectResult.Id),\n    });\n\n});\n```\n```go\npackage main\n\nimport (\n\t\"github.com/pulumi/pulumi-azuredevops/sdk/v2/go/azuredevops\"\n\t\"github.com/pulumi/pulumi/sdk/v3/go/pulumi\"\n)\n\nfunc main() {\n\tpulumi.Run(func(ctx *pulumi.Context) error {\n\t\texampleProject, err := azuredevops.LookupProject(ctx, \u0026azuredevops.LookupProjectArgs{\n\t\t\tName: pulumi.StringRef(\"Example Project\"),\n\t\t}, nil)\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\t_, err = azuredevops.NewQueue(ctx, \"exampleQueue\", \u0026azuredevops.QueueArgs{\n\t\t\tProjectId: *pulumi.String(exampleProject.Id),\n\t\t})\n\t\tif err != nil {\n\t\t\treturn err\n\t\t}\n\t\treturn nil\n\t})\n}\n```\n```java\npackage generated_program;\n\nimport com.pulumi.Context;\nimport com.pulumi.Pulumi;\nimport com.pulumi.core.Output;\nimport com.pulumi.azuredevops.AzuredevopsFunctions;\nimport com.pulumi.azuredevops.inputs.GetProjectArgs;\nimport com.pulumi.azuredevops.Queue;\nimport com.pulumi.azuredevops.QueueArgs;\nimport java.util.List;\nimport java.util.ArrayList;\nimport java.util.Map;\nimport java.io.File;\nimport java.nio.file.Files;\nimport java.nio.file.Paths;\n\npublic class App {\n    public static void main(String[] args) {\n        Pulumi.run(App::stack);\n    }\n\n    public static void stack(Context ctx) {\n        final var exampleProject = AzuredevopsFunctions.getProject(GetProjectArgs.builder()\n            .name(\"Example Project\")\n            .build());\n\n        var exampleQueue = new Queue(\"exampleQueue\", QueueArgs.builder()        \n            .projectId(exampleProject.applyValue(getProjectResult -\u003e getProjectResult.id()))\n            .build());\n\n    }\n}\n```\n```yaml\nresources:\n  exampleQueue:\n    type: azuredevops:Queue\n    properties:\n      projectId: ${exampleProject.id}\nvariables:\n  exampleProject:\n    fn::invoke:\n      Function: azuredevops:getProject\n      Arguments:\n        name: Example Project\n```\n{{% /example %}}\n{{% /examples %}}\n## Relevant Links\n\n- [Azure DevOps Service REST API 7.0 - Agent Queues](https://docs.microsoft.com/en-us/rest/api/azure/devops/distributedtask/queues?view=azure-devops-rest-7.0)\n\n\n## Import\n\nAzure DevOps Agent Pools can be imported using the project ID and agent queue ID, e.g.\n\n```sh\n $ pulumi import azuredevops:index/queue:Queue example 00000000-0000-0000-0000-000000000000/0\n```\n\n ",
             "properties": {
                 "agentPoolId": {
                     "type": "integer",
-                    "description": "The ID of the organization agent pool.\n"
+                    "description": "The ID of the organization agent pool. Conflicts with `name`.\n\n\u003e **NOTE:**\nOne of `name` or `agent_pool_id` must be specified, but not both.\nWhen `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.\n"
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.\n"
                 },
                 "projectId": {
                     "type": "string",
@@ -8489,12 +8561,18 @@
             },
             "required": [
                 "agentPoolId",
+                "name",
                 "projectId"
             ],
             "inputProperties": {
                 "agentPoolId": {
                     "type": "integer",
-                    "description": "The ID of the organization agent pool.\n",
+                    "description": "The ID of the organization agent pool. Conflicts with `name`.\n\n\u003e **NOTE:**\nOne of `name` or `agent_pool_id` must be specified, but not both.\nWhen `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.\n",
+                    "willReplaceOnChanges": true
+                },
+                "name": {
+                    "type": "string",
+                    "description": "The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.\n",
                     "willReplaceOnChanges": true
                 },
                 "projectId": {
@@ -8504,7 +8582,6 @@
                 }
             },
             "requiredInputs": [
-                "agentPoolId",
                 "projectId"
             ],
             "stateInputs": {
@@ -8512,7 +8589,12 @@
                 "properties": {
                     "agentPoolId": {
                         "type": "integer",
-                        "description": "The ID of the organization agent pool.\n",
+                        "description": "The ID of the organization agent pool. Conflicts with `name`.\n\n\u003e **NOTE:**\nOne of `name` or `agent_pool_id` must be specified, but not both.\nWhen `agent_pool_id` is specified, the agent queue name will be derived from the agent pool name.\n",
+                        "willReplaceOnChanges": true
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The name of the agent queue. Defaults to the ID of the agent pool. Conflicts with `agent_pool_id`.\n",
                         "willReplaceOnChanges": true
                     },
                     "projectId": {
@@ -9875,6 +9957,10 @@
                     "type": "string",
                     "description": "The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.\n\n\u003e **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.\n"
                 },
+                "features": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointAzureRMFeatures:ServiceEndpointAzureRMFeatures",
+                    "description": "A `features` block.\n"
+                },
                 "projectId": {
                     "type": "string",
                     "description": "The ID of the project.\n"
@@ -9953,6 +10039,10 @@
                     "description": "The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.\n\n\u003e **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.\n",
                     "willReplaceOnChanges": true
                 },
+                "features": {
+                    "$ref": "#/types/azuredevops:index/ServiceEndpointAzureRMFeatures:ServiceEndpointAzureRMFeatures",
+                    "description": "A `features` block.\n"
+                },
                 "projectId": {
                     "type": "string",
                     "description": "The ID of the project.\n",
@@ -10020,6 +10110,10 @@
                         "type": "string",
                         "description": "The Cloud Environment to use. Defaults to `AzureCloud`. Possible values are `AzureCloud`, `AzureChinaCloud`. Changing this forces a new resource to be created.\n\n\u003e **NOTE:** One of either `Subscription` scoped i.e. `azurerm_subscription_id`, `azurerm_subscription_name` or `ManagementGroup` scoped i.e. `azurerm_management_group_id`, `azurerm_management_group_name` values must be specified.\n",
                         "willReplaceOnChanges": true
+                    },
+                    "features": {
+                        "$ref": "#/types/azuredevops:index/ServiceEndpointAzureRMFeatures:ServiceEndpointAzureRMFeatures",
+                        "description": "A `features` block.\n"
                     },
                     "projectId": {
                         "type": "string",
@@ -14799,6 +14893,10 @@
                         },
                         "description": "A `pull_request_trigger` block as defined below.\n"
                     },
+                    "queueStatus": {
+                        "type": "string",
+                        "description": "The queue status of the build definition.\n"
+                    },
                     "repositories": {
                         "type": "array",
                         "items": {
@@ -14839,6 +14937,7 @@
                     "name",
                     "projectId",
                     "pullRequestTriggers",
+                    "queueStatus",
                     "repositories",
                     "revision",
                     "schedules",
@@ -14877,6 +14976,10 @@
                         "type": "integer",
                         "description": "The ID of the Environment.\n"
                     },
+                    "name": {
+                        "type": "string",
+                        "description": "Name of the Environment.\n\n\u003e **NOTE:** One of either `environment_id` or `name` must be specified.\n"
+                    },
                     "projectId": {
                         "type": "string",
                         "description": "The ID of the project.\n"
@@ -14884,7 +14987,6 @@
                 },
                 "type": "object",
                 "required": [
-                    "environmentId",
                     "projectId"
                 ]
             },
@@ -14913,7 +15015,6 @@
                 "type": "object",
                 "required": [
                     "description",
-                    "environmentId",
                     "name",
                     "projectId",
                     "id"

@@ -1,0 +1,4 @@
+[submodule "upstream"]
+	path = upstream
+	url = git@github.com:microsoft/terraform-provider-azuredevops.git
+	ignore = dirty
