@@ -108,7 +108,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:Identities/groupMembership:GroupMembership"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Identities/groupMembership:GroupMembership" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

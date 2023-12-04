@@ -100,7 +100,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/kubernetes:Kubernetes"},
+                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/kubernetes:Kubernetes" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

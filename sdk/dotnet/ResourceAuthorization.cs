@@ -112,7 +112,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:Security/resourceAuthorization:ResourceAuthorization"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Security/resourceAuthorization:ResourceAuthorization" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
