@@ -166,7 +166,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:Repository/git:Git"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Repository/git:Git" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

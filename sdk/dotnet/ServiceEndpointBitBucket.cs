@@ -111,7 +111,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/bitBucket:BitBucket"},
+                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/bitBucket:BitBucket" },
                 },
                 AdditionalSecretOutputs =
                 {

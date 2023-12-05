@@ -94,7 +94,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:Agent/pool:Pool"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Agent/pool:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

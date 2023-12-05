@@ -143,7 +143,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry"},
+                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/dockerRegistry:DockerRegistry" },
                 },
                 AdditionalSecretOutputs =
                 {

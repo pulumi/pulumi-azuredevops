@@ -135,7 +135,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:Core/project:Project"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Core/project:Project" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
