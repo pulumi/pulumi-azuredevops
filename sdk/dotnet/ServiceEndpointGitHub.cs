@@ -164,7 +164,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/gitHub:GitHub"},
+                    new global::Pulumi.Alias { Type = "azuredevops:ServiceEndpoint/gitHub:GitHub" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
