@@ -2,7 +2,14 @@ module github.com/pulumi/pulumi-azuredevops/examples/2
 
 go 1.21
 
-require github.com/pulumi/pulumi/pkg/v3 v3.94.2
+require (
+	github.com/pulumi/pulumi/pkg/v3 v3.94.2
+	github.com/pulumi/pulumi-azuredevops/provider/v2 v2.14.0
+)
+
+replace (
+	github.com/pulumi/pulumi-azuredevops/provider/v2 => ../provider
+)
 
 require (
 	cloud.google.com/go v0.110.4 // indirect
