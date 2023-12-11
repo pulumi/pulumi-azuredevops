@@ -66,3 +66,74 @@ func TestServiceConnectionIdDefaultDoesNotConflict(t *testing.T) {
 	`, "$", "`")
 	replay(t, repro)
 }
+
+// This test checks that the problem fixed in 0002-remove_min_reviwers_defaults.patch
+// does not fail the check for repo.
+// https://github.com/pulumi/pulumi-azuredevops/issues/227
+func TestMinReviewersDefaultDoesNotConflict(t *testing.T) {
+	repro := strings.ReplaceAll(`
+	[
+		{
+			"method": "/pulumirpc.ResourceProvider/Check",
+			"request": {
+				"urn": "urn:pulumi:dev::azure_devops_prog::azuredevops:index/branchPolicyMinReviewers:BranchPolicyMinReviewers::exampleBranchPolicyMinReviewers",
+				"olds": {},
+				"news": {
+					"projectId": "75e12870-434c-455b-b8ac-c0e17cc51c46",
+					"settings": {
+						"onPushResetAllVotes": true,
+						"reviewerCount": 7,
+						"scopes": [
+							{
+								"matchType": "Exact",
+								"repositoryId": "54745441-9448-43f9-a5cb-2c3644bbac54",
+								"repositoryRef": "refs/heads/master"
+							}
+						]
+					}
+				},
+				"randomSeed": "TxXqw2+y2hjh5dvv//yChyw2PYzaCeOdsx8RoYlqDBs="
+			},
+			"response": {
+				"inputs": {
+					"__defaults": [
+						"blocking",
+						"enabled"
+					],
+					"blocking": true,
+					"enabled": true,
+					"projectId": "75e12870-434c-455b-b8ac-c0e17cc51c46",
+					"settings": {
+						"__defaults": [
+							"allowCompletionWithRejectsOrWaits",
+							"lastPusherCannotApprove",
+							"onPushResetApprovedVotes",
+							"submitterCanVote"
+						],
+						"allowCompletionWithRejectsOrWaits": false,
+						"lastPusherCannotApprove": false,
+						"onPushResetAllVotes": true,
+						"onPushResetApprovedVotes": false,
+						"reviewerCount": 7,
+						"scopes": [
+							{
+								"__defaults": [],
+								"matchType": "Exact",
+								"repositoryId": "54745441-9448-43f9-a5cb-2c3644bbac54",
+								"repositoryRef": "refs/heads/master"
+							}
+						],
+						"submitterCanVote": false
+					}
+				}
+			},
+			"metadata": {
+				"kind": "resource",
+				"mode": "client",
+				"name": "azuredevops"
+			}
+		}
+  ]
+	`, "$", "`")
+	replay(t, repro)
+}
