@@ -102,7 +102,7 @@ namespace Pulumi.AzureDevOps
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azuredevops:Agent/queue:Queue"},
+                    new global::Pulumi.Alias { Type = "azuredevops:Agent/queue:Queue" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
