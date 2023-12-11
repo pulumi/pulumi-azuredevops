@@ -2,6 +2,7 @@ package examples
 
 import (
 	"context"
+	"os"
 	"strings"
 	"testing"
 
@@ -9,7 +10,22 @@ import (
 	"github.com/pulumi/pulumi-azuredevops/provider/v2/pkg/version"
 	testutils "github.com/pulumi/pulumi-terraform-bridge/testing/x"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
+
+func getCwd(t *testing.T) string {
+	cwd, err := os.Getwd()
+	if err != nil {
+		t.FailNow()
+	}
+	return cwd
+}
+
+func getBaseOptions(t *testing.T) integration.ProgramTestOptions {
+	return integration.ProgramTestOptions{
+		ExpectRefreshChanges: true,
+	}
+}
 
 func init() {
 	// This is necessary for gRPC testing. It doesn't effect integration tests, since
