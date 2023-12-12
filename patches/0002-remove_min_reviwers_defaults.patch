@@ -1,0 +1,20 @@
+diff --git a/azuredevops/internal/service/policy/branch/resource_branchpolicy_min_reviewers.go b/azuredevops/internal/service/policy/branch/resource_branchpolicy_min_reviewers.go
+index f51caa42..af9b2ae9 100644
+--- a/azuredevops/internal/service/policy/branch/resource_branchpolicy_min_reviewers.go
++++ b/azuredevops/internal/service/policy/branch/resource_branchpolicy_min_reviewers.go
+@@ -38,7 +38,6 @@ func ResourceBranchPolicyMinReviewers() *schema.Resource {
+ 	settingsSchema["on_last_iteration_require_vote"] = &schema.Schema{
+ 		Type:          schema.TypeBool,
+ 		Optional:      true,
+-		Default:       false,
+ 		ConflictsWith: []string{"settings.0.on_push_reset_approved_votes", "settings.0.on_push_reset_all_votes"},
+ 	}
+ 
+@@ -52,7 +51,6 @@ func ResourceBranchPolicyMinReviewers() *schema.Resource {
+ 	settingsSchema["on_push_reset_all_votes"] = &schema.Schema{
+ 		Type:          schema.TypeBool,
+ 		Optional:      true,
+-		Default:       false,
+ 		ConflictsWith: []string{"settings.0.on_last_iteration_require_vote"},
+ 	}
+ 
