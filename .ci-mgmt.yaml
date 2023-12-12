@@ -5,3 +5,4 @@ env:
   AZDO_PERSONAL_ACCESS_TOKEN: ${{ secrets.AZDO_PERSONAL_ACCESS_TOKEN }}
 makeTemplate: bridged
 javaGenVersion: "v0.9.8"
+checkoutSubmodules: true
