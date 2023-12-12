@@ -5,3 +5,7 @@ env:
   AZDO_PERSONAL_ACCESS_TOKEN: ${{ secrets.AZDO_PERSONAL_ACCESS_TOKEN }}
 makeTemplate: bridged
 checkoutSubmodules: true
+actions:
+  preTest:
+    - name: Make upstream
+      run: make upstream
