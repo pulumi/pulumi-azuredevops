@@ -73,29 +73,6 @@ func Provider() tfbridge.ProviderInfo {
 			},
 		},
 		Resources: map[string]*tfbridge.ResourceInfo{
-			"azuredevops_area_permissions": {
-				Tok: makeResource("AreaPermissions"),
-			},
-			"azuredevops_branch_policy_auto_reviewers": {
-				Tok: makeResource("BranchPolicyAutoReviewers"),
-			},
-			"azuredevops_branch_policy_comment_resolution": {
-				Tok: makeResource("BranchPolicyCommentResolution"),
-			},
-			"azuredevops_branch_policy_work_item_linking": {
-				Tok: makeResource("BranchPolicyWorkItemLinking"),
-			},
-			"azuredevops_build_folder":             {Tok: makeResource("BuildFolder")},
-			"azuredevops_build_folder_permissions": {Tok: makeResource("BuildFolderPermissions")},
-			"azuredevops_git_permissions": {
-				Tok: makeResource("GitPermissions"),
-			},
-			"azuredevops_iteration_permissions": {
-				Tok: makeResource("IterativePermissions"),
-			},
-			"azuredevops_project_permissions": {
-				Tok: makeResource("ProjectPermissions"),
-			},
 			"azuredevops_serviceendpoint_aws": {
 				Tok: makeResource("ServiceEndpointAws"),
 			},
@@ -105,86 +82,46 @@ func Provider() tfbridge.ProviderInfo {
 			"azuredevops_workitemquery_permissions": {
 				Tok: makeResource("WorkItemQueryPermissions"),
 			},
-			"azuredevops_build_definition_permissions": {Tok: makeResource("BuildDefinitionPermissions")},
-			"azuredevops_serviceendpoint_runpipeline":  {Tok: makeResource("ServiceEndpointPipeline")},
-			"azuredevops_serviceendpoint_artifactory":  {Tok: makeResource("ServiceEndpointArtifactory")},
-			"azuredevops_serviceendpoint_sonarqube":    {Tok: makeResource("ServiceEndpointSonarQube")},
-			"azuredevops_serviceendpoint_ssh":          {Tok: makeResource("ServiceEndpointSsh")},
-			"azuredevops_serviceendpoint_npm":          {Tok: makeResource("ServiceEndpointNpm")},
-			"azuredevops_serviceendpoint_azuredevops":  {Tok: makeResource("ServiceEndpointAzureDevOps")},
-			"azuredevops_serviceendpoint_generic":      {Tok: makeResource("ServiceEndpointGeneric")},
-			"azuredevops_serviceendpoint_generic_git":  {Tok: makeResource("ServiceEndpointGenericGit")},
+			"azuredevops_serviceendpoint_runpipeline": {Tok: makeResource("ServiceEndpointPipeline")},
+			"azuredevops_serviceendpoint_artifactory": {Tok: makeResource("ServiceEndpointArtifactory")},
+			"azuredevops_serviceendpoint_sonarqube":   {Tok: makeResource("ServiceEndpointSonarQube")},
+			"azuredevops_serviceendpoint_ssh":         {Tok: makeResource("ServiceEndpointSsh")},
+			"azuredevops_serviceendpoint_npm":         {Tok: makeResource("ServiceEndpointNpm")},
+			"azuredevops_serviceendpoint_azuredevops": {Tok: makeResource("ServiceEndpointAzureDevOps")},
+			"azuredevops_serviceendpoint_generic":     {Tok: makeResource("ServiceEndpointGeneric")},
+			"azuredevops_serviceendpoint_generic_git": {Tok: makeResource("ServiceEndpointGenericGit")},
 			"azuredevops_serviceendpoint_github_enterprise": {
 				Tok: makeResource("ServiceEndpointGitHubEnterprise"),
 			},
-			"azuredevops_serviceendpoint_servicefabric": {Tok: makeResource("ServiceEndpointServiceFabric")},
-			"azuredevops_serviceendpoint_sonarcloud":    {Tok: makeResource("ServiceEndpointSonarCloud")},
-			"azuredevops_branch_policy_merge_types":     {Tok: makeResource("BranchPolicyMergeTypes")},
-			"azuredevops_branch_policy_status_check":    {Tok: makeResource("BranchPolicyStatusCheck")},
-			"azuredevops_repository_policy_author_email_pattern": {
-				Tok: makeResource("RepositoryPolicyAuthorEmailPattern"),
+			"azuredevops_serviceendpoint_servicefabric": {
+				Tok: makeResource("ServiceEndpointServiceFabric"),
 			},
-			"azuredevops_repository_policy_file_path_pattern": {
-				Tok: makeResource("RepositoryPolicyFilePathPattern"),
+			"azuredevops_serviceendpoint_sonarcloud": {
+				Tok: makeResource("ServiceEndpointSonarCloud"),
 			},
-			"azuredevops_repository_policy_case_enforcement": {
-				Tok: makeResource("RepositoryPolicyCaseEnforcement"),
+			"azuredevops_iteration_permissions": { // iteration -> Iterative
+				Tok: makeResource("IterativePermissions"),
 			},
-			"azuredevops_repository_policy_check_credentials": {
-				Tok: makeResource("RepositoryPolicyCheckCredentials"),
-			},
-			"azuredevops_repository_policy_max_file_size": {
-				Tok: makeResource("RepositoryPolicyMaxFileSize"),
-			},
-			"azuredevops_repository_policy_max_path_length": {
-				Tok: makeResource("RepositoryPolicyMaxPathLength"),
-			},
-			"azuredevops_repository_policy_reserved_names": {
-				Tok: makeResource("RepositoryPolicyReservedNames"),
-			},
-			"azuredevops_team":                            {Tok: makeResource("Team")},
-			"azuredevops_team_administrators":             {Tok: makeResource("TeamAdministrators")},
-			"azuredevops_team_members":                    {Tok: makeResource("TeamMembers")},
-			"azuredevops_environment":                     {Tok: makeResource("Environment")},
-			"azuredevops_git_repository_file":             {Tok: makeResource("GitRepositoryFile")},
+
 			"azuredevops_serviceendpoint_argocd":          {Tok: makeResource("ServiceendpointArgocd")},
 			"azuredevops_serviceendpoint_permissions":     {Tok: makeResource("ServiceendpointPermissions")},
 			"azuredevops_servicehook_permissions":         {Tok: makeResource("ServicehookPermissions")},
-			"azuredevops_tagging_permissions":             {Tok: makeResource("TaggingPermissions")},
-			"azuredevops_project_pipeline_settings":       {Tok: makeResource("ProjectPipelineSettings")},
 			"azuredevops_serviceendpoint_incomingwebhook": {Tok: makeResource("ServiceendpointIncomingwebhook")},
 			"azuredevops_serviceendpoint_octopusdeploy":   {Tok: makeResource("ServiceendpointOctopusdeploy")},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
-			"azuredevops_area": {
-				Tok: makeDataSource("getArea"),
-			},
-			"azuredevops_git_repository": {
-				Tok: makeDataSource("getGitRepository"),
-			},
-			"azuredevops_iteration": {
-				Tok: makeDataSource("getIteration"),
-			},
-			"azuredevops_agent_queue": {
-				Tok: makeDataSource("getAgentQueue"),
-			},
 			"azuredevops_serviceendpoint_azurerm": {Tok: makeDataSource("getServiceEndpointAzureRM")},
 			"azuredevops_serviceendpoint_github":  {Tok: makeDataSource("getServiceEndpointGithub")},
 			"azuredevops_team": {
-				Tok: makeDataSource("getTeam"),
 				Docs: &tfbridge.DocInfo{
 					Source: "data_team.html.markdown",
 				},
 			},
 			"azuredevops_teams": {
-				Tok: makeDataSource("getTeams"),
 				Docs: &tfbridge.DocInfo{
 					Source: "data_teams.html.markdown",
 				},
 			},
-			"azuredevops_groups":           {Tok: makeDataSource("getGroups")},
-			"azuredevops_variable_group":   {Tok: makeDataSource("getVariableGroup")},
-			"azuredevops_build_definition": {Tok: makeDataSource("getBuildDefinition")},
 		},
 		JavaScript: &tfbridge.JavaScriptInfo{
 			Dependencies: map[string]string{
