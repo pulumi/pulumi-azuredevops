@@ -155,11 +155,11 @@ class _BranchPolicyBuildValidationState:
         pulumi.set(self, "settings", value)
 
 
-warnings.warn("""azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation""", DeprecationWarning)
+warnings.warn("""azuredevops.policy/branchpolicybuildvalidation.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.index/branchpolicybuildvalidation.BranchPolicyBuildValidation""", DeprecationWarning)
 
 
 class BranchPolicyBuildValidation(pulumi.CustomResource):
-    warnings.warn("""azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation""", DeprecationWarning)
+    warnings.warn("""azuredevops.policy/branchpolicybuildvalidation.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.index/branchpolicybuildvalidation.BranchPolicyBuildValidation""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -331,7 +331,7 @@ class BranchPolicyBuildValidation(pulumi.CustomResource):
                  project_id: Optional[pulumi.Input[str]] = None,
                  settings: Optional[pulumi.Input[pulumi.InputType['BranchPolicyBuildValidationSettingsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""BranchPolicyBuildValidation is deprecated: azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation""")
+        pulumi.log.warn("""BranchPolicyBuildValidation is deprecated: azuredevops.policy/branchpolicybuildvalidation.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.index/branchpolicybuildvalidation.BranchPolicyBuildValidation""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

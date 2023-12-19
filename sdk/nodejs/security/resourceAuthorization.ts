@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *
  * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
  *
- * @deprecated azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization
+ * @deprecated azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization
  */
 export class ResourceAuthorization extends pulumi.CustomResource {
     /**
@@ -51,7 +51,7 @@ export class ResourceAuthorization extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, state?: ResourceAuthorizationState, opts?: pulumi.CustomResourceOptions): ResourceAuthorization {
-        pulumi.log.warn("ResourceAuthorization is deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization")
+        pulumi.log.warn("ResourceAuthorization is deprecated: azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization")
         return new ResourceAuthorization(name, <any>state, { ...opts, id: id });
     }
 
@@ -97,11 +97,11 @@ export class ResourceAuthorization extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization */
+    /** @deprecated azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization */
     constructor(name: string, args: ResourceAuthorizationArgs, opts?: pulumi.CustomResourceOptions)
-    /** @deprecated azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization */
+    /** @deprecated azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization */
     constructor(name: string, argsOrState?: ResourceAuthorizationArgs | ResourceAuthorizationState, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ResourceAuthorization is deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization")
+        pulumi.log.warn("ResourceAuthorization is deprecated: azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (opts.id) {

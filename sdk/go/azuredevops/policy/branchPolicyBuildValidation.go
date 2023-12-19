@@ -104,7 +104,7 @@ import (
 //
 // ```
 //
-// Deprecated: azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation
+// Deprecated: azuredevops.policy/branchpolicybuildvalidation.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.index/branchpolicybuildvalidation.BranchPolicyBuildValidation
 type BranchPolicyBuildValidation struct {
 	pulumi.CustomResourceState
 

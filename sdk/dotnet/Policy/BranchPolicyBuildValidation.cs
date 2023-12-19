@@ -96,7 +96,7 @@ namespace Pulumi.AzureDevOps.Policy
     ///  $ pulumi import azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation example 00000000-0000-0000-0000-000000000000/0
     /// ```
     /// </summary>
-    [Obsolete(@"azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation")]
+    [Obsolete(@"azuredevops.policy/branchpolicybuildvalidation.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.index/branchpolicybuildvalidation.BranchPolicyBuildValidation")]
     [AzureDevOpsResourceType("azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation")]
     public partial class BranchPolicyBuildValidation : global::Pulumi.CustomResource
     {

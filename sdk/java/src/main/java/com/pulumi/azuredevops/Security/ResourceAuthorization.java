@@ -76,10 +76,10 @@ import javax.annotation.Nullable;
  * - [Azure DevOps Service REST API 7.0 - Authorize Definition Resource](https://docs.microsoft.com/en-us/rest/api/azure/devops/build/resources/authorize%20definition%20resources?view=azure-devops-rest-7.0)
  * 
  * @deprecated
- * azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization
+ * azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization
  * 
  */
-@Deprecated /* azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization */
+@Deprecated /* azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization */
 @ResourceType(type="azuredevops:Security/resourceAuthorization:ResourceAuthorization")
 public class ResourceAuthorization extends com.pulumi.resources.CustomResource {
     /**
