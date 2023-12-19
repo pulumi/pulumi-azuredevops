@@ -45,6 +45,13 @@
             },
             "azuredevops_branch_policy_build_validation": {
                 "current": "azuredevops:index/branchPolicyBuildValidation:BranchPolicyBuildValidation",
+                "past": [
+                    {
+                        "name": "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation",
+                        "inCodegen": true,
+                        "majorVersion": 2
+                    }
+                ],
                 "majorVersion": 2,
                 "fields": {
                     "settings": {
@@ -651,6 +658,13 @@
             },
             "azuredevops_resource_authorization": {
                 "current": "azuredevops:index/resourceAuthorization:ResourceAuthorization",
+                "past": [
+                    {
+                        "name": "azuredevops:Security/resourceAuthorization:ResourceAuthorization",
+                        "inCodegen": true,
+                        "majorVersion": 2
+                    }
+                ],
                 "majorVersion": 2
             },
             "azuredevops_resource_authorization_legacy": {

@@ -162,12 +162,6 @@ func Provider() tfbridge.ProviderInfo {
 		return tfbridge.MakeResource(mainPkg, mod, name)
 	}
 
-	prov.RenameResourceWithAlias("azuredevops_resource_authorization",
-		makeResourceL("Security", "ResourceAuthorization"),
-		makeResource("ResourceAuthorization"), "Security", mainMod, nil)
-	prov.RenameResourceWithAlias("azuredevops_branch_policy_build_validation",
-		makeResourceL("Policy", "BranchPolicyBuildValidation"),
-		makeResource("BranchPolicyBuildValidation"), "Policy", mainMod, nil)
 	prov.RenameResourceWithAlias("azuredevops_branch_policy_min_reviewers",
 		makeResourceL("Policy", "BranchPolicyMinReviewers"),
 		makeResource("BranchPolicyMinReviewers"), "Policy", mainMod, nil)
