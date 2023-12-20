@@ -69,25 +69,6 @@
                     }
                 }
             },
-            "azuredevops_branch_policy_build_validation_legacy": {
-                "current": "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation",
-                "majorVersion": 2,
-                "fields": {
-                    "settings": {
-                        "maxItemsOne": true,
-                        "elem": {
-                            "fields": {
-                                "filename_patterns": {
-                                    "maxItemsOne": false
-                                },
-                                "scope": {
-                                    "maxItemsOne": false
-                                }
-                            }
-                        }
-                    }
-                }
-            },
             "azuredevops_branch_policy_comment_resolution": {
                 "current": "azuredevops:index/branchPolicyCommentResolution:BranchPolicyCommentResolution",
                 "majorVersion": 2,
@@ -665,10 +646,6 @@
                         "majorVersion": 2
                     }
                 ],
-                "majorVersion": 2
-            },
-            "azuredevops_resource_authorization_legacy": {
-                "current": "azuredevops:Security/resourceAuthorization:ResourceAuthorization",
                 "majorVersion": 2
             },
             "azuredevops_serviceendpoint_argocd": {
@@ -1366,6 +1343,20 @@
                         "maxItemsOne": false
                     }
                 }
+            }
+        }
+    },
+    "auto-settings": {
+        "resources": {
+            "azuredevops_branch_policy_build_validation": {
+                "aliases": [
+                    "azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation"
+                ]
+            },
+            "azuredevops_resource_authorization": {
+                "aliases": [
+                    "azuredevops:Security/resourceAuthorization:ResourceAuthorization"
+                ]
             }
         }
     },
