@@ -112,10 +112,10 @@ import javax.annotation.Nullable;
  * ```
  * 
  * @deprecated
- * azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation
+ * azuredevops.policy/branchpolicybuildvalidation.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.index/branchpolicybuildvalidation.BranchPolicyBuildValidation
  * 
  */
-@Deprecated /* azuredevops.policy.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.BranchPolicyBuildValidation */
+@Deprecated /* azuredevops.policy/branchpolicybuildvalidation.BranchPolicyBuildValidation has been deprecated in favor of azuredevops.index/branchpolicybuildvalidation.BranchPolicyBuildValidation */
 @ResourceType(type="azuredevops:Policy/branchPolicyBuildValidation:BranchPolicyBuildValidation")
 public class BranchPolicyBuildValidation extends com.pulumi.resources.CustomResource {
     /**

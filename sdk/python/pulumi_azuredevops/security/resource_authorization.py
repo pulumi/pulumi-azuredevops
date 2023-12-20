@@ -184,11 +184,11 @@ class _ResourceAuthorizationState:
         pulumi.set(self, "type", value)
 
 
-warnings.warn("""azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization""", DeprecationWarning)
+warnings.warn("""azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization""", DeprecationWarning)
 
 
 class ResourceAuthorization(pulumi.CustomResource):
-    warnings.warn("""azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization""", DeprecationWarning)
+    warnings.warn("""azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -297,7 +297,7 @@ class ResourceAuthorization(pulumi.CustomResource):
                  resource_id: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ResourceAuthorization is deprecated: azuredevops.security.ResourceAuthorization has been deprecated in favor of azuredevops.ResourceAuthorization""")
+        pulumi.log.warn("""ResourceAuthorization is deprecated: azuredevops.security/resourceauthorization.ResourceAuthorization has been deprecated in favor of azuredevops.index/resourceauthorization.ResourceAuthorization""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')
