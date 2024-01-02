@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -229,82 +230,130 @@ public final class GetServiceendpointAzurecrResult {
 
         @CustomType.Setter
         public Builder appObjectId(String appObjectId) {
-            this.appObjectId = Objects.requireNonNull(appObjectId);
+            if (appObjectId == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "appObjectId");
+            }
+            this.appObjectId = appObjectId;
             return this;
         }
         @CustomType.Setter
         public Builder authorization(Map<String,String> authorization) {
-            this.authorization = Objects.requireNonNull(authorization);
+            if (authorization == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "authorization");
+            }
+            this.authorization = authorization;
             return this;
         }
         @CustomType.Setter
         public Builder azSpnRoleAssignmentId(String azSpnRoleAssignmentId) {
-            this.azSpnRoleAssignmentId = Objects.requireNonNull(azSpnRoleAssignmentId);
+            if (azSpnRoleAssignmentId == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "azSpnRoleAssignmentId");
+            }
+            this.azSpnRoleAssignmentId = azSpnRoleAssignmentId;
             return this;
         }
         @CustomType.Setter
         public Builder azSpnRolePermissions(String azSpnRolePermissions) {
-            this.azSpnRolePermissions = Objects.requireNonNull(azSpnRolePermissions);
+            if (azSpnRolePermissions == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "azSpnRolePermissions");
+            }
+            this.azSpnRolePermissions = azSpnRolePermissions;
             return this;
         }
         @CustomType.Setter
         public Builder azurecrName(String azurecrName) {
-            this.azurecrName = Objects.requireNonNull(azurecrName);
+            if (azurecrName == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "azurecrName");
+            }
+            this.azurecrName = azurecrName;
             return this;
         }
         @CustomType.Setter
         public Builder azurecrSpnTenantid(String azurecrSpnTenantid) {
-            this.azurecrSpnTenantid = Objects.requireNonNull(azurecrSpnTenantid);
+            if (azurecrSpnTenantid == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "azurecrSpnTenantid");
+            }
+            this.azurecrSpnTenantid = azurecrSpnTenantid;
             return this;
         }
         @CustomType.Setter
         public Builder azurecrSubscriptionId(String azurecrSubscriptionId) {
-            this.azurecrSubscriptionId = Objects.requireNonNull(azurecrSubscriptionId);
+            if (azurecrSubscriptionId == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "azurecrSubscriptionId");
+            }
+            this.azurecrSubscriptionId = azurecrSubscriptionId;
             return this;
         }
         @CustomType.Setter
         public Builder azurecrSubscriptionName(String azurecrSubscriptionName) {
-            this.azurecrSubscriptionName = Objects.requireNonNull(azurecrSubscriptionName);
+            if (azurecrSubscriptionName == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "azurecrSubscriptionName");
+            }
+            this.azurecrSubscriptionName = azurecrSubscriptionName;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroup(String resourceGroup) {
-            this.resourceGroup = Objects.requireNonNull(resourceGroup);
+            if (resourceGroup == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "resourceGroup");
+            }
+            this.resourceGroup = resourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder serviceEndpointId(String serviceEndpointId) {
-            this.serviceEndpointId = Objects.requireNonNull(serviceEndpointId);
+            if (serviceEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "serviceEndpointId");
+            }
+            this.serviceEndpointId = serviceEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceEndpointName(String serviceEndpointName) {
-            this.serviceEndpointName = Objects.requireNonNull(serviceEndpointName);
+            if (serviceEndpointName == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "serviceEndpointName");
+            }
+            this.serviceEndpointName = serviceEndpointName;
             return this;
         }
         @CustomType.Setter
         public Builder servicePrincipalId(String servicePrincipalId) {
-            this.servicePrincipalId = Objects.requireNonNull(servicePrincipalId);
+            if (servicePrincipalId == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "servicePrincipalId");
+            }
+            this.servicePrincipalId = servicePrincipalId;
             return this;
         }
         @CustomType.Setter
         public Builder spnObjectId(String spnObjectId) {
-            this.spnObjectId = Objects.requireNonNull(spnObjectId);
+            if (spnObjectId == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointAzurecrResult", "spnObjectId");
+            }
+            this.spnObjectId = spnObjectId;
             return this;
         }
         public GetServiceendpointAzurecrResult build() {

@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.outputs;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionPullRequestTriggerFork;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionPullRequestTriggerOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -102,12 +103,18 @@ public final class GetBuildDefinitionPullRequestTrigger {
 
         @CustomType.Setter
         public Builder commentRequired(String commentRequired) {
-            this.commentRequired = Objects.requireNonNull(commentRequired);
+            if (commentRequired == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionPullRequestTrigger", "commentRequired");
+            }
+            this.commentRequired = commentRequired;
             return this;
         }
         @CustomType.Setter
         public Builder forks(List<GetBuildDefinitionPullRequestTriggerFork> forks) {
-            this.forks = Objects.requireNonNull(forks);
+            if (forks == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionPullRequestTrigger", "forks");
+            }
+            this.forks = forks;
             return this;
         }
         public Builder forks(GetBuildDefinitionPullRequestTriggerFork... forks) {
@@ -115,12 +122,18 @@ public final class GetBuildDefinitionPullRequestTrigger {
         }
         @CustomType.Setter
         public Builder initialBranch(String initialBranch) {
-            this.initialBranch = Objects.requireNonNull(initialBranch);
+            if (initialBranch == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionPullRequestTrigger", "initialBranch");
+            }
+            this.initialBranch = initialBranch;
             return this;
         }
         @CustomType.Setter
         public Builder overrides(List<GetBuildDefinitionPullRequestTriggerOverride> overrides) {
-            this.overrides = Objects.requireNonNull(overrides);
+            if (overrides == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionPullRequestTrigger", "overrides");
+            }
+            this.overrides = overrides;
             return this;
         }
         public Builder overrides(GetBuildDefinitionPullRequestTriggerOverride... overrides) {
@@ -128,7 +141,10 @@ public final class GetBuildDefinitionPullRequestTrigger {
         }
         @CustomType.Setter
         public Builder useYaml(Boolean useYaml) {
-            this.useYaml = Objects.requireNonNull(useYaml);
+            if (useYaml == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionPullRequestTrigger", "useYaml");
+            }
+            this.useYaml = useYaml;
             return this;
         }
         public GetBuildDefinitionPullRequestTrigger build() {

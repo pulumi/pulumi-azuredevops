@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.BranchPolicyMinReviewersSettingsScope;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.List;
@@ -149,37 +150,46 @@ public final class BranchPolicyMinReviewersSettings {
 
         @CustomType.Setter
         public Builder allowCompletionWithRejectsOrWaits(@Nullable Boolean allowCompletionWithRejectsOrWaits) {
+
             this.allowCompletionWithRejectsOrWaits = allowCompletionWithRejectsOrWaits;
             return this;
         }
         @CustomType.Setter
         public Builder lastPusherCannotApprove(@Nullable Boolean lastPusherCannotApprove) {
+
             this.lastPusherCannotApprove = lastPusherCannotApprove;
             return this;
         }
         @CustomType.Setter
         public Builder onLastIterationRequireVote(@Nullable Boolean onLastIterationRequireVote) {
+
             this.onLastIterationRequireVote = onLastIterationRequireVote;
             return this;
         }
         @CustomType.Setter
         public Builder onPushResetAllVotes(@Nullable Boolean onPushResetAllVotes) {
+
             this.onPushResetAllVotes = onPushResetAllVotes;
             return this;
         }
         @CustomType.Setter
         public Builder onPushResetApprovedVotes(@Nullable Boolean onPushResetApprovedVotes) {
+
             this.onPushResetApprovedVotes = onPushResetApprovedVotes;
             return this;
         }
         @CustomType.Setter
         public Builder reviewerCount(@Nullable Integer reviewerCount) {
+
             this.reviewerCount = reviewerCount;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<BranchPolicyMinReviewersSettingsScope> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyMinReviewersSettings", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(BranchPolicyMinReviewersSettingsScope... scopes) {
@@ -187,6 +197,7 @@ public final class BranchPolicyMinReviewersSettings {
         }
         @CustomType.Setter
         public Builder submitterCanVote(@Nullable Boolean submitterCanVote) {
+
             this.submitterCanVote = submitterCanVote;
             return this;
         }

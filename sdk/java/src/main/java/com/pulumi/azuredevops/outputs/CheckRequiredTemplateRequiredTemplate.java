@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,22 +87,32 @@ public final class CheckRequiredTemplateRequiredTemplate {
 
         @CustomType.Setter
         public Builder repositoryName(String repositoryName) {
-            this.repositoryName = Objects.requireNonNull(repositoryName);
+            if (repositoryName == null) {
+              throw new MissingRequiredPropertyException("CheckRequiredTemplateRequiredTemplate", "repositoryName");
+            }
+            this.repositoryName = repositoryName;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryRef(String repositoryRef) {
-            this.repositoryRef = Objects.requireNonNull(repositoryRef);
+            if (repositoryRef == null) {
+              throw new MissingRequiredPropertyException("CheckRequiredTemplateRequiredTemplate", "repositoryRef");
+            }
+            this.repositoryRef = repositoryRef;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryType(@Nullable String repositoryType) {
+
             this.repositoryType = repositoryType;
             return this;
         }
         @CustomType.Setter
         public Builder templatePath(String templatePath) {
-            this.templatePath = Objects.requireNonNull(templatePath);
+            if (templatePath == null) {
+              throw new MissingRequiredPropertyException("CheckRequiredTemplateRequiredTemplate", "templatePath");
+            }
+            this.templatePath = templatePath;
             return this;
         }
         public CheckRequiredTemplateRequiredTemplate build() {

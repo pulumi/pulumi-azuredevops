@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.inputs;
 import com.pulumi.azuredevops.inputs.BranchPolicyMinReviewersSettingsScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.util.List;
@@ -356,7 +357,9 @@ public final class BranchPolicyMinReviewersSettingsArgs extends com.pulumi.resou
         }
 
         public BranchPolicyMinReviewersSettingsArgs build() {
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyMinReviewersSettingsArgs", "scopes");
+            }
             return $;
         }
     }

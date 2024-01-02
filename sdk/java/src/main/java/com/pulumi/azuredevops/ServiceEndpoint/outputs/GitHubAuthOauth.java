@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.ServiceEndpoint.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -34,7 +35,10 @@ public final class GitHubAuthOauth {
 
         @CustomType.Setter
         public Builder oauthConfigurationId(String oauthConfigurationId) {
-            this.oauthConfigurationId = Objects.requireNonNull(oauthConfigurationId);
+            if (oauthConfigurationId == null) {
+              throw new MissingRequiredPropertyException("GitHubAuthOauth", "oauthConfigurationId");
+            }
+            this.oauthConfigurationId = oauthConfigurationId;
             return this;
         }
         public GitHubAuthOauth build() {

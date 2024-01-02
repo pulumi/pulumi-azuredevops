@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -187,9 +188,15 @@ public final class CheckRequiredTemplateRequiredTemplateArgs extends com.pulumi.
         }
 
         public CheckRequiredTemplateRequiredTemplateArgs build() {
-            $.repositoryName = Objects.requireNonNull($.repositoryName, "expected parameter 'repositoryName' to be non-null");
-            $.repositoryRef = Objects.requireNonNull($.repositoryRef, "expected parameter 'repositoryRef' to be non-null");
-            $.templatePath = Objects.requireNonNull($.templatePath, "expected parameter 'templatePath' to be non-null");
+            if ($.repositoryName == null) {
+                throw new MissingRequiredPropertyException("CheckRequiredTemplateRequiredTemplateArgs", "repositoryName");
+            }
+            if ($.repositoryRef == null) {
+                throw new MissingRequiredPropertyException("CheckRequiredTemplateRequiredTemplateArgs", "repositoryRef");
+            }
+            if ($.templatePath == null) {
+                throw new MissingRequiredPropertyException("CheckRequiredTemplateRequiredTemplateArgs", "templatePath");
+            }
             return $;
         }
     }

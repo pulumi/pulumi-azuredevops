@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.inputs.CheckRequiredTemplateRequiredTemplateArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -197,10 +198,18 @@ public final class CheckRequiredTemplateArgs extends com.pulumi.resources.Resour
         }
 
         public CheckRequiredTemplateArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.requiredTemplates = Objects.requireNonNull($.requiredTemplates, "expected parameter 'requiredTemplates' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
-            $.targetResourceType = Objects.requireNonNull($.targetResourceType, "expected parameter 'targetResourceType' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("CheckRequiredTemplateArgs", "projectId");
+            }
+            if ($.requiredTemplates == null) {
+                throw new MissingRequiredPropertyException("CheckRequiredTemplateArgs", "requiredTemplates");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("CheckRequiredTemplateArgs", "targetResourceId");
+            }
+            if ($.targetResourceType == null) {
+                throw new MissingRequiredPropertyException("CheckRequiredTemplateArgs", "targetResourceType");
+            }
             return $;
         }
     }

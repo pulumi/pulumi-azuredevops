@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -333,11 +334,21 @@ public final class ServiceendpointGcpTerraformArgs extends com.pulumi.resources.
         }
 
         public ServiceendpointGcpTerraformArgs build() {
-            $.gcpProjectId = Objects.requireNonNull($.gcpProjectId, "expected parameter 'gcpProjectId' to be non-null");
-            $.privateKey = Objects.requireNonNull($.privateKey, "expected parameter 'privateKey' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
-            $.tokenUri = Objects.requireNonNull($.tokenUri, "expected parameter 'tokenUri' to be non-null");
+            if ($.gcpProjectId == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "gcpProjectId");
+            }
+            if ($.privateKey == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "privateKey");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "serviceEndpointName");
+            }
+            if ($.tokenUri == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointGcpTerraformArgs", "tokenUri");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.Pipeline.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -151,8 +152,12 @@ public final class VariableGroupKeyVaultArgs extends com.pulumi.resources.Resour
         }
 
         public VariableGroupKeyVaultArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.serviceEndpointId = Objects.requireNonNull($.serviceEndpointId, "expected parameter 'serviceEndpointId' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("VariableGroupKeyVaultArgs", "name");
+            }
+            if ($.serviceEndpointId == null) {
+                throw new MissingRequiredPropertyException("VariableGroupKeyVaultArgs", "serviceEndpointId");
+            }
             return $;
         }
     }

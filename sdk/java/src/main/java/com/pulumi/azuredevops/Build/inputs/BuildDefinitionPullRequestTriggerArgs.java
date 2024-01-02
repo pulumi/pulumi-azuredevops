@@ -7,6 +7,7 @@ import com.pulumi.azuredevops.Build.inputs.BuildDefinitionPullRequestTriggerFork
 import com.pulumi.azuredevops.Build.inputs.BuildDefinitionPullRequestTriggerOverrideArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -187,7 +188,9 @@ public final class BuildDefinitionPullRequestTriggerArgs extends com.pulumi.reso
         }
 
         public BuildDefinitionPullRequestTriggerArgs build() {
-            $.forks = Objects.requireNonNull($.forks, "expected parameter 'forks' to be non-null");
+            if ($.forks == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionPullRequestTriggerArgs", "forks");
+            }
             return $;
         }
     }

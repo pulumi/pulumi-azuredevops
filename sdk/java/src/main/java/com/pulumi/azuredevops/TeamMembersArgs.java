@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -231,9 +232,15 @@ public final class TeamMembersArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public TeamMembersArgs build() {
-            $.members = Objects.requireNonNull($.members, "expected parameter 'members' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.teamId = Objects.requireNonNull($.teamId, "expected parameter 'teamId' to be non-null");
+            if ($.members == null) {
+                throw new MissingRequiredPropertyException("TeamMembersArgs", "members");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("TeamMembersArgs", "projectId");
+            }
+            if ($.teamId == null) {
+                throw new MissingRequiredPropertyException("TeamMembersArgs", "teamId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -305,9 +306,15 @@ public final class ServiceEndpointGenericGitArgs extends com.pulumi.resources.Re
         }
 
         public ServiceEndpointGenericGitArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.repositoryUrl = Objects.requireNonNull($.repositoryUrl, "expected parameter 'repositoryUrl' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointGenericGitArgs", "projectId");
+            }
+            if ($.repositoryUrl == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointGenericGitArgs", "repositoryUrl");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointGenericGitArgs", "serviceEndpointName");
+            }
             return $;
         }
     }

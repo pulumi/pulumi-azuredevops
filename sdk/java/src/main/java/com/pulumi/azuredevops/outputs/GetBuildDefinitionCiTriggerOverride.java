@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.outputs;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionCiTriggerOverrideBranchFilter;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionCiTriggerOverridePathFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -117,12 +118,18 @@ public final class GetBuildDefinitionCiTriggerOverride {
 
         @CustomType.Setter
         public Builder batch(Boolean batch) {
-            this.batch = Objects.requireNonNull(batch);
+            if (batch == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionCiTriggerOverride", "batch");
+            }
+            this.batch = batch;
             return this;
         }
         @CustomType.Setter
         public Builder branchFilters(List<GetBuildDefinitionCiTriggerOverrideBranchFilter> branchFilters) {
-            this.branchFilters = Objects.requireNonNull(branchFilters);
+            if (branchFilters == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionCiTriggerOverride", "branchFilters");
+            }
+            this.branchFilters = branchFilters;
             return this;
         }
         public Builder branchFilters(GetBuildDefinitionCiTriggerOverrideBranchFilter... branchFilters) {
@@ -130,12 +137,18 @@ public final class GetBuildDefinitionCiTriggerOverride {
         }
         @CustomType.Setter
         public Builder maxConcurrentBuildsPerBranch(Integer maxConcurrentBuildsPerBranch) {
-            this.maxConcurrentBuildsPerBranch = Objects.requireNonNull(maxConcurrentBuildsPerBranch);
+            if (maxConcurrentBuildsPerBranch == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionCiTriggerOverride", "maxConcurrentBuildsPerBranch");
+            }
+            this.maxConcurrentBuildsPerBranch = maxConcurrentBuildsPerBranch;
             return this;
         }
         @CustomType.Setter
         public Builder pathFilters(List<GetBuildDefinitionCiTriggerOverridePathFilter> pathFilters) {
-            this.pathFilters = Objects.requireNonNull(pathFilters);
+            if (pathFilters == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionCiTriggerOverride", "pathFilters");
+            }
+            this.pathFilters = pathFilters;
             return this;
         }
         public Builder pathFilters(GetBuildDefinitionCiTriggerOverridePathFilter... pathFilters) {
@@ -143,12 +156,18 @@ public final class GetBuildDefinitionCiTriggerOverride {
         }
         @CustomType.Setter
         public Builder pollingInterval(Integer pollingInterval) {
-            this.pollingInterval = Objects.requireNonNull(pollingInterval);
+            if (pollingInterval == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionCiTriggerOverride", "pollingInterval");
+            }
+            this.pollingInterval = pollingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder pollingJobId(String pollingJobId) {
-            this.pollingJobId = Objects.requireNonNull(pollingJobId);
+            if (pollingJobId == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionCiTriggerOverride", "pollingJobId");
+            }
+            this.pollingJobId = pollingJobId;
             return this;
         }
         public GetBuildDefinitionCiTriggerOverride build() {

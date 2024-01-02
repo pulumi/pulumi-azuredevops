@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionScheduleBranchFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -130,7 +131,10 @@ public final class GetBuildDefinitionSchedule {
 
         @CustomType.Setter
         public Builder branchFilters(List<GetBuildDefinitionScheduleBranchFilter> branchFilters) {
-            this.branchFilters = Objects.requireNonNull(branchFilters);
+            if (branchFilters == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionSchedule", "branchFilters");
+            }
+            this.branchFilters = branchFilters;
             return this;
         }
         public Builder branchFilters(GetBuildDefinitionScheduleBranchFilter... branchFilters) {
@@ -138,7 +142,10 @@ public final class GetBuildDefinitionSchedule {
         }
         @CustomType.Setter
         public Builder daysToBuilds(List<String> daysToBuilds) {
-            this.daysToBuilds = Objects.requireNonNull(daysToBuilds);
+            if (daysToBuilds == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionSchedule", "daysToBuilds");
+            }
+            this.daysToBuilds = daysToBuilds;
             return this;
         }
         public Builder daysToBuilds(String... daysToBuilds) {
@@ -146,27 +153,42 @@ public final class GetBuildDefinitionSchedule {
         }
         @CustomType.Setter
         public Builder scheduleJobId(String scheduleJobId) {
-            this.scheduleJobId = Objects.requireNonNull(scheduleJobId);
+            if (scheduleJobId == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionSchedule", "scheduleJobId");
+            }
+            this.scheduleJobId = scheduleJobId;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleOnlyWithChanges(Boolean scheduleOnlyWithChanges) {
-            this.scheduleOnlyWithChanges = Objects.requireNonNull(scheduleOnlyWithChanges);
+            if (scheduleOnlyWithChanges == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionSchedule", "scheduleOnlyWithChanges");
+            }
+            this.scheduleOnlyWithChanges = scheduleOnlyWithChanges;
             return this;
         }
         @CustomType.Setter
         public Builder startHours(Integer startHours) {
-            this.startHours = Objects.requireNonNull(startHours);
+            if (startHours == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionSchedule", "startHours");
+            }
+            this.startHours = startHours;
             return this;
         }
         @CustomType.Setter
         public Builder startMinutes(Integer startMinutes) {
-            this.startMinutes = Objects.requireNonNull(startMinutes);
+            if (startMinutes == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionSchedule", "startMinutes");
+            }
+            this.startMinutes = startMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(String timeZone) {
-            this.timeZone = Objects.requireNonNull(timeZone);
+            if (timeZone == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionSchedule", "timeZone");
+            }
+            this.timeZone = timeZone;
             return this;
         }
         public GetBuildDefinitionSchedule build() {

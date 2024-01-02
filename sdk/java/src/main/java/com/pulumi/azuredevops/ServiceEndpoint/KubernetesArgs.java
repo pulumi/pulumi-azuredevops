@@ -8,6 +8,7 @@ import com.pulumi.azuredevops.ServiceEndpoint.inputs.KubernetesKubeconfigArgs;
 import com.pulumi.azuredevops.ServiceEndpoint.inputs.KubernetesServiceAccountArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -347,10 +348,18 @@ public final class KubernetesArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public KubernetesArgs build() {
-            $.apiserverUrl = Objects.requireNonNull($.apiserverUrl, "expected parameter 'apiserverUrl' to be non-null");
-            $.authorizationType = Objects.requireNonNull($.authorizationType, "expected parameter 'authorizationType' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
+            if ($.apiserverUrl == null) {
+                throw new MissingRequiredPropertyException("KubernetesArgs", "apiserverUrl");
+            }
+            if ($.authorizationType == null) {
+                throw new MissingRequiredPropertyException("KubernetesArgs", "authorizationType");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("KubernetesArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("KubernetesArgs", "serviceEndpointName");
+            }
             return $;
         }
     }

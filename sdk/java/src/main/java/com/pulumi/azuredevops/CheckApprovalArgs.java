@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -348,10 +349,18 @@ public final class CheckApprovalArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public CheckApprovalArgs build() {
-            $.approvers = Objects.requireNonNull($.approvers, "expected parameter 'approvers' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
-            $.targetResourceType = Objects.requireNonNull($.targetResourceType, "expected parameter 'targetResourceType' to be non-null");
+            if ($.approvers == null) {
+                throw new MissingRequiredPropertyException("CheckApprovalArgs", "approvers");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("CheckApprovalArgs", "projectId");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("CheckApprovalArgs", "targetResourceId");
+            }
+            if ($.targetResourceType == null) {
+                throw new MissingRequiredPropertyException("CheckApprovalArgs", "targetResourceType");
+            }
             return $;
         }
     }

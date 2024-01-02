@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class CheckExclusiveLockArgs extends com.pulumi.resources.ResourceA
         }
 
         public CheckExclusiveLockArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
-            $.targetResourceType = Objects.requireNonNull($.targetResourceType, "expected parameter 'targetResourceType' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("CheckExclusiveLockArgs", "projectId");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("CheckExclusiveLockArgs", "targetResourceId");
+            }
+            if ($.targetResourceType == null) {
+                throw new MissingRequiredPropertyException("CheckExclusiveLockArgs", "targetResourceType");
+            }
             return $;
         }
     }

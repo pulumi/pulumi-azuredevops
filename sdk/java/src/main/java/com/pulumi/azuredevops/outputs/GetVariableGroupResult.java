@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.outputs;
 import com.pulumi.azuredevops.outputs.GetVariableGroupKeyVault;
 import com.pulumi.azuredevops.outputs.GetVariableGroupVariable;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -122,22 +123,34 @@ public final class GetVariableGroupResult {
 
         @CustomType.Setter
         public Builder allowAccess(Boolean allowAccess) {
-            this.allowAccess = Objects.requireNonNull(allowAccess);
+            if (allowAccess == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupResult", "allowAccess");
+            }
+            this.allowAccess = allowAccess;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder keyVaults(List<GetVariableGroupKeyVault> keyVaults) {
-            this.keyVaults = Objects.requireNonNull(keyVaults);
+            if (keyVaults == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupResult", "keyVaults");
+            }
+            this.keyVaults = keyVaults;
             return this;
         }
         public Builder keyVaults(GetVariableGroupKeyVault... keyVaults) {
@@ -145,17 +158,26 @@ public final class GetVariableGroupResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupResult", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder variables(List<GetVariableGroupVariable> variables) {
-            this.variables = Objects.requireNonNull(variables);
+            if (variables == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupResult", "variables");
+            }
+            this.variables = variables;
             return this;
         }
         public Builder variables(GetVariableGroupVariable... variables) {

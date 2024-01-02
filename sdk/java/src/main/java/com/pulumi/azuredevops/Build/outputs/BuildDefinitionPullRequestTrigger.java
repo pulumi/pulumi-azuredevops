@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.Build.outputs;
 import com.pulumi.azuredevops.Build.outputs.BuildDefinitionPullRequestTriggerForks;
 import com.pulumi.azuredevops.Build.outputs.BuildDefinitionPullRequestTriggerOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -87,26 +88,33 @@ public final class BuildDefinitionPullRequestTrigger {
 
         @CustomType.Setter
         public Builder commentRequired(@Nullable String commentRequired) {
+
             this.commentRequired = commentRequired;
             return this;
         }
         @CustomType.Setter
         public Builder forks(BuildDefinitionPullRequestTriggerForks forks) {
-            this.forks = Objects.requireNonNull(forks);
+            if (forks == null) {
+              throw new MissingRequiredPropertyException("BuildDefinitionPullRequestTrigger", "forks");
+            }
+            this.forks = forks;
             return this;
         }
         @CustomType.Setter
         public Builder initialBranch(@Nullable String initialBranch) {
+
             this.initialBranch = initialBranch;
             return this;
         }
         @CustomType.Setter
         public Builder override(@Nullable BuildDefinitionPullRequestTriggerOverride override) {
+
             this.override = override;
             return this;
         }
         @CustomType.Setter
         public Builder useYaml(@Nullable Boolean useYaml) {
+
             this.useYaml = useYaml;
             return this;
         }

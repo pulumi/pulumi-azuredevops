@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -448,11 +449,21 @@ public final class ElasticPoolArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public ElasticPoolArgs build() {
-            $.azureResourceId = Objects.requireNonNull($.azureResourceId, "expected parameter 'azureResourceId' to be non-null");
-            $.desiredIdle = Objects.requireNonNull($.desiredIdle, "expected parameter 'desiredIdle' to be non-null");
-            $.maxCapacity = Objects.requireNonNull($.maxCapacity, "expected parameter 'maxCapacity' to be non-null");
-            $.serviceEndpointId = Objects.requireNonNull($.serviceEndpointId, "expected parameter 'serviceEndpointId' to be non-null");
-            $.serviceEndpointScope = Objects.requireNonNull($.serviceEndpointScope, "expected parameter 'serviceEndpointScope' to be non-null");
+            if ($.azureResourceId == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "azureResourceId");
+            }
+            if ($.desiredIdle == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "desiredIdle");
+            }
+            if ($.maxCapacity == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "maxCapacity");
+            }
+            if ($.serviceEndpointId == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "serviceEndpointId");
+            }
+            if ($.serviceEndpointScope == null) {
+                throw new MissingRequiredPropertyException("ElasticPoolArgs", "serviceEndpointScope");
+            }
             return $;
         }
     }

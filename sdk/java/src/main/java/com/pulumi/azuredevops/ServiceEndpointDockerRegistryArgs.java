@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -333,10 +334,18 @@ public final class ServiceEndpointDockerRegistryArgs extends com.pulumi.resource
         }
 
         public ServiceEndpointDockerRegistryArgs build() {
-            $.dockerRegistry = Objects.requireNonNull($.dockerRegistry, "expected parameter 'dockerRegistry' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.registryType = Objects.requireNonNull($.registryType, "expected parameter 'registryType' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
+            if ($.dockerRegistry == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointDockerRegistryArgs", "dockerRegistry");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointDockerRegistryArgs", "projectId");
+            }
+            if ($.registryType == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointDockerRegistryArgs", "registryType");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointDockerRegistryArgs", "serviceEndpointName");
+            }
             return $;
         }
     }

@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.inputs;
 import com.pulumi.azuredevops.inputs.BranchPolicyStatusCheckSettingsScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -371,8 +372,12 @@ public final class BranchPolicyStatusCheckSettingsArgs extends com.pulumi.resour
         }
 
         public BranchPolicyStatusCheckSettingsArgs build() {
-            $.name = Objects.requireNonNull($.name, "expected parameter 'name' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.name == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyStatusCheckSettingsArgs", "name");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyStatusCheckSettingsArgs", "scopes");
+            }
             return $;
         }
     }

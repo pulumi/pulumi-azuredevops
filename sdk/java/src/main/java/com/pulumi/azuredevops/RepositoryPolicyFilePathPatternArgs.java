@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -246,8 +247,12 @@ public final class RepositoryPolicyFilePathPatternArgs extends com.pulumi.resour
         }
 
         public RepositoryPolicyFilePathPatternArgs build() {
-            $.filepathPatterns = Objects.requireNonNull($.filepathPatterns, "expected parameter 'filepathPatterns' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.filepathPatterns == null) {
+                throw new MissingRequiredPropertyException("RepositoryPolicyFilePathPatternArgs", "filepathPatterns");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("RepositoryPolicyFilePathPatternArgs", "projectId");
+            }
             return $;
         }
     }

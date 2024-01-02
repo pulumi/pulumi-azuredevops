@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -254,9 +255,15 @@ public final class IterativePermissionsArgs extends com.pulumi.resources.Resourc
         }
 
         public IterativePermissionsArgs build() {
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("IterativePermissionsArgs", "permissions");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("IterativePermissionsArgs", "principal");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("IterativePermissionsArgs", "projectId");
+            }
             return $;
         }
     }

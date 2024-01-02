@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
@@ -334,10 +335,18 @@ public final class ServiceEndpointSshArgs extends com.pulumi.resources.ResourceA
         }
 
         public ServiceEndpointSshArgs build() {
-            $.host = Objects.requireNonNull($.host, "expected parameter 'host' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.host == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSshArgs", "host");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSshArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSshArgs", "serviceEndpointName");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSshArgs", "username");
+            }
             return $;
         }
     }

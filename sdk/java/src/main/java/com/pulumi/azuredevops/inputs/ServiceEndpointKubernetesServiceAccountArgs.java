@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class ServiceEndpointKubernetesServiceAccountArgs extends com.pulum
         }
 
         public ServiceEndpointKubernetesServiceAccountArgs build() {
-            $.caCert = Objects.requireNonNull($.caCert, "expected parameter 'caCert' to be non-null");
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
+            if ($.caCert == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointKubernetesServiceAccountArgs", "caCert");
+            }
+            if ($.token == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointKubernetesServiceAccountArgs", "token");
+            }
             return $;
         }
     }

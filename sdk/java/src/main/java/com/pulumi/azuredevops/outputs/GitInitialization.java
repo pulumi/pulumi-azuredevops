@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,21 +87,27 @@ public final class GitInitialization {
 
         @CustomType.Setter
         public Builder initType(String initType) {
-            this.initType = Objects.requireNonNull(initType);
+            if (initType == null) {
+              throw new MissingRequiredPropertyException("GitInitialization", "initType");
+            }
+            this.initType = initType;
             return this;
         }
         @CustomType.Setter
         public Builder serviceConnectionId(@Nullable String serviceConnectionId) {
+
             this.serviceConnectionId = serviceConnectionId;
             return this;
         }
         @CustomType.Setter
         public Builder sourceType(@Nullable String sourceType) {
+
             this.sourceType = sourceType;
             return this;
         }
         @CustomType.Setter
         public Builder sourceUrl(@Nullable String sourceUrl) {
+
             this.sourceUrl = sourceUrl;
             return this;
         }

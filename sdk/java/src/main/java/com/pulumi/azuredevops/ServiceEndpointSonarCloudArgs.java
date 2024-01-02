@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -205,9 +206,15 @@ public final class ServiceEndpointSonarCloudArgs extends com.pulumi.resources.Re
         }
 
         public ServiceEndpointSonarCloudArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSonarCloudArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSonarCloudArgs", "serviceEndpointName");
+            }
+            if ($.token == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSonarCloudArgs", "token");
+            }
             return $;
         }
     }

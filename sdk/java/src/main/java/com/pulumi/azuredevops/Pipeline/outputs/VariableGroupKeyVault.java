@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.Pipeline.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,24 @@ public final class VariableGroupKeyVault {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("VariableGroupKeyVault", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder searchDepth(@Nullable Integer searchDepth) {
+
             this.searchDepth = searchDepth;
             return this;
         }
         @CustomType.Setter
         public Builder serviceEndpointId(String serviceEndpointId) {
-            this.serviceEndpointId = Objects.requireNonNull(serviceEndpointId);
+            if (serviceEndpointId == null) {
+              throw new MissingRequiredPropertyException("VariableGroupKeyVault", "serviceEndpointId");
+            }
+            this.serviceEndpointId = serviceEndpointId;
             return this;
         }
         public VariableGroupKeyVault build() {

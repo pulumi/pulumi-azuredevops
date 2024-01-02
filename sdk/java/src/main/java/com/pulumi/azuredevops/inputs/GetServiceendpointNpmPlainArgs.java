@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -125,7 +126,9 @@ public final class GetServiceendpointNpmPlainArgs extends com.pulumi.resources.I
         }
 
         public GetServiceendpointNpmPlainArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("GetServiceendpointNpmPlainArgs", "projectId");
+            }
             return $;
         }
     }

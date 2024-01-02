@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.Core;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -116,8 +117,12 @@ public final class ProjectFeaturesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public ProjectFeaturesArgs build() {
-            $.features = Objects.requireNonNull($.features, "expected parameter 'features' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.features == null) {
+                throw new MissingRequiredPropertyException("ProjectFeaturesArgs", "features");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ProjectFeaturesArgs", "projectId");
+            }
             return $;
         }
     }

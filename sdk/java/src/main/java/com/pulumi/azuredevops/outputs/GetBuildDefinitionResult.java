@@ -9,6 +9,7 @@ import com.pulumi.azuredevops.outputs.GetBuildDefinitionRepository;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionSchedule;
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionVariable;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -189,12 +190,18 @@ public final class GetBuildDefinitionResult {
 
         @CustomType.Setter
         public Builder agentPoolName(String agentPoolName) {
-            this.agentPoolName = Objects.requireNonNull(agentPoolName);
+            if (agentPoolName == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "agentPoolName");
+            }
+            this.agentPoolName = agentPoolName;
             return this;
         }
         @CustomType.Setter
         public Builder ciTriggers(List<GetBuildDefinitionCiTrigger> ciTriggers) {
-            this.ciTriggers = Objects.requireNonNull(ciTriggers);
+            if (ciTriggers == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "ciTriggers");
+            }
+            this.ciTriggers = ciTriggers;
             return this;
         }
         public Builder ciTriggers(GetBuildDefinitionCiTrigger... ciTriggers) {
@@ -202,27 +209,40 @@ public final class GetBuildDefinitionResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(@Nullable String path) {
+
             this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder pullRequestTriggers(List<GetBuildDefinitionPullRequestTrigger> pullRequestTriggers) {
-            this.pullRequestTriggers = Objects.requireNonNull(pullRequestTriggers);
+            if (pullRequestTriggers == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "pullRequestTriggers");
+            }
+            this.pullRequestTriggers = pullRequestTriggers;
             return this;
         }
         public Builder pullRequestTriggers(GetBuildDefinitionPullRequestTrigger... pullRequestTriggers) {
@@ -230,7 +250,10 @@ public final class GetBuildDefinitionResult {
         }
         @CustomType.Setter
         public Builder repositories(List<GetBuildDefinitionRepository> repositories) {
-            this.repositories = Objects.requireNonNull(repositories);
+            if (repositories == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "repositories");
+            }
+            this.repositories = repositories;
             return this;
         }
         public Builder repositories(GetBuildDefinitionRepository... repositories) {
@@ -238,12 +261,18 @@ public final class GetBuildDefinitionResult {
         }
         @CustomType.Setter
         public Builder revision(Integer revision) {
-            this.revision = Objects.requireNonNull(revision);
+            if (revision == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "revision");
+            }
+            this.revision = revision;
             return this;
         }
         @CustomType.Setter
         public Builder schedules(List<GetBuildDefinitionSchedule> schedules) {
-            this.schedules = Objects.requireNonNull(schedules);
+            if (schedules == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "schedules");
+            }
+            this.schedules = schedules;
             return this;
         }
         public Builder schedules(GetBuildDefinitionSchedule... schedules) {
@@ -251,7 +280,10 @@ public final class GetBuildDefinitionResult {
         }
         @CustomType.Setter
         public Builder variableGroups(List<Integer> variableGroups) {
-            this.variableGroups = Objects.requireNonNull(variableGroups);
+            if (variableGroups == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "variableGroups");
+            }
+            this.variableGroups = variableGroups;
             return this;
         }
         public Builder variableGroups(Integer... variableGroups) {
@@ -259,7 +291,10 @@ public final class GetBuildDefinitionResult {
         }
         @CustomType.Setter
         public Builder variables(List<GetBuildDefinitionVariable> variables) {
-            this.variables = Objects.requireNonNull(variables);
+            if (variables == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionResult", "variables");
+            }
+            this.variables = variables;
             return this;
         }
         public Builder variables(GetBuildDefinitionVariable... variables) {

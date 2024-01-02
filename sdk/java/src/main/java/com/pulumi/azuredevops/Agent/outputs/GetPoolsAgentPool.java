@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.Agent.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -92,27 +93,42 @@ public final class GetPoolsAgentPool {
 
         @CustomType.Setter
         public Builder autoProvision(Boolean autoProvision) {
-            this.autoProvision = Objects.requireNonNull(autoProvision);
+            if (autoProvision == null) {
+              throw new MissingRequiredPropertyException("GetPoolsAgentPool", "autoProvision");
+            }
+            this.autoProvision = autoProvision;
             return this;
         }
         @CustomType.Setter
         public Builder autoUpdate(Boolean autoUpdate) {
-            this.autoUpdate = Objects.requireNonNull(autoUpdate);
+            if (autoUpdate == null) {
+              throw new MissingRequiredPropertyException("GetPoolsAgentPool", "autoUpdate");
+            }
+            this.autoUpdate = autoUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder id(Integer id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPoolsAgentPool", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetPoolsAgentPool", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder poolType(String poolType) {
-            this.poolType = Objects.requireNonNull(poolType);
+            if (poolType == null) {
+              throw new MissingRequiredPropertyException("GetPoolsAgentPool", "poolType");
+            }
+            this.poolType = poolType;
             return this;
         }
         public GetPoolsAgentPool build() {

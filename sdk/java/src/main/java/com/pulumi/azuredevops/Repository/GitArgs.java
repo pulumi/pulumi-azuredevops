@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.Repository;
 import com.pulumi.azuredevops.Repository.inputs.GitInitializationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -225,8 +226,12 @@ public final class GitArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public GitArgs build() {
-            $.initialization = Objects.requireNonNull($.initialization, "expected parameter 'initialization' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.initialization == null) {
+                throw new MissingRequiredPropertyException("GitArgs", "initialization");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("GitArgs", "projectId");
+            }
             return $;
         }
     }

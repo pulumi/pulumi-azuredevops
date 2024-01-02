@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -105,7 +106,10 @@ public final class GetTeamsTeam {
 
         @CustomType.Setter
         public Builder administrators(List<String> administrators) {
-            this.administrators = Objects.requireNonNull(administrators);
+            if (administrators == null) {
+              throw new MissingRequiredPropertyException("GetTeamsTeam", "administrators");
+            }
+            this.administrators = administrators;
             return this;
         }
         public Builder administrators(String... administrators) {
@@ -113,17 +117,26 @@ public final class GetTeamsTeam {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetTeamsTeam", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTeamsTeam", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder members(List<String> members) {
-            this.members = Objects.requireNonNull(members);
+            if (members == null) {
+              throw new MissingRequiredPropertyException("GetTeamsTeam", "members");
+            }
+            this.members = members;
             return this;
         }
         public Builder members(String... members) {
@@ -131,12 +144,18 @@ public final class GetTeamsTeam {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTeamsTeam", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetTeamsTeam", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         public GetTeamsTeam build() {

@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.inputs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionScheduleBranchFilterArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -886,7 +887,9 @@ public final class BuildDefinitionScheduleArgs extends com.pulumi.resources.Reso
         }
 
         public BuildDefinitionScheduleArgs build() {
-            $.daysToBuilds = Objects.requireNonNull($.daysToBuilds, "expected parameter 'daysToBuilds' to be non-null");
+            if ($.daysToBuilds == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionScheduleArgs", "daysToBuilds");
+            }
             return $;
         }
     }

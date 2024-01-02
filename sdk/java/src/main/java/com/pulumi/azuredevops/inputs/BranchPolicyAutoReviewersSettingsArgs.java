@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.inputs;
 import com.pulumi.azuredevops.inputs.BranchPolicyAutoReviewersSettingsScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -303,8 +304,12 @@ public final class BranchPolicyAutoReviewersSettingsArgs extends com.pulumi.reso
         }
 
         public BranchPolicyAutoReviewersSettingsArgs build() {
-            $.autoReviewerIds = Objects.requireNonNull($.autoReviewerIds, "expected parameter 'autoReviewerIds' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.autoReviewerIds == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyAutoReviewersSettingsArgs", "autoReviewerIds");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyAutoReviewersSettingsArgs", "scopes");
+            }
             return $;
         }
     }

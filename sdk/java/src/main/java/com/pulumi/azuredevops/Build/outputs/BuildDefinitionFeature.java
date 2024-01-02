@@ -48,6 +48,7 @@ public final class BuildDefinitionFeature {
 
         @CustomType.Setter
         public Builder skipFirstRun(@Nullable Boolean skipFirstRun) {
+
             this.skipFirstRun = skipFirstRun;
             return this;
         }

@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.GetTeamsTeam;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -83,17 +84,24 @@ public final class GetTeamsResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTeamsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(@Nullable String projectId) {
+
             this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder teams(List<GetTeamsTeam> teams) {
-            this.teams = Objects.requireNonNull(teams);
+            if (teams == null) {
+              throw new MissingRequiredPropertyException("GetTeamsResult", "teams");
+            }
+            this.teams = teams;
             return this;
         }
         public Builder teams(GetTeamsTeam... teams) {
@@ -101,6 +109,7 @@ public final class GetTeamsResult {
         }
         @CustomType.Setter
         public Builder top(@Nullable Integer top) {
+
             this.top = top;
             return this;
         }

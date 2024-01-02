@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -162,52 +163,82 @@ public final class GetGitRepositoryResult {
 
         @CustomType.Setter
         public Builder defaultBranch(String defaultBranch) {
-            this.defaultBranch = Objects.requireNonNull(defaultBranch);
+            if (defaultBranch == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "defaultBranch");
+            }
+            this.defaultBranch = defaultBranch;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder isFork(Boolean isFork) {
-            this.isFork = Objects.requireNonNull(isFork);
+            if (isFork == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "isFork");
+            }
+            this.isFork = isFork;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder remoteUrl(String remoteUrl) {
-            this.remoteUrl = Objects.requireNonNull(remoteUrl);
+            if (remoteUrl == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "remoteUrl");
+            }
+            this.remoteUrl = remoteUrl;
             return this;
         }
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder sshUrl(String sshUrl) {
-            this.sshUrl = Objects.requireNonNull(sshUrl);
+            if (sshUrl == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "sshUrl");
+            }
+            this.sshUrl = sshUrl;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "url");
+            }
+            this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder webUrl(String webUrl) {
-            this.webUrl = Objects.requireNonNull(webUrl);
+            if (webUrl == null) {
+              throw new MissingRequiredPropertyException("GetGitRepositoryResult", "webUrl");
+            }
+            this.webUrl = webUrl;
             return this;
         }
         public GetGitRepositoryResult build() {

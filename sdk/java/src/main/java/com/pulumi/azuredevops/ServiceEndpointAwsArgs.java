@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -370,10 +371,18 @@ public final class ServiceEndpointAwsArgs extends com.pulumi.resources.ResourceA
         }
 
         public ServiceEndpointAwsArgs build() {
-            $.accessKeyId = Objects.requireNonNull($.accessKeyId, "expected parameter 'accessKeyId' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.secretAccessKey = Objects.requireNonNull($.secretAccessKey, "expected parameter 'secretAccessKey' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
+            if ($.accessKeyId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAwsArgs", "accessKeyId");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAwsArgs", "projectId");
+            }
+            if ($.secretAccessKey == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAwsArgs", "secretAccessKey");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAwsArgs", "serviceEndpointName");
+            }
             return $;
         }
     }

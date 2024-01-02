@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -103,37 +104,58 @@ public final class GetVariableGroupVariable {
 
         @CustomType.Setter
         public Builder contentType(String contentType) {
-            this.contentType = Objects.requireNonNull(contentType);
+            if (contentType == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupVariable", "contentType");
+            }
+            this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(Boolean enabled) {
-            this.enabled = Objects.requireNonNull(enabled);
+            if (enabled == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupVariable", "enabled");
+            }
+            this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder expires(String expires) {
-            this.expires = Objects.requireNonNull(expires);
+            if (expires == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupVariable", "expires");
+            }
+            this.expires = expires;
             return this;
         }
         @CustomType.Setter
         public Builder isSecret(Boolean isSecret) {
-            this.isSecret = Objects.requireNonNull(isSecret);
+            if (isSecret == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupVariable", "isSecret");
+            }
+            this.isSecret = isSecret;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupVariable", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder secretValue(String secretValue) {
-            this.secretValue = Objects.requireNonNull(secretValue);
+            if (secretValue == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupVariable", "secretValue");
+            }
+            this.secretValue = secretValue;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetVariableGroupVariable", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetVariableGroupVariable build() {

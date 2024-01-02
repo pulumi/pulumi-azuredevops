@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.inputs.ServiceendpointExternaltfsAuthPersonalArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -223,10 +224,18 @@ public final class ServiceendpointExternaltfsArgs extends com.pulumi.resources.R
         }
 
         public ServiceendpointExternaltfsArgs build() {
-            $.authPersonal = Objects.requireNonNull($.authPersonal, "expected parameter 'authPersonal' to be non-null");
-            $.connectionUrl = Objects.requireNonNull($.connectionUrl, "expected parameter 'connectionUrl' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
+            if ($.authPersonal == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointExternaltfsArgs", "authPersonal");
+            }
+            if ($.connectionUrl == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointExternaltfsArgs", "connectionUrl");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointExternaltfsArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointExternaltfsArgs", "serviceEndpointName");
+            }
             return $;
         }
     }

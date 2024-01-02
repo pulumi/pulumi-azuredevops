@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.BranchPolicyStatusCheckSettingsScope;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -151,21 +152,25 @@ public final class BranchPolicyStatusCheckSettings {
 
         @CustomType.Setter
         public Builder applicability(@Nullable String applicability) {
+
             this.applicability = applicability;
             return this;
         }
         @CustomType.Setter
         public Builder authorId(@Nullable String authorId) {
+
             this.authorId = authorId;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
+
             this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder filenamePatterns(@Nullable List<String> filenamePatterns) {
+
             this.filenamePatterns = filenamePatterns;
             return this;
         }
@@ -174,22 +179,30 @@ public final class BranchPolicyStatusCheckSettings {
         }
         @CustomType.Setter
         public Builder genre(@Nullable String genre) {
+
             this.genre = genre;
             return this;
         }
         @CustomType.Setter
         public Builder invalidateOnUpdate(@Nullable Boolean invalidateOnUpdate) {
+
             this.invalidateOnUpdate = invalidateOnUpdate;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyStatusCheckSettings", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<BranchPolicyStatusCheckSettingsScope> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyStatusCheckSettings", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(BranchPolicyStatusCheckSettingsScope... scopes) {

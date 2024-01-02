@@ -11,6 +11,7 @@ import com.pulumi.azuredevops.inputs.BuildDefinitionScheduleArgs;
 import com.pulumi.azuredevops.inputs.BuildDefinitionVariableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -468,8 +469,12 @@ public final class BuildDefinitionArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public BuildDefinitionArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.repository = Objects.requireNonNull($.repository, "expected parameter 'repository' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionArgs", "projectId");
+            }
+            if ($.repository == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionArgs", "repository");
+            }
             return $;
         }
     }

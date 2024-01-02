@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -143,42 +144,60 @@ public final class ServiceEndpointKubernetesAzureSubscription {
 
         @CustomType.Setter
         public Builder azureEnvironment(@Nullable String azureEnvironment) {
+
             this.azureEnvironment = azureEnvironment;
             return this;
         }
         @CustomType.Setter
         public Builder clusterAdmin(@Nullable Boolean clusterAdmin) {
+
             this.clusterAdmin = clusterAdmin;
             return this;
         }
         @CustomType.Setter
         public Builder clusterName(String clusterName) {
-            this.clusterName = Objects.requireNonNull(clusterName);
+            if (clusterName == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscription", "clusterName");
+            }
+            this.clusterName = clusterName;
             return this;
         }
         @CustomType.Setter
         public Builder namespace(@Nullable String namespace) {
+
             this.namespace = namespace;
             return this;
         }
         @CustomType.Setter
         public Builder resourcegroupId(String resourcegroupId) {
-            this.resourcegroupId = Objects.requireNonNull(resourcegroupId);
+            if (resourcegroupId == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscription", "resourcegroupId");
+            }
+            this.resourcegroupId = resourcegroupId;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionId(String subscriptionId) {
-            this.subscriptionId = Objects.requireNonNull(subscriptionId);
+            if (subscriptionId == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscription", "subscriptionId");
+            }
+            this.subscriptionId = subscriptionId;
             return this;
         }
         @CustomType.Setter
         public Builder subscriptionName(String subscriptionName) {
-            this.subscriptionName = Objects.requireNonNull(subscriptionName);
+            if (subscriptionName == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscription", "subscriptionName");
+            }
+            this.subscriptionName = subscriptionName;
             return this;
         }
         @CustomType.Setter
         public Builder tenantId(String tenantId) {
-            this.tenantId = Objects.requireNonNull(tenantId);
+            if (tenantId == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscription", "tenantId");
+            }
+            this.tenantId = tenantId;
             return this;
         }
         public ServiceEndpointKubernetesAzureSubscription build() {
