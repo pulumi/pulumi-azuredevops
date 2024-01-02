@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.GetIterationChildren;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -123,7 +124,10 @@ public final class GetIterationResult {
 
         @CustomType.Setter
         public Builder childrens(List<GetIterationChildren> childrens) {
-            this.childrens = Objects.requireNonNull(childrens);
+            if (childrens == null) {
+              throw new MissingRequiredPropertyException("GetIterationResult", "childrens");
+            }
+            this.childrens = childrens;
             return this;
         }
         public Builder childrens(GetIterationChildren... childrens) {
@@ -131,32 +135,48 @@ public final class GetIterationResult {
         }
         @CustomType.Setter
         public Builder fetchChildren(@Nullable Boolean fetchChildren) {
+
             this.fetchChildren = fetchChildren;
             return this;
         }
         @CustomType.Setter
         public Builder hasChildren(Boolean hasChildren) {
-            this.hasChildren = Objects.requireNonNull(hasChildren);
+            if (hasChildren == null) {
+              throw new MissingRequiredPropertyException("GetIterationResult", "hasChildren");
+            }
+            this.hasChildren = hasChildren;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetIterationResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetIterationResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder path(String path) {
-            this.path = Objects.requireNonNull(path);
+            if (path == null) {
+              throw new MissingRequiredPropertyException("GetIterationResult", "path");
+            }
+            this.path = path;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetIterationResult", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         public GetIterationResult build() {

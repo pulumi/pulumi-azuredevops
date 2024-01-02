@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -103,37 +104,58 @@ public final class GetServiceendpointNpmResult {
 
         @CustomType.Setter
         public Builder authorization(Map<String,String> authorization) {
-            this.authorization = Objects.requireNonNull(authorization);
+            if (authorization == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointNpmResult", "authorization");
+            }
+            this.authorization = authorization;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointNpmResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointNpmResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointNpmResult", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceEndpointId(String serviceEndpointId) {
-            this.serviceEndpointId = Objects.requireNonNull(serviceEndpointId);
+            if (serviceEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointNpmResult", "serviceEndpointId");
+            }
+            this.serviceEndpointId = serviceEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceEndpointName(String serviceEndpointName) {
-            this.serviceEndpointName = Objects.requireNonNull(serviceEndpointName);
+            if (serviceEndpointName == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointNpmResult", "serviceEndpointName");
+            }
+            this.serviceEndpointName = serviceEndpointName;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetServiceendpointNpmResult", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetServiceendpointNpmResult build() {

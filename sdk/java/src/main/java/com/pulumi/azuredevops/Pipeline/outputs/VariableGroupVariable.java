@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.Pipeline.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -105,36 +106,45 @@ public final class VariableGroupVariable {
 
         @CustomType.Setter
         public Builder contentType(@Nullable String contentType) {
+
             this.contentType = contentType;
             return this;
         }
         @CustomType.Setter
         public Builder enabled(@Nullable Boolean enabled) {
+
             this.enabled = enabled;
             return this;
         }
         @CustomType.Setter
         public Builder expires(@Nullable String expires) {
+
             this.expires = expires;
             return this;
         }
         @CustomType.Setter
         public Builder isSecret(@Nullable Boolean isSecret) {
+
             this.isSecret = isSecret;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("VariableGroupVariable", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder secretValue(@Nullable String secretValue) {
+
             this.secretValue = secretValue;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

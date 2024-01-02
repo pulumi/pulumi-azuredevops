@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.BranchPolicyWorkItemLinkingSettingsScope;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.util.List;
 import java.util.Objects;
 
@@ -43,7 +44,10 @@ public final class BranchPolicyWorkItemLinkingSettings {
 
         @CustomType.Setter
         public Builder scopes(List<BranchPolicyWorkItemLinkingSettingsScope> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyWorkItemLinkingSettings", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(BranchPolicyWorkItemLinkingSettingsScope... scopes) {

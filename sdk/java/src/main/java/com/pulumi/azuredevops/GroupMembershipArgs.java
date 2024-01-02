@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -178,8 +179,12 @@ public final class GroupMembershipArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public GroupMembershipArgs build() {
-            $.group = Objects.requireNonNull($.group, "expected parameter 'group' to be non-null");
-            $.members = Objects.requireNonNull($.members, "expected parameter 'members' to be non-null");
+            if ($.group == null) {
+                throw new MissingRequiredPropertyException("GroupMembershipArgs", "group");
+            }
+            if ($.members == null) {
+                throw new MissingRequiredPropertyException("GroupMembershipArgs", "members");
+            }
             return $;
         }
     }

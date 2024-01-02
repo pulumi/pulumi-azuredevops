@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.inputs;
 import com.pulumi.azuredevops.inputs.BranchPolicyMergeTypesSettingsScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -236,7 +237,9 @@ public final class BranchPolicyMergeTypesSettingsArgs extends com.pulumi.resourc
         }
 
         public BranchPolicyMergeTypesSettingsArgs build() {
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyMergeTypesSettingsArgs", "scopes");
+            }
             return $;
         }
     }

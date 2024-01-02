@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -101,26 +102,33 @@ public final class BuildDefinitionVariable {
 
         @CustomType.Setter
         public Builder allowOverride(@Nullable Boolean allowOverride) {
+
             this.allowOverride = allowOverride;
             return this;
         }
         @CustomType.Setter
         public Builder isSecret(@Nullable Boolean isSecret) {
+
             this.isSecret = isSecret;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("BuildDefinitionVariable", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder secretValue(@Nullable String secretValue) {
+
             this.secretValue = secretValue;
             return this;
         }
         @CustomType.Setter
         public Builder value(@Nullable String value) {
+
             this.value = value;
             return this;
         }

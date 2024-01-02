@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -156,47 +157,66 @@ public final class GetGroupsGroup {
 
         @CustomType.Setter
         public Builder description(@Nullable String description) {
+
             this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder descriptor(String descriptor) {
-            this.descriptor = Objects.requireNonNull(descriptor);
+            if (descriptor == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "descriptor");
+            }
+            this.descriptor = descriptor;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(@Nullable String displayName) {
+
             this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder domain(String domain) {
-            this.domain = Objects.requireNonNull(domain);
+            if (domain == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "domain");
+            }
+            this.domain = domain;
             return this;
         }
         @CustomType.Setter
         public Builder mailAddress(@Nullable String mailAddress) {
+
             this.mailAddress = mailAddress;
             return this;
         }
         @CustomType.Setter
         public Builder origin(String origin) {
-            this.origin = Objects.requireNonNull(origin);
+            if (origin == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "origin");
+            }
+            this.origin = origin;
             return this;
         }
         @CustomType.Setter
         public Builder originId(@Nullable String originId) {
+
             this.originId = originId;
             return this;
         }
         @CustomType.Setter
         public Builder principalName(String principalName) {
-            this.principalName = Objects.requireNonNull(principalName);
+            if (principalName == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "principalName");
+            }
+            this.principalName = principalName;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetGroupsGroup", "url");
+            }
+            this.url = url;
             return this;
         }
         public GetGroupsGroup build() {

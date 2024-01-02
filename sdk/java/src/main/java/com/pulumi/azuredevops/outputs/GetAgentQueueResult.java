@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -85,22 +86,34 @@ public final class GetAgentQueueResult {
 
         @CustomType.Setter
         public Builder agentPoolId(Integer agentPoolId) {
-            this.agentPoolId = Objects.requireNonNull(agentPoolId);
+            if (agentPoolId == null) {
+              throw new MissingRequiredPropertyException("GetAgentQueueResult", "agentPoolId");
+            }
+            this.agentPoolId = agentPoolId;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetAgentQueueResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetAgentQueueResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetAgentQueueResult", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         public GetAgentQueueResult build() {

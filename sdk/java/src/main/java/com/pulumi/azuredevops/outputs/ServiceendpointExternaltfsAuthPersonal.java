@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -42,7 +43,10 @@ public final class ServiceendpointExternaltfsAuthPersonal {
 
         @CustomType.Setter
         public Builder personalAccessToken(String personalAccessToken) {
-            this.personalAccessToken = Objects.requireNonNull(personalAccessToken);
+            if (personalAccessToken == null) {
+              throw new MissingRequiredPropertyException("ServiceendpointExternaltfsAuthPersonal", "personalAccessToken");
+            }
+            this.personalAccessToken = personalAccessToken;
             return this;
         }
         public ServiceendpointExternaltfsAuthPersonal build() {

@@ -6,6 +6,7 @@ package com.pulumi.azuredevops.Policy.inputs;
 import com.pulumi.azuredevops.Policy.inputs.BranchPolicyBuildValidationSettingsScopeArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -322,9 +323,15 @@ public final class BranchPolicyBuildValidationSettingsArgs extends com.pulumi.re
         }
 
         public BranchPolicyBuildValidationSettingsArgs build() {
-            $.buildDefinitionId = Objects.requireNonNull($.buildDefinitionId, "expected parameter 'buildDefinitionId' to be non-null");
-            $.displayName = Objects.requireNonNull($.displayName, "expected parameter 'displayName' to be non-null");
-            $.scopes = Objects.requireNonNull($.scopes, "expected parameter 'scopes' to be non-null");
+            if ($.buildDefinitionId == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyBuildValidationSettingsArgs", "buildDefinitionId");
+            }
+            if ($.displayName == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyBuildValidationSettingsArgs", "displayName");
+            }
+            if ($.scopes == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyBuildValidationSettingsArgs", "scopes");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.Core.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Object;
 import java.lang.String;
 import java.util.Map;
@@ -94,47 +95,70 @@ public final class GetProjectResult {
 
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder features(Map<String,Object> features) {
-            this.features = Objects.requireNonNull(features);
+            if (features == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "features");
+            }
+            this.features = features;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder processTemplateId(String processTemplateId) {
-            this.processTemplateId = Objects.requireNonNull(processTemplateId);
+            if (processTemplateId == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "processTemplateId");
+            }
+            this.processTemplateId = processTemplateId;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(@Nullable String projectId) {
+
             this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder versionControl(String versionControl) {
-            this.versionControl = Objects.requireNonNull(versionControl);
+            if (versionControl == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "versionControl");
+            }
+            this.versionControl = versionControl;
             return this;
         }
         @CustomType.Setter
         public Builder visibility(String visibility) {
-            this.visibility = Objects.requireNonNull(visibility);
+            if (visibility == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "visibility");
+            }
+            this.visibility = visibility;
             return this;
         }
         @CustomType.Setter
         public Builder workItemTemplate(String workItemTemplate) {
-            this.workItemTemplate = Objects.requireNonNull(workItemTemplate);
+            if (workItemTemplate == null) {
+              throw new MissingRequiredPropertyException("GetProjectResult", "workItemTemplate");
+            }
+            this.workItemTemplate = workItemTemplate;
             return this;
         }
         public GetProjectResult build() {

@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.ServiceEndpoint.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -113,7 +114,9 @@ public final class AzureRMCredentialsArgs extends com.pulumi.resources.ResourceA
         }
 
         public AzureRMCredentialsArgs build() {
-            $.serviceprincipalid = Objects.requireNonNull($.serviceprincipalid, "expected parameter 'serviceprincipalid' to be non-null");
+            if ($.serviceprincipalid == null) {
+                throw new MissingRequiredPropertyException("AzureRMCredentialsArgs", "serviceprincipalid");
+            }
             return $;
         }
     }

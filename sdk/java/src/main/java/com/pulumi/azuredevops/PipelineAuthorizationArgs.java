@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -188,9 +189,15 @@ public final class PipelineAuthorizationArgs extends com.pulumi.resources.Resour
         }
 
         public PipelineAuthorizationArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("PipelineAuthorizationArgs", "projectId");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("PipelineAuthorizationArgs", "resourceId");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("PipelineAuthorizationArgs", "type");
+            }
             return $;
         }
     }

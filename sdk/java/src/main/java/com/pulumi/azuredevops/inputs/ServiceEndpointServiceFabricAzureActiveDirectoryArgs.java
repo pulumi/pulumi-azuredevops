@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,9 +225,15 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectoryArgs extends 
         }
 
         public ServiceEndpointServiceFabricAzureActiveDirectoryArgs build() {
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.serverCertificateLookup = Objects.requireNonNull($.serverCertificateLookup, "expected parameter 'serverCertificateLookup' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricAzureActiveDirectoryArgs", "password");
+            }
+            if ($.serverCertificateLookup == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricAzureActiveDirectoryArgs", "serverCertificateLookup");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricAzureActiveDirectoryArgs", "username");
+            }
             return $;
         }
     }

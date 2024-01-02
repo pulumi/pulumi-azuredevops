@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.BranchPolicyAutoReviewersSettingsScope;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -122,7 +123,10 @@ public final class BranchPolicyAutoReviewersSettings {
 
         @CustomType.Setter
         public Builder autoReviewerIds(List<String> autoReviewerIds) {
-            this.autoReviewerIds = Objects.requireNonNull(autoReviewerIds);
+            if (autoReviewerIds == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyAutoReviewersSettings", "autoReviewerIds");
+            }
+            this.autoReviewerIds = autoReviewerIds;
             return this;
         }
         public Builder autoReviewerIds(String... autoReviewerIds) {
@@ -130,16 +134,19 @@ public final class BranchPolicyAutoReviewersSettings {
         }
         @CustomType.Setter
         public Builder message(@Nullable String message) {
+
             this.message = message;
             return this;
         }
         @CustomType.Setter
         public Builder minimumNumberOfReviewers(@Nullable Integer minimumNumberOfReviewers) {
+
             this.minimumNumberOfReviewers = minimumNumberOfReviewers;
             return this;
         }
         @CustomType.Setter
         public Builder pathFilters(@Nullable List<String> pathFilters) {
+
             this.pathFilters = pathFilters;
             return this;
         }
@@ -148,7 +155,10 @@ public final class BranchPolicyAutoReviewersSettings {
         }
         @CustomType.Setter
         public Builder scopes(List<BranchPolicyAutoReviewersSettingsScope> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyAutoReviewersSettings", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(BranchPolicyAutoReviewersSettingsScope... scopes) {
@@ -156,6 +166,7 @@ public final class BranchPolicyAutoReviewersSettings {
         }
         @CustomType.Setter
         public Builder submitterCanVote(@Nullable Boolean submitterCanVote) {
+
             this.submitterCanVote = submitterCanVote;
             return this;
         }

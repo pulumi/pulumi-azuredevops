@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.GetRepositoriesRepository;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -95,27 +96,36 @@ public final class GetRepositoriesResult {
 
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder includeHidden(@Nullable Boolean includeHidden) {
+
             this.includeHidden = includeHidden;
             return this;
         }
         @CustomType.Setter
         public Builder name(@Nullable String name) {
+
             this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(@Nullable String projectId) {
+
             this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder repositories(List<GetRepositoriesRepository> repositories) {
-            this.repositories = Objects.requireNonNull(repositories);
+            if (repositories == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesResult", "repositories");
+            }
+            this.repositories = repositories;
             return this;
         }
         public Builder repositories(GetRepositoriesRepository... repositories) {

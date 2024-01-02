@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.Objects;
 
@@ -111,8 +112,12 @@ public final class BuildDefinitionPullRequestTriggerForksArgs extends com.pulumi
         }
 
         public BuildDefinitionPullRequestTriggerForksArgs build() {
-            $.enabled = Objects.requireNonNull($.enabled, "expected parameter 'enabled' to be non-null");
-            $.shareSecrets = Objects.requireNonNull($.shareSecrets, "expected parameter 'shareSecrets' to be non-null");
+            if ($.enabled == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionPullRequestTriggerForksArgs", "enabled");
+            }
+            if ($.shareSecrets == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionPullRequestTriggerForksArgs", "shareSecrets");
+            }
             return $;
         }
     }

@@ -59,11 +59,13 @@ public final class ServiceEndpointServiceFabricNone {
 
         @CustomType.Setter
         public Builder clusterSpn(@Nullable String clusterSpn) {
+
             this.clusterSpn = clusterSpn;
             return this;
         }
         @CustomType.Setter
         public Builder unsecured(@Nullable Boolean unsecured) {
+
             this.unsecured = unsecured;
             return this;
         }

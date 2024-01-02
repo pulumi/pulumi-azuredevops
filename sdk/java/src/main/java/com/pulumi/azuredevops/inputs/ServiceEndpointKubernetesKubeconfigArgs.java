@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -151,7 +152,9 @@ public final class ServiceEndpointKubernetesKubeconfigArgs extends com.pulumi.re
         }
 
         public ServiceEndpointKubernetesKubeconfigArgs build() {
-            $.kubeConfig = Objects.requireNonNull($.kubeConfig, "expected parameter 'kubeConfig' to be non-null");
+            if ($.kubeConfig == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointKubernetesKubeconfigArgs", "kubeConfig");
+            }
             return $;
         }
     }

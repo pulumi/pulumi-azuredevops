@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.BuildDefinitionScheduleBranchFilter;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -414,6 +415,7 @@ public final class BuildDefinitionSchedule {
 
         @CustomType.Setter
         public Builder branchFilters(@Nullable List<BuildDefinitionScheduleBranchFilter> branchFilters) {
+
             this.branchFilters = branchFilters;
             return this;
         }
@@ -422,7 +424,10 @@ public final class BuildDefinitionSchedule {
         }
         @CustomType.Setter
         public Builder daysToBuilds(List<String> daysToBuilds) {
-            this.daysToBuilds = Objects.requireNonNull(daysToBuilds);
+            if (daysToBuilds == null) {
+              throw new MissingRequiredPropertyException("BuildDefinitionSchedule", "daysToBuilds");
+            }
+            this.daysToBuilds = daysToBuilds;
             return this;
         }
         public Builder daysToBuilds(String... daysToBuilds) {
@@ -430,26 +435,31 @@ public final class BuildDefinitionSchedule {
         }
         @CustomType.Setter
         public Builder scheduleJobId(@Nullable String scheduleJobId) {
+
             this.scheduleJobId = scheduleJobId;
             return this;
         }
         @CustomType.Setter
         public Builder scheduleOnlyWithChanges(@Nullable Boolean scheduleOnlyWithChanges) {
+
             this.scheduleOnlyWithChanges = scheduleOnlyWithChanges;
             return this;
         }
         @CustomType.Setter
         public Builder startHours(@Nullable Integer startHours) {
+
             this.startHours = startHours;
             return this;
         }
         @CustomType.Setter
         public Builder startMinutes(@Nullable Integer startMinutes) {
+
             this.startMinutes = startMinutes;
             return this;
         }
         @CustomType.Setter
         public Builder timeZone(@Nullable String timeZone) {
+
             this.timeZone = timeZone;
             return this;
         }

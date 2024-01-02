@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -127,37 +128,58 @@ public final class GetBuildDefinitionRepository {
 
         @CustomType.Setter
         public Builder branchName(String branchName) {
-            this.branchName = Objects.requireNonNull(branchName);
+            if (branchName == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionRepository", "branchName");
+            }
+            this.branchName = branchName;
             return this;
         }
         @CustomType.Setter
         public Builder githubEnterpriseUrl(String githubEnterpriseUrl) {
-            this.githubEnterpriseUrl = Objects.requireNonNull(githubEnterpriseUrl);
+            if (githubEnterpriseUrl == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionRepository", "githubEnterpriseUrl");
+            }
+            this.githubEnterpriseUrl = githubEnterpriseUrl;
             return this;
         }
         @CustomType.Setter
         public Builder repoId(String repoId) {
-            this.repoId = Objects.requireNonNull(repoId);
+            if (repoId == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionRepository", "repoId");
+            }
+            this.repoId = repoId;
             return this;
         }
         @CustomType.Setter
         public Builder repoType(String repoType) {
-            this.repoType = Objects.requireNonNull(repoType);
+            if (repoType == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionRepository", "repoType");
+            }
+            this.repoType = repoType;
             return this;
         }
         @CustomType.Setter
         public Builder reportBuildStatus(Boolean reportBuildStatus) {
-            this.reportBuildStatus = Objects.requireNonNull(reportBuildStatus);
+            if (reportBuildStatus == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionRepository", "reportBuildStatus");
+            }
+            this.reportBuildStatus = reportBuildStatus;
             return this;
         }
         @CustomType.Setter
         public Builder serviceConnectionId(String serviceConnectionId) {
-            this.serviceConnectionId = Objects.requireNonNull(serviceConnectionId);
+            if (serviceConnectionId == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionRepository", "serviceConnectionId");
+            }
+            this.serviceConnectionId = serviceConnectionId;
             return this;
         }
         @CustomType.Setter
         public Builder ymlPath(String ymlPath) {
-            this.ymlPath = Objects.requireNonNull(ymlPath);
+            if (ymlPath == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionRepository", "ymlPath");
+            }
+            this.ymlPath = ymlPath;
             return this;
         }
         public GetBuildDefinitionRepository build() {

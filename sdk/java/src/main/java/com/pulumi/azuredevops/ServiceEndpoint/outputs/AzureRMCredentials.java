@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.ServiceEndpoint.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -58,11 +59,15 @@ public final class AzureRMCredentials {
 
         @CustomType.Setter
         public Builder serviceprincipalid(String serviceprincipalid) {
-            this.serviceprincipalid = Objects.requireNonNull(serviceprincipalid);
+            if (serviceprincipalid == null) {
+              throw new MissingRequiredPropertyException("AzureRMCredentials", "serviceprincipalid");
+            }
+            this.serviceprincipalid = serviceprincipalid;
             return this;
         }
         @CustomType.Setter
         public Builder serviceprincipalkey(@Nullable String serviceprincipalkey) {
+
             this.serviceprincipalkey = serviceprincipalkey;
             return this;
         }

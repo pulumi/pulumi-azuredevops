@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.ServiceEndpoint.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -56,12 +57,18 @@ public final class KubernetesServiceAccount {
 
         @CustomType.Setter
         public Builder caCert(String caCert) {
-            this.caCert = Objects.requireNonNull(caCert);
+            if (caCert == null) {
+              throw new MissingRequiredPropertyException("KubernetesServiceAccount", "caCert");
+            }
+            this.caCert = caCert;
             return this;
         }
         @CustomType.Setter
         public Builder token(String token) {
-            this.token = Objects.requireNonNull(token);
+            if (token == null) {
+              throw new MissingRequiredPropertyException("KubernetesServiceAccount", "token");
+            }
+            this.token = token;
             return this;
         }
         public KubernetesServiceAccount build() {

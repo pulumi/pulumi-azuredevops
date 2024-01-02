@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.inputs.ServiceEndpointPipelineAuthPersonalArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -223,10 +224,18 @@ public final class ServiceEndpointPipelineArgs extends com.pulumi.resources.Reso
         }
 
         public ServiceEndpointPipelineArgs build() {
-            $.authPersonal = Objects.requireNonNull($.authPersonal, "expected parameter 'authPersonal' to be non-null");
-            $.organizationName = Objects.requireNonNull($.organizationName, "expected parameter 'organizationName' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
+            if ($.authPersonal == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointPipelineArgs", "authPersonal");
+            }
+            if ($.organizationName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointPipelineArgs", "organizationName");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointPipelineArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointPipelineArgs", "serviceEndpointName");
+            }
             return $;
         }
     }

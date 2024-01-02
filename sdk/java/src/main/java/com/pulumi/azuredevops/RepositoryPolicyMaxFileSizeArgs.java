@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -237,8 +238,12 @@ public final class RepositoryPolicyMaxFileSizeArgs extends com.pulumi.resources.
         }
 
         public RepositoryPolicyMaxFileSizeArgs build() {
-            $.maxFileSize = Objects.requireNonNull($.maxFileSize, "expected parameter 'maxFileSize' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.maxFileSize == null) {
+                throw new MissingRequiredPropertyException("RepositoryPolicyMaxFileSizeArgs", "maxFileSize");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("RepositoryPolicyMaxFileSizeArgs", "projectId");
+            }
             return $;
         }
     }

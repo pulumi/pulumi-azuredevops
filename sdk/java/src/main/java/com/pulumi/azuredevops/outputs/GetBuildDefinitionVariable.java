@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -99,27 +100,42 @@ public final class GetBuildDefinitionVariable {
 
         @CustomType.Setter
         public Builder allowOverride(Boolean allowOverride) {
-            this.allowOverride = Objects.requireNonNull(allowOverride);
+            if (allowOverride == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionVariable", "allowOverride");
+            }
+            this.allowOverride = allowOverride;
             return this;
         }
         @CustomType.Setter
         public Builder isSecret(Boolean isSecret) {
-            this.isSecret = Objects.requireNonNull(isSecret);
+            if (isSecret == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionVariable", "isSecret");
+            }
+            this.isSecret = isSecret;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionVariable", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder secretValue(String secretValue) {
-            this.secretValue = Objects.requireNonNull(secretValue);
+            if (secretValue == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionVariable", "secretValue");
+            }
+            this.secretValue = secretValue;
             return this;
         }
         @CustomType.Setter
         public Builder value(String value) {
-            this.value = Objects.requireNonNull(value);
+            if (value == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionVariable", "value");
+            }
+            this.value = value;
             return this;
         }
         public GetBuildDefinitionVariable build() {

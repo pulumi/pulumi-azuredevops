@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -333,13 +334,27 @@ public final class ServiceEndpointAzureEcrArgs extends com.pulumi.resources.Reso
         }
 
         public ServiceEndpointAzureEcrArgs build() {
-            $.azurecrName = Objects.requireNonNull($.azurecrName, "expected parameter 'azurecrName' to be non-null");
-            $.azurecrSpnTenantid = Objects.requireNonNull($.azurecrSpnTenantid, "expected parameter 'azurecrSpnTenantid' to be non-null");
-            $.azurecrSubscriptionId = Objects.requireNonNull($.azurecrSubscriptionId, "expected parameter 'azurecrSubscriptionId' to be non-null");
-            $.azurecrSubscriptionName = Objects.requireNonNull($.azurecrSubscriptionName, "expected parameter 'azurecrSubscriptionName' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.resourceGroup = Objects.requireNonNull($.resourceGroup, "expected parameter 'resourceGroup' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
+            if ($.azurecrName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "azurecrName");
+            }
+            if ($.azurecrSpnTenantid == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "azurecrSpnTenantid");
+            }
+            if ($.azurecrSubscriptionId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "azurecrSubscriptionId");
+            }
+            if ($.azurecrSubscriptionName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "azurecrSubscriptionName");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "projectId");
+            }
+            if ($.resourceGroup == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "resourceGroup");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureEcrArgs", "serviceEndpointName");
+            }
             return $;
         }
     }
