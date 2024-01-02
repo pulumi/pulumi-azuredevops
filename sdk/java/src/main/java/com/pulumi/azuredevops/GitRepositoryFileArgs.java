@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -266,9 +267,15 @@ public final class GitRepositoryFileArgs extends com.pulumi.resources.ResourceAr
         }
 
         public GitRepositoryFileArgs build() {
-            $.content = Objects.requireNonNull($.content, "expected parameter 'content' to be non-null");
-            $.file = Objects.requireNonNull($.file, "expected parameter 'file' to be non-null");
-            $.repositoryId = Objects.requireNonNull($.repositoryId, "expected parameter 'repositoryId' to be non-null");
+            if ($.content == null) {
+                throw new MissingRequiredPropertyException("GitRepositoryFileArgs", "content");
+            }
+            if ($.file == null) {
+                throw new MissingRequiredPropertyException("GitRepositoryFileArgs", "file");
+            }
+            if ($.repositoryId == null) {
+                throw new MissingRequiredPropertyException("GitRepositoryFileArgs", "repositoryId");
+            }
             return $;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -260,10 +261,18 @@ public final class ServiceendpointOctopusdeployArgs extends com.pulumi.resources
         }
 
         public ServiceendpointOctopusdeployArgs build() {
-            $.apiKey = Objects.requireNonNull($.apiKey, "expected parameter 'apiKey' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.apiKey == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointOctopusdeployArgs", "apiKey");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointOctopusdeployArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointOctopusdeployArgs", "serviceEndpointName");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointOctopusdeployArgs", "url");
+            }
             return $;
         }
     }

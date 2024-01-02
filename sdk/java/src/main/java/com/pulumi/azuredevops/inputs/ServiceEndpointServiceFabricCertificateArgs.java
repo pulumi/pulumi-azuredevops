@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -224,8 +225,12 @@ public final class ServiceEndpointServiceFabricCertificateArgs extends com.pulum
         }
 
         public ServiceEndpointServiceFabricCertificateArgs build() {
-            $.clientCertificate = Objects.requireNonNull($.clientCertificate, "expected parameter 'clientCertificate' to be non-null");
-            $.serverCertificateLookup = Objects.requireNonNull($.serverCertificateLookup, "expected parameter 'serverCertificateLookup' to be non-null");
+            if ($.clientCertificate == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricCertificateArgs", "clientCertificate");
+            }
+            if ($.serverCertificateLookup == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricCertificateArgs", "serverCertificateLookup");
+            }
             return $;
         }
     }

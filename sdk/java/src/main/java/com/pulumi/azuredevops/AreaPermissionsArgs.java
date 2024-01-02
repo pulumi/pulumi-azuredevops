@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -274,9 +275,15 @@ public final class AreaPermissionsArgs extends com.pulumi.resources.ResourceArgs
         }
 
         public AreaPermissionsArgs build() {
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("AreaPermissionsArgs", "permissions");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("AreaPermissionsArgs", "principal");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("AreaPermissionsArgs", "projectId");
+            }
             return $;
         }
     }

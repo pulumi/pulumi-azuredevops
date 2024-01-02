@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.ServiceEndpoint.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -73,17 +74,22 @@ public final class KubernetesKubeconfig {
 
         @CustomType.Setter
         public Builder acceptUntrustedCerts(@Nullable Boolean acceptUntrustedCerts) {
+
             this.acceptUntrustedCerts = acceptUntrustedCerts;
             return this;
         }
         @CustomType.Setter
         public Builder clusterContext(@Nullable String clusterContext) {
+
             this.clusterContext = clusterContext;
             return this;
         }
         @CustomType.Setter
         public Builder kubeConfig(String kubeConfig) {
-            this.kubeConfig = Objects.requireNonNull(kubeConfig);
+            if (kubeConfig == null) {
+              throw new MissingRequiredPropertyException("KubernetesKubeconfig", "kubeConfig");
+            }
+            this.kubeConfig = kubeConfig;
             return this;
         }
         public KubernetesKubeconfig build() {

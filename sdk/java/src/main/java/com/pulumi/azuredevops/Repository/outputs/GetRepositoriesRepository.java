@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.Repository.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -155,47 +156,74 @@ public final class GetRepositoriesRepository {
 
         @CustomType.Setter
         public Builder defaultBranch(String defaultBranch) {
-            this.defaultBranch = Objects.requireNonNull(defaultBranch);
+            if (defaultBranch == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "defaultBranch");
+            }
+            this.defaultBranch = defaultBranch;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder remoteUrl(String remoteUrl) {
-            this.remoteUrl = Objects.requireNonNull(remoteUrl);
+            if (remoteUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "remoteUrl");
+            }
+            this.remoteUrl = remoteUrl;
             return this;
         }
         @CustomType.Setter
         public Builder size(Integer size) {
-            this.size = Objects.requireNonNull(size);
+            if (size == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "size");
+            }
+            this.size = size;
             return this;
         }
         @CustomType.Setter
         public Builder sshUrl(String sshUrl) {
-            this.sshUrl = Objects.requireNonNull(sshUrl);
+            if (sshUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "sshUrl");
+            }
+            this.sshUrl = sshUrl;
             return this;
         }
         @CustomType.Setter
         public Builder url(String url) {
-            this.url = Objects.requireNonNull(url);
+            if (url == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "url");
+            }
+            this.url = url;
             return this;
         }
         @CustomType.Setter
         public Builder webUrl(String webUrl) {
-            this.webUrl = Objects.requireNonNull(webUrl);
+            if (webUrl == null) {
+              throw new MissingRequiredPropertyException("GetRepositoriesRepository", "webUrl");
+            }
+            this.webUrl = webUrl;
             return this;
         }
         public GetRepositoriesRepository build() {

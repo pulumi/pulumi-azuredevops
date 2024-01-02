@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.Policy.outputs;
 
 import com.pulumi.azuredevops.Policy.outputs.BranchPolicyBuildValidationSettingsScope;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -132,16 +133,23 @@ public final class BranchPolicyBuildValidationSettings {
 
         @CustomType.Setter
         public Builder buildDefinitionId(Integer buildDefinitionId) {
-            this.buildDefinitionId = Objects.requireNonNull(buildDefinitionId);
+            if (buildDefinitionId == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyBuildValidationSettings", "buildDefinitionId");
+            }
+            this.buildDefinitionId = buildDefinitionId;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyBuildValidationSettings", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder filenamePatterns(@Nullable List<String> filenamePatterns) {
+
             this.filenamePatterns = filenamePatterns;
             return this;
         }
@@ -150,17 +158,22 @@ public final class BranchPolicyBuildValidationSettings {
         }
         @CustomType.Setter
         public Builder manualQueueOnly(@Nullable Boolean manualQueueOnly) {
+
             this.manualQueueOnly = manualQueueOnly;
             return this;
         }
         @CustomType.Setter
         public Builder queueOnSourceUpdateOnly(@Nullable Boolean queueOnSourceUpdateOnly) {
+
             this.queueOnSourceUpdateOnly = queueOnSourceUpdateOnly;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<BranchPolicyBuildValidationSettingsScope> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyBuildValidationSettings", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(BranchPolicyBuildValidationSettingsScope... scopes) {
@@ -168,6 +181,7 @@ public final class BranchPolicyBuildValidationSettings {
         }
         @CustomType.Setter
         public Builder validDuration(@Nullable Integer validDuration) {
+
             this.validDuration = validDuration;
             return this;
         }

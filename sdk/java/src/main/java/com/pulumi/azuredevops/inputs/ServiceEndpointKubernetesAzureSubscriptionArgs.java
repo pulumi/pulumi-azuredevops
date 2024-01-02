@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -336,11 +337,21 @@ public final class ServiceEndpointKubernetesAzureSubscriptionArgs extends com.pu
         }
 
         public ServiceEndpointKubernetesAzureSubscriptionArgs build() {
-            $.clusterName = Objects.requireNonNull($.clusterName, "expected parameter 'clusterName' to be non-null");
-            $.resourcegroupId = Objects.requireNonNull($.resourcegroupId, "expected parameter 'resourcegroupId' to be non-null");
-            $.subscriptionId = Objects.requireNonNull($.subscriptionId, "expected parameter 'subscriptionId' to be non-null");
-            $.subscriptionName = Objects.requireNonNull($.subscriptionName, "expected parameter 'subscriptionName' to be non-null");
-            $.tenantId = Objects.requireNonNull($.tenantId, "expected parameter 'tenantId' to be non-null");
+            if ($.clusterName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscriptionArgs", "clusterName");
+            }
+            if ($.resourcegroupId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscriptionArgs", "resourcegroupId");
+            }
+            if ($.subscriptionId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscriptionArgs", "subscriptionId");
+            }
+            if ($.subscriptionName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscriptionArgs", "subscriptionName");
+            }
+            if ($.tenantId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointKubernetesAzureSubscriptionArgs", "tenantId");
+            }
             return $;
         }
     }

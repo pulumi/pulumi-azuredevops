@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,27 +101,38 @@ public final class ServiceEndpointServiceFabricAzureActiveDirectory {
 
         @CustomType.Setter
         public Builder password(String password) {
-            this.password = Objects.requireNonNull(password);
+            if (password == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricAzureActiveDirectory", "password");
+            }
+            this.password = password;
             return this;
         }
         @CustomType.Setter
         public Builder serverCertificateCommonName(@Nullable String serverCertificateCommonName) {
+
             this.serverCertificateCommonName = serverCertificateCommonName;
             return this;
         }
         @CustomType.Setter
         public Builder serverCertificateLookup(String serverCertificateLookup) {
-            this.serverCertificateLookup = Objects.requireNonNull(serverCertificateLookup);
+            if (serverCertificateLookup == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricAzureActiveDirectory", "serverCertificateLookup");
+            }
+            this.serverCertificateLookup = serverCertificateLookup;
             return this;
         }
         @CustomType.Setter
         public Builder serverCertificateThumbprint(@Nullable String serverCertificateThumbprint) {
+
             this.serverCertificateThumbprint = serverCertificateThumbprint;
             return this;
         }
         @CustomType.Setter
         public Builder username(String username) {
-            this.username = Objects.requireNonNull(username);
+            if (username == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricAzureActiveDirectory", "username");
+            }
+            this.username = username;
             return this;
         }
         public ServiceEndpointServiceFabricAzureActiveDirectory build() {

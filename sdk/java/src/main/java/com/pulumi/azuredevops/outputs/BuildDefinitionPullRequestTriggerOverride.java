@@ -75,11 +75,13 @@ public final class BuildDefinitionPullRequestTriggerOverride {
 
         @CustomType.Setter
         public Builder autoCancel(@Nullable Boolean autoCancel) {
+
             this.autoCancel = autoCancel;
             return this;
         }
         @CustomType.Setter
         public Builder branchFilters(@Nullable List<BuildDefinitionPullRequestTriggerOverrideBranchFilter> branchFilters) {
+
             this.branchFilters = branchFilters;
             return this;
         }
@@ -88,6 +90,7 @@ public final class BuildDefinitionPullRequestTriggerOverride {
         }
         @CustomType.Setter
         public Builder pathFilters(@Nullable List<BuildDefinitionPullRequestTriggerOverridePathFilter> pathFilters) {
+
             this.pathFilters = pathFilters;
             return this;
         }

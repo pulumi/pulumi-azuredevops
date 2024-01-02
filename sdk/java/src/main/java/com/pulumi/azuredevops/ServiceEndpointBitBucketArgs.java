@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -222,10 +223,18 @@ public final class ServiceEndpointBitBucketArgs extends com.pulumi.resources.Res
         }
 
         public ServiceEndpointBitBucketArgs build() {
-            $.password = Objects.requireNonNull($.password, "expected parameter 'password' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
-            $.username = Objects.requireNonNull($.username, "expected parameter 'username' to be non-null");
+            if ($.password == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointBitBucketArgs", "password");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointBitBucketArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointBitBucketArgs", "serviceEndpointName");
+            }
+            if ($.username == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointBitBucketArgs", "username");
+            }
             return $;
         }
     }

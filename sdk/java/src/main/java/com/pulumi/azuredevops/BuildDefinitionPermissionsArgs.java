@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Map;
@@ -298,10 +299,18 @@ public final class BuildDefinitionPermissionsArgs extends com.pulumi.resources.R
         }
 
         public BuildDefinitionPermissionsArgs build() {
-            $.buildDefinitionId = Objects.requireNonNull($.buildDefinitionId, "expected parameter 'buildDefinitionId' to be non-null");
-            $.permissions = Objects.requireNonNull($.permissions, "expected parameter 'permissions' to be non-null");
-            $.principal = Objects.requireNonNull($.principal, "expected parameter 'principal' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.buildDefinitionId == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionPermissionsArgs", "buildDefinitionId");
+            }
+            if ($.permissions == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionPermissionsArgs", "permissions");
+            }
+            if ($.principal == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionPermissionsArgs", "principal");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionPermissionsArgs", "projectId");
+            }
             return $;
         }
     }

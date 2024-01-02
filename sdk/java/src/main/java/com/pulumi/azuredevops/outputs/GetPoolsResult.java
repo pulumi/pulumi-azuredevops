@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.GetPoolsAgentPool;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetPoolsResult {
 
         @CustomType.Setter
         public Builder agentPools(List<GetPoolsAgentPool> agentPools) {
-            this.agentPools = Objects.requireNonNull(agentPools);
+            if (agentPools == null) {
+              throw new MissingRequiredPropertyException("GetPoolsResult", "agentPools");
+            }
+            this.agentPools = agentPools;
             return this;
         }
         public Builder agentPools(GetPoolsAgentPool... agentPools) {
@@ -66,7 +70,10 @@ public final class GetPoolsResult {
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetPoolsResult", "id");
+            }
+            this.id = id;
             return this;
         }
         public GetPoolsResult build() {

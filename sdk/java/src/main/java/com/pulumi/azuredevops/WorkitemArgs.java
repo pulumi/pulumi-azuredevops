@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Map;
@@ -347,9 +348,15 @@ public final class WorkitemArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public WorkitemArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.title = Objects.requireNonNull($.title, "expected parameter 'title' to be non-null");
-            $.type = Objects.requireNonNull($.type, "expected parameter 'type' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("WorkitemArgs", "projectId");
+            }
+            if ($.title == null) {
+                throw new MissingRequiredPropertyException("WorkitemArgs", "title");
+            }
+            if ($.type == null) {
+                throw new MissingRequiredPropertyException("WorkitemArgs", "type");
+            }
             return $;
         }
     }

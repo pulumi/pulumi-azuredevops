@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.Core.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -88,22 +89,34 @@ public final class GetProjectsProject {
 
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetProjectsProject", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetProjectsProject", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder projectUrl(String projectUrl) {
-            this.projectUrl = Objects.requireNonNull(projectUrl);
+            if (projectUrl == null) {
+              throw new MissingRequiredPropertyException("GetProjectsProject", "projectUrl");
+            }
+            this.projectUrl = projectUrl;
             return this;
         }
         @CustomType.Setter
         public Builder state(String state) {
-            this.state = Objects.requireNonNull(state);
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetProjectsProject", "state");
+            }
+            this.state = state;
             return this;
         }
         public GetProjectsProject build() {

@@ -6,6 +6,7 @@ package com.pulumi.azuredevops;
 import com.pulumi.azuredevops.inputs.BranchPolicyStatusCheckSettingsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -189,8 +190,12 @@ public final class BranchPolicyStatusCheckArgs extends com.pulumi.resources.Reso
         }
 
         public BranchPolicyStatusCheckArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.settings = Objects.requireNonNull($.settings, "expected parameter 'settings' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyStatusCheckArgs", "projectId");
+            }
+            if ($.settings == null) {
+                throw new MissingRequiredPropertyException("BranchPolicyStatusCheckArgs", "settings");
+            }
             return $;
         }
     }

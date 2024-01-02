@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -242,10 +243,18 @@ public final class ServiceEndpointSonarQubeArgs extends com.pulumi.resources.Res
         }
 
         public ServiceEndpointSonarQubeArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
-            $.token = Objects.requireNonNull($.token, "expected parameter 'token' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSonarQubeArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSonarQubeArgs", "serviceEndpointName");
+            }
+            if ($.token == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSonarQubeArgs", "token");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointSonarQubeArgs", "url");
+            }
             return $;
         }
     }

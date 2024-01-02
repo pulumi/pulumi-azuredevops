@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -100,26 +101,35 @@ public final class ServiceEndpointServiceFabricCertificate {
 
         @CustomType.Setter
         public Builder clientCertificate(String clientCertificate) {
-            this.clientCertificate = Objects.requireNonNull(clientCertificate);
+            if (clientCertificate == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricCertificate", "clientCertificate");
+            }
+            this.clientCertificate = clientCertificate;
             return this;
         }
         @CustomType.Setter
         public Builder clientCertificatePassword(@Nullable String clientCertificatePassword) {
+
             this.clientCertificatePassword = clientCertificatePassword;
             return this;
         }
         @CustomType.Setter
         public Builder serverCertificateCommonName(@Nullable String serverCertificateCommonName) {
+
             this.serverCertificateCommonName = serverCertificateCommonName;
             return this;
         }
         @CustomType.Setter
         public Builder serverCertificateLookup(String serverCertificateLookup) {
-            this.serverCertificateLookup = Objects.requireNonNull(serverCertificateLookup);
+            if (serverCertificateLookup == null) {
+              throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricCertificate", "serverCertificateLookup");
+            }
+            this.serverCertificateLookup = serverCertificateLookup;
             return this;
         }
         @CustomType.Setter
         public Builder serverCertificateThumbprint(@Nullable String serverCertificateThumbprint) {
+
             this.serverCertificateThumbprint = serverCertificateThumbprint;
             return this;
         }

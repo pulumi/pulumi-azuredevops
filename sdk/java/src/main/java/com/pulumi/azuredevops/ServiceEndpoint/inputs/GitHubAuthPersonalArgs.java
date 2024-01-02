@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.ServiceEndpoint.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 
@@ -74,7 +75,9 @@ public final class GitHubAuthPersonalArgs extends com.pulumi.resources.ResourceA
         }
 
         public GitHubAuthPersonalArgs build() {
-            $.personalAccessToken = Objects.requireNonNull($.personalAccessToken, "expected parameter 'personalAccessToken' to be non-null");
+            if ($.personalAccessToken == null) {
+                throw new MissingRequiredPropertyException("GitHubAuthPersonalArgs", "personalAccessToken");
+            }
             return $;
         }
     }

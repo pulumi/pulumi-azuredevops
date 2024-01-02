@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.GetBuildDefinitionCiTriggerOverride;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -58,7 +59,10 @@ public final class GetBuildDefinitionCiTrigger {
 
         @CustomType.Setter
         public Builder overrides(List<GetBuildDefinitionCiTriggerOverride> overrides) {
-            this.overrides = Objects.requireNonNull(overrides);
+            if (overrides == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionCiTrigger", "overrides");
+            }
+            this.overrides = overrides;
             return this;
         }
         public Builder overrides(GetBuildDefinitionCiTriggerOverride... overrides) {
@@ -66,7 +70,10 @@ public final class GetBuildDefinitionCiTrigger {
         }
         @CustomType.Setter
         public Builder useYaml(Boolean useYaml) {
-            this.useYaml = Objects.requireNonNull(useYaml);
+            if (useYaml == null) {
+              throw new MissingRequiredPropertyException("GetBuildDefinitionCiTrigger", "useYaml");
+            }
+            this.useYaml = useYaml;
             return this;
         }
         public GetBuildDefinitionCiTrigger build() {

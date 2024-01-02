@@ -7,6 +7,7 @@ import com.pulumi.azuredevops.inputs.VariableGroupKeyVaultArgs;
 import com.pulumi.azuredevops.inputs.VariableGroupVariableArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -275,8 +276,12 @@ public final class VariableGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public VariableGroupArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.variables = Objects.requireNonNull($.variables, "expected parameter 'variables' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("VariableGroupArgs", "projectId");
+            }
+            if ($.variables == null) {
+                throw new MissingRequiredPropertyException("VariableGroupArgs", "variables");
+            }
             return $;
         }
     }

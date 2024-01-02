@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -259,11 +260,21 @@ public final class ServiceEndpointAzureDevOpsArgs extends com.pulumi.resources.R
         }
 
         public ServiceEndpointAzureDevOpsArgs build() {
-            $.orgUrl = Objects.requireNonNull($.orgUrl, "expected parameter 'orgUrl' to be non-null");
-            $.personalAccessToken = Objects.requireNonNull($.personalAccessToken, "expected parameter 'personalAccessToken' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.releaseApiUrl = Objects.requireNonNull($.releaseApiUrl, "expected parameter 'releaseApiUrl' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
+            if ($.orgUrl == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "orgUrl");
+            }
+            if ($.personalAccessToken == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "personalAccessToken");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "projectId");
+            }
+            if ($.releaseApiUrl == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "releaseApiUrl");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointAzureDevOpsArgs", "serviceEndpointName");
+            }
             return $;
         }
     }

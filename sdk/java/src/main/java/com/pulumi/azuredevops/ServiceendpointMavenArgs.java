@@ -7,6 +7,7 @@ import com.pulumi.azuredevops.inputs.ServiceendpointMavenAuthenticationBasicArgs
 import com.pulumi.azuredevops.inputs.ServiceendpointMavenAuthenticationTokenArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -298,10 +299,18 @@ public final class ServiceendpointMavenArgs extends com.pulumi.resources.Resourc
         }
 
         public ServiceendpointMavenArgs build() {
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.repositoryId = Objects.requireNonNull($.repositoryId, "expected parameter 'repositoryId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
-            $.url = Objects.requireNonNull($.url, "expected parameter 'url' to be non-null");
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointMavenArgs", "projectId");
+            }
+            if ($.repositoryId == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointMavenArgs", "repositoryId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointMavenArgs", "serviceEndpointName");
+            }
+            if ($.url == null) {
+                throw new MissingRequiredPropertyException("ServiceendpointMavenArgs", "url");
+            }
             return $;
         }
     }

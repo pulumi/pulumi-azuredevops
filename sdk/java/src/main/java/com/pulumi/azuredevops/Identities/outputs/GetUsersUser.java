@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.Identities.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -228,37 +229,56 @@ public final class GetUsersUser {
 
         @CustomType.Setter
         public Builder descriptor(String descriptor) {
-            this.descriptor = Objects.requireNonNull(descriptor);
+            if (descriptor == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "descriptor");
+            }
+            this.descriptor = descriptor;
             return this;
         }
         @CustomType.Setter
         public Builder displayName(String displayName) {
-            this.displayName = Objects.requireNonNull(displayName);
+            if (displayName == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "displayName");
+            }
+            this.displayName = displayName;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder mailAddress(String mailAddress) {
-            this.mailAddress = Objects.requireNonNull(mailAddress);
+            if (mailAddress == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "mailAddress");
+            }
+            this.mailAddress = mailAddress;
             return this;
         }
         @CustomType.Setter
         public Builder origin(String origin) {
-            this.origin = Objects.requireNonNull(origin);
+            if (origin == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "origin");
+            }
+            this.origin = origin;
             return this;
         }
         @CustomType.Setter
         public Builder originId(@Nullable String originId) {
+
             this.originId = originId;
             return this;
         }
         @CustomType.Setter
         public Builder principalName(String principalName) {
-            this.principalName = Objects.requireNonNull(principalName);
+            if (principalName == null) {
+              throw new MissingRequiredPropertyException("GetUsersUser", "principalName");
+            }
+            this.principalName = principalName;
             return this;
         }
         public GetUsersUser build() {

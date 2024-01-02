@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
@@ -251,8 +252,12 @@ public final class RepositoryPolicyAuthorEmailPatternArgs extends com.pulumi.res
         }
 
         public RepositoryPolicyAuthorEmailPatternArgs build() {
-            $.authorEmailPatterns = Objects.requireNonNull($.authorEmailPatterns, "expected parameter 'authorEmailPatterns' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.authorEmailPatterns == null) {
+                throw new MissingRequiredPropertyException("RepositoryPolicyAuthorEmailPatternArgs", "authorEmailPatterns");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("RepositoryPolicyAuthorEmailPatternArgs", "projectId");
+            }
             return $;
         }
     }

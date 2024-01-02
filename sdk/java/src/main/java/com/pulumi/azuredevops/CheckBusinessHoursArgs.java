@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -596,12 +597,24 @@ public final class CheckBusinessHoursArgs extends com.pulumi.resources.ResourceA
         }
 
         public CheckBusinessHoursArgs build() {
-            $.endTime = Objects.requireNonNull($.endTime, "expected parameter 'endTime' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.startTime = Objects.requireNonNull($.startTime, "expected parameter 'startTime' to be non-null");
-            $.targetResourceId = Objects.requireNonNull($.targetResourceId, "expected parameter 'targetResourceId' to be non-null");
-            $.targetResourceType = Objects.requireNonNull($.targetResourceType, "expected parameter 'targetResourceType' to be non-null");
-            $.timeZone = Objects.requireNonNull($.timeZone, "expected parameter 'timeZone' to be non-null");
+            if ($.endTime == null) {
+                throw new MissingRequiredPropertyException("CheckBusinessHoursArgs", "endTime");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("CheckBusinessHoursArgs", "projectId");
+            }
+            if ($.startTime == null) {
+                throw new MissingRequiredPropertyException("CheckBusinessHoursArgs", "startTime");
+            }
+            if ($.targetResourceId == null) {
+                throw new MissingRequiredPropertyException("CheckBusinessHoursArgs", "targetResourceId");
+            }
+            if ($.targetResourceType == null) {
+                throw new MissingRequiredPropertyException("CheckBusinessHoursArgs", "targetResourceType");
+            }
+            if ($.timeZone == null) {
+                throw new MissingRequiredPropertyException("CheckBusinessHoursArgs", "timeZone");
+            }
             return $;
         }
     }

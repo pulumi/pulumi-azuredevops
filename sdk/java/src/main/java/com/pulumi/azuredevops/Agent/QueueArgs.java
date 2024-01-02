@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.Agent;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -112,8 +113,12 @@ public final class QueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public QueueArgs build() {
-            $.agentPoolId = Objects.requireNonNull($.agentPoolId, "expected parameter 'agentPoolId' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.agentPoolId == null) {
+                throw new MissingRequiredPropertyException("QueueArgs", "agentPoolId");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("QueueArgs", "projectId");
+            }
             return $;
         }
     }

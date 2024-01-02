@@ -8,6 +8,7 @@ import com.pulumi.azuredevops.inputs.ServiceEndpointServiceFabricCertificateArgs
 import com.pulumi.azuredevops.inputs.ServiceEndpointServiceFabricNoneArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -239,9 +240,15 @@ public final class ServiceEndpointServiceFabricArgs extends com.pulumi.resources
         }
 
         public ServiceEndpointServiceFabricArgs build() {
-            $.clusterEndpoint = Objects.requireNonNull($.clusterEndpoint, "expected parameter 'clusterEndpoint' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.serviceEndpointName = Objects.requireNonNull($.serviceEndpointName, "expected parameter 'serviceEndpointName' to be non-null");
+            if ($.clusterEndpoint == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricArgs", "clusterEndpoint");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricArgs", "projectId");
+            }
+            if ($.serviceEndpointName == null) {
+                throw new MissingRequiredPropertyException("ServiceEndpointServiceFabricArgs", "serviceEndpointName");
+            }
             return $;
         }
     }

@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -120,7 +121,10 @@ public final class GetTeamResult {
 
         @CustomType.Setter
         public Builder administrators(List<String> administrators) {
-            this.administrators = Objects.requireNonNull(administrators);
+            if (administrators == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "administrators");
+            }
+            this.administrators = administrators;
             return this;
         }
         public Builder administrators(String... administrators) {
@@ -128,22 +132,34 @@ public final class GetTeamResult {
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder descriptor(String descriptor) {
-            this.descriptor = Objects.requireNonNull(descriptor);
+            if (descriptor == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "descriptor");
+            }
+            this.descriptor = descriptor;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder members(List<String> members) {
-            this.members = Objects.requireNonNull(members);
+            if (members == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "members");
+            }
+            this.members = members;
             return this;
         }
         public Builder members(String... members) {
@@ -151,16 +167,23 @@ public final class GetTeamResult {
         }
         @CustomType.Setter
         public Builder name(String name) {
-            this.name = Objects.requireNonNull(name);
+            if (name == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "name");
+            }
+            this.name = name;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetTeamResult", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder top(@Nullable Integer top) {
+
             this.top = top;
             return this;
         }

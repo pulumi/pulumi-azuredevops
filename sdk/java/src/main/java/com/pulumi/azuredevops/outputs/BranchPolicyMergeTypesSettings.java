@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.azuredevops.outputs.BranchPolicyMergeTypesSettingsScope;
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.util.List;
 import java.util.Objects;
@@ -102,27 +103,34 @@ public final class BranchPolicyMergeTypesSettings {
 
         @CustomType.Setter
         public Builder allowBasicNoFastForward(@Nullable Boolean allowBasicNoFastForward) {
+
             this.allowBasicNoFastForward = allowBasicNoFastForward;
             return this;
         }
         @CustomType.Setter
         public Builder allowRebaseAndFastForward(@Nullable Boolean allowRebaseAndFastForward) {
+
             this.allowRebaseAndFastForward = allowRebaseAndFastForward;
             return this;
         }
         @CustomType.Setter
         public Builder allowRebaseWithMerge(@Nullable Boolean allowRebaseWithMerge) {
+
             this.allowRebaseWithMerge = allowRebaseWithMerge;
             return this;
         }
         @CustomType.Setter
         public Builder allowSquash(@Nullable Boolean allowSquash) {
+
             this.allowSquash = allowSquash;
             return this;
         }
         @CustomType.Setter
         public Builder scopes(List<BranchPolicyMergeTypesSettingsScope> scopes) {
-            this.scopes = Objects.requireNonNull(scopes);
+            if (scopes == null) {
+              throw new MissingRequiredPropertyException("BranchPolicyMergeTypesSettings", "scopes");
+            }
+            this.scopes = scopes;
             return this;
         }
         public Builder scopes(BranchPolicyMergeTypesSettingsScope... scopes) {

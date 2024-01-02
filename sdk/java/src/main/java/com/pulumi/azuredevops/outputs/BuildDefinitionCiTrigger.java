@@ -59,11 +59,13 @@ public final class BuildDefinitionCiTrigger {
 
         @CustomType.Setter
         public Builder override(@Nullable BuildDefinitionCiTriggerOverride override) {
+
             this.override = override;
             return this;
         }
         @CustomType.Setter
         public Builder useYaml(@Nullable Boolean useYaml) {
+
             this.useYaml = useYaml;
             return this;
         }

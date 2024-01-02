@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
@@ -226,9 +227,15 @@ public final class ResourceAuthorizationArgs extends com.pulumi.resources.Resour
         }
 
         public ResourceAuthorizationArgs build() {
-            $.authorized = Objects.requireNonNull($.authorized, "expected parameter 'authorized' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
-            $.resourceId = Objects.requireNonNull($.resourceId, "expected parameter 'resourceId' to be non-null");
+            if ($.authorized == null) {
+                throw new MissingRequiredPropertyException("ResourceAuthorizationArgs", "authorized");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("ResourceAuthorizationArgs", "projectId");
+            }
+            if ($.resourceId == null) {
+                throw new MissingRequiredPropertyException("ResourceAuthorizationArgs", "resourceId");
+            }
             return $;
         }
     }

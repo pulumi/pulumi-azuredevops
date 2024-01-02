@@ -72,16 +72,19 @@ public final class BranchPolicyAutoReviewersSettingsScope {
 
         @CustomType.Setter
         public Builder matchType(@Nullable String matchType) {
+
             this.matchType = matchType;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryId(@Nullable String repositoryId) {
+
             this.repositoryId = repositoryId;
             return this;
         }
         @CustomType.Setter
         public Builder repositoryRef(@Nullable String repositoryRef) {
+
             this.repositoryRef = repositoryRef;
             return this;
         }

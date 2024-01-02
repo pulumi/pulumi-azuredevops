@@ -5,6 +5,7 @@ package com.pulumi.azuredevops.Build.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
@@ -299,9 +300,15 @@ public final class BuildDefinitionRepositoryArgs extends com.pulumi.resources.Re
         }
 
         public BuildDefinitionRepositoryArgs build() {
-            $.repoId = Objects.requireNonNull($.repoId, "expected parameter 'repoId' to be non-null");
-            $.repoType = Objects.requireNonNull($.repoType, "expected parameter 'repoType' to be non-null");
-            $.ymlPath = Objects.requireNonNull($.ymlPath, "expected parameter 'ymlPath' to be non-null");
+            if ($.repoId == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionRepositoryArgs", "repoId");
+            }
+            if ($.repoType == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionRepositoryArgs", "repoType");
+            }
+            if ($.ymlPath == null) {
+                throw new MissingRequiredPropertyException("BuildDefinitionRepositoryArgs", "ymlPath");
+            }
             return $;
         }
     }

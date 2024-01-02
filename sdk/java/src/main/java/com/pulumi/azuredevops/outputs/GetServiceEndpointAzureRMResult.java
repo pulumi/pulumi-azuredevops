@@ -4,6 +4,7 @@
 package com.pulumi.azuredevops.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -229,82 +230,130 @@ public final class GetServiceEndpointAzureRMResult {
 
         @CustomType.Setter
         public Builder authorization(Map<String,String> authorization) {
-            this.authorization = Objects.requireNonNull(authorization);
+            if (authorization == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "authorization");
+            }
+            this.authorization = authorization;
             return this;
         }
         @CustomType.Setter
         public Builder azurermManagementGroupId(String azurermManagementGroupId) {
-            this.azurermManagementGroupId = Objects.requireNonNull(azurermManagementGroupId);
+            if (azurermManagementGroupId == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "azurermManagementGroupId");
+            }
+            this.azurermManagementGroupId = azurermManagementGroupId;
             return this;
         }
         @CustomType.Setter
         public Builder azurermManagementGroupName(String azurermManagementGroupName) {
-            this.azurermManagementGroupName = Objects.requireNonNull(azurermManagementGroupName);
+            if (azurermManagementGroupName == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "azurermManagementGroupName");
+            }
+            this.azurermManagementGroupName = azurermManagementGroupName;
             return this;
         }
         @CustomType.Setter
         public Builder azurermSpnTenantid(String azurermSpnTenantid) {
-            this.azurermSpnTenantid = Objects.requireNonNull(azurermSpnTenantid);
+            if (azurermSpnTenantid == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "azurermSpnTenantid");
+            }
+            this.azurermSpnTenantid = azurermSpnTenantid;
             return this;
         }
         @CustomType.Setter
         public Builder azurermSubscriptionId(String azurermSubscriptionId) {
-            this.azurermSubscriptionId = Objects.requireNonNull(azurermSubscriptionId);
+            if (azurermSubscriptionId == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "azurermSubscriptionId");
+            }
+            this.azurermSubscriptionId = azurermSubscriptionId;
             return this;
         }
         @CustomType.Setter
         public Builder azurermSubscriptionName(String azurermSubscriptionName) {
-            this.azurermSubscriptionName = Objects.requireNonNull(azurermSubscriptionName);
+            if (azurermSubscriptionName == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "azurermSubscriptionName");
+            }
+            this.azurermSubscriptionName = azurermSubscriptionName;
             return this;
         }
         @CustomType.Setter
         public Builder description(String description) {
-            this.description = Objects.requireNonNull(description);
+            if (description == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "description");
+            }
+            this.description = description;
             return this;
         }
         @CustomType.Setter
         public Builder environment(String environment) {
-            this.environment = Objects.requireNonNull(environment);
+            if (environment == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "environment");
+            }
+            this.environment = environment;
             return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
-            this.id = Objects.requireNonNull(id);
+            if (id == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "id");
+            }
+            this.id = id;
             return this;
         }
         @CustomType.Setter
         public Builder projectId(String projectId) {
-            this.projectId = Objects.requireNonNull(projectId);
+            if (projectId == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "projectId");
+            }
+            this.projectId = projectId;
             return this;
         }
         @CustomType.Setter
         public Builder resourceGroup(String resourceGroup) {
-            this.resourceGroup = Objects.requireNonNull(resourceGroup);
+            if (resourceGroup == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "resourceGroup");
+            }
+            this.resourceGroup = resourceGroup;
             return this;
         }
         @CustomType.Setter
         public Builder serviceEndpointAuthenticationScheme(String serviceEndpointAuthenticationScheme) {
-            this.serviceEndpointAuthenticationScheme = Objects.requireNonNull(serviceEndpointAuthenticationScheme);
+            if (serviceEndpointAuthenticationScheme == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "serviceEndpointAuthenticationScheme");
+            }
+            this.serviceEndpointAuthenticationScheme = serviceEndpointAuthenticationScheme;
             return this;
         }
         @CustomType.Setter
         public Builder serviceEndpointId(String serviceEndpointId) {
-            this.serviceEndpointId = Objects.requireNonNull(serviceEndpointId);
+            if (serviceEndpointId == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "serviceEndpointId");
+            }
+            this.serviceEndpointId = serviceEndpointId;
             return this;
         }
         @CustomType.Setter
         public Builder serviceEndpointName(String serviceEndpointName) {
-            this.serviceEndpointName = Objects.requireNonNull(serviceEndpointName);
+            if (serviceEndpointName == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "serviceEndpointName");
+            }
+            this.serviceEndpointName = serviceEndpointName;
             return this;
         }
         @CustomType.Setter
         public Builder workloadIdentityFederationIssuer(String workloadIdentityFederationIssuer) {
-            this.workloadIdentityFederationIssuer = Objects.requireNonNull(workloadIdentityFederationIssuer);
+            if (workloadIdentityFederationIssuer == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "workloadIdentityFederationIssuer");
+            }
+            this.workloadIdentityFederationIssuer = workloadIdentityFederationIssuer;
             return this;
         }
         @CustomType.Setter
         public Builder workloadIdentityFederationSubject(String workloadIdentityFederationSubject) {
-            this.workloadIdentityFederationSubject = Objects.requireNonNull(workloadIdentityFederationSubject);
+            if (workloadIdentityFederationSubject == null) {
+              throw new MissingRequiredPropertyException("GetServiceEndpointAzureRMResult", "workloadIdentityFederationSubject");
+            }
+            this.workloadIdentityFederationSubject = workloadIdentityFederationSubject;
             return this;
         }
         public GetServiceEndpointAzureRMResult build() {

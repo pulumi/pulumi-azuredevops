@@ -5,6 +5,7 @@ package com.pulumi.azuredevops;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -150,8 +151,12 @@ public final class BuildFolderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public BuildFolderArgs build() {
-            $.path = Objects.requireNonNull($.path, "expected parameter 'path' to be non-null");
-            $.projectId = Objects.requireNonNull($.projectId, "expected parameter 'projectId' to be non-null");
+            if ($.path == null) {
+                throw new MissingRequiredPropertyException("BuildFolderArgs", "path");
+            }
+            if ($.projectId == null) {
+                throw new MissingRequiredPropertyException("BuildFolderArgs", "projectId");
+            }
             return $;
         }
     }

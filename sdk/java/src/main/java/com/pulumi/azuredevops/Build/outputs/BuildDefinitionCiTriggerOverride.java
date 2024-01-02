@@ -119,11 +119,13 @@ public final class BuildDefinitionCiTriggerOverride {
 
         @CustomType.Setter
         public Builder batch(@Nullable Boolean batch) {
+
             this.batch = batch;
             return this;
         }
         @CustomType.Setter
         public Builder branchFilters(@Nullable List<BuildDefinitionCiTriggerOverrideBranchFilter> branchFilters) {
+
             this.branchFilters = branchFilters;
             return this;
         }
@@ -132,11 +134,13 @@ public final class BuildDefinitionCiTriggerOverride {
         }
         @CustomType.Setter
         public Builder maxConcurrentBuildsPerBranch(@Nullable Integer maxConcurrentBuildsPerBranch) {
+
             this.maxConcurrentBuildsPerBranch = maxConcurrentBuildsPerBranch;
             return this;
         }
         @CustomType.Setter
         public Builder pathFilters(@Nullable List<BuildDefinitionCiTriggerOverridePathFilter> pathFilters) {
+
             this.pathFilters = pathFilters;
             return this;
         }
@@ -145,11 +149,13 @@ public final class BuildDefinitionCiTriggerOverride {
         }
         @CustomType.Setter
         public Builder pollingInterval(@Nullable Integer pollingInterval) {
+
             this.pollingInterval = pollingInterval;
             return this;
         }
         @CustomType.Setter
         public Builder pollingJobId(@Nullable String pollingJobId) {
+
             this.pollingJobId = pollingJobId;
             return this;
         }
