@@ -690,6 +690,9 @@
                 "fields": {
                     "credentials": {
                         "maxItemsOne": true
+                    },
+                    "features": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -698,6 +701,9 @@
                 "majorVersion": 2,
                 "fields": {
                     "credentials": {
+                        "maxItemsOne": true
+                    },
+                    "features": {
                         "maxItemsOne": true
                     }
                 }
@@ -929,6 +935,18 @@
             "azuredevops_servicehook_permissions": {
                 "current": "azuredevops:index/servicehookPermissions:ServicehookPermissions",
                 "majorVersion": 2
+            },
+            "azuredevops_servicehook_storage_queue_pipelines": {
+                "current": "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines",
+                "majorVersion": 2,
+                "fields": {
+                    "run_state_changed_event": {
+                        "maxItemsOne": true
+                    },
+                    "stage_state_changed_event": {
+                        "maxItemsOne": true
+                    }
+                }
             },
             "azuredevops_tagging_permissions": {
                 "current": "azuredevops:index/taggingPermissions:TaggingPermissions",
@@ -1312,6 +1330,9 @@
                 "current": "azuredevops:index/getUsers:getUsers",
                 "majorVersion": 2,
                 "fields": {
+                    "features": {
+                        "maxItemsOne": true
+                    },
                     "subject_types": {
                         "maxItemsOne": false
                     },
@@ -1324,6 +1345,9 @@
                 "current": "azuredevops:Identities/getUsers:getUsers",
                 "majorVersion": 2,
                 "fields": {
+                    "features": {
+                        "maxItemsOne": true
+                    },
                     "subject_types": {
                         "maxItemsOne": false
                     },
@@ -1455,6 +1479,7 @@
             "azuredevops:index/serviceendpointOctopusdeploy:ServiceendpointOctopusdeploy": "azuredevops_serviceendpoint_octopusdeploy",
             "azuredevops:index/serviceendpointPermissions:ServiceendpointPermissions": "azuredevops_serviceendpoint_permissions",
             "azuredevops:index/servicehookPermissions:ServicehookPermissions": "azuredevops_servicehook_permissions",
+            "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines": "azuredevops_servicehook_storage_queue_pipelines",
             "azuredevops:index/taggingPermissions:TaggingPermissions": "azuredevops_tagging_permissions",
             "azuredevops:index/team:Team": "azuredevops_team",
             "azuredevops:index/teamAdministrators:TeamAdministrators": "azuredevops_team_administrators",
@@ -1594,6 +1619,7 @@
                 "ciTrigger": "ci_trigger",
                 "projectId": "project_id",
                 "pullRequestTrigger": "pull_request_trigger",
+                "queueStatus": "queue_status",
                 "variableGroups": "variable_groups",
                 "variables": "variable"
             },
@@ -1632,6 +1658,9 @@
                 "originId": "origin_id",
                 "principalName": "principal_name",
                 "subjectTypes": "subject_types"
+            },
+            "azuredevops:Identities/getUsersFeatures:getUsersFeatures": {
+                "concurrentWorkers": "concurrent_workers"
             },
             "azuredevops:Identities/getUsersUser:getUsersUser": {
                 "displayName": "display_name",
@@ -1999,6 +2028,17 @@
             "azuredevops:index/ServiceendpointExternaltfsAuthPersonal:ServiceendpointExternaltfsAuthPersonal": {
                 "personalAccessToken": "personal_access_token"
             },
+            "azuredevops:index/ServicehookStorageQueuePipelinesRunStateChangedEvent:ServicehookStorageQueuePipelinesRunStateChangedEvent": {
+                "pipelineId": "pipeline_id",
+                "runResultFilter": "run_result_filter",
+                "runStateFilter": "run_state_filter"
+            },
+            "azuredevops:index/ServicehookStorageQueuePipelinesStageStateChangedEvent:ServicehookStorageQueuePipelinesStageStateChangedEvent": {
+                "pipelineId": "pipeline_id",
+                "stageName": "stage_name",
+                "stageResultFilter": "stage_result_filter",
+                "stageStateFilter": "stage_state_filter"
+            },
             "azuredevops:index/VariableGroupKeyVault:VariableGroupKeyVault": {
                 "searchDepth": "search_depth",
                 "serviceEndpointId": "service_endpoint_id"
@@ -2037,6 +2077,7 @@
                 "ciTrigger": "ci_trigger",
                 "projectId": "project_id",
                 "pullRequestTrigger": "pull_request_trigger",
+                "queueStatus": "queue_status",
                 "variableGroups": "variable_groups",
                 "variables": "variable"
             },
@@ -2120,6 +2161,7 @@
                 "ciTriggers": "ci_trigger",
                 "projectId": "project_id",
                 "pullRequestTriggers": "pull_request_trigger",
+                "queueStatus": "queue_status",
                 "repositories": "repository",
                 "variableGroups": "variable_groups",
                 "variables": "variable"
@@ -2321,6 +2363,9 @@
                 "originId": "origin_id",
                 "principalName": "principal_name",
                 "subjectTypes": "subject_types"
+            },
+            "azuredevops:index/getUsersFeatures:getUsersFeatures": {
+                "concurrentWorkers": "concurrent_workers"
             },
             "azuredevops:index/getUsersUser:getUsersUser": {
                 "displayName": "display_name",
@@ -2665,6 +2710,15 @@
             },
             "azuredevops:index/servicehookPermissions:ServicehookPermissions": {
                 "projectId": "project_id"
+            },
+            "azuredevops:index/servicehookStorageQueuePipelines:ServicehookStorageQueuePipelines": {
+                "accountKey": "account_key",
+                "accountName": "account_name",
+                "projectId": "project_id",
+                "queueName": "queue_name",
+                "runStateChangedEvent": "run_state_changed_event",
+                "stageStateChangedEvent": "stage_state_changed_event",
+                "visiTimeout": "visi_timeout"
             },
             "azuredevops:index/taggingPermissions:TaggingPermissions": {
                 "projectId": "project_id"
